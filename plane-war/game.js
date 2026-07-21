@@ -340,14 +340,14 @@
   // 敌机类型配置：颜色、体积、速度、血量、分值、开火
   // fire: null=不开火 / { interval:开火间隔, kind: 'aim'|'spread' }
   const ENEMY_TYPES = {
-    grunt:   { color: "#ff5a5a", glow: "#ff7a7a", r: [16, 20], vy: [140, 200], hp: 1, score: 10, fire: null },
-    zigzag:  { color: "#5aff8f", glow: "#7aff9f", r: [16, 20], vy: [110, 150], hp: 2, score: 20, fire: null },
-    diver:   { color: "#ffb347", glow: "#ffd27a", r: [13, 17], vy: [300, 380], hp: 1, score: 25, fire: null },
-    gunner:  { color: "#ff5ad0", glow: "#ff8fe0", r: [18, 22], vy: [70, 100],  hp: 3, score: 30, fire: { interval: 1.6, kind: "spread" } },
-    weaver:  { color: "#f5e85c", glow: "#fff58a", r: [14, 18], vy: [70, 100],  hp: 2, score: 25, fire: null },
-    splitter:{ color: "#5affc0", glow: "#8affd6", r: [22, 26], vy: [90, 130],  hp: 2, score: 35, fire: null },
-    bomber:  { color: "#5aa0ff", glow: "#8fc0ff", r: [30, 36], vy: [40, 60],   hp: 5, score: 55, fire: { interval: 1.3, kind: "rain" } },
-    tank:    { color: "#b06bff", glow: "#c98bff", r: [26, 32], vy: [60, 95],   hp: 6, score: 40, fire: { interval: 1.9, kind: "aim" } },
+    grunt:   { color: "#ff5a5a", glow: "#ff7a7a", r: [16, 20], vy: [140, 200], hp: 2, score: 10, fire: null },
+    zigzag:  { color: "#5aff8f", glow: "#7aff9f", r: [16, 20], vy: [110, 150], hp: 4, score: 20, fire: null },
+    diver:   { color: "#ffb347", glow: "#ffd27a", r: [13, 17], vy: [300, 380], hp: 2, score: 25, fire: null },
+    gunner:  { color: "#ff5ad0", glow: "#ff8fe0", r: [18, 22], vy: [70, 100],  hp: 6, score: 30, fire: { interval: 1.6, kind: "spread" } },
+    weaver:  { color: "#f5e85c", glow: "#fff58a", r: [14, 18], vy: [70, 100],  hp: 4, score: 25, fire: null },
+    splitter:{ color: "#5affc0", glow: "#8affd6", r: [22, 26], vy: [90, 130],  hp: 4, score: 35, fire: null },
+    bomber:  { color: "#5aa0ff", glow: "#8fc0ff", r: [30, 36], vy: [40, 60],   hp: 10, score: 55, fire: { interval: 1.3, kind: "rain" } },
+    tank:    { color: "#b06bff", glow: "#c98bff", r: [26, 32], vy: [60, 95],   hp: 12, score: 40, fire: { interval: 1.9, kind: "aim" } },
   };
 
   // 按游戏时长解锁类型并加权抽取，形成难度曲线
