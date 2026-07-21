@@ -84,18 +84,22 @@
   const player = {
     x: W / 2, y: H * 0.8,
     r: 14,            // 碰撞半径
-    power: 1,         // 武器等级 1-5
+    power: 1,         // 武器等级，小飞机 1-5，变形后可达 10
+    transformed: false, // 是否已变形为多喷射中型机
     fireCooldown: 0,
     fireInterval: 0.11,
     alive: true,
   };
 
+  // 火力上限：小飞机 5 级，变形后 10 级
+  const maxPower = () => (player.transformed ? 10 : 5);
+
   // ===== 子弹对象池 =====
   const bullets = [];
-  const MAX_BULLETS = 200;
+  const MAX_BULLETS = 400;
   for (let i = 0; i < MAX_BULLETS; i++) bullets.push({ active: false, x: 0, y: 0, vx: 0, vy: 0, r: 0 });
 
-  // ===== 武器等级配置 =====
+  // ===== 武器等级配置（1-10 级，1-5 为小飞机，6-10 为中型机变形后）=====
   // ang: 相对正上方的角度偏移（弧度），0=直射向上
   const WEAPON_LEVELS = [
     // L1 单发
@@ -121,6 +125,42 @@
       { ox: 11, oy: -10, ang: 0.25 },
       { ox: -13, oy: -6, ang: -0.55 },
       { ox: 13, oy: -6, ang: 0.55 },
+    ] },
+    // ===== 以下为变形后中型机火力（L6-L10）=====
+    // L6 三核直射 + 双侧直射
+    { interval: 0.07, shots: [
+      { ox: 0, oy: -22, ang: 0 }, { ox: -6, oy: -18, ang: 0 }, { ox: 6, oy: -18, ang: 0 },
+      { ox: -14, oy: -12, ang: 0 }, { ox: 14, oy: -12, ang: 0 },
+    ] },
+    // L7 三核 + 双侧斜射
+    { interval: 0.06, shots: [
+      { ox: 0, oy: -22, ang: 0 }, { ox: -6, oy: -18, ang: 0 }, { ox: 6, oy: -18, ang: 0 },
+      { ox: -14, oy: -12, ang: -0.2 }, { ox: 14, oy: -12, ang: 0.2 },
+      { ox: -18, oy: -8, ang: -0.4 }, { ox: 18, oy: -8, ang: 0.4 },
+    ] },
+    // L8 三核 + 双侧直射 + 双侧斜射
+    { interval: 0.055, shots: [
+      { ox: 0, oy: -22, ang: 0 }, { ox: -6, oy: -18, ang: 0 }, { ox: 6, oy: -18, ang: 0 },
+      { ox: -12, oy: -16, ang: 0 }, { ox: 12, oy: -16, ang: 0 },
+      { ox: -18, oy: -8, ang: -0.35 }, { ox: 18, oy: -8, ang: 0.35 },
+      { ox: -22, oy: -4, ang: -0.6 }, { ox: 22, oy: -4, ang: 0.6 },
+    ] },
+    // L9 五核直射 + 四侧斜射
+    { interval: 0.05, shots: [
+      { ox: 0, oy: -22, ang: 0 }, { ox: -6, oy: -20, ang: 0 }, { ox: 6, oy: -20, ang: 0 },
+      { ox: -12, oy: -16, ang: 0 }, { ox: 12, oy: -16, ang: 0 },
+      { ox: -18, oy: -10, ang: -0.3 }, { ox: 18, oy: -10, ang: 0.3 },
+      { ox: -24, oy: -6, ang: -0.5 }, { ox: 24, oy: -6, ang: 0.5 },
+      { ox: -20, oy: 0, ang: -0.8 }, { ox: 20, oy: 0, ang: 0.8 },
+    ] },
+    // L10 重型全覆盖
+    { interval: 0.045, shots: [
+      { ox: 0, oy: -24, ang: 0 }, { ox: -6, oy: -22, ang: 0 }, { ox: 6, oy: -22, ang: 0 },
+      { ox: -12, oy: -18, ang: 0 }, { ox: 12, oy: -18, ang: 0 },
+      { ox: -18, oy: -12, ang: -0.25 }, { ox: 18, oy: -12, ang: 0.25 },
+      { ox: -24, oy: -8, ang: -0.45 }, { ox: 24, oy: -8, ang: 0.45 },
+      { ox: -28, oy: -2, ang: -0.7 }, { ox: 28, oy: -2, ang: 0.7 },
+      { ox: -16, oy: 2, ang: -1.0 }, { ox: 16, oy: 2, ang: 1.0 },
     ] },
   ];
 
@@ -183,15 +223,16 @@
     }
   }
 
-  // ===== 道具（火力升级）系统 =====
+  // ===== 道具（火力升级 / 变形）系统 =====
   const powerups = [];
-  // 掉落概率：普通机按分值加权，Boss 必掉
+  let transformDropped = false; // 变形道具每局仅掉落一次
+  // 掉落概率：普通机 4%，Boss 必掉普通升级
   function maybeDropPowerup(x, y, fromBoss) {
     if (fromBoss) {
-      powerups.push({ x, y, vy: 70, r: 12 });
+      powerups.push({ x, y, vy: 70, r: 12, kind: "power" });
       return;
     }
-    if (Math.random() < 0.01) powerups.push({ x, y, vy: 90, r: 12 });
+    if (Math.random() < 0.04) powerups.push({ x, y, vy: 90, r: 12, kind: "power" });
   }
 
   function updatePowerups(dt) {
@@ -203,8 +244,17 @@
       // 拾取
       const dx = p.x - player.x, dy = p.y - player.y;
       if (dx * dx + dy * dy < (p.r + player.r) * (p.r + player.r)) {
-        if (player.power < WEAPON_LEVELS.length) player.power += 1;
-        explode(p.x, p.y, "#ffe27a", 10, 0.6);
+        if (p.kind === "transform") {
+          // 变形：升级为中型机，火力直接 +2
+          if (!player.transformed) {
+            player.transformed = true;
+            player.power = Math.min(player.power + 2, maxPower());
+            explode(p.x, p.y, "#9affff", 24, 1.2);
+          }
+        } else {
+          if (player.power < maxPower()) player.power += 1;
+          explode(p.x, p.y, "#ffe27a", 10, 0.6);
+        }
         powerups.splice(i, 1);
       }
     }
@@ -324,7 +374,13 @@
       explode(boss.x, boss.y, "#ff5a5a", 36, 2.2);
       state.score += 300;
       state.kills += 1;
-      maybeDropPowerup(boss.x, boss.y, true);
+      // 第一个 Boss 必掉变形道具（每局仅一次），之后掉普通升级
+      if (!transformDropped) {
+        powerups.push({ x: boss.x, y: boss.y, vy: 70, r: 14, kind: "transform" });
+        transformDropped = true;
+      } else {
+        maybeDropPowerup(boss.x, boss.y, true);
+      }
       boss = null;
       bossTimer = BOSS_INTERVAL;
       // 击杀后立刻清空场上残留敌弹，给玩家喘息
@@ -462,7 +518,9 @@
     mouse.y = player.y;
     player.alive = true;
     player.power = 1;
+    player.transformed = false;
     player.fireCooldown = 0;
+    transformDropped = false;
     bullets.forEach((b) => (b.active = false));
     eBullets.forEach((b) => (b.active = false));
     enemies.length = 0;
@@ -719,28 +777,49 @@
     }
     ctx.shadowBlur = 0;
 
-    // 道具（旋转金色菱形）
+    // 道具（power 金色菱形 / transform 青色六角星）
     for (const p of powerups) {
       ctx.save();
       ctx.translate(p.x, p.y);
       ctx.rotate(state.time * 2);
-      ctx.fillStyle = "#ffe27a";
-      ctx.shadowColor = "#ffae42";
-      ctx.shadowBlur = 14;
-      ctx.beginPath();
-      ctx.moveTo(0, -p.r);
-      ctx.lineTo(p.r, 0);
-      ctx.lineTo(0, p.r);
-      ctx.lineTo(-p.r, 0);
-      ctx.closePath();
-      ctx.fill();
-      ctx.restore();
-      // 中心 P 字
-      ctx.fillStyle = "#5a3a00";
-      ctx.font = "bold 13px -apple-system, sans-serif";
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.fillText("P", p.x, p.y);
+      if (p.kind === "transform") {
+        // 变形道具：青色六角星
+        ctx.fillStyle = "#9affff";
+        ctx.shadowColor = "#5ad0ff";
+        ctx.shadowBlur = 16;
+        ctx.beginPath();
+        for (let k = 0; k < 12; k++) {
+          const rr = k % 2 === 0 ? p.r : p.r * 0.5;
+          const a = (k / 12) * Math.PI * 2 - Math.PI / 2;
+          const px = Math.cos(a) * rr, py = Math.sin(a) * rr;
+          k === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+        }
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+        ctx.fillStyle = "#003a4a";
+        ctx.font = "bold 12px -apple-system, sans-serif";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("T", p.x, p.y);
+      } else {
+        ctx.fillStyle = "#ffe27a";
+        ctx.shadowColor = "#ffae42";
+        ctx.shadowBlur = 14;
+        ctx.beginPath();
+        ctx.moveTo(0, -p.r);
+        ctx.lineTo(p.r, 0);
+        ctx.lineTo(0, p.r);
+        ctx.lineTo(-p.r, 0);
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+        ctx.fillStyle = "#5a3a00";
+        ctx.font = "bold 13px -apple-system, sans-serif";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("P", p.x, p.y);
+      }
     }
     ctx.shadowBlur = 0;
     ctx.textBaseline = "alphabetic";
@@ -868,35 +947,90 @@
     if (player.alive) {
       ctx.save();
       ctx.translate(player.x, player.y);
-      // 引擎尾焰
-      const flame = 6 + Math.sin(state.time * 40) * 3;
-      ctx.fillStyle = "#ffd27a";
-      ctx.shadowColor = "#ffae42";
-      ctx.shadowBlur = 12;
-      ctx.beginPath();
-      ctx.moveTo(-5, 10);
-      ctx.lineTo(0, 10 + flame);
-      ctx.lineTo(5, 10);
-      ctx.closePath();
-      ctx.fill();
 
-      // 机身
-      ctx.fillStyle = "#7fd0ff";
-      ctx.shadowColor = "#5fd0ff";
-      ctx.shadowBlur = 14;
-      ctx.beginPath();
-      ctx.moveTo(0, -16);
-      ctx.lineTo(-12, 10);
-      ctx.lineTo(0, 5);
-      ctx.lineTo(12, 10);
-      ctx.closePath();
-      ctx.fill();
-      // 驾驶舱
-      ctx.fillStyle = "#eaf7ff";
-      ctx.shadowBlur = 0;
-      ctx.beginPath();
-      ctx.arc(0, -3, 3, 0, Math.PI * 2);
-      ctx.fill();
+      if (player.transformed) {
+        // ===== 中型机：多喷射双引擎，更大体型 =====
+        const flame = 8 + Math.sin(state.time * 40) * 4;
+        // 左右双引擎尾焰
+        ctx.fillStyle = "#ffd27a";
+        ctx.shadowColor = "#ffae42";
+        ctx.shadowBlur = 14;
+        for (const ex of [-11, 11]) {
+          ctx.beginPath();
+          ctx.moveTo(ex - 4, 14);
+          ctx.lineTo(ex, 14 + flame);
+          ctx.lineTo(ex + 4, 14);
+          ctx.closePath();
+          ctx.fill();
+        }
+        // 中央主引擎
+        ctx.beginPath();
+        ctx.moveTo(-4, 16);
+        ctx.lineTo(0, 16 + flame * 0.7);
+        ctx.lineTo(4, 16);
+        ctx.closePath();
+        ctx.fill();
+
+        // 主机身（宽翼）
+        ctx.fillStyle = "#5ad0ff";
+        ctx.shadowColor = "#5fd0ff";
+        ctx.shadowBlur = 16;
+        ctx.beginPath();
+        ctx.moveTo(0, -22);
+        ctx.lineTo(-8, -10);
+        ctx.lineTo(-20, 6);
+        ctx.lineTo(-14, 12);
+        ctx.lineTo(-6, 8);
+        ctx.lineTo(0, 14);
+        ctx.lineTo(6, 8);
+        ctx.lineTo(14, 12);
+        ctx.lineTo(20, 6);
+        ctx.lineTo(8, -10);
+        ctx.closePath();
+        ctx.fill();
+
+        // 侧炮管
+        ctx.fillStyle = "#9fe8ff";
+        ctx.shadowBlur = 0;
+        ctx.fillRect(-16, -4, 4, 12);
+        ctx.fillRect(12, -4, 4, 12);
+
+        // 驾驶舱
+        ctx.fillStyle = "#eaf7ff";
+        ctx.beginPath();
+        ctx.arc(0, -6, 4, 0, Math.PI * 2);
+        ctx.fill();
+      } else {
+        // ===== 小飞机 =====
+        const flame = 6 + Math.sin(state.time * 40) * 3;
+        ctx.fillStyle = "#ffd27a";
+        ctx.shadowColor = "#ffae42";
+        ctx.shadowBlur = 12;
+        ctx.beginPath();
+        ctx.moveTo(-5, 10);
+        ctx.lineTo(0, 10 + flame);
+        ctx.lineTo(5, 10);
+        ctx.closePath();
+        ctx.fill();
+
+        // 机身
+        ctx.fillStyle = "#7fd0ff";
+        ctx.shadowColor = "#5fd0ff";
+        ctx.shadowBlur = 14;
+        ctx.beginPath();
+        ctx.moveTo(0, -16);
+        ctx.lineTo(-12, 10);
+        ctx.lineTo(0, 5);
+        ctx.lineTo(12, 10);
+        ctx.closePath();
+        ctx.fill();
+        // 驾驶舱
+        ctx.fillStyle = "#eaf7ff";
+        ctx.shadowBlur = 0;
+        ctx.beginPath();
+        ctx.arc(0, -3, 3, 0, Math.PI * 2);
+        ctx.fill();
+      }
       ctx.restore();
     }
 
