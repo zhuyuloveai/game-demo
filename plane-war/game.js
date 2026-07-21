@@ -86,16 +86,65 @@
   let spawnTimer = 0;
   let spawnInterval = 0.9;
 
+  // 敌机类型配置：颜色、体积、速度、血量、分值
+  const ENEMY_TYPES = {
+    grunt:  { color: "#ff5a5a", glow: "#ff7a7a", r: [16, 20], vy: [140, 200], hp: 1, score: 10 },
+    zigzag: { color: "#5aff8f", glow: "#7aff9f", r: [16, 20], vy: [110, 150], hp: 2, score: 20 },
+    diver:  { color: "#ffb347", glow: "#ffd27a", r: [13, 17], vy: [300, 380], hp: 1, score: 25 },
+    tank:   { color: "#b06bff", glow: "#c98bff", r: [26, 32], vy: [60, 95],   hp: 6, score: 40 },
+  };
+
+  // 按游戏时长解锁类型并加权抽取，形成难度曲线
+  function pickEnemyType() {
+    const t = state.time;
+    const pool = [["grunt", 1]];
+    if (t > 12) pool.push(["zigzag", Math.min((t - 12) / 18, 0.7)]);
+    if (t > 25) pool.push(["diver", Math.min((t - 25) / 20, 0.6)]);
+    if (t > 40) pool.push(["tank", Math.min((t - 40) / 30, 0.3)]);
+    let total = 0;
+    for (const [, w] of pool) total += w;
+    let roll = Math.random() * total;
+    for (const [name, w] of pool) {
+      roll -= w;
+      if (roll <= 0) return name;
+    }
+    return "grunt";
+  }
+
   function spawnEnemy() {
-    const r = rand(16, 26);
-    enemies.push({
+    const name = pickEnemyType();
+    const cfg = ENEMY_TYPES[name];
+    const r = rand(cfg.r[0], cfg.r[1]);
+    const e = {
+      type: name,
       x: rand(r, W - r),
       y: -r,
       r,
-      vy: rand(90, 180),
-      hp: r > 22 ? 3 : 1,
+      vy: rand(cfg.vy[0], cfg.vy[1]),
+      hp: cfg.hp,
+      score: cfg.score,
+      color: cfg.color,
+      glow: cfg.glow,
       hit: 0,
-    });
+      phase: rand(0, Math.PI * 2),
+      angle: 0,
+    };
+
+    if (name === "zigzag") {
+      e.amp = rand(40, 90);
+      e.freq = rand(2, 3.4);
+      e.baseX = clamp(e.x, r + e.amp, W - r - e.amp);
+      e.x = e.baseX;
+    } else if (name === "diver") {
+      // 出场即朝玩家当前位置俯冲
+      const dx = player.x - e.x, dy = player.y - e.y;
+      const dist = Math.hypot(dx, dy) || 1;
+      const sp = e.vy;
+      e.vx = (dx / dist) * sp;
+      e.vy = (dy / dist) * sp;
+      e.angle = Math.atan2(e.vy, e.vx) - Math.PI / 2;
+    }
+    enemies.push(e);
   }
 
   // ===== 粒子（爆炸）=====
@@ -199,8 +248,18 @@
     // --- 敌机移动 + 与子弹碰撞 ---
     for (let i = enemies.length - 1; i >= 0; i--) {
       const e = enemies[i];
-      e.y += e.vy * dt;
       e.hit = Math.max(0, e.hit - dt * 4);
+
+      // 按类型移动
+      if (e.type === "zigzag") {
+        e.y += e.vy * dt;
+        e.x = e.baseX + Math.sin((state.time + e.phase) * e.freq) * e.amp;
+      } else if (e.type === "diver") {
+        e.x += e.vx * dt;
+        e.y += e.vy * dt;
+      } else {
+        e.y += e.vy * dt;
+      }
 
       // 子弹命中
       for (const b of bullets) {
@@ -211,8 +270,8 @@
           e.hp -= 1;
           e.hit = 1;
           if (e.hp <= 0) {
-            explode(e.x, e.y, "#ffb347", 16, 1);
-            state.score += e.r > 22 ? 30 : 10;
+            explode(e.x, e.y, e.glow, e.type === "tank" ? 24 : 16, e.type === "tank" ? 1.6 : 1);
+            state.score += e.score;
             state.kills += 1;
             enemies.splice(i, 1);
             break;
@@ -221,8 +280,8 @@
       }
       if (!enemies[i]) continue;
 
-      // 出界
-      if (e.y - e.r > H) {
+      // 出界（敌机完全离开画面）
+      if (e.y - e.r > H || e.x < -e.r - 20 || e.x > W + e.r + 20) {
         enemies.splice(i, 1);
         continue;
       }
@@ -300,15 +359,42 @@
     for (const e of enemies) {
       ctx.save();
       ctx.translate(e.x, e.y);
-      ctx.fillStyle = e.hit > 0 ? "#fff" : "#ff5a5a";
-      ctx.shadowColor = "#ff7a7a";
+      ctx.rotate(e.angle);
+      ctx.fillStyle = e.hit > 0 ? "#fff" : e.color;
+      ctx.shadowColor = e.glow;
       ctx.shadowBlur = e.hit > 0 ? 18 : 8;
+      const r = e.r;
       ctx.beginPath();
-      ctx.moveTo(0, e.r);
-      ctx.lineTo(-e.r, -e.r * 0.6);
-      ctx.lineTo(0, -e.r * 0.3);
-      ctx.lineTo(e.r, -e.r * 0.6);
-      ctx.closePath();
+      if (e.type === "tank") {
+        // 六边形重装机
+        for (let k = 0; k < 6; k++) {
+          const a = (k / 6) * Math.PI * 2;
+          const px = Math.cos(a) * r, py = Math.sin(a) * r;
+          k === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+        }
+        ctx.closePath();
+      } else if (e.type === "zigzag") {
+        // 菱形机动兵
+        ctx.moveTo(0, -r);
+        ctx.lineTo(r, 0);
+        ctx.lineTo(0, r);
+        ctx.lineTo(-r, 0);
+        ctx.closePath();
+      } else if (e.type === "diver") {
+        // 尖箭头俯冲机
+        ctx.moveTo(0, -r * 1.2);
+        ctx.lineTo(r * 0.7, r);
+        ctx.lineTo(0, r * 0.5);
+        ctx.lineTo(-r * 0.7, r);
+        ctx.closePath();
+      } else {
+        // grunt 杂兵三角
+        ctx.moveTo(0, r);
+        ctx.lineTo(-r, -r * 0.6);
+        ctx.lineTo(0, -r * 0.3);
+        ctx.lineTo(r, -r * 0.6);
+        ctx.closePath();
+      }
       ctx.fill();
       ctx.restore();
     }
