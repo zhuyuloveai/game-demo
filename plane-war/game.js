@@ -4,27 +4,30 @@
   // ===== 画布与尺寸 =====
   const canvas = document.getElementById("game");
   const ctx = canvas.getContext("2d", { alpha: false });
-  const hud = document.getElementById("hud");
+  const elScore = document.getElementById("hud");
+  const elBest = document.getElementById("best");
+  const elKills = document.getElementById("kills");
+  const elTime = document.getElementById("time");
 
   let W = 0, H = 0, DPR = 1;
   function resize() {
     DPR = Math.min(window.devicePixelRatio || 1, 2);
-    W = window.innerWidth;
-    H = window.innerHeight;
+    const rect = canvas.getBoundingClientRect();
+    W = rect.width;
+    H = rect.height;
     canvas.width = Math.floor(W * DPR);
     canvas.height = Math.floor(H * DPR);
-    canvas.style.width = W + "px";
-    canvas.style.height = H + "px";
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
   }
   resize();
   window.addEventListener("resize", resize);
 
-  // ===== 输入：鼠标跟手 =====
+  // ===== 输入：鼠标跟手（坐标换算到画布本地）=====
   const mouse = { x: W / 2, y: H * 0.75, inside: true };
   function onMove(e) {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
     mouse.inside = true;
   }
   canvas.addEventListener("pointermove", onMove);
@@ -52,7 +55,7 @@
   // ===== 子弹对象池 =====
   const bullets = [];
   const MAX_BULLETS = 200;
-  for (let i = 0; i < MAX_BULLETS++) bullets.push({ active: false, x: 0, y: 0, vy: 0, r: 0 });
+  for (let i = 0; i < MAX_BULLETS; i++) bullets.push({ active: false, x: 0, y: 0, vy: 0, r: 0 });
 
   function fireBullet() {
     for (const b of bullets) {
@@ -124,10 +127,11 @@
   let shake = 0;
 
   // ===== 状态 =====
-  const state = { score: 0, over: false, time: 0 };
+  const state = { score: 0, kills: 0, best: 0, over: false, time: 0 };
 
   function reset() {
     state.score = 0;
+    state.kills = 0;
     state.over = false;
     state.time = 0;
     player.x = W / 2;
@@ -209,6 +213,7 @@
           if (e.hp <= 0) {
             explode(e.x, e.y, "#ffb347", 16, 1);
             state.score += e.r > 22 ? 30 : 10;
+            state.kills += 1;
             enemies.splice(i, 1);
             break;
           }
@@ -229,6 +234,7 @@
         enemies.splice(i, 1);
         player.alive = false;
         state.over = true;
+        if (state.score > state.best) state.best = state.score;
       }
     }
 
@@ -253,7 +259,10 @@
     shake *= Math.pow(0.0001, dt);
 
     // --- HUD ---
-    hud.textContent = "分数: " + state.score;
+    elScore.textContent = state.score;
+    elBest.textContent = state.best;
+    elKills.textContent = state.kills;
+    elTime.textContent = state.time.toFixed(0) + "s";
   }
 
   function render() {
@@ -362,13 +371,13 @@
       ctx.fillRect(0, 0, W, H);
       ctx.fillStyle = "#7fd0ff";
       ctx.textAlign = "center";
-      ctx.font = "bold 40px -apple-system, sans-serif";
+      ctx.font = "bold 32px -apple-system, sans-serif";
       ctx.fillText("游戏结束", W / 2, H / 2 - 10);
-      ctx.font = "18px -apple-system, sans-serif";
+      ctx.font = "16px -apple-system, sans-serif";
       ctx.fillStyle = "#aef";
-      ctx.fillText("最终分数: " + state.score, W / 2, H / 2 + 24);
+      ctx.fillText("最终分数: " + state.score, W / 2, H / 2 + 22);
       ctx.fillStyle = "#8fd0ff";
-      ctx.fillText("点击屏幕或按 R 重新开始", W / 2, H / 2 + 56);
+      ctx.fillText("点击屏幕或按 R 重新开始", W / 2, H / 2 + 50);
     }
   }
 

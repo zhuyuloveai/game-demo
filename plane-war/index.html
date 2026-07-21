@@ -8,36 +8,167 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { width: 100%; height: 100%; overflow: hidden; background: #05060a; }
     body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
       font-family: -apple-system, "PingFang SC", sans-serif;
+      color: #7fd0ff;
+    }
+    #app {
+      display: flex;
+      width: 100%;
+      height: 100vh;
+    }
+    /* 侧边面板 */
+    .panel {
+      flex: 1;
+      min-width: 0;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      overflow: hidden;
+    }
+    .card {
+      background: rgba(80, 180, 255, 0.04);
+      border: 1px solid rgba(80, 180, 255, 0.15);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .card h3 {
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: #4a90c0;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .title {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #bfe6ff;
+      text-shadow: 0 0 12px rgba(80, 180, 255, 0.5);
+    }
+    .subtitle {
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: #4a90c0;
+      margin-top: 4px;
+    }
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 4px 0;
+    }
+    .stat-row .label { font-size: 12px; color: #6a9cc0; letter-spacing: 1px; }
+    .stat-row .val {
+      font-size: 20px;
+      font-weight: 700;
+      color: #bfe6ff;
+      text-shadow: 0 0 8px rgba(80, 180, 255, 0.4);
+    }
+    .muted { font-size: 12px; color: #6a8bb0; line-height: 1.9; }
+    .key {
+      display: inline-block;
+      padding: 1px 7px;
+      border: 1px solid rgba(80, 180, 255, 0.3);
+      border-radius: 4px;
+      font-size: 11px;
+      color: #9fd0ff;
+      background: rgba(80, 180, 255, 0.06);
+    }
+    .logo {
+      font-size: 44px;
+      text-align: center;
+      filter: drop-shadow(0 0 10px rgba(80, 180, 255, 0.6));
+    }
+    /* 中间舞台 */
+    #stage {
+      flex: 1;
+      min-width: 0;
+      position: relative;
+      box-shadow: inset 0 0 0 1px rgba(80, 180, 255, 0.15);
     }
     #game {
       display: block;
+      width: 100%;
+      height: 100%;
       background: #0a0e1a;
-      box-shadow: 0 0 40px rgba(80, 180, 255, 0.15);
-      cursor: none; /* 隐藏系统鼠标，用自定义准星感 */
+      cursor: none;
       touch-action: none;
     }
-    #hud {
-      position: fixed;
-      top: 12px;
-      left: 0;
-      right: 0;
-      text-align: center;
-      color: #7fd0ff;
-      font-size: 14px;
-      letter-spacing: 1px;
+    .corner {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(80, 180, 255, 0.5);
       pointer-events: none;
-      user-select: none;
-      text-shadow: 0 0 6px rgba(80, 180, 255, 0.5);
     }
+    .corner.tl { top: 8px; left: 8px; border-right: none; border-bottom: none; }
+    .corner.tr { top: 8px; right: 8px; border-left: none; border-bottom: none; }
+    .corner.bl { bottom: 8px; left: 8px; border-right: none; border-top: none; }
+    .corner.br { bottom: 8px; right: 8px; border-left: none; border-top: none; }
+    .footnote { margin-top: auto; font-size: 11px; color: #3e5a78; text-align: center; }
   </style>
 </head>
 <body>
-  <canvas id="game"></canvas>
-  <div id="hud">分数: 0</div>
+  <div id="app">
+    <!-- 左侧 -->
+    <aside class="panel">
+      <div>
+        <div class="title">雷霆战机</div>
+        <div class="subtitle">PLANE&nbsp;WAR</div>
+      </div>
+      <div class="card">
+        <div class="logo">✈️</div>
+        <div class="muted" style="text-align:center; margin-top:6px;">雷霆突击 · 单机作战</div>
+      </div>
+      <div class="card">
+        <h3>当前分数</h3>
+        <div class="stat-row"><span class="label">SCORE</span><span class="val" id="hud">0</span></div>
+      </div>
+      <div class="card">
+        <h3>操作说明</h3>
+        <div class="muted">
+          移动 <span class="key">鼠标</span> 操控战机<br />
+          <span class="key">自动开火</span> 无需点击<br />
+          结束后按 <span class="key">R</span> 重开
+        </div>
+      </div>
+      <div class="footnote">v0.1 · Canvas 2D</div>
+    </aside>
+
+    <!-- 中间战场 -->
+    <div id="stage">
+      <span class="corner tl"></span><span class="corner tr"></span>
+      <span class="corner bl"></span><span class="corner br"></span>
+      <canvas id="game"></canvas>
+    </div>
+
+    <!-- 右侧 -->
+    <aside class="panel">
+      <div class="card">
+        <h3>最高分</h3>
+        <div class="stat-row"><span class="label">BEST</span><span class="val" id="best">0</span></div>
+      </div>
+      <div class="card">
+        <h3>本局数据</h3>
+        <div class="stat-row"><span class="label">击落</span><span class="val" id="kills">0</span></div>
+        <div class="stat-row"><span class="label">存活</span><span class="val" id="time">0s</span></div>
+      </div>
+      <div class="card">
+        <h3>敌情图鉴</h3>
+        <div class="muted">
+          <span style="color:#ff7a7a;">▲</span> 小型机 · 10 分<br />
+          <span style="color:#ff7a7a;">▲</span> 大型机 · 30 分<br />
+          注意躲避正面碰撞
+        </div>
+      </div>
+      <div class="card">
+        <h3>作战提示</h3>
+        <div class="muted">将鼠标移入中央战场即可操控。激战越久，敌机刷新越快。</div>
+      </div>
+      <div class="footnote">made with ❤️ &amp; canvas</div>
+    </aside>
+  </div>
   <script src="game.js"></script>
 </body>
 </html>
