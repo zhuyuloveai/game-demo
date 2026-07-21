@@ -155,7 +155,7 @@
   // ===== Boss 系统 =====
   // 每 BOSS_INTERVAL 秒出现一个 Boss；期间暂停普通刷怪，击杀后恢复。
   const BOSS_INTERVAL = 60;       // Boss 出现间隔（秒）
-  const BOSS_ENTER_Y = H * 0.18;  // Boss 巡航高度
+  const BOSS_ENTER_Y = H * 0.22;  // Boss 巡航高度
   let boss = null;                // 当前 Boss，null 表示无
   let bossTimer = BOSS_INTERVAL;  // 距离下一个 Boss 的倒计时
   let bossSpawnIndex = 0;         // 第几个 Boss（用于难度递增）
@@ -163,13 +163,14 @@
   function spawnBoss() {
     bossSpawnIndex += 1;
     const level = bossSpawnIndex;
+    const hp = 600 + level * 200;   // 血量随波次递增
     boss = {
       x: W / 2,
-      y: -80,
-      r: 46,
-      hp: 60 + level * 20,        // 血量随波次递增
-      maxHp: 60 + level * 20,
-      vx: 70 + level * 10,        // 巡航速度
+      y: -120,
+      r: 88,
+      hp,
+      maxHp: hp,
+      vx: 60 + level * 8,          // 巡航速度
       dir: Math.random() < 0.5 ? 1 : -1,
       fireCd: 1.2,
       spin: 0,                    // 环形弹幕旋转角
@@ -222,7 +223,7 @@
 
     if (boss.y < BOSS_ENTER_Y) {
       // 入场
-      boss.y += 60 * dt;
+      boss.y += 90 * dt;
     } else {
       // 巡航：左右往返
       boss.x += boss.vx * boss.dir * dt;
@@ -237,13 +238,13 @@
       }
     }
 
-    // 玩家子弹命中 Boss
+    // 玩家子弹命中 Boss（Boss 血厚，单发造成更高伤害）
     for (const b of bullets) {
       if (!b.active) continue;
       const dx = b.x - boss.x, dy = b.y - boss.y;
       if (dx * dx + dy * dy < (boss.r + b.r) * (boss.r + b.r)) {
         b.active = false;
-        boss.hp -= 1;
+        boss.hp -= 6;
         boss.hit = 1;
       }
     }
