@@ -117,17 +117,54 @@
     }
   }
 
+  // ===== 敌方子弹对象池 =====
+  const eBullets = [];
+  const MAX_EBULLETS = 120;
+  for (let i = 0; i < MAX_EBULLETS; i++) eBullets.push({ active: false, x: 0, y: 0, vx: 0, vy: 0, r: 0 });
+
+  // 发射一发敌方子弹（vx/vy 由调用方算好方向）
+  function fireEnemyBullet(x, y, vx, vy, r = 5) {
+    for (const b of eBullets) {
+      if (!b.active) {
+        b.active = true;
+        b.x = x; b.y = y;
+        b.vx = vx; b.vy = vy;
+        b.r = r;
+        return;
+      }
+    }
+  }
+
+  // 敌机开火：aim 朝玩家发射追踪弹；spread 扇形散射
+  function enemyFire(e) {
+    if (!e.fire) return;
+    const sp = 220; // 敌弹速度
+    if (e.fire.kind === "aim") {
+      const dx = player.x - e.x, dy = player.y - e.y;
+      const d = Math.hypot(dx, dy) || 1;
+      fireEnemyBullet(e.x, e.y + e.r, (dx / d) * sp, (dy / d) * sp, 5);
+    } else if (e.fire.kind === "spread") {
+      // 三发扇形，朝下方偏两侧
+      for (const off of [-0.45, 0, 0.45]) {
+        const a = Math.PI / 2 + off; // 向下为基准
+        fireEnemyBullet(e.x, e.y + e.r, Math.cos(a) * sp, Math.sin(a) * sp, 4.5);
+      }
+    }
+  }
+
   // ===== 敌机 =====
   const enemies = [];
   let spawnTimer = 0;
   let spawnInterval = 0.9;
 
-  // 敌机类型配置：颜色、体积、速度、血量、分值
+  // 敌机类型配置：颜色、体积、速度、血量、分值、开火
+  // fire: null=不开火 / { interval:开火间隔, kind: 'aim'|'spread' }
   const ENEMY_TYPES = {
-    grunt:  { color: "#ff5a5a", glow: "#ff7a7a", r: [16, 20], vy: [140, 200], hp: 1, score: 10 },
-    zigzag: { color: "#5aff8f", glow: "#7aff9f", r: [16, 20], vy: [110, 150], hp: 2, score: 20 },
-    diver:  { color: "#ffb347", glow: "#ffd27a", r: [13, 17], vy: [300, 380], hp: 1, score: 25 },
-    tank:   { color: "#b06bff", glow: "#c98bff", r: [26, 32], vy: [60, 95],   hp: 6, score: 40 },
+    grunt:  { color: "#ff5a5a", glow: "#ff7a7a", r: [16, 20], vy: [140, 200], hp: 1, score: 10, fire: null },
+    zigzag: { color: "#5aff8f", glow: "#7aff9f", r: [16, 20], vy: [110, 150], hp: 2, score: 20, fire: null },
+    diver:  { color: "#ffb347", glow: "#ffd27a", r: [13, 17], vy: [300, 380], hp: 1, score: 25, fire: null },
+    gunner: { color: "#ff5ad0", glow: "#ff8fe0", r: [18, 22], vy: [70, 100],  hp: 3, score: 30, fire: { interval: 1.6, kind: "spread" } },
+    tank:   { color: "#b06bff", glow: "#c98bff", r: [26, 32], vy: [60, 95],   hp: 6, score: 40, fire: { interval: 1.9, kind: "aim" } },
   };
 
   // 按游戏时长解锁类型并加权抽取，形成难度曲线
@@ -136,6 +173,7 @@
     const pool = [["grunt", 1]];
     if (t > 12) pool.push(["zigzag", Math.min((t - 12) / 18, 0.7)]);
     if (t > 25) pool.push(["diver", Math.min((t - 25) / 20, 0.6)]);
+    if (t > 30) pool.push(["gunner", Math.min((t - 30) / 20, 0.5)]);
     if (t > 40) pool.push(["tank", Math.min((t - 40) / 30, 0.3)]);
     let total = 0;
     for (const [, w] of pool) total += w;
@@ -161,6 +199,8 @@
       score: cfg.score,
       color: cfg.color,
       glow: cfg.glow,
+      fire: cfg.fire,
+      fireCd: cfg.fire ? rand(0.6, cfg.fire.interval) : 0, // 首次开火留点反应时间
       hit: 0,
       phase: rand(0, Math.PI * 2),
       angle: 0,
@@ -228,6 +268,7 @@
     player.alive = true;
     player.fireCooldown = 0;
     bullets.forEach((b) => (b.active = false));
+    eBullets.forEach((b) => (b.active = false));
     enemies.length = 0;
     particles.length = 0;
     spawnInterval = 0.9;
@@ -299,6 +340,15 @@
         e.y += e.vy * dt;
       }
 
+      // 开火（敌机进入画面后才开）
+      if (e.fire && e.y > e.r) {
+        e.fireCd -= dt;
+        if (e.fireCd <= 0) {
+          enemyFire(e);
+          e.fireCd = e.fire.interval;
+        }
+      }
+
       // 子弹命中
       for (const b of bullets) {
         if (!b.active) continue;
@@ -329,6 +379,25 @@
         explode(player.x, player.y, "#5fd0ff", 40, 2.2);
         explode(e.x, e.y, "#ffb347", 20, 1.4);
         enemies.splice(i, 1);
+        player.alive = false;
+        state.over = true;
+        if (state.score > state.best) state.best = state.score;
+      }
+    }
+
+    // --- 敌方子弹：移动 + 出界 + 命中玩家 ---
+    for (const eb of eBullets) {
+      if (!eb.active) continue;
+      eb.x += eb.vx * dt;
+      eb.y += eb.vy * dt;
+      if (eb.x < -20 || eb.x > W + 20 || eb.y < -20 || eb.y > H + 20) {
+        eb.active = false;
+        continue;
+      }
+      const dx = eb.x - player.x, dy = eb.y - player.y;
+      if (dx * dx + dy * dy < (eb.r + player.r) * (eb.r + player.r)) {
+        eb.active = false;
+        explode(player.x, player.y, "#5fd0ff", 40, 2.2);
         player.alive = false;
         state.over = true;
         if (state.score > state.best) state.best = state.score;
@@ -393,6 +462,18 @@
     }
     ctx.shadowBlur = 0;
 
+    // 敌方子弹（粉红辉光，区别于我方蓝色弹）
+    for (const eb of eBullets) {
+      if (!eb.active) continue;
+      ctx.fillStyle = "#ffd0e6";
+      ctx.shadowColor = "#ff5ad0";
+      ctx.shadowBlur = 10;
+      ctx.beginPath();
+      ctx.arc(eb.x, eb.y, eb.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.shadowBlur = 0;
+
     // 敌机
     for (const e of enemies) {
       ctx.save();
@@ -424,6 +505,14 @@
         ctx.lineTo(r * 0.7, r);
         ctx.lineTo(0, r * 0.5);
         ctx.lineTo(-r * 0.7, r);
+        ctx.closePath();
+      } else if (e.type === "gunner") {
+        // 带炮管的五边形炮手
+        ctx.moveTo(0, -r);
+        ctx.lineTo(r * 0.95, -r * 0.3);
+        ctx.lineTo(r * 0.6, r * 0.8);
+        ctx.lineTo(-r * 0.6, r * 0.8);
+        ctx.lineTo(-r * 0.95, -r * 0.3);
         ctx.closePath();
       } else {
         // grunt 杂兵三角
