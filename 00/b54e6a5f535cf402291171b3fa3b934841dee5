@@ -1,0 +1,19 @@
+plane-war/game.js
+  s_4446ee23fbbea3::t_dbee75173953bd 155-274,395-397,443-454,457-459,663-710
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "00b54e6a5f535cf402291171b3fa3b934841dee5",
+  "prompts": {},
+  "sessions": {
+    "s_4446ee23fbbea3": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f84bc-d943-7861-9e1d-37e5ebd5617b",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "zhuyu <zhuyu4010qq@gmail.com>"
+    }
+  }
+}
