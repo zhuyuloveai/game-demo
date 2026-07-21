@@ -22,22 +22,58 @@
   resize();
   window.addEventListener("resize", resize);
 
-  // ===== 输入：鼠标跟手（坐标换算到画布本地）=====
-  const mouse = { x: W / 2, y: H * 0.75, inside: true };
-  function onMove(e) {
-    const rect = canvas.getBoundingClientRect();
-    mouse.x = e.clientX - rect.left;
-    mouse.y = e.clientY - rect.top;
-    mouse.inside = true;
+  // ===== 输入：Pointer Lock + 相对位移模拟跟手 =====
+  // 运行时锁定鼠标在画布内（光标出不去）；用累积位移维护飞机的虚拟绝对坐标，
+  // 既锁住光标又保留“飞机跟着鼠标走”的跟手手感。
+  const mouse = { x: W / 2, y: H * 0.8 };
+  let locked = false;
+
+  function requestLock() {
+    canvas.requestPointerLock && canvas.requestPointerLock({ unadjustedMovement: true });
   }
-  canvas.addEventListener("pointermove", onMove);
-  canvas.addEventListener("pointerleave", () => (mouse.inside = false));
-  canvas.addEventListener("pointerenter", () => (mouse.inside = true));
-  // 点击/按键用于重新开始
-  canvas.addEventListener("pointerdown", () => state.over && reset());
-  window.addEventListener("keydown", (e) => {
-    if ((e.key === "r" || e.key === "R") && state.over) reset();
+
+  function onMove(e) {
+    if (!locked) return;
+    // 累积鼠标位移作为飞机目标坐标，并夹在画布内（碰到边即停）
+    mouse.x = clamp(mouse.x + e.movementX, player.r, W - player.r);
+    mouse.y = clamp(mouse.y + e.movementY, player.r, H - player.r);
+  }
+  window.addEventListener("mousemove", onMove);
+
+  // Pointer Lock 状态同步：用户按系统 ESC 退出锁定时也暂停游戏
+  document.addEventListener("pointerlockchange", () => {
+    locked = document.pointerLockElement === canvas;
+    if (!locked && !state.over) {
+      state.paused = true;
+      canvas.style.cursor = "default";
+    } else if (locked) {
+      state.paused = false;
+      canvas.style.cursor = "none";
+    }
   });
+
+  // 点击/按键用于重新开始
+  canvas.addEventListener("pointerdown", () => {
+    if (!state.started) { state.started = true; requestLock(); return; }
+    if (state.over) reset();
+    else if (state.paused) requestLock(); // 点击恢复（会重新进入锁定）
+  });
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "r" || e.key === "R") { if (state.over) reset(); }
+    // 注意：游戏运行中按 ESC 会被浏览器用于退出 Pointer Lock，
+    // 由 pointerlockchange 自动暂停，无需在此处理。
+  });
+
+  function togglePause() {
+    if (state.paused) {
+      requestLock(); // 恢复：重新请求锁定
+    } else {
+      document.exitPointerLock && document.exitPointerLock(); // 暂停：退出锁定，光标自由
+    }
+  }
+
+  // 游戏首次开始 / 重开时请求锁定
+  function startGame() { requestLock(); }
 
   // ===== 工具 =====
   const rand = (a, b) => a + Math.random() * (b - a);
@@ -176,15 +212,19 @@
   let shake = 0;
 
   // ===== 状态 =====
-  const state = { score: 0, kills: 0, best: 0, over: false, time: 0 };
+  const state = { score: 0, kills: 0, best: 0, over: false, paused: false, started: false, time: 0 };
 
   function reset() {
     state.score = 0;
     state.kills = 0;
     state.over = false;
+    state.paused = false;
+    state.started = true;
     state.time = 0;
     player.x = W / 2;
     player.y = H * 0.8;
+    mouse.x = player.x;
+    mouse.y = player.y;
     player.alive = true;
     player.fireCooldown = 0;
     bullets.forEach((b) => (b.active = false));
@@ -192,6 +232,7 @@
     particles.length = 0;
     spawnInterval = 0.9;
     shake = 0;
+    startGame(); // 重开后请求 Pointer Lock
   }
 
   // ===== 主循环 =====
@@ -207,20 +248,17 @@
   }
 
   function update(dt) {
-    if (state.over) return;
+    if (state.over || state.paused || !state.started) return;
     state.time += dt;
 
     // 难度递增
     spawnInterval = Math.max(0.35, 0.9 - state.time * 0.01);
 
-    // --- 玩家跟手（帧无关平滑插值）---
-    if (mouse.inside) {
-      // k 越大越跟手，这里偏快，保证响应但又顺滑
-      const k = 24;
-      const t = 1 - Math.exp(-dt * k);
-      player.x += (mouse.x - player.x) * t;
-      player.y += (mouse.y - player.y) * t;
-    }
+    // --- 玩家跟手（帧无关平滑插值，目标即 Pointer Lock 累积坐标）---
+    const k = 24;
+    const t = 1 - Math.exp(-dt * k);
+    player.x += (mouse.x - player.x) * t;
+    player.y += (mouse.y - player.y) * t;
     player.x = clamp(player.x, player.r, W - player.r);
     player.y = clamp(player.y, player.r, H - player.r);
 
@@ -450,6 +488,35 @@
     ctx.shadowBlur = 0;
 
     ctx.restore();
+
+    // 开始遮罩
+    if (!state.started && !state.over) {
+      ctx.fillStyle = "rgba(5,6,10,0.55)";
+      ctx.fillRect(0, 0, W, H);
+      ctx.fillStyle = "#7fd0ff";
+      ctx.textAlign = "center";
+      ctx.font = "bold 30px -apple-system, sans-serif";
+      ctx.fillText("雷霆战机", W / 2, H / 2 - 18);
+      ctx.font = "15px -apple-system, sans-serif";
+      ctx.fillStyle = "#8fd0ff";
+      ctx.fillText("点击画布开始", W / 2, H / 2 + 14);
+      ctx.font = "12px -apple-system, sans-serif";
+      ctx.fillStyle = "#5a7aa0";
+      ctx.fillText("ESC 暂停 · R 重开", W / 2, H / 2 + 40);
+    }
+
+    // 暂停遮罩
+    if (state.paused && !state.over) {
+      ctx.fillStyle = "rgba(5,6,10,0.55)";
+      ctx.fillRect(0, 0, W, H);
+      ctx.fillStyle = "#7fd0ff";
+      ctx.textAlign = "center";
+      ctx.font = "bold 32px -apple-system, sans-serif";
+      ctx.fillText("已暂停", W / 2, H / 2 - 8);
+      ctx.font = "15px -apple-system, sans-serif";
+      ctx.fillStyle = "#8fd0ff";
+      ctx.fillText("点击画布继续", W / 2, H / 2 + 24);
+    }
 
     // 游戏结束遮罩
     if (state.over) {
