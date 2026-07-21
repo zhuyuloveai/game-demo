@@ -152,6 +152,126 @@
     }
   }
 
+  // ===== Boss 系统 =====
+  // 每 BOSS_INTERVAL 秒出现一个 Boss；期间暂停普通刷怪，击杀后恢复。
+  const BOSS_INTERVAL = 60;       // Boss 出现间隔（秒）
+  const BOSS_ENTER_Y = H * 0.18;  // Boss 巡航高度
+  let boss = null;                // 当前 Boss，null 表示无
+  let bossTimer = BOSS_INTERVAL;  // 距离下一个 Boss 的倒计时
+  let bossSpawnIndex = 0;         // 第几个 Boss（用于难度递增）
+
+  function spawnBoss() {
+    bossSpawnIndex += 1;
+    const level = bossSpawnIndex;
+    boss = {
+      x: W / 2,
+      y: -80,
+      r: 46,
+      hp: 60 + level * 20,        // 血量随波次递增
+      maxHp: 60 + level * 20,
+      vx: 70 + level * 10,        // 巡航速度
+      dir: Math.random() < 0.5 ? 1 : -1,
+      fireCd: 1.2,
+      spin: 0,                    // 环形弹幕旋转角
+      phase: 1,                   // 弹幕阶段
+      hit: 0,
+      alive: true,
+    };
+  }
+
+  // Boss 弹幕：根据阶段切换
+  function bossFire() {
+    if (!boss) return;
+    const ratio = boss.hp / boss.maxHp;
+    boss.phase = ratio > 0.66 ? 1 : ratio > 0.33 ? 2 : 3;
+    const sp = 200;
+
+    if (boss.phase === 1) {
+      // 阶段1：三连追踪弹
+      const dx = player.x - boss.x, dy = player.y - boss.y;
+      const d = Math.hypot(dx, dy) || 1;
+      for (const off of [-0.18, 0, 0.18]) {
+        const ang = Math.atan2(dy, dx) + off;
+        fireEnemyBullet(boss.x, boss.y + 20, Math.cos(ang) * sp, Math.sin(ang) * sp, 5.5);
+      }
+    } else if (boss.phase === 2) {
+      // 阶段2：环形弹幕（带旋转）
+      boss.spin += 0.4;
+      const n = 14;
+      for (let i = 0; i < n; i++) {
+        const a = (i / n) * Math.PI * 2 + boss.spin;
+        fireEnemyBullet(boss.x, boss.y, Math.cos(a) * sp, Math.sin(a) * sp, 4.5);
+      }
+    } else {
+      // 阶段3：环形 + 朝玩家追踪混合
+      boss.spin += 0.5;
+      const n = 18;
+      for (let i = 0; i < n; i++) {
+        const a = (i / n) * Math.PI * 2 + boss.spin;
+        fireEnemyBullet(boss.x, boss.y, Math.cos(a) * sp, Math.sin(a) * sp, 4.5);
+      }
+      const dx = player.x - boss.x, dy = player.y - boss.y;
+      const d = Math.hypot(dx, dy) || 1;
+      fireEnemyBullet(boss.x, boss.y, (dx / d) * (sp + 80), (dy / d) * (sp + 80), 6);
+    }
+  }
+
+  function updateBoss(dt) {
+    if (!boss) return;
+    boss.hit = Math.max(0, boss.hit - dt * 4);
+
+    if (boss.y < BOSS_ENTER_Y) {
+      // 入场
+      boss.y += 60 * dt;
+    } else {
+      // 巡航：左右往返
+      boss.x += boss.vx * boss.dir * dt;
+      if (boss.x < boss.r) { boss.x = boss.r; boss.dir = 1; }
+      else if (boss.x > W - boss.r) { boss.x = W - boss.r; boss.dir = -1; }
+      // 开火
+      boss.fireCd -= dt;
+      const fireRate = boss.phase === 3 ? 0.7 : boss.phase === 2 ? 1.0 : 1.4;
+      if (boss.fireCd <= 0) {
+        bossFire();
+        boss.fireCd = fireRate;
+      }
+    }
+
+    // 玩家子弹命中 Boss
+    for (const b of bullets) {
+      if (!b.active) continue;
+      const dx = b.x - boss.x, dy = b.y - boss.y;
+      if (dx * dx + dy * dy < (boss.r + b.r) * (boss.r + b.r)) {
+        b.active = false;
+        boss.hp -= 1;
+        boss.hit = 1;
+      }
+    }
+
+    // 撞玩家
+    const ddx = boss.x - player.x, ddy = boss.y - player.y;
+    if (ddx * ddx + ddy * ddy < (boss.r + player.r) * (boss.r + player.r)) {
+      explode(player.x, player.y, "#5fd0ff", 40, 2.2);
+      player.alive = false;
+      state.over = true;
+      if (state.score > state.best) state.best = state.score;
+    }
+
+    // 死亡
+    if (boss.hp <= 0) {
+      for (let i = 0; i < 4; i++) {
+        explode(boss.x + rand(-30, 30), boss.y + rand(-30, 30), "#ffd27a", 20, 1.6);
+      }
+      explode(boss.x, boss.y, "#ff5a5a", 36, 2.2);
+      state.score += 300;
+      state.kills += 1;
+      boss = null;
+      bossTimer = BOSS_INTERVAL;
+      // 击杀后立刻清空场上残留敌弹，给玩家喘息
+      eBullets.forEach((b) => (b.active = false));
+    }
+  }
+
   // ===== 敌机 =====
   const enemies = [];
   let spawnTimer = 0;
@@ -272,6 +392,9 @@
     enemies.length = 0;
     particles.length = 0;
     spawnInterval = 0.9;
+    boss = null;
+    bossTimer = BOSS_INTERVAL;
+    bossSpawnIndex = 0;
     shake = 0;
     startGame(); // 重开后请求 Pointer Lock
   }
@@ -317,12 +440,22 @@
       if (b.y < -10) b.active = false;
     }
 
-    // --- 敌机生成 ---
-    spawnTimer -= dt;
-    if (spawnTimer <= 0) {
-      spawnEnemy();
-      spawnTimer = spawnInterval * rand(0.7, 1.3);
+    // --- Boss 计时 / 普通敌机生成（Boss 期间暂停刷怪）---
+    if (!boss) {
+      bossTimer -= dt;
+      if (bossTimer <= 0) {
+        spawnBoss();
+      } else {
+        spawnTimer -= dt;
+        if (spawnTimer <= 0) {
+          spawnEnemy();
+          spawnTimer = spawnInterval * rand(0.7, 1.3);
+        }
+      }
     }
+
+    // --- Boss 更新 ---
+    updateBoss(dt);
 
     // --- 敌机移动 + 与子弹碰撞 ---
     for (let i = enemies.length - 1; i >= 0; i--) {
@@ -526,6 +659,54 @@
       ctx.restore();
     }
     ctx.shadowBlur = 0;
+
+    // Boss
+    if (boss) {
+      ctx.save();
+      ctx.translate(boss.x, boss.y);
+      // 主体：八角星形，颜色随阶段变红
+      const ratio = boss.hp / boss.maxHp;
+      const col = ratio > 0.66 ? "#b06bff" : ratio > 0.33 ? "#ff6bb5" : "#ff4040";
+      ctx.fillStyle = boss.hit > 0 ? "#fff" : col;
+      ctx.shadowColor = col;
+      ctx.shadowBlur = boss.hit > 0 ? 24 : 14;
+      const r = boss.r;
+      ctx.beginPath();
+      const points = 8;
+      for (let k = 0; k < points * 2; k++) {
+        const rr = k % 2 === 0 ? r : r * 0.62;
+        const a = (k / (points * 2)) * Math.PI * 2 - Math.PI / 2;
+        const px = Math.cos(a) * rr, py = Math.sin(a) * rr;
+        k === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+      }
+      ctx.closePath();
+      ctx.fill();
+      // 核心
+      ctx.fillStyle = "#fff";
+      ctx.shadowBlur = 0;
+      ctx.beginPath();
+      ctx.arc(0, 0, r * 0.28, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+
+    // Boss 血条（顶部）
+    if (boss) {
+      const barW = W * 0.7, barH = 8;
+      const bx = (W - barW) / 2, by = 14;
+      ctx.fillStyle = "rgba(80,180,255,0.12)";
+      ctx.fillRect(bx, by, barW, barH);
+      const ratio = Math.max(0, boss.hp / boss.maxHp);
+      ctx.fillStyle = ratio > 0.66 ? "#b06bff" : ratio > 0.33 ? "#ff6bb5" : "#ff4040";
+      ctx.shadowColor = ctx.fillStyle;
+      ctx.shadowBlur = 8;
+      ctx.fillRect(bx, by, barW * ratio, barH);
+      ctx.shadowBlur = 0;
+      ctx.fillStyle = "#aef";
+      ctx.textAlign = "center";
+      ctx.font = "bold 11px -apple-system, sans-serif";
+      ctx.fillText("BOSS", W / 2, by - 3);
+    }
 
     // 玩家
     if (player.alive) {
