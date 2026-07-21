@@ -8,6 +8,7 @@
   const elBest = document.getElementById("best");
   const elKills = document.getElementById("kills");
   const elTime = document.getElementById("time");
+  const elPower = document.getElementById("power");
 
   let W = 0, H = 0, DPR = 1;
   function resize() {
@@ -83,6 +84,7 @@
   const player = {
     x: W / 2, y: H * 0.8,
     r: 14,            // 碰撞半径
+    power: 1,         // 武器等级 1-5
     fireCooldown: 0,
     fireInterval: 0.11,
     alive: true,
@@ -91,28 +93,52 @@
   // ===== 子弹对象池 =====
   const bullets = [];
   const MAX_BULLETS = 200;
-  for (let i = 0; i < MAX_BULLETS; i++) bullets.push({ active: false, x: 0, y: 0, vy: 0, r: 0 });
+  for (let i = 0; i < MAX_BULLETS; i++) bullets.push({ active: false, x: 0, y: 0, vx: 0, vy: 0, r: 0 });
 
+  // ===== 武器等级配置 =====
+  // ang: 相对正上方的角度偏移（弧度），0=直射向上
+  const WEAPON_LEVELS = [
+    // L1 单发
+    { interval: 0.11, shots: [{ ox: 0, oy: -18, ang: 0 }] },
+    // L2 双发
+    { interval: 0.11, shots: [{ ox: -7, oy: -16, ang: 0 }, { ox: 7, oy: -16, ang: 0 }] },
+    // L3 三发
+    { interval: 0.10, shots: [{ ox: 0, oy: -18, ang: 0 }, { ox: -9, oy: -14, ang: 0 }, { ox: 9, oy: -14, ang: 0 }] },
+    // L4 三发直射 + 两发斜射
+    { interval: 0.09, shots: [
+      { ox: 0, oy: -18, ang: 0 },
+      { ox: -9, oy: -14, ang: 0 },
+      { ox: 9, oy: -14, ang: 0 },
+      { ox: -11, oy: -10, ang: -0.25 },
+      { ox: 11, oy: -10, ang: 0.25 },
+    ] },
+    // L5 三发直射 + 四发斜射（双排）
+    { interval: 0.07, shots: [
+      { ox: 0, oy: -18, ang: 0 },
+      { ox: -9, oy: -14, ang: 0 },
+      { ox: 9, oy: -14, ang: 0 },
+      { ox: -11, oy: -10, ang: -0.25 },
+      { ox: 11, oy: -10, ang: 0.25 },
+      { ox: -13, oy: -6, ang: -0.55 },
+      { ox: 13, oy: -6, ang: 0.55 },
+    ] },
+  ];
+
+  // 按当前武器等级发射子弹
   function fireBullet() {
-    for (const b of bullets) {
-      if (!b.active) {
-        b.active = true;
-        b.x = player.x;
-        b.y = player.y - 18;
-        b.vy = -780;        // px/s
-        b.r = 4;
-        // 双发
-        const b2 = bullets.find((x) => !x.active);
-        if (b2) {
-          b2.active = true;
-          b2.x = player.x;
-          b2.y = player.y - 14;
-          b2.vy = -780;
-          b2.r = 4;
+    const lvl = WEAPON_LEVELS[Math.min(player.power - 1, WEAPON_LEVELS.length - 1)];
+    const speed = 780;
+    for (const s of lvl.shots) {
+      for (const b of bullets) {
+        if (!b.active) {
+          b.active = true;
+          b.x = player.x + s.ox;
+          b.y = player.y + s.oy;
+          b.vx = Math.sin(s.ang) * speed;   // ang=0 时 vx=0 直射
+          b.vy = -Math.cos(s.ang) * speed;  // 向上为负
+          b.r = 4;
+          break;
         }
-        // 修正双发为左右各一
-        if (b2) { b.x = player.x - 7; b2.x = player.x + 7; }
-        return;
       }
     }
   }
@@ -148,6 +174,33 @@
       for (const off of [-0.45, 0, 0.45]) {
         const a = Math.PI / 2 + off; // 向下为基准
         fireEnemyBullet(e.x, e.y + e.r, Math.cos(a) * sp, Math.sin(a) * sp, 4.5);
+      }
+    }
+  }
+
+  // ===== 道具（火力升级）系统 =====
+  const powerups = [];
+  // 掉落概率：普通机按分值加权，Boss 必掉
+  function maybeDropPowerup(x, y, fromBoss) {
+    if (fromBoss) {
+      powerups.push({ x, y, vy: 70, r: 12 });
+      return;
+    }
+    if (Math.random() < 0.12) powerups.push({ x, y, vy: 90, r: 12 });
+  }
+
+  function updatePowerups(dt) {
+    for (let i = powerups.length - 1; i >= 0; i--) {
+      const p = powerups[i];
+      p.y += p.vy * dt;
+      // 出界
+      if (p.y - p.r > H) { powerups.splice(i, 1); continue; }
+      // 拾取
+      const dx = p.x - player.x, dy = p.y - player.y;
+      if (dx * dx + dy * dy < (p.r + player.r) * (p.r + player.r)) {
+        if (player.power < WEAPON_LEVELS.length) player.power += 1;
+        explode(p.x, p.y, "#ffe27a", 10, 0.6);
+        powerups.splice(i, 1);
       }
     }
   }
@@ -266,6 +319,7 @@
       explode(boss.x, boss.y, "#ff5a5a", 36, 2.2);
       state.score += 300;
       state.kills += 1;
+      maybeDropPowerup(boss.x, boss.y, true);
       boss = null;
       bossTimer = BOSS_INTERVAL;
       // 击杀后立刻清空场上残留敌弹，给玩家喘息
@@ -387,10 +441,12 @@
     mouse.x = player.x;
     mouse.y = player.y;
     player.alive = true;
+    player.power = 1;
     player.fireCooldown = 0;
     bullets.forEach((b) => (b.active = false));
     eBullets.forEach((b) => (b.active = false));
     enemies.length = 0;
+    powerups.length = 0;
     particles.length = 0;
     spawnInterval = 0.9;
     boss = null;
@@ -427,18 +483,20 @@
     player.x = clamp(player.x, player.r, W - player.r);
     player.y = clamp(player.y, player.r, H - player.r);
 
-    // --- 自动开火 ---
+    // --- 自动开火（间隔随武器等级提升）---
     player.fireCooldown -= dt;
+    const wLvl = WEAPON_LEVELS[Math.min(player.power - 1, WEAPON_LEVELS.length - 1)];
     if (player.fireCooldown <= 0) {
       fireBullet();
-      player.fireCooldown = player.fireInterval;
+      player.fireCooldown = wLvl.interval;
     }
 
     // --- 子弹移动 ---
     for (const b of bullets) {
       if (!b.active) continue;
+      b.x += b.vx * dt;
       b.y += b.vy * dt;
-      if (b.y < -10) b.active = false;
+      if (b.y < -10 || b.x < -10 || b.x > W + 10) b.active = false;
     }
 
     // --- Boss 计时 / 普通敌机生成（Boss 期间暂停刷怪）---
@@ -495,6 +553,7 @@
             explode(e.x, e.y, e.glow, e.type === "tank" ? 24 : 16, e.type === "tank" ? 1.6 : 1);
             state.score += e.score;
             state.kills += 1;
+            maybeDropPowerup(e.x, e.y, false);
             enemies.splice(i, 1);
             break;
           }
@@ -538,6 +597,9 @@
       }
     }
 
+    // --- 道具更新 ---
+    updatePowerups(dt);
+
     // --- 粒子 ---
     for (let i = particles.length - 1; i >= 0; i--) {
       const p = particles[i];
@@ -563,6 +625,7 @@
     elBest.textContent = state.best;
     elKills.textContent = state.kills;
     elTime.textContent = state.time.toFixed(0) + "s";
+    elPower.textContent = "Lv" + player.power;
   }
 
   function render() {
@@ -607,6 +670,32 @@
       ctx.fill();
     }
     ctx.shadowBlur = 0;
+
+    // 道具（旋转金色菱形）
+    for (const p of powerups) {
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(state.time * 2);
+      ctx.fillStyle = "#ffe27a";
+      ctx.shadowColor = "#ffae42";
+      ctx.shadowBlur = 14;
+      ctx.beginPath();
+      ctx.moveTo(0, -p.r);
+      ctx.lineTo(p.r, 0);
+      ctx.lineTo(0, p.r);
+      ctx.lineTo(-p.r, 0);
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+      // 中心 P 字
+      ctx.fillStyle = "#5a3a00";
+      ctx.font = "bold 13px -apple-system, sans-serif";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText("P", p.x, p.y);
+    }
+    ctx.shadowBlur = 0;
+    ctx.textBaseline = "alphabetic";
 
     // 敌机
     for (const e of enemies) {
