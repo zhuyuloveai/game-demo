@@ -238,13 +238,13 @@
       }
     }
 
-    // 玩家子弹命中 Boss（Boss 血厚，单发造成更高伤害）
+    // 玩家子弹命中 Boss
     for (const b of bullets) {
       if (!b.active) continue;
       const dx = b.x - boss.x, dy = b.y - boss.y;
       if (dx * dx + dy * dy < (boss.r + b.r) * (boss.r + b.r)) {
         b.active = false;
-        boss.hp -= 6;
+        boss.hp -= 1;
         boss.hit = 1;
       }
     }
