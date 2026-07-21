@@ -175,6 +175,11 @@
         const a = Math.PI / 2 + off; // 向下为基准
         fireEnemyBullet(e.x, e.y + e.r, Math.cos(a) * sp, Math.sin(a) * sp, 4.5);
       }
+    } else if (e.fire.kind === "rain") {
+      // 向下投弹（左右各一 + 中央，慢但封走位）
+      for (const off of [-8, 0, 8]) {
+        fireEnemyBullet(e.x + off, e.y + e.r, 0, sp * 0.7, 5.5);
+      }
     }
   }
 
@@ -335,11 +340,14 @@
   // 敌机类型配置：颜色、体积、速度、血量、分值、开火
   // fire: null=不开火 / { interval:开火间隔, kind: 'aim'|'spread' }
   const ENEMY_TYPES = {
-    grunt:  { color: "#ff5a5a", glow: "#ff7a7a", r: [16, 20], vy: [140, 200], hp: 1, score: 10, fire: null },
-    zigzag: { color: "#5aff8f", glow: "#7aff9f", r: [16, 20], vy: [110, 150], hp: 2, score: 20, fire: null },
-    diver:  { color: "#ffb347", glow: "#ffd27a", r: [13, 17], vy: [300, 380], hp: 1, score: 25, fire: null },
-    gunner: { color: "#ff5ad0", glow: "#ff8fe0", r: [18, 22], vy: [70, 100],  hp: 3, score: 30, fire: { interval: 1.6, kind: "spread" } },
-    tank:   { color: "#b06bff", glow: "#c98bff", r: [26, 32], vy: [60, 95],   hp: 6, score: 40, fire: { interval: 1.9, kind: "aim" } },
+    grunt:   { color: "#ff5a5a", glow: "#ff7a7a", r: [16, 20], vy: [140, 200], hp: 1, score: 10, fire: null },
+    zigzag:  { color: "#5aff8f", glow: "#7aff9f", r: [16, 20], vy: [110, 150], hp: 2, score: 20, fire: null },
+    diver:   { color: "#ffb347", glow: "#ffd27a", r: [13, 17], vy: [300, 380], hp: 1, score: 25, fire: null },
+    gunner:  { color: "#ff5ad0", glow: "#ff8fe0", r: [18, 22], vy: [70, 100],  hp: 3, score: 30, fire: { interval: 1.6, kind: "spread" } },
+    weaver:  { color: "#f5e85c", glow: "#fff58a", r: [14, 18], vy: [70, 100],  hp: 2, score: 25, fire: null },
+    splitter:{ color: "#5affc0", glow: "#8affd6", r: [22, 26], vy: [90, 130],  hp: 2, score: 35, fire: null },
+    bomber:  { color: "#5aa0ff", glow: "#8fc0ff", r: [30, 36], vy: [40, 60],   hp: 5, score: 55, fire: { interval: 1.3, kind: "rain" } },
+    tank:    { color: "#b06bff", glow: "#c98bff", r: [26, 32], vy: [60, 95],   hp: 6, score: 40, fire: { interval: 1.9, kind: "aim" } },
   };
 
   // 按游戏时长解锁类型并加权抽取，形成难度曲线
@@ -349,6 +357,9 @@
     if (t > 12) pool.push(["zigzag", Math.min((t - 12) / 18, 0.7)]);
     if (t > 25) pool.push(["diver", Math.min((t - 25) / 20, 0.6)]);
     if (t > 30) pool.push(["gunner", Math.min((t - 30) / 20, 0.5)]);
+    if (t > 35) pool.push(["weaver", Math.min((t - 35) / 20, 0.5)]);
+    if (t > 45) pool.push(["splitter", Math.min((t - 45) / 25, 0.4)]);
+    if (t > 50) pool.push(["bomber", Math.min((t - 50) / 30, 0.35)]);
     if (t > 40) pool.push(["tank", Math.min((t - 40) / 30, 0.3)]);
     let total = 0;
     for (const [, w] of pool) total += w;
@@ -394,6 +405,15 @@
       e.vx = (dx / dist) * sp;
       e.vy = (dy / dist) * sp;
       e.angle = Math.atan2(e.vy, e.vx) - Math.PI / 2;
+    } else if (name === "weaver") {
+      // 蛇形横向走位：快横向 + 缓下降
+      e.vx = (Math.random() < 0.5 ? -1 : 1) * rand(180, 240);
+      e.baseVx = e.vx;
+      e.weaveT = 0;
+    } else if (name === "bomber") {
+      // 下降到中部后悬停
+      e.hoverY = rand(H * 0.18, H * 0.38);
+      e.hovered = false;
     }
     enemies.push(e);
   }
@@ -528,6 +548,18 @@
       } else if (e.type === "diver") {
         e.x += e.vx * dt;
         e.y += e.vy * dt;
+      } else if (e.type === "weaver") {
+        // 快速横向走位，撞边反弹，同时缓慢下降
+        e.weaveT += dt;
+        e.x += e.vx * dt;
+        e.y += e.vy * dt;
+        if (e.x < e.r) { e.x = e.r; e.vx = Math.abs(e.vx); }
+        else if (e.x > W - e.r) { e.x = W - e.r; e.vx = -Math.abs(e.vx); }
+        e.angle = Math.sin(e.weaveT * 6) * 0.5; // 摆动朝向
+      } else if (e.type === "bomber") {
+        // 下降到悬停高度后停止下降
+        if (!e.hovered && e.y >= e.hoverY) { e.y = e.hoverY; e.hovered = true; }
+        if (!e.hovered) e.y += e.vy * dt;
       } else {
         e.y += e.vy * dt;
       }
@@ -554,6 +586,22 @@
             state.score += e.score;
             state.kills += 1;
             maybeDropPowerup(e.x, e.y, false);
+            // 分裂机被击毁后裂成两架小型 grunt
+            if (e.type === "splitter") {
+              const cfg = ENEMY_TYPES.grunt;
+              for (const dir of [-1, 1]) {
+                enemies.push({
+                  type: "grunt",
+                  x: clamp(e.x + dir * 14, 12, W - 12),
+                  y: e.y,
+                  r: rand(cfg.r[0], cfg.r[1]),
+                  vy: rand(cfg.vy[0], cfg.vy[1]),
+                  hp: 1, score: 0, // 分裂出的不计分
+                  color: cfg.color, glow: cfg.glow, fire: null, fireCd: 0,
+                  hit: 0, phase: 0, angle: 0,
+                });
+              }
+            }
             enemies.splice(i, 1);
             break;
           }
@@ -736,6 +784,24 @@
         ctx.lineTo(r * 0.6, r * 0.8);
         ctx.lineTo(-r * 0.6, r * 0.8);
         ctx.lineTo(-r * 0.95, -r * 0.3);
+        ctx.closePath();
+      } else if (e.type === "weaver") {
+        // 窄长菱形（蛇形走位机）
+        ctx.moveTo(0, -r * 1.1);
+        ctx.lineTo(r * 0.5, 0);
+        ctx.lineTo(0, r * 1.1);
+        ctx.lineTo(-r * 0.5, 0);
+        ctx.closePath();
+      } else if (e.type === "splitter") {
+        // 带裂缝的圆球（分裂机）
+        ctx.arc(0, 0, r, 0, Math.PI * 2);
+        ctx.closePath();
+      } else if (e.type === "bomber") {
+        // 宽矩形机翼（轰炸机）
+        ctx.moveTo(-r, -r * 0.4);
+        ctx.lineTo(r, -r * 0.4);
+        ctx.lineTo(r * 0.7, r * 0.4);
+        ctx.lineTo(-r * 0.7, r * 0.4);
         ctx.closePath();
       } else {
         // grunt 杂兵三角
