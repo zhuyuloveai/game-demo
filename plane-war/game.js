@@ -191,7 +191,7 @@
       powerups.push({ x, y, vy: 70, r: 12 });
       return;
     }
-    if (Math.random() < 0.12) powerups.push({ x, y, vy: 90, r: 12 });
+    if (Math.random() < 0.01) powerups.push({ x, y, vy: 90, r: 12 });
   }
 
   function updatePowerups(dt) {
