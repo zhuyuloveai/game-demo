@@ -1,0 +1,33 @@
+plane-war/src/engine/viewport.js
+  s_4f2bd80279e230::t_37e24415fadf80 9
+plane-war/src/game/state.js
+  s_4f2bd80279e230::t_a8ad7786c0c43a 2
+plane-war/src/game/world.js
+  s_4f2bd80279e230::t_4f804ffd3ad618 13-14
+plane-war/src/main.js
+  s_9e41f492a71660::t_a03768a599f1f1 2,148-149,151,167,182,184,187,204-209,226-228,231,233,239-240,250-255,293-305,310,378-523,654-655,804-817,825,831,844-848,874-876,888-890,893,998,1001,1008-1010,1021,1023,1068,1322-1362,1393-1421,1426-1427,1530-1545
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "eab0a75d45dc28e6aad5bc894ebb5aa3dbef2c12",
+  "prompts": {},
+  "sessions": {
+    "s_4f2bd80279e230": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f8a5d-5b52-77f3-8178-6cf82fbfe9a9",
+        "model": "gpt-5.5"
+      },
+      "human_author": "zhuyu <zhuyu4010qq@gmail.com>"
+    },
+    "s_9e41f492a71660": {
+      "agent_id": {
+        "tool": "chrys",
+        "id": "39af6111-4d3b-44a0-ab64-bc6795a24794",
+        "model": "k3"
+      },
+      "human_author": "zhuyu <zhuyu4010qq@gmail.com>"
+    }
+  }
+}
