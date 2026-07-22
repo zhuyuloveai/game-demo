@@ -5,6 +5,7 @@ export const player = {
   x: viewport.W / 2, y: viewport.H * 0.8,
   r: 14,            // 碰撞半径
   power: 1,         // 武器等级，小飞机 1-5，变形后可达 10
+  weapon: "gun",    // 当前武器：gun 机炮 / lightning 闪电 / laser 镭射 / missile 导弹（Q 循环切换）
   transformed: false, // 是否已变形为多喷射中型机
   fireCooldown: 0,
   fireInterval: 0.11,

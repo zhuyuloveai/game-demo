@@ -54,6 +54,10 @@ export function initInput({ state, player, reset }) {
   });
   window.addEventListener("keydown", (e) => {
     if (e.key === "r" || e.key === "R") { if (state.over) reset(); }
+    if ((e.key === "q" || e.key === "Q") && state.started && !state.over) {
+      const order = ["gun", "lightning", "laser", "missile"];
+      player.weapon = order[(order.indexOf(player.weapon) + 1) % order.length];
+    }
     // 注意：游戏运行中按 ESC 会被浏览器用于退出 Pointer Lock，
     // 由 pointerlockchange 自动暂停，无需在此处理。
   });

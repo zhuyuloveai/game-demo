@@ -127,6 +127,242 @@ function enemyFire(e) {
   }
 }
 
+// ===== 链式闪电（Q 切换）=====
+// 无弹道：直接锁定范围内最近目标（含 Boss），再向附近敌机逐级跳转，伤害逐跳衰减
+const LIGHTNING_LEVELS = [
+  { interval: 0.55, dmg: 2, chains: 2 }, // L1
+  { interval: 0.50, dmg: 2, chains: 3 },
+  { interval: 0.45, dmg: 3, chains: 3 },
+  { interval: 0.42, dmg: 3, chains: 4 },
+  { interval: 0.38, dmg: 3, chains: 4 }, // L5
+  { interval: 0.35, dmg: 4, chains: 5 },
+  { interval: 0.32, dmg: 4, chains: 5 },
+  { interval: 0.30, dmg: 5, chains: 6 },
+  { interval: 0.28, dmg: 5, chains: 6 },
+  { interval: 0.25, dmg: 6, chains: 7 }, // L10
+];
+const LIGHTNING_RANGE = 420;      // 主目标锁定范围
+const LIGHTNING_CHAIN_RANGE = 170; // 跳转范围
+const bolts = []; // 电弧视觉：{ pts: [{x,y}...], ttl, max }
+
+// 命中目标并生成电弧；范围内无目标时返回 false（不进入开火冷却，快速重试）
+function fireLightning() {
+  const lvl = LIGHTNING_LEVELS[Math.min(player.power - 1, LIGHTNING_LEVELS.length - 1)];
+  const px = player.x, py = player.y - 18;
+
+  // 主目标：范围内最近的敌机或 Boss
+  let best = null, bestD = LIGHTNING_RANGE * LIGHTNING_RANGE;
+  for (const e of enemies) {
+    const dx = e.x - px, dy = e.y - py;
+    const d = dx * dx + dy * dy;
+    if (d < bestD) { bestD = d; best = e; }
+  }
+  const boss = bossState.boss;
+  if (boss) {
+    const dx = boss.x - px, dy = boss.y - py;
+    if (dx * dx + dy * dy < bestD) best = boss;
+  }
+  if (!best) return false;
+
+  // 依次向最近的未命中敌机跳转
+  const targets = [best];
+  let cur = best;
+  for (let c = 0; c < lvl.chains; c++) {
+    let next = null, nextD = LIGHTNING_CHAIN_RANGE * LIGHTNING_CHAIN_RANGE;
+    for (const e of enemies) {
+      if (targets.includes(e)) continue;
+      const dx = e.x - cur.x, dy = e.y - cur.y;
+      const d = dx * dx + dy * dy;
+      if (d < nextD) { nextD = d; next = e; }
+    }
+    if (!next) break;
+    targets.push(next);
+    cur = next;
+  }
+
+  // 结算伤害：主目标满伤，每跳 -1（至少 1）
+  const dead = [];
+  let dmg = lvl.dmg;
+  for (const t of targets) {
+    t.hp -= dmg;
+    t.hit = 1;
+    if (t !== boss && t.hp <= 0) dead.push(t);
+    dmg = Math.max(1, dmg - 1);
+  }
+  for (const t of dead) killEnemy(t);
+  if (dead.length) {
+    for (let i = enemies.length - 1; i >= 0; i--) {
+      if (enemies[i].hp <= 0) enemies.splice(i, 1);
+    }
+  }
+
+  bolts.push({
+    pts: [{ x: px, y: py }, ...targets.map((t) => ({ x: t.x, y: t.y }))],
+    ttl: 0.14,
+    max: 0.14,
+  });
+  return true;
+}
+
+// ===== 贯穿镭射（Q 循环切换）=====
+// 即时命中：沿机头垂直向上的光柱，宽度内所有敌机（含 Boss）全吃伤害，穿透不衰减
+const LASER_LEVELS = [
+  { interval: 0.75, dmg: 5,  width: 8  }, // L1
+  { interval: 0.70, dmg: 6,  width: 9  },
+  { interval: 0.65, dmg: 7,  width: 10 },
+  { interval: 0.60, dmg: 8,  width: 11 },
+  { interval: 0.55, dmg: 10, width: 12 }, // L5
+  { interval: 0.52, dmg: 12, width: 14 },
+  { interval: 0.48, dmg: 14, width: 16 },
+  { interval: 0.45, dmg: 17, width: 18 },
+  { interval: 0.42, dmg: 20, width: 21 },
+  { interval: 0.38, dmg: 24, width: 24 }, // L10
+];
+const beams = []; // 光柱视觉：{ x, y0, y1, width, ttl, max }
+
+function fireLaser() {
+  const lvl = LASER_LEVELS[Math.min(player.power - 1, LASER_LEVELS.length - 1)];
+  const bx = player.x, half = lvl.width / 2;
+  const dead = [];
+  for (const e of enemies) {
+    if (e.y > player.y) continue; // 只打机头上方
+    if (Math.abs(e.x - bx) < half + e.r) {
+      e.hp -= lvl.dmg;
+      e.hit = 1;
+      if (e.hp <= 0) dead.push(e);
+    }
+  }
+  const boss = bossState.boss;
+  if (boss && boss.y < player.y && Math.abs(boss.x - bx) < half + boss.r) {
+    boss.hp -= lvl.dmg;
+    boss.hit = 1;
+  }
+  for (const t of dead) killEnemy(t);
+  if (dead.length) {
+    for (let i = enemies.length - 1; i >= 0; i--) {
+      if (enemies[i].hp <= 0) enemies.splice(i, 1);
+    }
+  }
+
+  beams.push({ x: bx, y0: player.y - 20, y1: -10, width: lvl.width, ttl: 0.18, max: 0.18 });
+  shakeState.value = Math.min(shakeState.value + 2, 16); // 轻微后座震屏
+  return true;
+}
+
+// ===== 追踪导弹（Q 循环切换）=====
+// 真弹道：扇形离架后自动转向最近目标（含 Boss），目标死亡则重新锁定，高单发伤害
+const MISSILE_LEVELS = [
+  { interval: 0.90, count: 2, dmg: 3 }, // L1
+  { interval: 0.85, count: 2, dmg: 4 },
+  { interval: 0.80, count: 3, dmg: 4 },
+  { interval: 0.75, count: 3, dmg: 5 },
+  { interval: 0.70, count: 4, dmg: 5 }, // L5
+  { interval: 0.65, count: 4, dmg: 6 },
+  { interval: 0.60, count: 5, dmg: 6 },
+  { interval: 0.55, count: 5, dmg: 7 },
+  { interval: 0.52, count: 6, dmg: 7 },
+  { interval: 0.48, count: 6, dmg: 8 }, // L10
+];
+const missiles = []; // { x, y, angle, speed, turn, dmg, target, trail, life }
+
+// 全屏最近目标（敌机或 Boss），无目标返回 null
+function nearestTarget(x, y) {
+  let best = null, bestD = Infinity;
+  for (const e of enemies) {
+    const dx = e.x - x, dy = e.y - y;
+    const d = dx * dx + dy * dy;
+    if (d < bestD) { bestD = d; best = e; }
+  }
+  const boss = bossState.boss;
+  if (boss) {
+    const dx = boss.x - x, dy = boss.y - y;
+    const d = dx * dx + dy * dy;
+    if (d < bestD) best = boss;
+  }
+  return best;
+}
+
+function fireMissiles() {
+  const lvl = MISSILE_LEVELS[Math.min(player.power - 1, MISSILE_LEVELS.length - 1)];
+  for (let c = 0; c < lvl.count; c++) {
+    const spread = (c - (lvl.count - 1) / 2) * 0.5; // 向上扇形离架
+    missiles.push({
+      x: player.x, y: player.y - 16,
+      angle: -Math.PI / 2 + spread,
+      speed: 430,
+      turn: 5.2,      // 转向速率（弧度/秒）
+      dmg: lvl.dmg,
+      target: null,   // 首帧 update 时锁定
+      trail: [],
+      life: 3.5,
+    });
+  }
+  return true;
+}
+
+function updateMissiles(dt, W, H) {
+  const boss = bossState.boss;
+  for (let i = missiles.length - 1; i >= 0; i--) {
+    const m = missiles[i];
+    m.life -= dt;
+    if (m.life <= 0) { missiles.splice(i, 1); continue; }
+
+    // 目标失效（死亡/离场/Boss 已消失）时重新锁定
+    if (m.target) {
+      const valid = m.target === boss ? bossState.boss === m.target : enemies.includes(m.target);
+      if (!valid) m.target = null;
+    }
+    if (!m.target) m.target = nearestTarget(m.x, m.y);
+
+    // 朝目标限速转向
+    if (m.target) {
+      const desired = Math.atan2(m.target.y - m.y, m.target.x - m.x);
+      let diff = desired - m.angle;
+      while (diff > Math.PI) diff -= Math.PI * 2;
+      while (diff < -Math.PI) diff += Math.PI * 2;
+      m.angle += clamp(diff, -m.turn * dt, m.turn * dt);
+    }
+    m.x += Math.cos(m.angle) * m.speed * dt;
+    m.y += Math.sin(m.angle) * m.speed * dt;
+
+    // 尾迹
+    m.trail.push({ x: m.x, y: m.y });
+    if (m.trail.length > 8) m.trail.shift();
+
+    // 出界
+    if (m.x < -30 || m.x > W + 30 || m.y < -30 || m.y > H + 30) { missiles.splice(i, 1); continue; }
+
+    // 命中敌机
+    let hit = false;
+    for (const e of enemies) {
+      const dx = e.x - m.x, dy = e.y - m.y;
+      if (dx * dx + dy * dy < (e.r + 5) * (e.r + 5)) {
+        e.hp -= m.dmg;
+        e.hit = 1;
+        if (e.hp <= 0) {
+          killEnemy(e);
+          enemies.splice(enemies.indexOf(e), 1);
+        }
+        hit = true;
+        break;
+      }
+    }
+    // 命中 Boss
+    if (!hit && boss) {
+      const dx = boss.x - m.x, dy = boss.y - m.y;
+      if (dx * dx + dy * dy < (boss.r + 5) * (boss.r + 5)) {
+        boss.hp -= m.dmg;
+        boss.hit = 1;
+        hit = true;
+      }
+    }
+    if (hit) {
+      explode(m.x, m.y, "#ffcf8a", 8, 0.6);
+      missiles.splice(i, 1);
+    }
+  }
+}
+
 // ===== 道具（火力升级 / 变形）系统 =====
 // 掉落概率：普通机 4%，Boss 必掉普通升级
 function maybeDropPowerup(x, y, fromBoss) {
@@ -386,6 +622,30 @@ function explode(x, y, color, count = 14, power = 1) {
   shakeState.value = Math.min(shakeState.value + 6 * power, 16);
 }
 
+// 击杀敌机：爆炸、计分、掉落、分裂机裂变（不移出数组，由调用方 splice）
+function killEnemy(e) {
+  explode(e.x, e.y, e.glow, e.type === "tank" ? 24 : 16, e.type === "tank" ? 1.6 : 1);
+  state.score += e.score;
+  state.kills += 1;
+  maybeDropPowerup(e.x, e.y, false);
+  // 分裂机被击毁后裂成两架小型 grunt
+  if (e.type === "splitter") {
+    const cfg = ENEMY_TYPES.grunt;
+    for (const dir of [-1, 1]) {
+      enemies.push({
+        type: "grunt",
+        x: clamp(e.x + dir * 14, 12, viewport.W - 12),
+        y: e.y,
+        r: rand(cfg.r[0], cfg.r[1]),
+        vy: rand(cfg.vy[0], cfg.vy[1]),
+        hp: 1, score: 0, // 分裂出的不计分
+        color: cfg.color, glow: cfg.glow, fire: null, fireCd: 0,
+        hit: 0, phase: 0, angle: 0,
+      });
+    }
+  }
+}
+
 function reset() {
   state.score = 0;
   state.kills = 0;
@@ -407,6 +667,9 @@ function reset() {
   enemies.length = 0;
   powerups.length = 0;
   particles.length = 0;
+  bolts.length = 0;
+  beams.length = 0;
+  missiles.length = 0;
   spawnState.spawnInterval = 0.9;
   bossState.boss = null;
   bossState.bossTimer = BOSS_INTERVAL;
@@ -443,12 +706,25 @@ function update(dt) {
   player.x = clamp(player.x, player.r, W - player.r);
   player.y = clamp(player.y, player.r, H - player.r);
 
-  // --- 自动开火（间隔随武器等级提升）---
+  // --- 自动开火（间隔随武器等级提升；闪电范围内无目标时快速重试）---
   player.fireCooldown -= dt;
-  const wLvl = WEAPON_LEVELS[Math.min(player.power - 1, WEAPON_LEVELS.length - 1)];
   if (player.fireCooldown <= 0) {
-    fireBullet();
-    player.fireCooldown = wLvl.interval;
+    if (player.weapon === "lightning") {
+      const lvl = LIGHTNING_LEVELS[Math.min(player.power - 1, LIGHTNING_LEVELS.length - 1)];
+      player.fireCooldown = fireLightning() ? lvl.interval : 0.08;
+    } else if (player.weapon === "laser") {
+      const lvl = LASER_LEVELS[Math.min(player.power - 1, LASER_LEVELS.length - 1)];
+      fireLaser();
+      player.fireCooldown = lvl.interval;
+    } else if (player.weapon === "missile") {
+      const lvl = MISSILE_LEVELS[Math.min(player.power - 1, MISSILE_LEVELS.length - 1)];
+      fireMissiles();
+      player.fireCooldown = lvl.interval;
+    } else {
+      const wLvl = WEAPON_LEVELS[Math.min(player.power - 1, WEAPON_LEVELS.length - 1)];
+      fireBullet();
+      player.fireCooldown = wLvl.interval;
+    }
   }
 
   // --- 子弹移动 ---
@@ -522,26 +798,7 @@ function update(dt) {
         e.hp -= 1;
         e.hit = 1;
         if (e.hp <= 0) {
-          explode(e.x, e.y, e.glow, e.type === "tank" ? 24 : 16, e.type === "tank" ? 1.6 : 1);
-          state.score += e.score;
-          state.kills += 1;
-          maybeDropPowerup(e.x, e.y, false);
-          // 分裂机被击毁后裂成两架小型 grunt
-          if (e.type === "splitter") {
-            const cfg = ENEMY_TYPES.grunt;
-            for (const dir of [-1, 1]) {
-              enemies.push({
-                type: "grunt",
-                x: clamp(e.x + dir * 14, 12, W - 12),
-                y: e.y,
-                r: rand(cfg.r[0], cfg.r[1]),
-                vy: rand(cfg.vy[0], cfg.vy[1]),
-                hp: 1, score: 0, // 分裂出的不计分
-                color: cfg.color, glow: cfg.glow, fire: null, fireCd: 0,
-                hit: 0, phase: 0, angle: 0,
-              });
-            }
-          }
+          killEnemy(e);
           enemies.splice(i, 1);
           break;
         }
@@ -565,6 +822,9 @@ function update(dt) {
       if (state.score > state.best) state.best = state.score;
     }
   }
+
+  // --- 追踪导弹 ---
+  updateMissiles(dt, W, H);
 
   // --- 敌方子弹：移动 + 出界 + 命中玩家 ---
   for (const eb of eBullets) {
@@ -599,6 +859,18 @@ function update(dt) {
     p.vy *= 0.94;
   }
 
+  // --- 电弧衰减 ---
+  for (let i = bolts.length - 1; i >= 0; i--) {
+    bolts[i].ttl -= dt;
+    if (bolts[i].ttl <= 0) bolts.splice(i, 1);
+  }
+
+  // --- 光柱衰减 ---
+  for (let i = beams.length - 1; i >= 0; i--) {
+    beams[i].ttl -= dt;
+    if (beams[i].ttl <= 0) beams.splice(i, 1);
+  }
+
   // --- 星空 ---
   for (const s of stars) {
     s.y += (40 + s.z * 260) * dt;
@@ -613,7 +885,7 @@ function update(dt) {
   elBest.textContent = state.best;
   elKills.textContent = state.kills;
   elTime.textContent = state.time.toFixed(0) + "s";
-  elPower.textContent = "Lv" + player.power;
+  elPower.textContent = (player.weapon === "lightning" ? "⚡" : player.weapon === "laser" ? "✦" : player.weapon === "missile" ? "🚀" : "") + "Lv" + player.power;
 }
 
 function render() {
@@ -826,6 +1098,76 @@ function render() {
     ctx.font = "bold 11px -apple-system, sans-serif";
     ctx.fillText("BOSS", W / 2, by - 3);
   }
+
+  // 追踪导弹：橙色三角弹体（朝速度方向）+ 渐隐尾迹
+  for (const m of missiles) {
+    if (m.trail.length > 1) {
+      ctx.beginPath();
+      ctx.moveTo(m.trail[0].x, m.trail[0].y);
+      for (const p of m.trail) ctx.lineTo(p.x, p.y);
+      ctx.strokeStyle = "rgba(255,180,100,0.35)";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+    }
+    ctx.save();
+    ctx.translate(m.x, m.y);
+    ctx.rotate(m.angle + Math.PI / 2);
+    ctx.fillStyle = "#ffd27a";
+    ctx.shadowColor = "#ffae42";
+    ctx.shadowBlur = 10;
+    ctx.beginPath();
+    ctx.moveTo(0, -7);
+    ctx.lineTo(4, 5);
+    ctx.lineTo(-4, 5);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+  }
+  ctx.shadowBlur = 0;
+
+  // 光柱（贯穿镭射）：金色辉光柱 + 白色内芯，alpha 随寿命衰减
+  for (const b of beams) {
+    ctx.globalAlpha = clamp(b.ttl / b.max, 0, 1);
+    ctx.fillStyle = "#ffe27a";
+    ctx.shadowColor = "#ffae42";
+    ctx.shadowBlur = 18;
+    ctx.fillRect(b.x - b.width / 2, b.y1, b.width, b.y0 - b.y1);
+    ctx.shadowBlur = 0;
+    ctx.fillStyle = "#fff";
+    ctx.fillRect(b.x - b.width * 0.2, b.y1, b.width * 0.4, b.y0 - b.y1);
+  }
+  ctx.globalAlpha = 1;
+  ctx.shadowBlur = 0;
+
+  // 电弧（链式闪电）：每帧重新抖动折线，白色内芯 + 青色辉光
+  for (const b of bolts) {
+    ctx.globalAlpha = clamp(b.ttl / b.max, 0, 1);
+    ctx.beginPath();
+    for (let i = 0; i < b.pts.length - 1; i++) {
+      const p0 = b.pts[i], p1 = b.pts[i + 1];
+      ctx.moveTo(p0.x, p0.y);
+      const segs = 4;
+      for (let s = 1; s < segs; s++) {
+        const t = s / segs;
+        ctx.lineTo(
+          p0.x + (p1.x - p0.x) * t + rand(-14, 14),
+          p0.y + (p1.y - p0.y) * t + rand(-14, 14),
+        );
+      }
+      ctx.lineTo(p1.x, p1.y);
+    }
+    ctx.strokeStyle = "#7fe8ff";
+    ctx.lineWidth = 2.5;
+    ctx.shadowColor = "#5ad0ff";
+    ctx.shadowBlur = 14;
+    ctx.stroke();
+    ctx.strokeStyle = "#fff";
+    ctx.lineWidth = 1;
+    ctx.shadowBlur = 0;
+    ctx.stroke();
+  }
+  ctx.globalAlpha = 1;
+  ctx.shadowBlur = 0;
 
   // 玩家
   if (player.alive) {
