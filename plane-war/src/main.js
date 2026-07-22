@@ -1,5 +1,5 @@
 import { rand, clamp } from "./core/math.js";
-import { ctx, elScore, elBest, elKills, elTime, elPower, viewport } from "./engine/viewport.js";
+import { ctx, elScore, elBest, elKills, elTime, elPower, elLives, viewport } from "./engine/viewport.js";
 import { mouse, initInput, startGame } from "./engine/input.js";
 import { state } from "./game/state.js";
 import {
@@ -145,13 +145,10 @@ const LIGHTNING_RANGE = 420;      // 主目标锁定范围
 const LIGHTNING_CHAIN_RANGE = 170; // 跳转范围
 const bolts = []; // 电弧视觉：{ pts: [{x,y}...], ttl, max }
 
-// 命中目标并生成电弧；范围内无目标时返回 false（不进入开火冷却，快速重试）
-function fireLightning() {
-  const lvl = LIGHTNING_LEVELS[Math.min(player.power - 1, LIGHTNING_LEVELS.length - 1)];
-  const px = player.x, py = player.y - 18;
-
+// 从 (px,py) 命中目标并生成电弧；范围内无目标时返回 false
+function strikeLightning(px, py, dmg, chains, range) {
   // 主目标：范围内最近的敌机或 Boss
-  let best = null, bestD = LIGHTNING_RANGE * LIGHTNING_RANGE;
+  let best = null, bestD = range * range;
   for (const e of enemies) {
     const dx = e.x - px, dy = e.y - py;
     const d = dx * dx + dy * dy;
@@ -167,7 +164,7 @@ function fireLightning() {
   // 依次向最近的未命中敌机跳转
   const targets = [best];
   let cur = best;
-  for (let c = 0; c < lvl.chains; c++) {
+  for (let c = 0; c < chains; c++) {
     let next = null, nextD = LIGHTNING_CHAIN_RANGE * LIGHTNING_CHAIN_RANGE;
     for (const e of enemies) {
       if (targets.includes(e)) continue;
@@ -182,12 +179,12 @@ function fireLightning() {
 
   // 结算伤害：主目标满伤，每跳 -1（至少 1）
   const dead = [];
-  let dmg = lvl.dmg;
+  let d = dmg;
   for (const t of targets) {
-    t.hp -= dmg;
+    t.hp -= d;
     t.hit = 1;
     if (t !== boss && t.hp <= 0) dead.push(t);
-    dmg = Math.max(1, dmg - 1);
+    d = Math.max(1, d - 1);
   }
   for (const t of dead) killEnemy(t);
   if (dead.length) {
@@ -202,6 +199,12 @@ function fireLightning() {
     max: 0.14,
   });
   return true;
+}
+
+// 命中目标并生成电弧；范围内无目标时返回 false（不进入开火冷却，快速重试）
+function fireLightning() {
+  const lvl = LIGHTNING_LEVELS[Math.min(player.power - 1, LIGHTNING_LEVELS.length - 1)];
+  return strikeLightning(player.x, player.y - 18, lvl.dmg, lvl.chains, LIGHTNING_RANGE);
 }
 
 // ===== 贯穿镭射（Q 循环切换）=====
@@ -220,21 +223,21 @@ const LASER_LEVELS = [
 ];
 const beams = []; // 光柱视觉：{ x, y0, y1, width, ttl, max }
 
-function fireLaser() {
-  const lvl = LASER_LEVELS[Math.min(player.power - 1, LASER_LEVELS.length - 1)];
-  const bx = player.x, half = lvl.width / 2;
+// 从 (bx,by) 向上发出光柱，命中宽度内所有敌机（含 Boss）；visual=false 时不产生瞬时视觉（持续光炮复用）
+function laserStrike(bx, by, width, dmg, visual = true) {
+  const half = width / 2;
   const dead = [];
   for (const e of enemies) {
-    if (e.y > player.y) continue; // 只打机头上方
+    if (e.y > by) continue; // 只打发射点上方
     if (Math.abs(e.x - bx) < half + e.r) {
-      e.hp -= lvl.dmg;
+      e.hp -= dmg;
       e.hit = 1;
       if (e.hp <= 0) dead.push(e);
     }
   }
   const boss = bossState.boss;
-  if (boss && boss.y < player.y && Math.abs(boss.x - bx) < half + boss.r) {
-    boss.hp -= lvl.dmg;
+  if (boss && boss.y < by && Math.abs(boss.x - bx) < half + boss.r) {
+    boss.hp -= dmg;
     boss.hit = 1;
   }
   for (const t of dead) killEnemy(t);
@@ -244,7 +247,12 @@ function fireLaser() {
     }
   }
 
-  beams.push({ x: bx, y0: player.y - 20, y1: -10, width: lvl.width, ttl: 0.18, max: 0.18 });
+  if (visual) beams.push({ x: bx, y0: by, y1: -10, width, ttl: 0.18, max: 0.18 });
+}
+
+function fireLaser() {
+  const lvl = LASER_LEVELS[Math.min(player.power - 1, LASER_LEVELS.length - 1)];
+  laserStrike(player.x, player.y - 20, lvl.width, lvl.dmg);
   shakeState.value = Math.min(shakeState.value + 2, 16); // 轻微后座震屏
   return true;
 }
@@ -282,20 +290,24 @@ function nearestTarget(x, y) {
   return best;
 }
 
+function launchMissile(x, y, angle, dmg) {
+  missiles.push({
+    x, y,
+    angle,
+    speed: 430,
+    turn: 5.2,      // 转向速率（弧度/秒）
+    dmg,
+    target: null,   // 首帧 update 时锁定
+    trail: [],
+    life: 3.5,
+  });
+}
+
 function fireMissiles() {
   const lvl = MISSILE_LEVELS[Math.min(player.power - 1, MISSILE_LEVELS.length - 1)];
   for (let c = 0; c < lvl.count; c++) {
     const spread = (c - (lvl.count - 1) / 2) * 0.5; // 向上扇形离架
-    missiles.push({
-      x: player.x, y: player.y - 16,
-      angle: -Math.PI / 2 + spread,
-      speed: 430,
-      turn: 5.2,      // 转向速率（弧度/秒）
-      dmg: lvl.dmg,
-      target: null,   // 首帧 update 时锁定
-      trail: [],
-      life: 3.5,
-    });
+    launchMissile(player.x, player.y - 16, -Math.PI / 2 + spread, lvl.dmg);
   }
   return true;
 }
@@ -359,6 +371,152 @@ function updateMissiles(dt, W, H) {
     if (hit) {
       explode(m.x, m.y, "#ffcf8a", 8, 0.6);
       missiles.splice(i, 1);
+    }
+  }
+}
+
+// ===== 僚机（浮游炮）系统 =====
+// 随火力等级自动解锁：Lv3/Lv5/Lv8/Lv10 各 +1 架，编队跟随
+// 弹幕跟随主武器，发射弱化版：机炮单发 / 闪电短链 / 细镭射 / 单枚导弹
+const WINGMAN_ANCHORS = [
+  { ox: -34, oy: 12 },
+  { ox: 34, oy: 12 },
+  { ox: -54, oy: 30 },
+  { ox: 54, oy: 30 },
+];
+const WINGMAN_UNLOCK = [3, 5, 8, 10]; // 各架僚机解锁所需火力等级
+const WINGMAN_INTERVALS = { gun: 0.28, lightning: 0.9, laser: 1.1, missile: 1.2 };
+const wingmen = [];
+
+// 僚机发射当前主武器的弱化版
+function wingmanFire(w) {
+  const lvlIdx = Math.min(player.power - 1, 9);
+  if (player.weapon === "lightning") {
+    const lvl = LIGHTNING_LEVELS[lvlIdx];
+    strikeLightning(w.x, w.y - 8, Math.max(1, lvl.dmg - 1), Math.min(1, lvl.chains), 280);
+  } else if (player.weapon === "laser") {
+    const lvl = LASER_LEVELS[lvlIdx];
+    laserStrike(w.x, w.y - 8, Math.max(4, lvl.width / 2), Math.ceil(lvl.dmg / 2));
+  } else if (player.weapon === "missile") {
+    const lvl = MISSILE_LEVELS[lvlIdx];
+    launchMissile(w.x, w.y - 8, -Math.PI / 2 + rand(-0.3, 0.3), Math.max(1, lvl.dmg - 2));
+  } else {
+    // 机炮：单发直射（复用子弹池）
+    for (const b of bullets) {
+      if (!b.active) {
+        b.active = true;
+        b.x = w.x; b.y = w.y - 8;
+        b.vx = 0; b.vy = -780;
+        b.r = 3;
+        break;
+      }
+    }
+  }
+}
+
+function updateWingmen(dt) {
+  // 按当前火力同步僚机数量
+  const want = WINGMAN_UNLOCK.filter((lv) => player.power >= lv).length;
+  while (wingmen.length < want) {
+    const a = WINGMAN_ANCHORS[wingmen.length];
+    wingmen.push({ x: player.x, y: player.y, ox: a.ox, oy: a.oy, fireCd: rand(0, WINGMAN_INTERVALS[player.weapon]) });
+  }
+  if (wingmen.length > want) wingmen.length = want;
+
+  const t = 1 - Math.exp(-dt * 10); // 帧无关平滑跟随（比主机略滞后，有拖拽感）
+  for (const w of wingmen) {
+    w.x += (player.x + w.ox - w.x) * t;
+    w.y += (player.y + w.oy - w.y) * t;
+    w.x = clamp(w.x, 8, viewport.W - 8);
+    w.fireCd -= dt;
+    if (w.fireCd <= 0) {
+      wingmanFire(w);
+      w.fireCd = WINGMAN_INTERVALS[player.weapon] || 0.28;
+    }
+  }
+}
+
+// ===== 蓄力攻击（按住 A 蓄力，松开释放，形态随主武器）=====
+const CHARGE_MAX = 1.5;  // 蓄满所需秒数
+const CHARGE_MIN = 0.2;  // 低于此不触发
+const chargeState = { t: 0 };
+const superBeams = []; // 镭射大招：{ width, dmg, tick, ttl, max }（跟随机体持续伤害）
+const balls = [];      // 球形闪电：{ x, y, vy, r, ttl, zapCd, dmg }
+
+const chargeRatio = () => clamp(chargeState.t / CHARGE_MAX, 0, 1);
+
+function releaseCharge() {
+  const p = chargeRatio();
+  const lvlIdx = Math.min(player.power - 1, 9);
+  if (player.weapon === "lightning") {
+    // 球形闪电：缓慢上飘，持续向周围放电
+    const lvl = LIGHTNING_LEVELS[lvlIdx];
+    balls.push({ x: player.x, y: player.y - 30, vy: -110, r: 18 + 26 * p, ttl: 2 + 1.5 * p, zapCd: 0, dmg: lvl.dmg + 1 });
+  } else if (player.weapon === "laser") {
+    // 持续光炮：3~6 倍柱宽，跟随机体持续伤害
+    const lvl = LASER_LEVELS[lvlIdx];
+    const ttl = 1.2 + 1.3 * p;
+    superBeams.push({ width: lvl.width * (3 + 3 * p), dmg: lvl.dmg, tick: 0, ttl, max: ttl });
+  } else if (player.weapon === "missile") {
+    // 全弹齐射：8~16 枚大扇形
+    const lvl = MISSILE_LEVELS[lvlIdx];
+    const n = 8 + Math.round(8 * p);
+    for (let c = 0; c < n; c++) {
+      launchMissile(player.x, player.y - 16, -Math.PI / 2 + (c - (n - 1) / 2) * 0.28, lvl.dmg + 2);
+    }
+  } else {
+    // 大号弹幕：120° 扇形大弹丸
+    const n = 14 + Math.round(20 * p);
+    for (let c = 0; c < n; c++) {
+      const a = -Math.PI / 2 + ((c - (n - 1) / 2) * Math.PI * 0.75) / n;
+      for (const b of bullets) {
+        if (!b.active) {
+          b.active = true;
+          b.x = player.x; b.y = player.y - 18;
+          b.vx = Math.cos(a) * 620; b.vy = Math.sin(a) * 620;
+          b.r = 6;
+          break;
+        }
+      }
+    }
+  }
+  shakeState.value = Math.min(shakeState.value + 5 + 6 * p, 16);
+}
+
+function updateCharge(dt) {
+  // 蓄力 / 松手释放
+  if (player.charging) {
+    chargeState.t = Math.min(chargeState.t + dt, CHARGE_MAX);
+  } else if (chargeState.t > 0) {
+    if (chargeState.t >= CHARGE_MIN) releaseCharge();
+    chargeState.t = 0;
+  }
+
+  // 持续光炮：跟随机体，每 0.15s 结算一次伤害
+  for (let i = superBeams.length - 1; i >= 0; i--) {
+    const sb = superBeams[i];
+    sb.ttl -= dt;
+    if (sb.ttl <= 0) { superBeams.splice(i, 1); continue; }
+    sb.tick -= dt;
+    if (sb.tick <= 0) {
+      laserStrike(player.x, player.y - 20, sb.width, sb.dmg, false);
+      sb.tick = 0.15;
+    }
+  }
+
+  // 球形闪电：上飘 + 周期放电
+  for (let i = balls.length - 1; i >= 0; i--) {
+    const b = balls[i];
+    b.ttl -= dt;
+    b.y += b.vy * dt;
+    b.zapCd -= dt;
+    if (b.zapCd <= 0) {
+      strikeLightning(b.x, b.y, b.dmg, 2, 280);
+      b.zapCd = 0.25;
+    }
+    if (b.ttl <= 0 || b.y < -b.r - 20) {
+      explode(b.x, b.y, "#9affff", 16, 1.0);
+      balls.splice(i, 1);
     }
   }
 }
@@ -493,11 +651,8 @@ function updateBoss(dt) {
 
   // 撞玩家
   const ddx = boss.x - player.x, ddy = boss.y - player.y;
-  if (ddx * ddx + ddy * ddy < (boss.r + player.r) * (boss.r + player.r)) {
-    explode(player.x, player.y, "#5fd0ff", 40, 2.2);
-    player.alive = false;
-    state.over = true;
-    if (state.score > state.best) state.best = state.score;
+  if (player.invincible <= 0 && ddx * ddx + ddy * ddy < (boss.r + player.r) * (boss.r + player.r)) {
+    playerDie();
   }
 
   // 死亡
@@ -646,6 +801,20 @@ function killEnemy(e) {
   }
 }
 
+// 玩家受击：扣命，原地复活 + 无敌闪烁；命尽才游戏结束
+function playerDie() {
+  explode(player.x, player.y, "#5fd0ff", 40, 2.2);
+  state.lives -= 1;
+  elLives.textContent = "♥".repeat(Math.max(0, state.lives)); // 死亡当帧立即刷新（游戏结束后 update 不再跑 HUD）
+  if (state.lives <= 0) {
+    player.alive = false;
+    state.over = true;
+    if (state.score > state.best) state.best = state.score;
+  } else {
+    player.invincible = 2.5; // 无敌时间（秒）
+  }
+}
+
 function reset() {
   state.score = 0;
   state.kills = 0;
@@ -653,11 +822,13 @@ function reset() {
   state.paused = false;
   state.started = true;
   state.time = 0;
+  state.lives = 3;
   player.x = viewport.W / 2;
   player.y = viewport.H * 0.8;
   mouse.x = player.x;
   mouse.y = player.y;
   player.alive = true;
+  player.invincible = 0;
   player.power = 1;
   player.transformed = false;
   player.fireCooldown = 0;
@@ -670,6 +841,11 @@ function reset() {
   bolts.length = 0;
   beams.length = 0;
   missiles.length = 0;
+  wingmen.length = 0;
+  superBeams.length = 0;
+  balls.length = 0;
+  chargeState.t = 0;
+  player.charging = false;
   spawnState.spawnInterval = 0.9;
   bossState.boss = null;
   bossState.bossTimer = BOSS_INTERVAL;
@@ -695,6 +871,9 @@ function update(dt) {
   state.time += dt;
   const W = viewport.W, H = viewport.H;
 
+  // 无敌时间衰减
+  player.invincible = Math.max(0, player.invincible - dt);
+
   // 难度递增
   spawnState.spawnInterval = Math.max(0.35, 0.9 - state.time * 0.01);
 
@@ -706,9 +885,12 @@ function update(dt) {
   player.x = clamp(player.x, player.r, W - player.r);
   player.y = clamp(player.y, player.r, H - player.r);
 
+  // --- 蓄力攻击（蓄力中主机停火）---
+  updateCharge(dt);
+
   // --- 自动开火（间隔随武器等级提升；闪电范围内无目标时快速重试）---
   player.fireCooldown -= dt;
-  if (player.fireCooldown <= 0) {
+  if (!player.charging && player.fireCooldown <= 0) {
     if (player.weapon === "lightning") {
       const lvl = LIGHTNING_LEVELS[Math.min(player.power - 1, LIGHTNING_LEVELS.length - 1)];
       player.fireCooldown = fireLightning() ? lvl.interval : 0.08;
@@ -813,18 +995,18 @@ function update(dt) {
     }
     // 撞玩家
     const dx = e.x - player.x, dy = e.y - player.y;
-    if (dx * dx + dy * dy < (e.r + player.r) * (e.r + player.r)) {
-      explode(player.x, player.y, "#5fd0ff", 40, 2.2);
+    if (player.invincible <= 0 && dx * dx + dy * dy < (e.r + player.r) * (e.r + player.r)) {
       explode(e.x, e.y, "#ffb347", 20, 1.4);
       enemies.splice(i, 1);
-      player.alive = false;
-      state.over = true;
-      if (state.score > state.best) state.best = state.score;
+      playerDie();
     }
   }
 
   // --- 追踪导弹 ---
   updateMissiles(dt, W, H);
+
+  // --- 僚机 ---
+  updateWingmen(dt);
 
   // --- 敌方子弹：移动 + 出界 + 命中玩家 ---
   for (const eb of eBullets) {
@@ -836,12 +1018,9 @@ function update(dt) {
       continue;
     }
     const dx = eb.x - player.x, dy = eb.y - player.y;
-    if (dx * dx + dy * dy < (eb.r + player.r) * (eb.r + player.r)) {
+    if (player.invincible <= 0 && dx * dx + dy * dy < (eb.r + player.r) * (eb.r + player.r)) {
       eb.active = false;
-      explode(player.x, player.y, "#5fd0ff", 40, 2.2);
-      player.alive = false;
-      state.over = true;
-      if (state.score > state.best) state.best = state.score;
+      playerDie();
     }
   }
 
@@ -886,6 +1065,7 @@ function update(dt) {
   elKills.textContent = state.kills;
   elTime.textContent = state.time.toFixed(0) + "s";
   elPower.textContent = (player.weapon === "lightning" ? "⚡" : player.weapon === "laser" ? "✦" : player.weapon === "missile" ? "🚀" : "") + "Lv" + player.power;
+  elLives.textContent = "♥".repeat(Math.max(0, state.lives));
 }
 
 function render() {
@@ -1139,6 +1319,47 @@ function render() {
   ctx.globalAlpha = 1;
   ctx.shadowBlur = 0;
 
+  // 持续光炮（镭射蓄力大招）：宽幅金柱跟随机体，闪烁衰减
+  for (const sb of superBeams) {
+    const a = clamp(sb.ttl / sb.max, 0, 1) * (0.75 + 0.25 * Math.sin(state.time * 30));
+    ctx.globalAlpha = a;
+    ctx.fillStyle = "#ffe27a";
+    ctx.shadowColor = "#ffae42";
+    ctx.shadowBlur = 26;
+    ctx.fillRect(player.x - sb.width / 2, -10, sb.width, player.y - 10);
+    ctx.shadowBlur = 0;
+    ctx.fillStyle = "#fff";
+    ctx.fillRect(player.x - sb.width * 0.15, -10, sb.width * 0.3, player.y - 10);
+  }
+  ctx.globalAlpha = 1;
+  ctx.shadowBlur = 0;
+
+  // 球形闪电（闪电蓄力大招）：辉光球体 + 表面抖动电弧
+  for (const b of balls) {
+    ctx.save();
+    ctx.translate(b.x, b.y);
+    ctx.globalAlpha = clamp(b.ttl / 0.5, 0, 1);
+    ctx.fillStyle = "rgba(154,255,255,0.28)";
+    ctx.shadowColor = "#5ad0ff";
+    ctx.shadowBlur = 24;
+    ctx.beginPath();
+    ctx.arc(0, 0, b.r, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = "#bffcff";
+    ctx.lineWidth = 1.5;
+    for (let k = 0; k < 5; k++) {
+      const a0 = rand(0, Math.PI * 2), a1 = a0 + rand(0.6, 1.6);
+      ctx.beginPath();
+      ctx.moveTo(Math.cos(a0) * b.r, Math.sin(a0) * b.r);
+      ctx.lineTo(Math.cos((a0 + a1) / 2) * b.r * rand(0.2, 0.6), Math.sin((a0 + a1) / 2) * b.r * rand(0.2, 0.6));
+      ctx.lineTo(Math.cos(a1) * b.r, Math.sin(a1) * b.r);
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+  ctx.globalAlpha = 1;
+  ctx.shadowBlur = 0;
+
   // 电弧（链式闪电）：每帧重新抖动折线，白色内芯 + 青色辉光
   for (const b of bolts) {
     ctx.globalAlpha = clamp(b.ttl / b.max, 0, 1);
@@ -1169,10 +1390,41 @@ function render() {
   ctx.globalAlpha = 1;
   ctx.shadowBlur = 0;
 
+  // 僚机：青色小六边形 + 尾焰
+  for (const w of wingmen) {
+    ctx.save();
+    ctx.translate(w.x, w.y);
+    const wflame = 4 + Math.sin(state.time * 40 + w.ox) * 2;
+    ctx.fillStyle = "#ffd27a";
+    ctx.shadowColor = "#ffae42";
+    ctx.shadowBlur = 8;
+    ctx.beginPath();
+    ctx.moveTo(-3, 6);
+    ctx.lineTo(0, 6 + wflame);
+    ctx.lineTo(3, 6);
+    ctx.closePath();
+    ctx.fill();
+    ctx.fillStyle = "#7fd0ff";
+    ctx.shadowColor = "#5fd0ff";
+    ctx.shadowBlur = 10;
+    ctx.beginPath();
+    for (let k = 0; k < 6; k++) {
+      const a = (k / 6) * Math.PI * 2;
+      const px = Math.cos(a) * 7, py = Math.sin(a) * 7;
+      k === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+    }
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+  }
+  ctx.shadowBlur = 0;
+
   // 玩家
   if (player.alive) {
     ctx.save();
     ctx.translate(player.x, player.y);
+    // 无敌期间闪烁
+    if (player.invincible > 0) ctx.globalAlpha = 0.4 + 0.3 * Math.sin(state.time * 20);
 
     if (player.transformed) {
       // ===== 中型机：多喷射双引擎，更大体型 =====
@@ -1274,6 +1526,22 @@ function render() {
   ctx.shadowBlur = 0;
 
   ctx.restore();
+
+  // 蓄力光环：武器色圆环随蓄力扩大（画在震动坐标系外，稳定指示）
+  if (player.charging && chargeState.t > 0) {
+    const p = chargeRatio();
+    const col = player.weapon === "laser" ? "#ffe27a" : player.weapon === "lightning" ? "#9affff" : player.weapon === "missile" ? "#ffae42" : "#7fd0ff";
+    ctx.globalAlpha = 0.4 + 0.6 * p;
+    ctx.strokeStyle = col;
+    ctx.lineWidth = 2 + 3 * p;
+    ctx.shadowColor = col;
+    ctx.shadowBlur = 16;
+    ctx.beginPath();
+    ctx.arc(player.x, player.y, 26 + 30 * p + Math.sin(state.time * 12) * 3, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+    ctx.shadowBlur = 0;
+  }
 
   // 开始遮罩
   if (!state.started && !state.over) {

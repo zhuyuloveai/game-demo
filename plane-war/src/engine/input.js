@@ -58,7 +58,13 @@ export function initInput({ state, player, reset }) {
       const order = ["gun", "lightning", "laser", "missile"];
       player.weapon = order[(order.indexOf(player.weapon) + 1) % order.length];
     }
+    if ((e.key === "a" || e.key === "A") && state.started && !state.over && !e.repeat) {
+      player.charging = true; // 蓄力开始（松开由 keyup 结束）
+    }
     // 注意：游戏运行中按 ESC 会被浏览器用于退出 Pointer Lock，
     // 由 pointerlockchange 自动暂停，无需在此处理。
+  });
+  window.addEventListener("keyup", (e) => {
+    if (e.key === "a" || e.key === "A") player.charging = false; // 松手释放蓄力攻击
   });
 }
