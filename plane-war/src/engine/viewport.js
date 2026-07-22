@@ -6,6 +6,7 @@ export const elBest = document.getElementById("best");
 export const elKills = document.getElementById("kills");
 export const elTime = document.getElementById("time");
 export const elPower = document.getElementById("power");
+export const elLives = document.getElementById("lives");
 
 // 可变的画布尺寸（resize 会更新，其他模块读 W/H）
 export const viewport = { W: 0, H: 0 };

@@ -10,6 +10,8 @@ export const player = {
   fireCooldown: 0,
   fireInterval: 0.11,
   alive: true,
+  invincible: 0,  // 受击后的无敌剩余时间（秒），闪烁且免疫碰撞
+  charging: false, // 按住 A 蓄力中（由 input 维护，main 读）
 };
 
 // 火力上限：小飞机 5 级，变形后 10 级
