@@ -1,5 +1,6 @@
 import { canvas, viewport } from "./viewport.js";
 import { clamp } from "../core/math.js";
+import { initAudio, sfx, toggleMute, chargeStop } from "./audio.js";
 
 // ===== 输入：Pointer Lock + 相对位移模拟跟手 =====
 // 运行时锁定鼠标在画布内（光标出不去）；用累积位移维护飞机的虚拟绝对坐标，
@@ -39,6 +40,7 @@ export function initInput({ state, player, reset }) {
     locked = document.pointerLockElement === canvas;
     if (!locked && !state.over) {
       state.paused = true;
+      chargeStop(); // 暂停时停掉蓄力持续音
       canvas.style.cursor = "default";
     } else if (locked) {
       state.paused = false;
@@ -48,15 +50,23 @@ export function initInput({ state, player, reset }) {
 
   // 点击/按键用于重新开始
   canvas.addEventListener("pointerdown", () => {
-    if (!state.started) { state.started = true; requestLock(); return; }
+    if (!state.started) {
+      state.started = true;
+      initAudio(); // AudioContext 需用户手势创建
+      sfx("start");
+      requestLock();
+      return;
+    }
     if (state.over) reset();
     else if (state.paused) requestLock(); // 点击恢复（会重新进入锁定）
   });
   window.addEventListener("keydown", (e) => {
     if (e.key === "r" || e.key === "R") { if (state.over) reset(); }
+    if (e.key === "m" || e.key === "M") toggleMute();
     if ((e.key === "q" || e.key === "Q") && state.started && !state.over) {
       const order = ["gun", "lightning", "laser", "missile"];
       player.weapon = order[(order.indexOf(player.weapon) + 1) % order.length];
+      sfx("switch", { index: order.indexOf(player.weapon) });
     }
     if ((e.key === "a" || e.key === "A") && state.started && !state.over && !e.repeat) {
       player.charging = true; // 蓄力开始（松开由 keyup 结束）
@@ -65,6 +75,6 @@ export function initInput({ state, player, reset }) {
     // 由 pointerlockchange 自动暂停，无需在此处理。
   });
   window.addEventListener("keyup", (e) => {
-    if (e.key === "a" || e.key === "A") player.charging = false; // 松手释放蓄力攻击
+    if (e.key === "a" || e.key === "A") { player.charging = false; chargeStop(); } // 松手释放蓄力攻击
   });
 }
