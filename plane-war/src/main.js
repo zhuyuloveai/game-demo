@@ -1,6 +1,7 @@
 import { rand, clamp } from "./core/math.js";
 import { ctx, elScore, elBest, elKills, elTime, elPower, elLives, viewport } from "./engine/viewport.js";
 import { mouse, initInput, startGame } from "./engine/input.js";
+import { initAudio, sfx, chargeStart, chargeSet, chargeStop } from "./engine/audio.js";
 import { state } from "./game/state.js";
 import {
   player, maxPower,
@@ -75,6 +76,7 @@ const WEAPON_LEVELS = [
 
 // 按当前武器等级发射子弹
 function fireBullet() {
+  sfx("shoot");
   const lvl = WEAPON_LEVELS[Math.min(player.power - 1, WEAPON_LEVELS.length - 1)];
   const speed = 780;
   for (const s of lvl.shots) {
@@ -198,6 +200,7 @@ function strikeLightning(px, py, dmg, chains, range) {
     ttl: 0.14,
     max: 0.14,
   });
+  sfx("zap");
   return true;
 }
 
@@ -247,7 +250,10 @@ function laserStrike(bx, by, width, dmg, visual = true) {
     }
   }
 
-  if (visual) beams.push({ x: bx, y0: by, y1: -10, width, ttl: 0.18, max: 0.18 });
+  if (visual) {
+    beams.push({ x: bx, y0: by, y1: -10, width, ttl: 0.18, max: 0.18 });
+    sfx("laser"); // visual=false 的持续光炮 tick 不发声，避免连鸣
+  }
 }
 
 function fireLaser() {
@@ -291,6 +297,7 @@ function nearestTarget(x, y) {
 }
 
 function launchMissile(x, y, angle, dmg) {
+  sfx("missile");
   missiles.push({
     x, y,
     angle,
@@ -446,6 +453,7 @@ const balls = [];      // 球形闪电：{ x, y, vy, r, ttl, zapCd, dmg }
 const chargeRatio = () => clamp(chargeState.t / CHARGE_MAX, 0, 1);
 
 function releaseCharge() {
+  sfx("chargeRelease");
   const p = chargeRatio();
   const lvlIdx = Math.min(player.power - 1, 9);
   if (player.weapon === "lightning") {
@@ -486,8 +494,11 @@ function releaseCharge() {
 function updateCharge(dt) {
   // 蓄力 / 松手释放
   if (player.charging) {
+    if (chargeState.t === 0) chargeStart(); // 持续音起步
     chargeState.t = Math.min(chargeState.t + dt, CHARGE_MAX);
+    chargeSet(chargeRatio()); // 音高随蓄力上升
   } else if (chargeState.t > 0) {
+    chargeStop();
     if (chargeState.t >= CHARGE_MIN) releaseCharge();
     chargeState.t = 0;
   }
@@ -551,6 +562,7 @@ function updatePowerups(dt) {
         if (player.power < maxPower()) player.power += 1;
         explode(p.x, p.y, "#ffe27a", 10, 0.6);
       }
+      sfx("pickup");
       powerups.splice(i, 1);
     }
   }
@@ -559,6 +571,7 @@ function updatePowerups(dt) {
 // ===== Boss 系统 =====
 // 每 BOSS_INTERVAL 秒出现一个 Boss；期间暂停普通刷怪，击杀后恢复。
 function spawnBoss() {
+  sfx("bossWarn");
   bossState.bossSpawnIndex += 1;
   const level = bossState.bossSpawnIndex;
   const hp = 600 + level * 200;   // 血量随波次递增
@@ -661,6 +674,7 @@ function updateBoss(dt) {
       explode(boss.x + rand(-30, 30), boss.y + rand(-30, 30), "#ffd27a", 20, 1.6);
     }
     explode(boss.x, boss.y, "#ff5a5a", 36, 2.2);
+    sfx("bigBoom");
     state.score += 300;
     state.kills += 1;
     // 第一个 Boss 必掉变形道具（每局仅一次），之后掉普通升级
@@ -780,6 +794,7 @@ function explode(x, y, color, count = 14, power = 1) {
 // 击杀敌机：爆炸、计分、掉落、分裂机裂变（不移出数组，由调用方 splice）
 function killEnemy(e) {
   explode(e.x, e.y, e.glow, e.type === "tank" ? 24 : 16, e.type === "tank" ? 1.6 : 1);
+  sfx("explode", { power: e.type === "tank" ? 1.6 : 1 });
   state.score += e.score;
   state.kills += 1;
   maybeDropPowerup(e.x, e.y, false);
@@ -804,11 +819,14 @@ function killEnemy(e) {
 // 玩家受击：扣命，原地复活 + 无敌闪烁；命尽才游戏结束
 function playerDie() {
   explode(player.x, player.y, "#5fd0ff", 40, 2.2);
+  sfx("hit");
+  chargeStop(); // 蓄力中死亡时停掉持续音
   state.lives -= 1;
   elLives.textContent = "♥".repeat(Math.max(0, state.lives)); // 死亡当帧立即刷新（游戏结束后 update 不再跑 HUD）
   if (state.lives <= 0) {
     player.alive = false;
     state.over = true;
+    sfx("gameover");
     if (state.score > state.best) state.best = state.score;
   } else {
     player.invincible = 2.5; // 无敌时间（秒）
@@ -846,12 +864,14 @@ function reset() {
   balls.length = 0;
   chargeState.t = 0;
   player.charging = false;
+  chargeStop();
   spawnState.spawnInterval = 0.9;
   bossState.boss = null;
   bossState.bossTimer = BOSS_INTERVAL;
   bossState.bossSpawnIndex = 0;
   shakeState.value = 0;
   startGame(); // 重开后请求 Pointer Lock
+  sfx("start");
 }
 
 // ===== 主循环 =====
