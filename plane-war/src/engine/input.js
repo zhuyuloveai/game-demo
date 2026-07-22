@@ -4,7 +4,7 @@ import { clamp } from "../core/math.js";
 // ===== 输入：Pointer Lock + 相对位移模拟跟手 =====
 // 运行时锁定鼠标在画布内（光标出不去）；用累积位移维护飞机的虚拟绝对坐标，
 // 既锁住光标又保留“飞机跟着鼠标走”的跟手手感。
-export const mouse = { x: 0, y: 0 };
+export const mouse = { x: viewport.W / 2, y: viewport.H * 0.8 };
 let locked = false;
 let _state = null;
 
