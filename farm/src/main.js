@@ -3,7 +3,7 @@ import { ctx, resize } from "./engine/viewport.js";
 import { initInput, hover } from "./engine/input.js";
 import { state } from "./game/state.js";
 import { CROPS } from "./game/crops.js";
-import { initField, render } from "./game/world.js";
+import { initField, render, update, plant, progressOf, plots } from "./game/world.js";
 
 // ===== 田地 =====
 initField();
@@ -41,15 +41,16 @@ function buildCropUI() {
 }
 buildCropUI();
 
-// 点击地块后的行为（后续阶段实现种植/收获）
+// 点击地块：空地 → 种植当前作物；成熟 → 收获（下一阶段）；生长中 → 忽略
 function onAction(idx) {
-  // 阶段1：交互底座，暂无动作
+  if (!plots[idx].crop) plant(idx);
 }
 
 initInput(onAction);
 
 // ===== 主循环 =====
 function loop(ms) {
+  update(ms);
   render(ctx, hover.idx);
   requestAnimationFrame(loop);
 }
