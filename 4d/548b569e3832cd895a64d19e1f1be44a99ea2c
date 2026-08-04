@@ -1,0 +1,22 @@
+farm/src/game/world.js
+  h_3a8df3cf4e70f0 6,71,86,197,201-211
+farm/src/main.js
+  h_3a8df3cf4e70f0 4,13-22,32,64-70
+  h_73cfd908b059c1 71
+farm/src/engine/audio.js
+  h_3a8df3cf4e70f0 1-53
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "4d548b569e3832cd895a64d19e1f1be44a99ea2c",
+  "prompts": {},
+  "humans": {
+    "h_3a8df3cf4e70f0": {
+      "author": "朱宇 <zhuyu@zhuyudeMacBook-Air.local>"
+    },
+    "h_73cfd908b059c1": {
+      "author": "zhuyu <zhuyu4010qq@gmail.com>"
+    }
+  }
+}
