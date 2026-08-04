@@ -1,6 +1,7 @@
 // ===== 绿野农场 入口 =====
 import { ctx, resize, elCoins, elHarvested, elEarned } from "./engine/viewport.js";
 import { initInput, hover } from "./engine/input.js";
+import { initAudio, toggleMute, sfx } from "./engine/audio.js";
 import { state } from "./game/state.js";
 import { CROPS } from "./game/crops.js";
 import { initField, render, update, plant, harvest, progressOf, plots } from "./game/world.js";
@@ -8,6 +9,16 @@ import { initField, render, update, plant, harvest, progressOf, plots } from "./
 // ===== 田地 =====
 initField();
 window.addEventListener("resize", () => { resize(); initField(); });
+
+// ===== 音频：首次用户手势后创建 AudioContext =====
+let audioReady = false;
+function ensureAudio() {
+  if (audioReady) return;
+  initAudio();
+  audioReady = true;
+}
+window.addEventListener("pointerdown", ensureAudio);
+window.addEventListener("keydown", ensureAudio);
 
 // ===== 作物选择 UI（由 CROPS 数据生成，按钮/图鉴共用一份数据）=====
 const cropList = document.getElementById("crop-list");
@@ -18,6 +29,7 @@ function selectCrop(id) {
   for (const b of cropList.querySelectorAll(".crop-btn")) {
     b.classList.toggle("active", b.dataset.crop === id);
   }
+  sfx("select");
 }
 
 function buildCropUI() {
@@ -48,6 +60,14 @@ function onAction(idx) {
 }
 
 initInput(onAction);
+
+// ===== 键盘：1/2/3 切换作物，M 静音 =====
+window.addEventListener("keydown", (e) => {
+  if (e.key === "1") selectCrop("carrot");
+  else if (e.key === "2") selectCrop("tomato");
+  else if (e.key === "3") selectCrop("corn");
+  else if (e.key.toLowerCase() === "m") toggleMute();
+});
 
 // ===== HUD 同步（值变化时才刷新 DOM）=====
 let hud = { coins: -1, harvested: -1, earned: -1 };

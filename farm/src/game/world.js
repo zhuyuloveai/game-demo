@@ -3,6 +3,7 @@ import { viewport } from "../engine/viewport.js";
 import { clamp } from "../core/math.js";
 import { cropById } from "./crops.js";
 import { state } from "./state.js";
+import { sfx } from "../engine/audio.js";
 
 export const COLS = 5;
 export const ROWS = 4;
@@ -67,6 +68,7 @@ export function update(ms) {
 export function plant(idx) {
   const crop = cropById(state.selected);
   plots[idx].crop = { kind: crop.id, t0: now };
+  sfx("plant");
 }
 
 // 收获：成熟作物 → 入账金币并清空地块
@@ -81,6 +83,7 @@ export function harvest(idx) {
   fx.push({ type: "coin", x: c.x, y: c.y - field.plot * 0.2, text: `+${crop.price}`, ttl: 0.9, max: 0.9 });
   puff(idx, 8);
   plots[idx] = { crop: null };
+  sfx("harvest");
 }
 
 // 泥土小颗粒迸溅
@@ -191,10 +194,21 @@ function drawCrop(ctx, i) {
     // 发芽期：嫩苗随进度长大
     const size = pl * (0.32 + 0.14 * ((p - 0.2) / 0.4));
     drawEmoji(ctx, "🌱", c.x, c.y, size);
-  } else {
+  } else if (p < 1) {
     // 结果期：作物轮廓渐清晰
     const size = pl * (0.5 + 0.16 * ((p - 0.6) / 0.4));
     drawEmoji(ctx, crop.emoji, c.x, c.y, size, 0.85);
+  } else {
+    // 成熟：金色光晕 + 呼吸放大，提示可收获
+    const pulse = 1 + 0.06 * Math.sin(now * 4);
+    const glow = ctx.createRadialGradient(c.x, c.y, 0, c.x, c.y, pl * 0.55);
+    glow.addColorStop(0, "rgba(255, 220, 120, 0.35)");
+    glow.addColorStop(1, "rgba(255, 220, 120, 0)");
+    ctx.fillStyle = glow;
+    ctx.beginPath();
+    ctx.arc(c.x, c.y, pl * 0.55, 0, Math.PI * 2);
+    ctx.fill();
+    drawEmoji(ctx, crop.emoji, c.x, c.y, pl * 0.7 * pulse);
   }
 
   // 生长进度条
