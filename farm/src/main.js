@@ -1,9 +1,9 @@
 // ===== 绿野农场 入口 =====
-import { ctx, resize } from "./engine/viewport.js";
+import { ctx, resize, elCoins, elHarvested, elEarned } from "./engine/viewport.js";
 import { initInput, hover } from "./engine/input.js";
 import { state } from "./game/state.js";
 import { CROPS } from "./game/crops.js";
-import { initField, render, update, plant, progressOf, plots } from "./game/world.js";
+import { initField, render, update, plant, harvest, progressOf, plots } from "./game/world.js";
 
 // ===== 田地 =====
 initField();
@@ -41,17 +41,27 @@ function buildCropUI() {
 }
 buildCropUI();
 
-// 点击地块：空地 → 种植当前作物；成熟 → 收获（下一阶段）；生长中 → 忽略
+// 点击地块：空地 → 种植当前作物；成熟 → 收获；生长中 → 忽略
 function onAction(idx) {
   if (!plots[idx].crop) plant(idx);
+  else if (progressOf(idx) >= 1) harvest(idx);
 }
 
 initInput(onAction);
+
+// ===== HUD 同步（值变化时才刷新 DOM）=====
+let hud = { coins: -1, harvested: -1, earned: -1 };
+function syncHud() {
+  if (state.coins !== hud.coins) { hud.coins = state.coins; elCoins.textContent = state.coins; }
+  if (state.harvested !== hud.harvested) { hud.harvested = state.harvested; elHarvested.textContent = `${state.harvested} 株`; }
+  if (state.earned !== hud.earned) { hud.earned = state.earned; elEarned.textContent = state.earned; }
+}
 
 // ===== 主循环 =====
 function loop(ms) {
   update(ms);
   render(ctx, hover.idx);
+  syncHud();
   requestAnimationFrame(loop);
 }
 requestAnimationFrame(loop);

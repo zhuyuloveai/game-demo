@@ -15,6 +15,8 @@ export const plots = [];
 let tufts = []; // 背景草丛装饰（静态，resize 时重建）
 let now = 0;    // 游戏时钟（秒，基于挂钟时间，切后台也能继续生长）
 let lastMs = 0;
+// 粒子特效：{ type: "puff"|"coin", ... }
+export const fx = [];
 
 export function initField() {
   const pad = Math.min(viewport.W, viewport.H) * 0.07;
@@ -46,17 +48,57 @@ export function hitTest(x, y) {
   return row * COLS + col;
 }
 
-// 每帧推进时钟（ms 为 rAF 时间戳，跨帧差值被钳制）
+// 每帧推进时钟与粒子（ms 为 rAF 时间戳，跨帧差值被钳制）
 export function update(ms) {
   const dt = lastMs ? Math.min((ms - lastMs) / 1000, 0.05) : 0;
   lastMs = ms;
   now = ms / 1000;
+
+  for (let i = fx.length - 1; i >= 0; i--) {
+    const f = fx[i];
+    f.ttl -= dt;
+    f.x += (f.vx || 0) * dt;
+    f.y += ((f.vy || (f.type === "coin" ? -36 : 0))) * dt;
+    if (f.ttl <= 0) fx.splice(i, 1);
+  }
 }
 
 // 种植：空地种下当前选择的作物
 export function plant(idx) {
   const crop = cropById(state.selected);
   plots[idx].crop = { kind: crop.id, t0: now };
+}
+
+// 收获：成熟作物 → 入账金币并清空地块
+export function harvest(idx) {
+  const plot = plots[idx];
+  const crop = cropById(plot.crop.kind);
+  state.coins += crop.price;
+  state.harvested += 1;
+  state.earned += crop.price;
+
+  const c = center(idx);
+  fx.push({ type: "coin", x: c.x, y: c.y - field.plot * 0.2, text: `+${crop.price}`, ttl: 0.9, max: 0.9 });
+  puff(idx, 8);
+  plots[idx] = { crop: null };
+}
+
+// 泥土小颗粒迸溅
+function puff(idx, n) {
+  const c = center(idx);
+  for (let k = 0; k < n; k++) {
+    const a = Math.random() * Math.PI * 2;
+    const sp = 30 + Math.random() * 60;
+    fx.push({
+      type: "puff",
+      x: c.x, y: c.y,
+      vx: Math.cos(a) * sp,
+      vy: Math.sin(a) * sp - 20,
+      r: 2 + Math.random() * 3,
+      ttl: 0.5 + Math.random() * 0.2,
+      max: 0.7,
+    });
+  }
 }
 
 // 生长进度 0~1（空地返回 0）
@@ -170,6 +212,32 @@ function drawCrop(ctx, i) {
   }
 }
 
+// 粒子特效：金币飘字 + 泥土颗粒
+function drawFx(ctx) {
+  for (const f of fx) {
+    const a = clamp(f.ttl / f.max, 0, 1);
+    if (f.type === "puff") {
+      ctx.globalAlpha = a * 0.8;
+      ctx.fillStyle = "#7a5230";
+      ctx.beginPath();
+      ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.globalAlpha = 1;
+    } else {
+      ctx.globalAlpha = a;
+      ctx.font = 'bold 16px sans-serif';
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.strokeStyle = "rgba(0, 0, 0, 0.6)";
+      ctx.lineWidth = 3;
+      ctx.strokeText(f.text, f.x, f.y);
+      ctx.fillStyle = "#ffe27a";
+      ctx.fillText(f.text, f.x, f.y);
+      ctx.globalAlpha = 1;
+    }
+  }
+}
+
 export function render(ctx, hoverIdx) {
   // 背景草地渐变
   const g = ctx.createLinearGradient(0, 0, 0, viewport.H);
@@ -197,4 +265,7 @@ export function render(ctx, hoverIdx) {
     drawPlot(ctx, i, i === hoverIdx);
     drawCrop(ctx, i);
   }
+
+  // 粒子特效
+  drawFx(ctx);
 }
