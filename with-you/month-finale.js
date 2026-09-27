@@ -1,0 +1,17 @@
+export function monthFinale(s,who,p,names){
+ const lin=who==='lin',partner=s.ending&&s.ending!==who?names[s.ending]?.name:null;
+ return {...p,title:'把下个月，也留一点给你',lines:lin?[
+ '知夏今天没有带电脑。她把下个月的日历放在一边，先问你想喝什么。',
+ s.flags.linFailure||s.flags.linKeep?'你们聊起那场没有卖完卡片的市集，也聊起后来仍然想做的事。':'你们把这个月的小事慢慢说了一遍，连那些没来得及安排的计划也有了位置。',
+ '“下个月，我想继续认识你。”她停了一下，“这次也想听听，你希望我们是什么关系。”'
+ ]:[
+ '以宁把画笔洗好，在窗边给你留了一个位置。',
+ s.flags.shenExhibit||s.flags.shenConnect?'展览已经结束，那张黄昏回到墙上。你们说起站在画前的那一天。':'她把最近画的几页街景摊开，慢慢讲起这个月发生的事。',
+ '“下个月还会有很多空白。”她看向你，“你愿意怎样和我一起往下画？”'
+ ],options:[{
+ label:'认真开始交往，把下个月留一点给彼此',points:2,date:true,
+ requires:s=>s.rel[who]>=12&&s.visits[who]>=6&&(!s.ending||s.ending===who),
+ lock:partner?`这一章已与${partner}确定关系，保留这份约定`:`已相处${s.visits[who]}次、亲近${s.rel[who]}；需要至少6次相处与亲近12，也可以作为朋友结束这个月`,
+ response:lin?'你们没有把日历写满，只圈出了下一次见面的日子。她轻轻握住你的手。“忙的时候也可以说，想我的时候也是。”':'你们一起走到河边亮起灯的画摊。她把画着两个人背影的那页递给你，再轻轻伸出手。这个安静的月底，有了明确的答案。'
+ },{label:partner?'坦诚说明已有约定，以朋友身份继续相处':'珍惜这份友谊，以朋友身份继续了解',points:1,response:partner?'她感谢你把话说清楚。下个月还可以作为朋友见面，你们都知道这份关系的位置。':'她点点头，把下一次见面的约定留在朋友的位置。这个月的倾听和陪伴，都没有因此失去意义。'}]};
+}

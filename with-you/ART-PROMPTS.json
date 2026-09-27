@@ -1,0 +1,13 @@
+{
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "file": "assets/lin-cafe.png",
+      "prompt": "Use case: illustration-story. Create a premium Korean semi-realistic romance visual novel CG, landscape 1536x1024. Beautiful adult East Asian woman age 25, long dark chocolate hair, gentle confident eyes, ivory blouse and muted sage cardigan, tiny silver earrings, seated across from viewer in a beautifully detailed Seoul-style coffee shop by a huge rain-speckled window, offering a warm coffee cup toward viewer. Medium waist-up framing, woman on right 60% of image, atmospheric empty cafe and rainy dusk city on left. Sophisticated hand-painted digital illustration, delicate realistic facial anatomy, warm amber practical lighting contrasting teal blue rainy evening, cinematic depth, beautiful hands, understated emotional intimacy, high-end Korean romance game key art. No text, no watermark, no UI, no collage, no male character."
+    },
+    {
+      "file": "assets/shen-studio.png",
+      "prompt": "Use case: illustration-story. Premium Korean semi-realistic modern romance visual novel CG, landscape 1536x1024. Adult East Asian woman age 26 with shoulder-length black bob hair tucked behind one ear, expressive warm eyes, cream knit top and loose muted blue overshirt with small paint marks, artist in her intimate rooftop illustration studio at sunset. She sits to right of frame looking toward viewer with a playful quiet smile, holding open a sketchbook showing a small watercolor cityscape. Left half contains beautiful plants, wooden art desk, scattered paintbrushes, warm windows, distant city and peach sunset. Cinematic intimate medium waist-up shot, highly polished painterly realism, Korean romance editorial illustration, delicate face and natural anatomy, tactile fabric, amber light and dusty blue shadows. Clearly illustrated with refined brushwork, not a photograph. No text, watermark, UI, collage or other people."
+    }
+  ]
+}
