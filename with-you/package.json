@@ -1,0 +1,9 @@
+{
+  "name": "with-you-demo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test.mjs iteration/*.test.mjs month-iteration/*.test.mjs && node iteration/check-routes.mjs",
+    "start": "python3 -m http.server 8017 --bind 127.0.0.1"
+  }
+}
