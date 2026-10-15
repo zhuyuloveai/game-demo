@@ -1,0 +1,17 @@
+{
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "file": "assets/work-office.png",
+      "prompt": "Use case: illustration-story. Asset: 16:9 landscape background CG for a premium Korean semi-realistic modern urban life romance game, 1536x864. First-person seated view at your desk in a small stylish creative agency office in an East Asian city. A laptop showing abstract unlettered design layout, notebook with illegible subtle marks, porcelain coffee, warm oak desk, leafy plant, large windows overlooking layered city buildings. Soft late morning sun and atmospheric blue distance, sophisticated painterly realistic digital illustration, tactile materials, understated cinematic amber and sage palette. Peaceful but purposeful working atmosphere, lived-in tiny details. Wide scene with important desk objects in middle third, bottom quarter visually quiet for game dialogue overlay. No visible protagonist, no people, no readable text, no UI, no watermark, no collage."
+    },
+    {
+      "file": "assets/study-library.png",
+      "prompt": "Use case: illustration-story. Asset: 16:9 landscape location CG for premium Korean semi-realistic urban life romance visual novel, 1536x864. First-person sitting in a serene contemporary neighborhood library reading alcove. An open illustrated design textbook with abstract diagrams and no readable words, notes, graphite pencil, warm ceramic tea on walnut reading desk in foreground; tall wooden bookshelves extending toward center background, large arched windows on right with gingko trees beyond, dappled soft afternoon golden light. Cozy intimate architectural beauty, sophisticated painterly realism, amber highlights, sage greens, cream and muted blue shadows matching upscale Korean romance CG. Scene inviting you to learn and quietly improve your life. Wide composition, visual focal interest in middle third, quiet bottom quarter for dialogue overlay. No people, no visible protagonist, no readable text, no signage, no watermark, no UI, no collage."
+    },
+    {
+      "file": "assets/rest-riverside.png",
+      "prompt": "Use case: illustration-story. Asset: 16:9 landscape scenic CG for premium Korean semi-realistic modern urban romance life game, 1536x864. First person eye-level view from a quiet riverside promenade in an East Asian city in early autumn. A wooden bench and delicate ornamental grasses at left, stone path curving into distance, broad calm river reflecting peach clouds, elegant bridge and soft city skyline in background, a few golden gingko leaves, warm slanting late afternoon sunlight. Tranquil refreshing feeling after a demanding day, atmosphere inviting you to breathe and slow down. Highly polished painterly realism, refined Korean visual novel background illustration, amber light with sage green foliage and muted blue water. Beautiful wide cinematic depth, focal interest in middle third, lower quarter quiet path and shadow suitable for dialogue overlay. No people, no protagonist, no text, no watermark, no UI, no collage."
+    }
+  ]
+}

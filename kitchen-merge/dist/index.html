@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#f9dde4">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="description" content="粉色掌心厨房：收集世界美食、升级厨具、制作食谱，交付订单装修自己的小店。">
+  <title>小厨合合 · 世界美食厨房</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23f9dde4'/%3E%3Cpath d='M14 29h36v9a18 18 0 0 1-36 0z' fill='%23cf6b8e'/%3E%3Cpath d='M25 19q-6-5 0-10m14 10q-6-5 0-10' fill='none' stroke='%23624452' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <main class="game-shell" aria-label="小厨合合游戏">
+    <header class="game-hud" aria-label="厨房等级和资源">
+      <div class="player-level"><span id="level-icon"></span><div><strong id="kitchen-level-label">Lv. 1 见习小厨</strong><div class="level-progress"><div class="progress-track"><span id="xp-progress"></span></div><span id="xp-label">0/100</span></div></div></div>
+      <div class="resource coin-resource" aria-label="金币"><span id="coin-icon"></span><strong id="coin-count">120</strong></div>
+      <button class="resource energy-resource" data-action="energy" aria-label="查看体力和补充体力"><span id="energy-icon"></span><span><strong id="energy-count">100</strong><small>/100</small></span><i aria-hidden="true">+</i></button>
+    </header>
+
+    <section class="kitchen-banner" aria-label="转角小厨房">
+      <div class="banner-copy"><h1>小厨合合<span>✦</span></h1><p id="kitchen-stage-label"><i></i>从小厨房，走向世界美食</p></div>
+      <div id="kitchen-scene" class="kitchen-scene"></div>
+      <span class="open-sign">OPEN</span>
+    </section>
+
+    <button class="quest-strip" data-action="renovation"><span class="mini-icon" id="quest-icon"></span><span id="quest-copy">交付订单，收集星星装修厨房</span><strong id="star-count">★ 0</strong><span aria-hidden="true">›</span></button>
+    <div class="quick-tools" aria-label="厨房工具栏">
+      <button class="quick-tool" data-action="storage"><span class="mini-icon" id="storage-icon"></span>仓库 <span class="badge" id="storage-count">0/6</span></button>
+      <button class="quick-tool" data-action="shop"><span class="mini-icon" id="shop-icon"></span>采购</button>
+      <button class="quick-tool" data-action="rewards"><span class="mini-icon" id="gift-icon"></span>礼物 <span class="badge" id="gift-count">领</span></button>
+      <button class="quick-tool" data-action="recipes"><span class="mini-icon" id="recipes-icon"></span>食谱</button>
+    </div>
+
+    <section class="customer-orders" aria-label="客人订单">
+      <div class="orders-heading"><h2>客人的小心愿 <span id="order-count">3</span></h2><span class="completed-label">已送出 <b id="completed-count">0</b> 单</span></div>
+      <div id="orders" class="orders-list"></div>
+    </section>
+
+    <section class="workbench" aria-label="合成料理台">
+      <div class="board-heading"><h2>我的料理台 <span>两个相同，合成新惊喜</span></h2><button class="hint-button" data-action="hint"><span id="hint-icon"></span>提示</button></div>
+      <div class="board-frame"><div id="board" class="board" role="group" aria-label="七乘七合成棋盘"></div></div>
+      <div class="selection-card" id="selection-card" aria-live="polite"></div>
+      <span id="save-label" class="screen-reader" role="status">进度已自动保存在当前浏览器</span>
+    </section>
+
+    <nav class="bottom-dock" aria-label="游戏功能">
+      <button class="dock-button active" id="kitchen-tab" aria-label="合成料理台" aria-current="page"><span class="dock-icon" id="brand-icon"></span><span>合成</span></button>
+      <button class="dock-button" data-action="renovation" aria-label="装修厨房"><span class="dock-icon" id="renovation-icon"></span><span>小店</span></button>
+      <button class="dock-button" data-action="collection" aria-label="打开物品图鉴"><span class="dock-icon" id="collection-icon"></span><span>图鉴</span></button>
+      <button class="dock-button" data-action="music" id="sound-button" aria-label="音乐与音效"></button>
+      <button class="dock-button" data-action="settings" id="settings-button" aria-label="游戏设置"><span class="dock-icon" id="settings-icon"></span><span>设置</span></button>
+    </nav>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="effects" class="effects" aria-hidden="true"></div>
+  <dialog id="modal"><div class="modal-top"><span class="mini-label">LITTLE KITCHEN</span><button class="icon-button" id="modal-close" aria-label="关闭"></button></div><div id="modal-content"></div></dialog>
+</body>
+</html>

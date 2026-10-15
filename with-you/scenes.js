@@ -1,0 +1,8 @@
+import {workText,workTerms} from './life.js?v=month08';
+import {today} from './week.js?v=month08';
+export const places={
+work:{name:'认真生活的模样',place:'城中 · 创意事务所',image:'assets/work-office.png',quote:'把一个小小的想法，<br>变成看得见的作品。',ambience:'键盘轻响，咖啡还温热',lines:['我把零散的想法排进提案里，删去最后一个多余的句子。按下发送时，终于松了口气。','同事递来的意见，让卡住的地方有了新的方向。我又试了一遍，这次，画面终于对了。','窗外的车流来来往往。我把今天的文件仔细归档，感觉自己在这座城市又站稳了一点。']},
+study:{name:'给未来的一页',place:'街区 · 梧桐图书馆',image:'assets/study-library.png',quote:'世界很大，<br>今天多懂一点就好。',ambience:'翻页声里，时间慢下来',lines:['我选了窗边的位置，戴上耳机听完一节课。原先不懂的地方，在笔记里慢慢连成了一条线。','遇到难懂的章节，我停下来重新画了一遍。窗边的茶凉了，思路却渐渐清晰起来。','我在笔记末尾写下一个新想法。也许下次面对问题时，可以试试另一种回答。']},
+rest:{name:'把时间还给自己',place:'南岸 · 滨河步道',image:'assets/rest-riverside.png',quote:'暂时放下赶路，<br>听一听风的声音。',ambience:'河风吹过，心事也轻了一点',lines:['我把手机放进口袋，沿着河岸慢慢走了一段。风里有草木的气味，绷紧的肩膀终于放松下来。','我在长椅上坐了一会儿，看水面上的光一点点移动。今天允许自己什么也不赶。','脚下的落叶轻轻作响。我把今天的数字暂时放下，眼前这阵风，刚好属于我。']}
+};
+export function createMoment(before,after,id){const scene=places[id];const visits=(before.sceneVisits?.[id]||0);const changes=[];const money=after.cash-before.cash;if(money)changes.push(`余额 ${money>0?'+':'−'}¥${Math.abs(money)}`);const energy=id==='rest'?Math.min(30,100-before.energy):id==='work'?-workTerms(before).energy:-12;changes.push(`精力 ${energy>=0?'+':''}${energy}`);if(id==='study')changes.push('能力 +1');if(before.slot===1||before.career)changes.push(`${before.career?'本周休整':'夜间'}实际恢复精力 +${after.energy-before.energy-energy}（上限 100）`);return {economyReport:after.economy?.period!==before.economy?.period?after.economy?.lastReport.join('；'):null,id,day:before.day,slot:before.slot,text:id==='work'?workText(before):scene.lines[visits%scene.lines.length]+' '+(before.career?'日子往前走，也给自己留一点安静。':today(before).city),changes};}

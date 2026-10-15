@@ -1,0 +1,21 @@
+{
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "file": "assets/ending-lin.png",
+      "prompt": "Use case: identity-preserve / illustration-story. Reference image identifies Lin Zhixia: preserve exactly the adult woman's face, long dark brown hair, ivory blouse, sage cardigan and Korean semi-realistic visual novel illustration style. Create a NEW ending CG in wide 16:9 composition 1536x864: rain has stopped outside the same intimate cafe, clear warm evening light glowing through water droplets, two warm cups of coffee on table, her closed laptop pushed aside. She sits on RIGHT side, leans forward slightly and looks directly at the viewer with an affectionate hopeful smile, one relaxed hand resting near viewer's side of table. This is a quiet first romantic commitment, more emotionally intimate than the original. Left third shows cinematic cafe/window negative space suitable for ending title overlay. Refined painterly realism, beautiful natural hands, warm gold and sage palette. No text, UI, watermark, collage, no visible protagonist."
+    },
+    {
+      "file": "assets/ending-shen.png",
+      "prompt": "Use case: identity-preserve / illustration-story. Reference identifies adult woman Shen Yining, preserve precisely face, short dark bob, cream knit top and muted blue artist overshirt, Korean painterly semi-realistic style. NEW romantic ending CG wide 16:9 1536x864: outdoor small riverside art exhibition at golden hour with hanging watercolor drawings and warm string lights, shimmering river and skyline. Woman on right half of frame smiles shyly directly toward first-person viewer and offers a beautiful sketchbook page with a delicate drawing of TWO people seen from behind sitting side by side watching sunset. No actual other foreground person, only those tiny drawn silhouettes. Emotion of a meaningful personal gift and new intimacy. Elegant cinematic composition, left third atmospheric river and art stands for title overlay, natural hands, refined warm painterly realism. No text, watermark, UI or collage."
+    },
+    {
+      "file": "assets/ending-growth.png",
+      "prompt": "Use case: illustration-story. NEW personal growth ending CG for Korean semi-realistic modern life visual novel, wide 16:9 1536x864. First-person view standing at the large window of a refined small creative agency office after finishing first independent design proposal, looking over glittering East Asian city at blue hour. On RIGHT foreground polished wooden desk with closed laptop, neatly completed portfolio pages showing abstract visual design without readable text, a small warm desk lamp and a cooling coffee. Expansive city lights and gentle twilight sky on left, soft glass reflections and warm interior glow. Quiet earned pride, relief and a hopeful new beginning, no person visible so any player can identify with viewpoint. Cinematic high-end painterly realism, sophisticated muted blue, sage and amber palette, beautiful layered depth, left third relatively calm for ending text overlay. No text, UI, watermark or collage."
+    },
+    {
+      "file": "assets/ending-life.png",
+      "prompt": "Use case: lighting-weather / illustration-story. Use reference as exact apartment architecture and layout. Create NEW cozy everyday-life ending CG, wide 16:9 1536x864: same apartment now after dark, unpacked boxes gone and home neatly settled. Warm table lamp and city lights beyond window. On coffee table in right-center foreground a freshly cooked comforting rice dinner with soup, a steaming mug and a smartphone softly glowing with abstract green chat notification shapes, no readable words. The room feels finally like home, peaceful belonging and anticipation for tomorrow. Preserve sofa, entrance door, window, desk and muted sage linen aesthetic. First-person view with no visible protagonist or other people. Premium Korean semi-realistic painterly visual novel illustration, amber interior versus blue city night, left side relatively calm for title overlay. No text, no watermark, no UI, no collage."
+    }
+  ]
+}

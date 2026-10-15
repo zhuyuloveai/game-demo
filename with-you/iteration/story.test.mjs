@@ -1,0 +1,14 @@
+// Preserve the original seven-day regression contract; monthly routes have separate tests.
+const fresh=(name,background)=>baseFresh(name,background,7);
+import test from 'node:test';import assert from 'node:assert/strict';
+import {fresh as baseFresh,act,choose,getScene,blocked} from '../engine.js';
+const restUntil=(s,day)=>{while(s.day<day)s=act(s,'rest');return s;};
+test('late first meeting never pretends to be an established romance',()=>{let s=restUntil(fresh(),7);s=act(s,'lin');assert.equal(getScene(s).title,'一杯刚好的温度');s=choose(s,0).state;s=act(s,'rest');assert.equal(s.ending.who,null);});
+test('relationship moments are spaced across days and remember vulnerable choice',()=>{let s=fresh();for(let i=0;i<4;i++){s=choose(act(s,'lin'),0).state;assert.ok(blocked(s,'lin'));s=act(s,'rest');}s=act(s,'lin');assert.ok(getScene(s).lines.some(l=>l.includes('害怕')));});
+test('career ending requires actual progress, starting skill alone earns no claim',()=>{let s=fresh('A','study');while(!s.ended)s=act(s,'rest');assert.equal(s.ending.kind,'life');s=fresh();for(let i=0;i<3;i++)s=act(s,'work');while(!s.ended)s=act(s,'rest');assert.equal(s.ending.kind,'growth');assert.ok(s.ending.text.includes('交付'));});
+test('romance ending remembers actual listening and personal project',()=>{let s=fresh();for(let i=0;i<3;i++){s=choose(act(s,'lin'),0).state;s=act(s,'work');}s=restUntil(s,7);s=choose(act(s,'lin'),0).state;s=act(s,'rest');assert.ok(s.ending.text.includes('最想留下'));assert.ok(s.ending.text.includes('交付'));});
+import {createMoment} from '../scenes.js';
+test('energy display reports actual capped overnight recovery',()=>{let s=fresh();s.slot=1;s.energy=100;const after=act(s,'rest');const moment=createMoment(s,after,'rest');assert.ok(moment.changes.some(x=>x.includes('夜间实际恢复精力 +0')));assert.ok(after.logs.at(-1).includes('+0'));});
+test('polished work resource gate and deduction agree',()=>{let s=fresh('A','study');s.workStyle='polish';s.energy=25;assert.ok(blocked(s,'work'));s.energy=26;const after=act(s,'work');assert.equal(after.energy,0);assert.equal(after.cash-s.cash,480);assert.ok(after.flags.polishedWork);});
+test('a second Sunday invitation cannot overwrite an existing promise',()=>{let s=fresh();for(let day=0;day<2;day++){s=choose(act(s,'lin'),0).state;s=choose(act(s,'shen'),0).state;}s=restUntil(s,7);s=choose(act(s,'lin'),0).state;s=act(s,'shen');assert.equal(getScene(s).options[0].requires(s),false);assert.throws(()=>choose(s,0));s=choose(s,1).state;assert.equal(s.ending.who,'lin');assert.ok(s.flags.friendsshen);});
+test('friend ending does not invent the framing scene after three encounters plus Sunday',()=>{let s=fresh();for(let i=0;i<3;i++){s=choose(act(s,'shen'),0).state;s=act(s,'rest');}s=restUntil(s,7);s=choose(act(s,'shen'),1).state;s=act(s,'rest');assert.ok(!s.ending.text.includes('装画框'));assert.ok(s.ending.text.includes('小灯'));});

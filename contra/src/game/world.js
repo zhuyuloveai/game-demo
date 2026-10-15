@@ -5,7 +5,7 @@ export const WORLD_W = 5000; // 世界总宽度（像素）
 export const player = {
   x: 120, y: 0,
   vx: 0, vy: 0,
-  w: 16, h: 34,       // 站立碰撞盒；蹲下 h 变为 22
+  w: 22, h: 52,       // 站立碰撞盒；蹲下 h 变为 32
   dir: 1,             // 朝向 1 右 / -1 左
   grounded: false,
   crouch: false,

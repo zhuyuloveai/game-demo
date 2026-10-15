@@ -67,10 +67,10 @@ function aimVector(move, up, down) {
 function fireBullet(ax, ay) {
   for (const b of bullets) {
     if (!b.active) {
-      const h = player.crouch ? 22 : player.h;
+      const h = player.crouch ? 32 : player.h;
       b.active = true;
-      b.x = player.x + ax * 16;
-      b.y = player.y - h * 0.65 + ay * 16;
+      b.x = player.x + ax * 22;
+      b.y = player.y - h * 0.65 + ay * 22;
       b.vx = ax * BULLET_SPEED;
       b.vy = ay * BULLET_SPEED;
       b.r = 4;
@@ -95,7 +95,7 @@ function spawnEnemy() {
   } else {
     return;
   }
-  enemies.push({ x, y: groundY(), w: 14, h: 30, speed: rand(130, 190) });
+  enemies.push({ x, y: groundY(), w: 20, h: 50, speed: rand(130, 190) });
 }
 
 // ===== 击杀与死亡 =====
@@ -241,7 +241,7 @@ function updateEnemies(dt) {
       continue;
     }
     // 触碰到玩家 → 死亡（一命制）
-    const ph = player.crouch ? 22 : player.h;
+    const ph = player.crouch ? 32 : player.h;
     if (
       Math.abs(e.x - player.x) < (e.w + player.w) / 2 &&
       player.y > e.y - e.h && player.y - ph < e.y
@@ -343,42 +343,42 @@ function drawHills(gy, parallax, gap, hBase, color) {
 function drawPlayer() {
   if (!player.alive) return;
   const sx = player.x - camera.x;
-  const h = player.crouch ? 22 : player.h;
-  const bodyH = player.crouch ? 12 : 22;
+  const h = player.crouch ? 32 : player.h;
+  const bodyH = player.crouch ? 18 : 32;
 
   // 枪（朝瞄准方向）
   const move = (keys.KeyD || keys.ArrowRight ? 1 : 0) - (keys.KeyA || keys.ArrowLeft ? 1 : 0);
   const up = !!(keys.KeyW || keys.ArrowUp);
   const down = !!(keys.KeyS || keys.ArrowDown);
   const [ax, ay] = aimVector(move, up, down);
-  const gx = sx + ax * 6;
-  const gy2 = player.y - h * 0.65 + ay * 6;
+  const gx = sx + ax * 8;
+  const gy2 = player.y - h * 0.65 + ay * 8;
   ctx.strokeStyle = "#9fe8ff";
-  ctx.lineWidth = 3;
+  ctx.lineWidth = 4;
   ctx.beginPath();
   ctx.moveTo(gx, gy2);
-  ctx.lineTo(gx + ax * 14, gy2 + ay * 14);
+  ctx.lineTo(gx + ax * 20, gy2 + ay * 20);
   ctx.stroke();
 
   // 枪口闪光
   if (player.flash > 0) {
     ctx.fillStyle = "#ffe27a";
     ctx.beginPath();
-    ctx.arc(gx + ax * 16, gy2 + ay * 16, 4.5, 0, Math.PI * 2);
+    ctx.arc(gx + ax * 22, gy2 + ay * 22, 6.5, 0, Math.PI * 2);
     ctx.fill();
   }
 
   // 身体
   ctx.fillStyle = "#ff9a3c";
-  ctx.fillRect(sx - 7, player.y - bodyH - 6, 14, bodyH);
+  ctx.fillRect(sx - 10, player.y - bodyH - 9, 20, bodyH);
   // 头
   ctx.fillStyle = "#ffd9b0";
-  ctx.fillRect(sx - 5, player.y - bodyH - 14, 10, 8);
+  ctx.fillRect(sx - 7, player.y - bodyH - 23, 14, 12);
   // 腿（站立时）
   if (!player.crouch) {
     ctx.fillStyle = "#c06828";
-    ctx.fillRect(sx - 6, player.y - 6, 5, 6);
-    ctx.fillRect(sx + 1, player.y - 6, 5, 6);
+    ctx.fillRect(sx - 9, player.y - 9, 7, 9);
+    ctx.fillRect(sx + 2, player.y - 9, 7, 9);
   }
 }
 
@@ -386,12 +386,12 @@ function drawEnemies() {
   for (const e of enemies) {
     const sx = e.x - camera.x;
     ctx.fillStyle = "#ff5a5a";
-    ctx.fillRect(sx - 7, e.y - 28, 14, 22);
+    ctx.fillRect(sx - 10, e.y - 42, 20, 33);
     ctx.fillStyle = "#ffb0a0";
-    ctx.fillRect(sx - 5, e.y - 36, 10, 8);
+    ctx.fillRect(sx - 7, e.y - 54, 14, 12);
     ctx.fillStyle = "#a03030";
-    ctx.fillRect(sx - 6, e.y - 6, 5, 6);
-    ctx.fillRect(sx + 1, e.y - 6, 5, 6);
+    ctx.fillRect(sx - 9, e.y - 9, 7, 9);
+    ctx.fillRect(sx + 2, e.y - 9, 7, 9);
   }
 }
 

@@ -1,0 +1,17 @@
+{
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "file": "assets/lin-market.png",
+      "prompt": "Use case: illustration-story. Asset type: With You desktop visual novel scene CG, wide 16:9. Input image is character identity and art style reference. Create a new scene: the same adult 25-year-old Korean-style woman Lin Zhixia with long wavy brown hair, soft bangs, ivory blouse and sage cardigan, silver drop earrings, at her modest outdoor creative market booth selling handmade city postcards. Preserve her face and refined semi-realistic cinematic illustrated style. She is right of center behind a small table of art postcards, looking at the viewer with a gentle slightly nervous smile. Warm muted autumn afternoon, a few softly blurred community market stalls behind, intimate player POV. Keep lower quarter visually calm for game dialogue overlay. Elegant natural anatomy and detailed environment. No text, readable signage, logos, watermark, UI, or collage.",
+      "saved_path": "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/with-you/assets/lin-market.png",
+      "reference_path": "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/with-you/assets/lin-cafe.png"
+    },
+    {
+      "file": "assets/shen-riverside.png",
+      "prompt": "Use case: illustration-story. Asset type: With You desktop visual novel scene CG, wide 16:9. Input image is character identity and art style reference. Create a new scene with the same adult 26-year-old woman Shen Yining, short black bob, cream knit shirt and loose faded blue overshirt. Preserve face identity and refined Korean semi-realistic cinematic illustration. She sits right of center on a riverside bench, drawing a city corner in an open sketchbook resting on her lap; she looks up toward the viewer sitting nearby with a quiet warm smile. A pencil held naturally, believable hands. Modern riverbank promenade and soft city skyline, late-afternoon golden light and muted blue water. Intimate companion POV. Landscape composition with visual breathing room, lower quarter calm for a dialogue overlay. No text, logo, watermark, UI, collage, or extra foreground people.",
+      "saved_path": "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/with-you/assets/shen-riverside.png",
+      "reference_path": "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/with-you/assets/shen-studio.png"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+OVERTIME ARENA — GENERATED ART ASSETS
+Generation method: built-in image_gen.imagegen (no CLI, no manual image processing).
+Selected originals copied directly; source originals are retained.
+
+ASSET 1: office-background-v1.png
+Source: local image_gen output (copied to the project assets listed here).
+Actual output: PNG, 1658 x 949, RGB, opaque.
+Note: requested 14:9; built-in returned a wider ratio. The game can display the original at 1120 x 720.
+transparent_background: false
+Prompt:
+Use case: photorealistic-natural
+Asset type: playable 2D game background plate; a single overhead office environment with no characters, UI, or overlays.
+Primary request: Photorealistic contemporary office break / multipurpose open area seen from directly overhead, near-orthographic with only extremely slight perspective. Landscape aspect ratio exactly 14:9, ideally 1568x1008 or 1120x720, intended to map to a 1120x720 game canvas.
+Composition/framing: The entire central rectangle corresponding to x=85..1035 and y=85..635 on a 1120x720 canvas must be uninterrupted walkable floor. Keep ALL furniture, plants, desks, shelving, glass partitions, chairs and objects confined to a very narrow border: the outermost approximately 8 percent of each edge, partly cropped by the image edges as needed. This is a large empty office multipurpose room prepared for activity. The camera looks straight down; no horizon, no roof or ceiling, no dramatic isometric angle. Keep the floor level and coherent, with actual photographic material detail.
+Scene/backdrop: A realistic modern workplace, muted charcoal-gray low-pile carpet tiles through the huge empty central floor; a restrained wood perimeter finish, brushed metal trim and a little glass along the edges. A few tightly cropped office furnishings along the extreme border subtly establish the workplace. Keep center wholly empty.
+Style/medium: High fidelity architectural photography / realistic PBR environment plate, visible fine carpet fibers, subtle seams, natural wood grain and physically plausible metal / glass reflections. Realistic materials, not a cartoon or illustration.
+Lighting/mood: Even, soft, neutral indoor daylight; moderate subdued brightness and low contrast so vivid cartoon characters will read clearly on top. Gentle soft shadows only near border objects. No broad hard shadows through the combat area.
+Constraints: no people, no faces, no weapons, no monsters, no text, no labels, no logos, no watermark, no UI, no symbols or game markings, no objects in the central playable floor, no central table or seating island, no perspective tilting of the ground plane.
+
+ASSET 2: default-avatar-v1.png
+Source: local image_gen output (copied to the project assets listed here).
+Actual output: PNG, 1254 x 1254, RGBA with transparent background.
+Alpha checked by read-only PNG decoding: corner RGBA [0,0,0,0]; face center [225,184,164,252].
+transparent_background: true
+Prompt:
+Use case: photorealistic-natural
+Asset type: transparent default face sticker for an office-themed 2D action game.
+Primary request: A completely fictional adult office worker's isolated realistic photographed head, square composition. A man around his mid thirties with short slightly tousled dark hair and a softly tired, neutral, mildly deadpan expression, as if a long office day has just ended. Subtle understated humor through expression only. Eyes open and looking at the viewer. Head straight-on with a tiny natural three-quarter turn, no dramatic angle.
+Style/medium: Real studio portrait photography, believable pores and subtle skin texture, natural hair detail and anatomy, no caricature, no illustration, no celebrity likeness. Soft even light with clear friendly readable features.
+Composition/framing: The complete head including all hair, both ears and chin is centered and large, filling approximately 86 percent of a square image, with a small transparent margin on every side. Clean cutout contour, no cropped hair or chin. Only the head; no neck, shoulders, chest, clothing, hands or other body parts. The lower silhouette ends just beneath the jawline. Intended to be pasted as a playful oversized photo head on a cartoon game body.
+Scene/backdrop: Actually transparent background with alpha, no visible background at all.
+Constraints: One fictional adult head only. Preserve photorealism and a clear readable face at small game size. No props, no hat, no glasses, no objects, no text, no numbers, no logos, no watermark, no sticker outline, no drop shadow outside the head, no checkerboard drawn into the image, no body. Square image.
+
+OVERTIME ARENA — OUTWARD-FACING PROFILE AVATAR
+Generation method: built-in image_gen.imagegen; identity-preserving edits; transparent_background true.
+Input fictional head: public/assets/default-avatar-v1.png
+Final project asset: public/assets/default-avatar-profile-v1.png
+Selected original: local image_gen output (copied to the project assets listed here).
+Intermediate original: local image_gen output (copied to the project assets listed here).
+Actual output: PNG, 1254 x 1254, alpha channel verified with sips. Final copied unchanged; source originals retained.
+SHA-256: ec7afcec9e91c1ab962693646ebe40072689328723db0d2a36f46793f4126969
+Visual inspection: left-facing near-profile with one eye and eyebrow, same fictional identity and hairstyle, transparent hair/chin silhouette, no neck/body/border.
+Game use: left-side head uses this asset, right-side head mirrors it, central head retains the front-facing asset. Uploaded photos remain local and receive a 2D projection only; no actual profile reconstruction.
+
+INITIAL EDIT PROMPT:
+Use case: identity-preserve
+Asset type: transparent photorealistic game head sprite, a side head of a three-headed office worker.
+Input image 1 is the edit target: the existing fictional male character's front-facing head. Preserve exactly the same adult identity, face proportions, short tousled dark-brown hairstyle, light stubble, skin tone, skin texture, and soft neutral diffuse lighting.
+Primary request: rotate this man's head so his NOSE POINTS TO THE LEFT EDGE OF THE IMAGE. Show a strong LEFT-FACING near-profile at approximately 75 degrees from front, with only one eye fully visible and the far eye hidden. Keep the head upright with no roll or leaning. Calm neutral tired expression, mouth relaxed closed, eyebrows relaxed, not smiling.
+Composition: square canvas; one isolated head only, hair crown to chin, filling approximately 90 percent of canvas height with a thin transparent safety margin. Natural hair silhouette, visible near ear and clear nose/chin profile. Keep all hair and chin intact. The head is centered; the chin tip lies near horizontal center to permit a chin pivot in a game.
+Background: genuinely transparent alpha, including around hair.
+Constraints: only this one head; no neck, no shoulders, no clothing, no body. No white circle, sticker border, frame, outline, drop shadow, text or watermark. Match the original photorealistic quality and natural skin lighting. Do not draw eyes or face graphic overlays.
+
+FINAL YAW CORRECTION PROMPT:
+Use case: identity-preserve
+Edit target: input image 1, the generated left-turning head. Change only head yaw.
+Rotate this exact same man's head farther LEFT, to a clean true LEFT PROFILE at roughly 85 to 90 degrees. His nose points horizontally toward the LEFT EDGE OF THE IMAGE. The far-side eye and far-side eyebrow must be COMPLETELY HIDDEN behind his nose/head; exactly ONE EYE and ONE EYEBROW should be visible. The nose bridge, lips and chin must form a clear outward-facing silhouette on the LEFT. The near ear remains visible to the right of the cheek. Keep head upright without roll.
+Preserve the same identity, short dark-brown hairstyle, natural skin detail, stubble, neutral relaxed closed mouth, gentle lighting, photoreal quality, square framing, entire hair and chin.
+One isolated head only, about 90 percent canvas height. Real transparent alpha background, including around hair. No neck, shoulders, clothing, body, border, circle, shadow, text or watermark.
+OVERTIME ARENA — WEIXIN PHOTO AVATAR
+Method: built-in image_gen.imagegen; transparent_background=true; no CLI.
+User-selected original: private reference photo (not distributed with this project).
+Front source: local image_gen output (copied to the project assets listed here).
+Profile source: local image_gen output (copied to the project assets listed here).
+Project assets:
+ public/assets/weixin-avatar-front-v1.png
+ public/assets/weixin-avatar-profile-v1.png
+Both outputs: 1254 × 1254 PNG RGBA, alpha confirmed by sips. Generated images copied unchanged.
+Use: front at center, left profile at left, mirrored profile at right. Jaw pivots and expression overlay placement adapted for this portrait. Original photo retained.
+The profile is an AI reconstruction from the supplied photograph; it is not a second original photograph.
+
+FRONT PROMPT
+Use case: background-extraction
+Asset type: photorealistic transparent head sprite for an existing three-headed office action game.
+Input image 1 is the edit target and identity reference: the woman in the user's photograph, with thin rounded metal eyeglasses and dark wavy hair.
+Primary request: extract and prepare ONLY this woman's head from the photo, from the hair crown through the bottom of her chin. Preserve her recognizable identity, exact distinctive facial proportions, eyes, nose, lips, skin tone and texture, eyeglass frame shape, and wavy dark hairstyle. Keep the face looking at the viewer with relaxed closed lips and neutral expression. Gently straighten the head to upright, with no dramatic tilt. Retain a realistic photographic appearance, not a cartoon, beautified replacement face, or generic face.
+Remove the raised arm/hand from above her head and reconstruct only the small missing hair region. Remove background, shoulders, chest, clothing and neck. Gather the long hair silhouette behind the head so its bottom ends around the chin/jaw level for attaching to a small cartoon body; retain visible dark wavy hair around her cheeks and head. Avoid long trailing locks below chin.
+Composition: square transparent canvas, single head large and centered, hair crown at about 5 percent from the top, chin tip centered horizontally at about 94 percent of canvas height. Full head and hair contour inside canvas with small clear margins. Face features must remain large and legible at a 46-by-50-pixel display size.
+Lighting: soft neutral natural portrait light, preserve realistic facial details and the distinctive glasses. Correct the strong warm sunlight only enough to match the game's neutral indoor lighting.
+Background: true transparent alpha outside the natural hair and jaw silhouette. No white disk, circle, sticker outline, visible halo, frame or external shadow. No text, no watermark, no props, no other people.
+
+PROFILE PROMPT
+Use case: identity-preserve
+Asset type: transparent realistic LEFT PROFILE head sprite for the two side heads of an existing three-headed game character.
+Input image 1 is the edit target: the same woman's prepared front head. Input image 2 is the original photograph and supporting identity reference.
+Primary request: show exactly the same woman with the same face proportions, nose, lips, skin, thin rounded metal eyeglasses and dark wavy hair, now upright in a true LEFT-FACING 85–90 degree PROFILE. Her nose must point horizontally toward the LEFT edge. Exactly ONE eye is visible; the far eye must be completely hidden by the bridge of the nose and head. Preserve the recognizable eyeglass frame and visible near temple. Calm neutral closed-mouth expression. Natural realistic portrait, no beautification and no cartooning.
+Only a head from hair crown to chin; maintain a compact silhouette with wavy hair ending near jaw/chin level so it can attach to a cartoon body. No neck, body, shoulders, clothes or raised arm. Match the front head's soft neutral natural lighting, skin tone, photographic detail and hair volume. Do not rotate the image in its plane; change actual head yaw.
+Composition: square canvas, full isolated head centered with hair crown around 5% height, chin tip around 90% height and approximately 33% image width. The nose, lips and chin create a clean leftward silhouette; the back of the head and hair fills the right half. Small transparent margins and no clipping.
+Background: real transparent alpha around natural hair/jaw contour. Preserve transparency. No white disk, border, sticker outline, visible halo, shadows outside the head, text, watermark or other people.

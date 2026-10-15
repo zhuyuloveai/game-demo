@@ -14,3 +14,13 @@ build/
 
 # Logs
 *.log
+
+# Local tooling and generated metadata
+.openai/
+__pycache__/
+*.pyc
+kitchen-merge/deploy/release.json
+
+# This game's dist directory contains hand-authored source.
+!kitchen-merge/dist/
+!kitchen-merge/dist/**
