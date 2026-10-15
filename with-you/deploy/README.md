@@ -1,18 +1,16 @@
-# hw-sg-1 发布
+# hw-gw-1 发布
 
-预期公网地址：http://101.44.160.78:52481/ 。版本month08，30天章节。原hw-gw-1站点保持原状。
+公网地址：http://1.92.214.23:52481/?v=month08 。版本month08，30天章节。
 
-- 主机：hw-sg-1，容器with-you-web，host网络监听52481。
-- 静态站点：/srv/with-you/site；配置：/srv/with-you/nginx.conf。
-- 镜像：nginx@sha256:0985e772fb9f729e6fa0980da05fca5d9c468e870eed43071545afa9d2e27d94。
-- 只发布根目录HTML/CSS/JS和assets；测试、报告与提示词不发布。
-- 容器只读，缓存与运行目录使用tmpfs，restart=unless-stopped。
-- 每次部署归档保存在/srv/with-you/releases/<git-sha>，RELEASE文件记录提交。
+- 主机：hw-gw-1；容器with-you-web，host网络监听52481，restart=unless-stopped。
+- 静态文件：/srv/with-you/site；配置：/srv/with-you/nginx.conf。
+- 沿用原镜像docker.m.daocloud.io/library/nginx:1.28-alpine与只读静态挂载。
+- 只发布HTML/CSS/JS和assets，测试、报告、提示词不发布。
+- 更新前备份：/srv/with-you/releases/before-month08-20260928.tar.gz。
+- /srv/with-you/RELEASE记录游戏运行文件对应提交。
 
-存档保存在玩家浏览器localStorage，按访问来源隔离，不会自动从旧地址迁移。
+2026-09-28：用户更正发布目标为hw-gw-1；hw-sg-1误部署服务撤下，文件保留供追溯。
 
-验证首页、所有运行文件及图片HTTP200，并比较部署文件SHA256与提交版本；报告和测试路径应404。
+玩家存档位于浏览器localStorage，沿用原公网来源，不重置已有进度。旧七天存档保留原章节；重启可体验30天内容。
 
-## 本次部署验证
-
-34个运行文件通过服务器HTTP逐个读取并与提交SHA256一致，Nginx配置检查通过，报告路径返回404。服务器回环访问200，公网52481及临时80探测均超时；主机INPUT策略ACCEPT，疑似云侧安全组或上游网络限制，需放行TCP52481后再次外网验证。80临时监听已撤销。
+验证：Nginx配置检查、34个运行文件公网HTTP逐个读取并与提交SHA256比较。回滚时将上述备份解压回site目录即可。
