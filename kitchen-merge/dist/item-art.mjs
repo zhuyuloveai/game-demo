@@ -18,6 +18,8 @@ const rect = (x, y, w, h, r = 3, fill = C.cream) =>
   `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${r}" fill="${fill}"/>`;
 const circle = (x, y, r, fill = C.pink) =>
   `<circle cx="${x}" cy="${y}" r="${r}" fill="${fill}"/>`;
+const candy = (x = 40, y = 40, scale = 1, angle = -15) =>
+  `<g transform="translate(${x} ${y}) rotate(${angle}) scale(${scale})">${p('M-17-5-30-13l3 13-3 13 13-8Z', '#f3d4a0')}${p('M17-5 30-13 27 0l3 13-13-8Z', '#eac8db')}${rect(-20, -14, 40, 28, 13, '#e99a9e')}${p('M-14-12-5-14-13 12q-8-3-7-12Z', '#efba70')}${p('M-5-14h9L-4 14h-9Z', '#a8bd87')}${p('M4-14h9L5 14h-9Z', '#8fbcc8')}${p('M13-12q10 5 6 15L14 12H5Z', '#bb9fc9')}${p('M-12-8q10-5 19-1', 'none', 'stroke="#fff9e9" stroke-width="3" opacity=".8"')}${p('M-24-5-20 0l-4 5m48-10-4 5 4 5', 'none', 'stroke="#b08c78" stroke-width="1.5"')}</g>`;
 const line = (d, color = C.dark) =>
   p(d, "none", `stroke="${color}" stroke-width="2"`);
 const leaf = (x, y, s = 1) =>
@@ -612,18 +614,18 @@ export function itemMarkup(id, old) {
               line("M19 31v30m42-30v30");
   else if (f === "gems")
     body =
-      l < 3
-        ? Array.from({ length: l === 1 ? 1 : 3 }, (_, i) =>
-            p(
-              `m${l === 1 ? 23 : 9 + i * 18} ${l === 1 ? 27 : 35 - (i % 2) * 12} 9-9h16l9 9-17 25Z`,
-              C.blue,
-            ),
-          ).join("")
+      l === 1
+        ? candy(40, 42)
+        : l === 2
+          ? candy(27, 48, .65, -25) + candy(49, 28, .65, 20) + candy(53, 56, .65, -10)
         : l === 3
-          ? bag(1) + p("m25 44 8-8h14l8 8-15 17Z", C.blue)
-          : rect(12, 29, 56, 35, 4, C.cream) +
-            p("M12 29 22 16h36l10 13Z", C.blue) +
-            p("m30 41 7-7h10l7 7-12 16Z", C.blue);
+          ? p('M19 20q20-6 42 0l5 42q-26 14-52 0Z', '#f8ecd3') +
+            candy(38, 40, .6, -20) + candy(45, 55, .6, 15) + line('M20 22q20 7 40 0') +
+            p('M22 29v28', 'none', 'stroke="#fffdf4" stroke-width="3"')
+          : rect(15, 22, 50, 46, 9, '#d4e7de') +
+            candy(31, 51, .55, -25) + candy(48, 38, .55, 25) + candy(48, 60, .55, 0) +
+            rect(13, 13, 54, 12, 4, C.oak) + line('M18 17h44') +
+            p('M21 31v27', 'none', 'stroke="#fffdf4" stroke-width="3" opacity=".8"');
   else if (f === "blackbag" || f === "pinkbag")
     body =
       rect(14, 25, 52, 39, 6, f === "blackbag" ? C.blue : C.pink) +

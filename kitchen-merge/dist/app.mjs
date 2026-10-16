@@ -66,7 +66,7 @@ const today=()=>new Date(Date.now()+8*60*60*1000).toISOString().slice(0,10);
 const dailyReady=()=>!state.dailyClaimDate||state.dailyClaimDate<today();
 const availableFamilies=()=>new Set(Object.values(PRODUCER_DEFS).filter(d=>d.unlockStage<=state.stage).flatMap(d=>d.families));
 const panelIcon=name=>`<span class="panel-item-icon">${icon(name)}</span>`;
-function ruleSummary(item){const d=definition(item),r=sourceRules(item),m=r.manual,parts=[];if(m){parts.push(`每次消耗${m.energyPerTap}体力`);if(m.mode==='recharge')parts.push(`库存${m.maxStock}，每${formatTime(m.rechargeSeconds*1000)}补${m.batch}件`);if(m.drops){parts.push(m.drops.map(x=>`${FAMILY_META[x.chain].name} ${(x.prob*100).toFixed(1)}%`).join(' / '));parts.push(`产物L1/L2/L3：${m.outputLevelProb.map(n=>(n*100).toFixed(0)+'%').join('/')}`);}else if(m.outputs)parts.push('产出 '+m.outputs.map(x=>ITEMS[x.item].name).join(' / '));else if(m.sequence)parts.push('固定序列 '+m.sequence.map(id=>ITEMS[id].name).join(' → '));}else if(d.kind==='producer')parts.push(`合至L${PRODUCER_DEFS[d.family.slice(4)].activeLevel}开始生产`);if(d.valueUnit)parts.push(`单件数值 ${d.value===null?'不限':d.value} ${d.valueUnit}`);return parts.join('；');}
+function ruleSummary(item){const d=definition(item),r=sourceRules(item),m=r.manual,parts=[];if(m){parts.push(`每次消耗${m.energyPerTap}体力`);if(m.mode==='recharge')parts.push(`库存${m.maxStock}，每${formatTime(m.rechargeSeconds*1000)}补${m.batch}件`);if(m.drops){parts.push(m.drops.map(x=>`${FAMILY_META[x.chain].name} ${(x.prob*100).toFixed(1)}%`).join(' / '));parts.push(`产物L1/L2/L3：${m.outputLevelProb.map(n=>(n*100).toFixed(0)+'%').join('/')}`);}else if(m.outputs)parts.push('产出 '+m.outputs.map(x=>ITEMS[x.item].name).join(' / '));else if(m.sequence)parts.push('固定序列 '+m.sequence.map(id=>ITEMS[id].name).join(' → '));}else if(d.kind==='producer')parts.push(`合至L${PRODUCER_DEFS[d.family.slice(4)].activeLevel}开始生产`);if(d.valueUnit)parts.push(`单件数值 ${d.value===null?'不限':d.value} ${d.valueUnit==='gems'?'颗彩虹糖':d.valueUnit}`);return parts.join('；');}
 function backupSummary(){try{const raw=localStorage.getItem(backupKey('migration-backup')),digest=localStorage.getItem(backupKey('migration-backup-sha256'));return raw?`原档v${JSON.parse(raw).version} · SHA-256 ${(digest||'').slice(0,16)}…`:'暂无旧版备份';}catch{return '备份状态暂时不可读';}}
 const button=(label,action,disabled=false,extra='')=>`<button class="small-button" data-action="${action}" ${disabled?'disabled':''} ${extra}>${label}</button>`;
 
@@ -120,6 +120,7 @@ function renderStats(){
   const level=getLevel(state);
   $('#kitchen-level-label').textContent=`Lv. ${level}`;$('.puppy-profile').setAttribute('aria-label',`小狗店长，等级 ${level}，${LEVEL_NAMES[Math.min(level-1,4)]}，查看成长进度`);const within=state.xp-levelFloor(level),required=100+20*(level-1);$('#xp-progress').style.width=`${Math.min(100,within/required*100)}%`;$('#xp-label').textContent=`${within}/${required}`;
   $('#star-count').textContent=state.stars;$('#gem-count').textContent=state.gems;
+  $('.gem-wallet').setAttribute('aria-label',`彩虹糖 ${state.gems} 颗，补充体力`);
   $('.v-meter').setAttribute('aria-label',`电量 ${state.energy}/${state.maxEnergy}，点击补充`);
   $('.v-cash').setAttribute('aria-label',`小猪存钱罐，${state.coins} 金币`);
   $('.v-stars').setAttribute('aria-label',`许愿星罐，${state.stars} 颗星星`);
@@ -145,7 +146,7 @@ function renderSelection(){
     actions=button('生产','generate',false,`data-index="${selected}"`)+button('更多','item');
   }else if(item.family==='bubble'){
     description=`限时惊喜 · ${formatTime(item.expiresAt-Date.now())} 后变金币`;
-    actions=button(`${item.cost}钻取出`,'bubble-buy')+button('变金币','bubble-dismiss');
+    actions=button(`${item.cost}颗彩虹糖取出`,'bubble-buy')+button('变金币','bubble-dismiss');
   }else{
     const next=CHAINS[item.family]?.[item.level];description=next?`2份可合成${next.name}`:'已到最高级，可交单、做菜或收纳';
     if(['resource','legacy'].includes(definition(item)?.kind)){description=definition(item).valueUnit==='draws'?`容器剩余 ${item.remainingDraws} 次 · 开启后不能合成`:sourceDescription(itemKey(item));actions=button('使用 / 领取','collect')+button('更多','item');}
@@ -217,7 +218,7 @@ function renderPanel(){
   }else if(modalView==='phone'){
     html=panelHeader('店长的手机','采购、设置和开店指南，都装进口袋里。')+`<div class="phone-apps"><button class="phone-app" data-action="shop">${glyph('bag')}<span>菜篮子采购</span></button><button class="phone-app" data-action="settings">${glyph('sliders')}<span>厨房设置</span></button><button class="phone-app" data-action="help">${glyph('book')}<span>开店指南</span></button><button class="phone-app" data-action="energy">${glyph('energy')}<span>电量补给</span></button></div>`;
   }else if(modalView==='cash'){
-    html=panelHeader('小猪存钱罐',`肚子里攒下了 ${state.coins.toLocaleString()} 金币。`)+resourcePortrait('.v-cash')+`<p class="source-note">交单、金币资源能攒金币，采购、刷新与扩容收纳柜会花费金币。体力使用钻石购买。</p><div class="panel-actions">${button('去采购','shop')}${button('看看收纳柜','storage')}</div>`;
+    html=panelHeader('小猪存钱罐',`肚子里攒下了 ${state.coins.toLocaleString()} 金币。`)+resourcePortrait('.v-cash')+`<p class="source-note">交单、金币资源能攒金币，采购、刷新与扩容收纳柜会花费金币。体力使用彩虹糖购买。</p><div class="panel-actions">${button('去采购','shop')}${button('看看收纳柜','storage')}</div>`;
   }else if(modalView==='stars'){
     html=panelHeader('许愿星星罐',`已经收好 ${state.stars} 颗折纸星星。`)+resourcePortrait('.v-stars')+`<p class="source-note">每次交付订单都会收到许愿星。每章八单完成后使用星星布置厨房，十二章合计216星。</p><p class="source-note">本章主线提供足够星星，完成八单后布置并解锁新设施。</p>${button('看看开店手账','tasks')}`;
   }else if(modalView==='tasks'){
@@ -246,7 +247,7 @@ function renderPanel(){
     if(state.pending.length)html+=`<div class="inventory-grid">${state.pending.slice(0,24).map(item=>`<div class="inventory-slot">${itemArt(item)}<strong>${esc(itemName(item))}</strong><small>Lv.${item.level}</small></div>`).join('')}</div><button class="primary-button" data-action="claim">领取下一件（剩 ${state.pending.length}）</button>`;
     html+=`<h3>随身道具</h3><div class="inventory-grid">${state.tools.map(item=>`<button class="inventory-slot" data-tool="${item.id}">${itemArt(item)}<strong>${esc(itemName(item))}</strong><small>选择使用</small></button>`).join('')}</div>`;
     if(state.legacyFullRefill)html+=`<button class="primary-button" data-action="hourglass">旧沙漏 ×${state.legacyFullRefill} · 补满当前选中设备</button>`;
-    html+=`<p>待领余额：${Object.entries(state.credits).filter(([,v])=>v).map(([k,v])=>`${k}: ${v}`).join('、')||'暂无'}</p>${button('领取可用额度','credits')}`;
+    html+=`<p>待领余额：${Object.entries(state.credits).filter(([,v])=>v).map(([k,v])=>`${k==='gems'?'彩虹糖':k}: ${v}`).join('、')||'暂无'}</p>${button('领取可用额度','credits')}`;
 
   }else if(modalView==='recipes'){
     html=bookTabs()+panelHeader('世界料理手账','指定食材 + 对应厨具 = 新料理。食材会消耗，厨具保留；更高级的厨具也能使用。');
@@ -270,7 +271,7 @@ function renderPanel(){
     const item=state.board[selected];if(!item){modal.close();return;}html=panelHeader(`出售${esc(itemName(item))}？`,`出售后获得 ${definition(item)?.sellCoins||0} 金币。`)+`<div class="panel-actions">${button('保留物品','item')}${button('确认出售','sell-now')}</div>`;
   }else if(modalView==='energy'){
     const purchase=BALANCE.economy.energyPurchases[state.day.purchases];
-    html=panelHeader('体力与钻石',`体力 ${state.energy}/100 · 钻石 ${state.gems}。每120秒恢复1点；手动体力上限999，超额保留。`)+`<div class="energy-big">${icon('energy')}</div><p>无限体力剩余 ${formatTime(state.infiniteUntil-Math.max(state.lastNow,Date.now()))}</p><button class="primary-button" data-action="refill" ${!purchase||state.gems<purchase.gems?'disabled':''}>${purchase?`${purchase.gems}钻石补充100体力`:'今日购买已达4次'}</button><button class="primary-button" data-action="break" ${state.day.breaks>=3?'disabled':''}>休息 +25体力（${state.day.breaks}/3）</button>${button('今日礼物','rewards')}`;
+    html=panelHeader('体力与彩虹糖',`体力 ${state.energy}/100 · 彩虹糖 ${state.gems} 颗。每120秒恢复1点；手动体力上限999，超额保留。`)+`<div class="energy-big">${icon('energy')}</div><p>无限体力剩余 ${formatTime(state.infiniteUntil-Math.max(state.lastNow,Date.now()))}</p><button class="primary-button" data-action="refill" ${!purchase||state.gems<purchase.gems?'disabled':''}>${purchase?`${purchase.gems}颗彩虹糖补充100体力`:'今日购买已达4次'}</button><button class="primary-button" data-action="break" ${state.day.breaks>=3?'disabled':''}>休息 +25体力（${state.day.breaks}/3）</button>${button('今日礼物','rewards')}`;
 
   }else if(modalView==='music'){
     html=panelHeader('小狗厨房的声音','原创轻快循环配乐，搭配点击、生产、合成、交单、烹饪和开店奖励音效。首次操作后开始播放。');
@@ -412,6 +413,7 @@ document.addEventListener('visibilitychange',()=>{audio.setHidden(document.hidde
 window.addEventListener('pagehide',()=>{save();audio.setHidden(true);});
 window.addEventListener('pageshow',()=>{audio.setHidden(document.hidden);syncMotion();});
 setInterval(()=>{if(!document.hidden)refreshTime();},1000);
+$('#candy-art').innerHTML=icon('item/gems:1');
 for(const [id,name] of Object.entries({'recipe-art':'cake','parcel-art':'gift'}))$(`#${id}`).innerHTML=icon(name);
 $('#cabinet-art').innerHTML=icon('flour')+icon('pan');
 for(const [id,name] of Object.entries({'energy-icon':'energy','phone-icon':'bag','hint-icon':'sparkles','modal-close':'close'}))$(`#${id}`).innerHTML=glyph(name);

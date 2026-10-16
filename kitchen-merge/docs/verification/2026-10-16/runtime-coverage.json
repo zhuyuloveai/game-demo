@@ -2660,42 +2660,42 @@
     },
     {
       "id": "gems:1",
-      "name": "小钻石",
+      "name": "彩虹糖",
       "level": 1,
       "kind": "resource",
       "mergeTo": "gems:2",
       "source": "等级、日周委托、每日礼物或同类合成",
-      "artBytes": 332,
+      "artBytes": 1288,
       "mergeChecked": true
     },
     {
       "id": "gems:2",
-      "name": "几颗钻石",
+      "name": "几颗彩虹糖",
       "level": 2,
       "kind": "resource",
       "mergeTo": "gems:3",
-      "source": "两份小钻石；等级、日周委托、每日礼物或同类合成",
-      "artBytes": 559,
+      "source": "两份彩虹糖；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 3436,
       "mergeChecked": true
     },
     {
       "id": "gems:3",
-      "name": "一袋钻石",
+      "name": "一袋彩虹糖",
       "level": 3,
       "kind": "resource",
       "mergeTo": "gems:4",
-      "source": "两份几颗钻石；等级、日周委托、每日礼物或同类合成",
-      "artBytes": 880,
+      "source": "两份几颗彩虹糖；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 2647,
       "mergeChecked": true
     },
     {
       "id": "gems:4",
-      "name": "钻石盒",
+      "name": "彩虹糖罐",
       "level": 4,
       "kind": "resource",
       "mergeTo": null,
-      "source": "两份一袋钻石；等级、日周委托、每日礼物或同类合成",
-      "artBytes": 573,
+      "source": "两份一袋彩虹糖；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 3860,
       "mergeChecked": true
     },
     {

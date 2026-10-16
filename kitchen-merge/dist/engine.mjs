@@ -981,7 +981,7 @@ export function collectItem(s, index, now = Date.now()) {
     return finish(
       s,
       "collect",
-      `领取${d.value} ${d.valueUnit === "energy" ? "体力" : d.valueUnit === "coins" ? "金币" : "钻石"}`,
+      `领取${d.value} ${d.valueUnit === "energy" ? "体力" : d.valueUnit === "coins" ? "金币" : "颗彩虹糖"}`,
       { index, item },
     );
   }
@@ -1141,7 +1141,7 @@ export function refillEnergy(s, now = Date.now()) {
   resetPeriods(trial, Math.max(s.lastNow, now));
   const row = BALANCE.economy.energyPurchases[trial.day.purchases];
   if (!row) return fail(s, "limit", "今日已购买4次");
-  if (s.gems < row.gems) return fail(s, "gems", `需要${row.gems}钻石`);
+  if (s.gems < row.gems) return fail(s, "gems", `需要${row.gems}颗彩虹糖`);
   s.lastNow = Math.max(s.lastNow, now);
   s.day = trial.day;
   s.day.purchases++;
@@ -1425,7 +1425,7 @@ export function resolveBubble(s, index, buy = false, now = Date.now()) {
   if (!unlocked(s, index) || b?.family !== "bubble")
     return fail(s, "invalid", "泡泡已消失");
   if (buy && now < b.expiresAt && s.gems < b.cost)
-    return fail(s, "gems", `需要${b.cost}钻石`);
+    return fail(s, "gems", `需要${b.cost}颗彩虹糖`);
   const purchase = buy && now < b.expiresAt;
   s.lastNow = Math.max(s.lastNow, now);
   if (purchase) s.gems -= b.cost;

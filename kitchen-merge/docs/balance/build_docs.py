@@ -182,7 +182,7 @@ for cid,name,names,chapter,ref in EXTRA:
 RESOURCE=[
  ('energy','体力补给','小能量球|能量球|大能量球|充沛能量|满满能量',[1,6,15,40,100],'energy',['S14']),
  ('coins','金币','零散金币|一叠金币|一小袋金币|一袋金币|金币罐|金币宝箱',[1,3,8,20,50,120],'coins',['S14']),
- ('gems','钻石','小钻石|几颗钻石|一袋钻石|钻石盒',[1,3,8,20],'gems',['S14']),
+ ('gems','彩虹糖','彩虹糖|几颗彩虹糖|一袋彩虹糖|彩虹糖罐',[1,3,8,20],'gems',['S14']),
  ('blackbag','设备工具包','设备工具包|高级设备工具包',[10,22],'draws',['S16']),
  ('pinkbag','食材设备包','食材设备包|高级食材设备包',[12,28],'draws',['S16']),
  ('tipjar','小厨存钱罐','小厨存钱罐|胖胖存钱罐|金色存钱罐',[15,18,53],'draws',['S16']),
@@ -203,6 +203,7 @@ for cid,name,names,values,unit,sources in RESOURCE:
         it['valueUnit']=unit
         it['valueEvidence']='P' if sources and cid!='stopwatch' else 'D'
         it['valueSources']=sources if it['valueEvidence']=='P' else []
+    if cid=='gems': c['reference']='彩虹糖为项目原创资源外观；数值档位参考S14历史资源记录'
     if cid=='stopwatch': c['reference']='单台加速/可堆叠概念参考S17；单件3600秒为项目拟定D'
     if cid=='upgrade':
         for it in c['items']: it['baseUnits']=None
@@ -454,14 +455,14 @@ def main():
              ('每周委托','周一0时起完成20单，限1次',reward_text(e['weeklyCommission']['rewards'])),
              ('订单礼盒','每5个C≥4的已交订单；每日最多3个','订单礼盒L1'),
              ('主厨荣誉','通关12章后，每10个C≥4的订单','荣誉L1，无日上限')]),
-         '\n## 钻石补能和金币商店\n',table(['当日第几次','钻石','体力'],[(i+1,x['gems'],x['energy']) for i,x in enumerate(e['energyPurchases'])]),
+         '\n## 彩虹糖补能和金币商店\n',table(['当日第几次','彩虹糖','体力'],[(i+1,x['gems'],x['energy']) for i,x in enumerate(e['energyPurchases'])]),
          '\n',table(['商品','金币','每日限购'],[(x.get('item',x.get('selection')),x['coins'],x['dailyLimit']) for x in e['shop']]),
          '\n## 仓库付费扩容\n','每次+2格；初始6、上限60；按付费次数查价，赠格不增加购买序号。临近上限按实际格数折算。\n',table(['购买序号','金币'],[(i+1,v) for i,v in enumerate(e['storagePrices'])]),
          '\n## 资源与辅助道具档位\n','领取值P表示来源中的历史档位；使用边界与掉率仍是D。\n',table(['系列','等级','领取值/限制','单位','值证据'],[(c['id'],it['level'],it['value'] if it['value'] is not None else '不限',it['valueUnit'],it['valueEvidence']) for c in CHAINS if c['kind']=='resource' for it in c['items']]),
          '\n## 黑/粉包\n','全部解锁后的品类权重如下；打开时过滤未解锁设备并归一化，冻结抽取池。各级包的零件等级概率相同，L1/L2/L3为65%/25%/10%。每次取物0体力。\n',
          table(['包','产物','原始权重'],[(bag,cid,f'{p:.1%}') for bag,drops in e['bags'].items() for cid,p in drops.items()]),
          '\n',table(['包','等级','次数','开锁秒'],[(bag,i+1,next(c for c in CHAINS if c['id']==bag)['items'][i]['value'],secs) for bag,times in e['bagOpenSeconds'].items() for i,secs in enumerate(times)]),
-         '\n## 存钱罐\n','先抽金币90%或钻石10%，再抽下表中的物品等级。档位次数来自历史记录，掉率为D。\n',table(['罐等级','次数','产L1','产L2','产L3'],[(lv,INDEX['tipjar:'+lv]['value'],*[f'{p:.0%}' for p in probs]) for lv,probs in e['pigLevelProbByTier'].items()]),
+         '\n## 存钱罐\n','先抽金币90%或彩虹糖10%，再抽下表中的物品等级。档位次数来自历史记录，掉率为D。\n',table(['罐等级','次数','产L1','产L2','产L3'],[(lv,INDEX['tipjar:'+lv]['value'],*[f'{p:.0%}' for p in probs]) for lv,probs in e['pigLevelProbByTier'].items()]),
          '\n## 能量箱与订单礼盒\n','能量箱固定5次取物，以下为每次分布；各次独立。\n',table(['产物','概率','直接领取体力'],[(x['item'],f"{x['prob']:.0%}",INDEX[x['item']]['value']) for x in e['energyBoxDrops']]),
          '\n',table(['礼盒级别','确定奖励'],[(lv,reward_text(rewards)) for lv,rewards in e['chestRewards'].items()]),
          '\n## 2—100级逐级奖励\n','累计XP表示达到该等级的门槛；相同等级只领取一次。等级上限100，满级后不再派等级礼包。\n',

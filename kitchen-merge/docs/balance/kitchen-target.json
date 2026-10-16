@@ -3966,10 +3966,10 @@
     },
     {
       "id": "gems",
-      "name": "钻石",
+      "name": "彩虹糖",
       "kind": "resource",
       "unlockChapter": 1,
-      "reference": "资源档位采用历史记录；使用约束为项目设计",
+      "reference": "彩虹糖为项目原创资源外观；数值档位参考S14历史资源记录",
       "evidence": "D",
       "sources": [
         "S14"
@@ -3978,7 +3978,7 @@
         {
           "id": "gems:1",
           "level": 1,
-          "name": "小钻石",
+          "name": "彩虹糖",
           "baseUnits": 1,
           "mergeTo": "gems:2",
           "sellCoins": 0,
@@ -3996,7 +3996,7 @@
         {
           "id": "gems:2",
           "level": 2,
-          "name": "几颗钻石",
+          "name": "几颗彩虹糖",
           "baseUnits": 2,
           "mergeTo": "gems:3",
           "sellCoins": 0,
@@ -4014,7 +4014,7 @@
         {
           "id": "gems:3",
           "level": 3,
-          "name": "一袋钻石",
+          "name": "一袋彩虹糖",
           "baseUnits": 4,
           "mergeTo": "gems:4",
           "sellCoins": 0,
@@ -4032,7 +4032,7 @@
         {
           "id": "gems:4",
           "level": 4,
-          "name": "钻石盒",
+          "name": "彩虹糖罐",
           "baseUnits": 8,
           "mergeTo": null,
           "sellCoins": 0,
