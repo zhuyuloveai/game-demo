@@ -5,7 +5,7 @@
   --scene-wood:#d9bda0; --scene-wood-edge:#b99673; --scene-shadow:#543a2929;
   --cute-font:'ZCOOL KuaiLe',var(--font);
 }
-.game-shell.k-design {--screen-height:100dvh;--hud-height:66px;--scene-height:176px;--desk-height:122px;--worktop-trim:66px;--board-min:264px;--board-limit:max(var(--board-min),calc(var(--screen-height) - var(--hud-height) - var(--scene-height) - var(--desk-height) - var(--worktop-trim) - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px)));width:min(100%,430px);min-height:var(--screen-height);height:auto;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px);display:flex;flex-direction:column;background:var(--scene-cream);color:var(--scene-ink);isolation:isolate;overflow:hidden;}
+.game-shell.k-design {--screen-height:100dvh;--hud-height:66px;--scene-height:216px;--desk-height:122px;--worktop-trim:66px;--board-min:264px;--board-limit:max(var(--board-min),calc(var(--screen-height) - var(--hud-height) - var(--scene-height) - var(--desk-height) - var(--worktop-trim) - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px)));width:min(100%,430px);min-height:var(--screen-height);height:auto;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px);display:flex;flex-direction:column;background:var(--scene-cream);color:var(--scene-ink);isolation:isolate;overflow:hidden;}
 .k-design button {position:relative;}
 .k-design .k-hud {height:var(--hud-height);flex:0 0 var(--hud-height);padding:1px 13px 1px;display:flex;align-items:center;gap:9px;position:relative;z-index:4;background:linear-gradient(#faf7ef,#f4eee2);border-bottom:4px solid #e6d3b6;}
 .k-level {flex:1;min-width:0;display:flex;align-items:center;}
@@ -69,24 +69,24 @@
 .k-hood-trim:before {content:'';position:absolute;left:12px;right:37px;top:3px;height:3px;background:repeating-linear-gradient(90deg,#9c5e3873 0 2px,transparent 2px 5px);border-radius:3px;}
 .k-hood-trim:after {content:'';position:absolute;right:10px;top:3px;height:4px;width:4px;border-radius:50%;background:#fff4d2;box-shadow:-8px 0 #fff4d2;}
 .k-hood-light {position:absolute;top:57px;left:12px;right:12px;height:10px;background:linear-gradient(#ffeda499,transparent);clip-path:polygon(8% 0,92% 0,100% 100%,0 100%);filter:blur(2px);}
-.k-order-rail {position:absolute;top:61px;height:6px;left:13px;right:13px;border-radius:4px;background:linear-gradient(#c8a27b,#b08c67);box-shadow:0 2px 1px #f9eedb,0 3px 4px #63411e1a;}
+.k-order-rail {position:absolute;bottom:121px;height:6px;left:13px;right:13px;border-radius:4px;background:linear-gradient(#c8a27b,#b08c67);box-shadow:0 2px 1px #f9eedb,0 3px 4px #63411e1a;}
 .k-counter {position:absolute;left:0;right:0;bottom:0;height:10px;background:linear-gradient(#d9bda0 60%,#b99673 61%,#b99673 80%,#e9e4dc);box-shadow:0 3px 4px var(--scene-shadow);}
 .k-design .k-orders {position:absolute;z-index:3;left:14px;right:14px;bottom:8px;gap:9px;}
-.k-orders .order-card {height:106px;padding:4px 6px;gap:0;border-radius:2px 2px 6px 6px;overflow:visible;background:#fffbf0;box-shadow:0 2px 3px var(--scene-shadow);}
+.k-orders .order-card {height:116px;padding:9px 6px 5px;gap:3px;border-radius:2px 2px 6px 6px;overflow:visible;background:#fffbf0;box-shadow:0 2px 3px var(--scene-shadow);}
 .k-orders .order-card:before {content:'';position:absolute;top:-6px;left:calc(50% - 9px);width:18px;height:10px;z-index:3;border-radius:2px;background:linear-gradient(#d7ba91,#b9956d);box-shadow:0 1px #8b684d3b;}
 .k-orders .order-card:after {content:'';position:absolute;left:0;right:0;bottom:-3px;height:5px;background:linear-gradient(135deg,transparent 25%,#fffbf0 25%) -4px 0/8px 8px,linear-gradient(225deg,transparent 25%,#fffbf0 25%) -4px 0/8px 8px;}
 .k-orders .order-card.is-ready {box-shadow:0 2px 3px var(--scene-shadow),inset 0 0 0 1px #d6b381;}
-.k-orders .order-top {height:20px;justify-content:center;gap:4px;}
-.k-orders .order-top .avatar {position:static;width:23px;height:23px;padding:0;background:none;overflow:visible;border-radius:0;filter:drop-shadow(0 1px 1px #543a291c);}
-.k-orders .order-top>div {width:auto;text-align:center;}.k-orders .order-top h3 {font:12px var(--cute-font);color:#987958;}.k-orders .order-top p {display:none;}
-.k-orders .order-needs {min-height:34px;gap:6px;}.k-orders .need,.k-orders .need-art {width:32px;height:32px;}
+.k-orders .order-top {position:absolute;top:-33px;left:6px;right:6px;height:42px;justify-content:center;gap:4px;}
+.k-orders .order-top .avatar {position:static;width:42px;height:42px;padding:0;background:none;overflow:visible;border-radius:0;filter:drop-shadow(0 2px 1px #543a2926);}
+.k-orders .order-top>div {width:auto;min-width:0;text-align:left;}.k-orders .order-top h3 {font:12px var(--cute-font);color:#987958;}.k-orders .order-top p {display:none;}
+.k-orders .order-needs {min-height:37px;gap:6px;}.k-orders .need,.k-orders .need-art {width:32px;height:32px;}
 .k-orders .need-art,.k-orders .need.ready .need-art {background:none;box-shadow:none;padding:0;}
 .k-orders .need-count {font-size:11px;right:-3px;bottom:-2px;padding:1px 2px;background:#fffbf0;box-shadow:none;}
 .k-orders .need-check {width:12px;height:12px;top:-1px;right:-2px;box-shadow:none;}
-.k-orders .order-bottom {height:44px;display:flex;flex-direction:row;gap:3px;flex-wrap:nowrap;}
-.k-orders .reward {height:30px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:1px;font-size:11px;}
+.k-orders .order-bottom {height:auto;display:flex;flex-direction:column;gap:4px;flex-wrap:nowrap;}
+.k-orders .reward {height:14px;display:flex;flex-direction:row;align-items:center;justify-content:center;gap:6px;font-size:11px;}
 .k-orders .reward small {font-size:11px;}.k-orders .reward-coin svg {width:11px;height:11px;}
-.k-orders .order-submit {width:54px;min-width:44px;flex:1;height:44px;padding:0 3px;border-radius:8px;font:13px var(--cute-font);box-shadow:0 2px #c96c44;}
+.k-orders .order-submit {width:100%;min-width:0;flex:none;height:44px;border-radius:8px;font:13px var(--cute-font);box-shadow:0 2px #c96c44;}
 .k-orders .order-submit:disabled {background:#eee4d4;color:#ad977c;box-shadow:0 2px #ddcbb2;}
 
 /* Raised cream stone, with an uninterrupted 7 × 7 playing surface. */
@@ -198,7 +198,7 @@ dialog[data-view="phone"] {background:linear-gradient(#f7e5cf,#f4e1c8);}
 
 /* Browser chrome reduces the visible viewport; keep the board square and usable. */
 @media(max-height:700px) {
-  .game-shell.k-design {--hud-height:64px;--scene-height:164px;--desk-height:118px;--worktop-trim:62px;--board-min:252px;}
+  .game-shell.k-design {--hud-height:64px;--scene-height:208px;--desk-height:118px;--worktop-trim:62px;--board-min:252px;}
   .k-design .k-rangehood {height:52px;}
   .k-design .k-hood-stack {height:12px;}
   .k-design .k-hood-shell {top:12px;height:31px;}
@@ -206,7 +206,6 @@ dialog[data-view="phone"] {background:linear-gradient(#f7e5cf,#f4e1c8);}
   .k-design .k-hood-light {top:50px;}
   .k-design .k-upper-cabinets,.k-design .v-right-cabinet {height:44px;}
   .k-design .e-cupboard {min-height:44px;}
-  .k-design .k-order-rail {top:49px;}
   .k-design .k-worktop {padding-bottom:10px;}
   .k-design .v-slab {padding-bottom:4px;}
   .k-design .e-desk-items {bottom:6px;}
