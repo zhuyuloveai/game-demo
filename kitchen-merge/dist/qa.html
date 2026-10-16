@@ -30,10 +30,10 @@
   <a href="index.html?qa=producers">生产器美术：11类启用形态、零件、最高级与容器</a>
   <a href="index.html?qa=producer-tiers">等级辨识：咖啡机和菜筐全级、其他生产器入门与最高级</a>
   <a href="index.html?qa=special"
-    >21条转换：种子、柜子、冒险、记忆、课程、花园</a
+    >24条转换：种子、柜子、冒险、记忆、课程、花园</a
   ><a href="index.html?qa=resources">容器、零件合成与全部辅助道具</a
   ><a href="index.html?qa=chapter">配方、主线第8单与第1章结算</a
-  ><a href="catalog.html">全421项视觉目录</a
+  ><a href="catalog.html">全422项视觉目录</a
   ><a href="index.html">默认新玩家流程</a>
 </html>
 
@@ -44,25 +44,27 @@
   </p>
   <button data-save-version="1">准备v1旧档</button
   ><button data-save-version="2">准备v2旧档</button
-  ><button data-save-version="4">准备未知高版本</button
+  ><button data-save-version="3">准备v3旧49格档</button
+  ><button data-save-version="5">准备未知高版本</button
   ><button data-save-version="broken">准备损坏存档</button>
 </section>
 <script type="module">
   import { createGame } from "./legacy-engine.mjs";
-  document.addEventListener("click", (event) => {
+  import { legacyV3Fixture } from "./qa.mjs";
+  document.addEventListener("click", async (event) => {
     const version = event.target.dataset.saveVersion;
     if (
       !version ||
       !["localhost", "127.0.0.1", "::1"].includes(location.hostname)
     )
       return;
-    const s = createGame(null, Date.now());
+    const s = version === "3" ? await legacyV3Fixture() : createGame(null, Date.now());
     s.version = Number(version);
     s.stage = 8;
     s.xp = 275;
     s.energy = 73;
     s.stars = 26;
-    s.pending.push({ id: "fixture-old-chest", family: "chest", level: 3 });
+    if(version !== "3") s.pending.push({ id: "fixture-old-chest", family: "chest", level: 3 });
     localStorage.setItem(
       "little-kitchen-qa-migration",
       version === "broken" ? "invalid-json" : JSON.stringify(s),

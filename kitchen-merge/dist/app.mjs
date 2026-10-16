@@ -16,10 +16,10 @@ const writePref = (key,value) => {try{localStorage.setItem(key,JSON.stringify(va
 let storageAvailable=true, saved=null,backupError=null;
 try {
   saved=localStorage.getItem(STORAGE);
-  if(saved && [1,2].includes(JSON.parse(saved).version)){
+  if(saved && [1,2,3].includes(JSON.parse(saved).version)){
     backupBeforeMigration(localStorage,BACKUP_PREFIX,saved);
   }
-} catch(error) {storageAvailable=false;try{if(saved&&[1,2].includes(JSON.parse(saved).version))backupError=error;}catch{}}
+} catch(error) {storageAvailable=false;try{if(saved&&[1,2,3].includes(JSON.parse(saved).version))backupError=error;}catch{}}
 let state;try{if(backupError)throw Error('无法保存迁移前备份。请先导出原档，释放浏览器存储后重试。');state=createGame(saved);}catch(error){document.body.innerHTML='<main class=save-recovery><h1>存档已保护</h1><p></p><button id=export-protected>导出原始存档</button><p>请使用支持此版本的程序，或从迁移前备份恢复。</p></main>';document.querySelector('p').textContent=error.message;document.querySelector('button').onclick=()=>download('kitchen-protected-save.json',saved);throw error;}
 const makeFixture=qaEnabled?(await import('./qa.mjs')).fixture:null;
 if(qaEnabled&&!saved)state=makeFixture(qa);
@@ -141,15 +141,17 @@ function renderSelection(){
   }
   if(!item){$('#selection-card').innerHTML=`${state.discarded?button('撤回丢弃','undo-discard'):''}<div class="selection-copy"><strong>合成料理板</strong><p>${state.merges?'拖动相同物品，合出美味':'拖动两份小麦，合出面粉'}</p></div>${button('找一找 ✧','hint')}`;return;}
   let description='',actions='';
+  const mergeTo=definition(item)?.mergeTo||sourceRules(item).cross?.output;
+  const mergeHint=item.openedAt!==null?'已开启，禁止合成/剪切/升级':mergeTo?`两份可合成${ITEMS[mergeTo].name}`:'已到合成末级';
   if(isSource(item)){
-    const status=producerStatus(state,item);description=status.ready?`余 ${status.charges}/${status.maxCharges} 次 · ${item.openedAt!==null?'已开启，禁止合成/剪切/升级':'未开启，同级可合成'}`:`冷却 ${formatTime(status.cooldownRemaining)} · 可使用补货箱或加速道具`;
+    const status=producerStatus(state,item);description=status.ready?`余 ${status.charges}/${status.maxCharges} 次 · ${mergeHint}`:`冷却 ${formatTime(status.cooldownRemaining)} · 可使用补货箱或加速道具`;
     actions=button('生产','generate',false,`data-index="${selected}"`)+button('更多','item');
   }else if(item.family==='bubble'){
     description=`限时惊喜 · ${formatTime(item.expiresAt-Date.now())} 后变金币`;
     actions=button(`${item.cost}颗彩虹糖取出`,'bubble-buy')+button('变金币','bubble-dismiss');
   }else{
-    const next=CHAINS[item.family]?.[item.level];description=next?`2份可合成${next.name}`:'已到最高级，可交单、做菜或收纳';
-    if(['resource','legacy'].includes(definition(item)?.kind)){description=definition(item).valueUnit==='draws'?`容器剩余 ${item.remainingDraws} 次 · 开启后不能合成`:sourceDescription(itemKey(item));actions=button('使用 / 领取','collect')+button('更多','item');}
+    description=definition(item).stackLimit?`余${item.uses??1}把，同级可叠加至${definition(item).stackLimit}把`:mergeTo?`两份可合成${ITEMS[mergeTo].name}`:'已到最高级，可交单、做菜或收纳';
+    if(['resource','legacy'].includes(definition(item)?.kind)){description=definition(item).valueUnit==='draws'?`容器剩余 ${item.remainingDraws} 次 · ${item.family==='tipjar'&&item.level===1?'可合成二级存钱罐':'开启后不能合成'}`:definition(item).stackLimit?`余${item.uses??1}把，同级可叠加至${definition(item).stackLimit}把`:sourceDescription(itemKey(item));actions=button('使用 / 领取','collect')+button('更多','item');}
     else actions=button('收纳','store')+button('更多','item');
   }
   $('#selection-card').innerHTML=`<span class="selected-art">${itemArt(item)}</span><div class="selection-copy"><strong>${esc(itemName(item))}<span class="selection-meta">Lv.${item.level||1}</span></strong><p>${esc(description)}</p></div><div class="selection-actions">${actions}</div>`;
@@ -244,7 +246,7 @@ function renderPanel(){
     html=panelHeader('小狗店长的礼物与道具',`待领 ${state.pending.length} 件；每日3单、每周20单可领设备包。`);
     html+=`<div class="panel-actions">${button(dailyReady()?'每日开店礼':'今日已领','daily',!dailyReady())}${button(`今日休息 ${state.day.breaks}/3`,'break',state.day.breaks>=3)}${button(`日委托 ${state.day.orders}/3`,'commission-day')}${button(`周委托 ${state.week.orders}/20`,'commission-week')}</div>`;
     html+=`<p>每5份成本≥4的正式订单奖励礼盒，每日上限3个。当前计数 ${state.chestProgress}/5，今日 ${state.day.chests}/3。</p>`;
-    if(state.pending.length)html+=`<div class="inventory-grid">${state.pending.slice(0,24).map(item=>`<div class="inventory-slot">${itemArt(item)}<strong>${esc(itemName(item))}</strong><small>Lv.${item.level}</small></div>`).join('')}</div><button class="primary-button" data-action="claim">领取下一件（剩 ${state.pending.length}）</button>`;
+    if(state.pending.length)html+=`<div class="inventory-grid">${state.pending.slice(0,24).map(item=>`<div class="inventory-slot">${itemArt(item)}<strong>${esc(itemName(item))}</strong><small>Lv.${item.level}${item.uses?` · 余${item.uses}把`:""}</small></div>`).join('')}</div><button class="primary-button" data-action="claim">领取下一件（剩 ${state.pending.length}）</button>`;
     html+=`<h3>随身道具</h3><div class="inventory-grid">${state.tools.map(item=>`<button class="inventory-slot" data-tool="${item.id}">${itemArt(item)}<strong>${esc(itemName(item))}</strong><small>选择使用</small></button>`).join('')}</div>`;
     if(state.legacyFullRefill)html+=`<button class="primary-button" data-action="hourglass">旧沙漏 ×${state.legacyFullRefill} · 补满当前选中设备</button>`;
     html+=`<p>待领余额：${Object.entries(state.credits).filter(([,v])=>v).map(([k,v])=>`${k==='gems'?'彩虹糖':k}: ${v}`).join('、')||'暂无'}</p>${button('领取可用额度','credits')}`;
@@ -254,7 +256,7 @@ function renderPanel(){
     html+=RECIPES.map(recipe=>{const p=getRecipeProgress(state,recipe);return `<article class="recipe-card"><div class="panel-copy"><strong>${esc(recipe.name)}</strong><p>${esc(recipe.description)}</p></div><div class="recipe-needs">${p.needs.map(n=>`<span class="need ${!n.missing?'ready':''}" title="${esc(itemName(n))}"><span class="need-art">${itemArt(n)}</span><span class="need-count">${Math.min(n.have,n.count)}/${n.count}</span></span>`).join('')}<span class="recipe-arrow">→</span><span class="recipe-output" title="${esc(itemName(recipe.output))}">${itemArt(recipe.output)}</span></div><div class="recipe-tool">${icon('pan')} ${esc(p.toolName||CHAINS.tools[recipe.toolLevel-1]?.name)}或更高级厨具 · ${p.toolReady?'已就绪 · 保留使用':'台面暂缺'}</div><button class="primary-button" data-cook="${recipe.id}" ${p.ready?'':'disabled'}>${recipe.unlockStage>state.stage?`完成第 ${recipe.unlockStage} 章解锁`:p.ready?'开始烹饪':'准备食材与厨具'}</button></article>`;}).join('');
   }else if(modalView==='sources'){
     html=panelHeader('物品来源',FAMILY_META[catalogFamily]?.name||'厨房物品');
-    html+=CHAINS[catalogFamily].map(d=>`<article class="store-card">${panelIcon(d.icon)}<div class="panel-copy"><strong>${d.name} · L${d.level}</strong><p>${esc(sourceDescription(d.id))}</p><small>${d.mergeTo?'两份合成 '+ITEMS[d.mergeTo].name:sourceRules(d).cross?'两份跨链合成 '+ITEMS[sourceRules(d).cross.output].name:'本系列末端'}</small></div></article>`).join('');
+    html+=CHAINS[catalogFamily].map(d=>`<article class="store-card">${panelIcon(d.icon)}<div class="panel-copy"><strong>${d.name} · L${d.level}</strong><p>${esc(sourceDescription(d.id))}</p><small>${d.stackLimit?`同级可叠加至${d.stackLimit}把`:d.mergeTo?'两份合成 '+ITEMS[d.mergeTo].name:sourceRules(d).cross?'两份跨链合成 '+ITEMS[sourceRules(d).cross.output].name:'本系列末端'}</small></div></article>`).join('');
 
   }else if(modalView==='item'){
     const item=state.board[selected];if(!item){modal.close();return;}const d=definition(item),r=sourceRules(item),status=producerStatus(state,item);
@@ -262,7 +264,7 @@ function renderPanel(){
     if(r.manual)html+=`<p>可用 ${status.charges}/${status.maxCharges} 次 ${status.cooldownRemaining?'· 下批 '+formatTime(status.cooldownRemaining):''} ${item.stockOverflow?'· 溢出库存 '+item.stockOverflow:''}</p>${button('生产','generate',false,`data-index="${selected}"`)}`;
     if(r.auto)html+=`<p>自动产出 ${ITEMS[r.auto.output].name}，缓冲 ${item.autoBuffer}/${r.auto.capacity}，下份 ${formatTime(item.autoRemaining)}。</p>`;
     if(item.timerRemaining!==null)html+=`<p>${r.delay?'成熟':'开锁'}倒计时 ${formatTime(item.timerRemaining)} · 入仓暂停。</p>`;
-    if(item.remainingDraws!==null)html+=`<p>剩余 ${item.remainingDraws} 次 ${item.openedAt!==null?'· 已开启，禁止合成/剪切/升级':'· 未开启'}</p>`;
+    if(item.remainingDraws!==null)html+=`<p>剩余 ${item.remainingDraws} 次 ${item.openedAt!==null?(item.family==='tipjar'&&item.level===1?'· 可合成二级存钱罐':'· 已开启，禁止合成/剪切/升级'):'· 未开启'}</p>`;
     if(item.timeCredit)html+=`<p>秒表信用 ${formatTime(item.timeCredit)}</p>`;
     html+=`<p>${item.protected?'供给源保护 · ':''}${item.openedAt!==null?'已开启':'未开启'} · 售价 ${d.sellCoins} 金币</p><div class="panel-actions">${button('收纳','store')}${button('使用道具','tool-picker')}${button('出售','sell-confirm')}${button('丢弃（30秒可撤回）','discard')}</div>`;
     if(d.kind==='resource'||d.kind==='legacy')html+=button('领取 / 使用','collect');
@@ -277,7 +279,7 @@ function renderPanel(){
     html=panelHeader('小狗厨房的声音','原创轻快循环配乐，搭配点击、生产、合成、交单、烹饪和开店奖励音效。首次操作后开始播放。');
     html+=`<div class="settings-row"><span>背景音乐<small>轻快铃音、拨弦与温暖低音</small></span>${button(musicEnabled?'已开启':'已关闭','toggle-music')}</div><label class="settings-row">音乐音量 <input class="music-slider" type="range" min="0" max="100" value="${Math.round(musicVolume*100)}" data-volume="music" aria-label="背景音乐音量"></label><div class="settings-row"><span>操作音效<small>每种操作都有不同的声音反馈</small></span>${button(effectsEnabled?'已开启':'已关闭','toggle-effects')}</div><label class="settings-row">音效音量 <input class="music-slider" type="range" min="0" max="100" value="${Math.round(effectsVolume*100)}" data-volume="effects" aria-label="操作音效音量"></label>`;
   }else if(modalView==='settings'){
-    html=panelHeader('厨房小设置','按自己的节奏，慢慢收集每一份美味。')+`<div class="settings-row"><span>存档与调参记录<small>版本3 · ${state.balanceVersion}</small></span>${button('导出备份','export-save')}${button('导出事件','export-events')}</div><div class="settings-row"><span>迁移前备份<small>${backupSummary()}；恢复时保留当前进度副本</small></span>${button('导出原始旧档','export-legacy')}${button('恢复旧备份','restore-backup')}</div><div class="settings-row"><span>玩法说明<small>生产、合成、做菜、交单与章节任务</small></span>${button('查看','help')}</div><div class="settings-row"><span>音乐和音效<small>分别开关与调节音量</small></span>${button('调整','music')}</div><div class="settings-row"><span>自动存档<small>${storageAvailable?'当前浏览器自动保存，旧版进度已兼容':'当前浏览器暂时无法保存'}</small></span>自动</div><div class="settings-row"><span>重新开张<small>清空当前进度，回到新手厨房</small></span>${button('重新开始','reset-confirm')}</div>`;
+    html=panelHeader('厨房小设置','按自己的节奏，慢慢收集每一份美味。')+`<div class="settings-row"><span>存档与调参记录<small>版本4 · ${state.balanceVersion}</small></span>${button('导出备份','export-save')}${button('导出事件','export-events')}</div><div class="settings-row"><span>迁移前备份<small>${backupSummary()}；恢复时保留当前进度副本</small></span>${button('导出原始旧档','export-legacy')}${button('恢复旧备份','restore-backup')}</div><div class="settings-row"><span>玩法说明<small>生产、合成、做菜、交单与章节任务</small></span>${button('查看','help')}</div><div class="settings-row"><span>音乐和音效<small>分别开关与调节音量</small></span>${button('调整','music')}</div><div class="settings-row"><span>自动存档<small>${storageAvailable?'当前浏览器自动保存，旧版进度已兼容':'当前浏览器暂时无法保存'}</small></span>自动</div><div class="settings-row"><span>重新开张<small>清空当前进度，回到新手厨房</small></span>${button('重新开始','reset-confirm')}</div>`;
   }else if(modalView==='help'){
     html=panelHeader('厨房店长小手册','主玩法是两两合成，食谱与开店任务让每一件物品都有用途。');
     const steps=[['生产与升级','点击篮子、厨具架等生产器消耗1电量获取材料。次数用完会冷却，同种同级生产器可拖动合并升级。'],['合成与解锁','点击物品只切换选中，拖动相同种类和等级的物品合成升级。拖入蒙尘的相同物品可解锁；空的锁定格可通过相邻合成整理，也能花金币清理。'],['订单与章节','订单只计算台面上的已解锁物品。交单可得金币、经验和许愿星；完成小狗店长手账的任务，逐步解锁咖啡、香草、亚洲及环球料理设备。星星用于章节结算布置。'],['食材与厨具','打开食谱，凑齐指定材料和对应等级厨具即可做菜。材料会消耗，厨具可以反复使用；更高级厨具同样有效。'],['仓库与礼物','在物品信息栏收纳物品；仓库可用金币扩容。每5份合格订单有礼盒，每日有开店礼。礼盒、金币和电量道具也能合成升级。'],['辅助道具','剪刀把2级以上材料拆成两份上一级，沙漏推进全棋盘生产时钟，补货箱增加选中生产器库存。点击选中物品后，在“更多”里使用。'],['惊喜与自动产出','高级合成有机会产生限时泡泡，可以购买或变为金币。香草花园会定时自动产出，先给它留出相邻空位。'],['音乐与存档','原创音乐在首次操作后播放；离开页面会暂停。进度自动保存，音效与配乐可以分别关闭。']];
@@ -292,7 +294,7 @@ function renderPanel(){
     const preview=previewTool(state,resolveToolSelection(),toolTarget);
     html=panelHeader('确认使用道具',preview.message)+`<p class="source-note">${preview.ok?`影响 ${preview.preview.boardChanges} 个台面物品；仓库 ${preview.preview.storage} 格；无限体力 ${preview.preview.infiniteSeconds} 秒。`:''}</p>${preview.preview?.target?`<div class="energy-big">${itemArt(preview.preview.target)}</div><p>目标库存 ${preview.preview.target.stock??'—'}，溢出 ${preview.preview.target.stockOverflow}，秒表信用 ${formatTime(preview.preview.target.timeCredit)}</p>`:''}${button('确认使用','tool-confirm',!preview.ok)}${button('返回道具','tool-picker')}`;
   }else if(modalView==='catalog-detail'){
-    const d=ITEMS[catalogDetail];html=panelHeader(d.name,`${FAMILY_META[d.family].name} · L${d.level} · ${d.kind}`)+`<div class="energy-big">${itemArt(d)}</div><p>${esc(sourceDescription(d.id))}</p><p>${esc(ruleSummary(d))}</p><p>${d.mergeTo?'两份合成 '+ITEMS[d.mergeTo].name:sourceRules(d).cross?'跨链合成 '+ITEMS[sourceRules(d).cross.output].name:'无法普通合成'} · 售价 ${d.sellCoins}金币</p><button class="primary-button" data-action="collection">返回图鉴</button>`;
+    const d=ITEMS[catalogDetail];html=panelHeader(d.name,`${FAMILY_META[d.family].name} · L${d.level} · ${d.kind}`)+`<div class="energy-big">${itemArt(d)}</div><p>${esc(sourceDescription(d.id))}</p><p>${esc(ruleSummary(d))}</p><p>${d.stackLimit?`同级可叠加至${d.stackLimit}把`:d.mergeTo?'两份合成 '+ITEMS[d.mergeTo].name:sourceRules(d).cross?'跨链合成 '+ITEMS[sourceRules(d).cross.output].name:'无法普通合成'} · 售价 ${d.sellCoins}金币</p><button class="primary-button" data-action="collection">返回图鉴</button>`;
   }else if(modalView==='reset-confirm')html=panelHeader('让小狗厨房重新开张？','当前的棋盘、仓库、金币、章节、订单、图鉴都会清空。')+`<div class="reset-warning">此操作会覆盖当前浏览器中的游戏进度。</div><div class="reset-actions">${button('保留进度','settings')}${button('确定重新开始','reset')}</div>`;
   $('#modal-content').innerHTML=html+(modalView==='reset-confirm'?'':'<button class="primary-button" data-action="close">回到小狗厨房</button>');
 }
@@ -419,6 +421,6 @@ $('#cabinet-art').innerHTML=icon('flour')+icon('pan');
 for(const [id,name] of Object.entries({'energy-icon':'energy','phone-icon':'bag','hint-icon':'sparkles','modal-close':'close'}))$(`#${id}`).innerHTML=glyph(name);
 render();save();
 
-if(state.migrationNotice&&!state.claimed['migration:notice']){toast(state.migrationNotice);state.claimed['migration:notice']=true;save();}
+if(state.migrationNotice&&!state.claimed[`migration:notice:v${state.version}`]){toast(state.migrationNotice);state.claimed[`migration:notice:v${state.version}`]=true;save();}
 
 if(qaEnabled){const controls=document.createElement('aside');controls.className='qa-controls';controls.innerHTML='<b>本地验收 · '+qa+'</b><button data-action=qa-advance>推进1小时</button><button data-action=qa-reset>重置场景</button><a href=qa.html>切换场景</a>';document.body.prepend(controls);}

@@ -1993,7 +1993,7 @@
       "unit": "表",
       "evidence": "U",
       "sources": [],
-      "limits": "旧表图片无法清晰读取；2023及2025曾改版"
+      "limits": "历史库存部分可辨且逐字段采用；现版完整CD/概率仍未知，2023/2025有改版"
     },
     {
       "id": "order_formula",
@@ -2021,6 +2021,71 @@
       "evidence": "U",
       "sources": [],
       "limits": "未获得原始完整表"
+    },
+    {
+      "id": "board",
+      "name": "历史主棋盘行列",
+      "value": [
+        7,
+        9
+      ],
+      "unit": "列/行",
+      "evidence": "P",
+      "sources": [
+        "S27"
+      ],
+      "limits": "逐格实机图核读；2026所有渠道未知"
+    },
+    {
+      "id": "plant_auto",
+      "name": "花树历史单个产出周期",
+      "value": [
+        1800,
+        2
+      ],
+      "unit": "秒/容量",
+      "evidence": "P",
+      "sources": [
+        "S33"
+      ],
+      "limits": "S28的1h为两件回满；原图单周期30min产1"
+    },
+    {
+      "id": "trash_auto",
+      "name": "垃圾袋历史单个产出周期",
+      "value": [
+        480,
+        2
+      ],
+      "unit": "秒/容量",
+      "evidence": "P",
+      "sources": [
+        "S34"
+      ],
+      "limits": "S28的16min为两件回满；S30的6min为后期资料冲突"
+    },
+    {
+      "id": "nest_finite",
+      "name": "猫窝耗尽次数",
+      "value": 12,
+      "unit": "次",
+      "evidence": "P",
+      "sources": [
+        "S28",
+        "S31"
+      ],
+      "limits": "点完消失；旧小厨永久实例保留旧规则"
+    },
+    {
+      "id": "key_finite",
+      "name": "感应手环耗尽次数",
+      "value": 7,
+      "unit": "次",
+      "evidence": "P",
+      "sources": [
+        "S31"
+      ],
+      "limits": "无可靠现版复测"
     }
   ]
 }

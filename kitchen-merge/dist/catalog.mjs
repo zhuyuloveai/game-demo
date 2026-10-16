@@ -1,10 +1,11 @@
 import BALANCE from "./balance-data.mjs";
+import V3_RULES from "./v3-rules.mjs";
 import {
   CHAINS as OLD,
   PRODUCER_DEFS as OLD_PRODUCERS,
 } from "./legacy-catalog.mjs";
 export { BALANCE };
-export const BALANCE_VERSION = "kitchen-reference-v1-draft";
+export const BALANCE_VERSION = BALANCE.balanceVersion;
 export const CHAINS = Object.fromEntries(
   BALANCE.chains.map((chain) => [
     chain.id,
@@ -109,6 +110,10 @@ export const transitionsFor = (item) =>
     match(t, typeof item === "string" ? item : itemKey(item)),
   );
 export function sourceRules(item) {
+  // Migration settles already-earned time under the previous rules. Only old
+  // permanent nests retain this flag after upgrading, preserving their rights.
+  if (item?.legacyV3 && V3_RULES[itemKey(item)])
+    return { manual: null, auto: null, delay: null, cross: null, ...V3_RULES[itemKey(item)] };
   const id = itemKey(item),
     d = definition(item),
     p = d?.family.startsWith("gen_") ? PRODUCER_DEFS[d.family.slice(4)] : null;
@@ -150,6 +155,7 @@ export function sourceDescription(id) {
     sources.push(`两份${ITEMS[`${d.family}:${d.level - 1}`].name}`);
   if (d.kind === "producer") sources.push("对应章节赠送 / 设备包与采购零件");
   if (d.kind === "resource") sources.push("等级、日周委托、每日礼物或同类合成");
+  if (d.stackLimit) sources.push(`同级可叠加，最多${d.stackLimit}把`);
   if (d.family === "honor") sources.push("十二章通关后每10份合格订单");
   if (d.kind === "legacy") sources.push("旧档资产保值，保留旧领取值");
   return [...new Set(sources)].join("；");

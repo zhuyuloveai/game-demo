@@ -6,7 +6,7 @@
 
 | 字段 | 值 |
 | --- | --- |
-| boardRows | 7 |
+| boardRows | 9 |
 | boardCols | 7 |
 | energyCap | 100 |
 | manualEnergyCap | 999 |

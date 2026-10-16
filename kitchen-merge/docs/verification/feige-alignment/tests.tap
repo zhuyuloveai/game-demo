@@ -1,0 +1,760 @@
+TAP version 13
+# Subtest: dated anchors have independent capacity/CD/probability provenance
+ok 1 - dated anchors have independent capacity/CD/probability provenance
+  ---
+  duration_ms: 1.349917
+  type: 'test'
+  ...
+# Subtest: new board locks all four lower rows and leaves old starter indices intact
+ok 2 - new board locks all four lower rows and leaves old starter indices intact
+  ---
+  duration_ms: 3.360666
+  type: 'test'
+  ...
+# Subtest: move, hints, production and merging reach first and last cells; invalid 63 stays atomic
+ok 3 - move, hints, production and merging reach first and last cells; invalid 63 stays atomic
+  ---
+  duration_ms: 1.522459
+  type: 'test'
+  ...
+# Subtest: automatic output never wraps a row; bottom corner reaches the valid neighbor
+ok 4 - automatic output never wraps a row; bottom corner reaches the valid neighbor
+  ---
+  duration_ms: 5.409334
+  type: 'test'
+  ...
+# Subtest: bottom-row locked cells open beside a merge and require an explicit unlock before moving in
+ok 5 - bottom-row locked cells open beside a merge and require an explicit unlock before moving in
+  ---
+  duration_ms: 0.880125
+  type: 'test'
+  ...
+# Subtest: new cat nest expires after exactly 12 paid draws, never accepts recharge tools
+ok 6 - new cat nest expires after exactly 12 paid draws, never accepts recharge tools
+  ---
+  duration_ms: 0.975708
+  type: 'test'
+  ...
+# Subtest: historical timed paths obey selected periods and capacity; newer conflicting values stay recorded
+ok 7 - historical timed paths obey selected periods and capacity; newer conflicting values stay recorded
+  ---
+  duration_ms: 0.122917
+  type: 'test'
+  ...
+# Subtest: real PR6 v3 fixture migrates 49→63 with positions, claims, balances and RNG preserved
+ok 8 - real PR6 v3 fixture migrates 49→63 with positions, claims, balances and RNG preserved
+  ---
+  duration_ms: 1.551792
+  type: 'test'
+  ...
+# Subtest: migration settles offline production with original v3 rules before applying new CD
+ok 9 - migration settles offline production with original v3 rules before applying new CD
+  ---
+  duration_ms: 0.366709
+  type: 'test'
+  ...
+# Subtest: old permanent cat nest survives migration, reload, storage and its next recharge
+ok 10 - old permanent cat nest survives migration, reload, storage and its next recharge
+  ---
+  duration_ms: 0.848916
+  type: 'test'
+  ...
+# Subtest: migration validates locks/unknown fields before mutation and backs up v3 exact text
+ok 11 - migration validates locks/unknown fields before mutation and backs up v3 exact text
+  ---
+  duration_ms: 4.530375
+  type: 'test'
+  ...
+# Subtest: used L1 piglets follow the recorded merge route; used L2 and bags cannot wash draws
+ok 12 - used L1 piglets follow the recorded merge route; used L2 and bags cannot wash draws
+  ---
+  duration_ms: 1.315375
+  type: 'test'
+  ...
+# Subtest: purple scissors stack up to 20; use, full-board failure, reload and warehouse preserve counts
+ok 13 - purple scissors stack up to 20; use, full-board failure, reload and warehouse preserve counts
+  ---
+  duration_ms: 1.89025
+  type: 'test'
+  ...
+# Subtest: all 421 committed main artwork assets remain byte-identical after numeric changes
+ok 14 - all 421 committed main artwork assets remain byte-identical after numeric changes
+  ---
+  duration_ms: 25.165625
+  type: 'test'
+  ...
+# Subtest: default v4 keeps 421 definitions and adds the recorded tenth recycle tier
+ok 15 - default v4 keeps 421 definitions and adds the recorded tenth recycle tier
+  ---
+  duration_ms: 25.77775
+  type: 'test'
+  ...
+# Subtest: actual special transition: seed
+ok 16 - actual special transition: seed
+  ---
+  duration_ms: 1.400833
+  type: 'test'
+  ...
+# Subtest: actual special transition: empty_to_doll
+ok 17 - actual special transition: empty_to_doll
+  ---
+  duration_ms: 0.96325
+  type: 'test'
+  ...
+# Subtest: actual special transition: herb_snail
+ok 18 - actual special transition: herb_snail
+  ---
+  duration_ms: 1.43925
+  type: 'test'
+  ...
+# Subtest: actual special transition: pantry_manual
+ok 19 - actual special transition: pantry_manual
+  ---
+  duration_ms: 0.627042
+  type: 'test'
+  ...
+# Subtest: actual special transition: pantry_auto
+ok 20 - actual special transition: pantry_auto
+  ---
+  duration_ms: 1.283375
+  type: 'test'
+  ...
+# Subtest: actual special transition: lost5
+ok 21 - actual special transition: lost5
+  ---
+  duration_ms: 1.030042
+  type: 'test'
+  ...
+# Subtest: actual special transition: lost6
+ok 22 - actual special transition: lost6
+  ---
+  duration_ms: 1.13
+  type: 'test'
+  ...
+# Subtest: actual special transition: comfort_console
+ok 23 - actual special transition: comfort_console
+  ---
+  duration_ms: 0.537875
+  type: 'test'
+  ...
+# Subtest: actual special transition: console_scenes
+ok 24 - actual special transition: console_scenes
+  ---
+  duration_ms: 0.557625
+  type: 'test'
+  ...
+# Subtest: actual special transition: adventure1
+ok 25 - actual special transition: adventure1
+  ---
+  duration_ms: 0.473792
+  type: 'test'
+  ...
+# Subtest: actual special transition: adventure2
+ok 26 - actual special transition: adventure2
+  ---
+  duration_ms: 0.464833
+  type: 'test'
+  ...
+# Subtest: actual special transition: adventure3
+ok 27 - actual special transition: adventure3
+  ---
+  duration_ms: 0.622708
+  type: 'test'
+  ...
+# Subtest: actual special transition: adventure4
+ok 28 - actual special transition: adventure4
+  ---
+  duration_ms: 0.531125
+  type: 'test'
+  ...
+# Subtest: actual special transition: adventure5
+ok 29 - actual special transition: adventure5
+  ---
+  duration_ms: 0.578875
+  type: 'test'
+  ...
+# Subtest: actual special transition: story_mascot
+ok 30 - actual special transition: story_mascot
+  ---
+  duration_ms: 0.722917
+  type: 'test'
+  ...
+# Subtest: actual special transition: keys_gate
+ok 31 - actual special transition: keys_gate
+  ---
+  duration_ms: 0.4705
+  type: 'test'
+  ...
+# Subtest: actual special transition: tasting4
+ok 32 - actual special transition: tasting4
+  ---
+  duration_ms: 0.430041
+  type: 'test'
+  ...
+# Subtest: actual special transition: tasting5
+ok 33 - actual special transition: tasting5
+  ---
+  duration_ms: 0.551
+  type: 'test'
+  ...
+# Subtest: actual special transition: tasting6
+ok 34 - actual special transition: tasting6
+  ---
+  duration_ms: 0.531709
+  type: 'test'
+  ...
+# Subtest: actual special transition: scraps_guest
+ok 35 - actual special transition: scraps_guest
+  ---
+  duration_ms: 1.236417
+  type: 'test'
+  ...
+# Subtest: actual special transition: nest_cat
+ok 36 - actual special transition: nest_cat
+  ---
+  duration_ms: 0.590916
+  type: 'test'
+  ...
+# Subtest: actual special transition: pantry_manual1
+ok 37 - actual special transition: pantry_manual1
+  ---
+  duration_ms: 0.370125
+  type: 'test'
+  ...
+# Subtest: actual special transition: pantry_auto8
+ok 38 - actual special transition: pantry_auto8
+  ---
+  duration_ms: 1.142666
+  type: 'test'
+  ...
+# Subtest: actual special transition: pantry_auto11
+ok 39 - actual special transition: pantry_auto11
+  ---
+  duration_ms: 1.005292
+  type: 'test'
+  ...
+# Subtest: all active producer levels: tools
+ok 40 - all active producer levels: tools
+  ---
+  duration_ms: 5.370916
+  type: 'test'
+  ...
+# Subtest: all active producer levels: food
+ok 41 - all active producer levels: food
+  ---
+  duration_ms: 5.132542
+  type: 'test'
+  ...
+# Subtest: all active producer levels: produce
+ok 42 - all active producer levels: produce
+  ---
+  duration_ms: 4.837375
+  type: 'test'
+  ...
+# Subtest: all active producer levels: drink
+ok 43 - all active producer levels: drink
+  ---
+  duration_ms: 3.910917
+  type: 'test'
+  ...
+# Subtest: all active producer levels: herb
+ok 44 - all active producer levels: herb
+  ---
+  duration_ms: 3.818208
+  type: 'test'
+  ...
+# Subtest: all active producer levels: asian
+ok 45 - all active producer levels: asian
+  ---
+  duration_ms: 4.343458
+  type: 'test'
+  ...
+# Subtest: all active producer levels: mediterranean
+ok 46 - all active producer levels: mediterranean
+  ---
+  duration_ms: 3.801459
+  type: 'test'
+  ...
+# Subtest: all active producer levels: supply
+ok 47 - all active producer levels: supply
+  ---
+  duration_ms: 4.127084
+  type: 'test'
+  ...
+# Subtest: all active producer levels: publicity
+ok 48 - all active producer levels: publicity
+  ---
+  duration_ms: 2.039708
+  type: 'test'
+  ...
+# Subtest: all active producer levels: flower
+ok 49 - all active producer levels: flower
+  ---
+  duration_ms: 3.095833
+  type: 'test'
+  ...
+# Subtest: all active producer levels: recycle
+ok 50 - all active producer levels: recycle
+  ---
+  duration_ms: 3.424667
+  type: 'test'
+  ...
+# Subtest: unlocked drop filtering and deterministic persisted RNG use runtime distributions
+ok 51 - unlocked drop filtering and deterministic persisted RNG use runtime distributions
+  ---
+  duration_ms: 160.790958
+  type: 'test'
+  ...
+# Subtest: producer merge preserves stock, overflow and slower normalized cooldown
+ok 52 - producer merge preserves stock, overflow and slower normalized cooldown
+  ---
+  duration_ms: 1.482625
+  type: 'test'
+  ...
+# Subtest: all opened finite/container sources reject merge, split and upgrade without washing draws
+ok 53 - all opened finite/container sources reject merge, split and upgrade without washing draws
+  ---
+  duration_ms: 5.7705
+  type: 'test'
+  ...
+# Subtest: full board production, draw and split preserve every asset including RNG
+ok 54 - full board production, draw and split preserve every asset including RNG
+  ---
+  duration_ms: 4.47675
+  type: 'test'
+  ...
+# Subtest: offline auto caps buffers, pauses in inventory, resumes fractional time and flushes only adjacent
+ok 55 - offline auto caps buffers, pauses in inventory, resumes fractional time and flushes only adjacent
+  ---
+  duration_ms: 0.737375
+  type: 'test'
+  ...
+# Subtest: auto merge transfers buffers to pending and preserves timer ratio and summed credit
+ok 56 - auto merge transfers buffers to pending and preserves timer ratio and summed credit
+  ---
+  duration_ms: 0.635666
+  type: 'test'
+  ...
+# Subtest: bag unlock freezes chapter pool, pauses in storage and gives exactly original draw count
+ok 57 - bag unlock freezes chapter pool, pauses in storage and gives exactly original draw count
+  ---
+  duration_ms: 0.959625
+  type: 'test'
+  ...
+# Subtest: stopwatch retains blocked credit, hourglass does not advance account clocks
+ok 58 - stopwatch retains blocked credit, hourglass does not advance account clocks
+  ---
+  duration_ms: 0.803459
+  type: 'test'
+  ...
+# Subtest: recharge tool forbids waste and finite source; upgrades conserve empty inventory
+ok 59 - recharge tool forbids waste and finite source; upgrades conserve empty inventory
+  ---
+  duration_ms: 0.528291
+  type: 'test'
+  ...
+# Subtest: last supply source and required recipe tool cannot be sold, discarded or submitted
+ok 60 - last supply source and required recipe tool cannot be sold, discarded or submitted
+  ---
+  duration_ms: 0.807
+  type: 'test'
+  ...
+# Subtest: recipe consumes exact counts and energy on full board with reusable tool
+ok 61 - recipe consumes exact counts and energy on full board with reusable tool
+  ---
+  duration_ms: 0.775917
+  type: 'test'
+  ...
+# Subtest: resources preserve caps in pending credits, storage purchase counters ignore free slots
+ok 62 - resources preserve caps in pending credits, storage purchase counters ignore free slots
+  ---
+  duration_ms: 0.578625
+  type: 'test'
+  ...
+# Subtest: daily, weekly, levels and chapter rewards are idempotent with Shanghai period keys
+ok 63 - daily, weekly, levels and chapter rewards are idempotent with Shanghai period keys
+  ---
+  duration_ms: 0.768291
+  type: 'test'
+  ...
+# Subtest: all 96 actual main orders can complete in sequence, reward once and unlock 12 chapters
+ok 64 - all 96 actual main orders can complete in sequence, reward once and unlock 12 chapters
+  ---
+  duration_ms: 2.75175
+  type: 'test'
+  ...
+# Subtest: repeat slots have available sources, frozen rewards, unique signatures and paid refresh limits
+ok 65 - repeat slots have available sources, frozen rewards, unique signatures and paid refresh limits
+  ---
+  duration_ms: 2.806333
+  type: 'test'
+  ...
+# Subtest: v1 assets migrate at exact value and survive v3 reload without repeated grants
+ok 66 - v1 assets migrate at exact value and survive v3 reload without repeated grants
+  ---
+  duration_ms: 2.401959
+  type: 'test'
+  ...
+# Subtest: v2 assets migrate at exact value and survive v3 reload without repeated grants
+ok 67 - v2 assets migrate at exact value and survive v3 reload without repeated grants
+  ---
+  duration_ms: 0.673458
+  type: 'test'
+  ...
+# Subtest: unknown future, corrupted and duplicate-ID saves never become new games
+ok 68 - unknown future, corrupted and duplicate-ID saves never become new games
+  ---
+  duration_ms: 0.948708
+  type: 'test'
+  ...
+# Subtest: all 99 level rewards enqueue once after crossing multiple levels; repeated discovery pays zero
+ok 69 - all 99 level rewards enqueue once after crossing multiple levels; repeated discovery pays zero
+  ---
+  duration_ms: 1.677542
+  type: 'test'
+  ...
+# Subtest: maturity and active recharge pause in pending and storage across reload
+ok 70 - maturity and active recharge pause in pending and storage across reload
+  ---
+  duration_ms: 0.767125
+  type: 'test'
+  ...
+# Subtest: clock rollback cannot claim historical days, recharge backwards or create energy
+ok 71 - clock rollback cannot claim historical days, recharge backwards or create energy
+  ---
+  duration_ms: 0.581125
+  type: 'test'
+  ...
+# Subtest: discard undo is frozen and atomic on full board, only one undo survives
+ok 72 - discard undo is frozen and atomic on full board, only one undo survives
+  ---
+  duration_ms: 1.2215
+  type: 'test'
+  ...
+# Subtest: all 10 recipes enforce energy, materials and minimum reusable tools at runtime
+ok 73 - all 10 recipes enforce energy, materials and minimum reusable tools at runtime
+  ---
+  duration_ms: 5.060792
+  type: 'test'
+  ...
+# Subtest: bubble uses gems, cannot enter storage, and expires only once
+ok 74 - bubble uses gems, cannot enter storage, and expires only once
+  ---
+  duration_ms: 0.845542
+  type: 'test'
+  ...
+# Subtest: legacy chest pays original seven-device pool and refill effect, no new equipment leakage
+ok 75 - legacy chest pays original seven-device pool and refill effect, no new equipment leakage
+  ---
+  duration_ms: 0.798292
+  type: 'test'
+  ...
+# Subtest: pantry separate clocks operate at all eleven levels; parts preserve automatic merge buffer
+ok 76 - pantry separate clocks operate at all eleven levels; parts preserve automatic merge buffer
+  ---
+  duration_ms: 4.815583
+  type: 'test'
+  ...
+# Subtest: new and old item art stays distinct by shape; original 66 illustrations remain exact
+ok 77 - new and old item art stays distinct by shape; original 66 illustrations remain exact
+  ---
+  duration_ms: 13.734334
+  type: 'test'
+  ...
+# Subtest: new player balances start at exactly the approved values including zero XP
+ok 78 - new player balances start at exactly the approved values including zero XP
+  ---
+  duration_ms: 0.624792
+  type: 'test'
+  ...
+# Subtest: missing legacy sources are repaired only into pending, keeping empty board positions
+ok 79 - missing legacy sources are repaired only into pending, keeping empty board positions
+  ---
+  duration_ms: 0.6105
+  type: 'test'
+  ...
+# Subtest: invalid v3 clock and inconsistent item IDs are protected before mutation
+ok 80 - invalid v3 clock and inconsistent item IDs are protected before mutation
+  ---
+  duration_ms: 1.460291
+  type: 'test'
+  ...
+# Subtest: new kitchen offers clear starter merge, three producers, locks, rewards and 66 commodity levels
+ok 81 - new kitchen offers clear starter merge, three producers, locks, rewards and 66 commodity levels
+  ---
+  duration_ms: 3.997042
+  type: 'test'
+  ...
+# Subtest: merge awards experience, discovery and stable identities on later movement
+ok 82 - merge awards experience, discovery and stable identities on later movement
+  ---
+  duration_ms: 0.173
+  type: 'test'
+  ...
+# Subtest: producers move, swap and upgrade only with their own kind and level
+ok 83 - producers move, swap and upgrade only with their own kind and level
+  ---
+  duration_ms: 0.267625
+  type: 'test'
+  ...
+# Subtest: max commodities cannot merge and unlike commodities swap
+ok 84 - max commodities cannot merge and unlike commodities swap
+  ---
+  duration_ms: 0.135291
+  type: 'test'
+  ...
+# Subtest: locked source cannot move, sell, collect or store; same merge unlocks target
+ok 85 - locked source cannot move, sell, collect or store; same merge unlocks target
+  ---
+  duration_ms: 0.693042
+  type: 'test'
+  ...
+# Subtest: locked empty cells reject movement and generation but open beside a merge or with coins
+ok 86 - locked empty cells reject movement and generation but open beside a merge or with coins
+  ---
+  duration_ms: 0.317541
+  type: 'test'
+  ...
+# Subtest: generation uses chosen movable producer, costs one energy, and deterministic output is saved
+ok 87 - generation uses chosen movable producer, costs one energy, and deterministic output is saved
+  ---
+  duration_ms: 0.58075
+  type: 'test'
+  ...
+# Subtest: secondary family and upgraded level drops occur without unseeded randomness
+ok 88 - secondary family and upgraded level drops occur without unseeded randomness
+  ---
+  duration_ms: 0.2555
+  type: 'test'
+  ...
+# Subtest: producer cooldown waits until exhaustion and recovers offline exactly once
+ok 89 - producer cooldown waits until exhaustion and recovers offline exactly once
+  ---
+  duration_ms: 0.270334
+  type: 'test'
+  ...
+# Subtest: full board cannot spend generator charges or energy, and energy failure preserves producer
+ok 90 - full board cannot spend generator charges or energy, and energy failure preserves producer
+  ---
+  duration_ms: 0.173416
+  type: 'test'
+  ...
+# Subtest: orders aggregate quantities, ignore locked and stored goods, and pay exactly once
+ok 91 - orders aggregate quantities, ignore locked and stored goods, and pay exactly once
+  ---
+  duration_ms: 0.244958
+  type: 'test'
+  ...
+# Subtest: every third order queues a chest even on a crowded board
+ok 92 - every third order queues a chest even on a crowded board
+  ---
+  duration_ms: 0.082417
+  type: 'test'
+  ...
+# Subtest: new orders only request owned reachable producer families and scale within stage limits
+ok 93 - new orders only request owned reachable producer families and scale within stage limits
+  ---
+  duration_ms: 0.440083
+  type: 'test'
+  ...
+# Subtest: energy recovers partial intervals, caps natural recovery and cannot farm clock rollback
+ok 94 - energy recovers partial intervals, caps natural recovery and cannot farm clock rollback
+  ---
+  duration_ms: 0.057875
+  type: 'test'
+  ...
+# Subtest: resource chains merge and atomically credit energy or coins on collection
+ok 95 - resource chains merge and atomically credit energy or coins on collection
+  ---
+  duration_ms: 0.072125
+  type: 'test'
+  ...
+# Subtest: opening a merged chest preserves all rewards in pending even when full
+ok 96 - opening a merged chest preserves all rewards in pending even when full
+  ---
+  duration_ms: 0.102708
+  type: 'test'
+  ...
+# Subtest: inventory preserves identity, cannot count for orders and expands two slots at correct price
+ok 97 - inventory preserves identity, cannot count for orders and expands two slots at correct price
+  ---
+  duration_ms: 0.1145
+  type: 'test'
+  ...
+# Subtest: inventory retrieval cannot overwrite full board or bypass locked empty cells
+ok 98 - inventory retrieval cannot overwrite full board or bypass locked empty cells
+  ---
+  duration_ms: 0.072166
+  type: 'test'
+  ...
+# Subtest: renovation consumes stars, unlocks recipes and safely queues each new producer
+ok 99 - renovation consumes stars, unlocks recipes and safely queues each new producer
+  ---
+  duration_ms: 0.142958
+  type: 'test'
+  ...
+# Subtest: shop gates producers by renovation, charges once, and never requires board space
+ok 100 - shop gates producers by renovation, charges once, and never requires board space
+  ---
+  duration_ms: 0.140458
+  type: 'test'
+  ...
+# Subtest: scissors require a free unlocked slot and only consume a charge after a valid split
+ok 101 - scissors require a free unlocked slot and only consume a charge after a valid split
+  ---
+  duration_ms: 0.144333
+  type: 'test'
+  ...
+# Subtest: hourglass refills only selected producer and is not consumed for full or invalid targets
+ok 102 - hourglass refills only selected producer and is not consumed for full or invalid targets
+  ---
+  duration_ms: 0.070334
+  type: 'test'
+  ...
+# Subtest: fifth high merge produces a timed optional bubble without overwriting any item
+ok 103 - fifth high merge produces a timed optional bubble without overwriting any item
+  ---
+  duration_ms: 0.1485
+  type: 'test'
+  ...
+# Subtest: expired and dismissed bubbles turn into collectible coins, never paid duplicate rewards
+ok 104 - expired and dismissed bubbles turn into collectible coins, never paid duplicate rewards
+  ---
+  duration_ms: 0.061875
+  type: 'test'
+  ...
+# Subtest: herb garden grows adjacent, catches up at most three offline, and keeps blocked harvest
+ok 105 - herb garden grows adjacent, catches up at most three offline, and keeps blocked harvest
+  ---
+  duration_ms: 0.089292
+  type: 'test'
+  ...
+# Subtest: daily rewards use Shanghai calendar, persist, and reject clock rollback and repeated claim
+ok 106 - daily rewards use Shanghai calendar, persist, and reject clock rollback and repeated claim
+  ---
+  duration_ms: 1.482
+  type: 'test'
+  ...
+# Subtest: recipe cooks on a full board, consumes exact ingredients, and retains reusable high-level tools
+ok 107 - recipe cooks on a full board, consumes exact ingredients, and retains reusable high-level tools
+  ---
+  duration_ms: 0.190917
+  type: 'test'
+  ...
+# Subtest: recipes require unlocked ingredients and reusable tools; failures consume nothing
+ok 108 - recipes require unlocked ingredients and reusable tools; failures consume nothing
+  ---
+  duration_ms: 0.569625
+  type: 'test'
+  ...
+# Subtest: duplicate recipe requirements aggregate before readiness and every recipe is reachable
+ok 109 - duplicate recipe requirements aggregate before readiness and every recipe is reachable
+  ---
+  duration_ms: 0.313875
+  type: 'test'
+  ...
+# Subtest: v1 save migration preserves every existing item and progress, queues new producer on full board, and is idempotent
+ok 110 - v1 save migration preserves every existing item and progress, queues new producer on full board, and is idempotent
+  ---
+  duration_ms: 0.514958
+  type: 'test'
+  ...
+# Subtest: v1 missing producers are added to free spaces without replacing valuable occupied slots
+ok 111 - v1 missing producers are added to free spaces without replacing valuable occupied slots
+  ---
+  duration_ms: 0.115041
+  type: 'test'
+  ...
+# Subtest: save normalization repairs duplicate IDs, invalid fields, bad orders, and preserves inventory/pending
+ok 112 - save normalization repairs duplicate IDs, invalid fields, bad orders, and preserves inventory/pending
+  ---
+  duration_ms: 0.260875
+  type: 'test'
+  ...
+# Subtest: valid save round trip retains all state including cooldown, storage, RNG and pending reward identities
+ok 113 - valid save round trip retains all state including cooldown, storage, RNG and pending reward identities
+  ---
+  duration_ms: 0.180459
+  type: 'test'
+  ...
+# Subtest: invalid indexes never move, delete, unlock, or spend resources
+ok 114 - invalid indexes never move, delete, unlock, or spend resources
+  ---
+  duration_ms: 0.573209
+  type: 'test'
+  ...
+# Subtest: legacy refill and selling continue to use the original economy
+ok 115 - legacy refill and selling continue to use the original economy
+  ---
+  duration_ms: 0.070708
+  type: 'test'
+  ...
+# Subtest: chapter journal shows cumulative tasks and never grants unfinished rewards
+ok 116 - chapter journal shows cumulative tasks and never grants unfinished rewards
+  ---
+  duration_ms: 0.189708
+  type: 'test'
+  ...
+# Subtest: first chapter follows merge, delivery and cooking and grants coffee plus 80 coins without spending stars
+ok 117 - first chapter follows merge, delivery and cooking and grants coffee plus 80 coins without spending stars
+  ---
+  duration_ms: 0.208792
+  type: 'test'
+  ...
+# Subtest: chapter rewards stay pending on a full board and stale claims cannot advance another ready chapter
+ok 118 - chapter rewards stay pending on a full board and stale claims cannot advance another ready chapter
+  ---
+  duration_ms: 0.2535
+  type: 'test'
+  ...
+# Subtest: chapter claims preserve an already-owned unlocked producer without issuing a duplicate
+ok 119 - chapter claims preserve an already-owned unlocked producer without issuing a duplicate
+  ---
+  duration_ms: 0.095959
+  type: 'test'
+  ...
+# Subtest: legacy stage progress and resources migrate into chapters without replaying claimed rewards
+ok 120 - legacy stage progress and resources migrate into chapters without replaying claimed rewards
+  ---
+  duration_ms: 1.730084
+  type: 'test'
+  ...
+# Subtest: all chapters are reachable with earlier devices and preserve the original unlock and storage rewards
+ok 121 - all chapters are reachable with earlier devices and preserve the original unlock and storage rewards
+  ---
+  duration_ms: 0.941084
+  type: 'test'
+  ...
+# Subtest: invalid and stale chapter stages cannot grant items, spend stars or advance progress
+ok 122 - invalid and stale chapter stages cannot grant items, spend stars or advance progress
+  ---
+  duration_ms: 0.215834
+  type: 'test'
+  ...
+# Subtest: HTTP-compatible SHA-256 matches standard empty, UTF8 and full save vectors
+ok 123 - HTTP-compatible SHA-256 matches standard empty, UTF8 and full save vectors
+  ---
+  duration_ms: 11.985125
+  type: 'test'
+  ...
+# Subtest: backup preserves exact JSON before migration and does not write active save
+ok 124 - backup preserves exact JSON before migration and does not write active save
+  ---
+  duration_ms: 0.196708
+  type: 'test'
+  ...
+# Subtest: quota/write failures stop backup without touching the active save; QA prefix stays isolated
+ok 125 - quota/write failures stop backup without touching the active save; QA prefix stays isolated
+  ---
+  duration_ms: 0.257875
+  type: 'test'
+  ...
+1..125
+# tests 125
+# suites 0
+# pass 125
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 382.648291

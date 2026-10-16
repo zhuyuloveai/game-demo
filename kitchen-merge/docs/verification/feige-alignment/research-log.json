@@ -1,0 +1,63 @@
+{
+  "accessed": "2026-10-16",
+  "official": {
+    "url": "https://www.taptap.cn/app/232158",
+    "displayedVersion": "5.9.1 (591)",
+    "displayedUpdate": "2026-06-03",
+    "finding": "公告只有活动/体验更新，无全量数表；无法推导现版CD或概率"
+  },
+  "queries": [
+    "肥鹅健身房 发射器 CD 购物车 2025 2026",
+    "肥鹅健身房 种子堆 花树 猫窝 次数",
+    "肥鹅健身房 2026 主棋盘63格",
+    "肥鹅健身房 工具箱 冰箱 掉率",
+    "肥鹅健身房 仓库价格 经验表",
+    "官方入驻页、2022原始玩家攻略、2023原图附件、2024冷却对照、2025道具合集"
+  ],
+  "findings": [
+    "主棋盘7列9行在2022微信实机图可数；没有更近且渠道明确的全尺寸主棋盘复测，未用活动或肥鹅美食街续作作证明",
+    "原图G/H/K可辨为周期/周期补量/容量；I列是估算回满，部分含加速价换算及算式冲突",
+    "树30min产1/容量2=1h回满；垃圾8min产1/容量2=16min回满，原文总CD不能直接当每个产出周期",
+    "2024扫地机9/10级与2023表不同；本实现选同组2023-01-29周期/补量/容量，逐行留冲突",
+    "黑粉包解锁未取得可靠表；图底1/2/4天为存钱罐行，语义未明，未误写进包计时",
+    "缺完整概率样本、仓库价表、经验表和订单公式；D字段保留并说明设计依据"
+  ],
+  "images": [
+    {
+      "url": "https://p6.itc.cn/images01/20230129/8bb44c7306f9489ba630c54719b2f1a8.png",
+      "sha256": "e540b569d4267a0a32cc3d1298d3fa30d97ad1fcd8a16d608b561721db7dd9d3",
+      "inspection": "原图及放大人工复核；未将图像用作游戏素材"
+    },
+    {
+      "url": "https://p9.itc.cn/images01/20230129/3df9068b9b44470bbf3a7e496e021db4.png",
+      "sha256": "7c6961928d2fc4faf11115c1f71a99e8f65e504509608f37f05b355fb7f521b2",
+      "inspection": "原图及放大人工复核；未将图像用作游戏素材"
+    },
+    {
+      "url": "https://p7.itc.cn/images01/20230129/96b426a6819b45828bd7cf2a2446bd7b.png",
+      "sha256": "09c9d6c60368a284ef39173cccbf8ab06d5a897a6d5fad9c951a5a8583b5d6ae",
+      "inspection": "原图及放大人工复核；未将图像用作游戏素材"
+    },
+    {
+      "url": "https://p2.itc.cn/images01/20230129/10495ae5aaf14ac69bbc85d2e2fe90af.png",
+      "sha256": "fe0715e8aa43651570fad8d4acb9ccfb439ad19ef490302c79870ff5b0ead8de",
+      "inspection": "原图及放大人工复核；未将图像用作游戏素材"
+    },
+    {
+      "url": "https://p7.itc.cn/images01/20230117/c08195ca514945ef98dff8fa17e939c0.png",
+      "sha256": "0f9e6854aaa692a0c58938c9c7c1b82fd3af03095e83784d9f99ff2cb3d29121",
+      "inspection": "原图及放大人工复核；未将图像用作游戏素材"
+    },
+    {
+      "url": "https://p2.itc.cn/images01/20230117/208a2dce05604f55b17bd089ce00dbed.png",
+      "sha256": "80fedc63fbb28df0a3f1608c3ac71a8d3522cb4791f4aad753432ec6ba00be07",
+      "inspection": "原图及放大人工复核；未将图像用作游戏素材"
+    },
+    {
+      "url": "https://image.woshipm.com/wp-files/2022/09/QoG2LvnAzAQXWPVqWUPr.png",
+      "sha256": "36856031800474c3e681bcf6ba35ba7de8ef7ba020f113a9e0b83a6a3ed6f5bd",
+      "inspection": "原图及放大人工复核；未将图像用作游戏素材"
+    }
+  ],
+  "notCollected": "没有执行竞品客户端逐级掉率实采；没有样本数或精确官方概率承诺"
+}

@@ -15,7 +15,7 @@ const blank = () => {
 const put = (s, i, id, options) =>
   (s.board[i] = E.makeItem(s, id, NOW, options));
 const fill = (s) => {
-  for (let i = 0; i < 49; i++) if (!s.board[i]) put(s, i, "food:1");
+  for (let i = 0; i < E.BOARD_SIZE; i++) if (!s.board[i]) put(s, i, "food:1");
   return s;
 };
 function unchanged(s, fn) {
@@ -31,11 +31,11 @@ function tool(s, id) {
   return x.id;
 }
 const removeOutputs = (s, source) => {
-  for (let i = 0; i < 49; i++) if (i !== source) s.board[i] = null;
+  for (let i = 0; i < E.BOARD_SIZE; i++) if (i !== source) s.board[i] = null;
 };
-test("default v3 has 421 exact target definitions and 410 obtainable nonlegacy entries", () => {
+test("default v4 keeps 421 definitions and adds the recorded tenth recycle tier", () => {
   const target = E.BALANCE.chains.flatMap((c) => c.items);
-  assert.equal(target.length, 421);
+  assert.equal(target.length, 422);
   for (const d of target) {
     const actual = E.ITEMS[d.id];
     for (const key of ["name", "level", "mergeTo", "sellCoins", "standardCost"])
@@ -44,10 +44,10 @@ test("default v3 has 421 exact target definitions and 410 obtainable nonlegacy e
   }
   assert.equal(
     Object.values(E.ITEMS).filter((d) => d.kind !== "legacy").length,
-    410,
+    411,
   );
   const s = E.createGame(null, NOW);
-  assert.equal(s.version, 3);
+  assert.equal(s.version, 4);
   assert.equal(E.activeOrders(s).length, 4);
   assert.equal(s.tools.length, 4);
   assert.equal(s.gems, 20);
@@ -150,18 +150,18 @@ test("producer merge preserves stock, overflow and slower normalized cooldown", 
   b.rechargeRemaining = 300000;
   assert.equal(E.move(s, 0, 1, NOW).ok, true);
   const out = s.board[1];
-  assert.equal(out.stock, 32);
-  assert.equal(out.stockOverflow, 11);
-  assert.equal(out.rechargeRemaining, 285000);
+  assert.equal(out.stock, 24);
+  assert.equal(out.stockOverflow, 19);
+  assert.ok(Math.abs(out.rechargeRemaining - 300000 * 4800 / 9120) < 1e-6);
   E.tick(s, NOW + 99999999);
-  assert.equal(out.stockOverflow, 11);
-  assert.equal(out.stock, 32);
+  assert.equal(out.stockOverflow, 19);
+  assert.equal(out.stock, 24);
   const c = blank();
   put(c, 0, "gen_tools:3");
   put(c, 1, "gen_tools:3");
   E.move(c, 0, 1, NOW);
   assert.equal(c.board[1].stock, 0);
-  assert.equal(c.board[1].rechargeRemaining, 600000);
+  assert.equal(c.board[1].rechargeRemaining, 9120000);
 });
 test("all opened finite/container sources reject merge, split and upgrade without washing draws", () => {
   for (const id of [
@@ -171,7 +171,7 @@ test("all opened finite/container sources reject merge, split and upgrade withou
     "keys:5",
     "blackbag:1",
     "pinkbag:1",
-    "tipjar:1",
+    "tipjar:2",
     "energybox:1",
   ]) {
     const s = blank();
@@ -194,7 +194,7 @@ test("full board production, draw and split preserve every asset including RNG",
     "gen_food:5",
     "seedbag:4",
     "comfort:8",
-    "tipjar:1",
+    "tipjar:2",
     "energybox:1",
   ]) {
     const s = blank();
@@ -236,16 +236,16 @@ test("auto merge transfers buffers to pending and preserves timer ratio and summ
   const s = blank(),
     a = put(s, 0, "lost:5"),
     b = put(s, 1, "lost:5");
-  a.autoBuffer = 2;
-  b.autoBuffer = 2;
+  a.autoBuffer = 4;
+  b.autoBuffer = 4;
   a.autoRemaining = 1800000;
   b.autoRemaining = 2700000;
   a.timeCredit = 300000000;
   b.timeCredit = 300000000;
   E.move(s, 0, 1, NOW);
-  assert.equal(s.pending.filter((x) => x.family === "comfort").length, 4);
+  assert.equal(s.pending.filter((x) => x.family === "comfort").length, 8);
   assert.equal(s.board[1].timeCredit, 600000000);
-  assert.equal(s.board[1].autoRemaining, 1800000);
+  assert.ok(Math.abs(s.board[1].autoRemaining - 2700000 * 2040 / 4020) < 1e-6);
   {
     const selection = tool(s, "stopwatch:1");
     unchanged(s, () => E.useTool(s, selection, 1, NOW));
@@ -280,12 +280,13 @@ test("stopwatch retains blocked credit, hourglass does not advance account clock
     p = put(s, 0, "gen_food:5");
   const stop = tool(s, "stopwatch:1");
   E.useTool(s, stop, 0, NOW);
-  assert.equal(p.stock, 24);
+  assert.equal(p.stock, 12);
   assert.equal(s.board[0].timeCredit, 3600000);
   E.generate(s, 0, NOW);
   E.tick(s, NOW);
-  assert.equal(s.board[0].stock, 24);
-  assert.equal(s.board[0].timeCredit, 2700000);
+  assert.equal(s.board[0].stock, 11);
+  assert.equal(s.board[0].timeCredit, 0);
+  assert.equal(s.board[0].rechargeRemaining, 237*60000-3600000);
   s.energy = 20;
   const before = s.lastEnergyAt;
   E.useTool(s, tool(s, "timeskip:5"), null, NOW);
@@ -296,17 +297,17 @@ test("stopwatch retains blocked credit, hourglass does not advance account clock
 test("recharge tool forbids waste and finite source; upgrades conserve empty inventory", () => {
   const s = blank();
   const p = put(s, 0, "gen_tools:4");
-  p.stock = 22;
+  p.stock = 18;
   const c = tool(s, "charge:1");
   unchanged(s, () => E.useTool(s, c, 0, NOW));
-  p.stock = 18;
+  p.stock = 14;
   assert.equal(E.useTool(s, c, 0, NOW).ok, true);
-  assert.equal(s.board[0].stock, 23);
+  assert.equal(s.board[0].stock, 19);
   s.board[0].stock = 0;
   s.board[0].rechargeRemaining = 300000;
   E.useTool(s, tool(s, "upgrade:2"), 0, NOW);
   assert.equal(s.board[0].stock, 0);
-  assert.equal(s.board[0].rechargeRemaining, 285000);
+  assert.ok(Math.abs(s.board[0].rechargeRemaining - 300000 * 4800 / 9120) < 1e-6);
   put(s, 1, "seedbag:4");
   {
     const selection = tool(s, "charge:1");
@@ -458,7 +459,7 @@ for (const version of [1, 2])
     assert.equal(JSON.stringify(old), original);
   });
 test("unknown future, corrupted and duplicate-ID saves never become new games", () => {
-  assert.throws(() => E.createGame({ version: 4 }, NOW), E.SaveError);
+  assert.throws(() => E.createGame({ version: 5 }, NOW), E.SaveError);
   assert.throws(() => E.createGame("oops", NOW), E.SaveError);
   const s = E.createGame(null, NOW);
   s.board[1] = structuredClone(s.board[0]);
@@ -588,7 +589,7 @@ test("legacy chest pays original seven-device pool and refill effect, no new equ
   put(s, 0, "gen_tools:4");
   s.board[0].stock = 0;
   assert.equal(E.useBooster(s, "hourglass", 0, NOW).ok, true);
-  assert.equal(s.board[0].stock, 24);
+  assert.equal(s.board[0].stock, 20);
   assert.equal(s.legacyFullRefill, 1);
 });
 test("pantry separate clocks operate at all eleven levels; parts preserve automatic merge buffer", () => {
@@ -597,16 +598,17 @@ test("pantry separate clocks operate at all eleven levels; parts preserve automa
     put(s, 0, `pantry:${level}`);
     assert.equal(E.generate(s, 0, NOW).ok, true);
     assert.equal(s.board[0].stock, 15);
-    E.tick(s, NOW + 1800000, { offline: true });
+    const rules=E.sourceRules(s.board[0]);
+    E.tick(s, NOW + rules.manual.rechargeSeconds*1000, { offline: true });
     assert.equal(s.board[0].stock, 16);
-    assert.equal(s.board[0].autoBuffer, level >= 6 ? 1 : 0);
+    assert.equal(s.board[0].autoBuffer, rules.auto ? Math.min(rules.auto.capacity, Math.floor(rules.manual.rechargeSeconds/rules.auto.intervalSeconds)) : 0);
   }
 });
 test("new and old item art stays distinct by shape; original 66 illustrations remain exact", async () => {
   const old = await import("../dist/legacy-catalog.mjs");
   const defs = Object.values(E.ITEMS),
     svgs = defs.map((d) => icon(d.icon));
-  assert.equal(new Set(svgs).size, 421);
+  assert.equal(new Set(svgs).size, 422);
   for (const [family, chain] of Object.entries(old.CHAINS).filter(
     ([f]) => !["energy", "coins", "chest"].includes(f),
   ))

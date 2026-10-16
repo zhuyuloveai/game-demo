@@ -3,6 +3,7 @@
 import json
 import math
 from pathlib import Path
+from align_feige import apply as align_feige, write_mapping
 
 ROOT = Path(__file__).resolve().parent
 DATE = '2026-10-16'
@@ -24,7 +25,7 @@ SOURCES = [
  ('S13','台服游戏机与手办路径','https://forum.gamer.com.tw/C.php?bsn=77871&snA=67','2023','NS后野餐篮，与大陆旧墙壁路径单独保存。'),
  ('S14','台服资源合成数值记录','https://forum.gamer.com.tw/C.php?bsn=77871&snA=66','2023-07-02','金币1/3/8/20/50/120，钻石1/3/8/20，能量1/6/15/40/100；台服玩家记录。'),
  ('S15','体力自然恢复记录','https://shouyou.3dmgame.com/gl/522320.html','2024-09-02','每2分钟1体力；钻石购买仅确认首档5，完整购买表未核实。'),
- ('S16','手提包、存钱罐和活动生产记录','https://www.sohu.com/a/635390261_121631443','2023-01-29','黑包10/22、粉包12/28、存钱罐15/18/53为历史次数；主生产器表图片分辨率不足，未抄录。'),
+ ('S16','手提包、存钱罐和活动生产记录','https://www.sohu.com/a/635390261_121631443','2023-01-29','黑包10/22、粉包12/28、存钱罐15/18/53为历史次数；主表可辨库存另列S32—35；批次和模糊表头不推定。'),
  ('S17','日常辅助道具合集','https://www.yeyulingfeng.com/214916.html','2025-07-25','转载玩家资料；无限能量、加速器、充能器等档位。'),
  ('S18','玩家版本变化记录','https://www.taptap.cn/app/232158/review?os=android&page=2','2022起','装修工具箱变冰箱、花篮产物变化；评论不等于官方配置。'),
  ('S19','Kinfone生产器扩级记录','https://www.douyin.com/user/MS4wLjABAAAAY6JWg7d_GHyFPSfRS3776OAg0FYcwHkoG12mn8Yv0vU','2024—2025','购物车扩级、2025生产器调整；未读取到可确认现版全部参数的表。'),
@@ -116,7 +117,7 @@ FE_NUMBERS = [
  ('lighter_cd','创始鹅活动打火机冷却',1800,'秒','P',['S16'],'历史活动'),
  ('lighter_batch','创始鹅活动打火机产量',[16,32],'每轮/两轮库存','P',['S16'],'历史活动'),
  ('digit9_sell','创始鹅活动数字9售价',410,'金币','P',['S16'],'历史活动，不外推普通物品售价'),
- ('producer_params','现版各等级生产器库存/冷却/概率',None,'表','U',[],'旧表图片无法清晰读取；2023及2025曾改版'),
+ ('producer_params','现版各等级生产器库存/冷却/概率',None,'表','U',[],'历史库存部分可辨且逐字段采用；现版完整CD/概率仍未知，2023/2025有改版'),
  ('order_formula','现版订单奖励生成公式',None,'公式','U',[],'订单截图只证明具体实例'),
  ('storage_prices','现版完整仓库价格表',None,'表','U',[],'零散价格不能拼为完整曲线'),
  ('level_xp','现版玩家升级经验表',None,'表','U',[],'未获得原始完整表'),
@@ -227,7 +228,7 @@ PRODUCER_SPECS=[
  ('supply','设备采购车',12,4,6,14400,{'pantry':.50,'gen_herb':.20,'gen_tools':.15,'gen_supply':.05,'gen_flower':.10},'购物车供零件'),
  ('publicity','食谱研究台',6,4,8,3600,{'tasting':.85,'gen_publicity':.15},'宣传方式自生产与体能测试'),
  ('flower','花艺工具桶',9,5,7,1800,{'flowers':1.0},'新版花篮'),
- ('recycle','花园循环桶',9,5,9,1800,{'scraps':1.0},'扫地机—垃圾—动物，厨房园艺主题'),
+ ('recycle','花园循环桶',10,5,9,1800,{'scraps':1.0},'扫地机—垃圾—动物，厨房园艺主题'),
 ]
 TIER_NAMES=['入门','实用','专业','双层','高效','大师','豪华','旗舰','典藏','臻选']
 RANK_PROBS=[[1,0,0],[.9,.1,0],[.8,.2,0],[.65,.30,.05],[.55,.35,.10],[.45,.40,.15],[.35,.45,.20],[.25,.45,.30],[.15,.40,.45],[.10,.30,.60]]
@@ -333,7 +334,7 @@ for lv in range(2,101):
     if lv in [50,100]: rewards.append({'item':'upgrade:2','count':1})
     LEVEL_REWARDS.append({'level':lv,'cumulativeXp':100*(lv-1)+10*(lv-1)*(lv-2),'rewards':rewards})
 
-CONFIG=dict(schemaVersion=1,balanceVersion='kitchen-reference-v1-draft',status='DESIGN_ONLY_NOT_RUNTIME',asOf=DATE,
+CONFIG=dict(schemaVersion=1,balanceVersion='kitchen-reference-v1-draft',status='IMPLEMENTED_RUNTIME',asOf=DATE,
  evidencePolicy='O官方历史事实；P带地区/日期的玩家记录；U未知；D小厨拟定。小厨所有未逐项引用的参数均为D。',
  baselineCommit=BASE['sourceCommit'],sources=[dict(id=i,title=t,url=u,date=d,limits=l) for i,t,u,d,l in SOURCES],
  globals=dict(boardRows=7,boardCols=7,energyCap=100,manualEnergyCap=999,energyRegenSeconds=120,energyPerTap=1,
@@ -379,16 +380,19 @@ CONFIG=dict(schemaVersion=1,balanceVersion='kitchen-reference-v1-draft',status='
     chapterAdvance='all_8_story_orders_and_pay_stars',rewardDelivery='pending_queue_never_drop'),
  validation=dict(samples=10000,seed=20261016,limits='期望值与静态一致性审计；不代表真实留存、完成时长或现版肥鹅数值'))
 
+align_feige(CONFIG, FE_CHAINS, FE_NUMBERS, SOURCES)
+
 def dump(name,obj): (ROOT/name).write_text(json.dumps(obj,ensure_ascii=False,indent=2,allow_nan=False)+'\n')
 def table(headers,rows):
     return '| '+' | '.join(headers)+' |\n| '+' | '.join(['---']*len(headers))+' |\n'+''.join('| '+' | '.join(str(x).replace('|','／').replace('\n',' ') for x in row)+' |\n' for row in rows)
 
 def main():
+    write_mapping(CONFIG, FE_CHAINS, table)
     dump('sources.json',CONFIG['sources'])
     dump('feige-reference.json',dict(asOf=DATE,status='PUBLIC_EVIDENCE_PARTIAL_NOT_OFFICIAL_CONFIG',chains=FE_CHAINS,
         parameters=[dict(id=i,name=n,value=v,unit=u,evidence=e,sources=s,limits=l) for i,n,v,u,e,s,l in FE_NUMBERS]))
     dump('kitchen-target.json',CONFIG)
-    (ROOT/'SOURCES.md').write_text('# 来源与证据登记\n\n检索截至 '+DATE+'。发布日期与检索日期分开；转载日期不能证明配置更新。主生产器截图过小，未使用OCR猜值。官方公告图片已在网页中核读。\n\n'+table(['ID','资料','日期/范围','采用限制'],[(i,f'[{t}]({u})',d,l) for i,t,u,d,l in SOURCES]))
+    (ROOT/'SOURCES.md').write_text('# 来源与证据登记\n\n检索截至 '+DATE+'。发布日期与检索日期分开；转载日期不能证明配置更新。原图人工核读可辨字段，模糊表头/掉率不猜值。采用限制与冲突见逐字段决策。\n\n'+table(['ID','资料','日期/范围','采用限制'],[(i,f'[{t}]({u})',d,l) for i,t,u,d,l in SOURCES]))
     out=['# 肥鹅健身房物品证据表\n',
          '本表是公开资料中可定位的40个主棋盘/历史系列。未知名称写为“待核实”，最高等级写的是来源报告值。空白现版上限一律不推断。资源道具另见 [数值证据](FEIGE_NUMBERS.md)，活动边界见 [研究文档](FEIGE_REFERENCE.md)。\n']
     for c in FE_CHAINS:
@@ -424,18 +428,18 @@ def main():
             '\n## 当前礼盒精确奖励\n\n- L1：energy:2（12体力）+ coins:2（12金币）+ 已解锁种类随机L1生产器1个。\n- L2：energy:3（30体力）+ coins:3（30金币）+ 随机L1生产器1个 + energy:2（12体力）+ 剪刀1。\n- L3：energy:4（80体力）+ coins:4（80金币）+ 随机L1生产器1个 + energy:3（30体力）+ coins:4（80金币）+ 剪刀1 + 沙漏2。\n- 物品进待领取区，道具计数直接增加；打开先移除原礼盒。\n',
             '\n## 待修正的数值关系\n\n1. L1生产器每体力平均产出1.14个一级等价，L4为1.32；直接出售平均1.14—1.32金币，而30金币能无限购买30体力。库存和操作速度限制短期速度，正期望兑换循环仍成立。\n2. 果蔬沙拉用3个一级等价产出8个，拿铁用3产8；配方不耗体力，可形成显著的订单成本差。\n3. 每3单必发生产器，零件供应与空间占用缺少长期约束。\n4. 来源包含待领设备，可能提前产生新类别订单。\n5. 合并生产器恢复满库存，拆合/升级若扩展不设守恒会增加库存套利风险。\n6. 普通厨具订单能消耗唯一厨具，影响配方可用性。\n\n本次只记录与设计，不改变运行时。\n']
     (ROOT/'KITCHEN_CURRENT_BASELINE.md').write_text('\n'.join(out))
-    out=['# 小厨合合目标物品全表\n',f'生成日期：{DATE}。设计稿，尚未接入游戏。源数据：[kitchen-target.json](kitchen-target.json)。共 {len(CHAINS)} 个系列、{sum(len(c["items"]) for c in CHAINS)} 个定义；含生产器零件、状态阶段和仅供迁移的旧资源。\n',
+    out=['# 小厨合合目标物品全表\n',f'生成日期：{DATE}。已接入默认运行时v4。源数据：[kitchen-target.json](kitchen-target.json)。共 {len(CHAINS)} 个系列、{sum(len(c["items"]) for c in CHAINS)} 个定义；含生产器零件、状态阶段和仅供迁移的旧资源。\n',
          '## 字段与计数\n\n`baseUnits` 为普通同物二合一的一级等价数；状态阶段无此值。`standardCost` 为订单定价权重，自动产物包含时间权重，不能读成精确体力消耗。普通物品售价是项目拟定；资源以领取价值为准。带生产能力的实例默认保护，出售/交单必须通过依赖检查。全部名称和配置见各表，未启用的高等级也属于本版设计范围。\n',
          '图鉴覆盖普通、生产器、资源和特殊阶段四页；`legacy_*` 仅旧档持有时显示，计数不纳入新玩家收集完成率。\n']
     for c in CHAINS:
         out+= [f'## {c["name"]} · `{c["id"]}`\n',f'类型：{c["kind"]}；最早章节：{c["unlockChapter"]}；参考关系：{c["reference"]}。\n',
                table(['ID','等级','名称','下一合成物','一级等价','售价/领取值','定价权重'],[(i['id'],i['level'],i['name'],i['mergeTo'] or '—',i['baseUnits'] if i['baseUnits'] is not None else '—',f"{i['value'] if i['value'] is not None else '不限'} {i['valueUnit']}" if 'value' in i else i['sellCoins'],i['standardCost'] if i['standardCost'] is not None else '—') for i in c['items']]),'\n']
     (ROOT/'KITCHEN_ITEMS.md').write_text('\n'.join(out))
-    out=['# 小厨合合生产器与转换全表\n','所有掉率、库存、冷却、有限次数与自动产出参数均为小厨拟定 D。采用肥鹅生产网络结构；官方未公开的值没有标成竞品实测。总规则见 [数值设计](KITCHEN_BALANCE.md)。\n']
+    out=['# 小厨合合生产器与转换全表\n','按字段采用有日期的P历史记录；未证实的批次/概率与厨房原创设备为D。[逐字段决策与冲突](ALIGNMENT_PARAMETERS.md)。P不代表2026现版官方值。总规则见 [数值设计](KITCHEN_BALANCE.md)。\n']
     for p in PRODUCERS:
         out += [f'## {p["name"]} · `{p["id"]}`\n',f'启用等级：{p["activeLevel"]}；解锁章节：{p["unlockChapter"]}；谱系：{p["reference"]}。抽取先选品类、再独立选等级；超出目标系列上限时钳制到最高级。\n',
                 table(['产物系列','概率'],[(x['chain'],f'{100*x["prob"]:g}%') for x in p['drops']]),
-                table(['等级','可生产','每轮补货','总库存','补货秒','L1/L2/L3概率','单位点击一级等价'],[(x['level'],'是' if x['active'] else '零件',x['batch'],x['maxStock'],x['rechargeSeconds'],' / '.join(f'{v:.0%}' for v in x['outputLevelProb']),f'{x["outputBaseUnitsPerTap"]:.2f}') for x in p['levels']]),'\n']
+                table(['等级','可生产','每周期补货','总库存','补货秒','L1/L2/L3概率D','单位点击一级等价','库存/CD/补量证据'],[(x['level'],'是' if x['active'] else '零件',x['batch'],x['maxStock'],x['rechargeSeconds'],' / '.join(f'{v:.0%}' for v in x['outputLevelProb']),f'{x["outputBaseUnitsPerTap"]:.2f}',' / '.join(x['fieldEvidence'][k]['evidence']+':'+','.join(x['fieldEvidence'][k]['sources']) for k in ['maxStock','rechargeSeconds','batch'])) for x in p['levels']]),'\n']
     out += ['## 特殊生产与跨链转换\n','此表的 source 是单个物品实例；任何一次产出先验证空位/缓冲容量，再提交耗能和状态变更。自动产物最多存至 capacity；一次性多件奖励进入待领区。\n',table(['规则','来源','模式','完整参数'],[(t['id'],t.get('source',','.join(t.get('sourceLevels',[]))),t['mode'],json.dumps({k:v for k,v in t.items() if k not in ['id','source','sourceLevels','mode']},ensure_ascii=False)) for t in TRANSITIONS])]
     (ROOT/'KITCHEN_PRODUCERS.md').write_text('\n'.join(out))
     out=['# 小厨合合订单、配方与章节表\n','设计稿；定价权重 C 是标准化工作量，含自动生产时间折算。首次解锁设备由上一章结算发放；主线订单只在所属章及前置满足后出现。重复订单为独立3槽。\n','## 12章与96个固定主线订单\n',table(['章','建设','星星成本','本章主线星星','下章设备','额外完成奖励'],[(c['chapter'],c['name'],c['stars'],sum(o['stars'] for o in STORY if o['chapter']==c['chapter']),','.join(c['unlockNextProducers']) or '—',json.dumps(c['completionRewards'],ensure_ascii=False)) for c in CHAPTER_DATA]),'\n']

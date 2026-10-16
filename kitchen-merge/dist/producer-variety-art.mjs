@@ -177,6 +177,7 @@ function recycle(l) {
   case 7:return barrel(40,18,42,45,true)+r(15,62,50,5,C.dark)+r(25,33,10,9,C.cream)+r(45,33,10,9,C.cream)+ln('M40 12v-3',C.steel,2.5);
   case 8:return barrel(23,30,28,34)+barrel(57,22,28,42)+r(9,63,62,4,C.dark)+ln('M36 41h7',C.steel,4);
   case 9:return drum(40,30,58,27)+ln('M17 35l-5 29m51-29 5 29',C.dark,3.5)+p('M18 47h44l-5 17H23Z',C.green)+e(40,47,22,4,C.leaf)+ln('M23 58h34',C.oak,3)+r(35,40,10,9,C.steel)+r(17,64,46,3,C.dark);
+  case 10:return barrel(22,20,28,43,true)+barrel(57,20,28,43,true)+platform(8,64,64)+ln('M35 37h9M22 13V9h35v4',C.steel,3)+r(32,5,15,9,C.cream,2)+c(39.5,9.5,2,C.gold)+c(22,68,4,C.dark)+c(58,68,4,C.dark);
   default:return null;
  }
 }

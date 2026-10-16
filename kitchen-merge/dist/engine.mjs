@@ -35,21 +35,23 @@ export {
   isPermanent,
   sourceDescription,
 };
-export const BOARD_SIZE = 49,
+export const BOARD_COLS = BALANCE.globals.boardCols,
+  BOARD_ROWS = BALANCE.globals.boardRows,
+  BOARD_SIZE = BOARD_COLS * BOARD_ROWS,
   ENERGY_INTERVAL = 120000,
   MAX_ENERGY = 100;
 const clone = (x) => structuredClone(x),
   safeNow = (n) => (Number.isFinite(n) && n >= 0 ? Math.floor(n) : Date.now());
 const free = (s) => s.board.findIndex((x, i) => !x && !s.locked.includes(i));
 const unlocked = (s, i) =>
-  Number.isInteger(i) && i >= 0 && i < 49 && !s.locked.includes(i);
+  Number.isInteger(i) && i >= 0 && i < BOARD_SIZE && !s.locked.includes(i);
 const adj = (i) =>
   [
-    i - 7,
-    i + 7,
-    ...(i % 7 ? [i - 1] : []),
-    ...(i % 7 < 6 ? [i + 1] : []),
-  ].filter((j) => j >= 0 && j < 49);
+    i - BOARD_COLS,
+    i + BOARD_COLS,
+    ...(i % BOARD_COLS ? [i - 1] : []),
+    ...(i % BOARD_COLS < BOARD_COLS - 1 ? [i + 1] : []),
+  ].filter((j) => j >= 0 && j < BOARD_SIZE);
 const name = (x) => definition(x)?.name || "物品";
 const all = (s) => [...s.board, ...s.inventory, ...s.pending].filter(Boolean);
 export const chinaDate = (n) =>
@@ -205,9 +207,9 @@ export function makeItem(
 }
 function base(now) {
   return {
-    version: 3,
+    version: 4,
     balanceVersion: BALANCE_VERSION,
-    board: Array(49).fill(null),
+    board: Array(BOARD_SIZE).fill(null),
     inventory: [],
     pending: [],
     locked: [],
@@ -395,13 +397,13 @@ function deliverTimers(s, i, now, release) {
       }
   }
 }
-export function tick(s, now = Date.now(), { offline = false } = {}) {
+export function tick(s, now = Date.now(), { offline = false, fill = true } = {}) {
   if (s.readOnly) return { changed: false };
   now = Math.max(s.lastNow, safeNow(now));
   const before = JSON.stringify(s);
   tickEnergy(s, now);
   resetPeriods(s, now);
-  for (let i = 0; i < 49; i++) {
+  for (let i = 0; i < BOARD_SIZE; i++) {
     const item = s.board[i];
     if (!item || !unlocked(s, i)) continue;
     if (item.family === "bubble") {
@@ -413,7 +415,7 @@ export function tick(s, now = Date.now(), { offline = false } = {}) {
   }
   if (s.discarded && now >= s.discarded.until) s.discarded = null;
   s.lastNow = now;
-  fillOrders(s);
+  if (fill) fillOrders(s);
   return { changed: before !== JSON.stringify(s) };
 }
 export function producerStatus(s, item, now = Date.now()) {
@@ -512,20 +514,24 @@ export function generate(s, selection, now = Date.now()) {
   });
 }
 function mergeTarget(a, b) {
+  const usedPiglets = a?.family === "tipjar" && a.level === 1 &&
+    a.remainingDraws > 0 && b?.remainingDraws > 0;
   if (
     !a ||
     !b ||
     a.family === "bubble" ||
     b.family === "bubble" ||
     itemKey(a) !== itemKey(b) ||
-    a.openedAt !== null ||
-    b.openedAt !== null
+    (!usedPiglets && (a.openedAt !== null || b.openedAt !== null))
   )
     return null;
+  const stackLimit = definition(a).stackLimit;
+  if (stackLimit) return (a.uses ?? 1) + (b.uses ?? 1) <= stackLimit ? itemKey(a) : null;
   return definition(a).mergeTo || sourceRules(a).cross?.output || null;
 }
 function inherit(s, a, b, id, now) {
   const n = makeItem(s, id, now, { full: false });
+  if (definition(n).stackLimit) n.uses = (a.uses ?? 1) + (b.uses ?? 1);
   const old = sourceRules(a),
     next = sourceRules(n);
   if (next.manual?.mode === "recharge") {
@@ -562,7 +568,7 @@ export function move(s, from, to, now = Date.now()) {
     !unlocked(s, from) ||
     !Number.isInteger(to) ||
     to < 0 ||
-    to >= 49 ||
+    to >= BOARD_SIZE ||
     from === to ||
     !s.board[from]
   )
@@ -1287,7 +1293,7 @@ export function useTool(s, selection, index, now = Date.now()) {
     if (s.storageCapacity >= 60) return fail(s, "max", "仓库已满，道具保留");
     s.storageCapacity++;
   } else if (f === "timeskip") {
-    for (let i = 0; i < 49; i++)
+    for (let i = 0; i < BOARD_SIZE; i++)
       if (
         s.board[i] &&
         i !== selection &&
@@ -1368,7 +1374,8 @@ export function useTool(s, selection, index, now = Date.now()) {
     } else return fail(s, "invalid", "这个物品无需选择目标使用");
   }
   s.lastNow = now;
-  tool.remove();
+  if ((tool.item.uses ?? 1) > 1) tool.item.uses--;
+  else tool.remove();
   return finish(s, "booster", `已使用${d.name}`, {
     index,
     item: s.board[index],
@@ -1440,7 +1447,7 @@ export function resolveBubble(s, index, buy = false, now = Date.now()) {
     item,
   });
 }
-export const unlockCost = (s, index) => 12 + Math.floor(index / 7) * 4;
+export const unlockCost = (s, index) => 12 + Math.floor(index / BOARD_COLS) * 4;
 export function unlockCell(s, index, now = Date.now()) {
   now = Math.max(s.lastNow, safeNow(now));
   if (!s.locked.includes(index)) return fail(s, "invalid", "格子已解锁");
@@ -1453,9 +1460,9 @@ export function unlockCell(s, index, now = Date.now()) {
   return finish(s, "unlock", "台面已解锁", { index });
 }
 export function findMerge(s) {
-  for (let a = 0; a < 49; a++)
+  for (let a = 0; a < BOARD_SIZE; a++)
     if (unlocked(s, a))
-      for (let b = 0; b < 49; b++)
+      for (let b = 0; b < BOARD_SIZE; b++)
         if (a !== b && mergeTarget(s.board[a], s.board[b]))
           return {
             from: a,
@@ -1499,7 +1506,7 @@ function migrate(raw, now) {
   s.nextItemId = old.nextItemId;
   s.storageCapacity = old.storageCapacity;
   s.rng = old.rng;
-  s.locked = old.locked;
+  s.locked = [...old.locked, ...Array.from({ length: BOARD_SIZE - 49 }, (_, i) => i + 49)];
   s.discovered = old.discovered.filter(
     (id) => !["energy", "coins", "chest"].includes(id.split(":")[0]),
   );
@@ -1549,6 +1556,7 @@ function migrate(raw, now) {
   s.board = old.board.map((x) =>
     x && wasOriginal(x) ? convert(x, "board") : null,
   );
+  s.board.push(...Array(BOARD_SIZE - 49).fill(null));
   s.inventory = old.inventory.map((x) => convert(x, "inventory"));
   s.pending = old.pending.filter(wasOriginal).map((x) => convert(x, "pending"));
   for (let i = 0; i < old.boosters.scissors; i++)
@@ -1596,11 +1604,11 @@ function migrate(raw, now) {
     "旧资产已保值迁移。香草花盆现在产种子袋，最高级种子堆可开12次；旧沙漏仍能立即补满。";
   return s;
 }
-function validateSave(s, raw) {
+function validateSave(s, raw, { boardSize = BOARD_SIZE, balanceVersion = BALANCE_VERSION } = {}) {
   if (
-    s.balanceVersion !== BALANCE_VERSION ||
+    s.balanceVersion !== balanceVersion ||
     !Array.isArray(s.board) ||
-    s.board.length !== 49 ||
+    s.board.length !== boardSize ||
     !Array.isArray(s.inventory) ||
     !Array.isArray(s.pending) ||
     !Array.isArray(s.tools)
@@ -1617,6 +1625,9 @@ function validateSave(s, raw) {
     !Array.isArray(s.locked)
   )
     throw new SaveError("存档状态结构无效", raw);
+  if (new Set(s.locked).size !== s.locked.length ||
+      s.locked.some(i => !Number.isInteger(i) || i < 0 || i >= boardSize))
+    throw new SaveError("存档锁格索引无效", raw);
   const ids = new Set();
   for (const x of [
     ...all(s),
@@ -1635,6 +1646,10 @@ function validateSave(s, raw) {
         x.instanceId !== x.id
       )
         throw new SaveError("存档包含未知或不一致物品，请导出备份", raw);
+      if (x.legacyV3 && (s.version !== 4 || itemKey(x) !== "garden_guest:6"))
+        throw new SaveError("旧规则标记无效", raw);
+      if (x.uses !== undefined && (!d.stackLimit || !Number.isInteger(x.uses) || x.uses < 1 || x.uses > d.stackLimit))
+        throw new SaveError("道具叠加次数无效", raw);
       for (const key of [
         "createdAt",
         "stockOverflow",
@@ -1687,6 +1702,35 @@ function validateSave(s, raw) {
     if (!Number.isSafeInteger(s[key]) || s[key] < 0)
       throw new SaveError("存档数值无效，请恢复备份", raw);
 }
+function migrateV3(s, now) {
+  // Mark only after validating the unmodified v3 save. Settle old production
+  // before replacing capacities, preserving time earned while the app was shut.
+  const assets = () => [...all(s), ...s.tools, ...(s.discarded ? [s.discarded.item] : [])];
+  for (const item of assets()) if (item.family !== "bubble") item.legacyV3 = true;
+  tick(s, Math.max(now, s.lastNow), { offline: true, fill: false });
+  for (const item of assets()) {
+    if (item.family === "bubble") continue;
+    if (itemKey(item) !== "garden_guest:6") delete item.legacyV3;
+    const rule = sourceRules(item).manual;
+    if (rule?.mode === "recharge") {
+      const total = item.stock + item.stockOverflow;
+      item.stock = Math.min(total, rule.maxStock);
+      item.stockOverflow = total - item.stock;
+      // The remaining milliseconds of the current cycle stay earned. New
+      // recharge periods start using the new table only after that cycle ends.
+      item.nextRechargeAt = item.stock < rule.maxStock && !item.stockOverflow
+        ? item.clockAt + item.rechargeRemaining : null;
+    }
+  }
+  s.board.push(...Array(BOARD_SIZE - 49).fill(null));
+  s.locked.push(...Array.from({ length: BOARD_SIZE - 49 }, (_, i) => i + 49));
+  s.version = 4;
+  s.balanceVersion = BALANCE_VERSION;
+  s.boardMigration = { from: 3, previousBalanceVersion: "kitchen-reference-v1-draft", at: Math.max(now, s.lastNow), added: 14 };
+  s.migrationNotice = "台面已扩为7列9行。旧位置、库存、剩余次数和已积累计时已保留；新增两行可通过相邻合成清理。";
+  validateSave(s, s);
+  return s;
+}
 export function createGame(saved = null, now = Date.now()) {
   now = safeNow(now);
   if (saved === null) return fresh(now);
@@ -1696,15 +1740,19 @@ export function createGame(saved = null, now = Date.now()) {
   } catch {
     throw new SaveError("无法读取存档，请导出后恢复备份", saved);
   }
-  if (!raw || ![1, 2, 3].includes(raw.version))
+  if (!raw || ![1, 2, 3, 4].includes(raw.version))
     throw new SaveError(
-      raw?.version > 3 ? "此存档来自较新版本，已保护原档" : "存档版本无效",
+      raw?.version > 4 ? "此存档来自较新版本，已保护原档" : "存档版本无效",
       saved,
     );
   if (raw.version < 3) {
     if (!Array.isArray(raw.board) || raw.board.length !== 49)
       throw new SaveError("旧档棋盘结构无效", saved);
     return migrate(raw, now);
+  }
+  if (raw.version === 3) {
+    validateSave(raw, saved, { boardSize: 49, balanceVersion: "kitchen-reference-v1-draft" });
+    return migrateV3(raw, now);
   }
   validateSave(raw, saved);
   tick(raw, Math.max(now, raw.lastNow), { offline: true });

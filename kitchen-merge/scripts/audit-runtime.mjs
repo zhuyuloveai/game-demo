@@ -30,7 +30,7 @@ for (const chain of target.chains)
     s.pending = [];
     s.board[0] = E.makeItem(s, id, now);
     s.board[1] = E.makeItem(s, id, now);
-    const expected = item.mergeTo || E.sourceRules(d).cross?.output || null;
+    const expected = item.mergeTo || E.sourceRules(d).cross?.output || (d.stackLimit ? id : null);
     const r = E.move(s, 0, 1, now);
     if (expected) {
       assert.equal(r.ok, true, id);

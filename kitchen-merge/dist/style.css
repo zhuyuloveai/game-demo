@@ -667,8 +667,8 @@ h1,h2,h3,p { margin:0; }
 .board {
   display:grid;
   grid-template-columns:repeat(7,minmax(0,1fr));
-  grid-template-rows:repeat(7,minmax(0,1fr));
-  aspect-ratio:1;
+  grid-template-rows:repeat(9,minmax(0,1fr));
+  aspect-ratio:7/9;
   gap:0;
   background:var(--board-base);
   border-radius:18px;
