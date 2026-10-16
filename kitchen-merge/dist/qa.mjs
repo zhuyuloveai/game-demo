@@ -1,0 +1,81 @@
+// Explicit localhost-only fixtures, isolated from the player's normal save.
+import { createGame, makeItem, BALANCE, mainOrder } from "./engine.mjs";
+export function fixture(kind, now = Date.now()) {
+  if (kind === "migration") return createGame(null, now);
+  const s = createGame(null, now);
+  s.board.fill(null);
+  s.locked = [];
+  s.pending = [];
+  s.tools = [];
+  s.coins = 5000;
+  s.gems = 100;
+  s.energy = 999;
+  const put = (i, id) => (s.board[i] = makeItem(s, id, now));
+  if (kind === "special") {
+    s.stage = 11;
+    [
+      "emptybag:4",
+      "emptybag:4",
+      "seedbag:4",
+      "herb:6",
+      "pantry:6",
+      "lost:5",
+      "comfort:8",
+      "console:4",
+      "adventure_box:5",
+      "story:5",
+      "keys:5",
+      "tasting:4",
+      "scraps:8",
+      "garden_guest:6",
+    ].forEach((id, i) => put(i, id));
+  } else if (kind === "resources") {
+    s.stage = 11;
+    [
+      "gen_tools:7",
+      "blackbag:1",
+      "blackbag:1",
+      "pinkbag:2",
+      "tipjar:3",
+      "energybox:1",
+      "chest:3",
+      "energy:5",
+      "coins:6",
+      "gems:4",
+      "splitter:3",
+      "charge:3",
+      "stopwatch:1",
+      "upgrade:1",
+      "upgrade:2",
+      "infinite:4",
+      "timeskip:2",
+      "backpack:1",
+      "food:8",
+      "gen_tools:3",
+      "gen_tools:3",
+    ].forEach((id, i) => put(i, id));
+    s.board[0].stock = 0;
+  } else if (kind === "chapter") {
+    s.mainCompleted = BALANCE.chapters[0].orders.slice(0, 7);
+    s.stars = 7;
+    [
+      "gen_food:5",
+      "gen_produce:3",
+      "gen_tools:4",
+      "tools:3",
+      "food:3",
+      "food:2",
+      "food:2",
+      "food:2",
+    ].forEach((id, i) => put(i, id));
+  } else throw Error("Unknown QA fixture");
+  if (kind === "chapter") {
+    let i = 10;
+    for (const need of mainOrder(s).needs)
+      for (let count = 0; count < need.count; count++)
+        put(i++, `${need.family}:${need.level}`);
+  }
+  s.orders = [];
+  s.events = [];
+  return s;
+}

@@ -1,3 +1,4 @@
+import {itemMarkup,originalIcon} from './item-art.mjs';
 // Original SVG artwork for the little kitchen.
 // Item silhouettes are authored once; a small material engine below gives every
 // illustration the same curated palette, soft volume, tonal edges and contact
@@ -424,7 +425,9 @@ function escapeAttribute(value) {
 }
 
 export function icon(name, className = '') {
-  const body = artFor(name);
+  const id=name.startsWith('item/')?name.slice(5):null;
+  const original=id&&originalIcon(id);
+  const body = original?artFor(original):id?render(itemMarkup(id, key=>art[key]), 'natural'):artFor(name);
   flushDefs();
   return `<svg class="${escapeAttribute(className)}" viewBox="0 0 80 80" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${body}</svg>`;
 }

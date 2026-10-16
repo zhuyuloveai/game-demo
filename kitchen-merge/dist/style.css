@@ -734,35 +734,7 @@ h1,h2,h3,p { margin:0; }
   transition:transform .25s var(--spring);
 }
 
-.cell .item-level {
-  position:absolute;
-  right:4px;
-  bottom:2px;
-  z-index:2;
-  font-size:11px;
-  color:var(--label-2);
-  line-height:1;
-  font-weight:600;
-  font-variant-numeric:tabular-nums;
-}
-
 .cell.producer { cursor:pointer; }
-
-.cell.producer .item-level {
-  top:2px;
-  right:2px;
-  bottom:auto;
-  z-index:3;
-  padding:1.5px 4px;
-  border-radius:999px;
-  background:rgba(255,255,255,.88);
-  box-shadow:0 0 0 .5px rgba(238,106,63,.35);
-  color:var(--accent-strong);
-  font-size:9px;
-  font-weight:700;
-  line-height:1.1;
-  letter-spacing:.02em;
-}
 
 .cell.cooling .item-art { opacity:.55; filter:saturate(.6); }
 
@@ -1558,10 +1530,6 @@ label.settings-row {
 .cell:is(.selected,.hint):not(.producer):not(.locked) .item-art>svg {
   animation:itemFloat 3.2s ease-in-out var(--idle-phase,0s) infinite;
 }
-.cell.ready-producer .item-level {
-  transform-origin:50% 80%;
-  animation:badgeHop 4.8s ease-in-out var(--cue-phase,0s) infinite;
-}
 .badge.attention { animation:badgeHop 4.8s ease-in-out -1.8s infinite; }
 .order-card.is-ready .order-submit {
   position:relative;
@@ -1582,8 +1550,7 @@ label.settings-row {
 .cell.merge-pop .item-art { animation:mergePop .58s var(--ease); }
 .cell.settle-pop .item-art { animation:itemSettle .3s var(--ease); }
 .cell:is(.pop,.tap-pop,.generate-pop,.merge-pop,.settle-pop,:active,.drag-source) .item-art>svg,
-.board.is-dragging .item-art>svg,
-.board.is-dragging .item-level { animation-play-state:paused!important; }
+.board.is-dragging .item-art>svg { animation-play-state:paused!important; }
 .motion-paused .game-shell *,
 .motion-paused .game-shell *:before,
 .motion-paused .game-shell *:after { animation-play-state:paused!important; }

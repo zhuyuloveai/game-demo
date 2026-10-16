@@ -1,0 +1,2026 @@
+{
+  "asOf": "2026-10-16",
+  "status": "PUBLIC_EVIDENCE_PARTIAL_NOT_OFFICIAL_CONFIG",
+  "chains": [
+    {
+      "id": "toolbox",
+      "name": "维修工具箱",
+      "kind": "generator",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S03"
+      ],
+      "reportedMax": null,
+      "levels": [
+        {
+          "level": 1,
+          "name": "工具箱把手",
+          "status": "recorded"
+        },
+        {
+          "level": 2,
+          "name": "箱盖",
+          "status": "recorded"
+        },
+        {
+          "level": 3,
+          "name": "空箱子",
+          "status": "recorded"
+        },
+        {
+          "level": 4,
+          "name": "简单五金盒",
+          "status": "recorded"
+        },
+        {
+          "level": 5,
+          "name": "实用工具箱",
+          "status": "recorded"
+        },
+        {
+          "level": 6,
+          "name": "家用工具箱",
+          "status": "recorded"
+        },
+        {
+          "level": 7,
+          "name": "专业工具箱",
+          "status": "recorded"
+        },
+        {
+          "level": 8,
+          "name": "双层工具箱",
+          "status": "recorded"
+        },
+        {
+          "level": 9,
+          "name": "综合维修套组",
+          "status": "recorded"
+        }
+      ],
+      "unranked": [],
+      "note": "4级开始生产的历史记录；后续扩级见S19。",
+      "currentMax": null
+    },
+    {
+      "id": "tools",
+      "name": "维修工具",
+      "kind": "product",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S03"
+      ],
+      "reportedMax": 14,
+      "levels": [
+        {
+          "level": 1,
+          "name": "起钉器",
+          "status": "recorded"
+        },
+        {
+          "level": 2,
+          "name": "扁口螺丝刀",
+          "status": "recorded"
+        },
+        {
+          "level": 3,
+          "name": "外六角扳手",
+          "status": "recorded"
+        },
+        {
+          "level": 4,
+          "name": "钳子",
+          "status": "recorded"
+        },
+        {
+          "level": 5,
+          "name": "扳手",
+          "status": "recorded"
+        },
+        {
+          "level": 6,
+          "name": "钢剪",
+          "status": "recorded"
+        },
+        {
+          "level": 7,
+          "name": "管钳",
+          "status": "recorded"
+        },
+        {
+          "level": 8,
+          "name": "钢锯",
+          "status": "recorded"
+        },
+        {
+          "level": 9,
+          "name": "电锯",
+          "status": "recorded"
+        },
+        {
+          "level": 10,
+          "name": "电钻",
+          "status": "recorded"
+        },
+        {
+          "level": 11,
+          "name": "打磨器",
+          "status": "recorded"
+        },
+        {
+          "level": 12,
+          "name": "电砂轮",
+          "status": "recorded"
+        },
+        {
+          "level": 13,
+          "name": "抛光机",
+          "status": "recorded"
+        },
+        {
+          "level": 14,
+          "name": null,
+          "status": "unknown"
+        }
+      ],
+      "unranked": [],
+      "note": "14级名称未核实；14是旧攻略报告上限。",
+      "currentMax": null
+    },
+    {
+      "id": "gloves",
+      "name": "手套",
+      "kind": "product",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S03"
+      ],
+      "reportedMax": 3,
+      "levels": [
+        {
+          "level": 1,
+          "name": "单只手套",
+          "status": "recorded"
+        },
+        {
+          "level": 2,
+          "name": "一双手套",
+          "status": "recorded"
+        },
+        {
+          "level": 3,
+          "name": "装修手套",
+          "status": "recorded"
+        }
+      ],
+      "unranked": [],
+      "note": "",
+      "currentMax": null
+    },
+    {
+      "id": "fridge",
+      "name": "冰箱",
+      "kind": "generator",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S04"
+      ],
+      "reportedMax": null,
+      "levels": [
+        {
+          "level": 1,
+          "name": "包装纸箱",
+          "status": "recorded"
+        },
+        {
+          "level": 2,
+          "name": "拆开包装",
+          "status": "recorded"
+        },
+        {
+          "level": 3,
+          "name": "崭新冰箱",
+          "status": "recorded"
+        },
+        {
+          "level": 4,
+          "name": "普通冰箱",
+          "status": "recorded"
+        },
+        {
+          "level": 5,
+          "name": "保鲜冰箱",
+          "status": "recorded"
+        },
+        {
+          "level": 6,
+          "name": "双层冰箱",
+          "status": "recorded"
+        }
+      ],
+      "unranked": [],
+      "note": "更高等级未知；生产解锁等级的文字记录不完全一致。",
+      "currentMax": null
+    },
+    {
+      "id": "drinks",
+      "name": "饮品",
+      "kind": "product",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S04",
+        "S01",
+        "S11"
+      ],
+      "reportedMax": 11,
+      "levels": [
+        {
+          "level": 1,
+          "name": "矿泉水",
+          "status": "recorded"
+        },
+        {
+          "level": 2,
+          "name": "一盒牛奶",
+          "status": "recorded"
+        },
+        {
+          "level": 3,
+          "name": "浓缩咖啡",
+          "status": "recorded"
+        },
+        {
+          "level": 4,
+          "name": "可乐",
+          "status": "recorded"
+        },
+        {
+          "level": 5,
+          "name": "茶饮料",
+          "status": "recorded"
+        },
+        {
+          "level": 6,
+          "name": "冰块桶",
+          "status": "recorded"
+        },
+        {
+          "level": 7,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 8,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 9,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 10,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 11,
+          "name": null,
+          "status": "unknown"
+        }
+      ],
+      "unranked": [
+        "红鹅饮料",
+        "电解质饮料",
+        "蛋白粉",
+        "大水壶"
+      ],
+      "note": "11级存在由官方确认；7—11级名称对应关系未知；11不宣称为现版上限。",
+      "currentMax": null
+    },
+    {
+      "id": "healthy_food",
+      "name": "健康食品",
+      "kind": "product",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S04",
+        "S10"
+      ],
+      "reportedMax": 5,
+      "levels": [
+        {
+          "level": 1,
+          "name": "吐司",
+          "status": "recorded"
+        },
+        {
+          "level": 2,
+          "name": "贝果",
+          "status": "recorded"
+        },
+        {
+          "level": 3,
+          "name": "可颂",
+          "status": "recorded"
+        },
+        {
+          "level": 4,
+          "name": "三明治",
+          "status": "recorded"
+        },
+        {
+          "level": 5,
+          "name": null,
+          "status": "unknown"
+        }
+      ],
+      "unranked": [
+        "能量碗"
+      ],
+      "note": "能量碗存在，缺独立等级证据。",
+      "currentMax": null
+    },
+    {
+      "id": "medicine",
+      "name": "常备药品",
+      "kind": "product",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S04"
+      ],
+      "reportedMax": 4,
+      "levels": [
+        {
+          "level": 1,
+          "name": "创可贴",
+          "status": "recorded"
+        },
+        {
+          "level": 2,
+          "name": "酒精喷雾",
+          "status": "recorded"
+        },
+        {
+          "level": 3,
+          "name": "跌打药",
+          "status": "recorded"
+        },
+        {
+          "level": 4,
+          "name": "小药箱",
+          "status": "recorded"
+        }
+      ],
+      "unranked": [],
+      "note": "条目写4级已最高，文章尾部又写5；采用已见1—4级，拒绝补5。",
+      "currentMax": null
+    },
+    {
+      "id": "equipment_cart",
+      "name": "器材采购车",
+      "kind": "generator",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S04"
+      ],
+      "reportedMax": 11,
+      "levels": [
+        {
+          "level": 1,
+          "name": "塑料板",
+          "status": "recorded"
+        },
+        {
+          "level": 2,
+          "name": "一对塑料板",
+          "status": "recorded"
+        },
+        {
+          "level": 3,
+          "name": "塑料篮",
+          "status": "recorded"
+        },
+        {
+          "level": 4,
+          "name": "采购盒",
+          "status": "recorded"
+        },
+        {
+          "level": 5,
+          "name": "采购篮",
+          "status": "recorded"
+        },
+        {
+          "level": 6,
+          "name": "购物车",
+          "status": "recorded"
+        },
+        {
+          "level": 7,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 8,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 9,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 10,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 11,
+          "name": null,
+          "status": "unknown"
+        }
+      ],
+      "unranked": [],
+      "note": "5级开始生产为旧记录；后续扩级未核齐。",
+      "currentMax": null
+    },
+    {
+      "id": "aerobic",
+      "name": "有氧器材",
+      "kind": "product",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S04",
+        "S10",
+        "S11"
+      ],
+      "reportedMax": 11,
+      "levels": [
+        {
+          "level": 1,
+          "name": "阻力带",
+          "status": "recorded"
+        },
+        {
+          "level": 2,
+          "name": "橡胶短绳",
+          "status": "recorded"
+        },
+        {
+          "level": 3,
+          "name": "钢丝短绳",
+          "status": "recorded"
+        },
+        {
+          "level": 4,
+          "name": "呼啦圈",
+          "status": "recorded"
+        },
+        {
+          "level": 5,
+          "name": "俯卧撑支架",
+          "status": "recorded"
+        },
+        {
+          "level": 6,
+          "name": "健身轮",
+          "status": "recorded"
+        },
+        {
+          "level": 7,
+          "name": "拉力带",
+          "status": "recorded"
+        },
+        {
+          "level": 8,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 9,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 10,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 11,
+          "name": null,
+          "status": "unknown"
+        }
+      ],
+      "unranked": [
+        "踏步机",
+        "动感单车",
+        "椭圆机",
+        "跑步机"
+      ],
+      "note": "",
+      "currentMax": null
+    },
+    {
+      "id": "strength",
+      "name": "力量器械",
+      "kind": "product",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S10"
+      ],
+      "reportedMax": null,
+      "levels": [],
+      "unranked": [
+        "哑铃",
+        "杠铃",
+        "卧推架",
+        "飞鸟椅",
+        "腿举机"
+      ],
+      "note": "仅名称确认，无逐级表。",
+      "currentMax": null
+    },
+    {
+      "id": "shopping_cart",
+      "name": "购物车",
+      "kind": "generator",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S05",
+        "S19"
+      ],
+      "reportedMax": 12,
+      "levels": [
+        {
+          "level": 1,
+          "name": "一个车轮",
+          "status": "recorded"
+        },
+        {
+          "level": 2,
+          "name": "一对车轮",
+          "status": "recorded"
+        },
+        {
+          "level": 3,
+          "name": "空车架",
+          "status": "recorded"
+        },
+        {
+          "level": 4,
+          "name": "空购物车",
+          "status": "recorded"
+        },
+        {
+          "level": 5,
+          "name": "超市购物车",
+          "status": "recorded"
+        },
+        {
+          "level": 6,
+          "name": "大型购物车",
+          "status": "recorded"
+        },
+        {
+          "level": 7,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 8,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 9,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 10,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 11,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 12,
+          "name": null,
+          "status": "unknown"
+        }
+      ],
+      "unranked": [],
+      "note": "12来自2024社区扩级记录；第7级以后名称未核实。",
+      "currentMax": null
+    },
+    {
+      "id": "locker",
+      "name": "储物柜",
+      "kind": "generator",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S05",
+        "S02"
+      ],
+      "reportedMax": 11,
+      "levels": [
+        {
+          "level": 1,
+          "name": "储物篮",
+          "status": "recorded"
+        },
+        {
+          "level": 2,
+          "name": "抽屉零件",
+          "status": "recorded"
+        },
+        {
+          "level": 3,
+          "name": "抽屉雏形",
+          "status": "recorded"
+        },
+        {
+          "level": 4,
+          "name": "破碎抽屉",
+          "status": "recorded"
+        },
+        {
+          "level": 5,
+          "name": "储物抽屉",
+          "status": "recorded"
+        },
+        {
+          "level": 6,
+          "name": "双层储物柜",
+          "status": "recorded"
+        },
+        {
+          "level": 7,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 8,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 9,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 10,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 11,
+          "name": null,
+          "status": "unknown"
+        }
+      ],
+      "unranked": [],
+      "note": "7级以后重复名称/缺图；6级起有遗失物产出。",
+      "currentMax": null
+    },
+    {
+      "id": "lost",
+      "name": "遗失物",
+      "kind": "hybrid",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S06"
+      ],
+      "reportedMax": 6,
+      "levels": [
+        {
+          "level": 1,
+          "name": "遗失的眼镜",
+          "status": "recorded"
+        },
+        {
+          "level": 2,
+          "name": "遗失的日记本",
+          "status": "recorded"
+        },
+        {
+          "level": 3,
+          "name": "遗失的拳套",
+          "status": "recorded"
+        },
+        {
+          "level": 4,
+          "name": "失物篮",
+          "status": "recorded"
+        },
+        {
+          "level": 5,
+          "name": "大型失物篮",
+          "status": "recorded"
+        },
+        {
+          "level": 6,
+          "name": "失物招领处",
+          "status": "recorded"
+        }
+      ],
+      "unranked": [],
+      "note": "5/6级产U型枕。",
+      "currentMax": null
+    },
+    {
+      "id": "comfort",
+      "name": "娱乐设施",
+      "kind": "hybrid",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S06",
+        "S07"
+      ],
+      "reportedMax": 8,
+      "levels": [
+        {
+          "level": 1,
+          "name": "U型枕",
+          "status": "recorded"
+        },
+        {
+          "level": 2,
+          "name": "枕头",
+          "status": "recorded"
+        },
+        {
+          "level": 3,
+          "name": "按摩器",
+          "status": "recorded"
+        },
+        {
+          "level": 4,
+          "name": "筋膜枪",
+          "status": "recorded"
+        },
+        {
+          "level": 5,
+          "name": "随身听",
+          "status": "recorded"
+        },
+        {
+          "level": 6,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 7,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 8,
+          "name": "游戏机盒子",
+          "status": "recorded"
+        }
+      ],
+      "unranked": [
+        "VR眼镜"
+      ],
+      "note": "",
+      "currentMax": null
+    },
+    {
+      "id": "console",
+      "name": "游戏机",
+      "kind": "hybrid",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S07",
+        "S13"
+      ],
+      "reportedMax": 4,
+      "levels": [
+        {
+          "level": 1,
+          "name": "小掌机",
+          "status": "recorded"
+        },
+        {
+          "level": 2,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 3,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 4,
+          "name": "NS",
+          "status": "recorded"
+        }
+      ],
+      "unranked": [],
+      "note": "",
+      "currentMax": null
+    },
+    {
+      "id": "game_stage",
+      "name": "墙壁／野餐篮阶段",
+      "kind": "stateful",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S07",
+        "S13"
+      ],
+      "reportedMax": 5,
+      "levels": [
+        {
+          "level": 1,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 2,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 3,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 4,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 5,
+          "name": null,
+          "status": "unknown"
+        }
+      ],
+      "unranked": [],
+      "note": "大陆旧路径为墙壁；台服记录为野餐篮；点击后的阶段变化不能当同物合成。",
+      "currentMax": null
+    },
+    {
+      "id": "game_card",
+      "name": "肥鹅斗恶龙相关材料",
+      "kind": "hybrid",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S07",
+        "S13"
+      ],
+      "reportedMax": 5,
+      "levels": [
+        {
+          "level": 1,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 2,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 3,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 4,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 5,
+          "name": "尼德霍格",
+          "status": "recorded"
+        }
+      ],
+      "unranked": [],
+      "note": "",
+      "currentMax": null
+    },
+    {
+      "id": "figurine",
+      "name": "肥鹅手办",
+      "kind": "product",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S07"
+      ],
+      "reportedMax": null,
+      "levels": [],
+      "unranked": [
+        "肥鹅精灵"
+      ],
+      "note": "尼德霍格产出精灵后进入手办链；完整等级未知。",
+      "currentMax": null
+    },
+    {
+      "id": "puzzle",
+      "name": "拼图",
+      "kind": "product",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S08"
+      ],
+      "reportedMax": 13,
+      "levels": [
+        {
+          "level": 1,
+          "name": "纸屑堆",
+          "status": "recorded"
+        },
+        {
+          "level": 2,
+          "name": "纸片",
+          "status": "recorded"
+        },
+        {
+          "level": 3,
+          "name": "一块拼图",
+          "status": "recorded"
+        },
+        {
+          "level": 4,
+          "name": "拼图拼接",
+          "status": "recorded"
+        },
+        {
+          "level": 5,
+          "name": "拼图板",
+          "status": "recorded"
+        },
+        {
+          "level": 6,
+          "name": "大块拼图",
+          "status": "recorded"
+        },
+        {
+          "level": 7,
+          "name": "拼图一角",
+          "status": "recorded"
+        },
+        {
+          "level": 8,
+          "name": "拼图图案",
+          "status": "recorded"
+        },
+        {
+          "level": 9,
+          "name": "进阶拼图",
+          "status": "recorded"
+        },
+        {
+          "level": 10,
+          "name": "照片轮廓",
+          "status": "recorded"
+        },
+        {
+          "level": 11,
+          "name": "肥鹅相框",
+          "status": "recorded"
+        },
+        {
+          "level": 12,
+          "name": "秘密信封",
+          "status": "recorded"
+        },
+        {
+          "level": 13,
+          "name": "珍藏照片",
+          "status": "recorded"
+        }
+      ],
+      "unranked": [],
+      "note": "",
+      "currentMax": null
+    },
+    {
+      "id": "keys",
+      "name": "钥匙",
+      "kind": "hybrid",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S06",
+        "S12"
+      ],
+      "reportedMax": 5,
+      "levels": [
+        {
+          "level": 1,
+          "name": "钥匙",
+          "status": "recorded"
+        },
+        {
+          "level": 2,
+          "name": "钥匙串",
+          "status": "recorded"
+        },
+        {
+          "level": 3,
+          "name": "感应钥匙",
+          "status": "recorded"
+        },
+        {
+          "level": 4,
+          "name": "自动感应钥匙",
+          "status": "recorded"
+        },
+        {
+          "level": 5,
+          "name": null,
+          "status": "unknown"
+        }
+      ],
+      "unranked": [
+        "感应手环"
+      ],
+      "note": "",
+      "currentMax": null
+    },
+    {
+      "id": "gate",
+      "name": "神秘的光门",
+      "kind": "product",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S12",
+        "S08"
+      ],
+      "reportedMax": null,
+      "levels": [],
+      "unranked": [],
+      "note": "旧攻略称时光门/时空之门；完整等级未核实。",
+      "currentMax": null
+    },
+    {
+      "id": "publicity",
+      "name": "宣传方式",
+      "kind": "generator",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S02",
+        "S25"
+      ],
+      "reportedMax": null,
+      "levels": [],
+      "unranked": [
+        "宣传单",
+        "宣传手册",
+        "电视",
+        "电脑"
+      ],
+      "note": "4级自生产，5级产测试材料为旧记录。",
+      "currentMax": null
+    },
+    {
+      "id": "test",
+      "name": "体能测试",
+      "kind": "hybrid",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S01",
+        "S25"
+      ],
+      "reportedMax": 6,
+      "levels": [
+        {
+          "level": 1,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 2,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 3,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 4,
+          "name": "热情的推荐",
+          "status": "recorded"
+        },
+        {
+          "level": 5,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 6,
+          "name": null,
+          "status": "unknown"
+        }
+      ],
+      "unranked": [
+        "体能分析仪"
+      ],
+      "note": "5、6级存在由官方确认，逐级名称未核齐。",
+      "currentMax": null
+    },
+    {
+      "id": "course",
+      "name": "健身课程",
+      "kind": "product",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S02",
+        "S10"
+      ],
+      "reportedMax": null,
+      "levels": [],
+      "unranked": [
+        "进阶课程",
+        "力量课程",
+        "瑜伽课程"
+      ],
+      "note": "",
+      "currentMax": null
+    },
+    {
+      "id": "pot",
+      "name": "花盆",
+      "kind": "generator",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S02"
+      ],
+      "reportedMax": null,
+      "levels": [],
+      "unranked": [],
+      "note": "购物车提供花盆材料，花盆产种子袋；完整等级未知。",
+      "currentMax": null
+    },
+    {
+      "id": "seedbag",
+      "name": "种子袋",
+      "kind": "finite",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S07"
+      ],
+      "reportedMax": 4,
+      "levels": [
+        {
+          "level": 1,
+          "name": "小种子包",
+          "status": "recorded"
+        },
+        {
+          "level": 2,
+          "name": "加量种子包",
+          "status": "recorded"
+        },
+        {
+          "level": 3,
+          "name": "大种子包",
+          "status": "recorded"
+        },
+        {
+          "level": 4,
+          "name": "种子堆",
+          "status": "recorded"
+        }
+      ],
+      "unranked": [],
+      "note": "",
+      "currentMax": null
+    },
+    {
+      "id": "plant",
+      "name": "盆栽",
+      "kind": "hybrid",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S07"
+      ],
+      "reportedMax": 6,
+      "levels": [
+        {
+          "level": 1,
+          "name": "种子",
+          "status": "recorded"
+        },
+        {
+          "level": 2,
+          "name": "温室花苗",
+          "status": "recorded"
+        },
+        {
+          "level": 3,
+          "name": "花苗",
+          "status": "recorded"
+        },
+        {
+          "level": 4,
+          "name": "绿植",
+          "status": "recorded"
+        },
+        {
+          "level": 5,
+          "name": "发财树",
+          "status": "recorded"
+        },
+        {
+          "level": 6,
+          "name": "花树",
+          "status": "recorded"
+        }
+      ],
+      "unranked": [],
+      "note": "花树自动产蜗牛起始物。",
+      "currentMax": null
+    },
+    {
+      "id": "snail",
+      "name": "蜗牛",
+      "kind": "product",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S07"
+      ],
+      "reportedMax": 6,
+      "levels": [
+        {
+          "level": 1,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 2,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 3,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 4,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 5,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 6,
+          "name": null,
+          "status": "unknown"
+        }
+      ],
+      "unranked": [
+        "蜗牛壳",
+        "幼年蜗牛",
+        "小蜗牛",
+        "大蜗牛",
+        "变色蜗牛",
+        "赛博蜗牛"
+      ],
+      "note": "原文等级编号重复，不据此强制排位。",
+      "currentMax": null
+    },
+    {
+      "id": "emptybag",
+      "name": "空种子袋",
+      "kind": "conversion",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S23"
+      ],
+      "reportedMax": 4,
+      "levels": [
+        {
+          "level": 1,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 2,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 3,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 4,
+          "name": null,
+          "status": "unknown"
+        }
+      ],
+      "unranked": [],
+      "note": "两个4级已用空袋进入布袋玩偶系列。",
+      "currentMax": null
+    },
+    {
+      "id": "doll",
+      "name": "布袋玩偶",
+      "kind": "product",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S23"
+      ],
+      "reportedMax": null,
+      "levels": [],
+      "unranked": [
+        "麻袋布"
+      ],
+      "note": "起始物与系列名需区分；后续全名未知。",
+      "currentMax": null
+    },
+    {
+      "id": "flowerbasket",
+      "name": "花篮",
+      "kind": "generator",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S02",
+        "S18"
+      ],
+      "reportedMax": null,
+      "levels": [],
+      "unranked": [],
+      "note": "旧产冠军之路，后改花卉；不能合并为同一版本掉落表。",
+      "currentMax": null
+    },
+    {
+      "id": "flowers",
+      "name": "花卉",
+      "kind": "product",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S11"
+      ],
+      "reportedMax": null,
+      "levels": [],
+      "unranked": [
+        "散装郁金香",
+        "郁金香捧花",
+        "盛宴插花"
+      ],
+      "note": "",
+      "currentMax": null
+    },
+    {
+      "id": "sweeper",
+      "name": "扫地机器人",
+      "kind": "generator",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S02",
+        "S09"
+      ],
+      "reportedMax": null,
+      "levels": [],
+      "unranked": [
+        "电池",
+        "陈旧扫地机"
+      ],
+      "note": "旧记录5级开始生产。",
+      "currentMax": null
+    },
+    {
+      "id": "trash",
+      "name": "垃圾",
+      "kind": "hybrid",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S09"
+      ],
+      "reportedMax": null,
+      "levels": [],
+      "unranked": [
+        "破袜子",
+        "香蕉皮",
+        "苹果核",
+        "易拉罐",
+        "大垃圾袋"
+      ],
+      "note": "",
+      "currentMax": null
+    },
+    {
+      "id": "mouse",
+      "name": "老鼠／猫窝",
+      "kind": "hybrid",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S09"
+      ],
+      "reportedMax": null,
+      "levels": [],
+      "unranked": [
+        "小老鼠",
+        "猫窝",
+        "老鼠合家欢"
+      ],
+      "note": "",
+      "currentMax": null
+    },
+    {
+      "id": "cat",
+      "name": "猫",
+      "kind": "product",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S09",
+        "S10"
+      ],
+      "reportedMax": null,
+      "levels": [],
+      "unranked": [
+        "田园猫",
+        "小黑猫",
+        "棕色小猫",
+        "大灰猫",
+        "大白猫",
+        "布偶猫"
+      ],
+      "note": "",
+      "currentMax": null
+    },
+    {
+      "id": "champion",
+      "name": "冠军之路",
+      "kind": "product",
+      "scope": "主棋盘历史记录",
+      "evidence": "P",
+      "sources": [
+        "S02",
+        "S18"
+      ],
+      "reportedMax": null,
+      "levels": [],
+      "unranked": [
+        "终极金奖杯"
+      ],
+      "note": "与创始鹅之谜奖励雕塑有关；来源存在版本变化。",
+      "currentMax": null
+    },
+    {
+      "id": "renovation",
+      "name": "装修工具",
+      "kind": "product",
+      "scope": "旧版替换",
+      "evidence": "P",
+      "sources": [
+        "S26"
+      ],
+      "reportedMax": null,
+      "levels": [
+        {
+          "level": 1,
+          "name": "勾线笔",
+          "status": "recorded"
+        },
+        {
+          "level": 2,
+          "name": "钢卷尺",
+          "status": "recorded"
+        },
+        {
+          "level": 3,
+          "name": "滚筒刷",
+          "status": "recorded"
+        },
+        {
+          "level": 4,
+          "name": "羊角锤",
+          "status": "recorded"
+        },
+        {
+          "level": 5,
+          "name": "十字镐",
+          "status": "recorded"
+        }
+      ],
+      "unranked": [],
+      "note": "红车主题已替换，仅历史档案。",
+      "currentMax": null
+    },
+    {
+      "id": "brick",
+      "name": "砖头",
+      "kind": "product",
+      "scope": "旧版替换",
+      "evidence": "P",
+      "sources": [
+        "S26"
+      ],
+      "reportedMax": 5,
+      "levels": [
+        {
+          "level": 1,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 2,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 3,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 4,
+          "name": null,
+          "status": "unknown"
+        },
+        {
+          "level": 5,
+          "name": null,
+          "status": "unknown"
+        }
+      ],
+      "unranked": [
+        "砖车"
+      ],
+      "note": "",
+      "currentMax": null
+    },
+    {
+      "id": "paint",
+      "name": "油漆",
+      "kind": "product",
+      "scope": "旧版替换",
+      "evidence": "P",
+      "sources": [
+        "S26"
+      ],
+      "reportedMax": null,
+      "levels": [
+        {
+          "level": 1,
+          "name": "自喷漆",
+          "status": "recorded"
+        },
+        {
+          "level": 2,
+          "name": "油漆桶",
+          "status": "recorded"
+        }
+      ],
+      "unranked": [],
+      "note": "",
+      "currentMax": null
+    }
+  ],
+  "parameters": [
+    {
+      "id": "merge",
+      "name": "同类同级合并数量",
+      "value": 2,
+      "unit": "件",
+      "evidence": "P",
+      "sources": [
+        "S12"
+      ],
+      "limits": "普通链；活动投料另外定义"
+    },
+    {
+      "id": "tap_energy",
+      "name": "普通点击生产耗能",
+      "value": 1,
+      "unit": "体力/次",
+      "evidence": "P",
+      "sources": [
+        "S12"
+      ],
+      "limits": "不外推所有特殊/活动发射器"
+    },
+    {
+      "id": "energy_regen",
+      "name": "自然体力恢复间隔",
+      "value": 120,
+      "unit": "秒/点",
+      "evidence": "P",
+      "sources": [
+        "S15"
+      ],
+      "limits": "2024攻略记录"
+    },
+    {
+      "id": "energy_cap",
+      "name": "自然体力上限",
+      "value": null,
+      "unit": "点",
+      "evidence": "U",
+      "sources": [],
+      "limits": "未取得现版原始数值证据"
+    },
+    {
+      "id": "energy_values",
+      "name": "能量道具1—5级",
+      "value": [
+        1,
+        6,
+        15,
+        40,
+        100
+      ],
+      "unit": "点",
+      "evidence": "P",
+      "sources": [
+        "S14"
+      ],
+      "limits": "2023台服记录；其他文章存在低级值冲突"
+    },
+    {
+      "id": "coin_values",
+      "name": "金币道具1—6级",
+      "value": [
+        1,
+        3,
+        8,
+        20,
+        50,
+        120
+      ],
+      "unit": "金币",
+      "evidence": "P",
+      "sources": [
+        "S14"
+      ],
+      "limits": "2023台服记录"
+    },
+    {
+      "id": "gem_values",
+      "name": "钻石道具1—4级",
+      "value": [
+        1,
+        3,
+        8,
+        20
+      ],
+      "unit": "钻石",
+      "evidence": "P",
+      "sources": [
+        "S14"
+      ],
+      "limits": "2023台服记录"
+    },
+    {
+      "id": "black_bag",
+      "name": "未用黑色手提包1/2级次数",
+      "value": [
+        10,
+        22
+      ],
+      "unit": "次",
+      "evidence": "P",
+      "sources": [
+        "S16"
+      ],
+      "limits": "2023历史记录；部分使用后的继承公式未知"
+    },
+    {
+      "id": "pink_bag",
+      "name": "未用粉色手提包1/2级次数",
+      "value": [
+        12,
+        28
+      ],
+      "unit": "次",
+      "evidence": "P",
+      "sources": [
+        "S16"
+      ],
+      "limits": "2023历史记录"
+    },
+    {
+      "id": "pig",
+      "name": "未用存钱罐1/2/3级次数",
+      "value": [
+        15,
+        18,
+        53
+      ],
+      "unit": "次",
+      "evidence": "P",
+      "sources": [
+        "S16"
+      ],
+      "limits": "2023历史记录；旧攻略的先点后合建议互相矛盾"
+    },
+    {
+      "id": "energy_box",
+      "name": "早期能量箱次数",
+      "value": 5,
+      "unit": "次",
+      "evidence": "P",
+      "sources": [
+        "S12"
+      ],
+      "limits": "2022历史记录，非现版保证"
+    },
+    {
+      "id": "ad_energy",
+      "name": "广告补能单次",
+      "value": 25,
+      "unit": "点",
+      "evidence": "P",
+      "sources": [
+        "S16"
+      ],
+      "limits": "次数限制随版本/平台变化"
+    },
+    {
+      "id": "first_energy_buy",
+      "name": "钻石买体力首档",
+      "value": 5,
+      "unit": "钻石",
+      "evidence": "P",
+      "sources": [
+        "S15"
+      ],
+      "limits": "完整价格阶梯/购买量/日限未知"
+    },
+    {
+      "id": "infinite_energy",
+      "name": "无限能量档位",
+      "value": [
+        30,
+        60,
+        120,
+        300
+      ],
+      "unit": "秒",
+      "evidence": "P",
+      "sources": [
+        "S17"
+      ],
+      "limits": "2025转载玩家记录"
+    },
+    {
+      "id": "global_time",
+      "name": "棋盘加速器档位",
+      "value": [
+        1,
+        2,
+        4,
+        8,
+        16
+      ],
+      "unit": "小时",
+      "evidence": "P",
+      "sources": [
+        "S17"
+      ],
+      "limits": "效果边界需现版实测"
+    },
+    {
+      "id": "recharge",
+      "name": "充能器档位",
+      "value": [
+        5,
+        10,
+        20
+      ],
+      "unit": "库存",
+      "evidence": "P",
+      "sources": [
+        "S17"
+      ],
+      "limits": "是否可超过容量需实测"
+    },
+    {
+      "id": "scissors",
+      "name": "剪刀适用最高等级",
+      "value": [
+        4,
+        8,
+        null
+      ],
+      "unit": "物品等级",
+      "evidence": "P",
+      "sources": [
+        "S17"
+      ],
+      "limits": "末档不限等级；含不含边界等级需界面核对"
+    },
+    {
+      "id": "scissors_stack",
+      "name": "紫剪刀叠加上限",
+      "value": 20,
+      "unit": "把",
+      "evidence": "P",
+      "sources": [
+        "S17"
+      ],
+      "limits": "2025转载记录"
+    },
+    {
+      "id": "stopwatch_stack",
+      "name": "秒表叠加上限",
+      "value": 5,
+      "unit": "天",
+      "evidence": "P",
+      "sources": [
+        "S17"
+      ],
+      "limits": "单发射器加速"
+    },
+    {
+      "id": "backpack",
+      "name": "扩容背包增格",
+      "value": 1,
+      "unit": "格",
+      "evidence": "P",
+      "sources": [
+        "S17"
+      ],
+      "limits": "道具增格，与金币扩容价表不同"
+    },
+    {
+      "id": "drink_11",
+      "name": "新增饮品等级",
+      "value": 11,
+      "unit": "级",
+      "evidence": "O",
+      "sources": [
+        "S01"
+      ],
+      "limits": "2023-06-30新增，不能推断今天最高仍为11"
+    },
+    {
+      "id": "test_56",
+      "name": "新增体能测试等级",
+      "value": [
+        5,
+        6
+      ],
+      "unit": "级",
+      "evidence": "O",
+      "sources": [
+        "S01"
+      ],
+      "limits": "2023-06-30"
+    },
+    {
+      "id": "reset",
+      "name": "能量相关每日次数刷新",
+      "value": "00:00",
+      "unit": "时间",
+      "evidence": "O",
+      "sources": [
+        "S01"
+      ],
+      "limits": "公告表述；不推断所有商城共用此规则"
+    },
+    {
+      "id": "cactus_cd",
+      "name": "创始鹅活动仙人掌冷却",
+      "value": 900,
+      "unit": "秒",
+      "evidence": "P",
+      "sources": [
+        "S16"
+      ],
+      "limits": "历史活动，8次且不堆两轮"
+    },
+    {
+      "id": "cactus_batch",
+      "name": "创始鹅活动仙人掌产量",
+      "value": 8,
+      "unit": "次/轮",
+      "evidence": "P",
+      "sources": [
+        "S16"
+      ],
+      "limits": "历史活动"
+    },
+    {
+      "id": "lighter_cd",
+      "name": "创始鹅活动打火机冷却",
+      "value": 1800,
+      "unit": "秒",
+      "evidence": "P",
+      "sources": [
+        "S16"
+      ],
+      "limits": "历史活动"
+    },
+    {
+      "id": "lighter_batch",
+      "name": "创始鹅活动打火机产量",
+      "value": [
+        16,
+        32
+      ],
+      "unit": "每轮/两轮库存",
+      "evidence": "P",
+      "sources": [
+        "S16"
+      ],
+      "limits": "历史活动"
+    },
+    {
+      "id": "digit9_sell",
+      "name": "创始鹅活动数字9售价",
+      "value": 410,
+      "unit": "金币",
+      "evidence": "P",
+      "sources": [
+        "S16"
+      ],
+      "limits": "历史活动，不外推普通物品售价"
+    },
+    {
+      "id": "producer_params",
+      "name": "现版各等级生产器库存/冷却/概率",
+      "value": null,
+      "unit": "表",
+      "evidence": "U",
+      "sources": [],
+      "limits": "旧表图片无法清晰读取；2023及2025曾改版"
+    },
+    {
+      "id": "order_formula",
+      "name": "现版订单奖励生成公式",
+      "value": null,
+      "unit": "公式",
+      "evidence": "U",
+      "sources": [],
+      "limits": "订单截图只证明具体实例"
+    },
+    {
+      "id": "storage_prices",
+      "name": "现版完整仓库价格表",
+      "value": null,
+      "unit": "表",
+      "evidence": "U",
+      "sources": [],
+      "limits": "零散价格不能拼为完整曲线"
+    },
+    {
+      "id": "level_xp",
+      "name": "现版玩家升级经验表",
+      "value": null,
+      "unit": "表",
+      "evidence": "U",
+      "sources": [],
+      "limits": "未获得原始完整表"
+    }
+  ]
+}

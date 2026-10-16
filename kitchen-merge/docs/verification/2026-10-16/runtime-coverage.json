@@ -1,0 +1,4222 @@
+{
+  "balanceVersion": "kitchen-reference-v1-draft",
+  "definitions": 421,
+  "newDefinitions": 410,
+  "chains": 64,
+  "producers": 11,
+  "transitions": 21,
+  "mainOrders": 96,
+  "recipes": 10,
+  "items": [
+    {
+      "id": "food:1",
+      "name": "小麦",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "food:2",
+      "source": "烘焙食材篮",
+      "artBytes": 1051,
+      "mergeChecked": true
+    },
+    {
+      "id": "food:2",
+      "name": "面粉",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "food:3",
+      "source": "烘焙食材篮；两份小麦",
+      "artBytes": 1049,
+      "mergeChecked": true
+    },
+    {
+      "id": "food:3",
+      "name": "面团",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "food:4",
+      "source": "烘焙食材篮；两份面粉",
+      "artBytes": 1147,
+      "mergeChecked": true
+    },
+    {
+      "id": "food:4",
+      "name": "吐司",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "food:5",
+      "source": "烘焙食材篮；两份面团",
+      "artBytes": 1033,
+      "mergeChecked": true
+    },
+    {
+      "id": "food:5",
+      "name": "可颂",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": "food:6",
+      "source": "烘焙食材篮；两份吐司",
+      "artBytes": 1291,
+      "mergeChecked": true
+    },
+    {
+      "id": "food:6",
+      "name": "庆祝蛋糕",
+      "level": 6,
+      "kind": "commodity",
+      "mergeTo": "food:7",
+      "source": "烘焙食材篮；两份可颂",
+      "artBytes": 1468,
+      "mergeChecked": true
+    },
+    {
+      "id": "food:7",
+      "name": "双层庆典蛋糕",
+      "level": 7,
+      "kind": "commodity",
+      "mergeTo": "food:8",
+      "source": "烘焙食材篮；两份庆祝蛋糕",
+      "artBytes": 934,
+      "mergeChecked": true
+    },
+    {
+      "id": "food:8",
+      "name": "缤纷甜品塔",
+      "level": 8,
+      "kind": "commodity",
+      "mergeTo": "food:9",
+      "source": "烘焙食材篮；两份双层庆典蛋糕",
+      "artBytes": 1140,
+      "mergeChecked": true
+    },
+    {
+      "id": "food:9",
+      "name": "宴会甜品桌",
+      "level": 9,
+      "kind": "commodity",
+      "mergeTo": "food:10",
+      "source": "烘焙食材篮；两份缤纷甜品塔",
+      "artBytes": 1740,
+      "mergeChecked": true
+    },
+    {
+      "id": "food:10",
+      "name": "婚礼甜品台",
+      "level": 10,
+      "kind": "commodity",
+      "mergeTo": "food:11",
+      "source": "烘焙食材篮；两份宴会甜品桌",
+      "artBytes": 3422,
+      "mergeChecked": true
+    },
+    {
+      "id": "food:11",
+      "name": "大师甜品盛宴",
+      "level": 11,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "烘焙食材篮；两份婚礼甜品台",
+      "artBytes": 3543,
+      "mergeChecked": true
+    },
+    {
+      "id": "tools:1",
+      "name": "木勺",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "tools:2",
+      "source": "厨具收纳箱",
+      "artBytes": 769,
+      "mergeChecked": true
+    },
+    {
+      "id": "tools:2",
+      "name": "打蛋器",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "tools:3",
+      "source": "厨具收纳箱；两份木勺",
+      "artBytes": 766,
+      "mergeChecked": true
+    },
+    {
+      "id": "tools:3",
+      "name": "平底锅",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "tools:4",
+      "source": "厨具收纳箱；两份打蛋器",
+      "artBytes": 1095,
+      "mergeChecked": true
+    },
+    {
+      "id": "tools:4",
+      "name": "炖锅",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "tools:5",
+      "source": "厨具收纳箱；两份平底锅",
+      "artBytes": 1132,
+      "mergeChecked": true
+    },
+    {
+      "id": "tools:5",
+      "name": "厨师机",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": "tools:6",
+      "source": "厨具收纳箱；两份炖锅",
+      "artBytes": 1271,
+      "mergeChecked": true
+    },
+    {
+      "id": "tools:6",
+      "name": "梦幻烤箱",
+      "level": 6,
+      "kind": "commodity",
+      "mergeTo": "tools:7",
+      "source": "厨具收纳箱；两份厨师机",
+      "artBytes": 1418,
+      "mergeChecked": true
+    },
+    {
+      "id": "tools:7",
+      "name": "商用烤箱",
+      "level": 7,
+      "kind": "commodity",
+      "mergeTo": "tools:8",
+      "source": "厨具收纳箱；两份梦幻烤箱",
+      "artBytes": 556,
+      "mergeChecked": true
+    },
+    {
+      "id": "tools:8",
+      "name": "双层烤箱",
+      "level": 8,
+      "kind": "commodity",
+      "mergeTo": "tools:9",
+      "source": "厨具收纳箱；两份商用烤箱",
+      "artBytes": 685,
+      "mergeChecked": true
+    },
+    {
+      "id": "tools:9",
+      "name": "蒸烤一体机",
+      "level": 9,
+      "kind": "commodity",
+      "mergeTo": "tools:10",
+      "source": "厨具收纳箱；两份双层烤箱",
+      "artBytes": 812,
+      "mergeChecked": true
+    },
+    {
+      "id": "tools:10",
+      "name": "多功能料理台",
+      "level": 10,
+      "kind": "commodity",
+      "mergeTo": "tools:11",
+      "source": "厨具收纳箱；两份蒸烤一体机",
+      "artBytes": 1012,
+      "mergeChecked": true
+    },
+    {
+      "id": "tools:11",
+      "name": "中央备餐台",
+      "level": 11,
+      "kind": "commodity",
+      "mergeTo": "tools:12",
+      "source": "厨具收纳箱；两份多功能料理台",
+      "artBytes": 1139,
+      "mergeChecked": true
+    },
+    {
+      "id": "tools:12",
+      "name": "主厨工作站",
+      "level": 12,
+      "kind": "commodity",
+      "mergeTo": "tools:13",
+      "source": "厨具收纳箱；两份中央备餐台",
+      "artBytes": 1214,
+      "mergeChecked": true
+    },
+    {
+      "id": "tools:13",
+      "name": "开放式中央厨房",
+      "level": 13,
+      "kind": "commodity",
+      "mergeTo": "tools:14",
+      "source": "厨具收纳箱；两份主厨工作站",
+      "artBytes": 1341,
+      "mergeChecked": true
+    },
+    {
+      "id": "tools:14",
+      "name": "星级宴会厨房",
+      "level": 14,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "厨具收纳箱；两份开放式中央厨房",
+      "artBytes": 2182,
+      "mergeChecked": true
+    },
+    {
+      "id": "vegetable:1",
+      "name": "小萝卜",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "vegetable:2",
+      "source": "生鲜采购篮",
+      "artBytes": 612,
+      "mergeChecked": true
+    },
+    {
+      "id": "vegetable:2",
+      "name": "番茄",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "vegetable:3",
+      "source": "生鲜采购篮；两份小萝卜",
+      "artBytes": 654,
+      "mergeChecked": true
+    },
+    {
+      "id": "vegetable:3",
+      "name": "西兰花",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "vegetable:4",
+      "source": "生鲜采购篮；两份番茄",
+      "artBytes": 735,
+      "mergeChecked": true
+    },
+    {
+      "id": "vegetable:4",
+      "name": "蔬菜沙拉",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "vegetable:5",
+      "source": "生鲜采购篮；两份西兰花",
+      "artBytes": 1187,
+      "mergeChecked": true
+    },
+    {
+      "id": "vegetable:5",
+      "name": "烤蔬菜",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": "vegetable:6",
+      "source": "生鲜采购篮；两份蔬菜沙拉",
+      "artBytes": 1033,
+      "mergeChecked": true
+    },
+    {
+      "id": "vegetable:6",
+      "name": "田园拼盘",
+      "level": 6,
+      "kind": "commodity",
+      "mergeTo": "vegetable:7",
+      "source": "生鲜采购篮；两份烤蔬菜",
+      "artBytes": 1165,
+      "mergeChecked": true
+    },
+    {
+      "id": "vegetable:7",
+      "name": "四季蔬食宴",
+      "level": 7,
+      "kind": "commodity",
+      "mergeTo": "vegetable:8",
+      "source": "生鲜采购篮；两份田园拼盘",
+      "artBytes": 2616,
+      "mergeChecked": true
+    },
+    {
+      "id": "vegetable:8",
+      "name": "丰收长桌宴",
+      "level": 8,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "生鲜采购篮；两份四季蔬食宴",
+      "artBytes": 3519,
+      "mergeChecked": true
+    },
+    {
+      "id": "fruit:1",
+      "name": "苹果",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "fruit:2",
+      "source": "生鲜采购篮",
+      "artBytes": 713,
+      "mergeChecked": true
+    },
+    {
+      "id": "fruit:2",
+      "name": "香橙",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "fruit:3",
+      "source": "生鲜采购篮；两份苹果",
+      "artBytes": 880,
+      "mergeChecked": true
+    },
+    {
+      "id": "fruit:3",
+      "name": "草莓",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "fruit:4",
+      "source": "生鲜采购篮；两份香橙",
+      "artBytes": 707,
+      "mergeChecked": true
+    },
+    {
+      "id": "fruit:4",
+      "name": "水果碗",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "fruit:5",
+      "source": "生鲜采购篮；两份草莓",
+      "artBytes": 1044,
+      "mergeChecked": true
+    },
+    {
+      "id": "fruit:5",
+      "name": "手作果酱",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": "fruit:6",
+      "source": "生鲜采购篮；两份水果碗",
+      "artBytes": 1228,
+      "mergeChecked": true
+    },
+    {
+      "id": "fruit:6",
+      "name": "水果挞",
+      "level": 6,
+      "kind": "commodity",
+      "mergeTo": "fruit:7",
+      "source": "生鲜采购篮；两份手作果酱",
+      "artBytes": 1341,
+      "mergeChecked": true
+    },
+    {
+      "id": "fruit:7",
+      "name": "四季水果塔",
+      "level": 7,
+      "kind": "commodity",
+      "mergeTo": "fruit:8",
+      "source": "生鲜采购篮；两份水果挞",
+      "artBytes": 1175,
+      "mergeChecked": true
+    },
+    {
+      "id": "fruit:8",
+      "name": "缤纷鲜果宴",
+      "level": 8,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "生鲜采购篮；两份四季水果塔",
+      "artBytes": 1368,
+      "mergeChecked": true
+    },
+    {
+      "id": "drink:1",
+      "name": "咖啡豆",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "drink:2",
+      "source": "咖啡工作台",
+      "artBytes": 923,
+      "mergeChecked": true
+    },
+    {
+      "id": "drink:2",
+      "name": "浓缩咖啡",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "drink:3",
+      "source": "咖啡工作台；两份咖啡豆",
+      "artBytes": 884,
+      "mergeChecked": true
+    },
+    {
+      "id": "drink:3",
+      "name": "牛奶咖啡",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "drink:4",
+      "source": "咖啡工作台；两份浓缩咖啡",
+      "artBytes": 886,
+      "mergeChecked": true
+    },
+    {
+      "id": "drink:4",
+      "name": "拉花拿铁",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "drink:5",
+      "source": "咖啡工作台；两份牛奶咖啡",
+      "artBytes": 904,
+      "mergeChecked": true
+    },
+    {
+      "id": "drink:5",
+      "name": "冰咖啡",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": "drink:6",
+      "source": "咖啡工作台；两份拉花拿铁",
+      "artBytes": 919,
+      "mergeChecked": true
+    },
+    {
+      "id": "drink:6",
+      "name": "咖啡分享塔",
+      "level": 6,
+      "kind": "commodity",
+      "mergeTo": "drink:7",
+      "source": "咖啡工作台；两份冰咖啡",
+      "artBytes": 1259,
+      "mergeChecked": true
+    },
+    {
+      "id": "drink:7",
+      "name": "手冲咖啡套组",
+      "level": 7,
+      "kind": "commodity",
+      "mergeTo": "drink:8",
+      "source": "咖啡工作台；两份咖啡分享塔",
+      "artBytes": 870,
+      "mergeChecked": true
+    },
+    {
+      "id": "drink:8",
+      "name": "冷萃咖啡桶",
+      "level": 8,
+      "kind": "commodity",
+      "mergeTo": "drink:9",
+      "source": "咖啡工作台；两份手冲咖啡套组",
+      "artBytes": 697,
+      "mergeChecked": true
+    },
+    {
+      "id": "drink:9",
+      "name": "精品咖啡吧",
+      "level": 9,
+      "kind": "commodity",
+      "mergeTo": "drink:10",
+      "source": "咖啡工作台；两份冷萃咖啡桶",
+      "artBytes": 3491,
+      "mergeChecked": true
+    },
+    {
+      "id": "drink:10",
+      "name": "冠军咖啡台",
+      "level": 10,
+      "kind": "commodity",
+      "mergeTo": "drink:11",
+      "source": "咖啡工作台；两份精品咖啡吧",
+      "artBytes": 5173,
+      "mergeChecked": true
+    },
+    {
+      "id": "drink:11",
+      "name": "世界咖啡盛典",
+      "level": 11,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "咖啡工作台；两份冠军咖啡台",
+      "artBytes": 5294,
+      "mergeChecked": true
+    },
+    {
+      "id": "tableware:1",
+      "name": "小碟子",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "tableware:2",
+      "source": "厨具收纳箱",
+      "artBytes": 852,
+      "mergeChecked": true
+    },
+    {
+      "id": "tableware:2",
+      "name": "陶瓷碗",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "tableware:3",
+      "source": "厨具收纳箱；两份小碟子",
+      "artBytes": 807,
+      "mergeChecked": true
+    },
+    {
+      "id": "tableware:3",
+      "name": "花边餐盘",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "tableware:4",
+      "source": "厨具收纳箱；两份陶瓷碗",
+      "artBytes": 811,
+      "mergeChecked": true
+    },
+    {
+      "id": "tableware:4",
+      "name": "下午茶壶",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "tableware:5",
+      "source": "厨具收纳箱；两份花边餐盘",
+      "artBytes": 971,
+      "mergeChecked": true
+    },
+    {
+      "id": "tableware:5",
+      "name": "精致茶具",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": "tableware:6",
+      "source": "厨具收纳箱；两份下午茶壶",
+      "artBytes": 1490,
+      "mergeChecked": true
+    },
+    {
+      "id": "tableware:6",
+      "name": "宴会餐具",
+      "level": 6,
+      "kind": "commodity",
+      "mergeTo": "tableware:7",
+      "source": "厨具收纳箱；两份精致茶具",
+      "artBytes": 1038,
+      "mergeChecked": true
+    },
+    {
+      "id": "tableware:7",
+      "name": "典藏瓷器柜",
+      "level": 7,
+      "kind": "commodity",
+      "mergeTo": "tableware:8",
+      "source": "厨具收纳箱；两份宴会餐具",
+      "artBytes": 2102,
+      "mergeChecked": true
+    },
+    {
+      "id": "tableware:8",
+      "name": "皇家宴会餐台",
+      "level": 8,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "厨具收纳箱；两份典藏瓷器柜",
+      "artBytes": 2188,
+      "mergeChecked": true
+    },
+    {
+      "id": "herb:1",
+      "name": "香草种子",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "herb:2",
+      "source": "香草种子堆 · 生产/耗尽",
+      "artBytes": 791,
+      "mergeChecked": true
+    },
+    {
+      "id": "herb:2",
+      "name": "香草嫩芽",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "herb:3",
+      "source": "两份香草种子",
+      "artBytes": 900,
+      "mergeChecked": true
+    },
+    {
+      "id": "herb:3",
+      "name": "罗勒叶",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "herb:4",
+      "source": "两份香草嫩芽",
+      "artBytes": 692,
+      "mergeChecked": true
+    },
+    {
+      "id": "herb:4",
+      "name": "香草盆栽",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "herb:5",
+      "source": "两份罗勒叶",
+      "artBytes": 913,
+      "mergeChecked": true
+    },
+    {
+      "id": "herb:5",
+      "name": "香草篮",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": "herb:6",
+      "source": "两份香草盆栽",
+      "artBytes": 975,
+      "mergeChecked": true
+    },
+    {
+      "id": "herb:6",
+      "name": "秘制调味料",
+      "level": 6,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "两份香草篮",
+      "artBytes": 1370,
+      "mergeChecked": true
+    },
+    {
+      "id": "chinese:1",
+      "name": "香米",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "chinese:2",
+      "source": "亚洲料理台",
+      "artBytes": 835,
+      "mergeChecked": true
+    },
+    {
+      "id": "chinese:2",
+      "name": "水饺",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "chinese:3",
+      "source": "亚洲料理台；两份香米",
+      "artBytes": 906,
+      "mergeChecked": true
+    },
+    {
+      "id": "chinese:3",
+      "name": "小笼包",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "chinese:4",
+      "source": "亚洲料理台；两份水饺",
+      "artBytes": 867,
+      "mergeChecked": true
+    },
+    {
+      "id": "chinese:4",
+      "name": "汤面",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "chinese:5",
+      "source": "亚洲料理台；两份小笼包",
+      "artBytes": 941,
+      "mergeChecked": true
+    },
+    {
+      "id": "chinese:5",
+      "name": "暖心火锅",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": "chinese:6",
+      "source": "亚洲料理台；两份汤面",
+      "artBytes": 1203,
+      "mergeChecked": true
+    },
+    {
+      "id": "chinese:6",
+      "name": "中式点心宴",
+      "level": 6,
+      "kind": "commodity",
+      "mergeTo": "chinese:7",
+      "source": "亚洲料理台；两份暖心火锅",
+      "artBytes": 897,
+      "mergeChecked": true
+    },
+    {
+      "id": "chinese:7",
+      "name": "团圆家宴",
+      "level": 7,
+      "kind": "commodity",
+      "mergeTo": "chinese:8",
+      "source": "亚洲料理台；两份中式点心宴",
+      "artBytes": 2036,
+      "mergeChecked": true
+    },
+    {
+      "id": "chinese:8",
+      "name": "四季中华宴",
+      "level": 8,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "亚洲料理台；两份团圆家宴",
+      "artBytes": 2939,
+      "mergeChecked": true
+    },
+    {
+      "id": "japanese:1",
+      "name": "海苔",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "japanese:2",
+      "source": "亚洲料理台",
+      "artBytes": 695,
+      "mergeChecked": true
+    },
+    {
+      "id": "japanese:2",
+      "name": "饭团",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "japanese:3",
+      "source": "亚洲料理台；两份海苔",
+      "artBytes": 716,
+      "mergeChecked": true
+    },
+    {
+      "id": "japanese:3",
+      "name": "寿司",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "japanese:4",
+      "source": "亚洲料理台；两份饭团",
+      "artBytes": 1082,
+      "mergeChecked": true
+    },
+    {
+      "id": "japanese:4",
+      "name": "手卷",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "japanese:5",
+      "source": "亚洲料理台；两份寿司",
+      "artBytes": 1436,
+      "mergeChecked": true
+    },
+    {
+      "id": "japanese:5",
+      "name": "豚骨拉面",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": "japanese:6",
+      "source": "亚洲料理台；两份手卷",
+      "artBytes": 1405,
+      "mergeChecked": true
+    },
+    {
+      "id": "japanese:6",
+      "name": "和风便当",
+      "level": 6,
+      "kind": "commodity",
+      "mergeTo": "japanese:7",
+      "source": "亚洲料理台；两份豚骨拉面",
+      "artBytes": 1294,
+      "mergeChecked": true
+    },
+    {
+      "id": "japanese:7",
+      "name": "樱花会席",
+      "level": 7,
+      "kind": "commodity",
+      "mergeTo": "japanese:8",
+      "source": "亚洲料理台；两份和风便当",
+      "artBytes": 2830,
+      "mergeChecked": true
+    },
+    {
+      "id": "japanese:8",
+      "name": "和风庆典宴",
+      "level": 8,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "亚洲料理台；两份樱花会席",
+      "artBytes": 3733,
+      "mergeChecked": true
+    },
+    {
+      "id": "italian:1",
+      "name": "意面原料",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "italian:2",
+      "source": "环球料理台",
+      "artBytes": 796,
+      "mergeChecked": true
+    },
+    {
+      "id": "italian:2",
+      "name": "番茄意面",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "italian:3",
+      "source": "环球料理台；两份意面原料",
+      "artBytes": 1034,
+      "mergeChecked": true
+    },
+    {
+      "id": "italian:3",
+      "name": "芝士披萨",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "italian:4",
+      "source": "环球料理台；两份番茄意面",
+      "artBytes": 1092,
+      "mergeChecked": true
+    },
+    {
+      "id": "italian:4",
+      "name": "奶油烩饭",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "italian:5",
+      "source": "环球料理台；两份芝士披萨",
+      "artBytes": 1245,
+      "mergeChecked": true
+    },
+    {
+      "id": "italian:5",
+      "name": "千层面",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": "italian:6",
+      "source": "环球料理台；两份奶油烩饭",
+      "artBytes": 1121,
+      "mergeChecked": true
+    },
+    {
+      "id": "italian:6",
+      "name": "意式盛宴",
+      "level": 6,
+      "kind": "commodity",
+      "mergeTo": "italian:7",
+      "source": "环球料理台；两份千层面",
+      "artBytes": 1376,
+      "mergeChecked": true
+    },
+    {
+      "id": "italian:7",
+      "name": "托斯卡纳长桌",
+      "level": 7,
+      "kind": "commodity",
+      "mergeTo": "italian:8",
+      "source": "环球料理台；两份意式盛宴",
+      "artBytes": 2426,
+      "mergeChecked": true
+    },
+    {
+      "id": "italian:8",
+      "name": "地中海庆典宴",
+      "level": 8,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "环球料理台；两份托斯卡纳长桌",
+      "artBytes": 3329,
+      "mergeChecked": true
+    },
+    {
+      "id": "mexican:1",
+      "name": "甜玉米",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "mexican:2",
+      "source": "环球料理台",
+      "artBytes": 716,
+      "mergeChecked": true
+    },
+    {
+      "id": "mexican:2",
+      "name": "塔可",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "mexican:3",
+      "source": "环球料理台；两份甜玉米",
+      "artBytes": 949,
+      "mergeChecked": true
+    },
+    {
+      "id": "mexican:3",
+      "name": "芝士夹饼",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "mexican:4",
+      "source": "环球料理台；两份塔可",
+      "artBytes": 1103,
+      "mergeChecked": true
+    },
+    {
+      "id": "mexican:4",
+      "name": "墨西哥卷饼",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "mexican:5",
+      "source": "环球料理台；两份芝士夹饼",
+      "artBytes": 1124,
+      "mergeChecked": true
+    },
+    {
+      "id": "mexican:5",
+      "name": "玉米片拼盘",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": "mexican:6",
+      "source": "环球料理台；两份墨西哥卷饼",
+      "artBytes": 1213,
+      "mergeChecked": true
+    },
+    {
+      "id": "mexican:6",
+      "name": "墨西哥派对餐",
+      "level": 6,
+      "kind": "commodity",
+      "mergeTo": "mexican:7",
+      "source": "环球料理台；两份玉米片拼盘",
+      "artBytes": 1356,
+      "mergeChecked": true
+    },
+    {
+      "id": "mexican:7",
+      "name": "阳光街头宴",
+      "level": 7,
+      "kind": "commodity",
+      "mergeTo": "mexican:8",
+      "source": "环球料理台；两份墨西哥派对餐",
+      "artBytes": 2140,
+      "mergeChecked": true
+    },
+    {
+      "id": "mexican:8",
+      "name": "嘉年华大餐",
+      "level": 8,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "环球料理台；两份阳光街头宴",
+      "artBytes": 3043,
+      "mergeChecked": true
+    },
+    {
+      "id": "linen:1",
+      "name": "单只隔热手套",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "linen:2",
+      "source": "厨具收纳箱",
+      "artBytes": 471,
+      "mergeChecked": true
+    },
+    {
+      "id": "linen:2",
+      "name": "一双隔热手套",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "linen:3",
+      "source": "厨具收纳箱；两份单只隔热手套",
+      "artBytes": 815,
+      "mergeChecked": true
+    },
+    {
+      "id": "linen:3",
+      "name": "主厨隔热手套",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "厨具收纳箱；两份一双隔热手套",
+      "artBytes": 936,
+      "mergeChecked": true
+    },
+    {
+      "id": "preservation:1",
+      "name": "保鲜贴",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "preservation:2",
+      "source": "生鲜采购篮",
+      "artBytes": 644,
+      "mergeChecked": true
+    },
+    {
+      "id": "preservation:2",
+      "name": "密封袋",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "preservation:3",
+      "source": "生鲜采购篮；两份保鲜贴",
+      "artBytes": 427,
+      "mergeChecked": true
+    },
+    {
+      "id": "preservation:3",
+      "name": "保鲜盒",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "preservation:4",
+      "source": "生鲜采购篮；两份密封袋",
+      "artBytes": 475,
+      "mergeChecked": true
+    },
+    {
+      "id": "preservation:4",
+      "name": "冷藏保鲜套装",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "生鲜采购篮；两份保鲜盒",
+      "artBytes": 730,
+      "mergeChecked": true
+    },
+    {
+      "id": "bakeware:1",
+      "name": "纸杯模具",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "bakeware:2",
+      "source": "烘焙食材篮",
+      "artBytes": 425,
+      "mergeChecked": true
+    },
+    {
+      "id": "bakeware:2",
+      "name": "小蛋糕模",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "bakeware:3",
+      "source": "烘焙食材篮；两份纸杯模具",
+      "artBytes": 425,
+      "mergeChecked": true
+    },
+    {
+      "id": "bakeware:3",
+      "name": "圆形烤盘",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "bakeware:4",
+      "source": "烘焙食材篮；两份小蛋糕模",
+      "artBytes": 576,
+      "mergeChecked": true
+    },
+    {
+      "id": "bakeware:4",
+      "name": "长方烤盘",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "bakeware:5",
+      "source": "烘焙食材篮；两份圆形烤盘",
+      "artBytes": 475,
+      "mergeChecked": true
+    },
+    {
+      "id": "bakeware:5",
+      "name": "多格烤盘",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": "bakeware:6",
+      "source": "烘焙食材篮；两份长方烤盘",
+      "artBytes": 1114,
+      "mergeChecked": true
+    },
+    {
+      "id": "bakeware:6",
+      "name": "旋转裱花台",
+      "level": 6,
+      "kind": "commodity",
+      "mergeTo": "bakeware:7",
+      "source": "烘焙食材篮；两份多格烤盘",
+      "artBytes": 661,
+      "mergeChecked": true
+    },
+    {
+      "id": "bakeware:7",
+      "name": "专业烘焙套组",
+      "level": 7,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "烘焙食材篮；两份旋转裱花台",
+      "artBytes": 898,
+      "mergeChecked": true
+    },
+    {
+      "id": "seedbag:1",
+      "name": "小种子包",
+      "level": 1,
+      "kind": "hybrid",
+      "mergeTo": "seedbag:2",
+      "source": "香草花盆",
+      "artBytes": 766,
+      "mergeChecked": true
+    },
+    {
+      "id": "seedbag:2",
+      "name": "加量种子包",
+      "level": 2,
+      "kind": "hybrid",
+      "mergeTo": "seedbag:3",
+      "source": "香草花盆；两份小种子包",
+      "artBytes": 842,
+      "mergeChecked": true
+    },
+    {
+      "id": "seedbag:3",
+      "name": "大种子包",
+      "level": 3,
+      "kind": "hybrid",
+      "mergeTo": "seedbag:4",
+      "source": "香草花盆；两份加量种子包",
+      "artBytes": 1316,
+      "mergeChecked": true
+    },
+    {
+      "id": "seedbag:4",
+      "name": "香草种子堆",
+      "level": 4,
+      "kind": "hybrid",
+      "mergeTo": null,
+      "source": "香草花盆；两份大种子包",
+      "artBytes": 1867,
+      "mergeChecked": true
+    },
+    {
+      "id": "emptybag:1",
+      "name": "空纸袋",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "emptybag:2",
+      "source": "香草种子堆 · 生产/耗尽",
+      "artBytes": 551,
+      "mergeChecked": true
+    },
+    {
+      "id": "emptybag:2",
+      "name": "折叠空袋",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "emptybag:3",
+      "source": "两份空纸袋",
+      "artBytes": 627,
+      "mergeChecked": true
+    },
+    {
+      "id": "emptybag:3",
+      "name": "空袋束",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "emptybag:4",
+      "source": "两份折叠空袋",
+      "artBytes": 886,
+      "mergeChecked": true
+    },
+    {
+      "id": "emptybag:4",
+      "name": "整捆空袋",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "doll:1",
+      "source": "两份空袋束",
+      "artBytes": 1222,
+      "mergeChecked": true
+    },
+    {
+      "id": "doll:1",
+      "name": "麻布片",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "doll:2",
+      "source": "整捆空袋 · 两个合成",
+      "artBytes": 455,
+      "mergeChecked": true
+    },
+    {
+      "id": "doll:2",
+      "name": "布偶裁片",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "doll:3",
+      "source": "两份麻布片",
+      "artBytes": 479,
+      "mergeChecked": true
+    },
+    {
+      "id": "doll:3",
+      "name": "填充布偶",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "doll:4",
+      "source": "两份布偶裁片",
+      "artBytes": 532,
+      "mergeChecked": true
+    },
+    {
+      "id": "doll:4",
+      "name": "围裙小偶",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "doll:5",
+      "source": "两份填充布偶",
+      "artBytes": 638,
+      "mergeChecked": true
+    },
+    {
+      "id": "doll:5",
+      "name": "主厨布偶",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": "doll:6",
+      "source": "两份围裙小偶",
+      "artBytes": 760,
+      "mergeChecked": true
+    },
+    {
+      "id": "doll:6",
+      "name": "餐厅吉祥偶",
+      "level": 6,
+      "kind": "commodity",
+      "mergeTo": "doll:7",
+      "source": "两份主厨布偶",
+      "artBytes": 1057,
+      "mergeChecked": true
+    },
+    {
+      "id": "doll:7",
+      "name": "布偶小剧场",
+      "level": 7,
+      "kind": "commodity",
+      "mergeTo": "doll:8",
+      "source": "两份餐厅吉祥偶",
+      "artBytes": 1988,
+      "mergeChecked": true
+    },
+    {
+      "id": "doll:8",
+      "name": "厨房布偶大家庭",
+      "level": 8,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "两份布偶小剧场",
+      "artBytes": 2229,
+      "mergeChecked": true
+    },
+    {
+      "id": "snail:1",
+      "name": "小蜗牛壳",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "snail:2",
+      "source": "秘制调味料 · 自动产出",
+      "artBytes": 461,
+      "mergeChecked": true
+    },
+    {
+      "id": "snail:2",
+      "name": "初生蜗牛",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "snail:3",
+      "source": "两份小蜗牛壳",
+      "artBytes": 911,
+      "mergeChecked": true
+    },
+    {
+      "id": "snail:3",
+      "name": "花园蜗牛",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "snail:4",
+      "source": "两份初生蜗牛",
+      "artBytes": 865,
+      "mergeChecked": true
+    },
+    {
+      "id": "snail:4",
+      "name": "大叶蜗牛",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "snail:5",
+      "source": "两份花园蜗牛",
+      "artBytes": 1162,
+      "mergeChecked": true
+    },
+    {
+      "id": "snail:5",
+      "name": "彩壳蜗牛",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": "snail:6",
+      "source": "两份大叶蜗牛",
+      "artBytes": 1487,
+      "mergeChecked": true
+    },
+    {
+      "id": "snail:6",
+      "name": "星光蜗牛",
+      "level": 6,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "两份彩壳蜗牛",
+      "artBytes": 1380,
+      "mergeChecked": true
+    },
+    {
+      "id": "pantry:1",
+      "name": "藤编储物篮",
+      "level": 1,
+      "kind": "hybrid",
+      "mergeTo": "pantry:2",
+      "source": "设备采购车",
+      "artBytes": 439,
+      "mergeChecked": true
+    },
+    {
+      "id": "pantry:2",
+      "name": "抽屉木板",
+      "level": 2,
+      "kind": "hybrid",
+      "mergeTo": "pantry:3",
+      "source": "设备采购车；两份藤编储物篮",
+      "artBytes": 402,
+      "mergeChecked": true
+    },
+    {
+      "id": "pantry:3",
+      "name": "抽屉框架",
+      "level": 3,
+      "kind": "hybrid",
+      "mergeTo": "pantry:4",
+      "source": "设备采购车；两份抽屉木板",
+      "artBytes": 476,
+      "mergeChecked": true
+    },
+    {
+      "id": "pantry:4",
+      "name": "旧餐具抽屉",
+      "level": 4,
+      "kind": "hybrid",
+      "mergeTo": "pantry:5",
+      "source": "设备采购车；两份抽屉框架",
+      "artBytes": 660,
+      "mergeChecked": true
+    },
+    {
+      "id": "pantry:5",
+      "name": "餐具收纳抽屉",
+      "level": 5,
+      "kind": "hybrid",
+      "mergeTo": "pantry:6",
+      "source": "设备采购车；两份旧餐具抽屉",
+      "artBytes": 897,
+      "mergeChecked": true
+    },
+    {
+      "id": "pantry:6",
+      "name": "双层餐厅柜",
+      "level": 6,
+      "kind": "hybrid",
+      "mergeTo": "pantry:7",
+      "source": "设备采购车；两份餐具收纳抽屉",
+      "artBytes": 900,
+      "mergeChecked": true
+    },
+    {
+      "id": "pantry:7",
+      "name": "双排餐厅柜",
+      "level": 7,
+      "kind": "hybrid",
+      "mergeTo": "pantry:8",
+      "source": "设备采购车；两份双层餐厅柜",
+      "artBytes": 1380,
+      "mergeChecked": true
+    },
+    {
+      "id": "pantry:8",
+      "name": "橡木储物柜",
+      "level": 8,
+      "kind": "hybrid",
+      "mergeTo": "pantry:9",
+      "source": "设备采购车；两份双排餐厅柜",
+      "artBytes": 1508,
+      "mergeChecked": true
+    },
+    {
+      "id": "pantry:9",
+      "name": "玻璃餐具柜",
+      "level": 9,
+      "kind": "hybrid",
+      "mergeTo": "pantry:10",
+      "source": "设备采购车；两份橡木储物柜",
+      "artBytes": 1864,
+      "mergeChecked": true
+    },
+    {
+      "id": "pantry:10",
+      "name": "典藏陈列柜",
+      "level": 10,
+      "kind": "hybrid",
+      "mergeTo": "pantry:11",
+      "source": "设备采购车；两份玻璃餐具柜",
+      "artBytes": 1985,
+      "mergeChecked": true
+    },
+    {
+      "id": "pantry:11",
+      "name": "主厨收藏柜",
+      "level": 11,
+      "kind": "hybrid",
+      "mergeTo": null,
+      "source": "设备采购车；两份典藏陈列柜",
+      "artBytes": 2827,
+      "mergeChecked": true
+    },
+    {
+      "id": "lost:1",
+      "name": "遗落眼镜",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "lost:2",
+      "source": "双层餐厅柜 · 自动产出",
+      "artBytes": 536,
+      "mergeChecked": true
+    },
+    {
+      "id": "lost:2",
+      "name": "手写便签",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "lost:3",
+      "source": "两份遗落眼镜",
+      "artBytes": 441,
+      "mergeChecked": true
+    },
+    {
+      "id": "lost:3",
+      "name": "遗落围巾",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "lost:4",
+      "source": "两份手写便签",
+      "artBytes": 431,
+      "mergeChecked": true
+    },
+    {
+      "id": "lost:4",
+      "name": "小失物篮",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "lost:5",
+      "source": "两份遗落围巾",
+      "artBytes": 707,
+      "mergeChecked": true
+    },
+    {
+      "id": "lost:5",
+      "name": "大失物篮",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": "lost:6",
+      "source": "两份小失物篮",
+      "artBytes": 918,
+      "mergeChecked": true
+    },
+    {
+      "id": "lost:6",
+      "name": "邻里失物招领台",
+      "level": 6,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "两份大失物篮",
+      "artBytes": 1743,
+      "mergeChecked": true
+    },
+    {
+      "id": "comfort:1",
+      "name": "颈枕",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "comfort:2",
+      "source": "大失物篮 · 自动产出；邻里失物招领台 · 自动产出",
+      "artBytes": 453,
+      "mergeChecked": true
+    },
+    {
+      "id": "comfort:2",
+      "name": "软靠垫",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "comfort:3",
+      "source": "两份颈枕",
+      "artBytes": 446,
+      "mergeChecked": true
+    },
+    {
+      "id": "comfort:3",
+      "name": "按摩靠枕",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "comfort:4",
+      "source": "两份软靠垫",
+      "artBytes": 430,
+      "mergeChecked": true
+    },
+    {
+      "id": "comfort:4",
+      "name": "筋膜放松器",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "comfort:5",
+      "source": "两份按摩靠枕",
+      "artBytes": 446,
+      "mergeChecked": true
+    },
+    {
+      "id": "comfort:5",
+      "name": "随身音乐盒",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": "comfort:6",
+      "source": "两份筋膜放松器",
+      "artBytes": 639,
+      "mergeChecked": true
+    },
+    {
+      "id": "comfort:6",
+      "name": "掌上音响",
+      "level": 6,
+      "kind": "commodity",
+      "mergeTo": "comfort:7",
+      "source": "两份随身音乐盒",
+      "artBytes": 642,
+      "mergeChecked": true
+    },
+    {
+      "id": "comfort:7",
+      "name": "沉浸观影镜",
+      "level": 7,
+      "kind": "commodity",
+      "mergeTo": "comfort:8",
+      "source": "两份掌上音响",
+      "artBytes": 596,
+      "mergeChecked": true
+    },
+    {
+      "id": "comfort:8",
+      "name": "复古游戏礼盒",
+      "level": 8,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "两份沉浸观影镜",
+      "artBytes": 672,
+      "mergeChecked": true
+    },
+    {
+      "id": "console:1",
+      "name": "迷你掌机",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "console:2",
+      "source": "复古游戏礼盒 · 生产/耗尽",
+      "artBytes": 660,
+      "mergeChecked": true
+    },
+    {
+      "id": "console:2",
+      "name": "彩屏掌机",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "console:3",
+      "source": "两份迷你掌机",
+      "artBytes": 836,
+      "mergeChecked": true
+    },
+    {
+      "id": "console:3",
+      "name": "双人掌机",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "console:4",
+      "source": "两份彩屏掌机",
+      "artBytes": 1091,
+      "mergeChecked": true
+    },
+    {
+      "id": "console:4",
+      "name": "家庭游戏机",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "两份双人掌机",
+      "artBytes": 1037,
+      "mergeChecked": true
+    },
+    {
+      "id": "adventure_box:1",
+      "name": "食材森林",
+      "level": 1,
+      "kind": "stateful",
+      "mergeTo": null,
+      "source": "家庭游戏机 · 生产/耗尽",
+      "artBytes": 1069,
+      "mergeChecked": true
+    },
+    {
+      "id": "adventure_box:2",
+      "name": "烘焙山谷",
+      "level": 2,
+      "kind": "stateful",
+      "mergeTo": null,
+      "source": "食材森林 · 生产/耗尽",
+      "artBytes": 705,
+      "mergeChecked": true
+    },
+    {
+      "id": "adventure_box:3",
+      "name": "汤锅港口",
+      "level": 3,
+      "kind": "stateful",
+      "mergeTo": null,
+      "source": "烘焙山谷 · 生产/耗尽",
+      "artBytes": 769,
+      "mergeChecked": true
+    },
+    {
+      "id": "adventure_box:4",
+      "name": "甜品城堡",
+      "level": 4,
+      "kind": "stateful",
+      "mergeTo": null,
+      "source": "汤锅港口 · 生产/耗尽",
+      "artBytes": 831,
+      "mergeChecked": true
+    },
+    {
+      "id": "adventure_box:5",
+      "name": "星光宴会厅",
+      "level": 5,
+      "kind": "stateful",
+      "mergeTo": null,
+      "source": "甜品城堡 · 生产/耗尽",
+      "artBytes": 920,
+      "mergeChecked": true
+    },
+    {
+      "id": "story:1",
+      "name": "启程卡",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "story:2",
+      "source": "食材森林 · 生产/耗尽；烘焙山谷 · 生产/耗尽；汤锅港口 · 生产/耗尽；甜品城堡 · 生产/耗尽；星光宴会厅 · 生产/耗尽",
+      "artBytes": 772,
+      "mergeChecked": true
+    },
+    {
+      "id": "story:2",
+      "name": "伙伴卡",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "story:3",
+      "source": "两份启程卡",
+      "artBytes": 693,
+      "mergeChecked": true
+    },
+    {
+      "id": "story:3",
+      "name": "旅途卡",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "story:4",
+      "source": "两份伙伴卡",
+      "artBytes": 584,
+      "mergeChecked": true
+    },
+    {
+      "id": "story:4",
+      "name": "城堡卡",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "story:5",
+      "source": "两份旅途卡",
+      "artBytes": 590,
+      "mergeChecked": true
+    },
+    {
+      "id": "story:5",
+      "name": "大厨守护者",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "两份城堡卡",
+      "artBytes": 603,
+      "mergeChecked": true
+    },
+    {
+      "id": "mascot:1",
+      "name": "小厨精灵",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "mascot:2",
+      "source": "大厨守护者 · 成熟奖励",
+      "artBytes": 532,
+      "mergeChecked": true
+    },
+    {
+      "id": "mascot:2",
+      "name": "围裙小厨",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "mascot:3",
+      "source": "两份小厨精灵",
+      "artBytes": 638,
+      "mergeChecked": true
+    },
+    {
+      "id": "mascot:3",
+      "name": "烘焙小厨",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "mascot:4",
+      "source": "两份围裙小厨",
+      "artBytes": 780,
+      "mergeChecked": true
+    },
+    {
+      "id": "mascot:4",
+      "name": "咖啡小厨",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "mascot:5",
+      "source": "两份烘焙小厨",
+      "artBytes": 948,
+      "mergeChecked": true
+    },
+    {
+      "id": "mascot:5",
+      "name": "花园小厨",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": "mascot:6",
+      "source": "两份咖啡小厨",
+      "artBytes": 1710,
+      "mergeChecked": true
+    },
+    {
+      "id": "mascot:6",
+      "name": "庆典主厨",
+      "level": 6,
+      "kind": "commodity",
+      "mergeTo": "mascot:7",
+      "source": "两份花园小厨",
+      "artBytes": 1057,
+      "mergeChecked": true
+    },
+    {
+      "id": "mascot:7",
+      "name": "小厨全家福",
+      "level": 7,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "两份庆典主厨",
+      "artBytes": 1988,
+      "mergeChecked": true
+    },
+    {
+      "id": "puzzle:1",
+      "name": "碎纸堆",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "puzzle:2",
+      "source": "藤编储物篮 · 生产/耗尽；复古游戏礼盒 · 生产/耗尽",
+      "artBytes": 444,
+      "mergeChecked": true
+    },
+    {
+      "id": "puzzle:2",
+      "name": "照片纸片",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "puzzle:3",
+      "source": "两份碎纸堆",
+      "artBytes": 557,
+      "mergeChecked": true
+    },
+    {
+      "id": "puzzle:3",
+      "name": "一块照片",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "puzzle:4",
+      "source": "两份照片纸片",
+      "artBytes": 670,
+      "mergeChecked": true
+    },
+    {
+      "id": "puzzle:4",
+      "name": "照片拼接",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "puzzle:5",
+      "source": "两份一块照片",
+      "artBytes": 562,
+      "mergeChecked": true
+    },
+    {
+      "id": "puzzle:5",
+      "name": "小块照片",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": "puzzle:6",
+      "source": "两份照片拼接",
+      "artBytes": 691,
+      "mergeChecked": true
+    },
+    {
+      "id": "puzzle:6",
+      "name": "大块照片",
+      "level": 6,
+      "kind": "commodity",
+      "mergeTo": "puzzle:7",
+      "source": "两份小块照片",
+      "artBytes": 820,
+      "mergeChecked": true
+    },
+    {
+      "id": "puzzle:7",
+      "name": "照片一角",
+      "level": 7,
+      "kind": "commodity",
+      "mergeTo": "puzzle:8",
+      "source": "两份大块照片",
+      "artBytes": 949,
+      "mergeChecked": true
+    },
+    {
+      "id": "puzzle:8",
+      "name": "模糊合影",
+      "level": 8,
+      "kind": "commodity",
+      "mergeTo": "puzzle:9",
+      "source": "两份照片一角",
+      "artBytes": 1078,
+      "mergeChecked": true
+    },
+    {
+      "id": "puzzle:9",
+      "name": "清晰合影",
+      "level": 9,
+      "kind": "commodity",
+      "mergeTo": "puzzle:10",
+      "source": "两份模糊合影",
+      "artBytes": 1207,
+      "mergeChecked": true
+    },
+    {
+      "id": "puzzle:10",
+      "name": "旧照片轮廓",
+      "level": 10,
+      "kind": "commodity",
+      "mergeTo": "puzzle:11",
+      "source": "两份清晰合影",
+      "artBytes": 1336,
+      "mergeChecked": true
+    },
+    {
+      "id": "puzzle:11",
+      "name": "餐厅相框",
+      "level": 11,
+      "kind": "commodity",
+      "mergeTo": "puzzle:12",
+      "source": "两份旧照片轮廓",
+      "artBytes": 720,
+      "mergeChecked": true
+    },
+    {
+      "id": "puzzle:12",
+      "name": "旧日信封",
+      "level": 12,
+      "kind": "commodity",
+      "mergeTo": "puzzle:13",
+      "source": "两份餐厅相框",
+      "artBytes": 542,
+      "mergeChecked": true
+    },
+    {
+      "id": "puzzle:13",
+      "name": "珍藏开店照",
+      "level": 13,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "两份旧日信封",
+      "artBytes": 841,
+      "mergeChecked": true
+    },
+    {
+      "id": "keys:1",
+      "name": "小钥匙",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "keys:2",
+      "source": "藤编储物篮 · 生产/耗尽",
+      "artBytes": 558,
+      "mergeChecked": true
+    },
+    {
+      "id": "keys:2",
+      "name": "钥匙串",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "keys:3",
+      "source": "两份小钥匙",
+      "artBytes": 740,
+      "mergeChecked": true
+    },
+    {
+      "id": "keys:3",
+      "name": "感应钥匙",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "keys:4",
+      "source": "两份钥匙串",
+      "artBytes": 642,
+      "mergeChecked": true
+    },
+    {
+      "id": "keys:4",
+      "name": "自动感应钥匙",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "keys:5",
+      "source": "两份感应钥匙",
+      "artBytes": 735,
+      "mergeChecked": true
+    },
+    {
+      "id": "keys:5",
+      "name": "餐厅感应手环",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "两份自动感应钥匙",
+      "artBytes": 562,
+      "mergeChecked": true
+    },
+    {
+      "id": "timegate:1",
+      "name": "记忆微光",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "timegate:2",
+      "source": "餐厅感应手环 · 生产/耗尽",
+      "artBytes": 460,
+      "mergeChecked": true
+    },
+    {
+      "id": "timegate:2",
+      "name": "记忆碎片",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "timegate:3",
+      "source": "两份记忆微光",
+      "artBytes": 458,
+      "mergeChecked": true
+    },
+    {
+      "id": "timegate:3",
+      "name": "记忆窗口",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "timegate:4",
+      "source": "两份记忆碎片",
+      "artBytes": 573,
+      "mergeChecked": true
+    },
+    {
+      "id": "timegate:4",
+      "name": "旧日门扉",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "timegate:5",
+      "source": "两份记忆窗口",
+      "artBytes": 555,
+      "mergeChecked": true
+    },
+    {
+      "id": "timegate:5",
+      "name": "往日厨房",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": "timegate:6",
+      "source": "两份旧日门扉",
+      "artBytes": 951,
+      "mergeChecked": true
+    },
+    {
+      "id": "timegate:6",
+      "name": "开店纪念馆",
+      "level": 6,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "两份往日厨房",
+      "artBytes": 966,
+      "mergeChecked": true
+    },
+    {
+      "id": "tasting:1",
+      "name": "试菜便签",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "tasting:2",
+      "source": "食谱研究台",
+      "artBytes": 535,
+      "mergeChecked": true
+    },
+    {
+      "id": "tasting:2",
+      "name": "试吃记录",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "tasting:3",
+      "source": "食谱研究台；两份试菜便签",
+      "artBytes": 690,
+      "mergeChecked": true
+    },
+    {
+      "id": "tasting:3",
+      "name": "口味报告",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "tasting:4",
+      "source": "食谱研究台；两份试吃记录",
+      "artBytes": 798,
+      "mergeChecked": true
+    },
+    {
+      "id": "tasting:4",
+      "name": "主厨推荐",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "tasting:5",
+      "source": "食谱研究台；两份口味报告",
+      "artBytes": 835,
+      "mergeChecked": true
+    },
+    {
+      "id": "tasting:5",
+      "name": "菜单分析",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": "tasting:6",
+      "source": "食谱研究台；两份主厨推荐",
+      "artBytes": 697,
+      "mergeChecked": true
+    },
+    {
+      "id": "tasting:6",
+      "name": "宴会评审",
+      "level": 6,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "食谱研究台；两份菜单分析",
+      "artBytes": 1376,
+      "mergeChecked": true
+    },
+    {
+      "id": "courses:1",
+      "name": "入门笔记",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "courses:2",
+      "source": "主厨推荐 · 生产/耗尽；菜单分析 · 生产/耗尽；宴会评审 · 生产/耗尽",
+      "artBytes": 464,
+      "mergeChecked": true
+    },
+    {
+      "id": "courses:2",
+      "name": "基础课程",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "courses:3",
+      "source": "两份入门笔记",
+      "artBytes": 994,
+      "mergeChecked": true
+    },
+    {
+      "id": "courses:3",
+      "name": "进阶课程",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "courses:4",
+      "source": "两份基础课程",
+      "artBytes": 762,
+      "mergeChecked": true
+    },
+    {
+      "id": "courses:4",
+      "name": "烘焙课程",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "courses:5",
+      "source": "两份进阶课程",
+      "artBytes": 1341,
+      "mergeChecked": true
+    },
+    {
+      "id": "courses:5",
+      "name": "主厨课程",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": "courses:6",
+      "source": "两份烘焙课程",
+      "artBytes": 1304,
+      "mergeChecked": true
+    },
+    {
+      "id": "courses:6",
+      "name": "大师课程",
+      "level": 6,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "两份主厨课程",
+      "artBytes": 1493,
+      "mergeChecked": true
+    },
+    {
+      "id": "flowers:1",
+      "name": "小花枝",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "flowers:2",
+      "source": "花艺工具篮",
+      "artBytes": 1057,
+      "mergeChecked": true
+    },
+    {
+      "id": "flowers:2",
+      "name": "一束鲜花",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "flowers:3",
+      "source": "花艺工具篮；两份小花枝",
+      "artBytes": 1059,
+      "mergeChecked": true
+    },
+    {
+      "id": "flowers:3",
+      "name": "散装郁金香",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "flowers:4",
+      "source": "花艺工具篮；两份一束鲜花",
+      "artBytes": 2848,
+      "mergeChecked": true
+    },
+    {
+      "id": "flowers:4",
+      "name": "郁金香捧花",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "flowers:5",
+      "source": "花艺工具篮；两份散装郁金香",
+      "artBytes": 2969,
+      "mergeChecked": true
+    },
+    {
+      "id": "flowers:5",
+      "name": "桌边花瓶",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": "flowers:6",
+      "source": "花艺工具篮；两份郁金香捧花",
+      "artBytes": 2853,
+      "mergeChecked": true
+    },
+    {
+      "id": "flowers:6",
+      "name": "餐桌花艺",
+      "level": 6,
+      "kind": "commodity",
+      "mergeTo": "flowers:7",
+      "source": "花艺工具篮；两份桌边花瓶",
+      "artBytes": 3695,
+      "mergeChecked": true
+    },
+    {
+      "id": "flowers:7",
+      "name": "宴会插花",
+      "level": 7,
+      "kind": "commodity",
+      "mergeTo": "flowers:8",
+      "source": "花艺工具篮；两份餐桌花艺",
+      "artBytes": 4537,
+      "mergeChecked": true
+    },
+    {
+      "id": "flowers:8",
+      "name": "花园花墙",
+      "level": 8,
+      "kind": "commodity",
+      "mergeTo": "flowers:9",
+      "source": "花艺工具篮；两份宴会插花",
+      "artBytes": 7925,
+      "mergeChecked": true
+    },
+    {
+      "id": "flowers:9",
+      "name": "盛典花艺",
+      "level": 9,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "花艺工具篮；两份花园花墙",
+      "artBytes": 10572,
+      "mergeChecked": true
+    },
+    {
+      "id": "scraps:1",
+      "name": "果蔬边角",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "scraps:2",
+      "source": "花园循环箱",
+      "artBytes": 455,
+      "mergeChecked": true
+    },
+    {
+      "id": "scraps:2",
+      "name": "咖啡渣",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "scraps:3",
+      "source": "花园循环箱；两份果蔬边角",
+      "artBytes": 565,
+      "mergeChecked": true
+    },
+    {
+      "id": "scraps:3",
+      "name": "落叶堆",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "scraps:4",
+      "source": "花园循环箱；两份咖啡渣",
+      "artBytes": 812,
+      "mergeChecked": true
+    },
+    {
+      "id": "scraps:4",
+      "name": "混合厨余",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "scraps:5",
+      "source": "花园循环箱；两份落叶堆",
+      "artBytes": 1063,
+      "mergeChecked": true
+    },
+    {
+      "id": "scraps:5",
+      "name": "堆肥袋",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": "scraps:6",
+      "source": "花园循环箱；两份混合厨余",
+      "artBytes": 1245,
+      "mergeChecked": true
+    },
+    {
+      "id": "scraps:6",
+      "name": "发酵堆肥",
+      "level": 6,
+      "kind": "commodity",
+      "mergeTo": "scraps:7",
+      "source": "花园循环箱；两份堆肥袋",
+      "artBytes": 1152,
+      "mergeChecked": true
+    },
+    {
+      "id": "scraps:7",
+      "name": "熟成堆肥",
+      "level": 7,
+      "kind": "commodity",
+      "mergeTo": "scraps:8",
+      "source": "花园循环箱；两份发酵堆肥",
+      "artBytes": 770,
+      "mergeChecked": true
+    },
+    {
+      "id": "scraps:8",
+      "name": "花园堆肥箱",
+      "level": 8,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "花园循环箱；两份熟成堆肥",
+      "artBytes": 1706,
+      "mergeChecked": true
+    },
+    {
+      "id": "garden_guest:1",
+      "name": "小田鼠",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "garden_guest:2",
+      "source": "花园堆肥箱 · 自动产出",
+      "artBytes": 1262,
+      "mergeChecked": true
+    },
+    {
+      "id": "garden_guest:2",
+      "name": "灰田鼠",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "garden_guest:3",
+      "source": "两份小田鼠",
+      "artBytes": 1262,
+      "mergeChecked": true
+    },
+    {
+      "id": "garden_guest:3",
+      "name": "田鼠伙伴",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "garden_guest:4",
+      "source": "两份灰田鼠",
+      "artBytes": 2316,
+      "mergeChecked": true
+    },
+    {
+      "id": "garden_guest:4",
+      "name": "田鼠小屋",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "garden_guest:5",
+      "source": "两份田鼠伙伴",
+      "artBytes": 957,
+      "mergeChecked": true
+    },
+    {
+      "id": "garden_guest:5",
+      "name": "花园小窝",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": "garden_guest:6",
+      "source": "两份田鼠小屋",
+      "artBytes": 1197,
+      "mergeChecked": true
+    },
+    {
+      "id": "garden_guest:6",
+      "name": "温暖猫窝",
+      "level": 6,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "两份花园小窝",
+      "artBytes": 852,
+      "mergeChecked": true
+    },
+    {
+      "id": "cats:1",
+      "name": "田园小猫",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "cats:2",
+      "source": "温暖猫窝 · 生产/耗尽",
+      "artBytes": 1220,
+      "mergeChecked": true
+    },
+    {
+      "id": "cats:2",
+      "name": "奶牛小猫",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "cats:3",
+      "source": "两份田园小猫",
+      "artBytes": 1506,
+      "mergeChecked": true
+    },
+    {
+      "id": "cats:3",
+      "name": "橘色小猫",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "cats:4",
+      "source": "两份奶牛小猫",
+      "artBytes": 1396,
+      "mergeChecked": true
+    },
+    {
+      "id": "cats:4",
+      "name": "灰色小猫",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "cats:5",
+      "source": "两份橘色小猫",
+      "artBytes": 691,
+      "mergeChecked": true
+    },
+    {
+      "id": "cats:5",
+      "name": "白色长毛猫",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": "cats:6",
+      "source": "两份灰色小猫",
+      "artBytes": 1605,
+      "mergeChecked": true
+    },
+    {
+      "id": "cats:6",
+      "name": "布偶猫",
+      "level": 6,
+      "kind": "commodity",
+      "mergeTo": "cats:7",
+      "source": "两份白色长毛猫",
+      "artBytes": 1723,
+      "mergeChecked": true
+    },
+    {
+      "id": "cats:7",
+      "name": "围裙店长猫",
+      "level": 7,
+      "kind": "commodity",
+      "mergeTo": "cats:8",
+      "source": "两份布偶猫",
+      "artBytes": 1593,
+      "mergeChecked": true
+    },
+    {
+      "id": "cats:8",
+      "name": "花园猫咪一家",
+      "level": 8,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "两份围裙店长猫",
+      "artBytes": 3995,
+      "mergeChecked": true
+    },
+    {
+      "id": "honor:1",
+      "name": "参与徽章",
+      "level": 1,
+      "kind": "commodity",
+      "mergeTo": "honor:2",
+      "source": "十二章通关后每10份合格订单",
+      "artBytes": 510,
+      "mergeChecked": true
+    },
+    {
+      "id": "honor:2",
+      "name": "铜色徽章",
+      "level": 2,
+      "kind": "commodity",
+      "mergeTo": "honor:3",
+      "source": "两份参与徽章；十二章通关后每10份合格订单",
+      "artBytes": 689,
+      "mergeChecked": true
+    },
+    {
+      "id": "honor:3",
+      "name": "银色徽章",
+      "level": 3,
+      "kind": "commodity",
+      "mergeTo": "honor:4",
+      "source": "两份铜色徽章；十二章通关后每10份合格订单",
+      "artBytes": 477,
+      "mergeChecked": true
+    },
+    {
+      "id": "honor:4",
+      "name": "金色徽章",
+      "level": 4,
+      "kind": "commodity",
+      "mergeTo": "honor:5",
+      "source": "两份银色徽章；十二章通关后每10份合格订单",
+      "artBytes": 623,
+      "mergeChecked": true
+    },
+    {
+      "id": "honor:5",
+      "name": "街区奖杯",
+      "level": 5,
+      "kind": "commodity",
+      "mergeTo": "honor:6",
+      "source": "两份金色徽章；十二章通关后每10份合格订单",
+      "artBytes": 486,
+      "mergeChecked": true
+    },
+    {
+      "id": "honor:6",
+      "name": "城市奖杯",
+      "level": 6,
+      "kind": "commodity",
+      "mergeTo": "honor:7",
+      "source": "两份街区奖杯；十二章通关后每10份合格订单",
+      "artBytes": 607,
+      "mergeChecked": true
+    },
+    {
+      "id": "honor:7",
+      "name": "年度主厨奖杯",
+      "level": 7,
+      "kind": "commodity",
+      "mergeTo": null,
+      "source": "两份城市奖杯；十二章通关后每10份合格订单",
+      "artBytes": 1201,
+      "mergeChecked": true
+    },
+    {
+      "id": "energy:1",
+      "name": "小能量球",
+      "level": 1,
+      "kind": "resource",
+      "mergeTo": "energy:2",
+      "source": "等级、日周委托、每日礼物或同类合成",
+      "artBytes": 449,
+      "mergeChecked": true
+    },
+    {
+      "id": "energy:2",
+      "name": "能量球",
+      "level": 2,
+      "kind": "resource",
+      "mergeTo": "energy:3",
+      "source": "两份小能量球；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 449,
+      "mergeChecked": true
+    },
+    {
+      "id": "energy:3",
+      "name": "大能量球",
+      "level": 3,
+      "kind": "resource",
+      "mergeTo": "energy:4",
+      "source": "两份能量球；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 558,
+      "mergeChecked": true
+    },
+    {
+      "id": "energy:4",
+      "name": "充沛能量",
+      "level": 4,
+      "kind": "resource",
+      "mergeTo": "energy:5",
+      "source": "两份大能量球；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 667,
+      "mergeChecked": true
+    },
+    {
+      "id": "energy:5",
+      "name": "满满能量",
+      "level": 5,
+      "kind": "resource",
+      "mergeTo": null,
+      "source": "两份充沛能量；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 788,
+      "mergeChecked": true
+    },
+    {
+      "id": "coins:1",
+      "name": "零散金币",
+      "level": 1,
+      "kind": "resource",
+      "mergeTo": "coins:2",
+      "source": "等级、日周委托、每日礼物或同类合成",
+      "artBytes": 656,
+      "mergeChecked": true
+    },
+    {
+      "id": "coins:2",
+      "name": "一叠金币",
+      "level": 2,
+      "kind": "resource",
+      "mergeTo": "coins:3",
+      "source": "两份零散金币；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 1094,
+      "mergeChecked": true
+    },
+    {
+      "id": "coins:3",
+      "name": "一小袋金币",
+      "level": 3,
+      "kind": "resource",
+      "mergeTo": "coins:4",
+      "source": "两份一叠金币；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 876,
+      "mergeChecked": true
+    },
+    {
+      "id": "coins:4",
+      "name": "一袋金币",
+      "level": 4,
+      "kind": "resource",
+      "mergeTo": "coins:5",
+      "source": "两份一小袋金币；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 1113,
+      "mergeChecked": true
+    },
+    {
+      "id": "coins:5",
+      "name": "金币罐",
+      "level": 5,
+      "kind": "resource",
+      "mergeTo": "coins:6",
+      "source": "两份一袋金币；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 586,
+      "mergeChecked": true
+    },
+    {
+      "id": "coins:6",
+      "name": "金币宝箱",
+      "level": 6,
+      "kind": "resource",
+      "mergeTo": null,
+      "source": "两份金币罐；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 660,
+      "mergeChecked": true
+    },
+    {
+      "id": "gems:1",
+      "name": "彩虹糖",
+      "level": 1,
+      "kind": "resource",
+      "mergeTo": "gems:2",
+      "source": "等级、日周委托、每日礼物或同类合成",
+      "artBytes": 1288,
+      "mergeChecked": true
+    },
+    {
+      "id": "gems:2",
+      "name": "几颗彩虹糖",
+      "level": 2,
+      "kind": "resource",
+      "mergeTo": "gems:3",
+      "source": "两份彩虹糖；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 3436,
+      "mergeChecked": true
+    },
+    {
+      "id": "gems:3",
+      "name": "一袋彩虹糖",
+      "level": 3,
+      "kind": "resource",
+      "mergeTo": "gems:4",
+      "source": "两份几颗彩虹糖；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 2647,
+      "mergeChecked": true
+    },
+    {
+      "id": "gems:4",
+      "name": "彩虹糖罐",
+      "level": 4,
+      "kind": "resource",
+      "mergeTo": null,
+      "source": "两份一袋彩虹糖；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 3860,
+      "mergeChecked": true
+    },
+    {
+      "id": "blackbag:1",
+      "name": "设备工具包",
+      "level": 1,
+      "kind": "resource",
+      "mergeTo": "blackbag:2",
+      "source": "等级、日周委托、每日礼物或同类合成",
+      "artBytes": 760,
+      "mergeChecked": true
+    },
+    {
+      "id": "blackbag:2",
+      "name": "高级设备工具包",
+      "level": 2,
+      "kind": "resource",
+      "mergeTo": null,
+      "source": "两份设备工具包；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 1138,
+      "mergeChecked": true
+    },
+    {
+      "id": "pinkbag:1",
+      "name": "食材设备包",
+      "level": 1,
+      "kind": "resource",
+      "mergeTo": "pinkbag:2",
+      "source": "等级、日周委托、每日礼物或同类合成",
+      "artBytes": 982,
+      "mergeChecked": true
+    },
+    {
+      "id": "pinkbag:2",
+      "name": "高级食材设备包",
+      "level": 2,
+      "kind": "resource",
+      "mergeTo": null,
+      "source": "两份食材设备包；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 1360,
+      "mergeChecked": true
+    },
+    {
+      "id": "tipjar:1",
+      "name": "小厨存钱罐",
+      "level": 1,
+      "kind": "resource",
+      "mergeTo": "tipjar:2",
+      "source": "等级、日周委托、每日礼物或同类合成",
+      "artBytes": 816,
+      "mergeChecked": true
+    },
+    {
+      "id": "tipjar:2",
+      "name": "胖胖存钱罐",
+      "level": 2,
+      "kind": "resource",
+      "mergeTo": "tipjar:3",
+      "source": "两份小厨存钱罐；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 925,
+      "mergeChecked": true
+    },
+    {
+      "id": "tipjar:3",
+      "name": "金色存钱罐",
+      "level": 3,
+      "kind": "resource",
+      "mergeTo": null,
+      "source": "两份胖胖存钱罐；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 1046,
+      "mergeChecked": true
+    },
+    {
+      "id": "infinite:1",
+      "name": "短时无限体力",
+      "level": 1,
+      "kind": "resource",
+      "mergeTo": "infinite:2",
+      "source": "等级、日周委托、每日礼物或同类合成",
+      "artBytes": 615,
+      "mergeChecked": true
+    },
+    {
+      "id": "infinite:2",
+      "name": "一分钟无限体力",
+      "level": 2,
+      "kind": "resource",
+      "mergeTo": "infinite:3",
+      "source": "两份短时无限体力；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 1008,
+      "mergeChecked": true
+    },
+    {
+      "id": "infinite:3",
+      "name": "两分钟无限体力",
+      "level": 3,
+      "kind": "resource",
+      "mergeTo": "infinite:4",
+      "source": "两份一分钟无限体力；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 713,
+      "mergeChecked": true
+    },
+    {
+      "id": "infinite:4",
+      "name": "五分钟无限体力",
+      "level": 4,
+      "kind": "resource",
+      "mergeTo": null,
+      "source": "两份两分钟无限体力；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 980,
+      "mergeChecked": true
+    },
+    {
+      "id": "timeskip:1",
+      "name": "一小时沙漏",
+      "level": 1,
+      "kind": "resource",
+      "mergeTo": "timeskip:2",
+      "source": "等级、日周委托、每日礼物或同类合成",
+      "artBytes": 835,
+      "mergeChecked": true
+    },
+    {
+      "id": "timeskip:2",
+      "name": "两小时沙漏",
+      "level": 2,
+      "kind": "resource",
+      "mergeTo": "timeskip:3",
+      "source": "两份一小时沙漏；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 835,
+      "mergeChecked": true
+    },
+    {
+      "id": "timeskip:3",
+      "name": "四小时沙漏",
+      "level": 3,
+      "kind": "resource",
+      "mergeTo": "timeskip:4",
+      "source": "两份两小时沙漏；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 911,
+      "mergeChecked": true
+    },
+    {
+      "id": "timeskip:4",
+      "name": "八小时沙漏",
+      "level": 4,
+      "kind": "resource",
+      "mergeTo": "timeskip:5",
+      "source": "两份四小时沙漏；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 1032,
+      "mergeChecked": true
+    },
+    {
+      "id": "timeskip:5",
+      "name": "十六小时沙漏",
+      "level": 5,
+      "kind": "resource",
+      "mergeTo": null,
+      "source": "两份八小时沙漏；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 1032,
+      "mergeChecked": true
+    },
+    {
+      "id": "charge:1",
+      "name": "小补货箱",
+      "level": 1,
+      "kind": "resource",
+      "mergeTo": "charge:2",
+      "source": "等级、日周委托、每日礼物或同类合成",
+      "artBytes": 841,
+      "mergeChecked": true
+    },
+    {
+      "id": "charge:2",
+      "name": "补货箱",
+      "level": 2,
+      "kind": "resource",
+      "mergeTo": "charge:3",
+      "source": "两份小补货箱；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 969,
+      "mergeChecked": true
+    },
+    {
+      "id": "charge:3",
+      "name": "大补货箱",
+      "level": 3,
+      "kind": "resource",
+      "mergeTo": null,
+      "source": "两份补货箱；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 1165,
+      "mergeChecked": true
+    },
+    {
+      "id": "splitter:1",
+      "name": "基础剪刀",
+      "level": 1,
+      "kind": "resource",
+      "mergeTo": "splitter:2",
+      "source": "等级、日周委托、每日礼物或同类合成",
+      "artBytes": 776,
+      "mergeChecked": true
+    },
+    {
+      "id": "splitter:2",
+      "name": "精细剪刀",
+      "level": 2,
+      "kind": "resource",
+      "mergeTo": "splitter:3",
+      "source": "两份基础剪刀；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 994,
+      "mergeChecked": true
+    },
+    {
+      "id": "splitter:3",
+      "name": "万能剪刀",
+      "level": 3,
+      "kind": "resource",
+      "mergeTo": null,
+      "source": "两份精细剪刀；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 1072,
+      "mergeChecked": true
+    },
+    {
+      "id": "chest:1",
+      "name": "厨房礼盒",
+      "level": 1,
+      "kind": "resource",
+      "mergeTo": "chest:2",
+      "source": "等级、日周委托、每日礼物或同类合成",
+      "artBytes": 754,
+      "mergeChecked": true
+    },
+    {
+      "id": "chest:2",
+      "name": "精致礼盒",
+      "level": 2,
+      "kind": "resource",
+      "mergeTo": "chest:3",
+      "source": "两份厨房礼盒；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 972,
+      "mergeChecked": true
+    },
+    {
+      "id": "chest:3",
+      "name": "豪华礼盒",
+      "level": 3,
+      "kind": "resource",
+      "mergeTo": null,
+      "source": "两份精致礼盒；等级、日周委托、每日礼物或同类合成",
+      "artBytes": 1940,
+      "mergeChecked": true
+    },
+    {
+      "id": "energybox:1",
+      "name": "能量补给箱",
+      "level": 1,
+      "kind": "resource",
+      "mergeTo": null,
+      "source": "等级、日周委托、每日礼物或同类合成",
+      "artBytes": 665,
+      "mergeChecked": true
+    },
+    {
+      "id": "backpack:1",
+      "name": "收纳扩容包",
+      "level": 1,
+      "kind": "resource",
+      "mergeTo": null,
+      "source": "等级、日周委托、每日礼物或同类合成",
+      "artBytes": 873,
+      "mergeChecked": true
+    },
+    {
+      "id": "stopwatch:1",
+      "name": "一小时秒表",
+      "level": 1,
+      "kind": "resource",
+      "mergeTo": null,
+      "source": "等级、日周委托、每日礼物或同类合成",
+      "artBytes": 653,
+      "mergeChecked": true
+    },
+    {
+      "id": "upgrade:1",
+      "name": "普通升级卡",
+      "level": 1,
+      "kind": "resource",
+      "mergeTo": null,
+      "source": "等级、日周委托、每日礼物或同类合成",
+      "artBytes": 593,
+      "mergeChecked": true
+    },
+    {
+      "id": "upgrade:2",
+      "name": "设备升级卡",
+      "level": 2,
+      "kind": "resource",
+      "mergeTo": null,
+      "source": "等级、日周委托、每日礼物或同类合成",
+      "artBytes": 811,
+      "mergeChecked": true
+    },
+    {
+      "id": "legacy_energy:1",
+      "name": "小能量球",
+      "level": 1,
+      "kind": "legacy",
+      "mergeTo": null,
+      "source": "旧档资产保值，保留旧领取值",
+      "artBytes": 517,
+      "mergeChecked": true
+    },
+    {
+      "id": "legacy_energy:2",
+      "name": "能量球",
+      "level": 2,
+      "kind": "legacy",
+      "mergeTo": null,
+      "source": "旧档资产保值，保留旧领取值",
+      "artBytes": 517,
+      "mergeChecked": true
+    },
+    {
+      "id": "legacy_energy:3",
+      "name": "大能量球",
+      "level": 3,
+      "kind": "legacy",
+      "mergeTo": null,
+      "source": "旧档资产保值，保留旧领取值",
+      "artBytes": 626,
+      "mergeChecked": true
+    },
+    {
+      "id": "legacy_energy:4",
+      "name": "满满能量",
+      "level": 4,
+      "kind": "legacy",
+      "mergeTo": null,
+      "source": "旧档资产保值，保留旧领取值",
+      "artBytes": 735,
+      "mergeChecked": true
+    },
+    {
+      "id": "legacy_coins:1",
+      "name": "零用金币",
+      "level": 1,
+      "kind": "legacy",
+      "mergeTo": null,
+      "source": "旧档资产保值，保留旧领取值",
+      "artBytes": 724,
+      "mergeChecked": true
+    },
+    {
+      "id": "legacy_coins:2",
+      "name": "一叠金币",
+      "level": 2,
+      "kind": "legacy",
+      "mergeTo": null,
+      "source": "旧档资产保值，保留旧领取值",
+      "artBytes": 1162,
+      "mergeChecked": true
+    },
+    {
+      "id": "legacy_coins:3",
+      "name": "一袋金币",
+      "level": 3,
+      "kind": "legacy",
+      "mergeTo": null,
+      "source": "旧档资产保值，保留旧领取值",
+      "artBytes": 944,
+      "mergeChecked": true
+    },
+    {
+      "id": "legacy_coins:4",
+      "name": "金币宝箱",
+      "level": 4,
+      "kind": "legacy",
+      "mergeTo": null,
+      "source": "旧档资产保值，保留旧领取值",
+      "artBytes": 1181,
+      "mergeChecked": true
+    },
+    {
+      "id": "legacy_chest:1",
+      "name": "厨房礼盒",
+      "level": 1,
+      "kind": "legacy",
+      "mergeTo": null,
+      "source": "旧档资产保值，保留旧领取值",
+      "artBytes": 822,
+      "mergeChecked": true
+    },
+    {
+      "id": "legacy_chest:2",
+      "name": "精致礼盒",
+      "level": 2,
+      "kind": "legacy",
+      "mergeTo": null,
+      "source": "旧档资产保值，保留旧领取值",
+      "artBytes": 1040,
+      "mergeChecked": true
+    },
+    {
+      "id": "legacy_chest:3",
+      "name": "豪华礼盒",
+      "level": 3,
+      "kind": "legacy",
+      "mergeTo": null,
+      "source": "旧档资产保值，保留旧领取值",
+      "artBytes": 2008,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_tools:1",
+      "name": "厨具收纳箱零件",
+      "level": 1,
+      "kind": "producer",
+      "mergeTo": "gen_tools:2",
+      "source": "设备采购车；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1447,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_tools:2",
+      "name": "厨具收纳箱组件",
+      "level": 2,
+      "kind": "producer",
+      "mergeTo": "gen_tools:3",
+      "source": "设备采购车；两份厨具收纳箱零件；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1418,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_tools:3",
+      "name": "厨具收纳箱框架",
+      "level": 3,
+      "kind": "producer",
+      "mergeTo": "gen_tools:4",
+      "source": "设备采购车；两份厨具收纳箱组件；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1221,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_tools:4",
+      "name": "入门厨具收纳箱",
+      "level": 4,
+      "kind": "producer",
+      "mergeTo": "gen_tools:5",
+      "source": "设备采购车；两份厨具收纳箱框架；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 657,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_tools:5",
+      "name": "实用厨具收纳箱",
+      "level": 5,
+      "kind": "producer",
+      "mergeTo": "gen_tools:6",
+      "source": "设备采购车；两份入门厨具收纳箱；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 857,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_tools:6",
+      "name": "专业厨具收纳箱",
+      "level": 6,
+      "kind": "producer",
+      "mergeTo": "gen_tools:7",
+      "source": "设备采购车；两份实用厨具收纳箱；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1095,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_tools:7",
+      "name": "双层厨具收纳箱",
+      "level": 7,
+      "kind": "producer",
+      "mergeTo": "gen_tools:8",
+      "source": "设备采购车；两份专业厨具收纳箱；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 989,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_tools:8",
+      "name": "高效厨具收纳箱",
+      "level": 8,
+      "kind": "producer",
+      "mergeTo": "gen_tools:9",
+      "source": "设备采购车；两份双层厨具收纳箱；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1189,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_tools:9",
+      "name": "大师厨具收纳箱",
+      "level": 9,
+      "kind": "producer",
+      "mergeTo": "gen_tools:10",
+      "source": "设备采购车；两份高效厨具收纳箱；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1427,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_tools:10",
+      "name": "豪华厨具收纳箱",
+      "level": 10,
+      "kind": "producer",
+      "mergeTo": "gen_tools:11",
+      "source": "设备采购车；两份大师厨具收纳箱；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1171,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_tools:11",
+      "name": "旗舰厨具收纳箱",
+      "level": 11,
+      "kind": "producer",
+      "mergeTo": "gen_tools:12",
+      "source": "设备采购车；两份豪华厨具收纳箱；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1371,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_tools:12",
+      "name": "典藏厨具收纳箱",
+      "level": 12,
+      "kind": "producer",
+      "mergeTo": null,
+      "source": "设备采购车；两份旗舰厨具收纳箱；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1729,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_food:1",
+      "name": "烘焙食材篮零件",
+      "level": 1,
+      "kind": "producer",
+      "mergeTo": "gen_food:2",
+      "source": "对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1729,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_food:2",
+      "name": "烘焙食材篮组件",
+      "level": 2,
+      "kind": "producer",
+      "mergeTo": "gen_food:3",
+      "source": "两份烘焙食材篮零件；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1700,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_food:3",
+      "name": "烘焙食材篮框架",
+      "level": 3,
+      "kind": "producer",
+      "mergeTo": "gen_food:4",
+      "source": "两份烘焙食材篮组件；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1503,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_food:4",
+      "name": "烘焙食材篮雏形",
+      "level": 4,
+      "kind": "producer",
+      "mergeTo": "gen_food:5",
+      "source": "两份烘焙食材篮框架；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1631,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_food:5",
+      "name": "入门烘焙食材篮",
+      "level": 5,
+      "kind": "producer",
+      "mergeTo": "gen_food:6",
+      "source": "两份烘焙食材篮雏形；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 798,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_food:6",
+      "name": "实用烘焙食材篮",
+      "level": 6,
+      "kind": "producer",
+      "mergeTo": "gen_food:7",
+      "source": "两份入门烘焙食材篮；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1010,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_food:7",
+      "name": "专业烘焙食材篮",
+      "level": 7,
+      "kind": "producer",
+      "mergeTo": "gen_food:8",
+      "source": "两份实用烘焙食材篮；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1236,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_food:8",
+      "name": "双层烘焙食材篮",
+      "level": 8,
+      "kind": "producer",
+      "mergeTo": "gen_food:9",
+      "source": "两份专业烘焙食材篮；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1142,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_food:9",
+      "name": "高效烘焙食材篮",
+      "level": 9,
+      "kind": "producer",
+      "mergeTo": "gen_food:10",
+      "source": "两份双层烘焙食材篮；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1330,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_food:10",
+      "name": "大师烘焙食材篮",
+      "level": 10,
+      "kind": "producer",
+      "mergeTo": "gen_food:11",
+      "source": "两份高效烘焙食材篮；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1580,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_food:11",
+      "name": "豪华烘焙食材篮",
+      "level": 11,
+      "kind": "producer",
+      "mergeTo": null,
+      "source": "两份大师烘焙食材篮；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1324,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_produce:1",
+      "name": "生鲜采购篮零件",
+      "level": 1,
+      "kind": "producer",
+      "mergeTo": "gen_produce:2",
+      "source": "对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1290,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_produce:2",
+      "name": "生鲜采购篮组件",
+      "level": 2,
+      "kind": "producer",
+      "mergeTo": "gen_produce:3",
+      "source": "两份生鲜采购篮零件；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1261,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_produce:3",
+      "name": "入门生鲜采购篮",
+      "level": 3,
+      "kind": "producer",
+      "mergeTo": "gen_produce:4",
+      "source": "两份生鲜采购篮组件；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1180,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_produce:4",
+      "name": "实用生鲜采购篮",
+      "level": 4,
+      "kind": "producer",
+      "mergeTo": "gen_produce:5",
+      "source": "两份入门生鲜采购篮；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1392,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_produce:5",
+      "name": "专业生鲜采购篮",
+      "level": 5,
+      "kind": "producer",
+      "mergeTo": "gen_produce:6",
+      "source": "两份实用生鲜采购篮；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1618,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_produce:6",
+      "name": "双层生鲜采购篮",
+      "level": 6,
+      "kind": "producer",
+      "mergeTo": "gen_produce:7",
+      "source": "两份专业生鲜采购篮；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1524,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_produce:7",
+      "name": "高效生鲜采购篮",
+      "level": 7,
+      "kind": "producer",
+      "mergeTo": "gen_produce:8",
+      "source": "两份双层生鲜采购篮；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1712,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_produce:8",
+      "name": "大师生鲜采购篮",
+      "level": 8,
+      "kind": "producer",
+      "mergeTo": "gen_produce:9",
+      "source": "两份高效生鲜采购篮；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1962,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_produce:9",
+      "name": "豪华生鲜采购篮",
+      "level": 9,
+      "kind": "producer",
+      "mergeTo": "gen_produce:10",
+      "source": "两份大师生鲜采购篮；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1706,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_produce:10",
+      "name": "旗舰生鲜采购篮",
+      "level": 10,
+      "kind": "producer",
+      "mergeTo": "gen_produce:11",
+      "source": "两份豪华生鲜采购篮；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1906,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_produce:11",
+      "name": "典藏生鲜采购篮",
+      "level": 11,
+      "kind": "producer",
+      "mergeTo": "gen_produce:12",
+      "source": "两份旗舰生鲜采购篮；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 2264,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_produce:12",
+      "name": "臻选生鲜采购篮",
+      "level": 12,
+      "kind": "producer",
+      "mergeTo": null,
+      "source": "两份典藏生鲜采购篮；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1826,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_drink:1",
+      "name": "咖啡工作台零件",
+      "level": 1,
+      "kind": "producer",
+      "mergeTo": "gen_drink:2",
+      "source": "对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1562,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_drink:2",
+      "name": "咖啡工作台组件",
+      "level": 2,
+      "kind": "producer",
+      "mergeTo": "gen_drink:3",
+      "source": "两份咖啡工作台零件；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1533,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_drink:3",
+      "name": "咖啡工作台框架",
+      "level": 3,
+      "kind": "producer",
+      "mergeTo": "gen_drink:4",
+      "source": "两份咖啡工作台组件；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1336,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_drink:4",
+      "name": "入门咖啡工作台",
+      "level": 4,
+      "kind": "producer",
+      "mergeTo": "gen_drink:5",
+      "source": "两份咖啡工作台框架；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 904,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_drink:5",
+      "name": "实用咖啡工作台",
+      "level": 5,
+      "kind": "producer",
+      "mergeTo": "gen_drink:6",
+      "source": "两份入门咖啡工作台；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1104,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_drink:6",
+      "name": "专业咖啡工作台",
+      "level": 6,
+      "kind": "producer",
+      "mergeTo": "gen_drink:7",
+      "source": "两份实用咖啡工作台；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1342,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_drink:7",
+      "name": "双层咖啡工作台",
+      "level": 7,
+      "kind": "producer",
+      "mergeTo": "gen_drink:8",
+      "source": "两份专业咖啡工作台；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1236,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_drink:8",
+      "name": "高效咖啡工作台",
+      "level": 8,
+      "kind": "producer",
+      "mergeTo": "gen_drink:9",
+      "source": "两份双层咖啡工作台；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1436,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_drink:9",
+      "name": "大师咖啡工作台",
+      "level": 9,
+      "kind": "producer",
+      "mergeTo": "gen_drink:10",
+      "source": "两份高效咖啡工作台；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1674,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_drink:10",
+      "name": "豪华咖啡工作台",
+      "level": 10,
+      "kind": "producer",
+      "mergeTo": null,
+      "source": "两份大师咖啡工作台；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1418,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_herb:1",
+      "name": "香草花盆零件",
+      "level": 1,
+      "kind": "producer",
+      "mergeTo": "gen_herb:2",
+      "source": "设备采购车；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1370,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_herb:2",
+      "name": "香草花盆组件",
+      "level": 2,
+      "kind": "producer",
+      "mergeTo": "gen_herb:3",
+      "source": "设备采购车；两份香草花盆零件；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1341,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_herb:3",
+      "name": "香草花盆框架",
+      "level": 3,
+      "kind": "producer",
+      "mergeTo": "gen_herb:4",
+      "source": "设备采购车；两份香草花盆组件；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1144,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_herb:4",
+      "name": "入门香草花盆",
+      "level": 4,
+      "kind": "producer",
+      "mergeTo": "gen_herb:5",
+      "source": "设备采购车；两份香草花盆框架；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 986,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_herb:5",
+      "name": "实用香草花盆",
+      "level": 5,
+      "kind": "producer",
+      "mergeTo": "gen_herb:6",
+      "source": "设备采购车；两份入门香草花盆；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1189,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_herb:6",
+      "name": "专业香草花盆",
+      "level": 6,
+      "kind": "producer",
+      "mergeTo": "gen_herb:7",
+      "source": "设备采购车；两份实用香草花盆；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1441,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_herb:7",
+      "name": "双层香草花盆",
+      "level": 7,
+      "kind": "producer",
+      "mergeTo": "gen_herb:8",
+      "source": "设备采购车；两份专业香草花盆；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1321,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_herb:8",
+      "name": "高效香草花盆",
+      "level": 8,
+      "kind": "producer",
+      "mergeTo": "gen_herb:9",
+      "source": "设备采购车；两份双层香草花盆；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1521,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_herb:9",
+      "name": "大师香草花盆",
+      "level": 9,
+      "kind": "producer",
+      "mergeTo": "gen_herb:10",
+      "source": "设备采购车；两份高效香草花盆；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1759,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_herb:10",
+      "name": "豪华香草花盆",
+      "level": 10,
+      "kind": "producer",
+      "mergeTo": null,
+      "source": "设备采购车；两份大师香草花盆；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1503,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_asian:1",
+      "name": "亚洲料理台零件",
+      "level": 1,
+      "kind": "producer",
+      "mergeTo": "gen_asian:2",
+      "source": "对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1545,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_asian:2",
+      "name": "亚洲料理台组件",
+      "level": 2,
+      "kind": "producer",
+      "mergeTo": "gen_asian:3",
+      "source": "两份亚洲料理台零件；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1516,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_asian:3",
+      "name": "亚洲料理台框架",
+      "level": 3,
+      "kind": "producer",
+      "mergeTo": "gen_asian:4",
+      "source": "两份亚洲料理台组件；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1319,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_asian:4",
+      "name": "入门亚洲料理台",
+      "level": 4,
+      "kind": "producer",
+      "mergeTo": "gen_asian:5",
+      "source": "两份亚洲料理台框架；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 675,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_asian:5",
+      "name": "实用亚洲料理台",
+      "level": 5,
+      "kind": "producer",
+      "mergeTo": "gen_asian:6",
+      "source": "两份入门亚洲料理台；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 875,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_asian:6",
+      "name": "专业亚洲料理台",
+      "level": 6,
+      "kind": "producer",
+      "mergeTo": "gen_asian:7",
+      "source": "两份实用亚洲料理台；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1113,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_asian:7",
+      "name": "双层亚洲料理台",
+      "level": 7,
+      "kind": "producer",
+      "mergeTo": "gen_asian:8",
+      "source": "两份专业亚洲料理台；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1007,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_asian:8",
+      "name": "高效亚洲料理台",
+      "level": 8,
+      "kind": "producer",
+      "mergeTo": "gen_asian:9",
+      "source": "两份双层亚洲料理台；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1207,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_asian:9",
+      "name": "大师亚洲料理台",
+      "level": 9,
+      "kind": "producer",
+      "mergeTo": "gen_asian:10",
+      "source": "两份高效亚洲料理台；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1445,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_asian:10",
+      "name": "豪华亚洲料理台",
+      "level": 10,
+      "kind": "producer",
+      "mergeTo": null,
+      "source": "两份大师亚洲料理台；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1189,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_mediterranean:1",
+      "name": "环球料理台零件",
+      "level": 1,
+      "kind": "producer",
+      "mergeTo": "gen_mediterranean:2",
+      "source": "对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1770,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_mediterranean:2",
+      "name": "环球料理台组件",
+      "level": 2,
+      "kind": "producer",
+      "mergeTo": "gen_mediterranean:3",
+      "source": "两份环球料理台零件；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1741,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_mediterranean:3",
+      "name": "环球料理台框架",
+      "level": 3,
+      "kind": "producer",
+      "mergeTo": "gen_mediterranean:4",
+      "source": "两份环球料理台组件；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1544,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_mediterranean:4",
+      "name": "入门环球料理台",
+      "level": 4,
+      "kind": "producer",
+      "mergeTo": "gen_mediterranean:5",
+      "source": "两份环球料理台框架；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 916,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_mediterranean:5",
+      "name": "实用环球料理台",
+      "level": 5,
+      "kind": "producer",
+      "mergeTo": "gen_mediterranean:6",
+      "source": "两份入门环球料理台；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1116,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_mediterranean:6",
+      "name": "专业环球料理台",
+      "level": 6,
+      "kind": "producer",
+      "mergeTo": "gen_mediterranean:7",
+      "source": "两份实用环球料理台；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1354,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_mediterranean:7",
+      "name": "双层环球料理台",
+      "level": 7,
+      "kind": "producer",
+      "mergeTo": "gen_mediterranean:8",
+      "source": "两份专业环球料理台；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1248,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_mediterranean:8",
+      "name": "高效环球料理台",
+      "level": 8,
+      "kind": "producer",
+      "mergeTo": "gen_mediterranean:9",
+      "source": "两份双层环球料理台；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1448,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_mediterranean:9",
+      "name": "大师环球料理台",
+      "level": 9,
+      "kind": "producer",
+      "mergeTo": "gen_mediterranean:10",
+      "source": "两份高效环球料理台；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1686,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_mediterranean:10",
+      "name": "豪华环球料理台",
+      "level": 10,
+      "kind": "producer",
+      "mergeTo": null,
+      "source": "两份大师环球料理台；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1430,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_supply:1",
+      "name": "设备采购车零件",
+      "level": 1,
+      "kind": "producer",
+      "mergeTo": "gen_supply:2",
+      "source": "设备采购车；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 2195,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_supply:2",
+      "name": "设备采购车组件",
+      "level": 2,
+      "kind": "producer",
+      "mergeTo": "gen_supply:3",
+      "source": "设备采购车；两份设备采购车零件；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 2166,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_supply:3",
+      "name": "设备采购车框架",
+      "level": 3,
+      "kind": "producer",
+      "mergeTo": "gen_supply:4",
+      "source": "设备采购车；两份设备采购车组件；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1969,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_supply:4",
+      "name": "入门设备采购车",
+      "level": 4,
+      "kind": "producer",
+      "mergeTo": "gen_supply:5",
+      "source": "设备采购车；两份设备采购车框架；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 787,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_supply:5",
+      "name": "实用设备采购车",
+      "level": 5,
+      "kind": "producer",
+      "mergeTo": "gen_supply:6",
+      "source": "设备采购车；两份入门设备采购车；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 987,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_supply:6",
+      "name": "专业设备采购车",
+      "level": 6,
+      "kind": "producer",
+      "mergeTo": "gen_supply:7",
+      "source": "设备采购车；两份实用设备采购车；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1225,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_supply:7",
+      "name": "双层设备采购车",
+      "level": 7,
+      "kind": "producer",
+      "mergeTo": "gen_supply:8",
+      "source": "设备采购车；两份专业设备采购车；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1119,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_supply:8",
+      "name": "高效设备采购车",
+      "level": 8,
+      "kind": "producer",
+      "mergeTo": "gen_supply:9",
+      "source": "设备采购车；两份双层设备采购车；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1319,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_supply:9",
+      "name": "大师设备采购车",
+      "level": 9,
+      "kind": "producer",
+      "mergeTo": "gen_supply:10",
+      "source": "设备采购车；两份高效设备采购车；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1557,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_supply:10",
+      "name": "豪华设备采购车",
+      "level": 10,
+      "kind": "producer",
+      "mergeTo": "gen_supply:11",
+      "source": "设备采购车；两份大师设备采购车；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1301,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_supply:11",
+      "name": "旗舰设备采购车",
+      "level": 11,
+      "kind": "producer",
+      "mergeTo": "gen_supply:12",
+      "source": "设备采购车；两份豪华设备采购车；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1501,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_supply:12",
+      "name": "典藏设备采购车",
+      "level": 12,
+      "kind": "producer",
+      "mergeTo": null,
+      "source": "设备采购车；两份旗舰设备采购车；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1859,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_publicity:1",
+      "name": "食谱研究台零件",
+      "level": 1,
+      "kind": "producer",
+      "mergeTo": "gen_publicity:2",
+      "source": "食谱研究台；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1727,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_publicity:2",
+      "name": "食谱研究台组件",
+      "level": 2,
+      "kind": "producer",
+      "mergeTo": "gen_publicity:3",
+      "source": "食谱研究台；两份食谱研究台零件；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1698,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_publicity:3",
+      "name": "食谱研究台框架",
+      "level": 3,
+      "kind": "producer",
+      "mergeTo": "gen_publicity:4",
+      "source": "食谱研究台；两份食谱研究台组件；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1501,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_publicity:4",
+      "name": "入门食谱研究台",
+      "level": 4,
+      "kind": "producer",
+      "mergeTo": "gen_publicity:5",
+      "source": "食谱研究台；两份食谱研究台框架；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1040,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_publicity:5",
+      "name": "实用食谱研究台",
+      "level": 5,
+      "kind": "producer",
+      "mergeTo": "gen_publicity:6",
+      "source": "食谱研究台；两份入门食谱研究台；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1240,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_publicity:6",
+      "name": "专业食谱研究台",
+      "level": 6,
+      "kind": "producer",
+      "mergeTo": null,
+      "source": "食谱研究台；两份实用食谱研究台；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1478,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_flower:1",
+      "name": "花艺工具篮零件",
+      "level": 1,
+      "kind": "producer",
+      "mergeTo": "gen_flower:2",
+      "source": "设备采购车；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1591,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_flower:2",
+      "name": "花艺工具篮组件",
+      "level": 2,
+      "kind": "producer",
+      "mergeTo": "gen_flower:3",
+      "source": "设备采购车；两份花艺工具篮零件；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1562,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_flower:3",
+      "name": "花艺工具篮框架",
+      "level": 3,
+      "kind": "producer",
+      "mergeTo": "gen_flower:4",
+      "source": "设备采购车；两份花艺工具篮组件；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1365,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_flower:4",
+      "name": "花艺工具篮雏形",
+      "level": 4,
+      "kind": "producer",
+      "mergeTo": "gen_flower:5",
+      "source": "设备采购车；两份花艺工具篮框架；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1493,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_flower:5",
+      "name": "入门花艺工具篮",
+      "level": 5,
+      "kind": "producer",
+      "mergeTo": "gen_flower:6",
+      "source": "设备采购车；两份花艺工具篮雏形；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 2160,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_flower:6",
+      "name": "实用花艺工具篮",
+      "level": 6,
+      "kind": "producer",
+      "mergeTo": "gen_flower:7",
+      "source": "设备采购车；两份入门花艺工具篮；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 2372,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_flower:7",
+      "name": "专业花艺工具篮",
+      "level": 7,
+      "kind": "producer",
+      "mergeTo": "gen_flower:8",
+      "source": "设备采购车；两份实用花艺工具篮；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 2598,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_flower:8",
+      "name": "双层花艺工具篮",
+      "level": 8,
+      "kind": "producer",
+      "mergeTo": "gen_flower:9",
+      "source": "设备采购车；两份专业花艺工具篮；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 2504,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_flower:9",
+      "name": "高效花艺工具篮",
+      "level": 9,
+      "kind": "producer",
+      "mergeTo": null,
+      "source": "设备采购车；两份双层花艺工具篮；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 2692,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_recycle:1",
+      "name": "花园循环箱零件",
+      "level": 1,
+      "kind": "producer",
+      "mergeTo": "gen_recycle:2",
+      "source": "对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1653,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_recycle:2",
+      "name": "花园循环箱组件",
+      "level": 2,
+      "kind": "producer",
+      "mergeTo": "gen_recycle:3",
+      "source": "两份花园循环箱零件；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1624,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_recycle:3",
+      "name": "花园循环箱框架",
+      "level": 3,
+      "kind": "producer",
+      "mergeTo": "gen_recycle:4",
+      "source": "两份花园循环箱组件；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1427,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_recycle:4",
+      "name": "花园循环箱雏形",
+      "level": 4,
+      "kind": "producer",
+      "mergeTo": "gen_recycle:5",
+      "source": "两份花园循环箱框架；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1555,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_recycle:5",
+      "name": "入门花园循环箱",
+      "level": 5,
+      "kind": "producer",
+      "mergeTo": "gen_recycle:6",
+      "source": "两份花园循环箱雏形；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 844,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_recycle:6",
+      "name": "实用花园循环箱",
+      "level": 6,
+      "kind": "producer",
+      "mergeTo": "gen_recycle:7",
+      "source": "两份入门花园循环箱；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1044,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_recycle:7",
+      "name": "专业花园循环箱",
+      "level": 7,
+      "kind": "producer",
+      "mergeTo": "gen_recycle:8",
+      "source": "两份实用花园循环箱；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1282,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_recycle:8",
+      "name": "双层花园循环箱",
+      "level": 8,
+      "kind": "producer",
+      "mergeTo": "gen_recycle:9",
+      "source": "两份专业花园循环箱；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1176,
+      "mergeChecked": true
+    },
+    {
+      "id": "gen_recycle:9",
+      "name": "高效花园循环箱",
+      "level": 9,
+      "kind": "producer",
+      "mergeTo": null,
+      "source": "两份双层花园循环箱；对应章节赠送 / 设备包与采购零件",
+      "artBytes": 1376,
+      "mergeChecked": true
+    }
+  ]
+}

@@ -1,0 +1,1585 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "fdd3acf",
+  "capturedAt": "2026-10-16",
+  "chains": {
+    "food": [
+      {
+        "id": "food:1",
+        "family": "food",
+        "level": 1,
+        "name": "小麦",
+        "icon": "wheat",
+        "emoji": "🌾",
+        "color": "#dc9d72"
+      },
+      {
+        "id": "food:2",
+        "family": "food",
+        "level": 2,
+        "name": "面粉",
+        "icon": "flour",
+        "emoji": "🥡",
+        "color": "#dc9d72"
+      },
+      {
+        "id": "food:3",
+        "family": "food",
+        "level": 3,
+        "name": "面团",
+        "icon": "dough",
+        "emoji": "🍞",
+        "color": "#dc9d72"
+      },
+      {
+        "id": "food:4",
+        "family": "food",
+        "level": 4,
+        "name": "吐司",
+        "icon": "toast",
+        "emoji": "🍞",
+        "color": "#dc9d72"
+      },
+      {
+        "id": "food:5",
+        "family": "food",
+        "level": 5,
+        "name": "可颂",
+        "icon": "croissant",
+        "emoji": "🥐",
+        "color": "#dc9d72"
+      },
+      {
+        "id": "food:6",
+        "family": "food",
+        "level": 6,
+        "name": "庆祝蛋糕",
+        "icon": "cake",
+        "emoji": "🎂",
+        "color": "#dc9d72"
+      }
+    ],
+    "tools": [
+      {
+        "id": "tools:1",
+        "family": "tools",
+        "level": 1,
+        "name": "木勺",
+        "icon": "spoon",
+        "emoji": "🥄",
+        "color": "#b894c5"
+      },
+      {
+        "id": "tools:2",
+        "family": "tools",
+        "level": 2,
+        "name": "打蛋器",
+        "icon": "whisk",
+        "emoji": "🥢",
+        "color": "#b894c5"
+      },
+      {
+        "id": "tools:3",
+        "family": "tools",
+        "level": 3,
+        "name": "平底锅",
+        "icon": "pan",
+        "emoji": "🍳",
+        "color": "#b894c5"
+      },
+      {
+        "id": "tools:4",
+        "family": "tools",
+        "level": 4,
+        "name": "炖锅",
+        "icon": "pot",
+        "emoji": "🍲",
+        "color": "#b894c5"
+      },
+      {
+        "id": "tools:5",
+        "family": "tools",
+        "level": 5,
+        "name": "厨师机",
+        "icon": "mixer",
+        "emoji": "🧁",
+        "color": "#b894c5"
+      },
+      {
+        "id": "tools:6",
+        "family": "tools",
+        "level": 6,
+        "name": "梦幻烤箱",
+        "icon": "oven",
+        "emoji": "♨️",
+        "color": "#b894c5"
+      }
+    ],
+    "vegetable": [
+      {
+        "id": "vegetable:1",
+        "family": "vegetable",
+        "level": 1,
+        "name": "小萝卜",
+        "icon": "carrot",
+        "emoji": "🥕",
+        "color": "#dd968c"
+      },
+      {
+        "id": "vegetable:2",
+        "family": "vegetable",
+        "level": 2,
+        "name": "番茄",
+        "icon": "tomato",
+        "emoji": "🍅",
+        "color": "#dd968c"
+      },
+      {
+        "id": "vegetable:3",
+        "family": "vegetable",
+        "level": 3,
+        "name": "西兰花",
+        "icon": "broccoli",
+        "emoji": "🥦",
+        "color": "#dd968c"
+      },
+      {
+        "id": "vegetable:4",
+        "family": "vegetable",
+        "level": 4,
+        "name": "蔬菜沙拉",
+        "icon": "salad",
+        "emoji": "🥗",
+        "color": "#dd968c"
+      },
+      {
+        "id": "vegetable:5",
+        "family": "vegetable",
+        "level": 5,
+        "name": "烤蔬菜",
+        "icon": "roastveg",
+        "emoji": "🍠",
+        "color": "#dd968c"
+      },
+      {
+        "id": "vegetable:6",
+        "family": "vegetable",
+        "level": 6,
+        "name": "田园拼盘",
+        "icon": "veggieplatter",
+        "emoji": "🥗",
+        "color": "#dd968c"
+      }
+    ],
+    "fruit": [
+      {
+        "id": "fruit:1",
+        "family": "fruit",
+        "level": 1,
+        "name": "苹果",
+        "icon": "apple",
+        "emoji": "🍎",
+        "color": "#e58eaa"
+      },
+      {
+        "id": "fruit:2",
+        "family": "fruit",
+        "level": 2,
+        "name": "香橙",
+        "icon": "orange",
+        "emoji": "🍊",
+        "color": "#e58eaa"
+      },
+      {
+        "id": "fruit:3",
+        "family": "fruit",
+        "level": 3,
+        "name": "草莓",
+        "icon": "strawberry",
+        "emoji": "🍓",
+        "color": "#e58eaa"
+      },
+      {
+        "id": "fruit:4",
+        "family": "fruit",
+        "level": 4,
+        "name": "水果碗",
+        "icon": "fruitbowl",
+        "emoji": "🍒",
+        "color": "#e58eaa"
+      },
+      {
+        "id": "fruit:5",
+        "family": "fruit",
+        "level": 5,
+        "name": "手作果酱",
+        "icon": "jam",
+        "emoji": "🫙",
+        "color": "#e58eaa"
+      },
+      {
+        "id": "fruit:6",
+        "family": "fruit",
+        "level": 6,
+        "name": "水果挞",
+        "icon": "fruittart",
+        "emoji": "🥧",
+        "color": "#e58eaa"
+      }
+    ],
+    "drink": [
+      {
+        "id": "drink:1",
+        "family": "drink",
+        "level": 1,
+        "name": "咖啡豆",
+        "icon": "beans",
+        "emoji": "🫘",
+        "color": "#c1968c"
+      },
+      {
+        "id": "drink:2",
+        "family": "drink",
+        "level": 2,
+        "name": "浓缩咖啡",
+        "icon": "coffee",
+        "emoji": "☕",
+        "color": "#c1968c"
+      },
+      {
+        "id": "drink:3",
+        "family": "drink",
+        "level": 3,
+        "name": "牛奶咖啡",
+        "icon": "milkcoffee",
+        "emoji": "🥛",
+        "color": "#c1968c"
+      },
+      {
+        "id": "drink:4",
+        "family": "drink",
+        "level": 4,
+        "name": "拉花拿铁",
+        "icon": "latte",
+        "emoji": "☕",
+        "color": "#c1968c"
+      },
+      {
+        "id": "drink:5",
+        "family": "drink",
+        "level": 5,
+        "name": "冰咖啡",
+        "icon": "icedcoffee",
+        "emoji": "🧋",
+        "color": "#c1968c"
+      },
+      {
+        "id": "drink:6",
+        "family": "drink",
+        "level": 6,
+        "name": "咖啡分享塔",
+        "icon": "coffeetower",
+        "emoji": "🍹",
+        "color": "#c1968c"
+      }
+    ],
+    "tableware": [
+      {
+        "id": "tableware:1",
+        "family": "tableware",
+        "level": 1,
+        "name": "小碟子",
+        "icon": "saucer",
+        "emoji": "🍽️",
+        "color": "#b5a0cf"
+      },
+      {
+        "id": "tableware:2",
+        "family": "tableware",
+        "level": 2,
+        "name": "陶瓷碗",
+        "icon": "bowl",
+        "emoji": "🥣",
+        "color": "#b5a0cf"
+      },
+      {
+        "id": "tableware:3",
+        "family": "tableware",
+        "level": 3,
+        "name": "花边餐盘",
+        "icon": "plate",
+        "emoji": "🍽️",
+        "color": "#b5a0cf"
+      },
+      {
+        "id": "tableware:4",
+        "family": "tableware",
+        "level": 4,
+        "name": "下午茶壶",
+        "icon": "teapot",
+        "emoji": "🫖",
+        "color": "#b5a0cf"
+      },
+      {
+        "id": "tableware:5",
+        "family": "tableware",
+        "level": 5,
+        "name": "精致茶具",
+        "icon": "teaSet",
+        "emoji": "🍵",
+        "color": "#b5a0cf"
+      },
+      {
+        "id": "tableware:6",
+        "family": "tableware",
+        "level": 6,
+        "name": "宴会餐具",
+        "icon": "banquet",
+        "emoji": "🥂",
+        "color": "#b5a0cf"
+      }
+    ],
+    "herb": [
+      {
+        "id": "herb:1",
+        "family": "herb",
+        "level": 1,
+        "name": "香草种子",
+        "icon": "seed",
+        "emoji": "🫘",
+        "color": "#c2aabb"
+      },
+      {
+        "id": "herb:2",
+        "family": "herb",
+        "level": 2,
+        "name": "香草嫩芽",
+        "icon": "sprout",
+        "emoji": "🌱",
+        "color": "#c2aabb"
+      },
+      {
+        "id": "herb:3",
+        "family": "herb",
+        "level": 3,
+        "name": "罗勒叶",
+        "icon": "basil",
+        "emoji": "🌿",
+        "color": "#c2aabb"
+      },
+      {
+        "id": "herb:4",
+        "family": "herb",
+        "level": 4,
+        "name": "香草盆栽",
+        "icon": "herbpot",
+        "emoji": "🪴",
+        "color": "#c2aabb"
+      },
+      {
+        "id": "herb:5",
+        "family": "herb",
+        "level": 5,
+        "name": "香草篮",
+        "icon": "herbbasket",
+        "emoji": "🌿",
+        "color": "#c2aabb"
+      },
+      {
+        "id": "herb:6",
+        "family": "herb",
+        "level": 6,
+        "name": "秘制调味料",
+        "icon": "seasoning",
+        "emoji": "🧂",
+        "color": "#c2aabb"
+      }
+    ],
+    "chinese": [
+      {
+        "id": "chinese:1",
+        "family": "chinese",
+        "level": 1,
+        "name": "香米",
+        "icon": "rice",
+        "emoji": "🍚",
+        "color": "#df9a91"
+      },
+      {
+        "id": "chinese:2",
+        "family": "chinese",
+        "level": 2,
+        "name": "水饺",
+        "icon": "dumpling",
+        "emoji": "🥟",
+        "color": "#df9a91"
+      },
+      {
+        "id": "chinese:3",
+        "family": "chinese",
+        "level": 3,
+        "name": "小笼包",
+        "icon": "bun",
+        "emoji": "🥟",
+        "color": "#df9a91"
+      },
+      {
+        "id": "chinese:4",
+        "family": "chinese",
+        "level": 4,
+        "name": "汤面",
+        "icon": "noodles",
+        "emoji": "🍜",
+        "color": "#df9a91"
+      },
+      {
+        "id": "chinese:5",
+        "family": "chinese",
+        "level": 5,
+        "name": "暖心火锅",
+        "icon": "hotpot",
+        "emoji": "🍲",
+        "color": "#df9a91"
+      },
+      {
+        "id": "chinese:6",
+        "family": "chinese",
+        "level": 6,
+        "name": "中式点心宴",
+        "icon": "dimSum",
+        "emoji": "🥢",
+        "color": "#df9a91"
+      }
+    ],
+    "japanese": [
+      {
+        "id": "japanese:1",
+        "family": "japanese",
+        "level": 1,
+        "name": "海苔",
+        "icon": "nori",
+        "emoji": "🌿",
+        "color": "#d69daf"
+      },
+      {
+        "id": "japanese:2",
+        "family": "japanese",
+        "level": 2,
+        "name": "饭团",
+        "icon": "onigiri",
+        "emoji": "🍙",
+        "color": "#d69daf"
+      },
+      {
+        "id": "japanese:3",
+        "family": "japanese",
+        "level": 3,
+        "name": "寿司",
+        "icon": "sushi",
+        "emoji": "🍣",
+        "color": "#d69daf"
+      },
+      {
+        "id": "japanese:4",
+        "family": "japanese",
+        "level": 4,
+        "name": "手卷",
+        "icon": "maki",
+        "emoji": "🍣",
+        "color": "#d69daf"
+      },
+      {
+        "id": "japanese:5",
+        "family": "japanese",
+        "level": 5,
+        "name": "豚骨拉面",
+        "icon": "ramen",
+        "emoji": "🍜",
+        "color": "#d69daf"
+      },
+      {
+        "id": "japanese:6",
+        "family": "japanese",
+        "level": 6,
+        "name": "和风便当",
+        "icon": "bento",
+        "emoji": "🍱",
+        "color": "#d69daf"
+      }
+    ],
+    "italian": [
+      {
+        "id": "italian:1",
+        "family": "italian",
+        "level": 1,
+        "name": "意面原料",
+        "icon": "pasta",
+        "emoji": "🍝",
+        "color": "#cba3c3"
+      },
+      {
+        "id": "italian:2",
+        "family": "italian",
+        "level": 2,
+        "name": "番茄意面",
+        "icon": "spaghetti",
+        "emoji": "🍝",
+        "color": "#cba3c3"
+      },
+      {
+        "id": "italian:3",
+        "family": "italian",
+        "level": 3,
+        "name": "芝士披萨",
+        "icon": "pizza",
+        "emoji": "🍕",
+        "color": "#cba3c3"
+      },
+      {
+        "id": "italian:4",
+        "family": "italian",
+        "level": 4,
+        "name": "奶油烩饭",
+        "icon": "risotto",
+        "emoji": "🍚",
+        "color": "#cba3c3"
+      },
+      {
+        "id": "italian:5",
+        "family": "italian",
+        "level": 5,
+        "name": "千层面",
+        "icon": "lasagna",
+        "emoji": "🍝",
+        "color": "#cba3c3"
+      },
+      {
+        "id": "italian:6",
+        "family": "italian",
+        "level": 6,
+        "name": "意式盛宴",
+        "icon": "italianfeast",
+        "emoji": "🍕",
+        "color": "#cba3c3"
+      }
+    ],
+    "mexican": [
+      {
+        "id": "mexican:1",
+        "family": "mexican",
+        "level": 1,
+        "name": "甜玉米",
+        "icon": "corn",
+        "emoji": "🌽",
+        "color": "#dcab79"
+      },
+      {
+        "id": "mexican:2",
+        "family": "mexican",
+        "level": 2,
+        "name": "塔可",
+        "icon": "taco",
+        "emoji": "🌮",
+        "color": "#dcab79"
+      },
+      {
+        "id": "mexican:3",
+        "family": "mexican",
+        "level": 3,
+        "name": "芝士夹饼",
+        "icon": "quesadilla",
+        "emoji": "🫓",
+        "color": "#dcab79"
+      },
+      {
+        "id": "mexican:4",
+        "family": "mexican",
+        "level": 4,
+        "name": "墨西哥卷饼",
+        "icon": "burrito",
+        "emoji": "🌯",
+        "color": "#dcab79"
+      },
+      {
+        "id": "mexican:5",
+        "family": "mexican",
+        "level": 5,
+        "name": "玉米片拼盘",
+        "icon": "nachos",
+        "emoji": "🌽",
+        "color": "#dcab79"
+      },
+      {
+        "id": "mexican:6",
+        "family": "mexican",
+        "level": 6,
+        "name": "墨西哥派对餐",
+        "icon": "fiestaplate",
+        "emoji": "🌮",
+        "color": "#dcab79"
+      }
+    ],
+    "energy": [
+      {
+        "id": "energy:1",
+        "family": "energy",
+        "level": 1,
+        "name": "小能量球",
+        "icon": "energy",
+        "emoji": "⚡",
+        "color": "#e9b05e",
+        "value": 5
+      },
+      {
+        "id": "energy:2",
+        "family": "energy",
+        "level": 2,
+        "name": "能量球",
+        "icon": "energy",
+        "emoji": "⚡",
+        "color": "#e9b05e",
+        "value": 12
+      },
+      {
+        "id": "energy:3",
+        "family": "energy",
+        "level": 3,
+        "name": "大能量球",
+        "icon": "energy",
+        "emoji": "⚡",
+        "color": "#e9b05e",
+        "value": 30
+      },
+      {
+        "id": "energy:4",
+        "family": "energy",
+        "level": 4,
+        "name": "满满能量",
+        "icon": "energy",
+        "emoji": "⚡",
+        "color": "#e9b05e",
+        "value": 80
+      }
+    ],
+    "coins": [
+      {
+        "id": "coins:1",
+        "family": "coins",
+        "level": 1,
+        "name": "零用金币",
+        "icon": "coin",
+        "emoji": "🪙",
+        "color": "#e7b45d",
+        "value": 5
+      },
+      {
+        "id": "coins:2",
+        "family": "coins",
+        "level": 2,
+        "name": "一叠金币",
+        "icon": "coin",
+        "emoji": "🪙",
+        "color": "#e7b45d",
+        "value": 12
+      },
+      {
+        "id": "coins:3",
+        "family": "coins",
+        "level": 3,
+        "name": "一袋金币",
+        "icon": "coin",
+        "emoji": "🪙",
+        "color": "#e7b45d",
+        "value": 30
+      },
+      {
+        "id": "coins:4",
+        "family": "coins",
+        "level": 4,
+        "name": "金币宝箱",
+        "icon": "coin",
+        "emoji": "🪙",
+        "color": "#e7b45d",
+        "value": 80
+      }
+    ],
+    "chest": [
+      {
+        "id": "chest:1",
+        "family": "chest",
+        "level": 1,
+        "name": "厨房礼盒",
+        "icon": "gift",
+        "emoji": "🎁",
+        "color": "#e293b6"
+      },
+      {
+        "id": "chest:2",
+        "family": "chest",
+        "level": 2,
+        "name": "精致礼盒",
+        "icon": "gift",
+        "emoji": "🎁",
+        "color": "#e293b6"
+      },
+      {
+        "id": "chest:3",
+        "family": "chest",
+        "level": 3,
+        "name": "豪华礼盒",
+        "icon": "gift",
+        "emoji": "🎁",
+        "color": "#e293b6"
+      }
+    ]
+  },
+  "familyMeta": {
+    "food": {
+      "name": "甜蜜烘焙",
+      "source": "烘焙食材篮",
+      "description": "从小麦到庆祝蛋糕，烤出厨房里的小幸福。"
+    },
+    "tools": {
+      "name": "料理厨具",
+      "source": "厨具收纳箱",
+      "description": "木勺、锅具与电器，让每一餐都更拿手。"
+    },
+    "vegetable": {
+      "name": "田园蔬菜",
+      "source": "生鲜采购篮",
+      "description": "新鲜蔬菜一路合成为丰盛的田园拼盘。"
+    },
+    "fruit": {
+      "name": "缤纷水果",
+      "source": "生鲜采购篮 · 伴生产物",
+      "description": "苹果、果酱和水果挞，收藏四季的甜。"
+    },
+    "drink": {
+      "name": "咖啡饮品",
+      "source": "咖啡工作台 · 翻新第 1 阶段",
+      "description": "从咖啡豆开始，经营属于你的咖啡角。"
+    },
+    "tableware": {
+      "name": "精致餐具",
+      "source": "厨具收纳箱 · 伴生产物",
+      "description": "从小碟子到宴会餐具，布置温柔的餐桌。"
+    },
+    "herb": {
+      "name": "香草花园",
+      "source": "香草花盆 · 翻新第 2 阶段",
+      "description": "可手动采集，也会每分钟在相邻空位自然生长。"
+    },
+    "chinese": {
+      "name": "中式料理",
+      "source": "亚洲料理台 · 翻新第 3 阶段",
+      "description": "从香米、小笼包到暖心火锅，发现中式好滋味。"
+    },
+    "japanese": {
+      "name": "日式料理",
+      "source": "亚洲料理台 · 伴生产物",
+      "description": "饭团、寿司与便当，让一餐也充满仪式感。"
+    },
+    "italian": {
+      "name": "意式料理",
+      "source": "环球料理台 · 翻新第 4 阶段",
+      "description": "面食、披萨与千层面，烹调意式阳光。"
+    },
+    "mexican": {
+      "name": "墨西哥料理",
+      "source": "环球料理台 · 伴生产物",
+      "description": "从甜玉米到缤纷塔可，开启热闹的餐桌派对。"
+    },
+    "energy": {
+      "name": "能量补给",
+      "source": "礼盒与商店",
+      "description": "合成能量球再领取，获得更多体力。"
+    },
+    "coins": {
+      "name": "金币收藏",
+      "source": "礼盒与泡泡",
+      "description": "合并金币会更划算，点击领取加入钱包。"
+    },
+    "chest": {
+      "name": "厨房礼盒",
+      "source": "每 3 单奖励 · 每日补给",
+      "description": "可以直接打开，也可以合成高级礼盒收获更多。"
+    }
+  },
+  "producers": {
+    "food": {
+      "name": "烘焙食材篮",
+      "icon": "basket",
+      "families": [
+        "food"
+      ],
+      "unlockStage": 0,
+      "maxLevel": 4,
+      "baseCharges": 10,
+      "chargeStep": 4,
+      "cooldownMs": 60000,
+      "description": "消耗 1 能量，产出小麦或面粉。"
+    },
+    "produce": {
+      "name": "生鲜采购篮",
+      "icon": "producecrate",
+      "families": [
+        "vegetable",
+        "fruit"
+      ],
+      "unlockStage": 0,
+      "maxLevel": 4,
+      "baseCharges": 10,
+      "chargeStep": 4,
+      "cooldownMs": 60000,
+      "description": "产出新鲜蔬菜，偶尔带回水果。"
+    },
+    "tools": {
+      "name": "厨具收纳箱",
+      "icon": "utensils",
+      "families": [
+        "tools",
+        "tableware"
+      ],
+      "unlockStage": 0,
+      "maxLevel": 4,
+      "baseCharges": 10,
+      "chargeStep": 4,
+      "cooldownMs": 60000,
+      "description": "产出料理厨具，偶尔发现精致餐具。"
+    },
+    "drink": {
+      "name": "咖啡工作台",
+      "icon": "coffeemachine",
+      "families": [
+        "drink"
+      ],
+      "unlockStage": 1,
+      "maxLevel": 4,
+      "baseCharges": 10,
+      "chargeStep": 4,
+      "cooldownMs": 60000,
+      "description": "翻新咖啡吧后解锁，产出咖啡豆与浓缩咖啡。"
+    },
+    "herb": {
+      "name": "香草花盆",
+      "icon": "herbgarden",
+      "families": [
+        "herb"
+      ],
+      "unlockStage": 2,
+      "maxLevel": 4,
+      "baseCharges": 10,
+      "chargeStep": 4,
+      "cooldownMs": 60000,
+      "autoIntervalMs": 60000,
+      "description": "产出香草种子；每分钟还会在相邻空位自然生长。"
+    },
+    "asian": {
+      "name": "亚洲料理台",
+      "icon": "asianstall",
+      "families": [
+        "chinese",
+        "japanese"
+      ],
+      "unlockStage": 3,
+      "maxLevel": 4,
+      "baseCharges": 10,
+      "chargeStep": 4,
+      "cooldownMs": 60000,
+      "description": "准备中式香米与日式海苔，搭配厨具烹调佳肴。"
+    },
+    "mediterranean": {
+      "name": "环球料理台",
+      "icon": "worldkitchen",
+      "families": [
+        "italian",
+        "mexican"
+      ],
+      "unlockStage": 4,
+      "maxLevel": 4,
+      "baseCharges": 10,
+      "chargeStep": 4,
+      "cooldownMs": 60000,
+      "description": "供应意面原料和甜玉米，探索意式与墨西哥料理。"
+    }
+  },
+  "renovations": [
+    {
+      "id": "coffee-corner",
+      "name": "布置咖啡角",
+      "description": "添一张奶油色吧台，解锁咖啡工作台和饮品食谱。",
+      "stars": 3,
+      "icon": "coffee",
+      "unlockKind": "drink"
+    },
+    {
+      "id": "herb-window",
+      "name": "种下窗边香草",
+      "description": "邀请阳光进厨房，解锁会自然生长的香草花盆。",
+      "stars": 5,
+      "icon": "herbpot",
+      "unlockKind": "herb"
+    },
+    {
+      "id": "asian-kitchen",
+      "name": "开设亚洲料理台",
+      "description": "准备蒸锅与餐盘，解锁中式和日式料理。",
+      "stars": 7,
+      "icon": "bento",
+      "unlockKind": "asian"
+    },
+    {
+      "id": "world-kitchen",
+      "name": "迎接环球美味",
+      "description": "为面食与玉米留个位置，解锁意式和墨西哥料理。",
+      "stars": 9,
+      "icon": "pizza",
+      "unlockKind": "mediterranean"
+    },
+    {
+      "id": "pink-pantry",
+      "name": "扩建陶瓷储藏间",
+      "description": "餐具食材都有自己的家，仓库永久增加 2 格。",
+      "stars": 11,
+      "icon": "cupboard",
+      "storageReward": 2,
+      "chestReward": 2
+    },
+    {
+      "id": "dining-room",
+      "name": "布置花园餐桌",
+      "description": "为朋友准备下午茶，仓库永久增加 2 格。",
+      "stars": 13,
+      "icon": "teapot",
+      "storageReward": 2,
+      "coinReward": 50
+    },
+    {
+      "id": "chef-studio",
+      "name": "升级主厨工作室",
+      "description": "给你的料理梦想更大空间，获得豪华厨房礼盒。",
+      "stars": 15,
+      "icon": "oven",
+      "chestReward": 3
+    },
+    {
+      "id": "dream-kitchen",
+      "name": "开业！梦幻小厨房",
+      "description": "点亮门口的灯箱招牌，仓库再增加 4 格，获得豪华礼盒。",
+      "stars": 18,
+      "icon": "gift",
+      "storageReward": 4,
+      "chestReward": 3
+    }
+  ],
+  "recipes": [
+    {
+      "id": "fruit-salad",
+      "name": "缤纷果蔬沙拉",
+      "description": "木勺轻拌水果与蔬菜，变成清爽水果碗。",
+      "needs": [
+        {
+          "family": "fruit",
+          "level": 1,
+          "count": 2
+        },
+        {
+          "family": "vegetable",
+          "level": 1,
+          "count": 1
+        }
+      ],
+      "toolLevel": 1,
+      "output": {
+        "family": "fruit",
+        "level": 4
+      },
+      "unlockStage": 0,
+      "xp": 8
+    },
+    {
+      "id": "golden-toast",
+      "name": "金黄煎吐司",
+      "description": "平底锅烘烤面团，撒上面粉，做一份早餐。",
+      "needs": [
+        {
+          "family": "food",
+          "level": 3,
+          "count": 1
+        },
+        {
+          "family": "food",
+          "level": 2,
+          "count": 1
+        }
+      ],
+      "toolLevel": 3,
+      "output": {
+        "family": "food",
+        "level": 4
+      },
+      "unlockStage": 0,
+      "xp": 8
+    },
+    {
+      "id": "garden-salad",
+      "name": "田园沙拉",
+      "description": "用木勺拌匀番茄、萝卜与罗勒叶。",
+      "needs": [
+        {
+          "family": "vegetable",
+          "level": 2,
+          "count": 1
+        },
+        {
+          "family": "vegetable",
+          "level": 1,
+          "count": 1
+        },
+        {
+          "family": "herb",
+          "level": 3,
+          "count": 1
+        }
+      ],
+      "toolLevel": 1,
+      "output": {
+        "family": "vegetable",
+        "level": 4
+      },
+      "unlockStage": 2,
+      "xp": 10
+    },
+    {
+      "id": "silky-latte",
+      "name": "绵密拿铁",
+      "description": "打蛋器打出细腻泡沫，调制一杯暖心拿铁。",
+      "needs": [
+        {
+          "family": "drink",
+          "level": 2,
+          "count": 1
+        },
+        {
+          "family": "drink",
+          "level": 1,
+          "count": 1
+        }
+      ],
+      "toolLevel": 2,
+      "output": {
+        "family": "drink",
+        "level": 4
+      },
+      "unlockStage": 1,
+      "xp": 8
+    },
+    {
+      "id": "steamed-buns",
+      "name": "手作小笼包",
+      "description": "面团包入蔬菜，使用炖锅蒸出小笼包。",
+      "needs": [
+        {
+          "family": "food",
+          "level": 3,
+          "count": 1
+        },
+        {
+          "family": "vegetable",
+          "level": 2,
+          "count": 1
+        }
+      ],
+      "toolLevel": 4,
+      "output": {
+        "family": "chinese",
+        "level": 3
+      },
+      "unlockStage": 3,
+      "xp": 12
+    },
+    {
+      "id": "fresh-sushi",
+      "name": "蔬菜寿司",
+      "description": "木勺拌好米饭，海苔裹住爽脆小萝卜。",
+      "needs": [
+        {
+          "family": "japanese",
+          "level": 1,
+          "count": 2
+        },
+        {
+          "family": "vegetable",
+          "level": 1,
+          "count": 1
+        }
+      ],
+      "toolLevel": 1,
+      "output": {
+        "family": "japanese",
+        "level": 3
+      },
+      "unlockStage": 3,
+      "xp": 10
+    },
+    {
+      "id": "homemade-pizza",
+      "name": "手作番茄披萨",
+      "description": "平底锅煎烤面饼，加入番茄，化身意式经典。",
+      "needs": [
+        {
+          "family": "italian",
+          "level": 1,
+          "count": 2
+        },
+        {
+          "family": "vegetable",
+          "level": 2,
+          "count": 1
+        }
+      ],
+      "toolLevel": 3,
+      "output": {
+        "family": "italian",
+        "level": 3
+      },
+      "unlockStage": 4,
+      "xp": 12
+    },
+    {
+      "id": "crisp-tacos",
+      "name": "香脆芝士夹饼",
+      "description": "用平底锅烙出玉米饼，包入鲜甜番茄。",
+      "needs": [
+        {
+          "family": "mexican",
+          "level": 1,
+          "count": 2
+        },
+        {
+          "family": "vegetable",
+          "level": 2,
+          "count": 1
+        }
+      ],
+      "toolLevel": 3,
+      "output": {
+        "family": "mexican",
+        "level": 3
+      },
+      "unlockStage": 4,
+      "xp": 12
+    },
+    {
+      "id": "family-hotpot",
+      "name": "围炉暖心锅",
+      "description": "炖锅慢煮汤面与西兰花，再添一把香草。",
+      "needs": [
+        {
+          "family": "chinese",
+          "level": 4,
+          "count": 1
+        },
+        {
+          "family": "vegetable",
+          "level": 3,
+          "count": 1
+        },
+        {
+          "family": "herb",
+          "level": 2,
+          "count": 1
+        }
+      ],
+      "toolLevel": 4,
+      "output": {
+        "family": "chinese",
+        "level": 5
+      },
+      "unlockStage": 3,
+      "xp": 20
+    },
+    {
+      "id": "baked-lasagna",
+      "name": "香草千层面",
+      "description": "梦幻烤箱层层烘烤意面、番茄与罗勒。",
+      "needs": [
+        {
+          "family": "italian",
+          "level": 2,
+          "count": 2
+        },
+        {
+          "family": "vegetable",
+          "level": 2,
+          "count": 1
+        },
+        {
+          "family": "herb",
+          "level": 3,
+          "count": 1
+        }
+      ],
+      "toolLevel": 6,
+      "output": {
+        "family": "italian",
+        "level": 5
+      },
+      "unlockStage": 4,
+      "xp": 20
+    }
+  ],
+  "shop": [
+    {
+      "id": "energy",
+      "name": "30 点能量",
+      "description": "立即补充能量，可超过自然恢复上限。",
+      "cost": 30,
+      "icon": "energy",
+      "type": "energy",
+      "amount": 30,
+      "unlockStage": 0
+    },
+    {
+      "id": "chest",
+      "name": "厨房礼盒",
+      "description": "送到待领取区，可合并成更高级礼盒。",
+      "cost": 65,
+      "icon": "gift",
+      "type": "chest",
+      "level": 1,
+      "unlockStage": 0
+    },
+    {
+      "id": "scissors",
+      "name": "合成剪刀",
+      "description": "把普通物品拆成两个低一级物品。",
+      "cost": 45,
+      "icon": "scissors",
+      "type": "booster",
+      "booster": "scissors",
+      "unlockStage": 0
+    },
+    {
+      "id": "hourglass",
+      "name": "加速沙漏",
+      "description": "立即补满选中生产器的库存。",
+      "cost": 40,
+      "icon": "hourglass",
+      "type": "booster",
+      "booster": "hourglass",
+      "unlockStage": 0
+    },
+    {
+      "id": "producer-food",
+      "name": "烘焙食材篮",
+      "description": "一级生产器，可与同类同级生产器合并升级。",
+      "cost": 90,
+      "icon": "basket",
+      "type": "producer",
+      "kind": "food",
+      "level": 1,
+      "unlockStage": 0
+    },
+    {
+      "id": "producer-produce",
+      "name": "生鲜采购篮",
+      "description": "一级生产器，可与同类同级生产器合并升级。",
+      "cost": 90,
+      "icon": "producecrate",
+      "type": "producer",
+      "kind": "produce",
+      "level": 1,
+      "unlockStage": 0
+    },
+    {
+      "id": "producer-tools",
+      "name": "厨具收纳箱",
+      "description": "一级生产器，可与同类同级生产器合并升级。",
+      "cost": 90,
+      "icon": "utensils",
+      "type": "producer",
+      "kind": "tools",
+      "level": 1,
+      "unlockStage": 0
+    },
+    {
+      "id": "producer-drink",
+      "name": "咖啡工作台",
+      "description": "一级生产器，可与同类同级生产器合并升级。",
+      "cost": 110,
+      "icon": "coffeemachine",
+      "type": "producer",
+      "kind": "drink",
+      "level": 1,
+      "unlockStage": 1
+    },
+    {
+      "id": "producer-herb",
+      "name": "香草花盆",
+      "description": "一级生产器，可与同类同级生产器合并升级。",
+      "cost": 110,
+      "icon": "herbgarden",
+      "type": "producer",
+      "kind": "herb",
+      "level": 1,
+      "unlockStage": 2
+    },
+    {
+      "id": "producer-asian",
+      "name": "亚洲料理台",
+      "description": "一级生产器，可与同类同级生产器合并升级。",
+      "cost": 110,
+      "icon": "asianstall",
+      "type": "producer",
+      "kind": "asian",
+      "level": 1,
+      "unlockStage": 3
+    },
+    {
+      "id": "producer-mediterranean",
+      "name": "环球料理台",
+      "description": "一级生产器，可与同类同级生产器合并升级。",
+      "cost": 110,
+      "icon": "worldkitchen",
+      "type": "producer",
+      "kind": "mediterranean",
+      "level": 1,
+      "unlockStage": 4
+    }
+  ],
+  "initial": {
+    "version": 2,
+    "board": [
+      {
+        "id": "item-1",
+        "family": "producer",
+        "kind": "food",
+        "level": 1,
+        "charges": 14,
+        "readyAt": 0
+      },
+      null,
+      null,
+      {
+        "id": "item-2",
+        "family": "producer",
+        "kind": "produce",
+        "level": 1,
+        "charges": 14,
+        "readyAt": 0
+      },
+      null,
+      null,
+      {
+        "id": "item-3",
+        "family": "producer",
+        "kind": "tools",
+        "level": 1,
+        "charges": 14,
+        "readyAt": 0
+      },
+      null,
+      {
+        "id": "item-4",
+        "family": "food",
+        "level": 1
+      },
+      {
+        "id": "item-5",
+        "family": "food",
+        "level": 1
+      },
+      {
+        "id": "item-6",
+        "family": "food",
+        "level": 1
+      },
+      null,
+      null,
+      null,
+      {
+        "id": "item-8",
+        "family": "tools",
+        "level": 1
+      },
+      {
+        "id": "item-9",
+        "family": "tools",
+        "level": 1
+      },
+      null,
+      null,
+      null,
+      {
+        "id": "item-10",
+        "family": "tools",
+        "level": 2
+      },
+      null,
+      null,
+      {
+        "id": "item-7",
+        "family": "food",
+        "level": 3
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "id": "item-11",
+        "family": "food",
+        "level": 1
+      },
+      null,
+      {
+        "id": "item-12",
+        "family": "vegetable",
+        "level": 1
+      },
+      null,
+      {
+        "id": "item-13",
+        "family": "tools",
+        "level": 1
+      },
+      null,
+      null,
+      null,
+      {
+        "id": "item-14",
+        "family": "food",
+        "level": 2
+      },
+      null,
+      {
+        "id": "item-15",
+        "family": "fruit",
+        "level": 1
+      },
+      null,
+      {
+        "id": "item-16",
+        "family": "tools",
+        "level": 2
+      },
+      null
+    ],
+    "coins": 120,
+    "energy": 100,
+    "maxEnergy": 100,
+    "xp": 0,
+    "completed": 0,
+    "merges": 0,
+    "discovered": [
+      "food:1",
+      "food:3",
+      "tools:1",
+      "tools:2",
+      "vegetable:1",
+      "food:2",
+      "fruit:1",
+      "chest:1"
+    ],
+    "orders": [
+      {
+        "id": "order-1",
+        "title": "烘焙准备",
+        "customer": "小鹿",
+        "needs": [
+          {
+            "family": "food",
+            "level": 2,
+            "count": 1
+          }
+        ],
+        "coins": 35,
+        "xp": 20,
+        "stars": 1
+      },
+      {
+        "id": "order-2",
+        "title": "香煎早午餐",
+        "customer": "阿熊",
+        "needs": [
+          {
+            "family": "tools",
+            "level": 3,
+            "count": 1
+          }
+        ],
+        "coins": 45,
+        "xp": 25,
+        "stars": 1
+      },
+      {
+        "id": "order-3",
+        "title": "一篮新鲜",
+        "customer": "团团",
+        "needs": [
+          {
+            "family": "vegetable",
+            "level": 2,
+            "count": 1
+          },
+          {
+            "family": "fruit",
+            "level": 1,
+            "count": 1
+          }
+        ],
+        "coins": 50,
+        "xp": 25,
+        "stars": 1
+      }
+    ],
+    "orderSerial": 3,
+    "nextItemId": 18,
+    "generationCount": 0,
+    "lastEnergyAt": 1792108800000,
+    "stars": 0,
+    "stage": 0,
+    "inventory": [],
+    "storageCapacity": 6,
+    "pending": [
+      {
+        "id": "item-17",
+        "family": "chest",
+        "level": 1
+      }
+    ],
+    "boosters": {
+      "scissors": 2,
+      "hourglass": 2
+    },
+    "dailyClaimDate": null,
+    "lastDailyClaimAt": 0,
+    "locked": [
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48
+    ],
+    "rng": 1168866834,
+    "cooked": 0
+  }
+}
