@@ -1,6 +1,8 @@
 // Original warm ceramic, oak and linen silhouettes for the expanded catalogue.
 // Every level changes construction, contents or pose; no emoji or text artwork.
-import { ITEMS, PRODUCER_DEFS } from "./catalog.mjs";
+import { ITEMS } from "./catalog.mjs";
+import { producerMarkup } from "./producer-art.mjs";
+import { sourceContainerMarkup } from "./source-container-art.mjs";
 import { CHAINS as OLD } from "./legacy-catalog.mjs";
 const C = {
   cream: "#fff3dd",
@@ -94,98 +96,6 @@ function cabinet(level) {
     "",
   )}${line("M20 65v5m40-5v5")}${level >= 10 ? ribbon(18) : ""}${level === 11 ? flower(39, 15, 0.55) : ""}`;
 }
-function generator(f, level) {
-  const def = PRODUCER_DEFS[f.slice(4)],
-    active = def.activeLevel,
-    r = level - active;
-  if (r < 0) {
-    if (level === 1)
-      return `${rect(15, 40, 35, 13, 2, C.oak)}${circle(54, 32, 9, C.blue)}${circle(54, 32, 4, C.cream)}${line("M20 45h20M52 55l12-13m-8 17 12-13")}${rect(24, 24, 16, 8, 2, C.cream)}`;
-    if (level === 2)
-      return `${p("M15 57 28 23 58 31 64 61Z", C.oak)}${rect(25, 38, 29, 17, 2, C.cream)}${circle(32, 60, 5, C.ink)}${circle(59, 60, 5, C.ink)}${line("M19 52l10-25 25 8")}`;
-    return `${rect(16, 21, 48, 44, 2, C.oak)}${rect(22, 28, 36, 30, 0, "#9c8a73")}${line("M21 28l37 30M23 58l33-29")}${level === 4 ? rect(13, 16, 54, 8, 2, C.cream) : ""}`;
-  }
-  const tiers = 1 + Math.floor(r / 3),
-    width = 42 + Math.min(r, 5) * 3;
-  let body = "";
-  if (["gen_food", "gen_produce", "gen_flower"].includes(f))
-    body =
-      p(`M${40 - width / 2} 37h${width}l-6 29H${46 - width / 2}Z`, C.oak) +
-      line(
-        `M${40 - width / 2 + 5} 46h${width - 10}M${40 - width / 2 + 8} 55h${width - 16}`,
-      ) +
-      p(
-        `M${40 - width / 2 + 6} 37q${width / 2 - 6}-${24 + Math.min(r, 4) * 2} ${width - 12} 0`,
-        "none",
-        `stroke="${C.dark}" stroke-width="4"`,
-      ) +
-      (f === "gen_food"
-        ? p("M21 40q3-23 17-13l5 13Z", C.gold) +
-          line("m28 29 3 8m4-11 3 11") +
-          rect(43, 28, 14, 14, 3, C.cream)
-        : f === "gen_produce"
-          ? circle(29, 35, 10, "#cb9277") + leaf(30, 24, 0.5) + leaf(49, 39, 1)
-          : flower(31, 27, 0.6) + flower(48, 22, 0.8));
-  else if (f === "gen_herb")
-    body =
-      p(
-        `M${18 - Math.min(r, 3)} 41h${44 + Math.min(r, 3) * 2}l-7 26H25Z`,
-        C.oak,
-      ) +
-      leaf(39, 43, 1 + r * 0.07) +
-      leaf(52, 44, 0.7) +
-      line("M23 48h33");
-  else if (f === "gen_supply")
-    body =
-      line("M18 18h10l7 40h31M29 28h38l-7 25H34") +
-      rect(35, 20, 15, 19, 2, C.cream) +
-      rect(49, 31, 12, 14, 1, C.pink) +
-      circle(37, 65, 6, C.ink) +
-      circle(61, 65, 6, C.ink);
-  else if (f === "gen_recycle")
-    body =
-      rect(20, 26, width - 4, 40, 6, C.green) +
-      rect(17, 21, width + 2, 9, 3, C.oak) +
-      leaf(43, 55, 0.9) +
-      line("M25 20v-6h25v6");
-  else if (f === "gen_publicity")
-    body =
-      rect(13, 51, 54, 12, 2, C.oak) +
-      line("M19 63v9m41-9v9") +
-      rect(20, 24, 27, 27, 2, C.cream) +
-      line("M24 29h18M24 35h15m-15 6h13") +
-      circle(57, 42, 8, C.pink) +
-      leaf(58, 34, 0.5);
-  else if (f === "gen_drink")
-    body =
-      rect(17, 21, width, 43, 5, C.blue) +
-      rect(23, 27, width - 12, 18, 3, C.ink) +
-      line("M24 48h30M34 43v9m12-9v9") +
-      rect(30, 52, 21, 12, 4, C.cream) +
-      p("M51 53q13-3 9 6h-8", C.cream) +
-      circle(26, 24, 2, C.gold);
-  else if (f === "gen_asian")
-    body =
-      rect(13, 48, 54, 17, 3, C.oak) +
-      p("M20 47q0-24 39 0Z", C.cream) +
-      rect(20, 47, 39, 6, 3, C.oak) +
-      line("M22 20l14 25m0-28 9 26M43 38v-5h8v6");
-  else if (f === "gen_mediterranean")
-    body =
-      rect(12, 28, width + 10, 38, 4, C.oak) +
-      p("M21 57V42q20-23 39 0v15Z", C.ink) +
-      plate(40, 57, 18) +
-      circle(40, 53, 12, C.gold) +
-      p("m39 41 6 21-13-5Z", C.pink);
-  else
-    body =
-      rect(16, 36, width, 29, 4, C.oak) +
-      line("M19 44h36M21 53h32") +
-      p("M28 36V16h8v20M44 36l4-23 8 2-5 21Z", C.blue) +
-      circle(24, 22, 7, C.cream);
-  // Upgrades add shelves, side racks, cabinets, canopies and fitted legs.
-  return `${r >= 3 ? rect(9, 57, 62, 10, 3, C.oak) : ""}${body}${r % 3 >= 1 ? rect(8, 40, 9, 21, 2, C.cream) + line("M10 46h5m-5 6h5") : ""}${r % 3 === 2 ? rect(62, 36, 10, 26, 2, C.cream) + circle(67, 44, 2, C.gold) : ""}${tiers >= 2 ? rect(12, 13, 55, 6, 2, C.oak) + line("M17 20v12m45-12v12") : ""}${tiers >= 3 ? p("M9 13 21 5h39l11 8Z", C.pink) + line("M20 67v6m40-6v6") : ""}${r >= 8 ? ribbon(9) : ""}`;
-}
 const tierFood = (f, l, old) => {
   const high = l - 6;
   let main = "";
@@ -242,24 +152,11 @@ export function itemMarkup(id, old) {
     return old(OLD[f][l - 1].icon);
   const shadow = '<ellipse data-shadow="1"/>';
   let body = "";
+  const sourceBody = sourceContainerMarkup(f, l);
+  if (sourceBody !== null) return shadow + sourceBody;
   if (f.startsWith("gen_")) {
-    body = generator(f, l);
-    if (l < PRODUCER_DEFS[f.slice(4)].activeLevel) {
-      const motif = {
-        gen_food: "wheat",
-        gen_tools: "spoon",
-        gen_produce: "carrot",
-        gen_drink: "coffee",
-        gen_herb: "basil",
-        gen_asian: "bun",
-        gen_mediterranean: "pizza",
-        gen_supply: "basket",
-        gen_publicity: "flour",
-        gen_flower: "herbpot",
-        gen_recycle: "herbbasket",
-      }[f];
-      body += `<g transform="translate(27 14) scale(.42)">${old(motif)}</g>`;
-    }
+    body = producerMarkup(f, l);
+    if (!body) throw Error(`Missing producer artwork ${id}`);
   } else if (
     [
       "food",
@@ -325,11 +222,7 @@ export function itemMarkup(id, old) {
         (l === 7
           ? rect(7, 46, 14, 15, 2, C.pink) + p("M55 60V35l9-7 7 32Z", C.cream)
           : "");
-  } else if (f === "seedbag" || f === "emptybag")
-    body =
-      bag(l, f === "emptybag") +
-      (l === 2 ? line("M19 34h43M19 58h43", C.oak) : "");
-  else if (f === "doll" || f === "mascot") {
+  } else if (f === "doll" || f === "mascot") {
     if (f === "doll" && l <= 2)
       body =
         p(
@@ -359,12 +252,6 @@ export function itemMarkup(id, old) {
       circle(71, 26, 2, C.ink) +
       (l >= 4 ? leaf(18, 64, 0.8) : "") +
       (l === 6 ? circle(35, 24, 4, C.gold) + circle(20, 32, 3, C.gold) : "");
-  else if (f === "pantry")
-    body =
-      cabinet(l) +
-      (l === 5
-        ? rect(20, 27, 40, 4, 1, C.blue) + circle(42, 53, 4, C.cream)
-        : "");
   else if (f === "lost") {
     const forms = [
       p(
@@ -379,11 +266,7 @@ export function itemMarkup(id, old) {
       p("M21 16h16v35h24v13H22Z", C.pink) +
         line("M25 18v32m-3 9h37M25 63v7m8-7v7m8-7v7m8-7v7"),
     ];
-    body =
-      l <= 3
-        ? forms[l - 1]
-        : cabinet(l === 4 ? 1 : l === 5 ? 5 : 7) +
-          `<g transform="translate(19 9) scale(.5)">${forms[l % 3]}</g>`;
+    body = forms[l - 1];
   } else if (f === "comfort") {
     if (l <= 3)
       body =
@@ -564,16 +447,7 @@ export function itemMarkup(id, old) {
               ? line("M22 28v31m36-31v31M18 36h44m-44 11h44") +
                 flower(62, 14, 0.5)
               : "");
-  else if (f === "garden_guest")
-    body =
-      l <= 3
-        ? cat(l, true)
-        : l < 6
-          ? cabinet(l === 4 ? 4 : 6) + leaf(41, 20, 0.8)
-          : p("M9 62V35l31-23 32 23v27Z", C.oak) +
-            p("M22 62V41q19-26 37 0v21Z", C.ink) +
-            p("M24 62q18-21 33 0Z", C.cream) +
-            leaf(62, 30, 0.65);
+  else if (f === "garden_guest") body = cat(l, true);
   else if (f === "cats") body = cat(l);
   else if (f === "honor")
     body =
@@ -626,22 +500,6 @@ export function itemMarkup(id, old) {
             candy(31, 51, .55, -25) + candy(48, 38, .55, 25) + candy(48, 60, .55, 0) +
             rect(13, 13, 54, 12, 4, C.oak) + line('M18 17h44') +
             p('M21 31v27', 'none', 'stroke="#fffdf4" stroke-width="3" opacity=".8"');
-  else if (f === "blackbag" || f === "pinkbag")
-    body =
-      rect(14, 25, 52, 39, 6, f === "blackbag" ? C.blue : C.pink) +
-      p(
-        "M26 25v-8q14-13 28 0v8",
-        "none",
-        `stroke="${C.oak}" stroke-width="5"`,
-      ) +
-      rect(12, 29, 56, 8, 2, C.oak) +
-      rect(34, 32, 12, 13, 2, C.gold) +
-      (l === 2
-        ? rect(8, 42, 12, 20, 2, C.cream) +
-          rect(60, 42, 12, 20, 2, C.cream) +
-          ribbon(56)
-        : "") +
-      (f === "blackbag" ? line("M27 50l7 7m0-7-7 7") : leaf(43, 58, 0.55));
   else if (f === "tipjar")
     body =
       p(
@@ -681,16 +539,6 @@ export function itemMarkup(id, old) {
           p(`M26 61q14-${8 + l * 3} 28 0Z`, C.gold) +
           (l >= 3 ? line("M15 18v44m51-44v44") : "") +
           (l >= 4 ? ribbon(61) : "");
-  else if (f === "charge" || f === "energybox")
-    body =
-      rect(14, 31, 53, 34, 4, C.oak) +
-      p("M14 31 25 18h31l11 13Z", C.cream) +
-      line("M14 37h53M27 20v11m28-11v11") +
-      (f === "charge"
-        ? leaf(41, 54, 0.9)
-        : p("m43 32-15 17h11l-2 12 16-19H42Z", C.gold)) +
-      (l >= 2 ? rect(8, 45, 12, 19, 2, C.blue) : "") +
-      (l === 3 ? rect(61, 44, 12, 20, 2, C.blue) + line("M20 15h39") : "");
   else if (f === "splitter")
     body =
       circle(22, 58, 10, C.pink) +

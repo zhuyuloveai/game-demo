@@ -4947,7 +4947,7 @@
     },
     {
       "id": "gen_tools",
-      "name": "厨具收纳箱",
+      "name": "厨具收纳缸",
       "kind": "producer",
       "unlockChapter": 1,
       "reference": "维修工具箱",
@@ -4957,7 +4957,7 @@
         {
           "id": "gen_tools:1",
           "level": 1,
-          "name": "厨具收纳箱零件",
+          "name": "厨具收纳缸零件",
           "baseUnits": 1,
           "mergeTo": "gen_tools:2",
           "sellCoins": 0,
@@ -4969,7 +4969,7 @@
         {
           "id": "gen_tools:2",
           "level": 2,
-          "name": "厨具收纳箱组件",
+          "name": "厨具收纳缸组件",
           "baseUnits": 2,
           "mergeTo": "gen_tools:3",
           "sellCoins": 0,
@@ -4981,7 +4981,7 @@
         {
           "id": "gen_tools:3",
           "level": 3,
-          "name": "厨具收纳箱框架",
+          "name": "厨具收纳缸框架",
           "baseUnits": 4,
           "mergeTo": "gen_tools:4",
           "sellCoins": 0,
@@ -4993,7 +4993,7 @@
         {
           "id": "gen_tools:4",
           "level": 4,
-          "name": "入门厨具收纳箱",
+          "name": "入门厨具收纳缸",
           "baseUnits": 8,
           "mergeTo": "gen_tools:5",
           "sellCoins": 0,
@@ -5005,7 +5005,7 @@
         {
           "id": "gen_tools:5",
           "level": 5,
-          "name": "实用厨具收纳箱",
+          "name": "实用厨具收纳缸",
           "baseUnits": 16,
           "mergeTo": "gen_tools:6",
           "sellCoins": 0,
@@ -5017,7 +5017,7 @@
         {
           "id": "gen_tools:6",
           "level": 6,
-          "name": "专业厨具收纳箱",
+          "name": "专业厨具收纳缸",
           "baseUnits": 32,
           "mergeTo": "gen_tools:7",
           "sellCoins": 0,
@@ -5029,7 +5029,7 @@
         {
           "id": "gen_tools:7",
           "level": 7,
-          "name": "双层厨具收纳箱",
+          "name": "双层厨具收纳缸",
           "baseUnits": 64,
           "mergeTo": "gen_tools:8",
           "sellCoins": 0,
@@ -5041,7 +5041,7 @@
         {
           "id": "gen_tools:8",
           "level": 8,
-          "name": "高效厨具收纳箱",
+          "name": "高效厨具收纳缸",
           "baseUnits": 128,
           "mergeTo": "gen_tools:9",
           "sellCoins": 0,
@@ -5053,7 +5053,7 @@
         {
           "id": "gen_tools:9",
           "level": 9,
-          "name": "大师厨具收纳箱",
+          "name": "大师厨具收纳缸",
           "baseUnits": 256,
           "mergeTo": "gen_tools:10",
           "sellCoins": 0,
@@ -5065,7 +5065,7 @@
         {
           "id": "gen_tools:10",
           "level": 10,
-          "name": "豪华厨具收纳箱",
+          "name": "豪华厨具收纳缸",
           "baseUnits": 512,
           "mergeTo": "gen_tools:11",
           "sellCoins": 0,
@@ -5077,7 +5077,7 @@
         {
           "id": "gen_tools:11",
           "level": 11,
-          "name": "旗舰厨具收纳箱",
+          "name": "旗舰厨具收纳缸",
           "baseUnits": 1024,
           "mergeTo": "gen_tools:12",
           "sellCoins": 0,
@@ -5089,7 +5089,7 @@
         {
           "id": "gen_tools:12",
           "level": 12,
-          "name": "典藏厨具收纳箱",
+          "name": "典藏厨具收纳缸",
           "baseUnits": 2048,
           "mergeTo": null,
           "sellCoins": 0,
@@ -5104,7 +5104,7 @@
     },
     {
       "id": "gen_food",
-      "name": "烘焙食材篮",
+      "name": "烘焙原料罐",
       "kind": "producer",
       "unlockChapter": 1,
       "reference": "器材采购车长主链+副链",
@@ -5114,7 +5114,7 @@
         {
           "id": "gen_food:1",
           "level": 1,
-          "name": "烘焙食材篮零件",
+          "name": "烘焙原料罐零件",
           "baseUnits": 1,
           "mergeTo": "gen_food:2",
           "sellCoins": 0,
@@ -5126,7 +5126,7 @@
         {
           "id": "gen_food:2",
           "level": 2,
-          "name": "烘焙食材篮组件",
+          "name": "烘焙原料罐组件",
           "baseUnits": 2,
           "mergeTo": "gen_food:3",
           "sellCoins": 0,
@@ -5138,7 +5138,7 @@
         {
           "id": "gen_food:3",
           "level": 3,
-          "name": "烘焙食材篮框架",
+          "name": "烘焙原料罐框架",
           "baseUnits": 4,
           "mergeTo": "gen_food:4",
           "sellCoins": 0,
@@ -5150,7 +5150,7 @@
         {
           "id": "gen_food:4",
           "level": 4,
-          "name": "烘焙食材篮雏形",
+          "name": "烘焙原料罐雏形",
           "baseUnits": 8,
           "mergeTo": "gen_food:5",
           "sellCoins": 0,
@@ -5162,7 +5162,7 @@
         {
           "id": "gen_food:5",
           "level": 5,
-          "name": "入门烘焙食材篮",
+          "name": "入门烘焙原料罐",
           "baseUnits": 16,
           "mergeTo": "gen_food:6",
           "sellCoins": 0,
@@ -5174,7 +5174,7 @@
         {
           "id": "gen_food:6",
           "level": 6,
-          "name": "实用烘焙食材篮",
+          "name": "实用烘焙原料罐",
           "baseUnits": 32,
           "mergeTo": "gen_food:7",
           "sellCoins": 0,
@@ -5186,7 +5186,7 @@
         {
           "id": "gen_food:7",
           "level": 7,
-          "name": "专业烘焙食材篮",
+          "name": "专业烘焙原料罐",
           "baseUnits": 64,
           "mergeTo": "gen_food:8",
           "sellCoins": 0,
@@ -5198,7 +5198,7 @@
         {
           "id": "gen_food:8",
           "level": 8,
-          "name": "双层烘焙食材篮",
+          "name": "双层烘焙原料罐",
           "baseUnits": 128,
           "mergeTo": "gen_food:9",
           "sellCoins": 0,
@@ -5210,7 +5210,7 @@
         {
           "id": "gen_food:9",
           "level": 9,
-          "name": "高效烘焙食材篮",
+          "name": "高效烘焙原料罐",
           "baseUnits": 256,
           "mergeTo": "gen_food:10",
           "sellCoins": 0,
@@ -5222,7 +5222,7 @@
         {
           "id": "gen_food:10",
           "level": 10,
-          "name": "大师烘焙食材篮",
+          "name": "大师烘焙原料罐",
           "baseUnits": 512,
           "mergeTo": "gen_food:11",
           "sellCoins": 0,
@@ -5234,7 +5234,7 @@
         {
           "id": "gen_food:11",
           "level": 11,
-          "name": "豪华烘焙食材篮",
+          "name": "豪华烘焙原料罐",
           "baseUnits": 1024,
           "mergeTo": null,
           "sellCoins": 0,
@@ -5249,7 +5249,7 @@
     },
     {
       "id": "gen_produce",
-      "name": "生鲜采购篮",
+      "name": "生鲜采购筐",
       "kind": "producer",
       "unlockChapter": 1,
       "reference": "冰箱三产物链",
@@ -5259,7 +5259,7 @@
         {
           "id": "gen_produce:1",
           "level": 1,
-          "name": "生鲜采购篮零件",
+          "name": "生鲜采购筐零件",
           "baseUnits": 1,
           "mergeTo": "gen_produce:2",
           "sellCoins": 0,
@@ -5271,7 +5271,7 @@
         {
           "id": "gen_produce:2",
           "level": 2,
-          "name": "生鲜采购篮组件",
+          "name": "生鲜采购筐组件",
           "baseUnits": 2,
           "mergeTo": "gen_produce:3",
           "sellCoins": 0,
@@ -5283,7 +5283,7 @@
         {
           "id": "gen_produce:3",
           "level": 3,
-          "name": "入门生鲜采购篮",
+          "name": "入门生鲜采购筐",
           "baseUnits": 4,
           "mergeTo": "gen_produce:4",
           "sellCoins": 0,
@@ -5295,7 +5295,7 @@
         {
           "id": "gen_produce:4",
           "level": 4,
-          "name": "实用生鲜采购篮",
+          "name": "实用生鲜采购筐",
           "baseUnits": 8,
           "mergeTo": "gen_produce:5",
           "sellCoins": 0,
@@ -5307,7 +5307,7 @@
         {
           "id": "gen_produce:5",
           "level": 5,
-          "name": "专业生鲜采购篮",
+          "name": "专业生鲜采购筐",
           "baseUnits": 16,
           "mergeTo": "gen_produce:6",
           "sellCoins": 0,
@@ -5319,7 +5319,7 @@
         {
           "id": "gen_produce:6",
           "level": 6,
-          "name": "双层生鲜采购篮",
+          "name": "双层生鲜采购筐",
           "baseUnits": 32,
           "mergeTo": "gen_produce:7",
           "sellCoins": 0,
@@ -5331,7 +5331,7 @@
         {
           "id": "gen_produce:7",
           "level": 7,
-          "name": "高效生鲜采购篮",
+          "name": "高效生鲜采购筐",
           "baseUnits": 64,
           "mergeTo": "gen_produce:8",
           "sellCoins": 0,
@@ -5343,7 +5343,7 @@
         {
           "id": "gen_produce:8",
           "level": 8,
-          "name": "大师生鲜采购篮",
+          "name": "大师生鲜采购筐",
           "baseUnits": 128,
           "mergeTo": "gen_produce:9",
           "sellCoins": 0,
@@ -5355,7 +5355,7 @@
         {
           "id": "gen_produce:9",
           "level": 9,
-          "name": "豪华生鲜采购篮",
+          "name": "豪华生鲜采购筐",
           "baseUnits": 256,
           "mergeTo": "gen_produce:10",
           "sellCoins": 0,
@@ -5367,7 +5367,7 @@
         {
           "id": "gen_produce:10",
           "level": 10,
-          "name": "旗舰生鲜采购篮",
+          "name": "旗舰生鲜采购筐",
           "baseUnits": 512,
           "mergeTo": "gen_produce:11",
           "sellCoins": 0,
@@ -5379,7 +5379,7 @@
         {
           "id": "gen_produce:11",
           "level": 11,
-          "name": "典藏生鲜采购篮",
+          "name": "典藏生鲜采购筐",
           "baseUnits": 1024,
           "mergeTo": "gen_produce:12",
           "sellCoins": 0,
@@ -5391,7 +5391,7 @@
         {
           "id": "gen_produce:12",
           "level": 12,
-          "name": "臻选生鲜采购篮",
+          "name": "臻选生鲜采购筐",
           "baseUnits": 2048,
           "mergeTo": null,
           "sellCoins": 0,
@@ -6180,7 +6180,7 @@
     },
     {
       "id": "gen_flower",
-      "name": "花艺工具篮",
+      "name": "花艺工具桶",
       "kind": "producer",
       "unlockChapter": 7,
       "reference": "新版花篮",
@@ -6190,7 +6190,7 @@
         {
           "id": "gen_flower:1",
           "level": 1,
-          "name": "花艺工具篮零件",
+          "name": "花艺工具桶零件",
           "baseUnits": 1,
           "mergeTo": "gen_flower:2",
           "sellCoins": 0,
@@ -6202,7 +6202,7 @@
         {
           "id": "gen_flower:2",
           "level": 2,
-          "name": "花艺工具篮组件",
+          "name": "花艺工具桶组件",
           "baseUnits": 2,
           "mergeTo": "gen_flower:3",
           "sellCoins": 0,
@@ -6214,7 +6214,7 @@
         {
           "id": "gen_flower:3",
           "level": 3,
-          "name": "花艺工具篮框架",
+          "name": "花艺工具桶框架",
           "baseUnits": 4,
           "mergeTo": "gen_flower:4",
           "sellCoins": 0,
@@ -6226,7 +6226,7 @@
         {
           "id": "gen_flower:4",
           "level": 4,
-          "name": "花艺工具篮雏形",
+          "name": "花艺工具桶雏形",
           "baseUnits": 8,
           "mergeTo": "gen_flower:5",
           "sellCoins": 0,
@@ -6238,7 +6238,7 @@
         {
           "id": "gen_flower:5",
           "level": 5,
-          "name": "入门花艺工具篮",
+          "name": "入门花艺工具桶",
           "baseUnits": 16,
           "mergeTo": "gen_flower:6",
           "sellCoins": 0,
@@ -6250,7 +6250,7 @@
         {
           "id": "gen_flower:6",
           "level": 6,
-          "name": "实用花艺工具篮",
+          "name": "实用花艺工具桶",
           "baseUnits": 32,
           "mergeTo": "gen_flower:7",
           "sellCoins": 0,
@@ -6262,7 +6262,7 @@
         {
           "id": "gen_flower:7",
           "level": 7,
-          "name": "专业花艺工具篮",
+          "name": "专业花艺工具桶",
           "baseUnits": 64,
           "mergeTo": "gen_flower:8",
           "sellCoins": 0,
@@ -6274,7 +6274,7 @@
         {
           "id": "gen_flower:8",
           "level": 8,
-          "name": "双层花艺工具篮",
+          "name": "双层花艺工具桶",
           "baseUnits": 128,
           "mergeTo": "gen_flower:9",
           "sellCoins": 0,
@@ -6286,7 +6286,7 @@
         {
           "id": "gen_flower:9",
           "level": 9,
-          "name": "高效花艺工具篮",
+          "name": "高效花艺工具桶",
           "baseUnits": 256,
           "mergeTo": null,
           "sellCoins": 0,
@@ -6301,7 +6301,7 @@
     },
     {
       "id": "gen_recycle",
-      "name": "花园循环箱",
+      "name": "花园循环桶",
       "kind": "producer",
       "unlockChapter": 9,
       "reference": "扫地机—垃圾—动物，厨房园艺主题",
@@ -6311,7 +6311,7 @@
         {
           "id": "gen_recycle:1",
           "level": 1,
-          "name": "花园循环箱零件",
+          "name": "花园循环桶零件",
           "baseUnits": 1,
           "mergeTo": "gen_recycle:2",
           "sellCoins": 0,
@@ -6323,7 +6323,7 @@
         {
           "id": "gen_recycle:2",
           "level": 2,
-          "name": "花园循环箱组件",
+          "name": "花园循环桶组件",
           "baseUnits": 2,
           "mergeTo": "gen_recycle:3",
           "sellCoins": 0,
@@ -6335,7 +6335,7 @@
         {
           "id": "gen_recycle:3",
           "level": 3,
-          "name": "花园循环箱框架",
+          "name": "花园循环桶框架",
           "baseUnits": 4,
           "mergeTo": "gen_recycle:4",
           "sellCoins": 0,
@@ -6347,7 +6347,7 @@
         {
           "id": "gen_recycle:4",
           "level": 4,
-          "name": "花园循环箱雏形",
+          "name": "花园循环桶雏形",
           "baseUnits": 8,
           "mergeTo": "gen_recycle:5",
           "sellCoins": 0,
@@ -6359,7 +6359,7 @@
         {
           "id": "gen_recycle:5",
           "level": 5,
-          "name": "入门花园循环箱",
+          "name": "入门花园循环桶",
           "baseUnits": 16,
           "mergeTo": "gen_recycle:6",
           "sellCoins": 0,
@@ -6371,7 +6371,7 @@
         {
           "id": "gen_recycle:6",
           "level": 6,
-          "name": "实用花园循环箱",
+          "name": "实用花园循环桶",
           "baseUnits": 32,
           "mergeTo": "gen_recycle:7",
           "sellCoins": 0,
@@ -6383,7 +6383,7 @@
         {
           "id": "gen_recycle:7",
           "level": 7,
-          "name": "专业花园循环箱",
+          "name": "专业花园循环桶",
           "baseUnits": 64,
           "mergeTo": "gen_recycle:8",
           "sellCoins": 0,
@@ -6395,7 +6395,7 @@
         {
           "id": "gen_recycle:8",
           "level": 8,
-          "name": "双层花园循环箱",
+          "name": "双层花园循环桶",
           "baseUnits": 128,
           "mergeTo": "gen_recycle:9",
           "sellCoins": 0,
@@ -6407,7 +6407,7 @@
         {
           "id": "gen_recycle:9",
           "level": 9,
-          "name": "高效花园循环箱",
+          "name": "高效花园循环桶",
           "baseUnits": 256,
           "mergeTo": null,
           "sellCoins": 0,
@@ -6425,7 +6425,7 @@
     {
       "id": "tools",
       "chain": "gen_tools",
-      "name": "厨具收纳箱",
+      "name": "厨具收纳缸",
       "activeLevel": 4,
       "maxLevel": 12,
       "unlockChapter": 1,
@@ -6621,7 +6621,7 @@
     {
       "id": "food",
       "chain": "gen_food",
-      "name": "烘焙食材篮",
+      "name": "烘焙原料罐",
       "activeLevel": 5,
       "maxLevel": 11,
       "unlockChapter": 1,
@@ -6799,7 +6799,7 @@
     {
       "id": "produce",
       "chain": "gen_produce",
-      "name": "生鲜采购篮",
+      "name": "生鲜采购筐",
       "activeLevel": 3,
       "maxLevel": 12,
       "unlockChapter": 1,
@@ -7955,7 +7955,7 @@
     {
       "id": "flower",
       "chain": "gen_flower",
-      "name": "花艺工具篮",
+      "name": "花艺工具桶",
       "activeLevel": 5,
       "maxLevel": 9,
       "unlockChapter": 7,
@@ -8101,7 +8101,7 @@
     {
       "id": "recycle",
       "chain": "gen_recycle",
-      "name": "花园循环箱",
+      "name": "花园循环桶",
       "activeLevel": 5,
       "maxLevel": 9,
       "unlockChapter": 9,

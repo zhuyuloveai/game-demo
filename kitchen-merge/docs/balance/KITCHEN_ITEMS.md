@@ -795,65 +795,65 @@
 
 
 
-## 厨具收纳箱 · `gen_tools`
+## 厨具收纳缸 · `gen_tools`
 
 类型：producer；最早章节：1；参考关系：维修工具箱。
 
 | ID | 等级 | 名称 | 下一合成物 | 一级等价 | 售价/领取值 | 定价权重 |
 | --- | --- | --- | --- | --- | --- | --- |
-| gen_tools:1 | 1 | 厨具收纳箱零件 | gen_tools:2 | 1 | 0 | — |
-| gen_tools:2 | 2 | 厨具收纳箱组件 | gen_tools:3 | 2 | 0 | — |
-| gen_tools:3 | 3 | 厨具收纳箱框架 | gen_tools:4 | 4 | 0 | — |
-| gen_tools:4 | 4 | 入门厨具收纳箱 | gen_tools:5 | 8 | 0 | — |
-| gen_tools:5 | 5 | 实用厨具收纳箱 | gen_tools:6 | 16 | 0 | — |
-| gen_tools:6 | 6 | 专业厨具收纳箱 | gen_tools:7 | 32 | 0 | — |
-| gen_tools:7 | 7 | 双层厨具收纳箱 | gen_tools:8 | 64 | 0 | — |
-| gen_tools:8 | 8 | 高效厨具收纳箱 | gen_tools:9 | 128 | 0 | — |
-| gen_tools:9 | 9 | 大师厨具收纳箱 | gen_tools:10 | 256 | 0 | — |
-| gen_tools:10 | 10 | 豪华厨具收纳箱 | gen_tools:11 | 512 | 0 | — |
-| gen_tools:11 | 11 | 旗舰厨具收纳箱 | gen_tools:12 | 1024 | 0 | — |
-| gen_tools:12 | 12 | 典藏厨具收纳箱 | — | 2048 | 0 | — |
+| gen_tools:1 | 1 | 厨具收纳缸零件 | gen_tools:2 | 1 | 0 | — |
+| gen_tools:2 | 2 | 厨具收纳缸组件 | gen_tools:3 | 2 | 0 | — |
+| gen_tools:3 | 3 | 厨具收纳缸框架 | gen_tools:4 | 4 | 0 | — |
+| gen_tools:4 | 4 | 入门厨具收纳缸 | gen_tools:5 | 8 | 0 | — |
+| gen_tools:5 | 5 | 实用厨具收纳缸 | gen_tools:6 | 16 | 0 | — |
+| gen_tools:6 | 6 | 专业厨具收纳缸 | gen_tools:7 | 32 | 0 | — |
+| gen_tools:7 | 7 | 双层厨具收纳缸 | gen_tools:8 | 64 | 0 | — |
+| gen_tools:8 | 8 | 高效厨具收纳缸 | gen_tools:9 | 128 | 0 | — |
+| gen_tools:9 | 9 | 大师厨具收纳缸 | gen_tools:10 | 256 | 0 | — |
+| gen_tools:10 | 10 | 豪华厨具收纳缸 | gen_tools:11 | 512 | 0 | — |
+| gen_tools:11 | 11 | 旗舰厨具收纳缸 | gen_tools:12 | 1024 | 0 | — |
+| gen_tools:12 | 12 | 典藏厨具收纳缸 | — | 2048 | 0 | — |
 
 
 
-## 烘焙食材篮 · `gen_food`
+## 烘焙原料罐 · `gen_food`
 
 类型：producer；最早章节：1；参考关系：器材采购车长主链+副链。
 
 | ID | 等级 | 名称 | 下一合成物 | 一级等价 | 售价/领取值 | 定价权重 |
 | --- | --- | --- | --- | --- | --- | --- |
-| gen_food:1 | 1 | 烘焙食材篮零件 | gen_food:2 | 1 | 0 | — |
-| gen_food:2 | 2 | 烘焙食材篮组件 | gen_food:3 | 2 | 0 | — |
-| gen_food:3 | 3 | 烘焙食材篮框架 | gen_food:4 | 4 | 0 | — |
-| gen_food:4 | 4 | 烘焙食材篮雏形 | gen_food:5 | 8 | 0 | — |
-| gen_food:5 | 5 | 入门烘焙食材篮 | gen_food:6 | 16 | 0 | — |
-| gen_food:6 | 6 | 实用烘焙食材篮 | gen_food:7 | 32 | 0 | — |
-| gen_food:7 | 7 | 专业烘焙食材篮 | gen_food:8 | 64 | 0 | — |
-| gen_food:8 | 8 | 双层烘焙食材篮 | gen_food:9 | 128 | 0 | — |
-| gen_food:9 | 9 | 高效烘焙食材篮 | gen_food:10 | 256 | 0 | — |
-| gen_food:10 | 10 | 大师烘焙食材篮 | gen_food:11 | 512 | 0 | — |
-| gen_food:11 | 11 | 豪华烘焙食材篮 | — | 1024 | 0 | — |
+| gen_food:1 | 1 | 烘焙原料罐零件 | gen_food:2 | 1 | 0 | — |
+| gen_food:2 | 2 | 烘焙原料罐组件 | gen_food:3 | 2 | 0 | — |
+| gen_food:3 | 3 | 烘焙原料罐框架 | gen_food:4 | 4 | 0 | — |
+| gen_food:4 | 4 | 烘焙原料罐雏形 | gen_food:5 | 8 | 0 | — |
+| gen_food:5 | 5 | 入门烘焙原料罐 | gen_food:6 | 16 | 0 | — |
+| gen_food:6 | 6 | 实用烘焙原料罐 | gen_food:7 | 32 | 0 | — |
+| gen_food:7 | 7 | 专业烘焙原料罐 | gen_food:8 | 64 | 0 | — |
+| gen_food:8 | 8 | 双层烘焙原料罐 | gen_food:9 | 128 | 0 | — |
+| gen_food:9 | 9 | 高效烘焙原料罐 | gen_food:10 | 256 | 0 | — |
+| gen_food:10 | 10 | 大师烘焙原料罐 | gen_food:11 | 512 | 0 | — |
+| gen_food:11 | 11 | 豪华烘焙原料罐 | — | 1024 | 0 | — |
 
 
 
-## 生鲜采购篮 · `gen_produce`
+## 生鲜采购筐 · `gen_produce`
 
 类型：producer；最早章节：1；参考关系：冰箱三产物链。
 
 | ID | 等级 | 名称 | 下一合成物 | 一级等价 | 售价/领取值 | 定价权重 |
 | --- | --- | --- | --- | --- | --- | --- |
-| gen_produce:1 | 1 | 生鲜采购篮零件 | gen_produce:2 | 1 | 0 | — |
-| gen_produce:2 | 2 | 生鲜采购篮组件 | gen_produce:3 | 2 | 0 | — |
-| gen_produce:3 | 3 | 入门生鲜采购篮 | gen_produce:4 | 4 | 0 | — |
-| gen_produce:4 | 4 | 实用生鲜采购篮 | gen_produce:5 | 8 | 0 | — |
-| gen_produce:5 | 5 | 专业生鲜采购篮 | gen_produce:6 | 16 | 0 | — |
-| gen_produce:6 | 6 | 双层生鲜采购篮 | gen_produce:7 | 32 | 0 | — |
-| gen_produce:7 | 7 | 高效生鲜采购篮 | gen_produce:8 | 64 | 0 | — |
-| gen_produce:8 | 8 | 大师生鲜采购篮 | gen_produce:9 | 128 | 0 | — |
-| gen_produce:9 | 9 | 豪华生鲜采购篮 | gen_produce:10 | 256 | 0 | — |
-| gen_produce:10 | 10 | 旗舰生鲜采购篮 | gen_produce:11 | 512 | 0 | — |
-| gen_produce:11 | 11 | 典藏生鲜采购篮 | gen_produce:12 | 1024 | 0 | — |
-| gen_produce:12 | 12 | 臻选生鲜采购篮 | — | 2048 | 0 | — |
+| gen_produce:1 | 1 | 生鲜采购筐零件 | gen_produce:2 | 1 | 0 | — |
+| gen_produce:2 | 2 | 生鲜采购筐组件 | gen_produce:3 | 2 | 0 | — |
+| gen_produce:3 | 3 | 入门生鲜采购筐 | gen_produce:4 | 4 | 0 | — |
+| gen_produce:4 | 4 | 实用生鲜采购筐 | gen_produce:5 | 8 | 0 | — |
+| gen_produce:5 | 5 | 专业生鲜采购筐 | gen_produce:6 | 16 | 0 | — |
+| gen_produce:6 | 6 | 双层生鲜采购筐 | gen_produce:7 | 32 | 0 | — |
+| gen_produce:7 | 7 | 高效生鲜采购筐 | gen_produce:8 | 64 | 0 | — |
+| gen_produce:8 | 8 | 大师生鲜采购筐 | gen_produce:9 | 128 | 0 | — |
+| gen_produce:9 | 9 | 豪华生鲜采购筐 | gen_produce:10 | 256 | 0 | — |
+| gen_produce:10 | 10 | 旗舰生鲜采购筐 | gen_produce:11 | 512 | 0 | — |
+| gen_produce:11 | 11 | 典藏生鲜采购筐 | gen_produce:12 | 1024 | 0 | — |
+| gen_produce:12 | 12 | 臻选生鲜采购筐 | — | 2048 | 0 | — |
 
 
 
@@ -969,38 +969,38 @@
 
 
 
-## 花艺工具篮 · `gen_flower`
+## 花艺工具桶 · `gen_flower`
 
 类型：producer；最早章节：7；参考关系：新版花篮。
 
 | ID | 等级 | 名称 | 下一合成物 | 一级等价 | 售价/领取值 | 定价权重 |
 | --- | --- | --- | --- | --- | --- | --- |
-| gen_flower:1 | 1 | 花艺工具篮零件 | gen_flower:2 | 1 | 0 | — |
-| gen_flower:2 | 2 | 花艺工具篮组件 | gen_flower:3 | 2 | 0 | — |
-| gen_flower:3 | 3 | 花艺工具篮框架 | gen_flower:4 | 4 | 0 | — |
-| gen_flower:4 | 4 | 花艺工具篮雏形 | gen_flower:5 | 8 | 0 | — |
-| gen_flower:5 | 5 | 入门花艺工具篮 | gen_flower:6 | 16 | 0 | — |
-| gen_flower:6 | 6 | 实用花艺工具篮 | gen_flower:7 | 32 | 0 | — |
-| gen_flower:7 | 7 | 专业花艺工具篮 | gen_flower:8 | 64 | 0 | — |
-| gen_flower:8 | 8 | 双层花艺工具篮 | gen_flower:9 | 128 | 0 | — |
-| gen_flower:9 | 9 | 高效花艺工具篮 | — | 256 | 0 | — |
+| gen_flower:1 | 1 | 花艺工具桶零件 | gen_flower:2 | 1 | 0 | — |
+| gen_flower:2 | 2 | 花艺工具桶组件 | gen_flower:3 | 2 | 0 | — |
+| gen_flower:3 | 3 | 花艺工具桶框架 | gen_flower:4 | 4 | 0 | — |
+| gen_flower:4 | 4 | 花艺工具桶雏形 | gen_flower:5 | 8 | 0 | — |
+| gen_flower:5 | 5 | 入门花艺工具桶 | gen_flower:6 | 16 | 0 | — |
+| gen_flower:6 | 6 | 实用花艺工具桶 | gen_flower:7 | 32 | 0 | — |
+| gen_flower:7 | 7 | 专业花艺工具桶 | gen_flower:8 | 64 | 0 | — |
+| gen_flower:8 | 8 | 双层花艺工具桶 | gen_flower:9 | 128 | 0 | — |
+| gen_flower:9 | 9 | 高效花艺工具桶 | — | 256 | 0 | — |
 
 
 
-## 花园循环箱 · `gen_recycle`
+## 花园循环桶 · `gen_recycle`
 
 类型：producer；最早章节：9；参考关系：扫地机—垃圾—动物，厨房园艺主题。
 
 | ID | 等级 | 名称 | 下一合成物 | 一级等价 | 售价/领取值 | 定价权重 |
 | --- | --- | --- | --- | --- | --- | --- |
-| gen_recycle:1 | 1 | 花园循环箱零件 | gen_recycle:2 | 1 | 0 | — |
-| gen_recycle:2 | 2 | 花园循环箱组件 | gen_recycle:3 | 2 | 0 | — |
-| gen_recycle:3 | 3 | 花园循环箱框架 | gen_recycle:4 | 4 | 0 | — |
-| gen_recycle:4 | 4 | 花园循环箱雏形 | gen_recycle:5 | 8 | 0 | — |
-| gen_recycle:5 | 5 | 入门花园循环箱 | gen_recycle:6 | 16 | 0 | — |
-| gen_recycle:6 | 6 | 实用花园循环箱 | gen_recycle:7 | 32 | 0 | — |
-| gen_recycle:7 | 7 | 专业花园循环箱 | gen_recycle:8 | 64 | 0 | — |
-| gen_recycle:8 | 8 | 双层花园循环箱 | gen_recycle:9 | 128 | 0 | — |
-| gen_recycle:9 | 9 | 高效花园循环箱 | — | 256 | 0 | — |
+| gen_recycle:1 | 1 | 花园循环桶零件 | gen_recycle:2 | 1 | 0 | — |
+| gen_recycle:2 | 2 | 花园循环桶组件 | gen_recycle:3 | 2 | 0 | — |
+| gen_recycle:3 | 3 | 花园循环桶框架 | gen_recycle:4 | 4 | 0 | — |
+| gen_recycle:4 | 4 | 花园循环桶雏形 | gen_recycle:5 | 8 | 0 | — |
+| gen_recycle:5 | 5 | 入门花园循环桶 | gen_recycle:6 | 16 | 0 | — |
+| gen_recycle:6 | 6 | 实用花园循环桶 | gen_recycle:7 | 32 | 0 | — |
+| gen_recycle:7 | 7 | 专业花园循环桶 | gen_recycle:8 | 64 | 0 | — |
+| gen_recycle:8 | 8 | 双层花园循环桶 | gen_recycle:9 | 128 | 0 | — |
+| gen_recycle:9 | 9 | 高效花园循环桶 | — | 256 | 0 | — |
 
 
