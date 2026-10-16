@@ -1,0 +1,153 @@
+{
+  "codeCommit": "f1d2c04457bbabf25674131e63eaa293968227a8",
+  "pr": "https://github.com/zhuyuloveai/game-demo/pull/8",
+  "rendered": "2026-10-17 Asia/Shanghai",
+  "browser": "Google Chrome via Playwright",
+  "note": "Evidence-only commit follows; runtime code is exactly codeCommit.",
+  "images": [
+    {
+      "file": "classic-1440x900.png",
+      "viewport": [
+        1440,
+        900
+      ],
+      "fixture": "normal fresh v4 save",
+      "sha256": "bc1af51e78c7b672929d7de244a4294de6d75c1af4fee8c967af09476f72fa82"
+    },
+    {
+      "file": "classic-320x667.png",
+      "viewport": [
+        320,
+        667
+      ],
+      "fixture": "normal fresh v4 save",
+      "sha256": "589c00146bb60ebc96f8c22d7f3770d38e0dd1c52a3eed26729fe203e9bd337b"
+    },
+    {
+      "file": "classic-375x667.png",
+      "viewport": [
+        375,
+        667
+      ],
+      "fixture": "normal fresh v4 save",
+      "sha256": "3a42fb2ed9e10f64a824346938cc57846ef14489c519ef17a7c790af19a050b6"
+    },
+    {
+      "file": "classic-390x744.png",
+      "viewport": [
+        390,
+        744
+      ],
+      "fixture": "normal fresh v4 save",
+      "sha256": "1cbaa36cf46dcb98603546735f1d755dcd380d883c9c647735c3feff43fe2078"
+    },
+    {
+      "file": "classic-430x740.png",
+      "viewport": [
+        430,
+        740
+      ],
+      "fixture": "normal fresh v4 save",
+      "sha256": "417e9f2b4bbc75718114ec718bbf002e993fec080f54b685dc1511a3e5e1156c"
+    },
+    {
+      "file": "classic-comparison-375x667.png",
+      "viewport": [
+        375,
+        667
+      ],
+      "fixture": "island: same QA save after production, classic skin",
+      "sha256": "2f3db9f3e24099be0b7f29c304f73dad0ae6b45dd173386d563395eb2cc03c9a"
+    },
+    {
+      "file": "island-1440x900.png",
+      "viewport": [
+        1440,
+        900
+      ],
+      "fixture": "normal fresh v4 save",
+      "sha256": "40a9252012e39e6a38a775808928a6e9bec02b1c0a52c173f20b849c5b629a0e"
+    },
+    {
+      "file": "island-320x667.png",
+      "viewport": [
+        320,
+        667
+      ],
+      "fixture": "normal fresh v4 save",
+      "sha256": "60c44cb50b53dc97aad74939fd75b62e6e839d76acde219d227f1d4423d2c184"
+    },
+    {
+      "file": "island-375x667.png",
+      "viewport": [
+        375,
+        667
+      ],
+      "fixture": "normal fresh v4 save",
+      "sha256": "6e2a176ab84d6a5327d50ad50b3ad27bb2255861a57d5e283e39ea6017ac409e"
+    },
+    {
+      "file": "island-390x744.png",
+      "viewport": [
+        390,
+        744
+      ],
+      "fixture": "normal fresh v4 save",
+      "sha256": "62e47e6d00da1b02f773024275c88c20f1e75c6829b98ab5a58769962fc1d459"
+    },
+    {
+      "file": "island-430x740.png",
+      "viewport": [
+        430,
+        740
+      ],
+      "fixture": "normal fresh v4 save",
+      "sha256": "0582c15cd90c5e9727f7b338028187cfa7f668346be96049a2f2249159d804e8"
+    },
+    {
+      "file": "island-comparison-375x667.png",
+      "viewport": [
+        375,
+        667
+      ],
+      "fixture": "island: 32 real items, fully unlocked QA",
+      "sha256": "66086a8f7738be3da8fb7d7ffcc7d83dea8cf9309f12e6e639a86d9d893318aa"
+    },
+    {
+      "file": "island-long-names-375x667.png",
+      "viewport": [
+        375,
+        667
+      ],
+      "fixture": "island-long: real catalogue, two needs",
+      "sha256": "06fc3dcbccfd52b35e49deda3e716b5875d44649ca9df34244688983da31b401"
+    },
+    {
+      "file": "island-producer-selected-375x667.png",
+      "viewport": [
+        375,
+        667
+      ],
+      "fixture": "island: after one real producer tap, 99 energy / 11 stock",
+      "sha256": "617f98a9ae1b1eb773e46d953c05fd383702661ed8757f014c54c5034c7e0d87"
+    },
+    {
+      "file": "style-settings-375x667.png",
+      "viewport": [
+        375,
+        667
+      ],
+      "fixture": "island: settings panel, island selected",
+      "sha256": "ed08696797d2e8e418129ad50048d843d9832ad57da6876f2f3d66b714c7550c"
+    },
+    {
+      "file": "target-375x667.webp",
+      "viewport": [
+        375,
+        667
+      ],
+      "fixture": "user-approved B revised art direction",
+      "sha256": "aba91e35ba6ffe8591d200087676d9d2e43001e311a57460ad67cf870d18b3c0"
+    }
+  ]
+}

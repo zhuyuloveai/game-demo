@@ -19,3 +19,21 @@ Use case: stylized-concept. Asset type: game UI object sprite strip, four separa
 ## 与概念图的有意差异
 
 真实内容视口为375×667，顶部与底部都比方向稿紧凑；实际物品继续使用项目422项逐级插画，保持原小狗身份。初始棋盘的锁定区遵从真实进度。格位没有透视，等大正方形。环境与物件保留方向稿的暖光和材质，实际画面以浏览器截图为准。
+
+# 第一轮视觉返工（2026-10-17）
+
+内置 `image_gen.imagegen` 再生成两张透明素材：四资源物件条与同角色立体小狗。都经实际view_image检查。四物件条2172×724，按透明间隔裁切为各高164px WebP quality89：`island-energy-v2.webp`、`island-pig-v2.webp`、`island-star-v2.webp`、`island-candy-v2.webp`。小狗去透明边后高260px，quality90，保存 `island-puppy-v2.webp`。原素材及经典动画不覆盖。
+
+由第一版环境确定性裁切后窗区域为 `island-window-v2.webp`（860×110）及木面为 `island-wood-v2.webp`（640×250）。不同DOM区域分别贴图，原整幅环境作为保留的源稿，不再决定新岛台的柜门/台沿几何。原四个底部独立物件继续使用。当前岛台引用的11个WebP合计117218 bytes（约114.5KiB）。
+
+## 四资源最终提示词
+
+Use case: stylized-concept. Production game asset, transparent background sprite sheet. FOUR SEPARATE resource objects laid in a SINGLE ROW with generous transparent gaps, equal column width, no overlap. Match reference cozy polished high quality rounded 3D mobile kitchen art, soft golden sunlight upper left and realistic small contact shadows, strong readable silhouettes at 32px. In order LEFT TO RIGHT: 1 bright golden orange lightning bolt (energy), 2 cute rounded glossy PINK PIGGY BANK with little gold coin inserted on back, three quarter view nose facing left, 3 short clear thick SKY BLUE GLASS JAR with gold/wood lid and ONE LARGE golden yellow five-point star inside, 4 matching short blue glass JAR with gold lid filled with bright pink/blue/yellow/green round candy balls. Jars have opaque soft cream backing so contents clear at tiny size. Each fills its column to comparable height. No plaques, no numbers, no text, no lettering, no other items, no characters, no ground plane, genuine transparent cutouts. Similar material quality and punchy highlights to reference. This is NOT a screenshot or interface layout.
+
+参考输入：用户确认的第4张厨房图，仅作材质/光影参考。
+
+## 同角色小狗最终提示词
+
+Use case: identity-preserve. Asset type: one transparent mascot cutout for a cozy 3D kitchen game. Image 1 is EXACT CHARACTER IDENTITY reference (sprite sheet). Image 2 is ONLY material/lighting style reference, DO NOT use its brown dog identity. Render ONE full-body sitting happy WHITE mascot dog from image1 in soft rounded polished 3D illustration style matching image2. Preserve distinctive fluffy cloud shaped white ears protruding sideways, compact pear-shaped white body, black button dot eyes and black button nose, cheerful open smile with tiny red tongue, simple characteristic black mouth line. Retain RED BASEBALL CAP with yellow arched M mark and tiny warm golden brim highlight. NO chef hat. Keep the cute simplified mascot silhouette and short stubby white limbs, NOT a realistic generic breed. Sitting front-facing with paws resting in front, friendly gaze towards player, small compact body, head slightly larger for readability. Soft golden light upper left, subtle pale gray/cream shading on white fur, rounded toy-like volume, soft ground contact shadow. Entire character fully visible with small transparent margin, single centered isolated character, transparent background. No other objects, no UI, no labels, no extra text, no pedestal. High quality, warm tactile finish, crisp silhouette at 56px.
+
+参考输入1：项目原 `puppy-sprites.webp`（红M帽、白色身体、横向云耳、黑线嘴鼻）；输入2：第4张厨房图，仅作材质参考。新岛台的招手/庆祝通过同一素材轻摆/弹跳，经典仍使用原逐帧动画。全套422项物品图形/ID及数值保持原样。
