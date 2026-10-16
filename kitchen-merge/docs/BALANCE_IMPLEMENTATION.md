@@ -1,6 +1,6 @@
 # 新数值运行时交付说明
 
-2026-10-16。已整合主分支美术提交 `4d9d9ef` 的设备轮廓、零件、来源容器和命名。默认入口 `dist/index.html` 使用存档v4、7列9行63格与 `balanceVersion=kitchen-feige-evidence-v2`。原有421项插画逐项SHA-256保持一致；新增循环桶L10单独扩展现有桶体。
+2026-10-16。已整合主分支美术提交 `ae84b44` 的设备轮廓、零件、来源容器和命名。默认入口 `dist/index.html` 使用存档v4、7列9行63格与 `balanceVersion=kitchen-feige-evidence-v2`。原有421项插画逐项SHA-256保持一致；新增循环桶L10单独扩展现有桶体。
 
 ## 配置与入口
 

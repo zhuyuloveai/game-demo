@@ -157,7 +157,7 @@ test('purple scissors stack up to 20; use, full-board failure, reload and wareho
 
 test('all 421 committed main artwork assets remain byte-identical after numeric changes',async()=>{
   const {createHash}=await import('node:crypto'),{icon}=await import('../dist/art.mjs');
-  const {hashes}=JSON.parse(fs.readFileSync(new URL('./fixtures/art-main-4d9d9ef.json',import.meta.url),'utf8'));
+  const {hashes}=JSON.parse(fs.readFileSync(new URL('./fixtures/art-main-ae84b44.json',import.meta.url),'utf8'));
   assert.equal(Object.keys(hashes).length,421);
   for(const [id,digest]of Object.entries(hashes))assert.equal(createHash('sha256').update(icon(E.ITEMS[id].icon)).digest('hex'),digest,id);
   assert.ok(!/NaN|undefined/.test(icon(E.ITEMS['gen_recycle:10'].icon)));

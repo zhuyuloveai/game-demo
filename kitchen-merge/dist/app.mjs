@@ -6,7 +6,7 @@ import { createKitchenAudio } from './audio.mjs';
 
 const $ = s => document.querySelector(s);
 const LEVEL_NAMES=['见习小厨','烘焙新秀','人气主厨','美味专家','厨房明星'];
-const qa=new URLSearchParams(location.search).get('qa'),qaEnabled=['127.0.0.1','localhost','::1'].includes(location.hostname)&&['special','resources','chapter','migration','producers'].includes(qa);
+const qa=new URLSearchParams(location.search).get('qa'),qaEnabled=['127.0.0.1','localhost','::1'].includes(location.hostname)&&['special','resources','chapter','migration','producers','producer-tiers'].includes(qa);
 const STORAGE = qaEnabled?`little-kitchen-qa-${qa}`:'little-kitchen-save-v1';
 const BACKUP_PREFIX=qaEnabled?STORAGE:'little-kitchen';
 const backupKey=suffix=>`${BACKUP_PREFIX}-${suffix}`;

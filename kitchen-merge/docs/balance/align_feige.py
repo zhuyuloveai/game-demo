@@ -211,7 +211,7 @@ def write_mapping(config, refs, table):
     (ROOT/'item-reference-map.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2)+'\n')
     out=['# 稳定物品ID、参考路线与美术交接\n',
         '生成源：`build_docs.py` + `align_feige.py`。逐项映射支持审查，P仅为历史机制参照。相同等级序号不代表外形/名称逐项相同；无逐级证据的名称为未知。厨房原创菜系、餐具、水果和旧档资源继续保留。\n',
-        '本轮已有421项ID、资产键全部保留，名称沿用最新main美术提交4d9d9ef的缸/罐/筐/桶调整，新增 `gen_recycle:10`（大师花园循环桶，资产键 `item/gen_recycle:10`）。沿用4d9d9ef的桶体扩展该节点，增加仪表和脚轮；既有1—9级图形保持。建议美术单独检查10级识别度。本轮没有重绘现有资产。空袋末级跨链与冒险场景耗尽转场分列。\n',
+        '本轮已有421项ID、资产键全部保留，名称沿用最新main美术提交ae84b44的缸/罐/筐/桶调整，新增 `gen_recycle:10`（大师花园循环桶，资产键 `item/gen_recycle:10`）。沿用ae84b44的桶体扩展该节点，增加仪表和脚轮；既有1—9级图形保持。建议美术单独检查10级识别度。本轮没有重绘现有资产。空袋末级跨链与冒险场景耗尽转场分列。\n',
         '原始肥鹅图仅供研究，未进入游戏素材。主生产器映射有结构差异：生鲜篮借鉴冰箱三支线，但厨房饮品来自独立咖啡台；餐具为保留原创副链；荣誉为永久里程碑，未恢复旧冠军活动。花篮采用花卉路径。\n',
         table(['稳定ID','厨房名称','肥鹅系列/逐级名称','合成→ / 跨链→','资产键','变更'],[(r['id'],r['name'],f"{r['referenceFamily'] or '厨房原创/兼容'} / {r['referenceName'] or '逐级名称未知'}",f"{r['mergeTo'] or '—'} / {r['crossMergeTo'] or '—'}",r['artKey'],r['change']) for r in rows])]
     (ROOT/'ITEM_REFERENCE_MAP.md').write_text('\n'.join(out))
