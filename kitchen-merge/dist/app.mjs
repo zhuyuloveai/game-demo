@@ -223,8 +223,10 @@ function renderPanel(){
   $('#modal-content').innerHTML=html+(modalView==='reset-confirm'?'':'<button class="primary-button" data-action="close">回到小厨房</button>');
 }
 
-// Unlock browser audio only after a real user gesture.
+// Mouse activates on press; touch activates on release. Click also covers assistive input.
 document.addEventListener('pointerdown',()=>audio.unlock(),{passive:true});
+document.addEventListener('pointerup',()=>audio.unlock(),{passive:true});
+document.addEventListener('click',()=>audio.unlock(),{capture:true});
 document.addEventListener('keydown',()=>audio.unlock());
 document.addEventListener('click',event=>{
   const target=event.target.closest('button');if(!target||target.disabled||suppressClick)return;
