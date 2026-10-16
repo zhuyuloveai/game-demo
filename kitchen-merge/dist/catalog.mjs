@@ -67,7 +67,7 @@ const chapterTasks = (items, orders, cooked) => Object.freeze([
 ]);
 
 export const CHAPTERS = Object.freeze([
-  ['第一份暖心早餐','和糯米一起做出吐司，送出第一份订单。',['food:4'],1,1],
+  ['第一份暖心早餐','和小狗店长一起做出吐司，送出第一份订单。',['food:4'],1,1],
   ['飘香的咖啡角','试着调一杯拿铁，让来访的朋友歇歇脚。',['drink:4'],4,2],
   ['窗边的小花园','收获罗勒，给清爽沙拉添一点香气。',['herb:3','vegetable:4'],8,3],
   ['街坊的拿手菜','尝试小笼包与寿司，让邻居尝尝你的手艺。',['chinese:3','japanese:3'],12,5],

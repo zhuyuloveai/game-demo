@@ -4,6 +4,7 @@ import { createKitchenAudio } from './audio.mjs';
 
 const $ = s => document.querySelector(s);
 const STORAGE = 'little-kitchen-save-v1';
+const LEVEL_NAMES=['见习小厨','烘焙新秀','人气主厨','美味专家','厨房明星'];
 const esc = s => String(s ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const readPref = (key,fallback) => {try {const v=localStorage.getItem(key);return v===null?fallback:JSON.parse(v);}catch{return fallback;}};
 const writePref = (key,value) => {try{localStorage.setItem(key,JSON.stringify(value));}catch{}};
@@ -32,7 +33,12 @@ function animateItem(index,kind){
   if(!reducedMotion.matches)board.querySelector(`[data-cell="${index}"]`)?.classList.add(`${kind}-pop`);
 }
 function syncMotion(){document.body.classList.toggle('motion-paused',document.hidden||modal.open);}
-reducedMotion.addEventListener('change',()=>{if(reducedMotion.matches)$('#effects').replaceChildren();});
+reducedMotion.addEventListener('change',()=>{if(reducedMotion.matches){$('#effects').replaceChildren();$('.puppy-sprite').classList.remove('is-waving','is-cheering');}});
+function puppyMood(mood){
+  if(reducedMotion.matches)return;const sprite=$('.puppy-sprite');
+  sprite.classList.remove('is-waving','is-cheering');void sprite.offsetWidth;sprite.classList.add(`is-${mood}`);
+}
+$('.puppy-sprite').addEventListener('animationend',()=>$('.puppy-sprite').classList.remove('is-waving','is-cheering'));
 board.addEventListener('animationend',event=>{
   const cell=event.target.closest('[data-cell]');if(!cell)return;
   if(event.target.matches('.item-art'))cell.classList.remove('pop','tap-pop','generate-pop','merge-pop','settle-pop');
@@ -96,8 +102,8 @@ function renderBoard(popIndex=-1){
 }
 function renderStats(){
   $('#energy-count').textContent=state.energy;$('#coin-count').textContent=state.coins.toLocaleString();$('#completed-count').textContent=state.completed;$('#order-count').textContent=state.orders.length;
-  const level=getLevel(state),names=['见习小厨','烘焙新秀','人气主厨','美味专家','厨房明星'];
-  $('#kitchen-level-label').textContent=`Lv. ${level} ${names[Math.min(level-1,4)]}`;$('#xp-progress').style.width=`${state.xp%100}%`;$('#xp-label').textContent=`${state.xp%100}/100`;
+  const level=getLevel(state);
+  $('#kitchen-level-label').textContent=`Lv. ${level}`;$('.puppy-profile').setAttribute('aria-label',`小狗店长，等级 ${level}，${LEVEL_NAMES[Math.min(level-1,4)]}，查看成长进度`);$('#xp-progress').style.width=`${state.xp%100}%`;$('#xp-label').textContent=`${state.xp%100}/100`;
   $('#star-count').textContent=state.stars;
   $('.v-meter').setAttribute('aria-label',`电量 ${state.energy}/${state.maxEnergy}，点击补充`);
   $('.v-cash').setAttribute('aria-label',`小猪存钱罐，${state.coins} 金币`);
@@ -199,15 +205,18 @@ function bookTabs(){return `<div class="book-tabs" aria-label="料理手账内�
 function renderPanel(){
   modal.dataset.view=modalView;
   let html='';
-  if(modalView==='phone'){
-    html=panelHeader('小厨手机','采购、设置和开店指南，都装进口袋里。')+`<div class="phone-apps"><button class="phone-app" data-action="shop">${glyph('bag')}<span>菜篮子采购</span></button><button class="phone-app" data-action="settings">${glyph('sliders')}<span>小厨设置</span></button><button class="phone-app" data-action="help">${glyph('book')}<span>开店指南</span></button><button class="phone-app" data-action="energy">${glyph('energy')}<span>电量补给</span></button></div>`;
+  if(modalView==='profile'){
+    const level=getLevel(state),xp=state.xp%100;
+    html=panelHeader('小狗店长', '一起把小狗厨房经营得暖暖的。')+`<div class="profile-card"><span class="puppy-avatar" aria-hidden="true"></span><div><strong>Lv. ${level}</strong><p>${LEVEL_NAMES[Math.min(level-1,4)]}</p></div></div><div class="profile-progress" role="progressbar" aria-label="当前等级经验" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${xp}"><span style="width:${xp}%"></span></div><p class="source-note">经验 ${xp}/100 · 再获得 ${100-xp} 经验升到下一级</p><p class="source-note">合成食材、完成客人的订单，就能和小狗一起成长。</p>${button('打开开店手账','tasks')}`;
+  }else if(modalView==='phone'){
+    html=panelHeader('店长的手机','采购、设置和开店指南，都装进口袋里。')+`<div class="phone-apps"><button class="phone-app" data-action="shop">${glyph('bag')}<span>菜篮子采购</span></button><button class="phone-app" data-action="settings">${glyph('sliders')}<span>厨房设置</span></button><button class="phone-app" data-action="help">${glyph('book')}<span>开店指南</span></button><button class="phone-app" data-action="energy">${glyph('energy')}<span>电量补给</span></button></div>`;
   }else if(modalView==='cash'){
     html=panelHeader('小猪存钱罐',`肚子里攒下了 ${state.coins.toLocaleString()} 金币。`)+resourcePortrait('.v-cash')+`<p class="source-note">交单和开店礼能攒金币，采购、补充电量和扩容收纳柜都会从小猪里取用。</p><div class="panel-actions">${button('去采购','shop')}${button('看看收纳柜','storage')}</div>`;
   }else if(modalView==='stars'){
-    html=panelHeader('许愿星星罐',`已经收好 ${state.stars} 颗折纸星星。`)+resourcePortrait('.v-stars')+`<p class="source-note">每次交付订单，都能收到客人的许愿星。星星先存进罐子，留给未来的庄园和小店布置。</p><p class="source-note">现在完成糯米的章节任务就能解锁新设备，无需花费星星。</p>${button('看看开店手账','tasks')}`;
+    html=panelHeader('许愿星星罐',`已经收好 ${state.stars} 颗折纸星星。`)+resourcePortrait('.v-stars')+`<p class="source-note">每次交付订单，都能收到客人的许愿星。星星先存进罐子，留给未来的庄园和小店布置。</p><p class="source-note">现在完成小狗店长的章节任务就能解锁新设备，无需花费星星。</p>${button('看看开店手账','tasks')}`;
   }else if(modalView==='tasks'){
     const progress=getChapterProgress(state),chapter=progress.chapter;
-    html=panelHeader('糯米的开店手账',progress.allComplete?'八章开店任务都完成啦，继续收集世界料理吧。':`第 ${state.stage+1} 章 · ${esc(chapter.name)}`);
+    html=panelHeader('小狗店长的开店手账',progress.allComplete?'八章开店任务都完成啦，继续收集世界料理吧。':`第 ${state.stage+1} 章 · ${esc(chapter.name)}`);
     if(chapter){
       html+=`<p class="source-note">${esc(chapter.description)}</p><div class="chapter-list">${progress.tasks.map(task=>`<div class="chapter-task ${task.done?'done':''}"><span aria-hidden="true">${task.done?'✓':'○'}</span><div><strong>${esc(task.label)}</strong><small>${task.value}/${task.target}</small></div></div>`).join('')}</div>`;
       const reward=chapter.reward,parts=[];
@@ -215,7 +224,7 @@ function renderPanel(){
       if(reward.coinReward)parts.push(`${reward.coinReward} 金币`);
       if(reward.storageReward)parts.push(`收纳柜 +${reward.storageReward} 格`);
       if(reward.chestReward)parts.push(`${reward.chestReward} 级厨房礼盒`);
-      html+=`<div class="chapter-reward">${panelIcon(reward.unlockKind?PRODUCER_DEFS[reward.unlockKind].icon:'gift')}<div><strong>本章开店礼</strong><p>${parts.map(esc).join(' · ')}</p><small>设备和礼盒交给糯米保管，台面满了也能领取。</small></div></div><button class="primary-button" data-action="chapter-claim" data-stage="${state.stage}" ${progress.ready?'':'disabled'}>${progress.ready?'领取本章开店礼':'继续完成任务'}</button><div class="panel-actions">${button('查看食谱','recipes')}${button('领取糯米的包裹','rewards')}</div>`;
+      html+=`<div class="chapter-reward">${panelIcon(reward.unlockKind?PRODUCER_DEFS[reward.unlockKind].icon:'gift')}<div><strong>本章开店礼</strong><p>${parts.map(esc).join(' · ')}</p><small>设备和礼盒交给小狗店长保管，台面满了也能领取。</small></div></div><button class="primary-button" data-action="chapter-claim" data-stage="${state.stage}" ${progress.ready?'':'disabled'}>${progress.ready?'领取本章开店礼':'继续完成任务'}</button><div class="panel-actions">${button('查看食谱','recipes')}${button('领取小狗店长的包裹','rewards')}</div>`;
     }
     html+=`<div class="chapter-history">${CHAPTERS.map((chapter,index)=>`<p><span>${index<state.stage?'✓':index===state.stage?'→':'○'}</span> ${index+1}. ${esc(chapter.name)}</p>`).join('')}</div>`;
   }else if(modalView==='collection'){
@@ -234,7 +243,7 @@ function renderPanel(){
     html=panelHeader('厨房采购铺',`现有 ${state.coins} 金币。生产器与礼盒放入礼物区，电量和辅助道具立即到账。`);
     html+=SHOP_ITEMS.map(item=>`<article class="shop-card">${panelIcon(item.icon)}<div class="panel-copy"><strong>${esc(item.name)}</strong><p>${esc(item.description)}</p><small>${item.unlockStage>state.stage?`完成第 ${item.unlockStage} 章解锁`:item.type==='producer'?'同种同级生产器可拖动合并升级':'游戏金币购买'}</small></div><button class="small-button" data-buy="${item.id}" ${item.unlockStage>state.stage||state.coins<item.cost?'disabled':''}>${item.cost}币</button></article>`).join('');
   }else if(modalView==='rewards'){
-    html=panelHeader('小厨房的礼物',`礼物区有 ${state.pending.length} 件待领物品。台面满了也会保留。`);
+    html=panelHeader('小狗厨房的礼物',`礼物区有 ${state.pending.length} 件待领物品。台面满了也会保留。`);
     html+=`<article class="reward-card">${panelIcon('gift')}<div class="panel-copy"><strong>每日开店礼</strong><p>电量、金币与合成礼盒，每天可领一次。</p></div>${button(dailyReady()?'领取':'今日已领','daily',!dailyReady())}</article>`;
     html+=`<p class="panel-meta">每完成 3 份订单，还能获得额外礼盒。礼盒也可以两两合成升级。</p>`;
     if(state.pending.length){html+=`<div class="inventory-grid">${state.pending.slice(0,20).map(item=>`<div class="inventory-slot">${itemArt(item)}<strong>${esc(itemName(item))}</strong><small>Lv.${item.level}</small></div>`).join('')}</div><button class="primary-button" data-action="claim">领取下一件到棋盘（剩 ${state.pending.length}）</button>`;}
@@ -257,16 +266,16 @@ function renderPanel(){
   }else if(modalView==='energy'){
     const amount=Math.max(0,Math.min(30,state.maxEnergy-state.energy));html=panelHeader('补充一点厨房电量',`电量 ${state.energy}/${state.maxEnergy}。每30秒恢复1点，离开后也会恢复。`)+`<div class="energy-big">${icon('energy')}</div><p class="source-note">每日礼物、电量道具和采购铺也可以补充电量。电量道具合成后再领取更划算。</p><button class="primary-button" data-action="refill" ${!amount||state.coins<30?'disabled':''}>${amount?`30 金币 · 补充 ${amount} 电量`:'电量已满'}</button><button class="primary-button" data-action="rewards">看看今天的礼物</button>`;
   }else if(modalView==='music'){
-    html=panelHeader('小厨房的声音','原创轻快循环配乐，搭配点击、生产、合成、交单、烹饪和开店奖励音效。首次操作后开始播放。');
+    html=panelHeader('小狗厨房的声音','原创轻快循环配乐，搭配点击、生产、合成、交单、烹饪和开店奖励音效。首次操作后开始播放。');
     html+=`<div class="settings-row"><span>背景音乐<small>轻快铃音、拨弦与温暖低音</small></span>${button(musicEnabled?'已开启':'已关闭','toggle-music')}</div><label class="settings-row">音乐音量 <input class="music-slider" type="range" min="0" max="100" value="${Math.round(musicVolume*100)}" data-volume="music" aria-label="背景音乐音量"></label><div class="settings-row"><span>操作音效<small>每种操作都有不同的声音反馈</small></span>${button(effectsEnabled?'已开启':'已关闭','toggle-effects')}</div><label class="settings-row">音效音量 <input class="music-slider" type="range" min="0" max="100" value="${Math.round(effectsVolume*100)}" data-volume="effects" aria-label="操作音效音量"></label>`;
   }else if(modalView==='settings'){
     html=panelHeader('厨房小设置','按自己的节奏，慢慢收集每一份美味。')+`<div class="settings-row"><span>玩法说明<small>生产、合成、做菜、交单与章节任务</small></span>${button('查看','help')}</div><div class="settings-row"><span>音乐和音效<small>分别开关与调节音量</small></span>${button('调整','music')}</div><div class="settings-row"><span>自动存档<small>${storageAvailable?'当前浏览器自动保存，旧版进度已兼容':'当前浏览器暂时无法保存'}</small></span>自动</div><div class="settings-row"><span>重新开张<small>清空当前进度，回到新手厨房</small></span>${button('重新开始','reset-confirm')}</div>`;
   }else if(modalView==='help'){
     html=panelHeader('厨房店长小手册','主玩法是两两合成，食谱与开店任务让每一件物品都有用途。');
-    const steps=[['生产与升级','点击篮子、厨具架等生产器消耗1电量获取材料。次数用完会冷却，同种同级生产器可拖动合并升级。'],['合成与解锁','相同种类和等级合成升级。拖入蒙尘的相同物品可解锁；空的锁定格可通过相邻合成整理，也能花金币清理。'],['订单与章节','订单只计算台面上的已解锁物品。交单可得金币、经验和许愿星；完成糯米手账的任务，逐步解锁咖啡、香草、亚洲及环球料理设备。星星保留用于未来布置。'],['食材与厨具','打开食谱，凑齐指定材料和对应等级厨具即可做菜。材料会消耗，厨具可以反复使用；更高级厨具同样有效。'],['仓库与礼物','在物品信息栏收纳物品；仓库可用金币扩容。每3单有礼盒，每日有开店礼。礼盒、金币和电量道具也能合成升级。'],['辅助道具','剪刀把2级以上材料拆成两份上一级，沙漏补满选中生产器。点击选中物品后，在“更多”里使用。'],['惊喜与自动产出','高级合成有机会产生限时泡泡，可以购买或变为金币。香草花园会定时自动产出，先给它留出相邻空位。'],['音乐与存档','原创音乐在首次操作后播放；离开页面会暂停。进度自动保存，音效与配乐可以分别关闭。']];
+    const steps=[['生产与升级','点击篮子、厨具架等生产器消耗1电量获取材料。次数用完会冷却，同种同级生产器可拖动合并升级。'],['合成与解锁','相同种类和等级合成升级。拖入蒙尘的相同物品可解锁；空的锁定格可通过相邻合成整理，也能花金币清理。'],['订单与章节','订单只计算台面上的已解锁物品。交单可得金币、经验和许愿星；完成小狗店长手账的任务，逐步解锁咖啡、香草、亚洲及环球料理设备。星星保留用于未来布置。'],['食材与厨具','打开食谱，凑齐指定材料和对应等级厨具即可做菜。材料会消耗，厨具可以反复使用；更高级厨具同样有效。'],['仓库与礼物','在物品信息栏收纳物品；仓库可用金币扩容。每3单有礼盒，每日有开店礼。礼盒、金币和电量道具也能合成升级。'],['辅助道具','剪刀把2级以上材料拆成两份上一级，沙漏补满选中生产器。点击选中物品后，在“更多”里使用。'],['惊喜与自动产出','高级合成有机会产生限时泡泡，可以购买或变为金币。香草花园会定时自动产出，先给它留出相邻空位。'],['音乐与存档','原创音乐在首次操作后播放；离开页面会暂停。进度自动保存，音效与配乐可以分别关闭。']];
     html+=steps.map(([title,copy],i)=>`<div class="guide-step"><span class="step-num">${i+1}</span><div><strong>${title}</strong><p>${copy}</p></div></div>`).join('');
-  }else if(modalView==='reset-confirm')html=panelHeader('让小厨房重新开张？','当前的棋盘、仓库、金币、章节、订单、图鉴都会清空。')+`<div class="reset-warning">此操作会覆盖当前浏览器中的游戏进度。</div><div class="reset-actions">${button('保留进度','settings')}${button('确定重新开始','reset')}</div>`;
-  $('#modal-content').innerHTML=html+(modalView==='reset-confirm'?'':'<button class="primary-button" data-action="close">回到小厨房</button>');
+  }else if(modalView==='reset-confirm')html=panelHeader('让小狗厨房重新开张？','当前的棋盘、仓库、金币、章节、订单、图鉴都会清空。')+`<div class="reset-warning">此操作会覆盖当前浏览器中的游戏进度。</div><div class="reset-actions">${button('保留进度','settings')}${button('确定重新开始','reset')}</div>`;
+  $('#modal-content').innerHTML=html+(modalView==='reset-confirm'?'':'<button class="primary-button" data-action="close">回到小狗厨房</button>');
 }
 
 // Mouse activates on press; touch activates on release. Click also covers assistive input.
@@ -283,21 +292,21 @@ document.addEventListener('click',event=>{
   if(target.dataset.buy){act(buyShopItem(state,target.dataset.buy),{showMessage:true});return;}
   if(target.dataset.cook){const r=cookRecipe(state,target.dataset.cook);if(r.ok){selected=r.index;modal.close();}if(act(r,{pop:r.index,fx:'cook',showMessage:true}))celebrate(board.querySelector(`[data-cell="${r.index}"]`),'新鲜出炉！',true,'cook');return;}
   if(target.dataset.locate!==undefined){selected=Number(target.dataset.locate);modal.close();renderBoard();renderSelection();playSound('select');return;}
-  if(target.dataset.fulfill){const origin=target.getBoundingClientRect(),r=fulfillOrder(state,target.dataset.fulfill);if(act(r,{fx:'order'})){rewardFlight(origin);celebrate($('#orders'),`+${r.coins} 金币 · +${r.stars||1} 许愿星`,true);toast(r.message);}return;}
+  if(target.dataset.fulfill){const origin=target.getBoundingClientRect(),r=fulfillOrder(state,target.dataset.fulfill);if(act(r,{fx:'order'})){puppyMood('cheering');rewardFlight(origin);celebrate($('#orders'),`+${r.coins} 金币 · +${r.stars||1} 许愿星`,true);toast(r.message);}return;}
   const action=target.dataset.action;
-  if(['collection','storage','shop','rewards','tasks','phone','cash','stars','recipes','sources','item','energy','music','settings','help','reset-confirm','sell-confirm'].includes(action)){
+  if(['profile','collection','storage','shop','rewards','tasks','phone','cash','stars','recipes','sources','item','energy','music','settings','help','reset-confirm','sell-confirm'].includes(action)){
     if(target.dataset.familySource)catalogFamily=target.dataset.familySource;
     openPanel(action);playSound('tap');return;
   }
   switch(action){
     case 'close':modal.close();playSound('tap');break;
-    case 'hint':showHint();playSound('tap');break;
+    case 'hint':puppyMood('waving');showHint();playSound('tap');break;
     case 'generate':doGenerate(Number(target.dataset.index));break;
     case 'store':{const r=storeItem(state,selected);if(r.ok)selected=null;act(r,{showMessage:true});break;}
     case 'expand-storage':act(expandStorage(state),{fx:'unlock',showMessage:true});break;
     case 'claim':{const r=claimPending(state);if(r.ok)selected=r.index;act(r,{pop:r.index,fx:'collect',showMessage:true});break;}
     case 'daily':act(claimDaily(state),{fx:'daily',showMessage:true});break;
-    case 'chapter-claim':{const r=claimChapter(state,Number(target.dataset.stage));if(act(r,{fx:'renovate',showMessage:true})){modal.scrollTop=0;celebrate($('.e-parcel'),'新章节开张啦！',true,'unlock');}break;}
+    case 'chapter-claim':{const r=claimChapter(state,Number(target.dataset.stage));if(act(r,{fx:'renovate',showMessage:true})){puppyMood('cheering');modal.scrollTop=0;celebrate($('.e-parcel'),'新章节开张啦！',true,'unlock');}break;}
     case 'unlock':{const r=unlockCell(state,selected);if(act(r,{pop:selected,fx:'unlock',showMessage:true}))celebrate(board.querySelector(`[data-cell="${selected}"]`),'新台面！',false,'unlock');break;}
     case 'collect':{const r=collectItem(state,selected);if(r.ok)selected=null;act(r,{showMessage:true});break;}
     case 'bubble-buy':case 'bubble-dismiss':{const r=resolveBubble(state,selected,action==='bubble-buy');act(r,{pop:selected,fx:'collect',showMessage:true});break;}

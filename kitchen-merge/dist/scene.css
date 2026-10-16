@@ -8,9 +8,10 @@
 .game-shell.k-design {width:min(100%,430px);min-height:100dvh;height:auto;padding:env(safe-area-inset-top,0px) 0 0;display:block;background:var(--scene-cream);color:var(--scene-ink);isolation:isolate;overflow:hidden;}
 .k-design button {position:relative;}
 .k-design .k-hud {height:76px;padding:4px 13px 7px;display:flex;align-items:center;gap:9px;position:relative;z-index:4;background:linear-gradient(#faf7ef,#f4eee2);border-bottom:5px solid #e6d3b6;}
-.k-level {flex:1;min-width:0;}
-.k-level h1 {font:20px/1.3 var(--cute-font);color:#69553f;white-space:nowrap;}
-.k-level small {display:block;font:11px/1.5 var(--font);margin-top:2px;color:#9a7b57;}
+.k-level {flex:1;min-width:0;display:flex;align-items:center;}
+.k-design .puppy-profile {width:64px;height:64px;padding:0;background:none;display:flex;align-items:center;justify-content:flex-start;flex-direction:column;}
+.puppy-avatar {display:block;flex-shrink:0;width:48px;height:48px;border-radius:50%;background-color:#f3e6d1;background-image:url('./assets/puppy-sprites.webp');background-repeat:no-repeat;background-size:614.4px 915.2px;background-position:-14px -10px;box-shadow:inset 0 0 0 2px #fff9ec,0 2px 3px #78533924;}
+.puppy-profile #kitchen-level-label {position:relative;margin:-4px 0 0;z-index:1;padding:2px 9px;border-radius:8px;background:#e8c7a0;box-shadow:0 1px #b99772;color:#755239;font:700 11px/13px var(--font);font-variant-numeric:tabular-nums;white-space:nowrap;}
 .k-design .v-meter {position:relative;flex:0 0 50px;width:50px;height:50px;padding:5px 0 4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;border-radius:50%;background:radial-gradient(circle at 35% 25%,#fffbec,#f0e4c9 75%);box-shadow:inset 0 0 0 3px #d5c4a5,inset 0 0 0 4px #fffdf3,0 3px #baa98c,1px 5px 4px #8d6e4526;}
 .v-meter #energy-icon {width:15px;height:15px;color:#bc8b3e;}
 .v-meter #energy-count {color:#77664a;font:700 14px/16px var(--font);font-variant-numeric:tabular-nums;}
@@ -125,21 +126,18 @@
 .v-radio-face {display:flex;flex-direction:column;align-items:center;font:11px/12px var(--cute-font);color:#6f4b2f;gap:3px;}
 .v-radio-face i {width:10px;height:10px;background:#fff2cf;box-shadow:0 1px #a8784e;border-radius:50%;}
 .e-assistant {position:relative;width:min(100%,79px);height:94px;}
-.k-buddy {position:absolute;top:0;right:0;width:79px;height:83px;pointer-events:none;}
-.k-bun {position:absolute;width:56px;height:46px;left:13px;top:25px;border-radius:46% 46% 43% 43%;background:radial-gradient(ellipse at 32% 30%,#fffdf3,#f1e1be);box-shadow:inset 0 -2px 1px #d6bc94,0 3px 3px var(--scene-shadow);z-index:3;}
-.k-bun:before {content:'';position:absolute;left:14px;top:21px;width:4px;height:6px;border-radius:50%;background:#514237;box-shadow:24px 0 #514237;}
-.k-bun:after {content:'';position:absolute;left:25px;top:27px;width:8px;height:5px;border-bottom:2px solid #8e624a;border-radius:0 0 6px 6px;}
-.k-blush {position:absolute;left:7px;top:28px;width:9px;height:4px;border-radius:50%;background:#eeb5a0;box-shadow:32px 0 #eeb5a0;}
-.k-chef-hat {position:absolute;width:35px;height:21px;left:25px;top:12px;z-index:4;border-radius:8px 10px 4px 4px;background:#fffdf7;box-shadow:0 2px 1px #6d553a1a;transform:rotate(7deg);}
-.k-chef-hat:before {content:'';position:absolute;width:22px;height:20px;top:-9px;left:-2px;border-radius:50%;background:#fffdf7;box-shadow:15px 0 #fffdf7,8px -4px #fffdf7;}
-.k-apron {position:absolute;left:22px;bottom:1px;width:38px;height:27px;border-radius:12px 12px 8px 8px;background:var(--accent);z-index:2;box-shadow:0 2px 1px #c44d2b;}
-.k-apron:before {content:'';position:absolute;left:10px;top:12px;width:17px;height:9px;border-radius:2px 2px 6px 6px;background:#f9e9cf;}
-.k-arm {position:absolute;left:6px;bottom:8px;width:17px;height:11px;border-radius:50%;background:#f6e7c9;transform:rotate(-30deg);box-shadow:48px 0 #f6e7c9;}
+.k-buddy {position:absolute;top:-11px;left:calc(50% - 52px);width:104px;height:112.667px;pointer-events:none;filter:drop-shadow(0 2px 1px #6a482926);}
+.puppy-sprite {display:block;width:104px;height:112.667px;background:url('./assets/puppy-sprites.webp') no-repeat 0 0 / 832px 1239.333px;animation:puppyIdle 3.6s steps(6) infinite;}
+.puppy-sprite.is-waving {background-position-y:-338px;animation:puppyWave 1.2s steps(4) 2;}
+.puppy-sprite.is-cheering {background-position-y:-450.667px;animation:puppyCheer .85s steps(5) 2;}
+@keyframes puppyIdle {to{background-position-x:-624px;}}
+@keyframes puppyWave {to{background-position-x:-416px;}}
+@keyframes puppyCheer {to{background-position-x:-520px;}}
 .k-design .e-assistant-face {position:absolute;top:0;right:2px;width:70px;height:44px;z-index:4;background:none;border-radius:30px;padding:0;}
 .k-design .e-parcel {position:absolute;left:15px;bottom:0;width:48px;height:45px;z-index:5;background:none;padding:0;transform:rotate(-3deg);}
 #parcel-art {display:block;width:47px;height:47px;filter:drop-shadow(0 2px 2px #57321526);}
 .e-parcel-count {position:absolute;right:-4px;top:-5px;min-width:18px;height:18px;border-radius:50%;background:#ee7951;color:#fff9ed;display:grid;place-items:center;font-size:11px;box-shadow:0 1px #bf6746;padding:0 4px;}
-.e-assistant-name {position:absolute;bottom:-1px;right:0;font:11px var(--cute-font);color:#866140;transform:rotate(4deg);pointer-events:none;}
+.e-assistant-name {position:absolute;bottom:-11px;left:0;right:0;text-align:center;font:11px var(--cute-font);color:#866140;transform:rotate(4deg);pointer-events:none;}
 
 /* Panels retain the complete real-game controls and scroll independently. */
 dialog {width:min(calc(100% - 24px),402px);padding:18px 18px 20px;max-height:calc(100dvh - 32px);overflow:auto;overscroll-behavior:contain;background:#fffaf0;color:var(--scene-ink);border-radius:20px;}
@@ -179,9 +177,14 @@ dialog[data-view="phone"] {background:linear-gradient(#f7e5cf,#f4e1c8);}
 @keyframes resourceReceive {35%{transform:rotate(-5deg) scale(1.08);}70%{transform:rotate(3deg);}100%{transform:none;}}
 .k-design .v-radio.is-playing .v-radio-face i {animation:radioLight 3s ease-in-out infinite;}
 .k-buddy {animation:buddyBreathe 4.5s ease-in-out infinite;transform-origin:50% 100%;}
-.motion-paused .k-buddy,.motion-paused .v-radio-face i {animation-play-state:paused;}
+.motion-paused .k-buddy,.motion-paused .puppy-sprite,.motion-paused .v-radio-face i {animation-play-state:paused;}
 @keyframes radioLight {50%{background:#ffe0a2;box-shadow:0 0 6px #ffdb91;}}
 @keyframes buddyBreathe {50%{transform:translateY(-1px) scale(1.025,1.015);}}
 @media(min-width:600px) {.game-shell.k-design {width:390px;border-radius:29px;clip-path:none;box-shadow:0 12px 30px var(--scene-shadow);}.toast {bottom:30px;}}
-@media(max-width:374px) {.k-design .k-hud{padding-left:9px;padding-right:9px;gap:5px;}.k-level h1{font-size:18px;}.k-level small{font-size:11px;}.k-upper-cabinets{left:10px;right:10px;grid-template-columns:1fr 112px 1fr;}.k-design .k-orders{left:11px;right:11px;gap:7px;}.k-orders .order-card{padding-left:4px;padding-right:4px;}.k-orders .order-needs{gap:4px;}.k-orders .need,.k-orders .need-art{width:30px;height:30px;}.k-worktop{padding-left:8px;padding-right:8px;}.v-slab{padding-left:6px;padding-right:6px;}.selection-card .selected-art{flex-basis:28px;width:28px;height:28px;}.selection-card .selection-copy strong{font-size:12px;}.selection-card .selection-copy p{font-size:11px;}.selection-card .small-button{padding:0 4px;font-size:11px;}.e-speech #quest-copy{font-size:13px;}.e-desk-items{gap:6px;}}
-@media(prefers-reduced-motion:reduce) {.k-buddy,.v-radio-face i{animation:none;}.e-door,.e-book-cover{transition:none;}}
+@media(max-width:374px) {.k-design .k-hud{padding-left:9px;padding-right:9px;gap:5px;}.k-design .puppy-profile{width:55px;}.k-upper-cabinets{left:10px;right:10px;grid-template-columns:1fr 112px 1fr;}.k-design .k-orders{left:11px;right:11px;gap:7px;}.k-orders .order-card{padding-left:4px;padding-right:4px;}.k-orders .order-needs{gap:4px;}.k-orders .need,.k-orders .need-art{width:30px;height:30px;}.k-worktop{padding-left:8px;padding-right:8px;}.v-slab{padding-left:6px;padding-right:6px;}.selection-card .selected-art{flex-basis:28px;width:28px;height:28px;}.selection-card .selection-copy strong{font-size:12px;}.selection-card .selection-copy p{font-size:11px;}.selection-card .small-button{padding:0 4px;font-size:11px;}.e-speech #quest-copy{font-size:13px;}.e-desk-items{gap:6px;}}
+@media(prefers-reduced-motion:reduce) {.k-buddy,.puppy-sprite,.puppy-sprite.is-waving,.puppy-sprite.is-cheering,.v-radio-face i{animation:none;background-position:0 0;}.e-door,.e-book-cover{transition:none;}}
+
+.profile-card {display:flex;gap:18px;align-items:center;margin:18px 0;padding:18px;border-radius:16px;background:#f3e6d1;}
+.profile-card .puppy-avatar {width:72px;height:72px;background-size:921.6px 1372.8px;background-position:-21px -15px;box-shadow:inset 0 0 0 3px #fff9ec;}
+.profile-card strong {font:20px var(--cute-font);}.profile-card p {font-size:13px;color:#9a7b57;margin-top:6px;}
+.profile-progress {height:10px;overflow:hidden;border-radius:10px;background:#eadcc5;margin:12px 0 8px;}.profile-progress span {display:block;height:100%;background:#e9986f;border-radius:10px;}

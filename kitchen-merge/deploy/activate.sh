@@ -42,7 +42,7 @@ ln -s "releases/$release_name/site" "$service_root/.next-$release_name"
 mv -Tf "$service_root/.next-$release_name" "$service_root/current"
 verified=0
 for attempt in 1 2 3 4 5; do
-    if curl --fail --silent http://127.0.0.1/ | grep -q '小厨合合' &&
+    if curl --fail --silent http://127.0.0.1/ | grep -q 'aria-label="七乘七合成棋盘"' &&
        curl --fail --silent --head http://127.0.0.1/app.mjs | grep -qi 'Content-Type: application/javascript'; then
         verified=1
         break

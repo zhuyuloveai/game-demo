@@ -382,7 +382,7 @@ export function claimChapter(state,expectedStage=state.stage,now=Date.now()) {
   state.pending.push(...rewards);
   if (reward.storageReward) state.storageCapacity=Math.min(60,state.storageCapacity+reward.storageReward);
   if (reward.coinReward) addCoins(state,reward.coinReward);
-  return result(state,true,'chapter',`第 ${chapter.number} 章完成！${rewards.length?'奖励已交给糯米保管':'奖励已领取'}`,{chapter,reward,rewards,coins:reward.coinReward||0});
+  return result(state,true,'chapter',`第 ${chapter.number} 章完成！${rewards.length?'奖励已交给小狗店长保管':'奖励已领取'}`,{chapter,reward,rewards,coins:reward.coinReward||0});
 }
 // Kept for legacy callers; the kitchen UI progresses through claimChapter without spending stars.
 export function renovate(state,now=Date.now()) {
