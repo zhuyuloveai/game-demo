@@ -41,6 +41,18 @@ export function fixture(kind, now = Date.now()) {
     });
     put(25, "gen_food:1");
     ["charge:1", "energybox:1", "blackbag:1", "pinkbag:1", "seedbag:4", "emptybag:4", "pantry:9"].forEach((id, i) => put(42 + i, id));
+  } else if (kind === "producer-tiers") {
+    s.stage = 11;
+    for (let level = 4; level <= 10; level++) put(level - 4, `gen_drink:${level}`);
+    for (let level = 3; level <= 12; level++) put(7 + level - 3, `gen_produce:${level}`);
+    const other = ["food", "tools", "herb", "asian", "mediterranean", "supply", "publicity", "flower", "recycle"];
+    other.forEach((family, i) => {
+      const producer = BALANCE.producers.find(p => p.id === family);
+      const chain = BALANCE.chains.find(c => c.id === producer.chain);
+      put(21 + i * 2, `${producer.chain}:${producer.activeLevel}`);
+      put(22 + i * 2, chain.items.at(-1).id);
+    });
+    put(41, "gen_drink:4");
   } else if (kind === "resources") {
     s.stage = 11;
     [

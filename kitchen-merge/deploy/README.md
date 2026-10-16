@@ -19,7 +19,7 @@
 
 环境布局、呼吸动效、默认音乐/音效和核心操作保留。点击选择；点击可用设备生产；移动、交换、合成采用拖动。升级链与经济参数在美术更新中保持不变。
 
-运行资源以全部被Git跟踪的 `kitchen-merge/dist/` 文件为准，包括字体、宠物图集、CSS及所有ES模块。新增的 `producer-art.mjs`、`producer-parts-art.mjs`、`source-container-art.mjs` 必须随发布上传。AI概念板、文档和测试仅保存在仓库，不能复制到服务根目录。
+运行资源以全部被Git跟踪的 `kitchen-merge/dist/` 文件为准，包括字体、宠物图集、CSS及所有ES模块。生产器相关的 `producer-art.mjs`、`producer-parts-art.mjs`、`producer-drink-art.mjs`、`producer-produce-art.mjs`、`producer-variety-art.mjs` 和 `source-container-art.mjs` 必须随发布上传。AI概念板、文档和测试仅保存在仓库，不能复制到服务根目录。
 
 ## 发布流程
 

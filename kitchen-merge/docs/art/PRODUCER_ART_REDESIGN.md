@@ -48,3 +48,7 @@
 - 页面布局、已有物品呼吸动效、资源与存档格式保留。
 
 优化前实机：[producers-before.jpg](producers-before.jpg)。最终手机实机：[producers-after.jpg](producers-after.jpg)。两图均使用本地隔离验收场景，集中展示11类生产器、零件、满级和相似容器，便于对照。
+
+## 后续主体升级
+
+同类相邻等级进一步强化为独立主体结构，最新实现与实机图见[生产器升级主体差异](PRODUCER_TIER_SHAPES.md)。本页其余图像保留为首次家族轮廓调整的记录。

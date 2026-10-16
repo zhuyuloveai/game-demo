@@ -33,7 +33,7 @@ python3 -m http.server 4173 --bind 127.0.0.1 --directory dist
 - 奶油色吊柜和抽油烟机围合厨房，顾客订单挂在夹单轨上；合成板有厚侧壁和接触阴影，与下面木桌区分层次。
 - 功能嵌入环境：收纳柜、食谱与图鉴书、采购与设置手机、竖款收音机、小狗店长及礼物包裹；便签打开章节手账。
 - 物品继续使用 `art.mjs` 原有材质插画、连续奶油格底、呼吸与弹性合成动效，保留完整棋盘操作。
-- 11类主生产器使用独立剪影与专属零件，覆盖111个等级；另重画33种来源容器。烘焙原料罐、生鲜采购筐、花艺工具桶分别采用圆胖、矮宽、高挑的形体，升级沿各自的器具结构发展。新绘制集中在 `producer-art.mjs`、`producer-parts-art.mjs` 与 `source-container-art.mjs`，继续通过同一材质渲染器呈现。
+- 11类主生产器使用独立剪影与专属零件，覆盖111个等级；另重画33种来源容器。烘焙原料罐、生鲜采购筐、花艺工具桶分别采用圆胖、矮宽、高挑的形体，升级沿各自的器具结构发展。`producer-art.mjs`按零件和设备阶段分流；咖啡机、菜筐与其他设备分别由 `producer-drink-art.mjs`、`producer-produce-art.mjs`、`producer-variety-art.mjs` 绘制，继续使用同一材质渲染器。76个设备等级分别采用独立主体结构，见[升级造型对照与全景](docs/art/PRODUCER_TIER_SHAPES.md)。
 - [生产器美术说明](docs/art/PRODUCER_ART_REDESIGN.md) 包含分组、兼容性与实机验收；[生成参考图与提示词](docs/art/PRODUCER_IMAGE_PROMPT.md) 记录内置生图工具的概念图，运行时采用项目内的矢量插画。
 - 使用自托管的站酷快乐体，数字使用系统字体；字体和 OFL 许可见 [字体来源](docs/fonts/ZCOOLKuaiLe-SOURCE.txt)。
 - 场景样式在 `dist/scene.css`，基础组件及物品动效在 `dist/style.css`。界面结构与迁移说明见 [环境厨房界面](docs/ENVIRONMENT_UI.md)。
