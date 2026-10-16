@@ -87,7 +87,6 @@
 .k-orders .reward {height:30px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:1px;font-size:11px;}
 .k-orders .reward small {font-size:11px;}.k-orders .reward-coin svg {width:11px;height:11px;}
 .k-orders .order-submit {width:54px;min-width:44px;flex:1;height:44px;padding:0 3px;border-radius:8px;font:13px var(--cute-font);box-shadow:0 2px #c96c44;}
-.k-orders .order-submit:disabled {background:#eee4d4;color:#ad977c;box-shadow:0 2px #ddcbb2;}
 
 /* Raised cream stone, with an uninterrupted 7 × 7 playing surface. */
 .k-worktop {position:relative;z-index:2;flex:1 0 auto;display:flex;flex-direction:column;justify-content:center;padding:4px 11px 12px;background:linear-gradient(100deg,#d9bda0,#e5cdb2 50%,#d9bda0);border-radius:12px 12px 0 0;}
@@ -221,3 +220,14 @@ dialog[data-view="phone"] {background:linear-gradient(#f7e5cf,#f4e1c8);}
 .k-design .k-orders{display:flex;flex-wrap:nowrap;height:calc(var(--order-card-height) + 40px);align-items:flex-end;padding-top:34px;padding-bottom:5px;bottom:5px}.k-orders .order-card{flex-shrink:0;flex-basis:calc((100% - 18px)/3);height:var(--order-card-height)}.k-orders .order-refresh{position:absolute;right:3px;top:6px;z-index:2}
 .k-orders .main-order-avatar{flex:none;width:42px;height:42px;background-size:537.6px 800.8px;background-position:-12.25px -8.75px}.k-orders .order-top h3{overflow-wrap:anywhere}
 .k-orders .order-empty{font-size:11px;line-height:1.5;padding:12px 8px}.order-empty strong{display:block;margin-bottom:8px}
+
+/* Keep the requested items prominent; show an action only when delivery is ready. */
+.k-orders .order-needs{min-height:48px;gap:7px}
+.k-orders .need,.k-orders .need-art{width:40px;height:40px}
+.k-orders .need-count{font-size:12px;padding:2px 3px;bottom:-3px}
+.k-orders .order-bottom{height:28px}
+.k-orders .order-submit{height:28px;font-size:12px}
+.k-orders .order-card:not(.is-ready) .reward{height:24px;flex-direction:row;align-items:center;gap:6px}
+.k-orders .order-card:not(.is-ready) .order-refresh{top:auto;bottom:7px;right:6px}
+.k-orders .order-card.is-ready .order-refresh{position:static;order:2;flex:none;width:18px;height:22px;padding:0;font-size:14px}
+.k-orders .order-card.is-ready .order-submit{min-width:36px}
