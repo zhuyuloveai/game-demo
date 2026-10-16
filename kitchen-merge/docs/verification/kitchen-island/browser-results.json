@@ -1,0 +1,1254 @@
+{
+  "browser": "Google Chrome via Playwright + Chrome DevTools touch events",
+  "checks": [
+    {
+      "name": "island 375×667",
+      "viewport": [
+        375,
+        667
+      ],
+      "scroll": [
+        375,
+        667
+      ],
+      "board": {
+        "x": 19.109375,
+        "y": 166,
+        "width": 336.765625,
+        "height": 432.984375,
+        "top": 166,
+        "right": 355.875,
+        "bottom": 598.984375,
+        "left": 19.109375
+      },
+      "cells": 63,
+      "cell": {
+        "x": 19.109375,
+        "y": 166,
+        "width": 48.109375,
+        "height": 48.109375,
+        "top": 166,
+        "right": 67.21875,
+        "bottom": 214.109375,
+        "left": 19.109375
+      },
+      "last": {
+        "x": 307.765625,
+        "y": 550.875,
+        "width": 48.109375,
+        "height": 48.109375,
+        "top": 550.875,
+        "right": 355.875,
+        "bottom": 598.984375,
+        "left": 307.765625
+      },
+      "square": true,
+      "footer": [
+        {
+          "action": "recipes",
+          "rect": {
+            "x": 10,
+            "y": 607,
+            "width": 91.515625,
+            "height": 58,
+            "top": 607,
+            "right": 101.515625,
+            "bottom": 665,
+            "left": 10
+          },
+          "hit": true
+        },
+        {
+          "action": "storage",
+          "rect": {
+            "x": 107.515625,
+            "y": 607,
+            "width": 91.53125,
+            "height": 58,
+            "top": 607,
+            "right": 199.046875,
+            "bottom": 665,
+            "left": 107.515625
+          },
+          "hit": true
+        },
+        {
+          "action": "phone",
+          "rect": {
+            "x": 205.046875,
+            "y": 607,
+            "width": 70.734375,
+            "height": 58,
+            "top": 607,
+            "right": 275.78125,
+            "bottom": 665,
+            "left": 205.046875
+          },
+          "hit": true
+        },
+        {
+          "action": "music",
+          "rect": {
+            "x": 281.78125,
+            "y": 607,
+            "width": 83.203125,
+            "height": 58,
+            "top": 607,
+            "right": 364.984375,
+            "bottom": 665,
+            "left": 281.78125
+          },
+          "hit": true
+        }
+      ]
+    },
+    {
+      "name": "classic 375×667",
+      "viewport": [
+        375,
+        667
+      ],
+      "scroll": [
+        375,
+        667
+      ],
+      "board": {
+        "x": 19.109375,
+        "y": 166,
+        "width": 336.765625,
+        "height": 432.984375,
+        "top": 166,
+        "right": 355.875,
+        "bottom": 598.984375,
+        "left": 19.109375
+      },
+      "cells": 63,
+      "cell": {
+        "x": 19.109375,
+        "y": 166,
+        "width": 48.109375,
+        "height": 48.109375,
+        "top": 166,
+        "right": 67.21875,
+        "bottom": 214.109375,
+        "left": 19.109375
+      },
+      "last": {
+        "x": 307.765625,
+        "y": 550.875,
+        "width": 48.109375,
+        "height": 48.109375,
+        "top": 550.875,
+        "right": 355.875,
+        "bottom": 598.984375,
+        "left": 307.765625
+      },
+      "square": true,
+      "footer": [
+        {
+          "action": "recipes",
+          "rect": {
+            "x": 23.844968795776367,
+            "y": 611.7947387695312,
+            "width": 67.59130859375,
+            "height": 49.4105224609375,
+            "top": 611.7947387695312,
+            "right": 91.43627738952637,
+            "bottom": 661.2052612304688,
+            "left": 23.844968795776367
+          },
+          "hit": true
+        },
+        {
+          "action": "storage",
+          "rect": {
+            "x": 130.703125,
+            "y": 610.5,
+            "width": 56,
+            "height": 48,
+            "top": 610.5,
+            "right": 186.703125,
+            "bottom": 658.5,
+            "left": 130.703125
+          },
+          "hit": true
+        },
+        {
+          "action": "phone",
+          "rect": {
+            "x": 224.01316833496094,
+            "y": 607.3842163085938,
+            "width": 46.66117858886719,
+            "height": 54.2315673828125,
+            "top": 607.3842163085938,
+            "right": 270.6743469238281,
+            "bottom": 661.6157836914062,
+            "left": 224.01316833496094
+          },
+          "hit": true
+        },
+        {
+          "action": "music",
+          "rect": {
+            "x": 306.9221496582031,
+            "y": 607.7474365234375,
+            "width": 45.71820068359375,
+            "height": 51.505126953125,
+            "top": 607.7474365234375,
+            "right": 352.6403503417969,
+            "bottom": 659.2525634765625,
+            "left": 306.9221496582031
+          },
+          "hit": true
+        }
+      ]
+    },
+    {
+      "name": "two-way theme switching and reload preserve exact game-save bytes",
+      "result": true
+    },
+    {
+      "name": "island 320×667",
+      "viewport": [
+        320,
+        667
+      ],
+      "scroll": [
+        320,
+        667
+      ],
+      "board": {
+        "x": 19,
+        "y": 166,
+        "width": 282,
+        "height": 362.5625,
+        "top": 166,
+        "right": 301,
+        "bottom": 528.5625,
+        "left": 19
+      },
+      "cells": 63,
+      "cell": {
+        "x": 19,
+        "y": 166,
+        "width": 40.28125,
+        "height": 40.28125,
+        "top": 166,
+        "right": 59.28125,
+        "bottom": 206.28125,
+        "left": 19
+      },
+      "last": {
+        "x": 260.703125,
+        "y": 488.265625,
+        "width": 40.28125,
+        "height": 40.28125,
+        "top": 488.265625,
+        "right": 300.984375,
+        "bottom": 528.546875,
+        "left": 260.703125
+      },
+      "square": true,
+      "footer": [
+        {
+          "action": "recipes",
+          "rect": {
+            "x": 10,
+            "y": 607,
+            "width": 79.84375,
+            "height": 58,
+            "top": 607,
+            "right": 89.84375,
+            "bottom": 665,
+            "left": 10
+          },
+          "hit": true
+        },
+        {
+          "action": "storage",
+          "rect": {
+            "x": 91.84375,
+            "y": 607,
+            "width": 79.859375,
+            "height": 58,
+            "top": 607,
+            "right": 171.703125,
+            "bottom": 665,
+            "left": 91.84375
+          },
+          "hit": true
+        },
+        {
+          "action": "phone",
+          "rect": {
+            "x": 173.703125,
+            "y": 607,
+            "width": 61.703125,
+            "height": 58,
+            "top": 607,
+            "right": 235.40625,
+            "bottom": 665,
+            "left": 173.703125
+          },
+          "hit": true
+        },
+        {
+          "action": "music",
+          "rect": {
+            "x": 237.40625,
+            "y": 607,
+            "width": 72.59375,
+            "height": 58,
+            "top": 607,
+            "right": 310,
+            "bottom": 665,
+            "left": 237.40625
+          },
+          "hit": true
+        }
+      ]
+    },
+    {
+      "name": "island 390×744",
+      "viewport": [
+        390,
+        744
+      ],
+      "scroll": [
+        390,
+        744
+      ],
+      "board": {
+        "x": 19,
+        "y": 166,
+        "width": 352,
+        "height": 452.5625,
+        "top": 166,
+        "right": 371,
+        "bottom": 618.5625,
+        "left": 19
+      },
+      "cells": 63,
+      "cell": {
+        "x": 19,
+        "y": 166,
+        "width": 50.28125,
+        "height": 50.28125,
+        "top": 166,
+        "right": 69.28125,
+        "bottom": 216.28125,
+        "left": 19
+      },
+      "last": {
+        "x": 320.703125,
+        "y": 568.265625,
+        "width": 50.28125,
+        "height": 50.28125,
+        "top": 568.265625,
+        "right": 370.984375,
+        "bottom": 618.546875,
+        "left": 320.703125
+      },
+      "square": true,
+      "footer": [
+        {
+          "action": "recipes",
+          "rect": {
+            "x": 10,
+            "y": 684,
+            "width": 95.59375,
+            "height": 58,
+            "top": 684,
+            "right": 105.59375,
+            "bottom": 742,
+            "left": 10
+          },
+          "hit": true
+        },
+        {
+          "action": "storage",
+          "rect": {
+            "x": 111.59375,
+            "y": 684,
+            "width": 95.609375,
+            "height": 58,
+            "top": 684,
+            "right": 207.203125,
+            "bottom": 742,
+            "left": 111.59375
+          },
+          "hit": true
+        },
+        {
+          "action": "phone",
+          "rect": {
+            "x": 213.203125,
+            "y": 684,
+            "width": 73.875,
+            "height": 58,
+            "top": 684,
+            "right": 287.078125,
+            "bottom": 742,
+            "left": 213.203125
+          },
+          "hit": true
+        },
+        {
+          "action": "music",
+          "rect": {
+            "x": 293.078125,
+            "y": 684,
+            "width": 86.90625,
+            "height": 58,
+            "top": 684,
+            "right": 379.984375,
+            "bottom": 742,
+            "left": 293.078125
+          },
+          "hit": true
+        }
+      ]
+    },
+    {
+      "name": "island 430×740",
+      "viewport": [
+        430,
+        740
+      ],
+      "scroll": [
+        430,
+        740
+      ],
+      "board": {
+        "x": 19,
+        "y": 166,
+        "width": 392,
+        "height": 504,
+        "top": 166,
+        "right": 411,
+        "bottom": 670,
+        "left": 19
+      },
+      "cells": 63,
+      "cell": {
+        "x": 19,
+        "y": 166,
+        "width": 56,
+        "height": 56,
+        "top": 166,
+        "right": 75,
+        "bottom": 222,
+        "left": 19
+      },
+      "last": {
+        "x": 355,
+        "y": 614,
+        "width": 56,
+        "height": 56,
+        "top": 614,
+        "right": 411,
+        "bottom": 670,
+        "left": 355
+      },
+      "square": true,
+      "footer": [
+        {
+          "action": "recipes",
+          "rect": {
+            "x": 10,
+            "y": 680,
+            "width": 106.46875,
+            "height": 58,
+            "top": 680,
+            "right": 116.46875,
+            "bottom": 738,
+            "left": 10
+          },
+          "hit": true
+        },
+        {
+          "action": "storage",
+          "rect": {
+            "x": 122.46875,
+            "y": 680,
+            "width": 106.46875,
+            "height": 58,
+            "top": 680,
+            "right": 228.9375,
+            "bottom": 738,
+            "left": 122.46875
+          },
+          "hit": true
+        },
+        {
+          "action": "phone",
+          "rect": {
+            "x": 234.9375,
+            "y": 680,
+            "width": 82.265625,
+            "height": 58,
+            "top": 680,
+            "right": 317.203125,
+            "bottom": 738,
+            "left": 234.9375
+          },
+          "hit": true
+        },
+        {
+          "action": "music",
+          "rect": {
+            "x": 323.203125,
+            "y": 680,
+            "width": 96.78125,
+            "height": 58,
+            "top": 680,
+            "right": 419.984375,
+            "bottom": 738,
+            "left": 323.203125
+          },
+          "hit": true
+        }
+      ]
+    },
+    {
+      "name": "island 1440×900",
+      "viewport": [
+        1440,
+        900
+      ],
+      "scroll": [
+        1440,
+        900
+      ],
+      "board": {
+        "x": 524,
+        "y": 226,
+        "width": 392,
+        "height": 504,
+        "top": 226,
+        "right": 916,
+        "bottom": 730,
+        "left": 524
+      },
+      "cells": 63,
+      "cell": {
+        "x": 524,
+        "y": 226,
+        "width": 56,
+        "height": 56,
+        "top": 226,
+        "right": 580,
+        "bottom": 282,
+        "left": 524
+      },
+      "last": {
+        "x": 860,
+        "y": 674,
+        "width": 56,
+        "height": 56,
+        "top": 674,
+        "right": 916,
+        "bottom": 730,
+        "left": 860
+      },
+      "square": true,
+      "footer": [
+        {
+          "action": "recipes",
+          "rect": {
+            "x": 515,
+            "y": 780,
+            "width": 106.46875,
+            "height": 58,
+            "top": 780,
+            "right": 621.46875,
+            "bottom": 838,
+            "left": 515
+          },
+          "hit": true
+        },
+        {
+          "action": "storage",
+          "rect": {
+            "x": 627.46875,
+            "y": 780,
+            "width": 106.46875,
+            "height": 58,
+            "top": 780,
+            "right": 733.9375,
+            "bottom": 838,
+            "left": 627.46875
+          },
+          "hit": true
+        },
+        {
+          "action": "phone",
+          "rect": {
+            "x": 739.9375,
+            "y": 780,
+            "width": 82.265625,
+            "height": 58,
+            "top": 780,
+            "right": 822.203125,
+            "bottom": 838,
+            "left": 739.9375
+          },
+          "hit": true
+        },
+        {
+          "action": "music",
+          "rect": {
+            "x": 828.203125,
+            "y": 780,
+            "width": 96.78125,
+            "height": 58,
+            "top": 780,
+            "right": 924.984375,
+            "bottom": 838,
+            "left": 828.203125
+          },
+          "hit": true
+        }
+      ]
+    },
+    {
+      "name": "island after all panels close",
+      "viewport": [
+        375,
+        667
+      ],
+      "scroll": [
+        375,
+        667
+      ],
+      "board": {
+        "x": 19.109375,
+        "y": 166,
+        "width": 336.765625,
+        "height": 432.984375,
+        "top": 166,
+        "right": 355.875,
+        "bottom": 598.984375,
+        "left": 19.109375
+      },
+      "cells": 63,
+      "cell": {
+        "x": 19.109375,
+        "y": 166,
+        "width": 48.109375,
+        "height": 48.109375,
+        "top": 166,
+        "right": 67.21875,
+        "bottom": 214.109375,
+        "left": 19.109375
+      },
+      "last": {
+        "x": 307.765625,
+        "y": 550.875,
+        "width": 48.109375,
+        "height": 48.109375,
+        "top": 550.875,
+        "right": 355.875,
+        "bottom": 598.984375,
+        "left": 307.765625
+      },
+      "square": true,
+      "footer": [
+        {
+          "action": "recipes",
+          "rect": {
+            "x": 10,
+            "y": 607,
+            "width": 91.515625,
+            "height": 58,
+            "top": 607,
+            "right": 101.515625,
+            "bottom": 665,
+            "left": 10
+          },
+          "hit": true
+        },
+        {
+          "action": "storage",
+          "rect": {
+            "x": 107.515625,
+            "y": 607,
+            "width": 91.53125,
+            "height": 58,
+            "top": 607,
+            "right": 199.046875,
+            "bottom": 665,
+            "left": 107.515625
+          },
+          "hit": true
+        },
+        {
+          "action": "phone",
+          "rect": {
+            "x": 205.046875,
+            "y": 607,
+            "width": 70.734375,
+            "height": 58,
+            "top": 607,
+            "right": 275.78125,
+            "bottom": 665,
+            "left": 205.046875
+          },
+          "hit": true
+        },
+        {
+          "action": "music",
+          "rect": {
+            "x": 281.78125,
+            "y": 607,
+            "width": 83.203125,
+            "height": 58,
+            "top": 607,
+            "right": 364.984375,
+            "bottom": 665,
+            "left": 281.78125
+          },
+          "hit": true
+        }
+      ]
+    },
+    {
+      "name": "island all resource, story, gift, recipe/catalogue, storage, phone/shop/settings, music controls",
+      "result": true
+    },
+    {
+      "name": "classic 320×667",
+      "viewport": [
+        320,
+        667
+      ],
+      "scroll": [
+        320,
+        667
+      ],
+      "board": {
+        "x": 19,
+        "y": 166,
+        "width": 282,
+        "height": 362.5625,
+        "top": 166,
+        "right": 301,
+        "bottom": 528.5625,
+        "left": 19
+      },
+      "cells": 63,
+      "cell": {
+        "x": 19,
+        "y": 166,
+        "width": 40.28125,
+        "height": 40.28125,
+        "top": 166,
+        "right": 59.28125,
+        "bottom": 206.28125,
+        "left": 19
+      },
+      "last": {
+        "x": 260.703125,
+        "y": 488.265625,
+        "width": 40.28125,
+        "height": 40.28125,
+        "top": 488.265625,
+        "right": 300.984375,
+        "bottom": 528.546875,
+        "left": 260.703125
+      },
+      "square": true,
+      "footer": [
+        {
+          "action": "recipes",
+          "rect": {
+            "x": 15.626218795776367,
+            "y": 611.7947387695312,
+            "width": 67.59130859375,
+            "height": 49.4105224609375,
+            "top": 611.7947387695312,
+            "right": 83.21752738952637,
+            "bottom": 661.2052612304688,
+            "left": 15.626218795776367
+          },
+          "hit": true
+        },
+        {
+          "action": "storage",
+          "rect": {
+            "x": 107.125,
+            "y": 610.5,
+            "width": 56,
+            "height": 48,
+            "top": 610.5,
+            "right": 163.125,
+            "bottom": 658.5,
+            "left": 107.125
+          },
+          "hit": true
+        },
+        {
+          "action": "phone",
+          "rect": {
+            "x": 187.23191833496094,
+            "y": 607.3842163085938,
+            "width": 46.661163330078125,
+            "height": 54.2315673828125,
+            "top": 607.3842163085938,
+            "right": 233.89308166503906,
+            "bottom": 661.6157836914062,
+            "left": 187.23191833496094
+          },
+          "hit": true
+        },
+        {
+          "action": "music",
+          "rect": {
+            "x": 257.98468017578125,
+            "y": 607.7474365234375,
+            "width": 45.718170166015625,
+            "height": 51.505126953125,
+            "top": 607.7474365234375,
+            "right": 303.7028503417969,
+            "bottom": 659.2525634765625,
+            "left": 257.98468017578125
+          },
+          "hit": true
+        }
+      ]
+    },
+    {
+      "name": "classic 390×744",
+      "viewport": [
+        390,
+        744
+      ],
+      "scroll": [
+        390,
+        744
+      ],
+      "board": {
+        "x": 19,
+        "y": 166,
+        "width": 352,
+        "height": 452.5625,
+        "top": 166,
+        "right": 371,
+        "bottom": 618.5625,
+        "left": 19
+      },
+      "cells": 63,
+      "cell": {
+        "x": 19,
+        "y": 166,
+        "width": 50.28125,
+        "height": 50.28125,
+        "top": 166,
+        "right": 69.28125,
+        "bottom": 216.28125,
+        "left": 19
+      },
+      "last": {
+        "x": 320.703125,
+        "y": 568.265625,
+        "width": 50.28125,
+        "height": 50.28125,
+        "top": 568.265625,
+        "right": 370.984375,
+        "bottom": 618.546875,
+        "left": 320.703125
+      },
+      "square": true,
+      "footer": [
+        {
+          "action": "recipes",
+          "rect": {
+            "x": 26.079343795776367,
+            "y": 688.7947387695312,
+            "width": 67.59130859375,
+            "height": 49.4105224609375,
+            "top": 688.7947387695312,
+            "right": 93.67065238952637,
+            "bottom": 738.2052612304688,
+            "left": 26.079343795776367
+          },
+          "hit": true
+        },
+        {
+          "action": "storage",
+          "rect": {
+            "x": 137.140625,
+            "y": 687.5,
+            "width": 56,
+            "height": 48,
+            "top": 687.5,
+            "right": 193.140625,
+            "bottom": 735.5,
+            "left": 137.140625
+          },
+          "hit": true
+        },
+        {
+          "action": "phone",
+          "rect": {
+            "x": 234.04441833496094,
+            "y": 684.3842163085938,
+            "width": 46.66117858886719,
+            "height": 54.2315673828125,
+            "top": 684.3842163085938,
+            "right": 280.7055969238281,
+            "bottom": 738.6157836914062,
+            "left": 234.04441833496094
+          },
+          "hit": true
+        },
+        {
+          "action": "music",
+          "rect": {
+            "x": 320.2658996582031,
+            "y": 684.7474365234375,
+            "width": 45.71820068359375,
+            "height": 51.505126953125,
+            "top": 684.7474365234375,
+            "right": 365.9841003417969,
+            "bottom": 736.2525634765625,
+            "left": 320.2658996582031
+          },
+          "hit": true
+        }
+      ]
+    },
+    {
+      "name": "classic 430×740",
+      "viewport": [
+        430,
+        740
+      ],
+      "scroll": [
+        430,
+        740
+      ],
+      "board": {
+        "x": 19,
+        "y": 166,
+        "width": 392,
+        "height": 504,
+        "top": 166,
+        "right": 411,
+        "bottom": 670,
+        "left": 19
+      },
+      "cells": 63,
+      "cell": {
+        "x": 19,
+        "y": 166,
+        "width": 56,
+        "height": 56,
+        "top": 166,
+        "right": 75,
+        "bottom": 222,
+        "left": 19
+      },
+      "last": {
+        "x": 355,
+        "y": 614,
+        "width": 56,
+        "height": 56,
+        "top": 614,
+        "right": 411,
+        "bottom": 670,
+        "left": 355
+      },
+      "square": true,
+      "footer": [
+        {
+          "action": "recipes",
+          "rect": {
+            "x": 32.048095703125,
+            "y": 684.7947387695312,
+            "width": 67.59130859375,
+            "height": 49.4105224609375,
+            "top": 684.7947387695312,
+            "right": 99.639404296875,
+            "bottom": 734.2052612304688,
+            "left": 32.048095703125
+          },
+          "hit": true
+        },
+        {
+          "action": "storage",
+          "rect": {
+            "x": 154.265625,
+            "y": 683.5,
+            "width": 56,
+            "height": 48,
+            "top": 683.5,
+            "right": 210.265625,
+            "bottom": 731.5,
+            "left": 154.265625
+          },
+          "hit": true
+        },
+        {
+          "action": "phone",
+          "rect": {
+            "x": 260.79443359375,
+            "y": 680.3842163085938,
+            "width": 46.661163330078125,
+            "height": 54.2315673828125,
+            "top": 680.3842163085938,
+            "right": 307.4555969238281,
+            "bottom": 734.6157836914062,
+            "left": 260.79443359375
+          },
+          "hit": true
+        },
+        {
+          "action": "music",
+          "rect": {
+            "x": 355.8440246582031,
+            "y": 680.7474365234375,
+            "width": 45.71820068359375,
+            "height": 51.505126953125,
+            "top": 680.7474365234375,
+            "right": 401.5622253417969,
+            "bottom": 732.2525634765625,
+            "left": 355.8440246582031
+          },
+          "hit": true
+        }
+      ]
+    },
+    {
+      "name": "classic 1440×900",
+      "viewport": [
+        1440,
+        900
+      ],
+      "scroll": [
+        1440,
+        900
+      ],
+      "board": {
+        "x": 524,
+        "y": 226,
+        "width": 392,
+        "height": 504,
+        "top": 226,
+        "right": 916,
+        "bottom": 730,
+        "left": 524
+      },
+      "cells": 63,
+      "cell": {
+        "x": 524,
+        "y": 226,
+        "width": 56,
+        "height": 56,
+        "top": 226,
+        "right": 580,
+        "bottom": 282,
+        "left": 524
+      },
+      "last": {
+        "x": 860,
+        "y": 674,
+        "width": 56,
+        "height": 56,
+        "top": 674,
+        "right": 916,
+        "bottom": 730,
+        "left": 860
+      },
+      "square": true,
+      "footer": [
+        {
+          "action": "recipes",
+          "rect": {
+            "x": 537.048095703125,
+            "y": 784.7947387695312,
+            "width": 67.59130859375,
+            "height": 49.4105224609375,
+            "top": 784.7947387695312,
+            "right": 604.639404296875,
+            "bottom": 834.2052612304688,
+            "left": 537.048095703125
+          },
+          "hit": true
+        },
+        {
+          "action": "storage",
+          "rect": {
+            "x": 659.265625,
+            "y": 783.5,
+            "width": 56,
+            "height": 48,
+            "top": 783.5,
+            "right": 715.265625,
+            "bottom": 831.5,
+            "left": 659.265625
+          },
+          "hit": true
+        },
+        {
+          "action": "phone",
+          "rect": {
+            "x": 765.79443359375,
+            "y": 780.3842163085938,
+            "width": 46.6611328125,
+            "height": 54.2315673828125,
+            "top": 780.3842163085938,
+            "right": 812.45556640625,
+            "bottom": 834.6157836914062,
+            "left": 765.79443359375
+          },
+          "hit": true
+        },
+        {
+          "action": "music",
+          "rect": {
+            "x": 860.843994140625,
+            "y": 780.7474365234375,
+            "width": 45.71826171875,
+            "height": 51.505126953125,
+            "top": 780.7474365234375,
+            "right": 906.562255859375,
+            "bottom": 832.2525634765625,
+            "left": 860.843994140625
+          },
+          "hit": true
+        }
+      ]
+    },
+    {
+      "name": "classic after all panels close",
+      "viewport": [
+        375,
+        667
+      ],
+      "scroll": [
+        375,
+        667
+      ],
+      "board": {
+        "x": 19.109375,
+        "y": 166,
+        "width": 336.765625,
+        "height": 432.984375,
+        "top": 166,
+        "right": 355.875,
+        "bottom": 598.984375,
+        "left": 19.109375
+      },
+      "cells": 63,
+      "cell": {
+        "x": 19.109375,
+        "y": 166,
+        "width": 48.109375,
+        "height": 48.109375,
+        "top": 166,
+        "right": 67.21875,
+        "bottom": 214.109375,
+        "left": 19.109375
+      },
+      "last": {
+        "x": 307.765625,
+        "y": 550.875,
+        "width": 48.109375,
+        "height": 48.109375,
+        "top": 550.875,
+        "right": 355.875,
+        "bottom": 598.984375,
+        "left": 307.765625
+      },
+      "square": true,
+      "footer": [
+        {
+          "action": "recipes",
+          "rect": {
+            "x": 23.844968795776367,
+            "y": 611.7947387695312,
+            "width": 67.59130859375,
+            "height": 49.4105224609375,
+            "top": 611.7947387695312,
+            "right": 91.43627738952637,
+            "bottom": 661.2052612304688,
+            "left": 23.844968795776367
+          },
+          "hit": true
+        },
+        {
+          "action": "storage",
+          "rect": {
+            "x": 130.703125,
+            "y": 610.5,
+            "width": 56,
+            "height": 48,
+            "top": 610.5,
+            "right": 186.703125,
+            "bottom": 658.5,
+            "left": 130.703125
+          },
+          "hit": true
+        },
+        {
+          "action": "phone",
+          "rect": {
+            "x": 224.01316833496094,
+            "y": 607.3842163085938,
+            "width": 46.66117858886719,
+            "height": 54.2315673828125,
+            "top": 607.3842163085938,
+            "right": 270.6743469238281,
+            "bottom": 661.6157836914062,
+            "left": 224.01316833496094
+          },
+          "hit": true
+        },
+        {
+          "action": "music",
+          "rect": {
+            "x": 306.9221496582031,
+            "y": 607.7474365234375,
+            "width": 45.71820068359375,
+            "height": 51.505126953125,
+            "top": 607.7474365234375,
+            "right": 352.6403503417969,
+            "bottom": 659.2525634765625,
+            "left": 306.9221496582031
+          },
+          "hit": true
+        }
+      ]
+    },
+    {
+      "name": "classic all resource, story, gift, recipe/catalogue, storage, phone/shop/settings, music controls",
+      "result": true
+    },
+    {
+      "name": "island real main delivery, production, merge/move/swap, storage round trip and no duplicate daily reward on theme switch",
+      "result": true
+    },
+    {
+      "name": "classic real main delivery, production, merge/move/swap, storage round trip and no duplicate daily reward on theme switch",
+      "result": true
+    },
+    {
+      "name": "ordinary order delivery through rendered control",
+      "result": true
+    },
+    {
+      "name": "real Chrome touch order swipe and bottom-row merge with no page scroll",
+      "result": true
+    },
+    {
+      "name": "theme change cancels active pointer and ghost without changing the board",
+      "result": true
+    },
+    {
+      "name": "storage write denied: session theme still switches",
+      "result": true
+    }
+  ],
+  "errors": []
+}

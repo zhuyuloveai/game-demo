@@ -1,3 +1,4 @@
+import { KITCHEN_STYLES, readKitchenStyle, rememberKitchenStyle } from './kitchen-style.mjs';
 import { CHAINS, FAMILY_META, PRODUCER_DEFS, CHAPTERS, SHOP_ITEMS, RECIPES, createGame, generate, move, fulfillOrder, getOrderProgress, refillEnergy, sellItem, getLevel, findMerge, tick, producerStatus, collectItem, claimPending, storeItem, retrieveItem, expandStorage, getChapterProgress, claimChapter, buyShopItem, claimDaily, useBooster, resolveBubble, unlockCell, unlockCost, storageExpansionCost, getRecipeProgress, cookRecipe } from './engine.mjs';
 import { BALANCE, ITEMS, definition, sourceRules, isSource, isPermanent, sourceDescription, activeOrders, mainOrder, refreshOrder, claimBreak, claimCommission, useTool, previewTool, discardItem, undoDiscard, claimCredits, levelFloor, itemKey } from './engine.mjs';
 import { icon, glyph, avatar } from './art.mjs';
@@ -6,7 +7,7 @@ import { createKitchenAudio } from './audio.mjs';
 
 const $ = s => document.querySelector(s);
 const LEVEL_NAMES=['见习小厨','烘焙新秀','人气主厨','美味专家','厨房明星'];
-const qa=new URLSearchParams(location.search).get('qa'),qaEnabled=['127.0.0.1','localhost','::1'].includes(location.hostname)&&['special','resources','chapter','migration','producers','producer-tiers'].includes(qa);
+const qa=new URLSearchParams(location.search).get('qa'),qaEnabled=['127.0.0.1','localhost','::1'].includes(location.hostname)&&['special','resources','chapter','migration','producers','producer-tiers','island','island-long'].includes(qa);
 const STORAGE = qaEnabled?`little-kitchen-qa-${qa}`:'little-kitchen-save-v1';
 const BACKUP_PREFIX=qaEnabled?STORAGE:'little-kitchen';
 const backupKey=suffix=>`${BACKUP_PREFIX}-${suffix}`;
@@ -23,6 +24,10 @@ try {
 let state;try{if(backupError)throw Error('无法保存迁移前备份。请先导出原档，释放浏览器存储后重试。');state=createGame(saved);}catch(error){document.body.innerHTML='<main class=save-recovery><h1>存档已保护</h1><p></p><button id=export-protected>导出原始存档</button><p>请使用支持此版本的程序，或从迁移前备份恢复。</p></main>';document.querySelector('p').textContent=error.message;document.querySelector('button').onclick=()=>download('kitchen-protected-save.json',saved);throw error;}
 const makeFixture=qaEnabled?(await import('./qa.mjs')).fixture:null;
 if(qaEnabled&&!saved)state=makeFixture(qa);
+let kitchenStyle;
+try{kitchenStyle=readKitchenStyle(localStorage,!!saved);}catch{kitchenStyle=saved?'classic':'island';}
+document.documentElement.dataset.kitchenStyle=kitchenStyle;
+try{rememberKitchenStyle(localStorage,kitchenStyle);}catch{}
 let toolSelection=null, toolTarget=null,catalogDetail='food:1';
 function resolveToolSelection(){const index=state.board.findIndex(x=>x?.id===toolSelection);return index>=0?index:toolSelection;}
 function selectTool(id){toolSelection=id;const tool=state.tools.find(x=>x.id===id)||state.board.find(x=>x?.id===id);if(['infinite','timeskip','backpack'].includes(tool.family)){toolTarget=null;openPanel('tool-preview');}else openPanel('tool-target');}
@@ -33,7 +38,7 @@ const audio=createKitchenAudio({music:musicEnabled,effects:effectsEnabled});
 audio.setVolume('music',musicVolume);audio.setVolume('effects',effectsVolume);
 let selected=null, hinted=[], toastTimer, hintTimer, pointer=null, ghost=null, dropCell=null, suppressClick=false;
 let modalView='', catalogFamily='food';
-const board=$('#board'), modal=$('#modal');
+const board=$('#board'), modal=$('#modal'), storyAssistant=$('.e-assistant');
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
 // Keep each item's idle phase stable when a render replaces the board DOM.
 function motionPhase(id){
@@ -127,6 +132,7 @@ function renderStats(){
   const progress=getChapterProgress(state), nextTask=progress.tasks.find(task=>!task.done);
   $('#quest-copy').textContent=progress.allComplete?'开店手账完成，继续发现世界美味':progress.ready?`${progress.chapter.name}完成，领取开店礼`:`下一步：${mainOrder(state)?.title||'使用星星布置本章'}`;
   $('#quest-progress').textContent=progress.allComplete?'✓':`${progress.completed}/${progress.total}`;
+  $('#story-progress').textContent=progress.allComplete?'✓':`${progress.completed}/8`;
   $('.e-speech').classList.toggle('task-ready',progress.ready);
   $('#storage-count').textContent=`${state.inventory.length}/${state.storageCapacity}`;
   $('#gift-count').textContent=state.pending.length?String(state.pending.length):dailyReady()?'领':'✓';
@@ -157,8 +163,9 @@ function renderSelection(){
   $('#selection-card').innerHTML=`<span class="selected-art">${itemArt(item)}</span><div class="selection-copy"><strong>${esc(itemName(item))}<span class="selection-meta">Lv.${item.level||1}</span></strong><p>${esc(description)}</p></div><div class="selection-actions">${actions}</div>`;
 }
 function renderOrders(){
-  $('#orders').innerHTML=activeOrders(state).map((order,i)=>{const p=getOrderProgress(state,order);return `<article class="order-card ${order.main?'is-main':''} ${p.ready?'is-ready':''}" data-order="${order.id}" style="${motionPhase(order.id)}"><div class="order-top">${order.main?'<span class="main-order-avatar puppy-avatar" aria-hidden="true"></span>':(a=>`<span class="avatar ${a.name}">${a.svg}</span>`)(avatar(order.customer))}<div><h3>${esc(order.customer)}</h3><p>${esc(order.title)}</p></div></div><div class="order-needs">${p.needs.map(n=>`<div class="need ${!n.missing?'ready':''}" title="${esc(itemName(n))} ${n.have}/${n.count}"><span class="need-visual"><span class="need-art">${itemArt(n)}</span><span class="need-count">${Math.min(n.have,n.count)}/${n.count}</span>${!n.missing?`<span class="need-check">${glyph('check')}</span>`:''}</span><span class="need-name">${esc(itemName(n))}</span></div>`).join('')}</div><div class="order-bottom">${order.main?'':`<button class="order-refresh" data-refresh-order="${order.id}" aria-label="刷新${esc(order.customer)}订单">↻</button>`}<span class="reward"><span class="reward-coin">${icon('coin')}${order.coins}</span><small>★ ${order.stars||1}</small></span>${p.ready?`<button class="order-submit" data-fulfill="${order.id}">交付 ✓</button>`:''}</div></article>`;}).join('');
-  if(state.orders.length<3)$('#orders').innerHTML+=`<article class="order-card order-empty"><strong>邻里订单</strong><p>请把生产器从仓库或待领区取到台面，保留空位后继续接单。</p></article>`;
+  $('#orders').innerHTML=activeOrders(state).map((order,i)=>{const p=getOrderProgress(state,order);return `<article class="order-card ${order.main?'is-main':''} ${p.ready?'is-ready':''}" data-order="${order.id}" style="${motionPhase(order.id)}"><div class="order-top">${order.main?'<span class="story-assistant-slot"></span>':(a=>`<span class="avatar ${a.name}">${a.svg}</span>`)(avatar(order.customer))}<div><h3>${esc(order.customer)}</h3><p>${esc(order.title)}</p></div></div><div class="order-paper"><div class="order-needs">${p.needs.map(n=>`<div class="need ${!n.missing?'ready':''}" title="${esc(itemName(n))} ${n.have}/${n.count}"><span class="need-visual"><span class="need-art">${itemArt(n)}</span><span class="need-count">${Math.min(n.have,n.count)}/${n.count}</span>${!n.missing?`<span class="need-check">${glyph('check')}</span>`:''}</span><span class="need-caption"><span class="need-name">${esc(itemName(n))}</span><span class="need-quantity">${Math.min(n.have,n.count)}/${n.count}</span></span></div>`).join('')}</div><div class="order-bottom">${order.main?'':`<button class="order-refresh" data-refresh-order="${order.id}" aria-label="刷新${esc(order.customer)}订单">↻</button>`}<span class="reward"><span class="reward-coin">${icon('coin')}${order.coins}</span><small>★ ${order.stars||1}</small></span>${p.ready?`<button class="order-submit" data-fulfill="${order.id}">交付 ✓</button>`:''}</div></div></article>`;}).join('');
+  let slot=$('.story-assistant-slot');if(!slot){slot=document.createElement('span');slot.className='story-assistant-slot';$('#orders').prepend(slot);}slot.append(storyAssistant);
+  if(state.orders.length<3)$('#orders').insertAdjacentHTML('beforeend',`<article class="order-card order-empty"><strong>邻里订单</strong><p>请把生产器从仓库或待领区取到台面，保留空位后继续接单。</p></article>`);
 }
 function render(pop=-1){renderBoard(pop);renderStats();renderSelection();renderOrders();}
 function act(result,{pop=-1,fx=null,showMessage=false}={}){
@@ -279,7 +286,7 @@ function renderPanel(){
     html=panelHeader('小狗厨房的声音','原创轻快循环配乐，搭配点击、生产、合成、交单、烹饪和开店奖励音效。首次操作后开始播放。');
     html+=`<div class="settings-row"><span>背景音乐<small>轻快铃音、拨弦与温暖低音</small></span>${button(musicEnabled?'已开启':'已关闭','toggle-music')}</div><label class="settings-row">音乐音量 <input class="music-slider" type="range" min="0" max="100" value="${Math.round(musicVolume*100)}" data-volume="music" aria-label="背景音乐音量"></label><div class="settings-row"><span>操作音效<small>每种操作都有不同的声音反馈</small></span>${button(effectsEnabled?'已开启':'已关闭','toggle-effects')}</div><label class="settings-row">音效音量 <input class="music-slider" type="range" min="0" max="100" value="${Math.round(effectsVolume*100)}" data-volume="effects" aria-label="操作音效音量"></label>`;
   }else if(modalView==='settings'){
-    html=panelHeader('厨房小设置','按自己的节奏，慢慢收集每一份美味。')+`<div class="settings-row"><span>存档与调参记录<small>版本4 · ${state.balanceVersion}</small></span>${button('导出备份','export-save')}${button('导出事件','export-events')}</div><div class="settings-row"><span>迁移前备份<small>${backupSummary()}；恢复时保留当前进度副本</small></span>${button('导出原始旧档','export-legacy')}${button('恢复旧备份','restore-backup')}</div><div class="settings-row"><span>玩法说明<small>生产、合成、做菜、交单与章节任务</small></span>${button('查看','help')}</div><div class="settings-row"><span>音乐和音效<small>分别开关与调节音量</small></span>${button('调整','music')}</div><div class="settings-row"><span>自动存档<small>${storageAvailable?'当前浏览器自动保存，旧版进度已兼容':'当前浏览器暂时无法保存'}</small></span>自动</div><div class="settings-row"><span>重新开张<small>清空当前进度，回到新手厨房</small></span>${button('重新开始','reset-confirm')}</div>`;
+    html=panelHeader('厨房小设置','按自己的节奏，慢慢收集每一份美味。')+`<fieldset class="kitchen-style-picker"><legend>厨房风格</legend><div>${Object.entries(KITCHEN_STYLES).map(([id,label])=>`<button data-kitchen-style="${id}" aria-pressed="${kitchenStyle===id}"><span>${id==='island'?'☀':'⌂'}</span><b>${label}</b><small>${kitchenStyle===id?'正在使用':id==='island'?'窗光与浅蓝岛台':'熟悉的奶油小厨房'}</small></button>`).join('')}</div></fieldset>`+`<div class="settings-row"><span>存档与调参记录<small>版本4 · ${state.balanceVersion}</small></span>${button('导出备份','export-save')}${button('导出事件','export-events')}</div><div class="settings-row"><span>迁移前备份<small>${backupSummary()}；恢复时保留当前进度副本</small></span>${button('导出原始旧档','export-legacy')}${button('恢复旧备份','restore-backup')}</div><div class="settings-row"><span>玩法说明<small>生产、合成、做菜、交单与章节任务</small></span>${button('查看','help')}</div><div class="settings-row"><span>音乐和音效<small>分别开关与调节音量</small></span>${button('调整','music')}</div><div class="settings-row"><span>自动存档<small>${storageAvailable?'当前浏览器自动保存，旧版进度已兼容':'当前浏览器暂时无法保存'}</small></span>自动</div><div class="settings-row"><span>重新开张<small>清空当前进度，回到新手厨房</small></span>${button('重新开始','reset-confirm')}</div>`;
   }else if(modalView==='help'){
     html=panelHeader('厨房店长小手册','主玩法是两两合成，食谱与开店任务让每一件物品都有用途。');
     const steps=[['生产与升级','点击篮子、厨具架等生产器消耗1电量获取材料。次数用完会冷却，同种同级生产器可拖动合并升级。'],['合成与解锁','点击物品只切换选中，拖动相同种类和等级的物品合成升级。拖入蒙尘的相同物品可解锁；空的锁定格可通过相邻合成整理，也能花金币清理。'],['订单与章节','订单只计算台面上的已解锁物品。交单可得金币、经验和许愿星；完成小狗店长手账的任务，逐步解锁咖啡、香草、亚洲及环球料理设备。星星用于章节结算布置。'],['食材与厨具','打开食谱，凑齐指定材料和对应等级厨具即可做菜。材料会消耗，厨具可以反复使用；更高级厨具同样有效。'],['仓库与礼物','在物品信息栏收纳物品；仓库可用金币扩容。每5份合格订单有礼盒，每日有开店礼。礼盒、金币和电量道具也能合成升级。'],['辅助道具','剪刀把2级以上材料拆成两份上一级，沙漏推进全棋盘生产时钟，补货箱增加选中生产器库存。点击选中物品后，在“更多”里使用。'],['惊喜与自动产出','高级合成有机会产生限时泡泡，可以购买或变为金币。香草花园会定时自动产出，先给它留出相邻空位。'],['音乐与存档','原创音乐在首次操作后播放；离开页面会暂停。进度自动保存，音效与配乐可以分别关闭。']];
@@ -318,6 +325,13 @@ document.addEventListener('click',event=>{
   if(target.dataset.cook){const r=cookRecipe(state,target.dataset.cook);if(r.ok){selected=r.index;modal.close();}if(act(r,{pop:r.index,fx:'cook',showMessage:true}))celebrate(board.querySelector(`[data-cell="${r.index}"]`),'新鲜出炉！',true,'cook');return;}
   if(target.dataset.locate!==undefined){selected=Number(target.dataset.locate);modal.close();renderBoard();renderSelection();playSound('select');return;}
   if(target.dataset.fulfill){const origin=target.getBoundingClientRect(),r=fulfillOrder(state,target.dataset.fulfill);if(r.ok)selected=null;if(act(r,{fx:'order'})){puppyMood('cheering');rewardFlight(origin);celebrate($('#orders'),`+${r.coins} 金币 · +${r.stars||1} 许愿星`,true);toast(r.message);}return;}
+  if(target.dataset.kitchenStyle){
+    const style=target.dataset.kitchenStyle;if(!Object.hasOwn(KITCHEN_STYLES,style))return;
+    if(pointer)endPointer({pointerId:pointer.id},true);
+    kitchenStyle=style;document.documentElement.dataset.kitchenStyle=style;
+    try{rememberKitchenStyle(localStorage,style);}catch{}
+    refreshPanel();$(`button[data-kitchen-style="${style}"]`)?.focus({preventScroll:true});toast(`已换成${KITCHEN_STYLES[style]}`);return;
+  }
   const action=target.dataset.action;
   if(['profile','collection','storage','shop','rewards','tasks','phone','cash','stars','recipes','sources','item','energy','music','settings','help','reset-confirm','sell-confirm','tool-picker'].includes(action)){
     if(target.dataset.familySource)catalogFamily=target.dataset.familySource;
@@ -423,4 +437,4 @@ render();save();
 
 if(state.migrationNotice&&!state.claimed[`migration:notice:v${state.version}`]){toast(state.migrationNotice);state.claimed[`migration:notice:v${state.version}`]=true;save();}
 
-if(qaEnabled){const controls=document.createElement('aside');controls.className='qa-controls';controls.innerHTML='<b>本地验收 · '+qa+'</b><button data-action=qa-advance>推进1小时</button><button data-action=qa-reset>重置场景</button><a href=qa.html>切换场景</a>';document.body.prepend(controls);}
+if(qaEnabled&&!qa.startsWith('island')){const controls=document.createElement('aside');controls.className='qa-controls';controls.innerHTML='<b>本地验收 · '+qa+'</b><button data-action=qa-advance>推进1小时</button><button data-action=qa-reset>重置场景</button><a href=qa.html>切换场景</a>';document.body.prepend(controls);}

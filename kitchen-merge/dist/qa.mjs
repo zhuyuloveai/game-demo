@@ -11,7 +11,17 @@ export function fixture(kind, now = Date.now()) {
   s.gems = 100;
   s.energy = 999;
   const put = (i, id) => (s.board[i] = makeItem(s, id, now));
-  if (kind === "special") {
+  if (["island","island-long"].includes(kind)) {
+    // Visual comparison only: real, interactive items in an isolated localhost QA save.
+    s.coins=120;s.gems=20;s.energy=100;s.stars=12;
+    const layout={0:'gen_food:5',1:'food:2',4:'food:1',6:'vegetable:2',8:'tableware:1',11:'tools:3',12:'food:4',14:'vegetable:2',16:'fruit:2',18:'tools:2',20:'food:2',21:'gen_produce:3',23:'food:1',25:'food:3',27:'tableware:1',29:'food:4',31:'food:6',33:'fruit:2',35:'tools:2',37:'vegetable:2',39:'food:1',41:'food:2',43:'fruit:2',45:'tableware:1',47:'food:6',49:'food:2',51:'tools:3',53:'gen_tools:4',55:'food:3',57:'vegetable:2',59:'food:4',61:'tools:2'};
+    for(const [index,id]of Object.entries(layout))put(Number(index),id);
+    if(kind==='island-long'){
+      // Real catalogue names and a normal two-need order, with no rule changes.
+      s.orders[0].needs=[{family:'tools',level:13,count:1},{family:'food',level:11,count:1}];
+      put(2,'tools:13');put(3,'food:11');
+    }
+  } else if (kind === "special") {
     s.stage = 11;
     [
       "emptybag:4",
@@ -99,7 +109,7 @@ export function fixture(kind, now = Date.now()) {
       for (let count = 0; count < need.count; count++)
         put(i++, `${need.family}:${need.level}`);
   }
-  s.orders = [];
+  if(!["island","island-long"].includes(kind))s.orders = [];
   s.events = [];
   return s;
 }

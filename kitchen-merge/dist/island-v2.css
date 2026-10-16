@@ -1,0 +1,166 @@
+/* Revision 1: independent surfaces, tangible resources, upright order holders.
+   Every painted surface is anchored to its own DOM region, never the viewport. */
+.need-caption{display:block;width:100%}
+.need-quantity{display:none}
+[data-kitchen-style="island"] .game-shell.k-design{
+  --hud-height:48px;--scene-height:76px;--desk-height:64px;
+  grid-template-rows:48px 76px minmax(0,1fr) 64px;
+  background:#e9c79a;
+}
+[data-kitchen-style="island"] .k-design .k-hud{
+  height:48px;padding:0 5px;gap:2px;isolation:isolate;z-index:4;
+  background:#efc993 url('./assets/island-window-v2.webp') center/100% 100% no-repeat;
+  border:0;box-shadow:inset 0 -3px #d89f5b,inset 0 -4px #fff0b9,0 2px 2px #85522933;
+}
+[data-kitchen-style="island"] .k-design .k-hud .puppy-profile,
+[data-kitchen-style="island"] .k-design .k-hud>.v-meter,
+[data-kitchen-style="island"] .k-design .k-hud>.v-cash,
+[data-kitchen-style="island"] .k-design .k-hud>.v-stars,
+[data-kitchen-style="island"] .k-design .k-hud>.v-candy{
+  width:100%;height:48px;min-width:0;overflow:visible;
+}
+[data-kitchen-style="island"] .k-hud .hud-profile-art,
+[data-kitchen-style="island"] .k-hud .hud-meter-art,
+[data-kitchen-style="island"] .k-hud .v-meter-screen,
+[data-kitchen-style="island"] .k-hud .v-pig,
+[data-kitchen-style="island"] .k-hud .v-stars-jar{
+  display:contents;transform:none;position:static;background:none;border:0;box-shadow:none;
+}
+[data-kitchen-style="island"] .k-hud .v-meter-mark,
+[data-kitchen-style="island"] .k-hud .v-meter-vents,
+[data-kitchen-style="island"] .k-hud .v-pig>*:not(strong),
+[data-kitchen-style="island"] .k-hud .v-stars-jar>*:not(strong),
+[data-kitchen-style="island"] .k-hud .v-pig:before,
+[data-kitchen-style="island"] .k-hud .v-pig:after,
+[data-kitchen-style="island"] .k-hud .v-stars-jar:before,
+[data-kitchen-style="island"] .k-hud .v-stars-jar:after{display:none}
+[data-kitchen-style="island"] .k-hud .puppy-avatar{
+  position:absolute;left:-2px;bottom:5px;width:37px;height:38px;background:url('./assets/island-puppy-v2.webp') center/contain no-repeat;
+  border-radius:0;box-shadow:none;filter:drop-shadow(0 2px 1px #81502f44);
+}
+[data-kitchen-style="island"] .k-hud>button:before{
+  content:'';position:absolute;left:-2px;bottom:5px;width:39px;height:38px;
+  background:center/contain no-repeat;z-index:1;filter:drop-shadow(0 2px 1px #81502f40);pointer-events:none;
+}
+[data-kitchen-style="island"] .k-hud>.v-meter:before{background-image:url('./assets/island-energy-v2.webp');width:33px;left:0}
+[data-kitchen-style="island"] .k-hud>.v-cash:before{background-image:url('./assets/island-pig-v2.webp');width:38px;left:-3px}
+[data-kitchen-style="island"] .k-hud>.v-stars:before{background-image:url('./assets/island-star-v2.webp');width:33px}
+[data-kitchen-style="island"] .k-hud>.v-candy:before{background-image:url('./assets/island-candy-v2.webp');width:33px}
+[data-kitchen-style="island"] .k-hud #kitchen-level-label,
+[data-kitchen-style="island"] .k-hud #energy-count,
+[data-kitchen-style="island"] .k-hud .v-pig #coin-count,
+[data-kitchen-style="island"] .k-hud .v-stars #star-count,
+[data-kitchen-style="island"] .k-hud .v-candy #gem-count{
+  position:absolute;left:28px;right:0;top:auto;bottom:7px;height:23px;margin:0;padding:2px 2px;
+  border:1.5px solid #b8783d;border-radius:6px;background:linear-gradient(#fff8e5,#ffebc4);
+  box-shadow:inset 0 1px #fffef8,0 2px #98603755;
+  color:#6a4025;text-shadow:0 1px #fff8e7;font:750 14px/16px var(--font);letter-spacing:-.4px;
+  text-align:center;z-index:0;font-variant-numeric:tabular-nums;
+}
+[data-kitchen-style="island"] .k-hud #kitchen-level-label{left:24px;font-size:12px;letter-spacing:-.6px;z-index:1}
+[data-kitchen-style="island"] .k-design .k-scene{
+  height:76px;overflow:visible;z-index:3;
+  background:#dbab70 url('./assets/island-wood-v2.webp') center/430px auto;
+  box-shadow:inset 0 -3px #a9703e66,inset 0 -4px #ffe7b7,0 2px 3px #87552d33;
+}
+[data-kitchen-style="island"] .k-design .k-orders{
+  height:76px;inset:0 0 0 5px;padding:2px 10px 2px 0;gap:6px;align-items:stretch;scroll-padding-left:2px;
+}
+[data-kitchen-style="island"] .k-design .k-orders .order-card{
+  flex-basis:160px;height:72px;min-height:72px;overflow:visible;
+}
+[data-kitchen-style="island"] .k-design .k-orders .order-card.is-main{
+  flex-basis:186px;border-radius:10px 10px 6px 6px;
+  background:linear-gradient(115deg,#fff1b8,#ffe6a0);
+  box-shadow:inset 0 0 0 1px #d8a552,inset 0 0 0 3px #fff8df,0 2px #bd8a46,0 4px 3px #80502e40;
+}
+[data-kitchen-style="island"] .k-orders .order-paper{
+  height:72px;align-self:start;grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) 22px;
+  padding:0 7px 0 18px;gap:0;border:1px solid #d1b089;border-radius:11px 11px 6px 6px;
+  background:linear-gradient(115deg,#fff9e9,#f5e7d0);
+  box-shadow:inset 0 0 0 2px #fff7e7,0 2px #c4a178,0 4px 3px #80502e40;
+}
+[data-kitchen-style="island"] .k-orders .is-main .order-paper{
+  height:72px;padding:12px 6px 4px 3px;border:0;background:none;box-shadow:none;
+  grid-template-rows:minmax(0,1fr) 20px;
+}
+[data-kitchen-style="island"] .k-orders .order-paper:after{
+  content:'';position:absolute;right:8px;top:4px;width:5px;height:6px;border-radius:0 0 50% 50%;
+  background:#d2aa78;box-shadow:inset 1px 1px #a97743;pointer-events:none;
+}
+[data-kitchen-style="island"] .k-orders .is-main .order-paper:before{
+  left:65px;top:-1px;padding:1px 8px 2px;border-radius:0 0 5px 5px;background:linear-gradient(#ffab6c,#ed7642);
+  color:#fff9e9;font:12px/14px var(--cute-font);box-shadow:0 1px #ce6b37;
+}
+[data-kitchen-style="island"] .k-orders .order-needs{flex-direction:column;align-items:stretch;justify-content:center;gap:0}
+[data-kitchen-style="island"] .k-orders .need{flex:0 0 auto;display:flex;flex-direction:row;gap:4px;height:24px;justify-content:flex-start}
+[data-kitchen-style="island"] .k-orders .need-visual,
+[data-kitchen-style="island"] .k-orders .need-art{width:24px;height:24px;flex:none}
+[data-kitchen-style="island"] .k-orders .need-visual .need-count{display:none}
+[data-kitchen-style="island"] .k-orders .need-caption{display:flex;min-width:0;align-items:center;gap:4px}
+[data-kitchen-style="island"] .k-orders .need-name{width:auto;flex:1;min-width:0;max-height:none;min-height:0;white-space:normal;overflow:visible;color:#684326;font:600 12px/12px var(--font)}
+[data-kitchen-style="island"] .k-orders .need-quantity{display:block;flex:none;color:#ba5335;font:750 12px/15px var(--font);font-variant-numeric:tabular-nums}
+[data-kitchen-style="island"] .k-orders .need.ready .need-quantity{color:#4d8038}
+[data-kitchen-style="island"] .k-orders .is-main .need{height:36px;gap:3px}
+[data-kitchen-style="island"] .k-orders .is-main .need-visual,
+[data-kitchen-style="island"] .k-orders .is-main .need-art{width:38px;height:38px}
+[data-kitchen-style="island"] .k-orders .is-main .need-name{font-size:13px;line-height:14px}
+[data-kitchen-style="island"] .k-orders .order-bottom{height:22px;flex-direction:row;align-items:center;justify-content:flex-end;gap:3px}
+[data-kitchen-style="island"] .k-orders .order-card .reward,
+[data-kitchen-style="island"] .k-orders .order-card:not(.is-ready) .reward{flex:0 0 auto;font:700 11px/16px var(--font);gap:3px;color:#805022}
+[data-kitchen-style="island"] .k-orders .reward small{font:700 11px/16px var(--font);color:#a36a22}
+[data-kitchen-style="island"] .k-orders .reward-coin svg{width:11px;height:11px}
+[data-kitchen-style="island"] .k-orders .order-card .order-submit{height:22px;width:42px;min-width:42px;padding:0 2px;font:12px/20px var(--cute-font);border-radius:6px;background:linear-gradient(#85b36f,#568348);box-shadow:inset 0 1px #bcd49d,0 1px #386333}
+[data-kitchen-style="island"] .k-orders .order-card .order-refresh{width:24px;min-width:24px;height:24px;align-self:center;order:0;background:none;font-size:18px;color:#aa8862}
+[data-kitchen-style="island"] .k-orders .order-top{top:15px;left:-1px;width:31px}
+[data-kitchen-style="island"] .k-orders .order-top .avatar{width:31px;height:31px;background:#fff6e3;box-shadow:0 0 0 2px #fff7e6,0 2px 3px #986d3c44}
+[data-kitchen-style="island"] .k-orders .order-top>div{width:31px}
+[data-kitchen-style="island"] .k-orders .order-top h3{font-size:10px;line-height:12px;background:#fff2d5}
+[data-kitchen-style="island"] .k-orders .is-main .order-top{position:static;flex-basis:58px;width:58px;height:72px}
+[data-kitchen-style="island"] .story-assistant-slot,
+[data-kitchen-style="island"] .story-assistant-slot .e-assistant{width:58px;height:72px}
+[data-kitchen-style="island"] .story-assistant-slot .k-buddy{left:-1px;top:2px;width:59px;height:65px;filter:drop-shadow(1px 2px 1px #986b3e55);animation:none}
+[data-kitchen-style="island"] .story-assistant-slot .puppy-sprite{width:59px;height:65px;transform:none;background:url('./assets/island-puppy-v2.webp') center bottom/contain no-repeat;animation:none}
+[data-kitchen-style="island"] .k-design .story-assistant-slot .e-assistant-face{top:0;left:0;width:49px;height:44px}
+[data-kitchen-style="island"] .k-design .story-assistant-slot .e-parcel{left:35px;top:44px;width:25px;height:25px;filter:drop-shadow(0 1px 1px #7d502e55)}
+[data-kitchen-style="island"] .story-assistant-slot #parcel-art{width:26px;height:26px}
+[data-kitchen-style="island"] .story-assistant-slot .e-assistant-name{left:0;bottom:0;font-size:9px;line-height:10px;color:#8b6438}
+[data-kitchen-style="island"] .k-design .k-worktop{padding:0 11px 4px;background:#eacb9f url('./assets/island-wood-v2.webp') center/430px auto}
+[data-kitchen-style="island"] .k-design .v-slab{padding:0 8px;border-radius:13px;background:linear-gradient(110deg,#ffedca,#e8c99c);box-shadow:inset 0 0 0 1px #ceaa73,inset 0 1px 1px #fff8dd,0 2px #bd945f,0 4px 3px #92623c44}
+[data-kitchen-style="island"] .k-design .selection-card{height:40px;min-height:40px;margin-bottom:2px;padding:0 3px;background:linear-gradient(115deg,#fff9e9,#f7e8ce);border:1px solid #d7ba90;border-radius:10px;box-shadow:0 1px #d5af7c}
+[data-kitchen-style="island"] .selection-card .selection-copy strong{font-size:14px;line-height:16px}
+[data-kitchen-style="island"] .selection-card .selection-copy p{font-size:11px;line-height:14px;color:#876342}
+[data-kitchen-style="island"] .selection-card .small-button{height:34px;min-height:34px;font-size:12px;border-radius:8px;background:linear-gradient(#68b3f5,#3187d5);color:#fffaf0;border-color:#2a7ac3;box-shadow:inset 0 1px #b0dbff,0 2px #226bb1}
+[data-kitchen-style="island"] .k-design .board{--board-base:#f1e3c8;--board-checker:#f5e9d3;--board-item-shadow:#8152283b;border-radius:9px;box-shadow:inset 0 1px 3px #9c754c33,0 1px #fff9e5}
+[data-kitchen-style="island"] .board .cell:before{border-radius:5px;box-shadow:inset 0 0 0 .6px #d0b48966,inset 0 1px #fff7e2}
+[data-kitchen-style="island"] .board .cell.locked:before{background:linear-gradient(135deg,#e9dfca,#e0d5bf);box-shadow:inset 0 0 0 .5px #c8bca555,inset 0 1px #f4ecd9}
+[data-kitchen-style="island"] .board .cell.locked .item-art{opacity:.3;filter:grayscale(.75) saturate(.45)}
+[data-kitchen-style="island"] .board .lock-badge{width:12px;height:12px;top:3px;left:3px;background:#a89b83;color:#fff9e7}
+[data-kitchen-style="island"] .k-design .e-foreground{
+  height:64px;isolation:isolate;overflow:visible;background:#e9bf83 url('./assets/island-wood-v2.webp') center/430px auto;
+  border:0;box-shadow:inset 0 1px #fff0ce;
+}
+[data-kitchen-style="island"] .e-foreground:before{display:block;position:absolute;inset:auto 0 0;height:11px;opacity:1;z-index:-1;background:linear-gradient(#f8d49a 0 1px,#b4783d 2px,#c9904c 5px,#a56b36 7px,#7ca6bb 8px,#8cb2c4 100%);box-shadow:0 -1px #e5bc83;pointer-events:none}
+[data-kitchen-style="island"] .k-design .e-desk-items{inset:0 6px;max-width:none;height:64px;grid-template-columns:1.13fr 1.15fr .85fr 1fr;gap:2px;align-items:end}
+[data-kitchen-style="island"] .k-design .e-desk-items .island-object{height:64px;overflow:visible}
+[data-kitchen-style="island"] .e-desk-items .island-object:before{left:0;right:0;top:auto;bottom:11px;height:45px;width:auto;background-position:center bottom;filter:drop-shadow(1px 2px 1px #84502466)}
+[data-kitchen-style="island"] .e-desk-items .e-book:before{height:52px;transform:rotate(-3deg);transform-origin:center bottom}
+[data-kitchen-style="island"] .e-desk-items .island-storage:before{height:52px}
+[data-kitchen-style="island"] .e-desk-items .e-phone:before{height:57px;bottom:10px}
+[data-kitchen-style="island"] .e-desk-items .v-radio:before{height:52px;bottom:11px}
+[data-kitchen-style="island"] .island-object .object-label{bottom:8px;padding:0 8px 1px;font:13px/15px var(--cute-font);border:1px solid #c5955c;border-radius:6px;background:linear-gradient(#fff8e9,#ffedce);box-shadow:0 1px #b27a4266;z-index:2}
+[data-kitchen-style="island"] .island-storage .e-storage-count{right:6px;bottom:28px;font:9px/11px var(--font);background:#cce3eb;color:#386279;padding:0 2px;z-index:2}
+@media(max-width:350px){[data-kitchen-style="island"] .k-hud #energy-count,[data-kitchen-style="island"] .k-hud .v-pig #coin-count{font-size:12px;left:25px}[data-kitchen-style="island"] .k-hud #kitchen-level-label{font-size:11px;left:22px}[data-kitchen-style="island"] .selection-card .selection-copy p{font-size:10px}}
+@media(prefers-reduced-motion:no-preference){[data-kitchen-style="island"] .puppy-sprite.is-cheering{animation:islandPuppyCheer .45s ease-in-out 2}[data-kitchen-style="island"] .puppy-sprite.is-waving{animation:islandPuppyWave .5s ease-in-out 2}}
+@keyframes islandPuppyCheer{50%{transform:translateY(-3px) rotate(-3deg)}}
+@keyframes islandPuppyWave{50%{transform:rotate(5deg)}}
+
+/* Selection and drop targets retain stronger feedback than the cell bevel. */
+[data-kitchen-style="island"] .board .cell.selected:before,
+[data-kitchen-style="island"] .board .cell.drop-target:before{inset:2px;border-radius:7px;background:#ffe4ae;box-shadow:inset 0 0 0 2px #e39047,0 0 4px #dc9f5555}
+/* Local QA controls never stretch through the playing surface. */
+.qa-controls{top:auto;height:24px;align-items:center}
+/* Keep the original item drawings; fill their 48px cells with less SVG whitespace. */
+[data-kitchen-style="island"] .board .cell:not(.locked) .item-art>svg{width:108%;height:108%;margin:-4%}
+
+[data-kitchen-style="island"] .board .cell.occupied:not(.locked):not(.bubble):after{content:'';position:absolute;left:50%;top:auto;bottom:6px;width:54%;height:7px;margin:0;transform:translateX(-50%);border-radius:50%;background:radial-gradient(ellipse,#92613b30,transparent 72%);filter:blur(1px);z-index:0;pointer-events:none}
