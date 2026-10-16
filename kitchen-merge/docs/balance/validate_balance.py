@@ -160,7 +160,7 @@ for p in D['producers']:
         item_ref(f"{p['chain']}:{lv['level']}", p['id'])
         if lv['active']:
             probability(lv['outputLevelProb'], f"{p['id']}L{lv['level']}")
-            check(lv['energyPerTap'] == 1 and lv['maxStock'] == 2 * lv['batch']
+            check(lv['energyPerTap'] == 1 and 0 < lv['batch'] <= lv['maxStock']
                   and lv['rechargeSeconds'] > 0, f"{p['id']}L{lv['level']}库存/CD", '生产')
             mu = sum(v * 2**i for i, v in enumerate(lv['outputLevelProb']))
             check(abs(mu - lv['outputBaseUnitsPerTap']) < 1e-9, f"{p['id']}产能均值", '生产')
@@ -222,7 +222,7 @@ for cid in ['coins', 'gems', 'energy']:
     check(all(b > 2*a for a, b in zip(vals, vals[1:])), f'{cid}合成溢价', '经济')
 
 positions = [x['index'] for x in D['initial']['producers']+D['initial']['commodities']]
-check(len(set(positions)) == len(positions) and all(0 <= x < 49 for x in positions), '初始位置无冲突', '迁移')
+check(len(set(positions)) == len(positions) and all(0 <= x < D['globals']['boardCols'] * D['globals']['boardRows'] for x in positions), '初始位置无冲突', '迁移')
 for row in D['initial']['producers']+D['initial']['commodities']+D['initial']['pending']+D['initial']['boosters']:
     item_ref(row['item'], '初始')
 for cid, old_items in B['chains'].items():

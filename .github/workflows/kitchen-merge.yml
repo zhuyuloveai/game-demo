@@ -27,9 +27,10 @@ jobs:
           python kitchen-merge/docs/balance/build_docs.py
           python kitchen-merge/docs/balance/validate_balance.py
           python kitchen-merge/scripts/sync-balance.py
-          git diff --exit-code -- kitchen-merge/docs/balance/kitchen-target.json kitchen-merge/dist/balance-data.mjs
+          git diff --exit-code -- kitchen-merge/docs/balance/kitchen-target.json kitchen-merge/dist/balance-data.mjs kitchen-merge/dist/v3-rules.mjs kitchen-merge/docs/balance/item-reference-map.json kitchen-merge/docs/balance/ALIGNMENT_PARAMETERS.md kitchen-merge/docs/balance/ITEM_REFERENCE_MAP.md
       - name: Engine, compatibility and full catalogue behavior
         run: |
           node --test kitchen-merge/tests/*.test.mjs
           node kitchen-merge/scripts/audit-runtime.mjs
+          node kitchen-merge/scripts/simulate-alignment.mjs
           for file in kitchen-merge/dist/*.mjs; do node --check "$file"; done

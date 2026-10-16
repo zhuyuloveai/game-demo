@@ -69,7 +69,7 @@ export function sha256(text) {
 }
 export function backupBeforeMigration(storage, prefix, raw) {
   const parsed = JSON.parse(raw);
-  if (![1, 2].includes(parsed.version))
+  if (![1, 2, 3].includes(parsed.version))
     throw Error("Only legacy saves can be migrated");
   const archived = `${prefix}-v${parsed.version}-backup`,
     current = `${prefix}-migration-backup`;

@@ -99,7 +99,7 @@
 .selection-card .selection-meta {font:10px var(--font);margin-left:4px;}
 .selection-card .selection-actions {margin:0;max-width:none;display:flex;gap:2px;flex-shrink:0;}
 .selection-card .small-button {height:44px;min-height:44px;min-width:44px;padding:0 5px;border-radius:7px;font:12px var(--cute-font);background:#eee0c7;color:#9e6e45;}
-.k-design .board {width:100%;--board-base:#ede4d5;--board-checker:#f3ecdf;border-radius:17px;aspect-ratio:1;box-shadow:inset 0 2px 5px #5039241f,0 2px 1px #ffffff80;padding:2px;}
+.k-design .board {width:100%;--board-base:#ede4d5;--board-checker:#f3ecdf;border-radius:17px;aspect-ratio:7/9;box-shadow:inset 0 2px 5px #5039241f,0 2px 1px #ffffff80;padding:2px;}
 .board .cell.empty:after {width:24%;height:6%;margin:0;transform:translate(-50%,-50%);background:#87715912;}
 
 /* Physical desk objects provide navigation instead of a bottom menu. */
@@ -195,7 +195,7 @@ dialog[data-view="phone"] {background:linear-gradient(#f7e5cf,#f4e1c8);}
 .profile-card strong {font:20px var(--cute-font);}.profile-card p {font-size:13px;color:#9a7b57;margin-top:6px;}
 .profile-progress {height:10px;overflow:hidden;border-radius:10px;background:#eadcc5;margin:12px 0 8px;}.profile-progress span {display:block;height:100%;background:#e9986f;border-radius:10px;}
 
-/* Short viewports trim scenery; the square board always fills the worktop width. */
+/* Short viewports trim scenery; the 7×9 board always fills the worktop width. */
 @media(max-height:700px) {
   .game-shell.k-design {--hud-height:64px;--scene-height:214px;--desk-height:118px;}
   .k-design .k-rangehood {height:52px;}

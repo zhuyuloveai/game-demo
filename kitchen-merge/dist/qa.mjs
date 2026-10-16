@@ -91,3 +91,22 @@ export function fixture(kind, now = Date.now()) {
   s.events = [];
   return s;
 }
+
+// A PR6-shaped save for the visible migration button; the frozen regression
+// fixture in tests/fixtures/v3-49.json additionally checks real historical data.
+export async function legacyV3Fixture(now = Date.now()) {
+  const { default: rules } = await import('./v3-rules.mjs');
+  const s = fixture('resources', now);
+  s.version = 3;
+  s.balanceVersion = 'kitchen-reference-v1-draft';
+  s.board = s.board.slice(0, 49);
+  for (const item of s.board.filter(Boolean)) {
+    const r = rules[item.itemId];
+    if (r?.manual?.mode === 'recharge') {
+      item.stock = Math.min(item.stock, r.manual.maxStock);
+      item.rechargeRemaining = r.manual.rechargeSeconds * 1000;
+    }
+    if (r?.auto) item.autoRemaining = r.auto.intervalSeconds * 1000;
+  }
+  return s;
+}

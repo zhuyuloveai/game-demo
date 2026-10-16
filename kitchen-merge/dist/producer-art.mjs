@@ -287,8 +287,8 @@ function flower(l) {
 }
 
 function recycle(l) {
-  const w = [37, 40, 43, 46, 49, 52, 54, 56, 58][l-1];
-  const top = [27, 25, 24, 23, 22, 21, 20, 19, 18][l-1], left = 40-w/2;
+  const w = [37, 40, 43, 46, 49, 52, 54, 56, 58, 60][l-1];
+  const top = [27, 25, 24, 23, 22, 21, 20, 19, 18, 17][l-1], left = 40-w/2;
   let s = '';
   if (l >= 4) s += line(`M${left-1} 33h-4v12h6m${w-2}-12h5v12h-6`, C.dark, 3.5);
   s += p(`M${left} ${top+5}h${w}v${52-top}q0 10-${w/2} 10t-${w/2}-10Z`, C.green);
@@ -309,6 +309,7 @@ function recycle(l) {
   if (l >= 7) s += p('M59 43q13-6 13 6v14q-5 7-13 0Z', C.green) + rect(58, 41, 14, 6, 3, C.oak) + line('M63 50v8m5-8v8', C.leaf);
   if (l >= 8) s += line('M18 56l-5-26v-9', C.steel, 3) + rect(9, 15, 9, 10, 3, C.oak) + line('M18 64h43', C.steel, 3);
   if (l === 9) s += p('M8 47h13l3 15q-8 7-15 0Z', C.bamboo) + p('M8 46q4-10 8-6 7-6 8 6Z', C.linen) + line('M13 51h6m-5 5h6', C.oak, 1.5);
+  if (l === 10) s += circle(27, 44, 7, C.cream) + circle(27, 44, 4.5, C.steel) + line('M27 44l2-3', C.dark, 1.8) + rect(34, 62, 19, 5, 2, C.steel) + circle(21, 68, 4, C.dark) + circle(59, 68, 4, C.dark);
   return s;
 }
 

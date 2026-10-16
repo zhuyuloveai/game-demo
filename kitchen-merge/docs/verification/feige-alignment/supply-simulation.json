@@ -1,0 +1,428 @@
+{
+  "balanceVersion": "kitchen-feige-evidence-v2",
+  "horizon": "24h, first tap t=0, last sample t=23:59",
+  "assumptions": [
+    "单台设备独立使用全部体力",
+    "产物立即移出棋盘，空间无竞争",
+    "自然恢复120秒，上限100，初始100",
+    "无商店、日礼、容器、无限体力、付费/广告",
+    "既有存档权益另由迁移测试覆盖"
+  ],
+  "limits": "可供给量上界；不是通关时长、实际留存、竞品精确掉率或全局空间模拟",
+  "gardenNestEarliestMinutes": 256,
+  "rows": [
+    {
+      "id": "gen_tools:4",
+      "current": {
+        "taps": 92,
+        "baseUnits": 92,
+        "remainingStock": 0,
+        "energyRemaining": 100
+      },
+      "previous": {
+        "taps": 819,
+        "baseUnits": 819,
+        "remainingStock": 19,
+        "energyRemaining": 0
+      },
+      "cdSeconds": 9120,
+      "maxStock": 20,
+      "probabilityEvidence": "D",
+      "batchEvidence": "P"
+    },
+    {
+      "id": "gen_tools:12",
+      "current": {
+        "taps": 819,
+        "baseUnits": 2269,
+        "remainingStock": 29,
+        "energyRemaining": 0
+      },
+      "previous": {
+        "taps": 819,
+        "baseUnits": 2269,
+        "remainingStock": 177,
+        "energyRemaining": 0
+      },
+      "cdSeconds": 360,
+      "maxStock": 32,
+      "probabilityEvidence": "D",
+      "batchEvidence": "D"
+    },
+    {
+      "id": "gen_food:5",
+      "current": {
+        "taps": 60,
+        "baseUnits": 60,
+        "remainingStock": 0,
+        "energyRemaining": 100
+      },
+      "previous": {
+        "taps": 819,
+        "baseUnits": 819,
+        "remainingStock": 21,
+        "energyRemaining": 0
+      },
+      "cdSeconds": 14220,
+      "maxStock": 12,
+      "probabilityEvidence": "D",
+      "batchEvidence": "P"
+    },
+    {
+      "id": "gen_food:11",
+      "current": {
+        "taps": 819,
+        "baseUnits": 1696,
+        "remainingStock": 17,
+        "energyRemaining": 0
+      },
+      "previous": {
+        "taps": 819,
+        "baseUnits": 1696,
+        "remainingStock": 111,
+        "energyRemaining": 0
+      },
+      "cdSeconds": 1800,
+      "maxStock": 32,
+      "probabilityEvidence": "D",
+      "batchEvidence": "D"
+    },
+    {
+      "id": "gen_produce:3",
+      "current": {
+        "taps": 819,
+        "baseUnits": 819,
+        "remainingStock": 19,
+        "energyRemaining": 0
+      },
+      "previous": {
+        "taps": 819,
+        "baseUnits": 819,
+        "remainingStock": 19,
+        "energyRemaining": 0
+      },
+      "cdSeconds": 600,
+      "maxStock": 24,
+      "probabilityEvidence": "D",
+      "batchEvidence": "D"
+    },
+    {
+      "id": "gen_produce:12",
+      "current": {
+        "taps": 819,
+        "baseUnits": 2567,
+        "remainingStock": 221,
+        "energyRemaining": 0
+      },
+      "previous": {
+        "taps": 819,
+        "baseUnits": 2567,
+        "remainingStock": 221,
+        "energyRemaining": 0
+      },
+      "cdSeconds": 330,
+      "maxStock": 224,
+      "probabilityEvidence": "D",
+      "batchEvidence": "D"
+    },
+    {
+      "id": "gen_drink:4",
+      "current": {
+        "taps": 819,
+        "baseUnits": 819,
+        "remainingStock": 19,
+        "energyRemaining": 0
+      },
+      "previous": {
+        "taps": 819,
+        "baseUnits": 819,
+        "remainingStock": 19,
+        "energyRemaining": 0
+      },
+      "cdSeconds": 600,
+      "maxStock": 24,
+      "probabilityEvidence": "D",
+      "batchEvidence": "D"
+    },
+    {
+      "id": "gen_drink:10",
+      "current": {
+        "taps": 819,
+        "baseUnits": 1696,
+        "remainingStock": 111,
+        "energyRemaining": 0
+      },
+      "previous": {
+        "taps": 819,
+        "baseUnits": 1696,
+        "remainingStock": 111,
+        "energyRemaining": 0
+      },
+      "cdSeconds": 420,
+      "maxStock": 112,
+      "probabilityEvidence": "D",
+      "batchEvidence": "D"
+    },
+    {
+      "id": "gen_herb:4",
+      "current": {
+        "taps": 14,
+        "baseUnits": 14,
+        "remainingStock": 0,
+        "energyRemaining": 100
+      },
+      "previous": {
+        "taps": 819,
+        "baseUnits": 819,
+        "remainingStock": 21,
+        "energyRemaining": 0
+      },
+      "cdSeconds": 65520,
+      "maxStock": 10,
+      "probabilityEvidence": "D",
+      "batchEvidence": "D"
+    },
+    {
+      "id": "gen_herb:10",
+      "current": {
+        "taps": 346,
+        "baseUnits": 732,
+        "remainingStock": 0,
+        "energyRemaining": 100
+      },
+      "previous": {
+        "taps": 819,
+        "baseUnits": 1696,
+        "remainingStock": 111,
+        "energyRemaining": 0
+      },
+      "cdSeconds": 1020,
+      "maxStock": 10,
+      "probabilityEvidence": "D",
+      "batchEvidence": "P"
+    },
+    {
+      "id": "gen_asian:4",
+      "current": {
+        "taps": 819,
+        "baseUnits": 819,
+        "remainingStock": 14,
+        "energyRemaining": 0
+      },
+      "previous": {
+        "taps": 819,
+        "baseUnits": 819,
+        "remainingStock": 14,
+        "energyRemaining": 0
+      },
+      "cdSeconds": 1200,
+      "maxStock": 24,
+      "probabilityEvidence": "D",
+      "batchEvidence": "D"
+    },
+    {
+      "id": "gen_asian:10",
+      "current": {
+        "taps": 819,
+        "baseUnits": 1696,
+        "remainingStock": 106,
+        "energyRemaining": 0
+      },
+      "previous": {
+        "taps": 819,
+        "baseUnits": 1696,
+        "remainingStock": 106,
+        "energyRemaining": 0
+      },
+      "cdSeconds": 840,
+      "maxStock": 112,
+      "probabilityEvidence": "D",
+      "batchEvidence": "D"
+    },
+    {
+      "id": "gen_mediterranean:4",
+      "current": {
+        "taps": 819,
+        "baseUnits": 819,
+        "remainingStock": 14,
+        "energyRemaining": 0
+      },
+      "previous": {
+        "taps": 819,
+        "baseUnits": 819,
+        "remainingStock": 14,
+        "energyRemaining": 0
+      },
+      "cdSeconds": 1200,
+      "maxStock": 24,
+      "probabilityEvidence": "D",
+      "batchEvidence": "D"
+    },
+    {
+      "id": "gen_mediterranean:10",
+      "current": {
+        "taps": 819,
+        "baseUnits": 1696,
+        "remainingStock": 106,
+        "energyRemaining": 0
+      },
+      "previous": {
+        "taps": 819,
+        "baseUnits": 1696,
+        "remainingStock": 106,
+        "energyRemaining": 0
+      },
+      "cdSeconds": 840,
+      "maxStock": 112,
+      "probabilityEvidence": "D",
+      "batchEvidence": "D"
+    },
+    {
+      "id": "gen_supply:4",
+      "current": {
+        "taps": 28,
+        "baseUnits": 28,
+        "remainingStock": 0,
+        "energyRemaining": 100
+      },
+      "previous": {
+        "taps": 84,
+        "baseUnits": 84,
+        "remainingStock": 0,
+        "energyRemaining": 100
+      },
+      "cdSeconds": 25441,
+      "maxStock": 16,
+      "probabilityEvidence": "D",
+      "batchEvidence": "P"
+    },
+    {
+      "id": "gen_supply:12",
+      "current": {
+        "taps": 656,
+        "baseUnits": 1820,
+        "remainingStock": 0,
+        "energyRemaining": 100
+      },
+      "previous": {
+        "taps": 819,
+        "baseUnits": 2269,
+        "remainingStock": 108,
+        "energyRemaining": 0
+      },
+      "cdSeconds": 1080,
+      "maxStock": 24,
+      "probabilityEvidence": "D",
+      "batchEvidence": "D"
+    },
+    {
+      "id": "gen_publicity:4",
+      "current": {
+        "taps": 300,
+        "baseUnits": 300,
+        "remainingStock": 0,
+        "energyRemaining": 100
+      },
+      "previous": {
+        "taps": 300,
+        "baseUnits": 300,
+        "remainingStock": 0,
+        "energyRemaining": 100
+      },
+      "cdSeconds": 3600,
+      "maxStock": 24,
+      "probabilityEvidence": "D",
+      "batchEvidence": "D"
+    },
+    {
+      "id": "gen_publicity:6",
+      "current": {
+        "taps": 560,
+        "baseUnits": 674,
+        "remainingStock": 0,
+        "energyRemaining": 97
+      },
+      "previous": {
+        "taps": 560,
+        "baseUnits": 674,
+        "remainingStock": 0,
+        "energyRemaining": 97
+      },
+      "cdSeconds": 3240,
+      "maxStock": 40,
+      "probabilityEvidence": "D",
+      "batchEvidence": "D"
+    },
+    {
+      "id": "gen_flower:5",
+      "current": {
+        "taps": 588,
+        "baseUnits": 588,
+        "remainingStock": 0,
+        "energyRemaining": 100
+      },
+      "previous": {
+        "taps": 588,
+        "baseUnits": 588,
+        "remainingStock": 0,
+        "energyRemaining": 100
+      },
+      "cdSeconds": 1800,
+      "maxStock": 24,
+      "probabilityEvidence": "D",
+      "batchEvidence": "D"
+    },
+    {
+      "id": "gen_flower:9",
+      "current": {
+        "taps": 819,
+        "baseUnits": 1362,
+        "remainingStock": 56,
+        "energyRemaining": 0
+      },
+      "previous": {
+        "taps": 819,
+        "baseUnits": 1362,
+        "remainingStock": 56,
+        "energyRemaining": 0
+      },
+      "cdSeconds": 1440,
+      "maxStock": 68,
+      "probabilityEvidence": "D",
+      "batchEvidence": "D"
+    },
+    {
+      "id": "gen_recycle:5",
+      "current": {
+        "taps": 85,
+        "baseUnits": 85,
+        "remainingStock": 0,
+        "energyRemaining": 100
+      },
+      "previous": {
+        "taps": 588,
+        "baseUnits": 588,
+        "remainingStock": 0,
+        "energyRemaining": 100
+      },
+      "cdSeconds": 5520,
+      "maxStock": 10,
+      "probabilityEvidence": "D",
+      "batchEvidence": "D"
+    },
+    {
+      "id": "gen_recycle:10",
+      "current": {
+        "taps": 819,
+        "baseUnits": 1536,
+        "remainingStock": 10,
+        "energyRemaining": 0
+      },
+      "previous": null,
+      "cdSeconds": 170,
+      "maxStock": 10,
+      "probabilityEvidence": "D",
+      "batchEvidence": "P"
+    }
+  ]
+}

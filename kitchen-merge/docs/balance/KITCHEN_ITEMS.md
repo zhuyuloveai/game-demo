@@ -1,6 +1,6 @@
 # 小厨合合目标物品全表
 
-生成日期：2026-10-16。设计稿，尚未接入游戏。源数据：[kitchen-target.json](kitchen-target.json)。共 64 个系列、421 个定义；含生产器零件、状态阶段和仅供迁移的旧资源。
+生成日期：2026-10-16。已接入默认运行时v4。源数据：[kitchen-target.json](kitchen-target.json)。共 64 个系列、422 个定义；含生产器零件、状态阶段和仅供迁移的旧资源。
 
 ## 字段与计数
 
@@ -1001,6 +1001,7 @@
 | gen_recycle:6 | 6 | 实用花园循环桶 | gen_recycle:7 | 32 | 0 | — |
 | gen_recycle:7 | 7 | 专业花园循环桶 | gen_recycle:8 | 64 | 0 | — |
 | gen_recycle:8 | 8 | 双层花园循环桶 | gen_recycle:9 | 128 | 0 | — |
-| gen_recycle:9 | 9 | 高效花园循环桶 | — | 256 | 0 | — |
+| gen_recycle:9 | 9 | 高效花园循环桶 | gen_recycle:10 | 256 | 0 | — |
+| gen_recycle:10 | 10 | 大师花园循环桶 | — | 512 | 0 | — |
 
 
