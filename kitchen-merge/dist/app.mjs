@@ -20,6 +20,24 @@ audio.setVolume('music',musicVolume);audio.setVolume('effects',effectsVolume);
 let selected=null, hinted=[], toastTimer, hintTimer, pointer=null, ghost=null, dropCell=null, suppressClick=false;
 let modalView='', catalogFamily='food', recipeFilter='all', sceneStage=-1;
 const board=$('#board'), modal=$('#modal');
+const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
+// Keep each item's idle phase stable when a render replaces the board DOM.
+function motionPhase(id){
+  const hash=[...String(id)].reduce((n,c)=>(n*31+c.charCodeAt(0))%997,0);
+  const seed=(hash*211%997)/997*4.8;
+  const time=performance.now()/1000+seed;
+  return `--idle-phase:-${(time%3.2).toFixed(3)}s;--cue-phase:-${(time%4.8).toFixed(3)}s`;
+}
+function animateItem(index,kind){
+  if(!reducedMotion.matches)board.querySelector(`[data-cell="${index}"]`)?.classList.add(`${kind}-pop`);
+}
+function syncMotion(){document.body.classList.toggle('motion-paused',document.hidden||modal.open);}
+reducedMotion.addEventListener('change',()=>{if(reducedMotion.matches)$('#effects').replaceChildren();});
+board.addEventListener('animationend',event=>{
+  const cell=event.target.closest('[data-cell]');if(!cell)return;
+  if(event.target.matches('.item-art'))cell.classList.remove('pop','tap-pop','generate-pop','merge-pop','settle-pop');
+  if(event.animationName==='producerBurst')cell.classList.remove('producer-burst');
+});
 const isLocked=i=>state.locked.includes(i);
 const meta=item=>CHAINS[item?.family]?.[item.level-1];
 const itemName=item=>!item?'空格':item.family==='producer'?PRODUCER_DEFS[item.kind]?.name||'生产器':item.family==='bubble'?`${itemName(item.item)}泡泡`:meta(item)?.name||'厨房礼物';
@@ -35,7 +53,7 @@ function save(){try{localStorage.setItem(STORAGE,JSON.stringify(state));}catch{s
 function toast(message){clearTimeout(toastTimer);$('#toast').textContent=message;$('#toast').classList.add('visible');toastTimer=setTimeout(()=>$('#toast').classList.remove('visible'),2800);}
 function playSound(kind,level){audio.play(kind,level);}
 function celebrate(element,message,big=false,kind='merge'){
-  if(!element)return;const r=element.getBoundingClientRect(), x=r.left+r.width/2,y=r.top+r.height/2;
+  if(!element)return;if(reducedMotion.matches){toast(message);return;}const r=element.getBoundingClientRect(), x=r.left+r.width/2,y=r.top+r.height/2;
   const text=document.createElement('span');text.className='floating-text';text.textContent=message;
   Object.assign(text.style,{left:`${x}px`,top:`${y}px`});$('#effects').append(text);setTimeout(()=>text.remove(),1300);
   const colors=['#f0643c','#f6b84b','#8fb07a','#9fb3c4','#f7efe4'];
@@ -46,14 +64,20 @@ function celebrate(element,message,big=false,kind='merge'){
   }
   if(kind==='cook'||kind==='unlock'){const effect=document.createElement('span');effect.className=kind==='cook'?'cook-steam':'unlock-shine';Object.assign(effect.style,{left:`${x}px`,top:`${y}px`});$('#effects').append(effect);setTimeout(()=>effect.remove(),1300);}
 }
-function tapEffect(target){const r=target.getBoundingClientRect();const ring=document.createElement('span');ring.className='tap-ring';Object.assign(ring.style,{left:`${r.left+r.width/2}px`,top:`${r.top+r.height/2}px`});$('#effects').append(ring);setTimeout(()=>ring.remove(),500);}
+function tapEffect(target){if(reducedMotion.matches)return;const r=target.getBoundingClientRect();const ring=document.createElement('span');ring.className='tap-ring';Object.assign(ring.style,{left:`${r.left+r.width/2}px`,top:`${r.top+r.height/2}px`});$('#effects').append(ring);setTimeout(()=>ring.remove(),500);}
+function mergeBurst(element){
+  if(!element||reducedMotion.matches)return;
+  const r=element.getBoundingClientRect(),flash=document.createElement('span');flash.className='merge-flash';
+  Object.assign(flash.style,{left:`${r.left+r.width/2}px`,top:`${r.top+r.height/2}px`});
+  $('#effects').append(flash);setTimeout(()=>flash.remove(),650);
+}
 function renderBoard(popIndex=-1){
   const focused=document.activeElement?.dataset.cell;
   board.innerHTML=state.board.map((item,i)=>{
     const locked=isLocked(i),producer=item?.family==='producer',bubble=item?.family==='bubble';
     const status=producer?producerStatus(state,item):null;
     const label=locked?`锁定，${item?itemName(item):'待整理台面'}`:item?`${itemName(item)}${producer?'，点击生产':`，${item.level||1}级`}`:'空格';
-    return `<button class="cell ${item?'occupied':'empty'} ${producer?'producer':''} ${locked?'locked':''} ${bubble?'bubble':''} ${status&&!status.ready?'cooling':''} ${['energy','coins','chest'].includes(item?.family)?'resource-item':''} ${selected===i?'selected':''} ${hinted.includes(i)?'hint':''} ${popIndex===i?'pop':''}" data-cell="${i}" aria-label="第${Math.floor(i/7)+1}行第${i%7+1}格，${esc(label)}" title="${esc(label)}" aria-pressed="${selected===i}">${item?`<span class="item-art">${itemArt(item)}</span><span class="item-level">${producer?'Lv'+item.level:bubble?'✦':item.level}</span>`:''}${locked?`<span class="lock-badge">${glyph('lock')}</span>`:''}${producer&&!locked?`<span class="cooldown-label" data-cooldown="${i}">${status.ready?`${status.charges}次`:formatTime(status.cooldownRemaining)}</span>`:''}</button>`;
+    return `<button class="cell ${item?'occupied':'empty'} ${producer?'producer':''} ${producer&&status.ready&&!locked&&state.energy>0?'ready-producer':''} ${locked?'locked':''} ${bubble?'bubble':''} ${status&&!status.ready?'cooling':''} ${['energy','coins','chest'].includes(item?.family)?'resource-item':''} ${selected===i?'selected':''} ${hinted.includes(i)?'hint':''} ${popIndex===i?'pop':''}" data-cell="${i}" style="${motionPhase(item?.id||i)}" aria-label="第${Math.floor(i/7)+1}行第${i%7+1}格，${esc(label)}" title="${esc(label)}" aria-pressed="${selected===i}">${item?`<span class="item-art">${itemArt(item)}</span><span class="item-level">${producer?'Lv'+item.level:bubble?'✦':item.level}</span>`:''}${locked?`<span class="lock-badge">${glyph('lock')}</span>`:''}${producer&&!locked?`<span class="cooldown-label" data-cooldown="${i}">${status.ready?`${status.charges}次`:formatTime(status.cooldownRemaining)}</span>`:''}</button>`;
   }).join('');
   if(focused!==undefined)board.querySelector(`[data-cell="${focused}"]`)?.focus({preventScroll:true});
 }
@@ -65,6 +89,7 @@ function renderStats(){
   const next=RENOVATIONS[state.stage];$('#quest-copy').textContent=next?`${next.name} · 需要 ${next.stars} 星`:'世界美食厨房 · 装修已完成';
   $('#storage-count').textContent=`${state.inventory.length}/${state.storageCapacity}`;
   $('#gift-count').textContent=state.pending.length?String(state.pending.length):dailyReady()?'领':'✓';
+  $('#gift-count').classList.toggle('attention',state.pending.length>0||dailyReady());
   $('#sound-button').innerHTML=`<span class="dock-icon">${glyph(musicEnabled?'music':'muted')}</span><span>音乐</span>`;
   if(sceneStage!==state.stage){sceneStage=state.stage;$('#kitchen-scene').innerHTML=kitchenScene(state.stage);$('#kitchen-stage-label').textContent=`第 ${state.stage+1} 章 · ${state.stage?RENOVATIONS[state.stage-1]?.name:'草莓小厨房开张啦'}`;}
 }
@@ -89,7 +114,7 @@ function renderSelection(){
   $('#selection-card').innerHTML=`<span class="selected-art">${itemArt(item)}</span><div class="selection-copy"><strong>${esc(itemName(item))}<span class="selection-meta">Lv.${item.level||1}</span></strong><p>${esc(description)}</p></div><div class="selection-actions">${actions}</div>`;
 }
 function renderOrders(){
-  $('#orders').innerHTML=state.orders.map((order,i)=>{const p=getOrderProgress(state,order);return `<article class="order-card ${p.ready?'is-ready':''}" data-order="${order.id}"><div class="order-top">${(a=>`<span class="avatar ${a.name}">${a.svg}</span>`)(avatar(order.customer))}<div><h3>${esc(order.customer)}</h3><p>${esc(order.title)}</p></div></div><div class="order-needs">${p.needs.map(n=>`<div class="need ${!n.missing?'ready':''}" title="${esc(itemName(n))} ${n.have}/${n.count}"><span class="need-art">${itemArt(n)}</span><span class="need-count">${Math.min(n.have,n.count)}/${n.count}</span>${!n.missing?`<span class="need-check">${glyph('check')}</span>`:''}</div>`).join('')}</div><div class="order-bottom"><span class="reward"><span class="reward-coin">${icon('coin')}${order.coins}</span><small>★ ${order.stars||1}</small></span><button class="order-submit" data-fulfill="${order.id}" ${p.ready?'':'disabled'}>${p.ready?'交付 ✓':'待完成'}</button></div></article>`;}).join('');
+  $('#orders').innerHTML=state.orders.map((order,i)=>{const p=getOrderProgress(state,order);return `<article class="order-card ${p.ready?'is-ready':''}" data-order="${order.id}" style="${motionPhase(order.id)}"><div class="order-top">${(a=>`<span class="avatar ${a.name}">${a.svg}</span>`)(avatar(order.customer))}<div><h3>${esc(order.customer)}</h3><p>${esc(order.title)}</p></div></div><div class="order-needs">${p.needs.map(n=>`<div class="need ${!n.missing?'ready':''}" title="${esc(itemName(n))} ${n.have}/${n.count}"><span class="need-art">${itemArt(n)}</span><span class="need-count">${Math.min(n.have,n.count)}/${n.count}</span>${!n.missing?`<span class="need-check">${glyph('check')}</span>`:''}</div>`).join('')}</div><div class="order-bottom"><span class="reward"><span class="reward-coin">${icon('coin')}${order.coins}</span><small>★ ${order.stars||1}</small></span><button class="order-submit" data-fulfill="${order.id}" ${p.ready?'':'disabled'}>${p.ready?'交付 ✓':'待完成'}</button></div></article>`;}).join('');
 }
 function render(pop=-1){renderBoard(pop);renderStats();renderSelection();renderOrders();}
 function act(result,{pop=-1,fx=null,showMessage=false}={}){
@@ -104,13 +129,23 @@ function doGenerate(index){
   if(!result.ok&&result.type==='energy'){openPanel('energy');return;}
   if(act(result,{pop:result.index,fx:'generate'})){
     const cell=board.querySelector(`[data-cell="${result.index}"]`);cell?.classList.add('producer-burst');
+    animateItem(index,'generate');
     if(result.item?.level>1)toast(`新鲜惊喜：${itemName(result.item)}`);
   }
 }
-function doMove(from,to){const before=state.locked.length,result=move(state,from,to);if(result.ok)selected=to;if(act(result,{pop:result.type==='merge'?to:-1})){if(result.type==='merge'){celebrate(board.querySelector(`[data-cell="${to}"]`),`合成 ${itemName(result.item)}`);if(state.locked.length<before){playSound('unlock');toast('整理出了新台面！');}else if(state.merges===1)toast('合成成功！看看上方有没有可交付的订单');}}}
+function doMove(from,to){
+  const before=state.locked.length,result=move(state,from,to);if(result.ok)selected=to;
+  if(!act(result))return;
+  animateItem(to,result.type==='merge'?'merge':'settle');
+  if(result.type==='merge'){
+    const cell=board.querySelector(`[data-cell="${to}"]`);mergeBurst(cell);celebrate(cell,`合成 ${itemName(result.item)}`);
+    if(state.locked.length<before){playSound('unlock');toast('整理出了新台面！');}
+    else if(state.merges===1)toast('合成成功！看看上方有没有可交付的订单');
+  }
+}
 function chooseCell(index){
   const item=state.board[index],source=state.board[selected];
-  if(item?.family==='bubble'){selected=index;renderBoard();renderSelection();return;}
+  if(item?.family==='bubble'){selected=index;renderBoard();renderSelection();animateItem(index,'tap');return;}
   if(isLocked(index)){
     if(selected!==null&&selected!==index&&source&&!isLocked(selected)&&item&&source.family===item.family&&source.level===item.level){doMove(selected,index);return;}
     selected=index;renderBoard();renderSelection();return;
@@ -122,11 +157,11 @@ function chooseCell(index){
   if(selected===index)selected=null;
   else if(selected!==null&&source&&!isLocked(selected)&&source.family!=='bubble'){doMove(selected,index);return;}
   else selected=item?index:null;
-  hinted=[];renderBoard();renderSelection();playSound('select');
+  hinted=[];renderBoard();renderSelection();if(selected!==null)animateItem(selected,'tap');playSound('select');
 }
 function showHint(){const pair=findMerge(state);if(!pair){toast('暂时没有可合成的组合，试试生产器、仓库或礼物');return;}hinted=[pair.from,pair.to];selected=null;renderBoard();renderSelection();toast(`把发光的两份${itemName(state.board[pair.from])}合到一起`);clearTimeout(hintTimer);hintTimer=setTimeout(()=>{hinted=[];if(!pointer)renderBoard();},6000);}
 
-function openPanel(view){modalView=view;renderPanel();if(!modal.open)modal.showModal();}
+function openPanel(view){modalView=view;renderPanel();if(!modal.open)modal.showModal();syncMotion();}
 function refreshPanel(){const scroll=modal.scrollTop;renderPanel();modal.scrollTop=scroll;}
 function panelHeader(title,description){return `<h2>${title}</h2><p class="modal-intro">${description}</p>`;}
 function renderPanel(){
@@ -231,6 +266,7 @@ document.addEventListener('input',event=>{
   if(kind==='music'){musicVolume=value;writePref('little-kitchen-music-volume',value);}else{effectsVolume=value;writePref('little-kitchen-effects-volume',value);}
   audio.setVolume(kind,value);
 });
+modal.addEventListener('close',syncMotion);
 $('#modal-close').addEventListener('click',()=>modal.close());
 modal.addEventListener('click',event=>{if(event.target===modal){const r=modal.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)modal.close();}});
 $('#kitchen-tab').addEventListener('click',()=>{modal.close();selected=null;renderBoard();renderSelection();});
@@ -246,7 +282,7 @@ window.addEventListener('pointermove',event=>{
   if(!pointer || event.pointerId!==pointer.id)return;
   if(state.board[pointer.index]?.id!==pointer.itemId){endPointer(event,true);return;}
   if(!pointer.dragging && Math.hypot(event.clientX-pointer.x,event.clientY-pointer.y)>7){
-    pointer.dragging=true;hinted=[];
+    pointer.dragging=true;hinted=[];board.classList.add('is-dragging');
     ghost=document.createElement('div');ghost.className='drag-ghost';ghost.innerHTML=itemArt(state.board[pointer.index]);document.body.append(ghost);
     board.querySelector(`[data-cell="${pointer.index}"]`)?.classList.add('drag-source');
   }
@@ -258,7 +294,7 @@ window.addEventListener('pointermove',event=>{
 
 function endPointer(event,cancel=false){
   if(!pointer || event.pointerId!==pointer.id)return;
-  const p=pointer;pointer=null;
+  const p=pointer;pointer=null;board.classList.remove('is-dragging');
   if(p.dragging){
     suppressClick=true;setTimeout(()=>suppressClick=false,0);
     const cell=!cancel&&document.elementFromPoint(event.clientX,event.clientY)?.closest('[data-cell]');
@@ -281,9 +317,9 @@ function refreshTime(){
     if(state.board[selected]?.family==='producer'||state.board[selected]?.family==='bubble')renderSelection();
   }
 }
-document.addEventListener('visibilitychange',()=>{audio.setHidden(document.hidden);if(document.hidden){if(pointer)endPointer({pointerId:pointer.id},true);save();}else refreshTime();});
+document.addEventListener('visibilitychange',()=>{audio.setHidden(document.hidden);syncMotion();if(document.hidden){if(pointer)endPointer({pointerId:pointer.id},true);save();}else refreshTime();});
 window.addEventListener('pagehide',()=>{save();audio.setHidden(true);});
-window.addEventListener('pageshow',()=>audio.setHidden(document.hidden));
+window.addEventListener('pageshow',()=>{audio.setHidden(document.hidden);syncMotion();});
 setInterval(()=>{if(!document.hidden)refreshTime();},1000);
 for(const [id,name] of Object.entries({'energy-icon':'energy','coin-icon':'coin','level-icon':'star','quest-icon':'star'}))$(`#${id}`).innerHTML=icon(name);
 for(const [id,name] of Object.entries({'brand-icon':'merge','collection-icon':'book','settings-icon':'sliders','hint-icon':'sparkles','modal-close':'close','storage-icon':'archive','shop-icon':'bag','gift-icon':'gift','recipes-icon':'recipes','renovation-icon':'store'}))$(`#${id}`).innerHTML=glyph(name);

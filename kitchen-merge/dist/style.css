@@ -828,7 +828,8 @@ h1,h2,h3,p { margin:0; }
   box-shadow:inset 0 0 0 2px var(--accent);
 }
 
-.cell.selected .item-art { transform:scale(1.06); }
+.cell.selected { --item-scale:1.06; }
+.cell.selected .item-art { transform:scale(var(--item-scale)); }
 
 .cell.hint:before {
   inset:3px;
@@ -1537,6 +1538,125 @@ label.settings-row {
 .recipe-tool>svg { width:24px; height:24px; flex-shrink:0; }
 
 /* ---------- Motion ---------- */
+/* Inner artwork idles; the outer span handles selection and one-shot feedback. */
+.cell .item-art>svg { display:block; transform-origin:50% 65%; }
+.cell.ready-producer .item-art>svg {
+  animation:producerBreathe 3.2s ease-in-out var(--idle-phase,0s) infinite;
+}
+.cell.resource-item:not(.selected):not(.locked) .item-art>svg {
+  animation:rewardWiggle 4.8s ease-in-out var(--cue-phase,0s) infinite;
+}
+.cell:is(.selected,.hint):not(.producer):not(.locked) .item-art>svg {
+  animation:itemFloat 3.2s ease-in-out var(--idle-phase,0s) infinite;
+}
+.cell.ready-producer .item-level {
+  transform-origin:50% 80%;
+  animation:badgeHop 4.8s ease-in-out var(--cue-phase,0s) infinite;
+}
+.badge.attention { animation:badgeHop 4.8s ease-in-out -1.8s infinite; }
+.order-card.is-ready .order-submit {
+  position:relative;
+  overflow:hidden;
+  animation:readyNudge 4.8s ease-in-out var(--cue-phase,0s) infinite;
+}
+.order-card.is-ready .order-submit:after {
+  content:'';
+  position:absolute;
+  inset:-50% auto -50% -50%;
+  width:35%;
+  background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--surface) 45%,transparent),transparent);
+  pointer-events:none;
+  animation:readySheen 4.8s ease-in-out var(--cue-phase,0s) infinite;
+}
+.cell.tap-pop .item-art { animation:itemTap .38s var(--ease); }
+.cell.generate-pop .item-art { animation:producerSquish .44s var(--ease); }
+.cell.merge-pop .item-art { animation:mergePop .58s var(--ease); }
+.cell.settle-pop .item-art { animation:itemSettle .3s var(--ease); }
+.cell:is(.pop,.tap-pop,.generate-pop,.merge-pop,.settle-pop,:active,.drag-source) .item-art>svg,
+.board.is-dragging .item-art>svg,
+.board.is-dragging .item-level { animation-play-state:paused!important; }
+.motion-paused .game-shell *,
+.motion-paused .game-shell *:before,
+.motion-paused .game-shell *:after { animation-play-state:paused!important; }
+
+.merge-flash {
+  position:fixed;
+  width:56px;
+  height:56px;
+  border:2px solid var(--gold);
+  border-radius:50%;
+  box-shadow:0 0 14px color-mix(in srgb,var(--gold) 30%,transparent),inset 0 0 12px color-mix(in srgb,var(--surface) 80%,transparent);
+  animation:mergeFlash .6s var(--ease) forwards;
+}
+.merge-flash:before,
+.merge-flash:after {
+  content:'';
+  position:absolute;
+  width:13px;
+  height:13px;
+  background:var(--gold);
+  clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);
+}
+.merge-flash:before { top:-7px; right:0; }
+.merge-flash:after { bottom:0; left:-7px; width:9px; height:9px; }
+
+@keyframes producerBreathe {
+  0%,100% { transform:translateY(0) scale(1); }
+  50% { transform:translateY(-1px) scale(1.065,1.04); }
+}
+@keyframes itemFloat {
+  0%,100% { transform:translateY(0) scale(1); }
+  50% { transform:translateY(-1.5px) scale(1.035); }
+}
+@keyframes rewardWiggle {
+  0%,22%,100% { transform:rotate(0) scale(1); }
+  6% { transform:rotate(-4deg) scale(1.04); }
+  12% { transform:rotate(4deg) scale(1.04); }
+  17% { transform:rotate(-2deg) scale(1.02); }
+}
+@keyframes badgeHop {
+  0%,18%,100% { transform:translateY(0) scale(1); }
+  5% { transform:translateY(-2px) scale(1.09); }
+  10% { transform:translateY(0) scale(1.04,.95); }
+  14% { transform:translateY(-1px) scale(1.03); }
+}
+@keyframes readyNudge {
+  0%,24%,100% { transform:scale(1); }
+  10% { transform:scale(1.045); }
+}
+@keyframes readySheen {
+  0%,24% { transform:translateX(0) skewX(-20deg); opacity:0; }
+  28% { opacity:1; }
+  44%,100% { transform:translateX(550%) skewX(-20deg); opacity:0; }
+}
+@keyframes itemTap {
+  0%,100% { transform:scale(var(--item-scale,1)); }
+  28% { transform:scale(.94, .9); }
+  64% { transform:scale(1.09,1.12); }
+}
+@keyframes producerSquish {
+  0%,100% { transform:scale(var(--item-scale,1)); }
+  25% { transform:translateY(2px) scale(1.1,.86); }
+  62% { transform:translateY(-2px) scale(.97,1.12); }
+}
+@keyframes mergePop {
+  0% { transform:scale(.55); }
+  40% { transform:translateY(-2px) scale(1.19,1.16); }
+  67% { transform:scale(1.02,.97); }
+  84% { transform:scale(1.09); }
+  100% { transform:scale(var(--item-scale,1)); }
+}
+@keyframes itemSettle {
+  0% { transform:translateY(-3px) scale(1.1); }
+  55% { transform:scale(1.04,.98); }
+  100% { transform:scale(var(--item-scale,1)); }
+}
+@keyframes mergeFlash {
+  0% { opacity:0; transform:translate(-50%,-50%) scale(.35) rotate(-12deg); }
+  22% { opacity:.9; }
+  100% { opacity:0; transform:translate(-50%,-50%) scale(1.45) rotate(12deg); }
+}
+
 @keyframes tapRing {
   from { opacity:1; transform:translate(-50%,-50%) scale(.4); }
   to { opacity:0; transform:translate(-50%,-50%) scale(1.5); }
@@ -1566,7 +1686,7 @@ label.settings-row {
 @keyframes pop {
   0% { transform:scale(.5); }
   60% { transform:scale(1.12); }
-  100% { transform:scale(1); }
+  100% { transform:scale(var(--item-scale,1)); }
 }
 
 @keyframes confetti {
