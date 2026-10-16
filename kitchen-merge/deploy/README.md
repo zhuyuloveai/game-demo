@@ -2,9 +2,9 @@
 
 Public URL: http://1.92.214.23/ (TCP 80).
 
-Active release: `kitchen-20261016-171919`, deployed 2026-10-16 (Asia/Shanghai).
-Previous target: `releases/kitchen-20261016-171353/site`.
-Rollback snapshot: `/srv/overtime-arena/releases/kitchen-20261016-171919/previous/`.
+Active release: `kitchen-20261016-172556`, deployed 2026-10-16 (Asia/Shanghai).
+Previous target: `releases/kitchen-20261016-171919/site`.
+Rollback snapshot: `/srv/overtime-arena/releases/kitchen-20261016-172556/previous/`.
 
 Validated: 42 game-rule tests covering chapters, stale claims, full boards,
 all chapter unlocks and legacy progress; 320, 375, 390 and 430 px portrait views;
@@ -14,9 +14,12 @@ music/effect controls work, with both audio channels enabled by default.
 The profile and hint interactions pass browser checks; the existing level and
 XP survive the branding update. Public static files match local SHA-256 and expected MIME types; unshipped
 internal files return 404; Nginx container is running and healthy.
-The page fits 390×744, 430×800 and 1280×900 viewports.
-320×667 and 375×667 retain 37 px vertical scrolling; 390×700 retains 4 px.
-All checked widths have no horizontal overflow, and order contents do not overlap.
+The slab fills the worktop width in 320, 375, 390 and 430 px portrait views,
+with square boards measuring 292, 337, 352 and 392 px respectively.
+Short screens scroll vertically; content height is 804 px at 390×744 and
+771 px at 375×667. All checked widths have no horizontal overflow; order
+rewards and status buttons stay on one row without clipping. Desktop
+1280×900 fits the page, and bottom entries remain reachable on short screens.
 
 Board taps select items, including repeated taps on the same item; tapping an
 empty unlocked cell clears selection. Producers retain tap-to-generate. Moving,
@@ -25,9 +28,9 @@ same/different items, locked items and empty cells, drag swapping/merging/moving
 locked-item merging, and producer drags without accidental extra generation.
 
 Orders retain hanging paper slips, 42 px floating customer portraits with names
-on the right, rewards above full-width 44 px buttons, and compact paper padding.
-Cabinets and desktop spacing are compressed; the square board uses
-the browser’s dynamic viewport height, with safe-area insets included. Order,
+on the right, rewards beside status buttons at least 44 px high, and compact
+paper padding. Cabinets and desktop spacing are compressed; the square board
+uses all available worktop width, while page height includes safe-area insets. Order,
 profile, cupboard, hint and gift controls retain 44 px or larger touch targets.
 
 This release integrates the cream kitchen environment: rounded rectangular LCD electricity meter,
