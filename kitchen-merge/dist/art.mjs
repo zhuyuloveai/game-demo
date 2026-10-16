@@ -1,8 +1,8 @@
-// Original, hand-built SVG artwork for the little kitchen.
-// No fonts, remote assets, emoji, or shared SVG ids are needed.
-const ink = '#805261';
-const colors = { cream: '#fff8ef', rose: '#e4a2b6', blush: '#f6d2dc', berry: '#b96383', gold: '#edbe72' };
-const shadow = '<ellipse cx="41" cy="68" rx="25" ry="5" fill="#805261" opacity=".11" stroke="none"/>';
+// Original SVG artwork for the little kitchen.
+// Item silhouettes are authored once; a small material engine below gives every
+// illustration the same curated palette, soft volume, tonal edges and contact
+// shadow. Shared gradients live in one hidden <defs> node, created on demand.
+const shadow = '<ellipse data-shadow="1"/>';
 const art = {
   wheat: `${shadow}
     <path d="M31 67 49 24M39 67 57 35" stroke="#a78949" stroke-width="3"/>
@@ -271,16 +271,214 @@ Object.assign(art, {
 art.cupboard = `${shadow}<rect x="13" y="8" width="54" height="61" rx="6" fill="#e2a7bf"/><rect x="20" y="15" width="40" height="27" rx="3" fill="#fff0df"/><path d="M20 28h40m-20-13v27M13 48h54m-54 10h54" stroke="#be819c"/><path d="M30 53h20m-20 10h20" stroke="#fff0e4" stroke-width="3"/><path d="M24 21h12v7H24Zm20 12h12v9H44Z" fill="#e6bbcf"/><path d="M18 69v4m44-4v4" stroke-width="4"/>`;
 art.toolbox = art.utensils;
 
+// ---------------------------------------------------------------------------
+// Customer portraits: calm, flat-volume animal faces in the shared palette.
+const blush = (x, y) => `<ellipse cx="${x}" cy="${y}" rx="4.5" ry="2.6" fill="#f2a58e" opacity=".45"/>`;
+const eyes = (y = 41, gap = 9) => `<circle cx="${40 - gap}" cy="${y}" r="2.7" fill="#2b221e"/><circle cx="${40 + gap}" cy="${y}" r="2.7" fill="#2b221e"/><circle cx="${40 - gap + .9}" cy="${y - .9}" r=".8" fill="#fff"/><circle cx="${40 + gap + .9}" cy="${y - .9}" r=".8" fill="#fff"/>`;
+Object.assign(art, {
+  bear: `<circle cx="20" cy="22" r="11" fill="#b98760"/><circle cx="60" cy="22" r="11" fill="#b98760"/><circle cx="20" cy="22" r="5.5" fill="#e6c09a"/><circle cx="60" cy="22" r="5.5" fill="#e6c09a"/><ellipse cx="40" cy="45" rx="28" ry="26" fill="#c69468"/><ellipse cx="40" cy="54" rx="12" ry="9" fill="#f1dcc3"/><ellipse cx="40" cy="50" rx="4.2" ry="3" fill="#3a2b24"/><path d="M40 53v3m-4 1c2 2 6 2 8 0" stroke="#3a2b24" stroke-width="1.6" fill="none"/>${eyes(41, 10)}${blush(24, 51)}${blush(56, 51)}`,
+  deer: `<path d="M27 21 21 8m3 7-7-2m5 8L12 16M53 21l6-13m-3 7 7-2m-5 8 10-5" stroke="#a97d57" stroke-width="3" fill="none"/><ellipse cx="15" cy="34" rx="10" ry="5.5" fill="#d29b67" transform="rotate(-25 15 34)"/><ellipse cx="65" cy="34" rx="10" ry="5.5" fill="#d29b67" transform="rotate(25 65 34)"/><path d="M14 44c0-15 11-24 26-24s26 9 26 24c0 16-12 27-26 27S14 60 14 44Z" fill="#d9a46f"/><ellipse cx="40" cy="57" rx="11" ry="9" fill="#f5e4cf"/><ellipse cx="40" cy="53" rx="3.8" ry="2.8" fill="#3a2b24"/><circle cx="27" cy="30" r="2" fill="#f5e4cf" opacity=".8"/><circle cx="33" cy="26" r="1.6" fill="#f5e4cf" opacity=".8"/><circle cx="51" cy="28" r="1.8" fill="#f5e4cf" opacity=".8"/>${eyes(42, 10)}${blush(24, 52)}${blush(56, 52)}`,
+  panda: `<circle cx="19" cy="21" r="10.5" fill="#34302e"/><circle cx="61" cy="21" r="10.5" fill="#34302e"/><ellipse cx="40" cy="45" rx="28" ry="26" fill="#f7f4ef"/><ellipse cx="29" cy="42" rx="7" ry="9" fill="#34302e" transform="rotate(30 29 42)"/><ellipse cx="51" cy="42" rx="7" ry="9" fill="#34302e" transform="rotate(-30 51 42)"/><circle cx="30" cy="41" r="2.4" fill="#fff"/><circle cx="50" cy="41" r="2.4" fill="#fff"/><ellipse cx="40" cy="53" rx="4" ry="2.8" fill="#34302e"/><path d="M40 56v2.5m-4 .5c2 2 6 2 8 0" stroke="#34302e" stroke-width="1.6" fill="none"/>${blush(23, 54)}${blush(57, 54)}`,
+  bunny: `<ellipse cx="29" cy="18" rx="7" ry="17" fill="#f3eee8" transform="rotate(-10 29 18)"/><ellipse cx="51" cy="18" rx="7" ry="17" fill="#f3eee8" transform="rotate(10 51 18)"/><ellipse cx="29" cy="19" rx="3.2" ry="11" fill="#f1c4bb" transform="rotate(-10 29 19)"/><ellipse cx="51" cy="19" rx="3.2" ry="11" fill="#f1c4bb" transform="rotate(10 51 19)"/><ellipse cx="40" cy="48" rx="26" ry="23" fill="#f6f2ec"/><path d="M37 52h6l-3 3Z" fill="#e79a8d"/><path d="M40 55v2m-4 1c2 1.6 6 1.6 8 0" stroke="#8d6b60" stroke-width="1.5" fill="none"/>${eyes(45, 10)}${blush(24, 54)}${blush(56, 54)}`,
+  kitty: `<path d="M15 34 17 10l17 13Zm50 0-2-24-17 13Z" fill="#e9a35c"/><path d="m20 27 1-10 8 7Zm40 0-1-10-8 7Z" fill="#f4caa0"/><ellipse cx="40" cy="46" rx="27" ry="24" fill="#efae66"/><path d="M40 23v8m-7-7 2 6m12-6-2 6" stroke="#d48a45" stroke-width="2.4" fill="none"/><ellipse cx="40" cy="55" rx="11" ry="8" fill="#fbe9d4"/><path d="M37 51h6l-3 3Z" fill="#d9786b"/><path d="M40 54v2m-4 1c2 1.6 6 1.6 8 0M24 53l-11-2m11 5-10 3m42-6 11-2m-11 5 10 3" stroke="#8d6b60" stroke-width="1.3" fill="none"/>${eyes(43, 10)}`,
+});
+
+// ---------------------------------------------------------------------------
+// Material engine.
+const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+function toHsl(hex) {
+  const n = parseInt(hex.slice(1), 16), r = (n >> 16) / 255, g = (n >> 8 & 255) / 255, b = (n & 255) / 255;
+  const max = Math.max(r, g, b), min = Math.min(r, g, b), l = (max + min) / 2;
+  if (max === min) return [0, 0, l * 100];
+  const d = max - min, s = l > .5 ? d / (2 - max - min) : d / (max + min);
+  const h = max === r ? (g - b) / d + (g < b ? 6 : 0) : max === g ? (b - r) / d + 2 : (r - g) / d + 4;
+  return [h * 60, s * 100, l * 100];
+}
+function toHex([h, s, l]) {
+  h = ((h % 360) + 360) % 360; s = clamp(s, 0, 100) / 100; l = clamp(l, 0, 100) / 100;
+  const k = n => (n + h / 30) % 12, a = s * Math.min(l, 1 - l);
+  const f = n => Math.round(255 * (l - a * Math.max(-1, Math.min(k(n) - 3, 9 - k(n), 1))));
+  return '#' + [f(0), f(8), f(4)].map(v => v.toString(16).padStart(2, '0')).join('');
+}
+
+// Each object family receives one material for its former rose-coloured parts.
+const MATERIALS = {
+  glaze: { h: 204, s: .25, dl: -2, light: .16 },       // blue-grey stoneware
+  porcelain: { h: 36, s: .12, dl: 6, light: .14 },     // warm white enamel
+  berry: { h: 352, s: 1.25, dl: -6, light: .5 },       // strawberries, jam, hearts
+  rattan: { h: 33, s: .9, dl: -5, light: .45 },        // baskets and crates
+  terracotta: { h: 17, s: 1.05, dl: -7, light: .4 },   // plant pots
+  sage: { h: 102, s: .62, dl: -6, light: .3 },         // stand mixer
+  steel: { h: 212, s: .14, dl: -2, light: .1 },        // machines and metal
+  persimmon: { h: 12, s: 1.2, dl: -7, light: .5 },   // gifts and signage
+  lacquer: { h: 8, s: .95, dl: -16, light: .35 },      // bento box
+  linen: { h: 30, s: .35, dl: 0, light: .3 },          // textiles
+  raw: null,
+};
+const THEME_OF = {
+  strawberry: 'berry', apple: 'berry', jam: 'berry', fruittart: 'berry', heart: 'berry', fruitbowl: 'glaze',
+  basket: 'rattan', producecrate: 'rattan', herbbasket: 'rattan', storage: 'rattan', hourglass: 'rattan', seed: 'linen',
+  herbpot: 'terracotta', herbgarden: 'terracotta', sprout: 'terracotta', basil: 'terracotta',
+  mixer: 'sage', oven: 'porcelain', coffeemachine: 'steel', cleaner: 'steel', cleaningcart: 'steel', lock: 'steel', diamond: 'glaze',
+  gift: 'persimmon', shop: 'persimmon', renovate: 'persimmon', chef: 'persimmon', scissors: 'persimmon', music: 'persimmon', pasta: 'persimmon',
+  bento: 'lacquer', asianstall: 'lacquer', worldkitchen: 'terracotta', cupboard: 'porcelain', mop: 'linen', brush: 'linen',
+  bear: 'raw', deer: 'raw', panda: 'raw', bunny: 'raw', kitty: 'raw',
+};
+const remapCache = new Map();
+function remap(hex, theme) {
+  hex = hex.toLowerCase();
+  const key = theme + hex;
+  if (remapCache.has(key)) return remapCache.get(key);
+  const material = MATERIALS[theme];
+  let [h, s, l] = toHsl(hex), out;
+  const rose = (h >= 296 && h <= 352) || ((h > 352 || h <= 3) && s < 50);
+  if (!material) out = hex;
+  else if (rose) out = l >= 90
+    ? toHex([material.h, s * material.light, l])
+    : toHex([material.h, clamp(s * material.s, 0, 86), l + material.dl]);
+  else if (l >= 90) out = toHex([h, s * .55, l]);                                   // creams, flour, rice
+  else if (h > 352 || h < 12) out = toHex([h < 12 ? h + 1 : h, clamp(s * 1.15, 0, 84), l - 3]); // ripe reds
+  else if (h >= 58 && h < 170 && s >= 14) out = toHex([94 + (h - 90) * .4, clamp(s * 1.8, 0, 48), l - 4]); // fresh greens
+  else if (h >= 58 && h < 200) out = toHex([205, s * .5, l]);                         // steel greys
+  else if (h >= 12 && h < 58) out = toHex([h, clamp(s * 1.06, 0, 92), l]);            // grains, citrus, wood
+  else out = hex;
+  remapCache.set(key, out);
+  return out;
+}
+
+const SVGNS = 'http://www.w3.org/2000/svg';
+const defined = new Set(), pending = [];
+let defsNode = null;
+function define(id, markup) {
+  if (defined.has(id)) return;
+  defined.add(id);
+  pending.push(markup);
+}
+function flushDefs() {
+  if (!pending.length || typeof document === 'undefined') return;
+  if (!defsNode || !defsNode.isConnected) {
+    const host = document.createElementNS(SVGNS, 'svg');
+    host.setAttribute('aria-hidden', 'true');
+    host.setAttribute('focusable', 'false');
+    host.setAttribute('width', '0');
+    host.setAttribute('height', '0');
+    host.style.cssText = 'position:absolute;width:0;height:0;overflow:hidden;pointer-events:none';
+    defsNode = document.createElementNS(SVGNS, 'defs');
+    host.append(defsNode);
+    (document.body || document.documentElement).prepend(host);
+  }
+  defsNode.insertAdjacentHTML('beforeend', pending.splice(0).join(''));
+}
+define('k-shadow', '<radialGradient id="k-shadow"><stop offset="0" stop-color="#2a1d16" stop-opacity=".26"/><stop offset=".6" stop-color="#2a1d16" stop-opacity=".1"/><stop offset="1" stop-color="#2a1d16" stop-opacity="0"/></radialGradient>');
+define('k-gloss', '<linearGradient id="k-gloss" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>');
+
+function volume(hex) {
+  const id = 'k' + hex.slice(1);
+  if (!defined.has(id)) {
+    const [h, s, l] = toHsl(hex), pale = l > 88;
+    const top = toHex([h - 4, s * .9, Math.min(l + (pale ? 4 : 9), 98)]);
+    const bottom = toHex([h + 4, Math.min(s * 1.08 + 3, 100), l - (pale ? 8 : 12)]);
+    define(id, `<linearGradient id="${id}" x1=".2" y1="0" x2=".72" y2="1"><stop offset="0" stop-color="${top}"/><stop offset=".52" stop-color="${hex}"/><stop offset="1" stop-color="${bottom}"/></linearGradient>`);
+  }
+  return `url(#${id})`;
+}
+const edgeOf = hex => { const [h, s, l] = toHsl(hex); return toHex([h + 6, Math.min(s * 1.1 + 4, 92), l * .62]); };
+
+const attrPattern = /([\w:-]+)="([^"]*)"/g;
+const SHADOW = '<ellipse cx="40" cy="69" rx="25" ry="4.6" fill="url(#k-shadow)"/>';
+function render(markup, theme) {
+  return markup.replace(/<ellipse data-shadow="1"\/>/g, SHADOW).replace(/<(path|rect|circle|ellipse|polygon)\b([^>]*?)\/>/g, (whole, tag, body) => {
+    if (body.includes('k-shadow')) return whole;
+    const attrs = {};
+    for (const [, name, value] of body.matchAll(attrPattern)) attrs[name] = value;
+    const isHex = value => /^#[0-9a-f]{6}$/i.test(value || '');
+    const filled = isHex(attrs.fill);
+    if (filled) {
+      const base = remap(attrs.fill, theme);
+      attrs.fill = theme === 'raw' ? base : volume(base);
+      if (attrs.stroke === undefined) {
+        if (theme === 'raw') attrs.stroke = 'none';
+        else { attrs.stroke = edgeOf(base); attrs['stroke-width'] ??= '1.5'; attrs['stroke-opacity'] = '.55'; }
+      } else if (isHex(attrs.stroke)) attrs.stroke = remap(attrs.stroke, theme);
+    } else if (isHex(attrs.stroke)) {
+      const line = remap(attrs.stroke, theme);
+      attrs.stroke = line;
+      if (toHsl(line)[2] > 86) attrs['stroke-opacity'] ??= '.85';
+    } else if (attrs.stroke === undefined) {
+      attrs.stroke = '#3b2b23';
+      attrs['stroke-opacity'] = '.34';
+    }
+    return `<${tag} ${Object.entries(attrs).map(([k, v]) => `${k}="${v}"`).join(' ')}/>`;
+  });
+}
+
+const rendered = new Map();
+function artFor(name) {
+  const key = art[name] ? name : 'star';
+  if (!rendered.has(key)) rendered.set(key, render(art[key], THEME_OF[key] || 'glaze'));
+  return rendered.get(key);
+}
+
 function escapeAttribute(value) {
   return String(value).replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;');
 }
 
 export function icon(name, className = '') {
-  return `<svg class="${escapeAttribute(className)}" viewBox="0 0 80 80" fill="none" stroke="${ink}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${art[name] || art.star}</svg>`;
+  const body = artFor(name);
+  flushDefs();
+  return `<svg class="${escapeAttribute(className)}" viewBox="0 0 80 80" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${body}</svg>`;
 }
 
+export const artNames = () => Object.keys(art);
+
+// ---------------------------------------------------------------------------
+// Interface symbols: single-weight line glyphs that inherit currentColor.
+const GLYPHS = {
+  merge: '<rect x="3.75" y="8.75" width="11.5" height="11.5" rx="3"/><path d="M8.75 6.25V6a2.5 2.5 0 0 1 2.5-2.5H18A2.5 2.5 0 0 1 20.5 6v6.75a2.5 2.5 0 0 1-2.5 2.5h-.25"/><path d="M9.5 12v5m-2.5-2.5h5"/>',
+  store: '<path d="M4.5 10v8.5A2 2 0 0 0 6.5 20.5h11a2 2 0 0 0 2-2V10"/><path d="M3.5 9.25 5 5.1A2.4 2.4 0 0 1 7.3 3.5h9.4A2.4 2.4 0 0 1 19 5.1l1.5 4.15a2.85 2.85 0 0 1-5.67.4 2.85 2.85 0 0 1-5.66 0 2.85 2.85 0 0 1-5.67-.4Z"/><path d="M10 20.5v-4.25a2 2 0 0 1 4 0v4.25"/>',
+  book: '<path d="M12 6.4C10.1 4.9 7.4 4.4 3.75 4.7v13.6c3.65-.3 6.35.2 8.25 1.7 1.9-1.5 4.6-2 8.25-1.7V4.7c-3.65-.3-6.35.2-8.25 1.7Z"/><path d="M12 6.4V20"/>',
+  music: '<path d="M9 17.75V5.6L19.5 3.5v11.75"/><circle cx="6.6" cy="17.75" r="2.6"/><circle cx="17.1" cy="15.25" r="2.6"/><path d="M9 9.2l10.5-2.1"/>',
+  muted: '<path d="M4 9.5h3l4.5-4v13l-4.5-4H4a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1Z"/><path d="m15.5 9.5 5 5m0-5-5 5"/>',
+  sliders: '<path d="M4 7.5h8.5m5 0H20M4 16.5h2.5m5 0H20"/><circle cx="15" cy="7.5" r="2.5"/><circle cx="9" cy="16.5" r="2.5"/>',
+  archive: '<rect x="3.25" y="4" width="17.5" height="5" rx="1.6"/><path d="M4.75 9v9.25a2 2 0 0 0 2 2h10.5a2 2 0 0 0 2-2V9"/><path d="M10 13h4"/>',
+  bag: '<path d="M5.4 8h13.2l-.95 10.7a2 2 0 0 1-2 1.8H8.35a2 2 0 0 1-2-1.8Z"/><path d="M9 10.5V7a3 3 0 0 1 6 0v3.5"/>',
+  gift: '<rect x="3.5" y="8" width="17" height="4.5" rx="1.3"/><path d="M5 12.5v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6M12 8v12.5"/><path d="M12 8C10.6 4.6 6.6 3.9 6.2 6.1 5.8 8.2 9.6 8 12 8Zm0 0c1.4-3.4 5.4-4.1 5.8-1.9.4 2.1-3.4 1.9-5.8 1.9Z"/>',
+  recipes: '<path d="M7 3.5V10M4.5 3.5V8a2.5 2.5 0 0 0 5 0V3.5M7 10v10.5"/><path d="M17.25 20.5v-17c-2.3 1.2-3.75 4-3.75 7.6v2.65h3.75"/>',
+  sparkles: '<path d="M10 4.5c.5 3.2 1.8 4.6 5 5-3.2.5-4.5 1.8-5 5-.5-3.2-1.8-4.5-5-5 3.2-.4 4.5-1.8 5-5Z"/><path d="M17.5 13.5c.25 1.6.9 2.25 2.5 2.5-1.6.25-2.25.9-2.5 2.5-.25-1.6-.9-2.25-2.5-2.5 1.6-.25 2.25-.9 2.5-2.5Z"/>',
+  close: '<path d="M6.5 6.5l11 11m0-11-11 11"/>',
+  check: '<path d="m5.5 12.5 4 4 9-9.5"/>',
+  lock: '<rect x="5" y="10.25" width="14" height="10" rx="2.6" fill="currentColor" stroke="none"/><path d="M8 10.25V8a4 4 0 0 1 8 0v2.25"/>',
+  chevron: '<path d="m9.5 5.5 6.5 6.5-6.5 6.5"/>',
+  plus: '<path d="M12 5.5v13M5.5 12h13"/>',
+  hammer: '<path d="m13.5 9.5-8.6 8.6a1.9 1.9 0 0 0 2.7 2.7l8.6-8.6"/><path d="m11.5 7.5 3-3c1.7-1.2 4-1.1 5.5.4l-2.1.6 1.7 1.7.6 2.4-2.2 2.2-2.4-.6Z"/>',
+};
+
+export function glyph(name, className = '') {
+  return `<svg class="glyph ${escapeAttribute(className)}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${GLYPHS[name] || GLYPHS.sparkles}</svg>`;
+}
+
+export function avatar(customer = '') {
+  const name = { 小鹿: 'deer', 阿熊: 'bear', 团团: 'panda', 小兔: 'bunny', 小猫: 'kitty' }[customer]
+    || ['deer', 'bear', 'panda', 'bunny', 'kitty'][[...String(customer)].reduce((sum, ch) => sum + ch.codePointAt(0), 0) % 5];
+  return { name, svg: icon(name) };
+}
+
+// ---------------------------------------------------------------------------
+// The renovation scene: a quiet Scandinavian kitchen that fills up over time.
+const sceneDefs = {
+  'k-wall': '<linearGradient id="k-wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8f4ee"/><stop offset="1" stop-color="#efe7dc"/></linearGradient>',
+  'k-sky': '<linearGradient id="k-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c9dcea"/><stop offset=".7" stop-color="#eef0ea"/><stop offset="1" stop-color="#f6efe2"/></linearGradient>',
+  'k-oak': '<linearGradient id="k-oak" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ecd9ba"/><stop offset="1" stop-color="#cfb088"/></linearGradient>',
+  'k-cab': '<linearGradient id="k-cab" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9aabb9"/><stop offset="1" stop-color="#7d8f9e"/></linearGradient>',
+  'k-floor': '<linearGradient id="k-floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2cfb3"/><stop offset="1" stop-color="#d3bb98"/></linearGradient>',
+  'k-glass': '<linearGradient id="k-glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4a4f55"/><stop offset="1" stop-color="#2c2f33"/></linearGradient>',
+  'k-sun': '<radialGradient id="k-sun"><stop offset="0" stop-color="#fbe3b0"/><stop offset=".55" stop-color="#f7d79a" stop-opacity=".7"/><stop offset="1" stop-color="#f7d79a" stop-opacity="0"/></radialGradient>',
+};
+let sceneCache = [];
 export function kitchenScene(stage = 0) {
   const level = Math.max(0, Math.min(8, Number(stage) || 0));
+  if (sceneCache[level]) { flushDefs(); return sceneCache[level]; }
+  for (const [id, markup] of Object.entries(sceneDefs)) define(id, markup);
   // Eight additions remain visible, making every renovation cumulative.
   const upgrades = [
     `<g><rect x="18" y="82" width="121" height="8" rx="3" fill="#c891a5"/><path d="M28 90v13m101-13v13" stroke-width="4"/><rect x="30" y="48" width="26" height="34" rx="6" fill="#e6b77d"/><rect x="28" y="45" width="30" height="7" rx="3" fill="#c28e6d"/><rect x="66" y="58" width="26" height="24" rx="5" fill="#fff1df"/><path d="M70 58v-5h18v5" fill="#e2b5c8"/><path d="m105 82-3-21h26l-3 21Z" fill="#e2a9be"/><path d="M115 63V43m0 10c-12 1-14-8-10-12 8 0 12 5 10 12Zm1-5c0-11 10-15 14-9 0 7-6 11-14 9Z" fill="#a0b68a" stroke="#7f976b"/></g>`,
@@ -292,31 +490,34 @@ export function kitchenScene(stage = 0) {
     `<g><path d="M78 0v23m350-23v10" stroke="#ad7c93"/><path d="M56 43c0-28 44-28 44 0Z" fill="#e6a5bd"/><ellipse cx="78" cy="43" rx="22" ry="5" fill="#fff0c9"/><path d="M66 27c-4 3-6 6-7 11" stroke="#ffdae6" stroke-width="3"/><path d="M375 11q54 24 128 0" stroke="#c193a7"/><circle cx="385" cy="15" r="4" fill="#ffe6a6" stroke="none"/><circle cx="407" cy="21" r="4" fill="#ffe6a6" stroke="none"/><circle cx="432" cy="23" r="4" fill="#ffe6a6" stroke="none"/><circle cx="457" cy="21" r="4" fill="#ffe6a6" stroke="none"/><circle cx="483" cy="16" r="4" fill="#ffe6a6" stroke="none"/><rect x="26" y="217" width="129" height="10" rx="5" fill="#f3c2d2"/><path d="m39 228-5 37m106-37 5 37" stroke="#bd879c" stroke-width="6"/><path d="M85 244h59v-28H85Z" fill="#e9b6c8"/><path d="M82 243h65v8H82Z" fill="#fff1e4"/><path d="m90 251-4 19m52-19 4 19" stroke-width="4"/></g>`,
     `<g><path d="M349 268c-3-20 1-32 15-41h27c14 10 19 22 16 41Z" fill="#fff8ed"/><path d="M364 231c-8-8-10-21-6-29 5-11 22-12 31-3 9 8 7 23-1 30v8h-22Z" fill="#fff8ef"/><path d="M386 213c9-3 20 0 21 5-3 5-13 8-21 4Z" fill="#edbc76"/><circle cx="379" cy="208" r="2" fill="#795766" stroke="none"/><ellipse cx="379" cy="218" rx="4" ry="2.5" fill="#efb3bd" stroke="none"/><path d="M356 202v-9c-9-5-7-15 3-16 5-8 15-7 20-1 12-4 20 7 13 15v11Z" fill="#fff9f1"/><path d="M359 195h31" stroke="#e0bdcc"/><path d="m364 231 26 2-10 11-17-7m11 6-1 17 8-4 2-14" fill="#d58ba8"/><path d="M454 244h-30m8 0v-16c0-9 18-9 18 0v16" stroke="#be8da1" stroke-width="4"/><path d="M416 247h46v8h-46Z" fill="#e4b1c7"/><path d="m425 255-4 16m32-16 4 16" stroke-width="4"/><path d="m502 135 2 6 6 2-6 2-2 6-2-6-6-2 6-2m-166-89 2 5 5 2-5 2-2 5-2-5-5-2 5-2" fill="#edc37c" stroke="none"/><path d="M455 190h55v18h-55Z" fill="#fff1dc"/><path d="M464 197h37m-30 6h23" stroke="#d19ab1" stroke-width="2"/></g>`
   ];
-  return `<svg viewBox="0 0 540 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-  <rect width="540" height="280" rx="18" fill="#fbe5eb"/>
-  <path d="M0 105h540v85H0Z" fill="#fff2ec"/>
-  <g stroke="#edcbd7" stroke-width="1.2"><path d="M0 105h540M0 134h540M0 163h540M0 190h540M30 105v29m60-29v29m60-29v29m60-29v29m60-29v29m60-29v29m60-29v29m60-29v29m60-29v29M0 134v29m60-29v29m60-29v29m60-29v29m60-29v29m60-29v29m60-29v29m60-29v29m60-29v29"/></g>
-  <path d="M0 192h540v88H0Z" fill="#f3d5df"/>
-  <g stroke="#e5bacb" opacity=".6"><path d="M0 218h540M0 245h540M30 192v26m60-26v26m60-26v26m60-26v26m60-26v26m60-26v26m60-26v26m60-26v26m60-26v26M0 218v27m60-27v27m60-27v27m60-27v27m60-27v27m60-27v27m60-27v27m60-27v27m60-27v27"/></g>
-  <g stroke="#946579" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <rect x="175" y="17" width="179" height="117" rx="11" fill="#e8b4c8"/>
-  <rect x="182" y="24" width="165" height="103" rx="6" fill="#f9e6df"/>
-  <circle cx="308" cy="52" r="16" fill="#f4d69e" stroke="none"/>
-  <path d="M183 104c34-22 59-10 82 3 24-24 52-19 81-9v29H183Z" fill="#efd2dc" stroke="none"/>
-  <path d="M183 117c32-12 50-5 82 2 27-15 54-10 81-3v11H183Z" fill="#e4bbc9" stroke="none"/>
-  <path d="M265 24v103M182 78h165" stroke="#f8efe5" stroke-width="6"/>
-  <path d="M183 25c1 21-7 38-16 49V23l17-3Zm164 0c-1 21 7 38 16 49V23l-17-3Z" fill="#f6cad8" stroke="#d99ab3"/>
-  <path d="m170 64 9 3m173 0 9-3" stroke="#c88ca6"/>
-  <rect x="170" y="128" width="190" height="9" rx="4" fill="#dba7b9"/>
-  <path d="M0 177h540v29H0Z" fill="#d899b3"/>
-  <path d="M0 185h540M128 185v21m139-21v21m135-21v21" stroke="#b97c96"/>
-  <path d="M51 194h26m107 0h26m109 0h26m105 0h26" stroke="#ffe8e1" stroke-width="4"/>
-  <rect x="-3" y="166" width="546" height="14" rx="4" fill="#eed1b3"/>
-  <path d="M0 170h540" stroke="#fff2df"/>
-  <path d="M184 211h121v49H184Z" fill="#e1a9bd"/>
-  <path d="M196 218h97v34h-97Z" fill="#f3cbd8"/>
-  <path d="M236 225h17" stroke="#fff0df" stroke-width="4"/>
-  <path d="M184 260h121" stroke="#c38ca4" stroke-width="4"/>
-  ${[4, 5, 2, 3, 0, 6, 1, 7].slice(0, level).map(index => upgrades[index]).join('')}
-  </g></svg>`;
+
+  const additions = render([4, 5, 2, 3, 0, 6, 1, 7].slice(0, level).map(index => upgrades[index]).join(''), 'glaze');
+  const tiles = Array.from({ length: 9 }, (_, i) => `M${60 * i + 30} 105v62`).join('') + 'M0 126h540M0 147h540';
+  const svg = `<svg viewBox="0 0 540 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+  <rect width="540" height="280" fill="url(#k-wall)"/>
+  <rect y="105" width="540" height="62" fill="#f2ebe1"/>
+  <path d="${tiles}" stroke="#e3d8c9" stroke-width="1.2"/>
+  <rect x="175" y="17" width="179" height="117" rx="10" fill="#fdfbf8" stroke="#e2d7c9" stroke-width="1.5"/>
+  <rect x="183" y="25" width="163" height="101" rx="5" fill="url(#k-sky)"/>
+  <circle cx="306" cy="54" r="26" fill="url(#k-sun)"/><circle cx="306" cy="54" r="11" fill="#fbe7bd"/>
+  <path d="M183 104c34-20 58-11 82 1 25-21 52-17 81-8v29H183Z" fill="#c4d3b4"/>
+  <path d="M183 116c32-11 52-5 82 2 27-13 54-9 81-2v10H183Z" fill="#a9bf98"/>
+  <path d="M265 25v101M183 76h163" stroke="#fdfbf8" stroke-width="5"/>
+  <rect x="183" y="25" width="163" height="12" fill="#efe6d8"/><path d="M183 37h163" stroke="#e1d5c4" stroke-width="1.2"/>
+  <rect x="168" y="127" width="194" height="9" rx="4" fill="#ebe2d5" stroke="#dccfbd" stroke-width="1.2"/>
+  <rect x="0" y="178" width="540" height="84" fill="url(#k-cab)"/>
+  <path d="M128 182v76M267 182v76M402 182v76M0 220h540" stroke="#6f8291" stroke-width="1.4" stroke-opacity=".6"/>
+  <path d="M52 198h24m104 0h0m120 0h24m107 0h24M52 238h24m332 0h24" stroke="#dcb978" stroke-width="3.2"/>
+  <rect x="-3" y="166" width="546" height="13" rx="3" fill="url(#k-oak)"/>
+  <path d="M0 168.5h540" stroke="#f6ead6" stroke-width="1.4"/>
+  <rect x="184" y="198" width="121" height="58" rx="6" fill="#e9e6e1" stroke="#cfc9c1" stroke-width="1.4"/>
+  <rect x="194" y="214" width="101" height="34" rx="4" fill="url(#k-glass)"/>
+  <path d="M199 219h40" stroke="#ffffff" stroke-opacity=".18" stroke-width="3"/>
+  <path d="M206 206h77" stroke="#b9b2a8" stroke-width="3.2"/>
+  <rect y="261" width="540" height="19" fill="url(#k-floor)"/><path d="M0 261h540M90 261v19M210 261v19M330 261v19M450 261v19" stroke="#c7ad89" stroke-width="1.2"/>
+  ${additions}
+  </svg>`;
+  sceneCache[level] = svg;
+  flushDefs();
+  return svg;
 }

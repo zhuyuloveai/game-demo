@@ -49,14 +49,14 @@ export const PRODUCER_DEFS = Object.freeze({
 });
 
 export const RENOVATIONS = Object.freeze([
-  {id:'coffee-corner',name:'布置咖啡角',description:'添一张奶油粉吧台，解锁咖啡工作台和饮品食谱。',stars:3,icon:'coffee',unlockKind:'drink'},
+  {id:'coffee-corner',name:'布置咖啡角',description:'添一张奶油色吧台，解锁咖啡工作台和饮品食谱。',stars:3,icon:'coffee',unlockKind:'drink'},
   {id:'herb-window',name:'种下窗边香草',description:'邀请阳光进厨房，解锁会自然生长的香草花盆。',stars:5,icon:'herbpot',unlockKind:'herb'},
   {id:'asian-kitchen',name:'开设亚洲料理台',description:'准备蒸锅与餐盘，解锁中式和日式料理。',stars:7,icon:'bento',unlockKind:'asian'},
   {id:'world-kitchen',name:'迎接环球美味',description:'为面食与玉米留个位置，解锁意式和墨西哥料理。',stars:9,icon:'pizza',unlockKind:'mediterranean'},
-  {id:'pink-pantry',name:'扩建粉色储藏间',description:'餐具食材都有自己的家，仓库永久增加 2 格。',stars:11,icon:'cupboard',storageReward:2,chestReward:2},
+  {id:'pink-pantry',name:'扩建陶瓷储藏间',description:'餐具食材都有自己的家，仓库永久增加 2 格。',stars:11,icon:'cupboard',storageReward:2,chestReward:2},
   {id:'dining-room',name:'布置花园餐桌',description:'为朋友准备下午茶，仓库永久增加 2 格。',stars:13,icon:'teapot',storageReward:2,coinReward:50},
   {id:'chef-studio',name:'升级主厨工作室',description:'给你的料理梦想更大空间，获得豪华厨房礼盒。',stars:15,icon:'oven',chestReward:3},
-  {id:'dream-kitchen',name:'开业！梦幻小厨房',description:'点亮粉色招牌，仓库再增加 4 格，获得豪华礼盒。',stars:18,icon:'gift',storageReward:4,chestReward:3},
+  {id:'dream-kitchen',name:'开业！梦幻小厨房',description:'点亮门口的灯箱招牌，仓库再增加 4 格，获得豪华礼盒。',stars:18,icon:'gift',storageReward:4,chestReward:3},
 ]);
 
 export const RECIPES = Object.freeze([

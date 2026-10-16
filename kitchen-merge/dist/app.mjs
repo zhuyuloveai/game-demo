@@ -1,5 +1,5 @@
 import { CHAINS, FAMILY_META, PRODUCER_DEFS, RENOVATIONS, SHOP_ITEMS, RECIPES, createGame, generate, move, fulfillOrder, getOrderProgress, refillEnergy, sellItem, getLevel, findMerge, tick, producerStatus, collectItem, claimPending, storeItem, retrieveItem, expandStorage, renovate, buyShopItem, claimDaily, useBooster, resolveBubble, unlockCell, unlockCost, storageExpansionCost, getRecipeProgress, cookRecipe } from './engine.mjs';
-import { icon, kitchenScene } from './art.mjs';
+import { icon, glyph, avatar, kitchenScene } from './art.mjs';
 import { createKitchenAudio } from './audio.mjs';
 
 const $ = s => document.querySelector(s);
@@ -38,7 +38,7 @@ function celebrate(element,message,big=false,kind='merge'){
   if(!element)return;const r=element.getBoundingClientRect(), x=r.left+r.width/2,y=r.top+r.height/2;
   const text=document.createElement('span');text.className='floating-text';text.textContent=message;
   Object.assign(text.style,{left:`${x}px`,top:`${y}px`});$('#effects').append(text);setTimeout(()=>text.remove(),1300);
-  const colors=['#eaa1ba','#f6ced8','#ecc777','#cf6b8e','#fff2dc'];
+  const colors=['#f0643c','#f6b84b','#8fb07a','#9fb3c4','#f7efe4'];
   for(let i=0;i<(big?26:10);i++){
     const piece=document.createElement('i');piece.className='confetti';const angle=Math.random()*Math.PI*2,radius=(big?120:55)*(.4+Math.random());
     Object.assign(piece.style,{left:`${x}px`,top:`${y}px`,background:colors[i%colors.length]});piece.style.setProperty('--dx',`${Math.cos(angle)*radius}px`);piece.style.setProperty('--dy',`${Math.sin(angle)*radius+40}px`);
@@ -53,7 +53,7 @@ function renderBoard(popIndex=-1){
     const locked=isLocked(i),producer=item?.family==='producer',bubble=item?.family==='bubble';
     const status=producer?producerStatus(state,item):null;
     const label=locked?`锁定，${item?itemName(item):'待整理台面'}`:item?`${itemName(item)}${producer?'，点击生产':`，${item.level||1}级`}`:'空格';
-    return `<button class="cell ${item?'occupied':'empty'} ${producer?'producer':''} ${locked?'locked':''} ${bubble?'bubble':''} ${status&&!status.ready?'cooling':''} ${['energy','coins','chest'].includes(item?.family)?'resource-item':''} ${selected===i?'selected':''} ${hinted.includes(i)?'hint':''} ${popIndex===i?'pop':''}" data-cell="${i}" aria-label="第${Math.floor(i/7)+1}行第${i%7+1}格，${esc(label)}" title="${esc(label)}" aria-pressed="${selected===i}">${item?`<span class="item-art">${itemArt(item)}</span><span class="item-level">${producer?'ϟ'+item.level:bubble?'✦':item.level}</span>`:''}${locked?`<span class="lock-badge">${icon('lock')}</span>`:''}${producer&&!locked?`<span class="cooldown-label" data-cooldown="${i}">${status.ready?`${status.charges}次`:formatTime(status.cooldownRemaining)}</span>`:''}</button>`;
+    return `<button class="cell ${item?'occupied':'empty'} ${producer?'producer':''} ${locked?'locked':''} ${bubble?'bubble':''} ${status&&!status.ready?'cooling':''} ${['energy','coins','chest'].includes(item?.family)?'resource-item':''} ${selected===i?'selected':''} ${hinted.includes(i)?'hint':''} ${popIndex===i?'pop':''}" data-cell="${i}" aria-label="第${Math.floor(i/7)+1}行第${i%7+1}格，${esc(label)}" title="${esc(label)}" aria-pressed="${selected===i}">${item?`<span class="item-art">${itemArt(item)}</span><span class="item-level">${producer?'Lv'+item.level:bubble?'✦':item.level}</span>`:''}${locked?`<span class="lock-badge">${glyph('lock')}</span>`:''}${producer&&!locked?`<span class="cooldown-label" data-cooldown="${i}">${status.ready?`${status.charges}次`:formatTime(status.cooldownRemaining)}</span>`:''}</button>`;
   }).join('');
   if(focused!==undefined)board.querySelector(`[data-cell="${focused}"]`)?.focus({preventScroll:true});
 }
@@ -65,7 +65,7 @@ function renderStats(){
   const next=RENOVATIONS[state.stage];$('#quest-copy').textContent=next?`${next.name} · 需要 ${next.stars} 星`:'世界美食厨房 · 装修已完成';
   $('#storage-count').textContent=`${state.inventory.length}/${state.storageCapacity}`;
   $('#gift-count').textContent=state.pending.length?String(state.pending.length):dailyReady()?'领':'✓';
-  $('#sound-button').innerHTML=`<span class="dock-icon">${icon(musicEnabled?'music':'muted')}</span><span>音乐</span>`;
+  $('#sound-button').innerHTML=`<span class="dock-icon">${glyph(musicEnabled?'music':'muted')}</span><span>音乐</span>`;
   if(sceneStage!==state.stage){sceneStage=state.stage;$('#kitchen-scene').innerHTML=kitchenScene(state.stage);$('#kitchen-stage-label').textContent=`第 ${state.stage+1} 章 · ${state.stage?RENOVATIONS[state.stage-1]?.name:'草莓小厨房开张啦'}`;}
 }
 function renderSelection(){
@@ -89,7 +89,7 @@ function renderSelection(){
   $('#selection-card').innerHTML=`<span class="selected-art">${itemArt(item)}</span><div class="selection-copy"><strong>${esc(itemName(item))}<span class="selection-meta">Lv.${item.level||1}</span></strong><p>${esc(description)}</p></div><div class="selection-actions">${actions}</div>`;
 }
 function renderOrders(){
-  $('#orders').innerHTML=state.orders.map((order,i)=>{const p=getOrderProgress(state,order);return `<article class="order-card ${p.ready?'is-ready':''}" data-order="${order.id}"><div class="order-top"><span class="avatar ${['rose','honey','rose'][i]}">${icon('chef')}</span><div><h3>${esc(order.customer)}</h3><p>${esc(order.title)}</p></div></div><div class="order-needs">${p.needs.map(n=>`<div class="need ${!n.missing?'ready':''}" title="${esc(itemName(n))} ${n.have}/${n.count}"><span class="need-art">${itemArt(n)}</span><span class="need-count">${Math.min(n.have,n.count)}/${n.count}</span>${!n.missing?`<span class="need-check">${icon('check')}</span>`:''}</div>`).join('')}</div><div class="order-bottom"><span class="reward"><span class="reward-coin">${icon('coin')}${order.coins}</span><small>★ ${order.stars||1}</small></span><button class="order-submit" data-fulfill="${order.id}" ${p.ready?'':'disabled'}>${p.ready?'交付 ✓':'待完成'}</button></div></article>`;}).join('');
+  $('#orders').innerHTML=state.orders.map((order,i)=>{const p=getOrderProgress(state,order);return `<article class="order-card ${p.ready?'is-ready':''}" data-order="${order.id}"><div class="order-top">${(a=>`<span class="avatar ${a.name}">${a.svg}</span>`)(avatar(order.customer))}<div><h3>${esc(order.customer)}</h3><p>${esc(order.title)}</p></div></div><div class="order-needs">${p.needs.map(n=>`<div class="need ${!n.missing?'ready':''}" title="${esc(itemName(n))} ${n.have}/${n.count}"><span class="need-art">${itemArt(n)}</span><span class="need-count">${Math.min(n.have,n.count)}/${n.count}</span>${!n.missing?`<span class="need-check">${glyph('check')}</span>`:''}</div>`).join('')}</div><div class="order-bottom"><span class="reward"><span class="reward-coin">${icon('coin')}${order.coins}</span><small>★ ${order.stars||1}</small></span><button class="order-submit" data-fulfill="${order.id}" ${p.ready?'':'disabled'}>${p.ready?'交付 ✓':'待完成'}</button></div></article>`;}).join('');
 }
 function render(pop=-1){renderBoard(pop);renderStats();renderSelection();renderOrders();}
 function act(result,{pop=-1,fx=null,showMessage=false}={}){
@@ -285,5 +285,6 @@ document.addEventListener('visibilitychange',()=>{audio.setHidden(document.hidde
 window.addEventListener('pagehide',()=>{save();audio.setHidden(true);});
 window.addEventListener('pageshow',()=>audio.setHidden(document.hidden));
 setInterval(()=>{if(!document.hidden)refreshTime();},1000);
-for(const [id,name] of Object.entries({'brand-icon':'chef','collection-icon':'basket','energy-icon':'energy','coin-icon':'coin','settings-icon':'settings','level-icon':'star','hint-icon':'sparkles','modal-close':'close','quest-icon':'star','storage-icon':'storage','shop-icon':'shop','gift-icon':'gift','recipes-icon':'cook','renovation-icon':'renovate'}))$(`#${id}`).innerHTML=icon(name);
+for(const [id,name] of Object.entries({'energy-icon':'energy','coin-icon':'coin','level-icon':'star','quest-icon':'star'}))$(`#${id}`).innerHTML=icon(name);
+for(const [id,name] of Object.entries({'brand-icon':'merge','collection-icon':'book','settings-icon':'sliders','hint-icon':'sparkles','modal-close':'close','storage-icon':'archive','shop-icon':'bag','gift-icon':'gift','recipes-icon':'recipes','renovation-icon':'store'}))$(`#${id}`).innerHTML=glyph(name);
 render();save();
