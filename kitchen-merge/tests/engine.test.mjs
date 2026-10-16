@@ -1,12 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  CHAINS, BOARD_SIZE, PRODUCER_DEFS, RENOVATIONS, SHOP_ITEMS, RECIPES,
+  CHAINS, BOARD_SIZE, PRODUCER_DEFS, RENOVATIONS, CHAPTERS, SHOP_ITEMS, RECIPES,
   createGame, generate, move, fulfillOrder, getOrderProgress, refillEnergy,
   sellItem, tickEnergy, tick, getLevel, findMerge, serialize, producerStatus,
   collectItem, claimPending, storeItem, retrieveItem, expandStorage, renovate,
   buyShopItem, claimDaily, useBooster, resolveBubble, unlockCell, unlockCost,
-  getRecipeProgress, cookRecipe, chinaDate,
+  getRecipeProgress, cookRecipe, chinaDate, getChapterProgress, claimChapter,
 } from '../dist/engine.mjs';
 const NOW=1_700_000_000_000;
 const blank=()=>{
@@ -334,4 +334,105 @@ test('invalid indexes never move, delete, unlock, or spend resources',()=>{
 test('legacy refill and selling continue to use the original economy',()=>{
   const state=createGame(null,NOW);state.energy=10;const r=refillEnergy(state,NOW);assert.equal(r.amount,30);assert.equal(state.energy,40);assert.equal(state.coins,90);
   assert.equal(sellItem(state,22).coins,4);assert.equal(state.coins,94);assert.equal(state.board[22],null);
+});
+
+test('chapter journal shows cumulative tasks and never grants unfinished rewards',()=>{
+  const state=createGame(null,NOW),before=snapshot(state),progress=getChapterProgress(state);
+  assert.equal(progress.chapter.id,'chapter-1');assert.equal(progress.total,3);assert.equal(progress.completed,0);
+  assert.equal(progress.ready,false);assert.equal(progress.allComplete,false);assert.equal(progress.invalid,false);
+  assert.deepEqual(progress.tasks.map(task=>[task.value,task.target,task.done]),[[0,1,false],[0,1,false],[0,1,false]]);
+  assert.equal(snapshot(state),before);unchanged(state,()=>claimChapter(state,0,NOW),'incomplete');
+});
+
+test('first chapter follows merge, delivery and cooking and grants coffee plus 80 coins without spending stars',()=>{
+  const state=createGame(null,NOW);
+  move(state,8,9,NOW);assert.equal(fulfillOrder(state,state.orders[0].id).ok,true);
+  move(state,14,15,NOW);move(state,15,19,NOW);put(state,1,'food',2);
+  assert.equal(cookRecipe(state,'golden-toast').ok,true);
+  const progress=getChapterProgress(state);assert.equal(progress.ready,true);assert.equal(progress.completed,3);
+  const coins=state.coins,stars=state.stars,board=structuredClone(state.board),r=claimChapter(state,0,NOW);
+  assert.equal(r.ok,true);assert.equal(r.type,'chapter');assert.equal(state.stage,1);assert.equal(state.coins,coins+80);assert.equal(state.stars,stars);
+  assert.deepEqual(state.board,board);assert.equal(r.rewards.length,1);assert.equal(r.rewards[0].kind,'drink');
+  assert.equal(state.pending.at(-1),r.rewards[0]);assert.equal(getRecipeProgress(state,'silky-latte').locked,false);
+  unchanged(state,()=>claimChapter(state,0,NOW),'claimed');
+});
+
+test('chapter rewards stay pending on a full board and stale claims cannot advance another ready chapter',()=>{
+  const state=blank();fill(state);state.discovered.push('food:4','drink:4');state.completed=4;state.cooked=2;
+  const board=structuredClone(state.board);assert.equal(claimChapter(state,0,NOW).ok,true);
+  assert.deepEqual(state.board,board);assert.equal(state.pending[0].kind,'drink');assert.equal(getChapterProgress(state).ready,true);
+  unchanged(state,()=>claimChapter(state,0,NOW),'claimed');assert.equal(state.pending.length,1);
+  const restored=createGame(serialize(state),NOW);
+  unchanged(restored,()=>claimChapter(restored,0,NOW),'claimed');assert.equal(restored.pending.filter(item=>item.kind==='drink').length,1);
+  assert.equal(claimChapter(restored,1,NOW).ok,true);assert.equal(restored.pending.filter(item=>item.kind==='herb').length,1);
+});
+
+test('chapter claims preserve an already-owned unlocked producer without issuing a duplicate',()=>{
+  for(const location of ['board','inventory','pending']) {
+    const state=blank(),existing={id:'old-coffee',family:'producer',kind:'drink',level:2,charges:18,readyAt:0};
+    if(location==='board')state.board[0]=existing;else state[location].push(existing);
+    state.discovered.push('food:4');state.completed=1;state.cooked=1;
+    assert.equal(claimChapter(state,0,NOW).ok,true);
+    const devices=[...state.board,...state.inventory,...state.pending].filter(item=>item?.kind==='drink');
+    assert.deepEqual(devices,[existing]);
+  }
+});
+
+test('legacy stage progress and resources migrate into chapters without replaying claimed rewards',()=>{
+  for(const version of [1,2]) {
+    const saved=createGame(null,NOW);saved.version=version;saved.stage=3;saved.stars=17;saved.coins=250;saved.energy=43;
+    saved.completed=12;saved.cooked=5;saved.discovered.push('chinese:3','japanese:3');
+    producer(saved,1,'drink');producer(saved,2,'herb');producer(saved,4,'asian');
+    const state=createGame(serialize(saved),NOW),progress=getChapterProgress(state);
+    assert.equal(progress.chapter.id,'chapter-4');assert.equal(progress.ready,true);assert.equal(state.stars,17);
+    assert.equal(state.coins,250);assert.equal(state.energy,43);unchanged(state,()=>claimChapter(state,0,NOW),'claimed');
+    assert.equal(claimChapter(state,3,NOW).ok,true);assert.equal(state.stage,4);assert.equal(state.stars,17);
+    assert.equal(state.pending.filter(item=>item.kind==='mediterranean').length,1);
+    const resumed=createGame(serialize(state),NOW);assert.deepEqual(resumed,state);unchanged(resumed,()=>claimChapter(resumed,3,NOW),'claimed');
+  }
+});
+
+test('all chapters are reachable with earlier devices and preserve the original unlock and storage rewards',()=>{
+  const state=createGame(null,NOW),available=new Set(['food','produce','tools']);state.locked=[];
+  for(const chapter of CHAPTERS) {
+    assert.equal(state.stage,chapter.stage);
+    const discoveries=chapter.tasks.find(task=>task.kind==='discover').items;
+    for(const key of discoveries) {
+      const [family,levelText]=key.split(':'),level=Number(levelText);
+      assert.ok([...available].some(kind=>PRODUCER_DEFS[kind].families.includes(family)),`${chapter.id} cannot discover ${key}`);
+      assert.ok(level>1&&level<=CHAINS[family].length);
+      // A successful merge records the required discovery even after the item is sold or delivered.
+      put(state,10,family,level-1);put(state,11,family,level-1);assert.equal(move(state,10,11,NOW).ok,true);
+    }
+    const orderTarget=chapter.tasks.find(task=>task.kind==='orders').target;
+    while(state.completed<orderTarget) {
+      const order=state.orders[0];let index=7;
+      for(const need of order.needs)for(let n=0;n<need.count;n++)put(state,index++,need.family,need.level);
+      assert.equal(fulfillOrder(state,order.id).ok,true);
+    }
+    const cookTarget=chapter.tasks.find(task=>task.kind==='cook').target;
+    while(state.cooked<cookTarget) {
+      put(state,7,'fruit',1);put(state,8,'fruit',1);put(state,9,'vegetable',1);put(state,12,'tools',1);
+      assert.equal(cookRecipe(state,'fruit-salad').ok,true);
+    }
+    const stars=state.stars;assert.equal(getChapterProgress(state).ready,true);assert.equal(claimChapter(state,chapter.stage,NOW).ok,true);
+    assert.equal(state.stars,stars);
+    if(chapter.reward.unlockKind) {
+      available.add(chapter.reward.unlockKind);
+      assert.ok(state.pending.some(item=>item.kind===chapter.reward.unlockKind));
+      assert.equal(PRODUCER_DEFS[chapter.reward.unlockKind].unlockStage,state.stage);
+    }
+  }
+  assert.equal(state.stage,8);assert.equal(state.storageCapacity,14);
+  assert.equal(getChapterProgress(state).allComplete,true);assert.equal(getChapterProgress(state).ready,false);
+  unchanged(state,()=>claimChapter(state,8,NOW),'max');
+});
+
+test('invalid and stale chapter stages cannot grant items, spend stars or advance progress',()=>{
+  const state=createGame(null,NOW);state.discovered.push('food:4');state.completed=100;state.cooked=100;
+  for(const stage of [-1,9,0.5,NaN,undefined,null,'0']) {
+    state.stage=stage;assert.equal(getChapterProgress(state).invalid,true);unchanged(state,()=>claimChapter(state,stage,NOW),'invalid');
+  }
+  state.stage=0;
+  for(const expected of [-1,1,0.5,NaN,null,'0'])unchanged(state,()=>claimChapter(state,expected,NOW),'claimed');
 });

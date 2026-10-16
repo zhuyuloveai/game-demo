@@ -1,3 +1,11 @@
+@font-face {
+  font-family:'ZCOOL KuaiLe';
+  src:url('./fonts/ZCOOLKuaiLe-Regular.woff2') format('woff2');
+  font-style:normal;
+  font-weight:400;
+  font-display:swap;
+}
+
 /* 小厨合合 — interface system
    Warm porcelain canvas, graphite type, one persimmon accent.
    Depth comes from light and spacing, not borders or colour. */
@@ -33,6 +41,7 @@
   --ease:cubic-bezier(.25,.8,.25,1);
   --spring:cubic-bezier(.3,1.4,.45,1);
   --font:-apple-system,BlinkMacSystemFont,'SF Pro Text','SF Pro SC','PingFang SC','Hiragino Sans GB','Noto Sans SC','Microsoft YaHei',sans-serif;
+  --cute-font:'ZCOOL KuaiLe',var(--font);
   color-scheme:light;
   font-family:var(--font);
   color:var(--label);

@@ -1,5 +1,5 @@
-import { CHAINS, FAMILY_META, PRODUCER_DEFS, RENOVATIONS, SHOP_ITEMS, RECIPES } from './catalog.mjs';
-export { CHAINS, FAMILY_META, PRODUCER_DEFS, RENOVATIONS, SHOP_ITEMS, RECIPES };
+import { CHAINS, FAMILY_META, PRODUCER_DEFS, RENOVATIONS, CHAPTERS, SHOP_ITEMS, RECIPES } from './catalog.mjs';
+export { CHAINS, FAMILY_META, PRODUCER_DEFS, RENOVATIONS, CHAPTERS, SHOP_ITEMS, RECIPES };
 export const BOARD_SIZE = 49;
 export const ENERGY_INTERVAL = 30_000;
 export const MAX_ENERGY = 100;
@@ -190,7 +190,7 @@ export function generate(state,selection,now=Date.now()) {
   const status=producerStatus(state,producer,now);
   if (!status.ready) return result(state,false,'cooldown',`正在补货，${Math.ceil(status.cooldownRemaining/1000)} 秒后再来`,status);
   tickEnergy(state,now);
-  if (state.energy<1) return result(state,false,'energy','能量用完啦，稍等片刻或领取能量球');
+  if (state.energy<1) return result(state,false,'energy','电量用完啦，稍等片刻或领取电量补给');
   refreshProducer(state,producer,now);
   const families=PRODUCER_DEFS[producer.kind].families;
   const family=families.length>1&&random(state)<0.28?families[1]:families[0];
@@ -272,7 +272,7 @@ export function cookRecipe(state,id) {
   const recipe=RECIPES.find(item=>item.id===id);
   if (!recipe) return result(state,false,'invalid','没有找到这份食谱');
   const progress=getRecipeProgress(state,recipe);
-  if (progress.locked) return result(state,false,'locked',`完成第 ${recipe.unlockStage} 阶段翻新后解锁`);
+  if (progress.locked) return result(state,false,'locked',`完成第 ${recipe.unlockStage} 章后解锁`);
   if (!progress.toolReady) return result(state,false,'tool',`台面需要${progress.toolName}或更高级厨具，厨具不会被消耗`);
   if (!progress.ready) return result(state,false,'incomplete','先准备好食谱需要的食材');
   const consumed=consumeNeeds(state,progress.needs);
@@ -284,12 +284,12 @@ export function cookRecipe(state,id) {
 }
 export function refillEnergy(state,now=Date.now()) {
   tickEnergy(state,now);
-  if (state.energy>=MAX_ENERGY) return result(state,false,'full','能量已经满啦');
+  if (state.energy>=MAX_ENERGY) return result(state,false,'full','电量已经满啦');
   if (state.coins<30) return result(state,false,'coins','需要 30 金币，完成订单就能获得');
   const amount=Math.min(30,MAX_ENERGY-state.energy);
   state.coins-=30;state.energy+=amount;
   if (state.energy>=MAX_ENERGY) state.lastEnergyAt=now;
-  return result(state,true,'refill',`补充了 ${amount} 点能量`,{amount,cost:30});
+  return result(state,true,'refill',`补充了 ${amount} 点电量`,{amount,cost:30});
 }
 export function sellItem(state,index) {
   if (!validIndex(index)||!state.board[index]) return result(state,false,'empty','先选择一个物品');
@@ -308,9 +308,9 @@ export function collectItem(state,index,now=Date.now()) {
   if (!['energy','coins','chest'].includes(item.family)) return result(state,false,'invalid','这个物品可以合成或用于订单');
   if (item.family==='energy') {
     const amount=CHAINS.energy[item.level-1].value;
-    if (state.energy+amount>MAX_MANUAL_ENERGY) return result(state,false,'full','能量已经很充足，先留着这颗能量球吧');
+    if (state.energy+amount>MAX_MANUAL_ENERGY) return result(state,false,'full','电量已经很充足，先留着这份电量补给吧');
     tickEnergy(state,now);state.energy+=amount;state.lastEnergyAt=now;state.board[index]=null;
-    return result(state,true,'collect',`领取了 ${amount} 点能量`,{index,item,amount});
+    return result(state,true,'collect',`领取了 ${amount} 点电量`,{index,item,amount});
   }
   if (item.family==='coins') {
     const coins=CHAINS.coins[item.level-1].value;addCoins(state,coins);state.board[index]=null;
@@ -355,6 +355,36 @@ export function expandStorage(state) {
   state.coins-=cost;state.storageCapacity+=2;
   return result(state,true,'expand','仓库增加了 2 个格子',{cost});
 }
+export function getChapterProgress(state) {
+  const stage=state.stage;
+  const invalid=!Number.isInteger(stage)||stage<0||stage>CHAPTERS.length;
+  const chapter=invalid?null:CHAPTERS[stage]||null;
+  if (!chapter) return {chapter:null,stage,tasks:[],ready:false,completed:0,total:0,allComplete:!invalid&&stage===CHAPTERS.length,invalid};
+  const discovered=new Set(state.discovered);
+  const tasks=chapter.tasks.map(task=>{
+    const current=task.kind==='discover'?task.items.filter(key=>discovered.has(key)).length:integer(state[task.kind==='orders'?'completed':'cooked'],0);
+    return {...task,current,value:Math.min(current,task.target),done:current>=task.target};
+  });
+  const completed=tasks.filter(task=>task.done).length;
+  return {chapter,stage,tasks,ready:completed===tasks.length,completed,total:tasks.length,allComplete:false,invalid:false};
+}
+// Pass the stage shown on the claim button to reject stale clicks after a chapter advances.
+export function claimChapter(state,expectedStage=state.stage,now=Date.now()) {
+  const progress=getChapterProgress(state);
+  if (progress.invalid) return result(state,false,'invalid','章节进度暂时不可用，请重新打开厨房');
+  if (!Number.isInteger(expectedStage)||expectedStage!==state.stage) return result(state,false,'claimed','这章奖励已经领取啦，请查看新的任务');
+  if (progress.allComplete) return result(state,false,'max','开店手账已经完成！继续探索食谱和收藏吧');
+  if (!progress.ready) return result(state,false,'incomplete','先完成这一章的任务，再来领取奖励吧');
+  const {chapter}=progress,{reward}=chapter,rewards=[];
+  if (reward.unlockKind&&!allItems(state).some(item=>isProducer(item)&&item.kind===reward.unlockKind)) rewards.push(newProducer(state,reward.unlockKind,1,validNow(now)));
+  if (reward.chestReward) rewards.push(newItem(state,'chest',reward.chestReward));
+  state.stage++;
+  state.pending.push(...rewards);
+  if (reward.storageReward) state.storageCapacity=Math.min(60,state.storageCapacity+reward.storageReward);
+  if (reward.coinReward) addCoins(state,reward.coinReward);
+  return result(state,true,'chapter',`第 ${chapter.number} 章完成！${rewards.length?'奖励已交给糯米保管':'奖励已领取'}`,{chapter,reward,rewards,coins:reward.coinReward||0});
+}
+// Kept for legacy callers; the kitchen UI progresses through claimChapter without spending stars.
 export function renovate(state,now=Date.now()) {
   const renovation=RENOVATIONS[state.stage];
   if (!renovation) return result(state,false,'max','梦幻小厨房已经全部建成！继续探索食谱和收藏吧');
@@ -369,9 +399,9 @@ export function renovate(state,now=Date.now()) {
 export function buyShopItem(state,id,now=Date.now()) {
   const entry=SHOP_ITEMS.find(item=>item.id===id);
   if (!entry) return result(state,false,'invalid','没有找到这个商品');
-  if (state.stage<entry.unlockStage) return result(state,false,'locked',`完成第 ${entry.unlockStage} 阶段翻新后解锁`);
+  if (state.stage<entry.unlockStage) return result(state,false,'locked',`完成第 ${entry.unlockStage} 章后解锁`);
   if (state.coins<entry.cost) return result(state,false,'coins',`还需要 ${entry.cost-state.coins} 金币`);
-  if (entry.type==='energy'&&state.energy+entry.amount>MAX_MANUAL_ENERGY) return result(state,false,'full','能量已经很充足啦');
+  if (entry.type==='energy'&&state.energy+entry.amount>MAX_MANUAL_ENERGY) return result(state,false,'full','电量已经很充足啦');
   if (entry.type==='booster'&&state.boosters[entry.booster]>=9999) return result(state,false,'full','道具已经很充足啦');
   state.coins-=entry.cost;
   if (entry.type==='energy') { state.energy+=entry.amount;state.lastEnergyAt=now; }
@@ -384,9 +414,9 @@ export const chinaDate = now => new Date(now+8*60*60*1000).toISOString().slice(0
 export function claimDaily(state,now=Date.now()) {
   now=validNow(now);const date=chinaDate(now);
   if ((state.dailyClaimDate && date<=state.dailyClaimDate)||now<state.lastDailyClaimAt) return result(state,false,'claimed','今天的补给已经领过啦，明天再来');
-  if (state.energy+20>MAX_MANUAL_ENERGY) return result(state,false,'full','先消耗一些能量，再领取今日补给');
+  if (state.energy+20>MAX_MANUAL_ENERGY) return result(state,false,'full','先消耗一些电量，再领取今日补给');
   state.dailyClaimDate=date;state.lastDailyClaimAt=now;state.energy+=20;state.lastEnergyAt=now;addCoins(state,25);state.pending.push(newItem(state,'chest',1));
-  return result(state,true,'daily','每日补给：20 能量、25 金币和一个厨房礼盒');
+  return result(state,true,'daily','每日补给：20 电量、25 金币和一个厨房礼盒');
 }
 export function useBooster(state,type,index,now=Date.now()) {
   if (!['scissors','hourglass'].includes(type)) return result(state,false,'invalid','没有这种道具');

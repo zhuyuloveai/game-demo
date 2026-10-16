@@ -2,22 +2,26 @@
 
 Public URL: http://1.92.214.23/ (TCP 80).
 
-Active release: `kitchen-20261016-010418`, deployed 2026-10-16 (Asia/Shanghai).
-Previous target: `releases/kitchen-20261016-003237/site`.
-Rollback snapshot: `/srv/overtime-arena/releases/kitchen-20261016-010418/previous/`.
+Active release: `kitchen-20261016-163819`, deployed 2026-10-16 (Asia/Shanghai).
+Previous target: `releases/kitchen-20261016-122904/site`.
+Rollback snapshot: `/srv/overtime-arena/releases/kitchen-20261016-163819/previous/`.
 
-Validated: 35 game-rule tests; 6,000 mixed engine action/reload invariant checks;
-390×844 and 375×667 portrait browser views; actual merge → recipe cooking with
-retained cookware → storage/retrieval → order delivery; daily reward, pending
-claim, independent music/effect controls; legacy v1 progress survives migration.
-Public browser generation succeeds and has no application console errors.
-All seven public static files match local SHA-256 and expected MIME types;
-unshipped internal files return 404; Nginx container is running and healthy.
+Validated: 42 game-rule tests covering chapters, stale claims, full boards,
+all chapter unlocks and legacy progress; 320, 375, 390 and 430 px portrait views;
+actual merge → storage/retrieval → order delivery → recipe cooking with retained
+cookware → first chapter reward → reload. Environmental entries and independent
+music/effect controls work, with both audio channels enabled by default.
+Public static files match local SHA-256 and expected MIME types; unshipped
+internal files return 404; Nginx container is running and healthy.
 Small screens scroll vertically while preserving readable labels and square tiles.
 
-The expanded release includes `catalog.mjs` and `audio.mjs`; both are required.
-It has 11 commodity chains (66 levels), 7 producers, 10 recipes, 8 renovation
-stages, resource chains, storage/shop/rewards, original music and action effects.
+This release integrates the cream kitchen environment: round electricity meter,
+oval piggy bank, origami star jar, cabinets, hood/order rail, raised merge slab,
+wooden desktop, recipe book, phone, upright radio and Nuomi assistant. It retains
+11 commodity chains (66 levels), 7 producers, 10 recipes, resources, storage,
+shop, gifts and original audio, with 8 chapters replacing the renovation entry.
+Chapters do not spend stars. The new `scene.css` and locally served
+`fonts/ZCOOLKuaiLe-Regular.woff2` must be included with all five `.mjs` modules.
 
 The portrait kitchen game replaces the previous **下班突围** homepage. It reuses
 the existing `overtime-arena-web` Nginx container and its read-only bind mount at
@@ -46,7 +50,7 @@ container recreation or changes to other services are needed.
    mounts that file. `nginx -t` must pass before reload. The current symlink is
    swapped atomically. HTTP and container health checks must succeed; activation
    errors restore the prior config and symlink automatically.
-6. Verify the public HTML, every module and CSS file, MIME types and SHA-256 hashes.
+6. Verify the public HTML, every module, CSS and font file, MIME types and SHA-256 hashes.
    Verify unshipped internal paths return 404, then exercise gameplay in browser.
 
 Each activation uses a new release name. Re-running a prior release is refused
