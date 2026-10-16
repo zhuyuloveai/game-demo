@@ -3,7 +3,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const base=process.env.KITCHEN_TEST_URL||'http://127.0.0.1:4193';
 if(!['localhost','127.0.0.1'].includes(new URL(base).hostname))throw Error('Local verification only');
-const output=path.resolve(__dirname,'../docs/verification/kitchen-island');fs.mkdirSync(output,{recursive:true});
+const output=path.resolve(process.env.KITCHEN_VERIFICATION_OUTPUT||path.resolve(__dirname,'../docs/verification/kitchen-island'));fs.mkdirSync(output,{recursive:true});
 const checks=[],errors=[],NOW=1792156800000;
 (async()=>{const browser=await chromium.launch({headless:true,...(process.env.CHROME_EXECUTABLE?{executablePath:process.env.CHROME_EXECUTABLE}:{})});try{
  const context=await browser.newContext({viewport:{width:375,height:667},hasTouch:true,isMobile:true,deviceScaleFactor:1,reducedMotion:'reduce'});
@@ -59,6 +59,31 @@ const checks=[],errors=[],NOW=1792156800000;
  // Theme selection must finish an in-flight pointer without applying a move.
  const r=await cell(61).boundingBox();await p.mouse.move(r.x+r.width/2,r.y+r.height/2);await p.mouse.down();await p.mouse.move(r.x+10,r.y-35);assert.equal(await p.locator('.drag-ghost').count(),1);const preDrag=await raw();
  await p.locator('[data-action="phone"]').dispatchEvent('click');await p.locator('[data-action="settings"]').dispatchEvent('click');await p.locator('button[data-kitchen-style="classic"]').dispatchEvent('click');assert.equal(await p.locator('.drag-ghost').count(),0);assert.equal(await raw(),preDrag);await p.mouse.up();await p.clock.runFor(1);await close();checks.push({name:'theme change cancels active pointer and ghost without changing the board',result:true});
+ // Revision 1: direct, reproducible comparison fixture; normal progress stays isolated.
+ const playerBeforeQA=await raw();await p.goto(base+'/qa.html');await p.locator('#island-comparison').click();await cell(62).waitFor();await theme('island');
+ assert.equal(await p.evaluate(()=>document.documentElement.dataset.kitchenStyle),'island');
+ const qaState=()=>p.evaluate(()=>JSON.parse(localStorage.getItem('little-kitchen-qa-island')));
+ let qs=await qaState();assert.equal(qs.locked.length,0);assert.equal(qs.board.length,63);assert.equal(qs.energy,100);
+ await geometry('revision 1 unlocked comparison fixture 375×667');
+ const legibility=await p.evaluate(()=>[...document.querySelectorAll('.order-card')].slice(0,2).map(card=>({rect:card.getBoundingClientRect().toJSON(),fields:[...card.querySelectorAll('.need-name,.need-quantity,.reward')].map(e=>({text:e.textContent,font:parseFloat(getComputedStyle(e).fontSize),rect:e.getBoundingClientRect().toJSON(),overflow:e.scrollWidth>e.clientWidth+1}))})));
+ for(const card of legibility){assert.ok(card.rect.right<=375);for(const field of card.fields){assert.ok(field.font>=11);assert.ok(field.rect.right<=card.rect.right+1);assert.equal(field.overflow,false);}}
+ const support=await p.evaluate(()=>{const footer=document.querySelector('.e-foreground').getBoundingClientRect();return [...document.querySelectorAll('.island-object')].map(e=>{const box=e.getBoundingClientRect(),style=getComputedStyle(e,'::before');return {object:e.dataset.action,base:box.bottom-parseFloat(style.bottom),surface:footer.bottom-11,artHeight:parseFloat(style.height)}})});
+ assert.ok(support.every(r=>Math.abs(r.base-r.surface)<=1));checks.push({name:'revision 1 readable order text, complete first two tickets and prop support plane',legibility,support});
+ await p.screenshot({path:path.join(output,'island-comparison-375x667.png')});
+ await settings();await p.screenshot({path:path.join(output,'style-settings-375x667.png')});await close();
+ await cell(0).click();qs=await qaState();assert.equal(qs.energy,99);assert.equal(qs.board[0].stock,11);assert.ok((await p.locator('#selection-card').innerText()).includes('11/12'));
+ await p.screenshot({path:path.join(output,'island-producer-selected-375x667.png')});
+ await theme('classic');await p.screenshot({path:path.join(output,'classic-comparison-375x667.png')});await theme('island');
+ const qaBeforeSwipe=await qaState();const ta=await cell(4).boundingBox(),tb=await cell(23).boundingBox();await touchDrag({x:ta.x+ta.width/2,y:ta.y+ta.height/2},{x:tb.x+tb.width/2,y:tb.y+tb.height/2});qs=await qaState();assert.equal(qs.merges,qaBeforeSwipe.merges+1);assert.equal(qs.board[23].itemId,'food:2');assert.equal(await raw(),playerBeforeQA);
+ checks.push({name:'revision 1 QA uses real source production and touch merge; separate save never writes normal progress',result:true});
+ // Long real catalogue names must wrap, leaving separate quantity and reward space.
+ await p.goto(base+'/?qa=island-long');await cell(62).waitFor();
+ const longRows=await p.locator('.order-card:not(.is-main)').first().evaluate(card=>({rows:[...card.querySelectorAll('.need')].map(e=>{const n=e.querySelector('.need-name'),q=e.querySelector('.need-quantity');return {name:n.textContent,n:n.getBoundingClientRect().toJSON(),q:q.getBoundingClientRect().toJSON(),overflow:n.scrollWidth>n.clientWidth+1}}),reward:card.querySelector('.order-bottom').getBoundingClientRect().toJSON()}));
+ assert.equal(longRows.rows.length,2);assert.equal(longRows.rows[0].name,'开放式中央厨房');
+ for(const row of longRows.rows){assert.equal(row.overflow,false);assert.ok(row.n.right+2<=row.q.left);assert.ok(row.n.bottom<=longRows.reward.top+.5);assert.ok(row.n.height<=24);}
+ await p.screenshot({path:path.join(output,'island-long-names-375x667.png')});checks.push({name:'real long catalogue names in a two-need order wrap without quantity or reward overlap',...longRows});
+ const header=await p.evaluate(()=>[...document.querySelectorAll('.k-hud button')].map(e=>{const r=e.getBoundingClientRect();const avatar=e.querySelector('.puppy-avatar');const style=getComputedStyle(e,'::before');return {action:e.dataset.action,iconTop:avatar?avatar.getBoundingClientRect().top:r.bottom-parseFloat(style.bottom)-parseFloat(style.height),iconBase:avatar?avatar.getBoundingClientRect().bottom:r.bottom-parseFloat(style.bottom)}}));
+ assert.ok(header.every(e=>e.iconTop>=5&&Math.abs(e.iconBase-header[0].iconBase)<=.1));checks.push({name:'all five resource cutouts have 5px top clearance and the same 43px support baseline',header});
  // Denied storage must not prevent this-session styling.
  await p.evaluate(()=>{Storage.prototype.setItem=function(){throw new DOMException('blocked','SecurityError')}});await theme('island');assert.equal(await p.evaluate(()=>document.documentElement.dataset.kitchenStyle),'island');checks.push({name:'storage write denied: session theme still switches',result:true});
  assert.deepEqual(errors,[]);fs.writeFileSync(path.join(output,'browser-results.json'),JSON.stringify({browser:'Google Chrome via Playwright + Chrome DevTools touch events',checks,errors},null,2)+'\n');console.log(JSON.stringify({checks:checks.length,errors}));
