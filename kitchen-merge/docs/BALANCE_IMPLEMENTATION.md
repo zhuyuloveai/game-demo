@@ -1,6 +1,6 @@
 # 新数值运行时交付说明
 
-2026-10-16。实现已衔接最新main `2b6d6fe` 的小狗店长、LCD电表、紧凑布局和点击选中/拖动移动交互。默认入口 `dist/index.html` 已使用存档 v3 与 `balanceVersion=kitchen-reference-v1-draft`。
+2026-10-16。实现已衔接最新main `5a04237` 的小狗店长、LCD电表、紧凑布局和点击选中/拖动移动交互。默认入口 `dist/index.html` 已使用存档 v3 与 `balanceVersion=kitchen-reference-v1-draft`。
 
 ## 配置与入口
 
