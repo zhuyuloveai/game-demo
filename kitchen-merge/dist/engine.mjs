@@ -1,466 +1,1709 @@
-import { CHAINS, FAMILY_META, PRODUCER_DEFS, RENOVATIONS, CHAPTERS, SHOP_ITEMS, RECIPES } from './catalog.mjs';
-export { CHAINS, FAMILY_META, PRODUCER_DEFS, RENOVATIONS, CHAPTERS, SHOP_ITEMS, RECIPES };
-export const BOARD_SIZE = 49;
-export const ENERGY_INTERVAL = 30_000;
-export const MAX_ENERGY = 100;
-const MAX_MANUAL_ENERGY = 999;
-const COMMODITIES = Object.keys(CHAINS).filter(family => !['energy','coins','chest'].includes(family));
-const integer = (value, fallback, min = 0, max = 1_000_000_000) => Number.isSafeInteger(value) && value >= min && value <= max ? value : fallback;
-const has = (obj, key) => Object.hasOwn(obj, key);
-const validIndex = index => Number.isInteger(index) && index >= 0 && index < BOARD_SIZE;
-const isCommodity = item => item && COMMODITIES.includes(item.family) && Number.isInteger(item.level) && item.level >= 1 && item.level <= CHAINS[item.family].length;
-const isChainItem = item => item && typeof item.family === 'string' && has(CHAINS,item.family) && Number.isInteger(item.level) && item.level >= 1 && item.level <= CHAINS[item.family].length;
-const isProducer = item => item?.family === 'producer' && typeof item.kind === 'string' && has(PRODUCER_DEFS,item.kind) && Number.isInteger(item.level) && item.level >= 1 && item.level <= 4;
-const isLocked = (state,index) => state.locked.includes(index);
-const keyOf = item => `${item.family}:${item.level}`;
-const result = (state,ok,type,message,extra={}) => ({ok,type,message,state,...extra});
-const freeIndex = state => state.board.findIndex((item,index) => item === null && !isLocked(state,index));
-const nameOf = item => item.family === 'producer' ? PRODUCER_DEFS[item.kind].name : CHAINS[item.family]?.[item.level-1]?.name || '物品';
-const validNow = now => Number.isFinite(now) && now >= 0 ? Math.floor(now) : Date.now();
-const addCoins = (state,amount) => { state.coins = Math.min(1_000_000_000,state.coins+amount); };
-function newItem(state,family,level) {
-  const item = {id:`item-${state.nextItemId++}`,family,level};
-  if (!state.discovered.includes(keyOf(item))) state.discovered.push(keyOf(item));
+import {
+  BALANCE,
+  BALANCE_VERSION,
+  CHAINS,
+  ITEMS,
+  FAMILY_META,
+  PRODUCER_DEFS,
+  RENOVATIONS,
+  CHAPTERS,
+  SHOP_ITEMS,
+  RECIPES,
+  itemKey,
+  definition,
+  sourceRules,
+  isSource,
+  isPermanent,
+  sourceDescription,
+} from "./catalog.mjs";
+import { createGame as restoreV2 } from "./legacy-engine.mjs";
+export {
+  BALANCE,
+  BALANCE_VERSION,
+  CHAINS,
+  ITEMS,
+  FAMILY_META,
+  PRODUCER_DEFS,
+  RENOVATIONS,
+  CHAPTERS,
+  SHOP_ITEMS,
+  RECIPES,
+  itemKey,
+  definition,
+  sourceRules,
+  isSource,
+  isPermanent,
+  sourceDescription,
+};
+export const BOARD_SIZE = 49,
+  ENERGY_INTERVAL = 120000,
+  MAX_ENERGY = 100;
+const clone = (x) => structuredClone(x),
+  safeNow = (n) => (Number.isFinite(n) && n >= 0 ? Math.floor(n) : Date.now());
+const free = (s) => s.board.findIndex((x, i) => !x && !s.locked.includes(i));
+const unlocked = (s, i) =>
+  Number.isInteger(i) && i >= 0 && i < 49 && !s.locked.includes(i);
+const adj = (i) =>
+  [
+    i - 7,
+    i + 7,
+    ...(i % 7 ? [i - 1] : []),
+    ...(i % 7 < 6 ? [i + 1] : []),
+  ].filter((j) => j >= 0 && j < 49);
+const name = (x) => definition(x)?.name || "物品";
+const all = (s) => [...s.board, ...s.inventory, ...s.pending].filter(Boolean);
+export const chinaDate = (n) =>
+  new Date(n + 28800000).toISOString().slice(0, 10);
+export function weekKey(n) {
+  const d = new Date(n + 28800000);
+  d.setUTCDate(d.getUTCDate() - ((d.getUTCDay() + 6) % 7));
+  return d.toISOString().slice(0, 10);
+}
+function random(s) {
+  let n = s.rng >>> 0;
+  n ^= n << 13;
+  n ^= n >>> 17;
+  n ^= n << 5;
+  s.rng = n >>> 0;
+  return s.rng / 4294967296;
+}
+function choose(s, rows) {
+  const total = rows.reduce((a, b) => a + b.prob, 0);
+  let r = random(s) * total;
+  for (const row of rows) {
+    r -= row.prob;
+    if (r < 0) return row;
+  }
+  return rows.at(-1);
+}
+const levelRoll = (s, probs) =>
+  choose(
+    s,
+    probs.map((prob, i) => ({ prob, level: i + 1 })),
+  ).level;
+function result(s, ok, type, message, extra = {}) {
+  return { state: s, ok, type, message, ...extra };
+}
+function finish(s, type, message, extra = {}) {
+  s.transactionSerial++;
+  s.events.push({
+    tx: s.transactionSerial,
+    type,
+    at: s.lastNow,
+    balanceVersion: BALANCE_VERSION,
+    item: extra.item ? itemKey(extra.item) : null,
+    energy: s.energy,
+    coins: s.coins,
+    free: s.board.filter((x, i) => !x && unlocked(s, i)).length,
+  });
+  if (s.events.length > 300) s.events.shift();
+  return result(s, true, type, message, extra);
+}
+const fail = (s, type, message) => result(s, false, type, message);
+function add(s, key, value) {
+  const cap = key === "energy" ? 999 : key === "storageSlots" ? 60 : 1e9,
+    field = key === "storageSlots" ? "storageCapacity" : key;
+  const available = Math.max(0, cap - s[field]),
+    amount = Math.min(value, available);
+  s[field] += amount;
+  s.credits[key] = (s.credits[key] || 0) + value - amount;
+}
+export function claimCredits(s) {
+  let amount = 0;
+  for (const [key, value] of Object.entries(s.credits)) {
+    if (key === "storageSlots") continue;
+    const field = key,
+      cap = key === "energy" ? 999 : 1e9;
+    const take = Math.min(value, Math.max(0, cap - s[field]));
+    s[field] += take;
+    s.credits[key] -= take;
+    amount += take;
+  }
+  return amount
+    ? finish(s, "credit", "待领额度已到账")
+    : fail(s, "full", "当前余额已满，额度会继续保留");
+}
+export function getLevel(s) {
+  let l = 1;
+  while (l < 100 && s.xp >= 100 * l + 10 * l * (l - 1)) l++;
+  return l;
+}
+export const levelFloor = (l) => 100 * (l - 1) + 10 * (l - 1) * (l - 2);
+function reward(s, rows, now) {
+  for (const row of rows || []) {
+    if (row.item)
+      for (let n = 0; n < (row.count || 1); n++)
+        s.pending.push(
+          makeItem(s, row.item, now, { location: "pending", discover: false }),
+        );
+    else if (row.resource) add(s, row.resource, row.amount);
+  }
+}
+function grant(s, key, rows, now) {
+  if (s.claimed[key]) return false;
+  s.claimed[key] = true;
+  reward(s, rows, now);
+  return true;
+}
+function xp(s, n, now) {
+  s.xp += n;
+  const level = getLevel(s);
+  for (const r of BALANCE.levelRewards)
+    if (r.level > s.levelRewardClaimedThrough && r.level <= level)
+      grant(s, `level:${r.level}`, r.rewards, now);
+  s.levelRewardClaimedThrough = Math.max(level, s.levelRewardClaimedThrough);
+}
+function discover(s, item, now) {
+  const id = itemKey(item);
+  if (!s.discovered.includes(id)) {
+    s.discovered.push(id);
+    if (definition(item).kind !== "legacy") xp(s, 1, now);
+  }
+}
+export function makeItem(
+  s,
+  id,
+  now = s.lastNow,
+  { location = "board", full = true, discover: seen = true } = {},
+) {
+  const d = ITEMS[id];
+  if (!d) throw Error(`Unknown item ${id}`);
+  const r = sourceRules(d),
+    m = r.manual;
+  const item = {
+    id: `item-${s.nextItemId++}`,
+    instanceId: null,
+    itemId: id,
+    family: d.family,
+    level: d.level,
+    createdAt: now,
+    location,
+    stock: m?.mode === "recharge" ? (full ? m.maxStock : 0) : null,
+    stockOverflow: 0,
+    rechargeRemaining: m?.mode === "recharge" ? m.rechargeSeconds * 1000 : null,
+    nextRechargeAt: null,
+    autoBuffer: 0,
+    autoRemaining: r.auto ? r.auto.intervalSeconds * 1000 : null,
+    remainingDraws:
+      m?.draws ??
+      m?.sequence?.length ??
+      (["blackbag", "pinkbag", "tipjar", "energybox"].includes(d.family)
+        ? d.value
+        : null),
+    sequenceIndex: 0,
+    openedAt: null,
+    timerRemaining: r.delay ? r.delay.delaySeconds * 1000 : null,
+    protected: isPermanent(d),
+    sourceVersion: BALANCE_VERSION,
+    timeCredit: 0,
+    clockAt: now,
+  };
+  item.instanceId = item.id;
+  if (r.delay && location === "board") item.openedAt = now;
+  if (seen) discover(s, item, now);
   return item;
 }
-function newProducer(state,kind,level=1,now=Date.now()) {
-  return {id:`item-${state.nextItemId++}`,family:'producer',kind,level,charges:10+level*4,readyAt:0,...(kind==='herb'?{nextAutoAt:now+60000}:{})};
-}
-function random(state) {
-  let n = state.rng >>> 0;
-  n ^= n << 13; n ^= n >>> 17; n ^= n << 5;
-  state.rng = n >>> 0;
-  return state.rng / 4294967296;
-}
-function allItems(state) { return [...state.board,...state.inventory,...state.pending].filter(Boolean); }
-function reachableFamilies(state) {
-  const kinds = new Set(allItems(state).filter(isProducer).map(item=>item.kind));
-  return [...new Set([...kinds].flatMap(kind=>PRODUCER_DEFS[kind].families))];
-}
-function newOrder(state) {
-  const serial = state.orderSerial++;
-  const starters = [
-    {title:'烘焙准备',customer:'小鹿',needs:[{family:'food',level:2,count:1}],coins:35,xp:20,stars:1},
-    {title:'香煎早午餐',customer:'阿熊',needs:[{family:'tools',level:3,count:1}],coins:45,xp:25,stars:1},
-    {title:'一篮新鲜',customer:'团团',needs:[{family:'vegetable',level:2,count:1},{family:'fruit',level:1,count:1}],coins:50,xp:25,stars:1},
-  ];
-  if (serial<3) return {id:`order-${serial+1}`,...starters[serial]};
-  const families = reachableFamilies(state);
-  if (!families.length) families.push('food');
-  const family = families[(serial-3)%families.length];
-  const maxLevel = Math.min(6,3+Math.floor(state.stage/2));
-  const level = Math.min(maxLevel,2+Math.floor((serial-3)/families.length)%Math.max(1,maxLevel-1));
-  const needs = [{family,level,count:serial%6===0?2:1}];
-  if (serial%3===2 && families.length>1) {
-    const second = families[(serial+1)%families.length];
-    if (second !== family) needs.push({family:second,level:Math.max(1,level-1),count:1});
-  }
-  const effort = needs.reduce((sum,need)=>sum+2**(need.level-1)*need.count,0);
-  return {id:`order-${serial+1}`,title:`${FAMILY_META[family].name}小订单`,customer:['小鹿','阿熊','团团','小兔','小猫'][serial%5],needs,coins:20+effort*7,xp:12+effort*3,stars:Math.min(3,1+Math.floor(effort/12))};
-}
-function baseState(now) {
-  return {version:2,board:Array(BOARD_SIZE).fill(null),coins:120,energy:MAX_ENERGY,maxEnergy:MAX_ENERGY,xp:0,completed:0,merges:0,discovered:[],orders:[],orderSerial:0,nextItemId:1,generationCount:0,lastEnergyAt:now,stars:0,stage:0,inventory:[],storageCapacity:6,pending:[],boosters:{scissors:2,hourglass:2},dailyClaimDate:null,lastDailyClaimAt:0,locked:[],rng:0x45ab7e12,cooked:0};
-}
-function freshGame(now) {
-  const state = baseState(now);
-  for (const [kind,index] of [['food',0],['produce',3],['tools',6]]) state.board[index]=newProducer(state,kind,1,now);
-  for (const [index,family,level] of [[8,'food',1],[9,'food',1],[10,'food',1],[22,'food',3],[14,'tools',1],[15,'tools',1],[19,'tools',2],[35,'food',1],[37,'vegetable',1],[39,'tools',1],[43,'food',2],[45,'fruit',1],[47,'tools',2]]) state.board[index]=newItem(state,family,level);
-  state.locked=Array.from({length:14},(_,i)=>35+i);
-  state.pending.push(newItem(state,'chest',1));
-  state.orders=Array.from({length:3},()=>newOrder(state));
-  return state;
-}
-function normalizeOrder(order) {
-  if (!order || typeof order.id!=='string' || !/^order-[1-9]\d{0,8}$/.test(order.id) || !Array.isArray(order.needs) || !order.needs.length || order.needs.length>6) return null;
-  const needs=[];
-  for (const need of order.needs) {
-    if (!isCommodity(need) || !integer(need.count,0,1,10)) return null;
-    const existing=needs.find(item=>keyOf(item)===keyOf(need));
-    if (existing) existing.count+=need.count; else needs.push({family:need.family,level:need.level,count:need.count});
-  }
-  if (needs.some(need=>need.count>10)) return null;
-  return {id:order.id,title:typeof order.title==='string'?order.title.slice(0,40):'厨房小订单',customer:typeof order.customer==='string'?order.customer.slice(0,20):'邻居',needs,coins:integer(order.coins,35,1,2000),xp:integer(order.xp,20,1,2000),stars:integer(order.stars,1,1,3)};
-}
-export function createGame(saved=null,now=Date.now()) {
-  now=validNow(now);
-  if (typeof saved==='string') { try { saved=JSON.parse(saved); } catch { return freshGame(now); } }
-  if (!saved || ![1,2].includes(saved.version) || !Array.isArray(saved.board) || saved.board.length!==BOARD_SIZE) return freshGame(now);
-  const state=baseState(now);
-  for (const field of ['coins','xp','completed','merges','generationCount','stars','cooked']) state[field]=integer(saved[field],state[field]);
-  state.energy=integer(saved.energy,MAX_ENERGY,0,MAX_MANUAL_ENERGY);
-  state.stage=integer(saved.stage,0,0,RENOVATIONS.length);
-  state.orderSerial=integer(saved.orderSerial,3,3,100_000_000);
-  state.nextItemId=integer(saved.nextItemId,1,1,100_000_000);
-  state.storageCapacity=integer(saved.storageCapacity,6,6,60);
-  state.rng=integer(saved.rng,0x45ab7e12,1,4294967295);
-  state.lastEnergyAt=integer(saved.lastEnergyAt,now,0,now);
-  state.dailyClaimDate=typeof saved.dailyClaimDate==='string' && /^\d{4}-\d{2}-\d{2}$/.test(saved.dailyClaimDate)?saved.dailyClaimDate:null;
-  state.lastDailyClaimAt=integer(saved.lastDailyClaimAt,0,0,8_640_000_000_000_000);
-  state.boosters={scissors:integer(saved.boosters?.scissors,2,0,9999),hourglass:integer(saved.boosters?.hourglass,2,0,9999)};
-  const known=new Set(Object.values(CHAINS).flat().map(item=>item.id));
-  state.discovered=[...new Set(Array.isArray(saved.discovered)?saved.discovered.filter(key=>known.has(key)):[])];
-  const rawItems=[...saved.board,...(Array.isArray(saved.inventory)?saved.inventory:[]),...(Array.isArray(saved.pending)?saved.pending:[])];
-  for (const item of rawItems) if (typeof item?.id==='string' && /^item-[1-9]\d{0,8}$/.test(item.id)) state.nextItemId=Math.max(state.nextItemId,Number(item.id.slice(5))+1);
-  const used=new Set();
-  const restore=item=>{
-    if (!item || typeof item!=='object') return null;
-    let restored;
-    if (isChainItem(item)) restored={family:item.family,level:item.level};
-    else if (isProducer(item)) {
-      const max=10+4*item.level;
-      restored={family:'producer',kind:item.kind,level:item.level,charges:integer(item.charges,max,0,max),readyAt:integer(item.readyAt,0,0,8_640_000_000_000_000)};
-      if (restored.charges===0 && restored.readyAt===0) restored.readyAt=now+PRODUCER_DEFS[item.kind].cooldownMs;
-      if (item.kind==='herb') restored.nextAutoAt=integer(item.nextAutoAt,now+60000,0,8_640_000_000_000_000);
-    } else if (item.family==='bubble' && isCommodity(item.item)) restored={family:'bubble',level:item.item.level,item:{family:item.item.family,level:item.item.level},expiresAt:integer(item.expiresAt,now,0,8_640_000_000_000_000),cost:integer(item.cost,10,1,5000)};
-    else return null;
-    const id=typeof item.id==='string' && /^[a-zA-Z0-9_-]{1,64}$/.test(item.id) && !used.has(item.id)?item.id:`item-${state.nextItemId++}`;
-    used.add(id); restored={id,...restored};
-    if (isChainItem(restored) && !state.discovered.includes(keyOf(restored))) state.discovered.push(keyOf(restored));
-    return restored;
+function base(now) {
+  return {
+    version: 3,
+    balanceVersion: BALANCE_VERSION,
+    board: Array(49).fill(null),
+    inventory: [],
+    pending: [],
+    locked: [],
+    coins: 120,
+    gems: 20,
+    energy: 100,
+    maxEnergy: 100,
+    stars: 0,
+    xp: 0,
+    stage: 0,
+    completed: 0,
+    cooked: 0,
+    merges: 0,
+    generationCount: 0,
+    nextItemId: 1,
+    orderSerial: 0,
+    orders: [],
+    mainCompleted: [],
+    discovered: [],
+    claimed: {},
+    levelRewardClaimedThrough: 1,
+    credits: {},
+    boosters: { scissors: 0, hourglass: 0 },
+    tools: [],
+    legacyFullRefill: 0,
+    storageCapacity: 6,
+    storagePurchases: 0,
+    day: {
+      key: chinaDate(now),
+      orders: 0,
+      breaks: 0,
+      refresh: 0,
+      chests: 0,
+      purchases: 0,
+      shop: {},
+    },
+    week: { key: weekKey(now), orders: 0 },
+    chestProgress: 0,
+    honorProgress: 0,
+    infiniteUntil: 0,
+    lastEnergyAt: now,
+    lastNow: now,
+    rng: 0x45ab7e12,
+    transactionSerial: 0,
+    events: [],
+    discarded: null,
+    dailyClaimDate: null,
   };
-  state.board=Array.from({length:BOARD_SIZE},(_,i)=>restore(saved.board[i]));
-  state.inventory=(Array.isArray(saved.inventory)?saved.inventory:[]).map(restore).filter(item=>item && item.family!=='bubble');
-  state.pending=(Array.isArray(saved.pending)?saved.pending:[]).map(restore).filter(item=>item && item.family!=='bubble');
-  state.storageCapacity=Math.max(state.storageCapacity,state.inventory.length);
-  state.locked=[...new Set((saved.version===1?Array.from({length:14},(_,i)=>35+i).filter(i=>!state.board[i]):Array.isArray(saved.locked)?saved.locked:[]).filter(i=>validIndex(i) && state.board[i]?.family!=='producer'))];
-  // Repair missing base generators without overwriting a single legacy item.
-  for (const kind of ['food','tools','produce']) if (!allItems(state).some(item=>isProducer(item)&&item.kind===kind)) {
-    const producer=newProducer(state,kind,1,now); const index=freeIndex(state);
-    if (index>=0) state.board[index]=producer; else state.pending.push(producer);
+}
+function fresh(now) {
+  const s = base(now);
+  for (const row of BALANCE.initial.producers)
+    s.board[row.index] = makeItem(s, row.item, now);
+  for (const row of BALANCE.initial.commodities)
+    s.board[row.index] = makeItem(s, row.item, now);
+  s.locked = [...BALANCE.initial.lockedIndices];
+  reward(s, BALANCE.initial.pending, now);
+  for (const row of BALANCE.initial.boosters)
+    for (let n = 0; n < row.count; n++)
+      s.tools.push(makeItem(s, row.item, now, { location: "tools" }));
+  s.xp = 0;
+  fillOrders(s);
+  return s;
+}
+function resetPeriods(s, now) {
+  const date = chinaDate(now),
+    week = weekKey(now);
+  if (date > s.day.key)
+    s.day = {
+      key: date,
+      orders: 0,
+      breaks: 0,
+      refresh: 0,
+      chests: 0,
+      purchases: 0,
+      shop: {},
+    };
+  if (week > s.week.key) s.week = { key: week, orders: 0 };
+}
+export function tickEnergy(s, now = Date.now()) {
+  now = Math.max(s.lastNow, safeNow(now));
+  if (s.energy >= 100) {
+    s.lastEnergyAt = now;
+    return 0;
   }
-  if (saved.version===1) state.pending.push(newItem(state,'chest',1));
-  const usedOrders=new Set();
-  state.orders=(Array.isArray(saved.orders)?saved.orders:[]).slice(0,3).map(normalizeOrder).filter(order=>{
-    if (!order || usedOrders.has(order.id)) return false;
-    usedOrders.add(order.id); state.orderSerial=Math.max(state.orderSerial,Number(order.id.slice(6))); return true;
+  const count = Math.min(
+    100 - s.energy,
+    Math.floor(Math.max(0, now - s.lastEnergyAt) / 120000),
+  );
+  s.energy += count;
+  if (count)
+    s.lastEnergyAt = s.energy >= 100 ? now : s.lastEnergyAt + count * 120000;
+  return count;
+}
+// Each clock has a bounded horizon. Stopwatch credit advances all instance clocks
+// together and retains time that every clock is currently unable to consume.
+function advance(item, elapsed) {
+  const r = sourceRules(item),
+    m = r.manual;
+  elapsed = Math.max(0, elapsed);
+  if (
+    m?.mode === "recharge" &&
+    item.stockOverflow === 0 &&
+    item.stock < m.maxStock
+  ) {
+    const time = Math.max(1, item.rechargeRemaining),
+      period = m.rechargeSeconds * 1000;
+    if (elapsed >= time) {
+      const batches = 1 + Math.floor((elapsed - time) / period);
+      item.stock = Math.min(m.maxStock, item.stock + batches * m.batch);
+      item.rechargeRemaining =
+        item.stock === m.maxStock
+          ? period
+          : period - ((elapsed - time) % period);
+    } else item.rechargeRemaining = time - elapsed;
+  }
+  if (r.auto && item.autoBuffer < r.auto.capacity) {
+    const time = Math.max(1, item.autoRemaining),
+      period = r.auto.intervalSeconds * 1000;
+    if (elapsed >= time) {
+      item.autoBuffer = Math.min(
+        r.auto.capacity,
+        item.autoBuffer + 1 + Math.floor((elapsed - time) / period),
+      );
+      item.autoRemaining =
+        item.autoBuffer === r.auto.capacity
+          ? period
+          : period - ((elapsed - time) % period);
+    } else item.autoRemaining = time - elapsed;
+  }
+  if (item.openedAt !== null && item.timerRemaining !== null)
+    item.timerRemaining = Math.max(0, item.timerRemaining - elapsed);
+}
+function creditHorizon(item) {
+  const r = sourceRules(item),
+    m = r.manual,
+    h = [];
+  if (m?.mode === "recharge" && !item.stockOverflow && item.stock < m.maxStock)
+    h.push(
+      item.rechargeRemaining +
+        (Math.ceil((m.maxStock - item.stock) / m.batch) - 1) *
+          m.rechargeSeconds *
+          1000,
+    );
+  if (r.auto && item.autoBuffer < r.auto.capacity)
+    h.push(
+      item.autoRemaining +
+        (r.auto.capacity - item.autoBuffer - 1) * r.auto.intervalSeconds * 1000,
+    );
+  return Math.max(0, ...h);
+}
+function settle(item, now) {
+  advance(item, Math.max(0, now - item.clockAt));
+  item.clockAt = Math.max(now, item.clockAt);
+  const used = Math.min(item.timeCredit, creditHorizon(item));
+  if (used > 0) {
+    advance(item, used);
+    item.timeCredit -= used;
+  }
+  const m = sourceRules(item).manual;
+  item.nextRechargeAt =
+    m?.mode === "recharge" && item.stock < m.maxStock && !item.stockOverflow
+      ? item.clockAt + item.rechargeRemaining
+      : null;
+}
+function projected(item, now) {
+  const c = clone(item);
+  if (item.location === "board") settle(c, now);
+  return c;
+}
+function deliverTimers(s, i, now, release) {
+  const item = s.board[i];
+  if (!item) return;
+  const r = sourceRules(item);
+  if (r.delay && item.timerRemaining === 0) {
+    reward(s, r.delay.outputs, now);
+    s.board[i] = null;
+    return;
+  }
+  if (r.auto && release) {
+    for (const j of adj(i))
+      if (item.autoBuffer && unlocked(s, j) && !s.board[j]) {
+        s.board[j] = makeItem(s, r.auto.output, now);
+        item.autoBuffer--;
+      }
+  }
+}
+export function tick(s, now = Date.now(), { offline = false } = {}) {
+  if (s.readOnly) return { changed: false };
+  now = Math.max(s.lastNow, safeNow(now));
+  const before = JSON.stringify(s);
+  tickEnergy(s, now);
+  resetPeriods(s, now);
+  for (let i = 0; i < 49; i++) {
+    const item = s.board[i];
+    if (!item || !unlocked(s, i)) continue;
+    if (item.family === "bubble") {
+      if (now >= item.expiresAt) s.board[i] = makeItem(s, "coins:1", now);
+      continue;
+    }
+    settle(item, now);
+    deliverTimers(s, i, now, !offline);
+  }
+  if (s.discarded && now >= s.discarded.until) s.discarded = null;
+  s.lastNow = now;
+  fillOrders(s);
+  return { changed: before !== JSON.stringify(s) };
+}
+export function producerStatus(s, item, now = Date.now()) {
+  if (!item || item.family === "bubble")
+    return { ready: false, charges: 0, maxCharges: 0, cooldownRemaining: 0 };
+  const p = projected(item, Math.max(s.lastNow, safeNow(now))),
+    r = sourceRules(p),
+    m = r.manual;
+  return {
+    ready: !!m && (m.mode !== "recharge" || p.stock + p.stockOverflow > 0),
+    charges: p.stockOverflow + (p.stock ?? p.remainingDraws ?? 0),
+    maxCharges: m?.maxStock ?? m?.draws ?? m?.sequence?.length ?? 0,
+    cooldownRemaining:
+      m?.mode === "recharge" && p.stock + p.stockOverflow === 0
+        ? p.rechargeRemaining
+        : 0,
+    buffer: p.autoBuffer,
+    remaining: p.remainingDraws,
+    timerRemaining: p.timerRemaining,
+    opened: p.openedAt !== null,
+    credit: p.timeCredit,
+  };
+}
+function availableEnergy(s, now) {
+  return s.energy >= 100
+    ? s.energy
+    : Math.min(
+        100,
+        s.energy + Math.floor(Math.max(0, now - s.lastEnergyAt) / 120000),
+      );
+}
+function cost(s, n, now) {
+  return now < s.infiniteUntil ? 0 : n;
+}
+function pay(s, n, now) {
+  tickEnergy(s, now);
+  s.lastNow = Math.max(s.lastNow, now);
+  s.energy -= cost(s, n, now);
+}
+export function generate(s, selection, now = Date.now()) {
+  if (s.readOnly) return fail(s, "readonly", "此存档版本较新，仅可导出");
+  now = Math.max(s.lastNow, safeNow(now));
+  const i = Number.isInteger(selection)
+    ? selection
+    : s.board.findIndex(
+        (x) => x && (x.id === selection || x.family === `gen_${selection}`),
+      );
+  const source = s.board[i];
+  if (!unlocked(s, i) || !source) return fail(s, "invalid", "先选择可生产物品");
+  const p = projected(source, now),
+    r = sourceRules(p),
+    m = r.manual;
+  if (!m) return fail(s, "invalid", "这个物品尚未启用生产");
+  const index = free(s);
+  if (index < 0) return fail(s, "full", "台面满啦，先留出一个空位");
+  if (m.mode === "recharge" && p.stock + p.stockOverflow === 0)
+    return fail(
+      s,
+      "cooldown",
+      `补货中，${Math.ceil(p.rechargeRemaining / 1000)}秒`,
+    );
+  if (availableEnergy(s, now) < cost(s, m.energyPerTap, now))
+    return fail(s, "energy", "体力不足，请领取补给");
+  let id;
+  if (m.drops) {
+    const rows = m.drops.filter(
+      (d) => FAMILY_META[d.chain].unlockChapter <= s.stage + 1,
+    );
+    const row = choose(s, rows);
+    id = `${row.chain}:${Math.min(CHAINS[row.chain].length, levelRoll(s, m.outputLevelProb))}`;
+  } else if (m.sequence) id = m.sequence[p.sequenceIndex];
+  else id = choose(s, m.outputs).item;
+  pay(s, m.energyPerTap, now);
+  if (m.mode === "recharge") {
+    if (p.stockOverflow) p.stockOverflow--;
+    else p.stock--;
+    if (source.stock === m.maxStock)
+      p.rechargeRemaining = m.rechargeSeconds * 1000;
+  } else {
+    s.lastNow = now;
+    p.openedAt ??= now;
+    p.remainingDraws--;
+    p.sequenceIndex++;
+  }
+  s.board[i] = p;
+  s.board[index] = makeItem(s, id, now);
+  s.generationCount++;
+  if (p.remainingDraws === 0) {
+    s.board[i] = m.onExhaust ? makeItem(s, m.onExhaust, now) : null;
+  }
+  s.lastNow = now;
+  return finish(s, "generate", `获得${name(s.board[index])}`, {
+    index,
+    item: s.board[index],
+    producerIndex: i,
   });
-  while (state.orders.length<3) state.orders.push(newOrder(state));
-  tick(state,now);
-  return state;
 }
-export function tickEnergy(state,now=Date.now()) {
-  if (!Number.isFinite(now) || now<state.lastEnergyAt) return 0;
-  now=Math.floor(now);
-  if (state.energy>=MAX_ENERGY) { state.lastEnergyAt=now; return 0; }
-  const recovered=Math.min(MAX_ENERGY-state.energy,Math.floor((now-state.lastEnergyAt)/ENERGY_INTERVAL));
-  if (recovered>0) { state.energy+=recovered; state.lastEnergyAt=state.energy>=MAX_ENERGY?now:state.lastEnergyAt+recovered*ENERGY_INTERVAL; }
-  return recovered;
+function mergeTarget(a, b) {
+  if (
+    !a ||
+    !b ||
+    a.family === "bubble" ||
+    b.family === "bubble" ||
+    itemKey(a) !== itemKey(b) ||
+    a.openedAt !== null ||
+    b.openedAt !== null
+  )
+    return null;
+  return definition(a).mergeTo || sourceRules(a).cross?.output || null;
 }
-export function producerStatus(state,item,now=Date.now()) {
-  if (!isProducer(item)) return {charges:0,maxCharges:0,cooldownRemaining:0,ready:false};
-  const maxCharges=10+item.level*4;
-  const cooldownRemaining=item.charges===0?Math.max(0,(item.readyAt||0)-now):0;
-  const charges=cooldownRemaining===0 && item.charges===0?maxCharges:Math.min(maxCharges,item.charges ?? maxCharges);
-  return {charges,maxCharges,cooldownRemaining,ready:charges>0};
+function inherit(s, a, b, id, now) {
+  const n = makeItem(s, id, now, { full: false });
+  const old = sourceRules(a),
+    next = sourceRules(n);
+  if (next.manual?.mode === "recharge") {
+    const sum =
+      (a.stock || 0) +
+      (a.stockOverflow || 0) +
+      (b.stock || 0) +
+      (b.stockOverflow || 0);
+    n.stock = Math.min(sum, next.manual.maxStock);
+    n.stockOverflow = Math.max(0, sum - n.stock);
+    const ratio = (x) =>
+      !old.manual || x.stock === old.manual.maxStock
+        ? 1
+        : x.rechargeRemaining / (old.manual.rechargeSeconds * 1000);
+    n.rechargeRemaining =
+      Math.max(ratio(a), ratio(b)) * next.manual.rechargeSeconds * 1000;
+  }
+  if (next.auto) {
+    const ratio = (x) =>
+      old.auto ? x.autoRemaining / (old.auto.intervalSeconds * 1000) : 1;
+    n.autoRemaining =
+      Math.max(ratio(a), ratio(b)) * next.auto.intervalSeconds * 1000;
+  }
+  if (old.auto)
+    for (const x of [a, b])
+      if (x.autoBuffer)
+        reward(s, [{ item: old.auto.output, count: x.autoBuffer }], now);
+  n.timeCredit = (a.timeCredit || 0) + (b.timeCredit || 0);
+  return n;
 }
-function refreshProducer(state,item,now) {
-  const status=producerStatus(state,item,now);
-  if (item.charges!==status.charges || (status.ready && item.readyAt!==0)) { item.charges=status.charges; item.readyAt=status.ready?0:item.readyAt; return true; }
+export function move(s, from, to, now = Date.now()) {
+  if (s.readOnly) return fail(s, "readonly", "存档只读");
+  if (
+    !unlocked(s, from) ||
+    !Number.isInteger(to) ||
+    to < 0 ||
+    to >= 49 ||
+    from === to ||
+    !s.board[from]
+  )
+    return fail(s, "invalid", "选择另一个格子");
+  const a = s.board[from],
+    b = s.board[to];
+  if (a.family === "bubble" || b?.family === "bubble")
+    return fail(s, "bubble", "先处理泡泡");
+  const id = mergeTarget(a, b);
+  if (itemKey(a) === itemKey(b) && !id)
+    return fail(s, "max", "已开启的容器或最高级物品不能合成");
+  if (id) {
+    now = Math.max(s.lastNow, safeNow(now));
+    const pa = projected(a, now),
+      pb = unlocked(s, to) ? projected(b, now) : { ...clone(b), clockAt: now },
+      item = inherit(s, pa, pb, id, now);
+    s.board[from] = null;
+    s.board[to] = item;
+    s.merges++;
+    const cleared = s.locked.filter(
+      (i) =>
+        i === to ||
+        (!s.board[i] && (adj(to).includes(i) || adj(from).includes(i))),
+    );
+    s.locked = s.locked.filter((i) => !cleared.includes(i));
+    let bubbleIndex = -1;
+    const d = definition(item);
+    if (
+      d.kind === "commodity" &&
+      d.level >= 3 &&
+      !isPermanent(item) &&
+      !isSource(item) &&
+      !sourceRules(item).delay &&
+      d.family === a.family &&
+      free(s) >= 0 &&
+      !s.board.some((x) => x?.family === "bubble") &&
+      random(s) < 0.08
+    ) {
+      bubbleIndex = free(s);
+      s.board[bubbleIndex] = {
+        id: `item-${s.nextItemId++}`,
+        family: "bubble",
+        level: d.level,
+        item: { family: d.family, level: d.level },
+        expiresAt: now + 120000,
+        cost: Math.ceil(Math.max(2, d.standardCost / 8)),
+      };
+    }
+    s.lastNow = now;
+    return finish(s, "merge", `合成${name(item)}`, {
+      from,
+      to,
+      item,
+      unlocked: cleared,
+      bubbleIndex,
+    });
+  }
+  if (!unlocked(s, to))
+    return fail(s, "locked", "相同物品合成或在相邻格合成解锁");
+  s.board[from] = b;
+  s.board[to] = a;
+  return finish(s, b ? "swap" : "move", "移动成功", { from, to, item: a });
+}
+function protectedRemoval(s, indices) {
+  const remaining = all(s).filter(
+    (x) => !indices.some((i) => s.board[i] === x),
+  );
+  for (const i of indices) {
+    const x = s.board[i];
+    if (isPermanent(x)) {
+      const outputs = (y) => {
+        const r = sourceRules(y);
+        return [
+          ...(r.manual?.drops?.map((d) => d.chain) || []),
+          ...(r.manual?.outputs?.map((d) => d.item.split(":")[0]) || []),
+          ...(r.auto ? [r.auto.output.split(":")[0]] : []),
+        ];
+      };
+      const supplies = outputs(x);
+      if (
+        supplies.some(
+          (f) =>
+            !remaining.some((y) => isPermanent(y) && outputs(y).includes(f)),
+        )
+      )
+        return true;
+    }
+    if (x.family === "tools")
+      for (const r of RECIPES.filter((r) => r.unlockStage <= s.stage))
+        if (
+          x.level >= r.toolLevel &&
+          !remaining.some((y) => y.family === "tools" && y.level >= r.toolLevel)
+        )
+          return true;
+  }
   return false;
 }
-const adjacent=index=>[index-7,index+7,...(index%7?[index-1]:[]),...(index%7<6?[index+1]:[])].filter(validIndex);
-export function tick(state,now=Date.now()) {
-  now=validNow(now);
-  let changed=tickEnergy(state,now)>0;
-  for (const item of allItems(state)) if (isProducer(item)) changed=refreshProducer(state,item,now)||changed;
-  for (let index=0;index<BOARD_SIZE;index++) {
-    const item=state.board[index];
-    if (item?.family==='bubble' && now>=item.expiresAt) { state.board[index]=newItem(state,'coins',1); changed=true; }
-    if (isProducer(item) && item.kind==='herb' && !isLocked(state,index) && now>=item.nextAutoAt) {
-      const empty=adjacent(index).filter(i=>state.board[i]===null&&!isLocked(state,i));
-      const count=Math.min(3,empty.length,1+Math.floor((now-item.nextAutoAt)/60000));
-      for (let n=0;n<count;n++) state.board[empty[n]]=newItem(state,'herb',1);
-      // A blocked garden keeps a ready harvest. Offline catches up at most three drops once.
-      if (count>0) { item.nextAutoAt=now+60000; changed=true; }
+function required(s, needs) {
+  const used = [];
+  const rows = needs.map((n) => {
+    const matching = s.board.flatMap((x, i) =>
+      x &&
+      unlocked(s, i) &&
+      itemKey(x) === `${n.family}:${n.level}` &&
+      x.openedAt === null &&
+      !used.includes(i)
+        ? [i]
+        : [],
+    );
+    const selected = matching.slice(0, n.count);
+    used.push(...selected);
+    return {
+      ...n,
+      have: matching.length,
+      missing: Math.max(0, n.count - matching.length),
+    };
+  });
+  return {
+    needs: rows,
+    indices: used,
+    ready: rows.every((n) => !n.missing) && !protectedRemoval(s, used),
+  };
+}
+export const getOrderProgress = (s, o) => {
+  const p = required(s, o.needs);
+  return {
+    ...p,
+    total: o.needs.reduce((n, x) => n + x.count, 0),
+    matched: p.needs.reduce((n, x) => n + Math.min(x.have, x.count), 0),
+  };
+};
+export function mainOrder(s) {
+  return (
+    BALANCE.storyOrders.find(
+      (o) => o.chapter === s.stage + 1 && !s.mainCompleted.includes(o.id),
+    ) || null
+  );
+}
+export function activeOrders(s) {
+  return [
+    ...(mainOrder(s)
+      ? [{ ...mainOrder(s), customer: "小狗 · 主线", main: true }]
+      : []),
+    ...s.orders,
+  ];
+}
+const signature = (n) =>
+  n
+    .map((x) => `${x.family}:${x.level}x${x.count}`)
+    .sort()
+    .join("|");
+function availableFamilies(s) {
+  const sources = [
+    ...s.board.filter((x, i) => x && unlocked(s, i)),
+    ...(free(s) >= 0 ? s.inventory : []),
+  ];
+  return [
+    ...new Set(
+      sources.flatMap(
+        (x) => sourceRules(x).manual?.drops?.map((d) => d.chain) || [],
+      ),
+    ),
+  ].filter(
+    (f) =>
+      FAMILY_META[f]?.unlockChapter <= s.stage + 1 &&
+      CHAINS[f].some((x) => x.repeatOrderEligible),
+  );
+}
+function orderCandidate(s, slot, exclude = []) {
+  const rules = BALANCE.repeatOrderRules,
+    chapter = Math.min(s.stage, 11),
+    [low, high] = rules.slots[slot].band.map(
+      (n) => n * rules.chapterMultiplier[chapter],
+    );
+  const families = availableFamilies(s);
+  const active = new Set(exclude.flatMap((o) => o.needs.map((n) => n.family)));
+  const variants = [];
+  for (const f of families)
+    for (
+      let l = 1;
+      l <= Math.min(rules.maxLevelByChapter[chapter], CHAINS[f].length);
+      l++
+    )
+      for (let count = 1; count <= 2; count++)
+        variants.push({
+          need: { family: f, level: l, count },
+          cost: ITEMS[`${f}:${l}`].standardCost * count,
+        });
+  const seen = new Set(exclude.map((o) => signature(o.needs)));
+  let selected = null,
+    count = 0,
+    best = null;
+  const consider = (needs, C) => {
+    if (
+      C > high ||
+      seen.has(signature(needs)) ||
+      new Set([...active, ...needs.map((x) => x.family)]).size > 3
+    )
+      return;
+    const entry = { needs, standardCost: +C.toFixed(3) };
+    if (!best || C > best.standardCost) best = entry;
+    if (C >= low) {
+      count++;
+      if (random(s) < 1 / count) selected = entry;
+    }
+  };
+  for (let a = 0; a < variants.length; a++) {
+    const x = variants[a];
+    consider([x.need], x.cost);
+    for (let b = a + 1; b < variants.length; b++) {
+      const y = variants[b];
+      if (x.need.family === y.need.family && x.need.level === y.need.level)
+        continue;
+      consider([x.need, y.need], x.cost + y.cost);
     }
   }
-  return {changed};
+  const entry = selected || best;
+  if (!entry) return null;
+  const C = entry.standardCost;
+  return {
+    ...entry,
+    id: `repeat-${++s.orderSerial}`,
+    slot,
+    title: `${rules.slots[slot].id === "easy" ? "暖心" : slot === 1 ? "邻里" : "宴会"}小订单`,
+    customer: ["小鹿", "阿熊", "团团"][slot],
+    coins: Math.ceil(8 + 2 * C),
+    xp: Math.ceil(4 + C / 4),
+    stars: Math.min(4, Math.max(1, Math.ceil(C / 40))),
+    fallbackReason: selected
+      ? null
+      : "当前来源与等级下，采用不超上限的最高可达需求",
+  };
 }
-function locateProducer(state,selection) {
-  if (validIndex(selection)) return {index:selection,item:state.board[selection]};
-  const index=state.board.findIndex((item,index)=>isProducer(item)&&!isLocked(state,index)&&(item.id===selection||item.kind===selection));
-  return {index,item:state.board[index]};
-}
-export function generate(state,selection,now=Date.now()) {
-  now=validNow(now);
-  const {index:producerIndex,item:producer}=locateProducer(state,selection);
-  if (!isProducer(producer) || isLocked(state,producerIndex)) return result(state,false,'invalid','先选择一个已解锁的生产器');
-  const index=freeIndex(state);
-  if (index<0) return result(state,false,'full','台面满啦，先合成、收进仓库或完成订单吧');
-  const status=producerStatus(state,producer,now);
-  if (!status.ready) return result(state,false,'cooldown',`正在补货，${Math.ceil(status.cooldownRemaining/1000)} 秒后再来`,status);
-  tickEnergy(state,now);
-  if (state.energy<1) return result(state,false,'energy','电量用完啦，稍等片刻或领取电量补给');
-  refreshProducer(state,producer,now);
-  const families=PRODUCER_DEFS[producer.kind].families;
-  const family=families.length>1&&random(state)<0.28?families[1]:families[0];
-  const level=random(state)<0.08+producer.level*0.06?2:1;
-  const item=newItem(state,family,level);
-  state.energy--; state.generationCount++; producer.charges--;
-  if (!producer.charges) producer.readyAt=now+Math.max(30000,PRODUCER_DEFS[producer.kind].cooldownMs-(producer.level-1)*10000);
-  state.board[index]=item;
-  return result(state,true,'generate',`获得${nameOf(item)}`,{index,item,producerIndex});
-}
-function sameMerge(a,b) { return a&&b && a.family!=='bubble'&&a.family===b.family&&a.level===b.level&&(a.family!=='producer'||a.kind===b.kind); }
-function maxLevel(item) { return item.family==='producer'?4:CHAINS[item.family]?.length||0; }
-export function move(state,from,to,now=Date.now()) {
-  if (!validIndex(from)||!validIndex(to)||from===to) return result(state,false,'invalid','选择另一个格子');
-  const item=state.board[from],target=state.board[to];
-  if (!item) return result(state,false,'empty','这里还没有物品');
-  if (isLocked(state,from)) return result(state,false,'locked','把相同物品合到这里，就能解锁');
-  if (item.family==='bubble'||target?.family==='bubble') return result(state,false,'bubble','先选择领取或戳破泡泡');
-  if (sameMerge(item,target)) {
-    if (item.level>=maxLevel(item)) return result(state,false,'max','已经是最高级物品啦');
-    const merged=item.family==='producer'?newProducer(state,item.kind,item.level+1,now):newItem(state,item.family,item.level+1);
-    state.board[from]=null;state.board[to]=merged;state.merges++;state.xp+=item.level*2;
-    const unlocked=state.locked.filter(i=>i===to || (state.board[i]===null&&(adjacent(to).includes(i)||adjacent(from).includes(i))));
-    state.locked=state.locked.filter(i=>!unlocked.includes(i));
-    let bubbleIndex=-1;
-    if (isCommodity(merged)&&merged.level>=3&&state.merges%5===0) {
-      bubbleIndex=freeIndex(state);
-      if (bubbleIndex>=0) state.board[bubbleIndex]={id:`item-${state.nextItemId++}`,family:'bubble',level:merged.level,item:{family:merged.family,level:merged.level},expiresAt:now+60000,cost:6*2**merged.level};
+function fillOrders(s) {
+  for (let slot = 0; slot < 3; slot++)
+    if (!s.orders.some((o) => o.slot === slot)) {
+      const order = orderCandidate(s, slot, s.orders);
+      if (order) s.orders.push(order);
     }
-    return result(state,true,'merge',`合成了${nameOf(merged)}${unlocked.length?` · 解锁 ${unlocked.length} 格`:''}`,{from,to,item:merged,xp:item.level*2,unlocked,bubbleIndex});
-  }
-  if (isLocked(state,to)) return result(state,false,'locked',target?'需要相同类别、相同等级的物品来解锁':'在旁边合成，或花费金币解锁');
-  state.board[from]=target;state.board[to]=item;
-  return result(state,true,target?'swap':'move',target?'交换了两个物品的位置':'移动成功',{from,to,item});
+  s.orders.sort((a, b) => a.slot - b.slot);
 }
-function requirements(state,requested) {
-  const combined=new Map();
-  for (const need of requested) {
-    const key=keyOf(need); const existing=combined.get(key);
-    if (existing) existing.count+=need.count; else combined.set(key,{...need});
+export function refreshOrder(s, id, now = Date.now()) {
+  now = Math.max(s.lastNow, safeNow(now));
+  const i = s.orders.findIndex((o) => o.id === id);
+  if (i < 0) return fail(s, "invalid", "订单已更新");
+  const trial = clone(s);
+  resetPeriods(trial, Math.max(s.lastNow, now));
+  if (trial.day.refresh >= 10) return fail(s, "limit", "今日刷新已达10次");
+  const fee = trial.day.refresh < 3 ? 0 : 50;
+  if (s.coins < fee) return fail(s, "coins", "需要50金币");
+  const next = orderCandidate(trial, s.orders[i].slot, s.orders);
+  if (!next) return fail(s, "source", "请先把生产器取到台面");
+  s.lastNow = Math.max(s.lastNow, now);
+  s.rng = trial.rng;
+  s.orderSerial = trial.orderSerial;
+  s.day = trial.day;
+  s.day.refresh++;
+  s.coins -= fee;
+  s.orders[i] = next;
+  return finish(s, "order_refresh", "订单已刷新");
+}
+export function fulfillOrder(s, id, now = Date.now()) {
+  now = Math.max(s.lastNow, safeNow(now));
+  const main = mainOrder(s),
+    order = main?.id === id ? main : s.orders.find((o) => o.id === id);
+  if (!order) return fail(s, "claimed", "订单已交付");
+  const p = getOrderProgress(s, order);
+  if (!p.ready)
+    return fail(s, "incomplete", "还缺物品，或需保留最后供给源/配方厨具");
+  resetPeriods(s, Math.max(s.lastNow, now));
+  s.lastNow = Math.max(s.lastNow, now);
+  for (const i of p.indices) s.board[i] = null;
+  add(s, "coins", order.coins);
+  add(s, "stars", order.stars);
+  xp(s, order.xp, now);
+  s.completed++;
+  s.day.orders++;
+  s.week.orders++;
+  if (order === main) s.mainCompleted.push(id);
+  else s.orders = s.orders.filter((o) => o.id !== id);
+  if (order.standardCost >= 4) {
+    if (s.day.chests < 3 && ++s.chestProgress >= 5) {
+      s.chestProgress = 0;
+      s.day.chests++;
+      reward(s, [{ item: "chest:1", count: 1 }], now);
+    }
+    if (s.stage === 12 && ++s.honorProgress >= 10) {
+      s.honorProgress = 0;
+      reward(s, [{ item: "honor:1", count: 1 }], now);
+    }
   }
-  return [...combined.values()].map(need=>{
-    const have=state.board.filter((item,index)=>!isLocked(state,index)&&item?.family===need.family&&item.level===need.level).length;
-    return {...need,have,missing:Math.max(0,need.count-have)};
+  fillOrders(s);
+  return finish(
+    s,
+    "order",
+    `交单成功 +${order.coins}金币 · +${order.stars}星星`,
+    {
+      order,
+      consumed: p.indices,
+      coins: order.coins,
+      xp: order.xp,
+      stars: order.stars,
+    },
+  );
+}
+export function getRecipeProgress(s, r, now = s.lastNow) {
+  if (typeof r === "string") r = RECIPES.find((x) => x.id === r);
+  if (!r) return { ready: false, needs: [], locked: true };
+  const p = required(s, r.needs),
+    toolIndex = s.board.findIndex(
+      (x, i) =>
+        x?.family === "tools" && x.level >= r.toolLevel && unlocked(s, i),
+    ),
+    locked = r.unlockStage > s.stage;
+  return {
+    ...p,
+    locked,
+    toolIndex,
+    toolReady: toolIndex >= 0,
+    toolName: ITEMS[`tools:${r.toolLevel}`].name,
+    ready:
+      p.ready &&
+      toolIndex >= 0 &&
+      !locked &&
+      availableEnergy(s, Math.max(s.lastNow, now)) >=
+        cost(s, r.energyCost, Math.max(s.lastNow, now)),
+  };
+}
+export function cookRecipe(s, id, now = Date.now()) {
+  now = Math.max(s.lastNow, safeNow(now));
+  const r = RECIPES.find((x) => x.id === id),
+    p = getRecipeProgress(s, r, now);
+  if (!p.ready) return fail(s, "incomplete", "准备食材、厨具和烹饪体力");
+  pay(s, r.energyCost, Math.max(s.lastNow, now));
+  for (const i of p.indices) s.board[i] = null;
+  const index = p.indices[0],
+    item = makeItem(s, `${r.output.family}:${r.output.level}`, now);
+  s.board[index] = item;
+  s.cooked++;
+  return finish(s, "cook", `做好${name(item)}，厨具保留`, {
+    index,
+    item,
+    recipe: r,
+    consumed: p.indices,
   });
 }
-export function getOrderProgress(state,order) {
-  const needs=requirements(state,order.needs);
-  return {ready:needs.every(need=>need.missing===0),matched:needs.reduce((sum,need)=>sum+Math.min(need.count,need.have),0),total:needs.reduce((sum,need)=>sum+need.count,0),needs};
+export function getChapterProgress(s) {
+  const chapter = CHAPTERS[s.stage];
+  if (!chapter)
+    return {
+      chapter: null,
+      tasks: [],
+      ready: false,
+      allComplete: s.stage === 12,
+      invalid: s.stage !== 12,
+      completed: 0,
+      total: 0,
+      stage: s.stage,
+    };
+  const current = chapter.orders.filter((id) =>
+    s.mainCompleted.includes(id),
+  ).length;
+  return {
+    chapter,
+    tasks: [
+      { ...chapter.tasks[0], current, value: current, done: current === 8 },
+    ],
+    ready: current === 8 && s.stars >= chapter.stars,
+    completed: current,
+    total: 8,
+    allComplete: false,
+    stage: s.stage,
+  };
 }
-function consumeNeeds(state,needs) {
-  const consumed=[];
-  for (const need of needs) for (let n=0;n<need.count;n++) {
-    const index=state.board.findIndex((item,index)=>!isLocked(state,index)&&item?.family===need.family&&item.level===need.level);
-    state.board[index]=null;consumed.push(index);
-  }
-  return consumed;
-}
-export function fulfillOrder(state,id) {
-  const orderIndex=state.orders.findIndex(order=>order.id===id);
-  if (orderIndex<0) return result(state,false,'invalid','这个订单已经完成啦');
-  const order=state.orders[orderIndex],progress=getOrderProgress(state,order);
-  if (!progress.ready) return result(state,false,'incomplete','还差一点点，先合成需要的物品吧');
-  const consumed=consumeNeeds(state,progress.needs);
-  addCoins(state,order.coins);state.xp+=order.xp;state.stars+=order.stars||1;state.completed++;
-  if (state.completed%3===0) state.pending.push(newItem(state,'chest',1));
-  state.orders[orderIndex]=newOrder(state);
-  return result(state,true,'order',`订单完成！+${order.coins} 金币 · +${order.stars||1} 星星${state.completed%3===0?' · 礼盒已送达':''}`,{order,consumed,coins:order.coins,xp:order.xp,stars:order.stars||1});
-}
-export function getRecipeProgress(state,recipe) {
-  if (typeof recipe==='string') recipe=RECIPES.find(item=>item.id===recipe);
-  if (!recipe) return {ready:false,needs:[],toolReady:false,toolName:'厨具',toolIndex:-1,locked:true};
-  const needs=requirements(state,recipe.needs);
-  const toolIndex=state.board.findIndex((item,index)=>!isLocked(state,index)&&item?.family==='tools'&&item.level>=recipe.toolLevel);
-  const toolReady=toolIndex>=0,locked=state.stage<recipe.unlockStage;
-  return {ready:!locked&&toolReady&&needs.every(need=>need.missing===0),needs,toolReady,toolName:CHAINS.tools[recipe.toolLevel-1].name,toolIndex,locked};
-}
-export function cookRecipe(state,id) {
-  const recipe=RECIPES.find(item=>item.id===id);
-  if (!recipe) return result(state,false,'invalid','没有找到这份食谱');
-  const progress=getRecipeProgress(state,recipe);
-  if (progress.locked) return result(state,false,'locked',`完成第 ${recipe.unlockStage} 章后解锁`);
-  if (!progress.toolReady) return result(state,false,'tool',`台面需要${progress.toolName}或更高级厨具，厨具不会被消耗`);
-  if (!progress.ready) return result(state,false,'incomplete','先准备好食谱需要的食材');
-  const consumed=consumeNeeds(state,progress.needs);
-  const index=consumed[0] ?? freeIndex(state);
-  const item=newItem(state,recipe.output.family,recipe.output.level);
-  state.board[index]=item;state.xp+=recipe.xp||0;state.cooked++;
-  if (recipe.coins) addCoins(state,recipe.coins);
-  return result(state,true,'cook',`做好了${nameOf(item)}！厨具已保留`,{index,item,consumed,recipe});
-}
-export function refillEnergy(state,now=Date.now()) {
-  tickEnergy(state,now);
-  if (state.energy>=MAX_ENERGY) return result(state,false,'full','电量已经满啦');
-  if (state.coins<30) return result(state,false,'coins','需要 30 金币，完成订单就能获得');
-  const amount=Math.min(30,MAX_ENERGY-state.energy);
-  state.coins-=30;state.energy+=amount;
-  if (state.energy>=MAX_ENERGY) state.lastEnergyAt=now;
-  return result(state,true,'refill',`补充了 ${amount} 点电量`,{amount,cost:30});
-}
-export function sellItem(state,index) {
-  if (!validIndex(index)||!state.board[index]) return result(state,false,'empty','先选择一个物品');
-  const item=state.board[index];
-  if (isLocked(state,index)) return result(state,false,'locked','先解锁这个格子');
-  if (item.family==='producer') return result(state,false,'producer','生产器不能出售，可以收进仓库');
-  if (item.family==='bubble') return result(state,false,'bubble','戳破泡泡即可获得金币');
-  if (!isCommodity(item)) return result(state,false,'resource','资源可以直接领取，礼盒可以打开');
-  const coins=2**(item.level-1);state.board[index]=null;addCoins(state,coins);
-  return result(state,true,'sell',`出售获得 ${coins} 金币`,{index,item,coins});
-}
-export function collectItem(state,index,now=Date.now()) {
-  if (!validIndex(index)||!state.board[index]) return result(state,false,'empty','先选择一份资源');
-  if (isLocked(state,index)) return result(state,false,'locked','先解锁这个格子');
-  const item=state.board[index];
-  if (!['energy','coins','chest'].includes(item.family)) return result(state,false,'invalid','这个物品可以合成或用于订单');
-  if (item.family==='energy') {
-    const amount=CHAINS.energy[item.level-1].value;
-    if (state.energy+amount>MAX_MANUAL_ENERGY) return result(state,false,'full','电量已经很充足，先留着这份电量补给吧');
-    tickEnergy(state,now);state.energy+=amount;state.lastEnergyAt=now;state.board[index]=null;
-    return result(state,true,'collect',`领取了 ${amount} 点电量`,{index,item,amount});
-  }
-  if (item.family==='coins') {
-    const coins=CHAINS.coins[item.level-1].value;addCoins(state,coins);state.board[index]=null;
-    return result(state,true,'collect',`领取了 ${coins} 金币`,{index,item,coins});
-  }
-  state.board[index]=null;
-  const rewards=[newItem(state,'energy',Math.min(4,item.level+1)),newItem(state,'coins',Math.min(4,item.level+1))];
-  const kinds=Object.keys(PRODUCER_DEFS).filter(kind=>PRODUCER_DEFS[kind].unlockStage<=state.stage);
-  rewards.push(newProducer(state,kinds[Math.floor(random(state)*kinds.length)],1,now));
-  if (item.level>=2) { rewards.push(newItem(state,'energy',item.level));state.boosters.scissors++; }
-  if (item.level>=3) { rewards.push(newItem(state,'coins',4));state.boosters.hourglass+=2; }
-  state.pending.push(...rewards);
-  return result(state,true,'chest',`打开${nameOf(item)}，${rewards.length} 份物品已放入待领取区`,{index,item,rewards});
-}
-export function claimPending(state) {
-  if (!state.pending.length) return result(state,false,'empty','暂时没有待领取奖励');
-  const index=freeIndex(state);
-  if (index<0) return result(state,false,'full','台面满啦，奖励会一直为你保留');
-  const item=state.pending.shift();state.board[index]=item;
-  return result(state,true,'claim',`领取了${nameOf(item)}`,{index,item});
-}
-export function storeItem(state,index) {
-  if (!validIndex(index)||!state.board[index]) return result(state,false,'empty','先选择要收纳的物品');
-  if (isLocked(state,index)) return result(state,false,'locked','锁住的物品还不能收纳');
-  if (state.board[index].family==='bubble') return result(state,false,'bubble','泡泡不能放进仓库');
-  if (state.inventory.length>=state.storageCapacity) return result(state,false,'full','仓库满啦，可以扩建或取出物品');
-  const item=state.board[index];state.inventory.push(item);state.board[index]=null;
-  return result(state,true,'store',`${nameOf(item)}已放入仓库`,{index,item});
-}
-export function retrieveItem(state,inventoryIndex) {
-  if (!Number.isInteger(inventoryIndex)||inventoryIndex<0||inventoryIndex>=state.inventory.length) return result(state,false,'empty','仓库里没有这个物品');
-  const index=freeIndex(state);
-  if (index<0) return result(state,false,'full','台面满啦，先留出一个空位');
-  const [item]=state.inventory.splice(inventoryIndex,1);state.board[index]=item;
-  return result(state,true,'retrieve',`取出了${nameOf(item)}`,{index,item});
-}
-export const storageExpansionCost = state => 80+Math.max(0,state.storageCapacity-6)*20;
-export function expandStorage(state) {
-  if (state.storageCapacity>=60) return result(state,false,'max','仓库已经扩建到最大啦');
-  const cost=storageExpansionCost(state);
-  if (state.coins<cost) return result(state,false,'coins',`扩建需要 ${cost} 金币`);
-  state.coins-=cost;state.storageCapacity+=2;
-  return result(state,true,'expand','仓库增加了 2 个格子',{cost});
-}
-export function getChapterProgress(state) {
-  const stage=state.stage;
-  const invalid=!Number.isInteger(stage)||stage<0||stage>CHAPTERS.length;
-  const chapter=invalid?null:CHAPTERS[stage]||null;
-  if (!chapter) return {chapter:null,stage,tasks:[],ready:false,completed:0,total:0,allComplete:!invalid&&stage===CHAPTERS.length,invalid};
-  const discovered=new Set(state.discovered);
-  const tasks=chapter.tasks.map(task=>{
-    const current=task.kind==='discover'?task.items.filter(key=>discovered.has(key)).length:integer(state[task.kind==='orders'?'completed':'cooked'],0);
-    return {...task,current,value:Math.min(current,task.target),done:current>=task.target};
+export function claimChapter(s, expected = s.stage, now = Date.now()) {
+  now = Math.max(s.lastNow, safeNow(now));
+  const p = getChapterProgress(s);
+  if (expected !== s.stage) return fail(s, "claimed", "此章已结算");
+  if (!p.ready) return fail(s, "incomplete", "完成八份主线并备好装修星星");
+  const c = p.chapter;
+  s.lastNow = Math.max(s.lastNow, now);
+  s.stars -= c.stars;
+  s.stage++;
+  grant(
+    s,
+    `chapter:${c.number}`,
+    [
+      ...c.completionRewards,
+      ...c.unlockNextProducers.map((id) => ({
+        item: `${PRODUCER_DEFS[id].chain}:${PRODUCER_DEFS[id].activeLevel}`,
+        count: 1,
+      })),
+    ],
+    now,
+  );
+  fillOrders(s);
+  return finish(s, "chapter", `第${c.number}章布置完成，奖励在待领区`, {
+    chapter: c,
+    reward: c.completionRewards,
   });
-  const completed=tasks.filter(task=>task.done).length;
-  return {chapter,stage,tasks,ready:completed===tasks.length,completed,total:tasks.length,allComplete:false,invalid:false};
 }
-// Pass the stage shown on the claim button to reject stale clicks after a chapter advances.
-export function claimChapter(state,expectedStage=state.stage,now=Date.now()) {
-  const progress=getChapterProgress(state);
-  if (progress.invalid) return result(state,false,'invalid','章节进度暂时不可用，请重新打开厨房');
-  if (!Number.isInteger(expectedStage)||expectedStage!==state.stage) return result(state,false,'claimed','这章奖励已经领取啦，请查看新的任务');
-  if (progress.allComplete) return result(state,false,'max','开店手账已经完成！继续探索食谱和收藏吧');
-  if (!progress.ready) return result(state,false,'incomplete','先完成这一章的任务，再来领取奖励吧');
-  const {chapter}=progress,{reward}=chapter,rewards=[];
-  if (reward.unlockKind&&!allItems(state).some(item=>isProducer(item)&&item.kind===reward.unlockKind)) rewards.push(newProducer(state,reward.unlockKind,1,validNow(now)));
-  if (reward.chestReward) rewards.push(newItem(state,'chest',reward.chestReward));
-  state.stage++;
-  state.pending.push(...rewards);
-  if (reward.storageReward) state.storageCapacity=Math.min(60,state.storageCapacity+reward.storageReward);
-  if (reward.coinReward) addCoins(state,reward.coinReward);
-  return result(state,true,'chapter',`第 ${chapter.number} 章完成！${rewards.length?'奖励已交给小狗店长保管':'奖励已领取'}`,{chapter,reward,rewards,coins:reward.coinReward||0});
-}
-// Kept for legacy callers; the kitchen UI progresses through claimChapter without spending stars.
-export function renovate(state,now=Date.now()) {
-  const renovation=RENOVATIONS[state.stage];
-  if (!renovation) return result(state,false,'max','梦幻小厨房已经全部建成！继续探索食谱和收藏吧');
-  if (state.stars<renovation.stars) return result(state,false,'stars',`还需要 ${renovation.stars-state.stars} 颗星星，完成订单就能获得`);
-  state.stars-=renovation.stars;state.stage++;
-  if (renovation.unlockKind) state.pending.push(newProducer(state,renovation.unlockKind,1,now));
-  if (renovation.storageReward) state.storageCapacity=Math.min(60,state.storageCapacity+renovation.storageReward);
-  if (renovation.chestReward) state.pending.push(newItem(state,'chest',renovation.chestReward));
-  if (renovation.coinReward) addCoins(state,renovation.coinReward);
-  return result(state,true,'renovate',`${renovation.name}完成！${renovation.unlockKind?'新生产器已送到待领取区':''}`,{renovation});
-}
-export function buyShopItem(state,id,now=Date.now()) {
-  const entry=SHOP_ITEMS.find(item=>item.id===id);
-  if (!entry) return result(state,false,'invalid','没有找到这个商品');
-  if (state.stage<entry.unlockStage) return result(state,false,'locked',`完成第 ${entry.unlockStage} 章后解锁`);
-  if (state.coins<entry.cost) return result(state,false,'coins',`还需要 ${entry.cost-state.coins} 金币`);
-  if (entry.type==='energy'&&state.energy+entry.amount>MAX_MANUAL_ENERGY) return result(state,false,'full','电量已经很充足啦');
-  if (entry.type==='booster'&&state.boosters[entry.booster]>=9999) return result(state,false,'full','道具已经很充足啦');
-  state.coins-=entry.cost;
-  if (entry.type==='energy') { state.energy+=entry.amount;state.lastEnergyAt=now; }
-  else if (entry.type==='booster') state.boosters[entry.booster]++;
-  else if (entry.type==='chest') state.pending.push(newItem(state,'chest',entry.level));
-  else if (entry.type==='producer') state.pending.push(newProducer(state,entry.kind,entry.level,now));
-  return result(state,true,'buy',`购买了${entry.name}${['chest','producer'].includes(entry.type)?'，已送到待领取区':''}`,{entry,cost:entry.cost});
-}
-export const chinaDate = now => new Date(now+8*60*60*1000).toISOString().slice(0,10);
-export function claimDaily(state,now=Date.now()) {
-  now=validNow(now);const date=chinaDate(now);
-  if ((state.dailyClaimDate && date<=state.dailyClaimDate)||now<state.lastDailyClaimAt) return result(state,false,'claimed','今天的补给已经领过啦，明天再来');
-  if (state.energy+20>MAX_MANUAL_ENERGY) return result(state,false,'full','先消耗一些电量，再领取今日补给');
-  state.dailyClaimDate=date;state.lastDailyClaimAt=now;state.energy+=20;state.lastEnergyAt=now;addCoins(state,25);state.pending.push(newItem(state,'chest',1));
-  return result(state,true,'daily','每日补给：20 电量、25 金币和一个厨房礼盒');
-}
-export function useBooster(state,type,index,now=Date.now()) {
-  if (!['scissors','hourglass'].includes(type)) return result(state,false,'invalid','没有这种道具');
-  if (!state.boosters[type]) return result(state,false,'empty','这个道具用完啦，可以从礼盒或商店获得');
-  if (!validIndex(index)||!state.board[index]||isLocked(state,index)) return result(state,false,'invalid','先选中一个已解锁的物品');
-  const item=state.board[index];
-  if (type==='hourglass') {
-    if (!isProducer(item)) return result(state,false,'producer','沙漏需要用在生产器上');
-    const status=producerStatus(state,item,now);
-    if (status.charges===status.maxCharges) return result(state,false,'full','这个生产器的库存已经满啦');
-    item.charges=status.maxCharges;item.readyAt=0;state.boosters.hourglass--;
-    return result(state,true,'hourglass','补货完成，可以继续生产啦',{index,item});
+export const renovate = (s, now) => claimChapter(s, s.stage, now);
+export function collectItem(s, index, now = Date.now()) {
+  if (!unlocked(s, index) || !s.board[index])
+    return fail(s, "invalid", "先选择已解锁的资源");
+  now = Math.max(s.lastNow, safeNow(now));
+  const item = s.board[index],
+    d = definition(item);
+  if (!d) return fail(s, "invalid", "无法领取");
+  if (["energy", "coins", "gems"].includes(d.valueUnit)) {
+    tickEnergy(s, now);
+    s.lastNow = now;
+    add(s, d.valueUnit, d.value);
+    if (s.energy >= 100) s.lastEnergyAt = now;
+    s.board[index] = null;
+    return finish(
+      s,
+      "collect",
+      `领取${d.value} ${d.valueUnit === "energy" ? "体力" : d.valueUnit === "coins" ? "金币" : "钻石"}`,
+      { index, item },
+    );
   }
-  if (!isCommodity(item)||item.level<=1) return result(state,false,'invalid','剪刀可以拆分 2 级以上的食材、厨具或菜品');
-  const empty=freeIndex(state);
-  if (empty<0) return result(state,false,'full','拆分需要额外一个空格');
-  const first=newItem(state,item.family,item.level-1),second=newItem(state,item.family,item.level-1);
-  state.board[index]=first;state.board[empty]=second;state.boosters.scissors--;
-  return result(state,true,'scissors',`拆成了两份${nameOf(first)}`,{index,item:first,secondIndex:empty});
-}
-export function resolveBubble(state,index,buy=false,now=Date.now()) {
-  if (!validIndex(index)||state.board[index]?.family!=='bubble') return result(state,false,'invalid','这个泡泡已经消失了');
-  const bubble=state.board[index];
-  if (now>=bubble.expiresAt) { state.board[index]=newItem(state,'coins',1);return result(state,true,'bubble-expired','泡泡已变成金币',{index,item:state.board[index]}); }
-  if (buy&&state.coins<bubble.cost) return result(state,false,'coins',`需要 ${bubble.cost} 金币领取这份物品`);
-  if (buy) state.coins-=bubble.cost;
-  const item=buy?newItem(state,bubble.item.family,bubble.item.level):newItem(state,'coins',1);state.board[index]=item;
-  return result(state,true,'bubble',buy?`领取了${nameOf(item)}`:'戳破泡泡，获得一份金币',{index,item,cost:buy?bubble.cost:0});
-}
-export const unlockCost = (state,index) => 12+Math.floor(index/7)*4;
-export function unlockCell(state,index) {
-  if (!validIndex(index)||!isLocked(state,index)) return result(state,false,'invalid','这个格子已经解锁啦');
-  const cost=unlockCost(state,index);
-  if (state.coins<cost) return result(state,false,'coins',`解锁需要 ${cost} 金币，也可以通过合成解锁`);
-  state.coins-=cost;state.locked=state.locked.filter(i=>i!==index);
-  return result(state,true,'unlock','腾出了一块新台面！',{index,cost});
-}
-export function getLevel(state) { return Math.floor(state.xp/100)+1; }
-export function findMerge(state) {
-  for (let from=0;from<BOARD_SIZE;from++) {
-    const item=state.board[from];
-    if (!item||item.family==='bubble'||isLocked(state,from)||item.level>=maxLevel(item)) continue;
-    for (let to=0;to<BOARD_SIZE;to++) if (from!==to&&sameMerge(item,state.board[to])) return {from,to,family:item.family,level:item.level};
+  if (item.family === "legacy_chest") {
+    s.lastNow = now;
+    s.board[index] = null;
+    const kinds = [
+      "food",
+      "produce",
+      "tools",
+      "drink",
+      "herb",
+      "asian",
+      "mediterranean",
+    ].filter((k) => PRODUCER_DEFS[k].unlockStage <= s.stage);
+    const kind = kinds[Math.floor(random(s) * kinds.length)],
+      p = PRODUCER_DEFS[kind];
+    const rows = [
+      { item: `legacy_energy:${Math.min(4, item.level + 1)}` },
+      { item: `legacy_coins:${Math.min(4, item.level + 1)}` },
+      { item: `${p.chain}:${p.activeLevel}` },
+    ];
+    if (item.level >= 2)
+      rows.push(
+        { item: `legacy_energy:${item.level}` },
+        { item: "splitter:3" },
+      );
+    if (item.level >= 3) {
+      rows.push({ item: "legacy_coins:4" });
+      s.legacyFullRefill += 2;
+    }
+    reward(s, rows, now);
+    return finish(s, "chest", "旧礼盒已按原价值兑现到待领区", { index, item });
   }
+  if (item.family === "chest") {
+    s.lastNow = now;
+    s.board[index] = null;
+    reward(s, BALANCE.economy.chestRewards[item.level], now);
+    return finish(s, "chest", "礼盒内容已送到待领区", { index, item });
+  }
+  if (["blackbag", "pinkbag", "tipjar", "energybox"].includes(item.family)) {
+    const bag = ["blackbag", "pinkbag"].includes(item.family);
+    if (bag && item.openedAt === null) {
+      const rows = Object.entries(BALANCE.economy.bags[item.family])
+        .filter(([f]) => FAMILY_META[f].unlockChapter <= s.stage + 1)
+        .map(([chain, prob]) => ({ chain, prob }));
+      if (!rows.length) return fail(s, "source", "尚无可用设备");
+      s.lastNow = now;
+      item.frozenPool = rows;
+      item.openedAt = now;
+      item.timerRemaining =
+        BALANCE.economy.bagOpenSeconds[item.family][item.level - 1] * 1000;
+      item.clockAt = now;
+      return finish(s, "open_container", "开始开锁，放入仓库会暂停", {
+        index,
+        item,
+      });
+    }
+    const p = projected(item, now);
+    if (bag && p.timerRemaining > 0)
+      return fail(s, "wait", `开锁还需${Math.ceil(p.timerRemaining / 1000)}秒`);
+    const empty = free(s);
+    if (empty < 0) return fail(s, "full", "取物需要一个空位");
+    let id;
+    if (bag)
+      id = `${choose(s, p.frozenPool).chain}:${levelRoll(s, BALANCE.economy.bagLevelProb)}`;
+    else if (item.family === "tipjar")
+      id = `${choose(s, BALANCE.economy.pigDrops).chain}:${levelRoll(s, BALANCE.economy.pigLevelProbByTier[item.level])}`;
+    else id = choose(s, BALANCE.economy.energyBoxDrops).item;
+    s.lastNow = now;
+    p.openedAt ??= now;
+    p.remainingDraws--;
+    s.board[index] = p.remainingDraws ? p : null;
+    const output = makeItem(s, id, now);
+    s.board[empty] = output;
+    return finish(
+      s,
+      "collect",
+      `获得${name(output)}，余${p.remainingDraws}次`,
+      { index: empty, item: output },
+    );
+  }
+  return fail(s, "tool", "请在道具详情选择使用目标");
+}
+export function claimPending(s, now = Date.now()) {
+  now = Math.max(s.lastNow, safeNow(now));
+  const index = free(s);
+  if (index < 0) return fail(s, "full", "台面满啦，奖励会保留");
+  if (!s.pending.length) return fail(s, "empty", "暂无待领物品");
+  s.lastNow = Math.max(s.lastNow, now);
+  const item = s.pending.shift();
+  resume(item, now);
+  s.board[index] = item;
+  discover(s, item, now);
+  return finish(s, "claim", `领取${name(item)}`, { index, item });
+}
+function resume(item, now) {
+  item.location = "board";
+  item.clockAt = now;
+  const r = sourceRules(item);
+  if (r.delay) item.openedAt ??= now;
+}
+export function storeItem(s, index, now = Date.now()) {
+  now = Math.max(s.lastNow, safeNow(now));
+  if (
+    !unlocked(s, index) ||
+    !s.board[index] ||
+    s.board[index].family === "bubble"
+  )
+    return fail(s, "invalid", "先选择可收纳物品");
+  if (s.inventory.length >= s.storageCapacity)
+    return fail(s, "full", "仓库已满");
+  now = Math.max(s.lastNow, now);
+  s.lastNow = now;
+  settle(s.board[index], now);
+  deliverTimers(s, index, now, false);
+  const item = s.board[index];
+  if (!item) return finish(s, "mature", "成熟奖励已入待领区");
+  item.location = "inventory";
+  s.inventory.push(item);
+  s.board[index] = null;
+  return finish(s, "store", `${name(item)}已收纳，计时暂停`, { index, item });
+}
+export function retrieveItem(s, index, now = Date.now()) {
+  now = Math.max(s.lastNow, safeNow(now));
+  const empty = free(s);
+  if (empty < 0) return fail(s, "full", "台面需要一个空位");
+  if (!Number.isInteger(index) || !s.inventory[index])
+    return fail(s, "invalid", "没有这个物品");
+  s.lastNow = Math.max(s.lastNow, now);
+  const [item] = s.inventory.splice(index, 1);
+  resume(item, Math.max(s.lastNow, now));
+  s.board[empty] = item;
+  discover(s, item, now);
+  fillOrders(s);
+  return finish(s, "retrieve", `取出${name(item)}`, { index: empty, item });
+}
+export const storageExpansionCost = (s) =>
+  Math.ceil(
+    ((BALANCE.economy.storagePrices[Math.min(s.storagePurchases, 26)] ||
+      19000) *
+      Math.min(2, 60 - s.storageCapacity)) /
+      2,
+  );
+export function expandStorage(s) {
+  if (s.storageCapacity >= 60) return fail(s, "max", "仓库已满60格");
+  const fee = storageExpansionCost(s);
+  if (s.coins < fee) return fail(s, "coins", `需要${fee}金币`);
+  s.coins -= fee;
+  s.storageCapacity = Math.min(60, s.storageCapacity + 2);
+  s.storagePurchases++;
+  return finish(s, "expand", "仓库扩容完成");
+}
+export function refillEnergy(s, now = Date.now()) {
+  now = Math.max(s.lastNow, safeNow(now));
+  const trial = clone(s);
+  resetPeriods(trial, Math.max(s.lastNow, now));
+  const row = BALANCE.economy.energyPurchases[trial.day.purchases];
+  if (!row) return fail(s, "limit", "今日已购买4次");
+  if (s.gems < row.gems) return fail(s, "gems", `需要${row.gems}钻石`);
+  s.lastNow = Math.max(s.lastNow, now);
+  s.day = trial.day;
+  s.day.purchases++;
+  s.gems -= row.gems;
+  add(s, "energy", 100);
+  return finish(s, "refill", "补充100体力，超额存入待领额度");
+}
+export function buyShopItem(s, id, now = Date.now()) {
+  now = Math.max(s.lastNow, safeNow(now));
+  const row = SHOP_ITEMS.find((x) => x.id === id);
+  if (!row || s.stage < row.unlockStage)
+    return fail(s, "locked", "商品尚未解锁");
+  const trial = clone(s);
+  resetPeriods(trial, Math.max(s.lastNow, now));
+  const key = row.limitKey || id;
+  if ((trial.day.shop[key] || 0) >= row.dailyLimit)
+    return fail(s, "limit", "今日限购已用完");
+  if (s.coins < row.cost) return fail(s, "coins", `需要${row.cost}金币`);
+  s.lastNow = Math.max(s.lastNow, now);
+  s.day = trial.day;
+  s.day.shop[key] = (s.day.shop[key] || 0) + 1;
+  s.coins -= row.cost;
+  reward(s, [{ item: row.item }], now);
+  return finish(s, "buy", "购买成功，已送待领区");
+}
+export function claimDaily(s, now = Date.now()) {
+  now = Math.max(s.lastNow, now);
+  const key = `daily:${chinaDate(now)}`;
+  if (s.claimed[key]) return fail(s, "claimed", "今日礼物已领取");
+  s.lastNow = now;
+  grant(s, key, BALANCE.economy.dailyFree, now);
+  s.dailyClaimDate = chinaDate(now);
+  return finish(s, "daily", "存钱罐与能量箱已送待领区");
+}
+export function claimBreak(s, now = Date.now()) {
+  now = Math.max(s.lastNow, now);
+  resetPeriods(s, now);
+  if (s.day.breaks >= 3) return fail(s, "claimed", "今日已休息三次");
+  s.lastNow = now;
+  s.day.breaks++;
+  add(s, "energy", 25);
+  return finish(s, "break", "休息补充25体力");
+}
+export function claimCommission(s, type, now = Date.now()) {
+  now = Math.max(s.lastNow, now);
+  resetPeriods(s, now);
+  const weekly = type === "week",
+    key = `commission:${weekly ? s.week.key : s.day.key}:${type}`;
+  if (s.claimed[key]) return fail(s, "claimed", "委托奖励已领取");
+  if ((weekly ? s.week.orders : s.day.orders) < (weekly ? 20 : 3))
+    return fail(s, "incomplete", weekly ? "本周需交20单" : "今日需交3单");
+  s.lastNow = now;
+  grant(
+    s,
+    key,
+    weekly
+      ? BALANCE.economy.weeklyCommission.rewards
+      : [
+          {
+            item: Number(s.day.key.slice(-2)) % 2 ? "blackbag:1" : "pinkbag:1",
+          },
+        ],
+    now,
+  );
+  return finish(s, "commission", "委托奖励已送达");
+}
+export function sellItem(s, index) {
+  if (!unlocked(s, index) || !s.board[index])
+    return fail(s, "invalid", "选择已解锁物品");
+  const item = s.board[index],
+    d = definition(item);
+  if (
+    !d?.sellCoins ||
+    d.kind === "resource" ||
+    d.kind === "legacy" ||
+    item.openedAt !== null ||
+    protectedRemoval(s, [index])
+  )
+    return fail(s, "protected", "保留最后供给源与配方厨具；资源请领取");
+  s.board[index] = null;
+  add(s, "coins", d.sellCoins);
+  return finish(s, "sell", `获得${d.sellCoins}金币`, {
+    index,
+    item,
+    coins: d.sellCoins,
+  });
+}
+export function discardItem(s, index, now = Date.now()) {
+  now = Math.max(s.lastNow, safeNow(now));
+  if (
+    !unlocked(s, index) ||
+    !s.board[index] ||
+    s.board[index].family === "bubble"
+  )
+    return fail(s, "invalid", "选择物品");
+  if (protectedRemoval(s, [index]))
+    return fail(s, "protected", "需要保留最后供给源和配方厨具");
+  const item = projected(s.board[index], Math.max(s.lastNow, now));
+  s.lastNow = Math.max(s.lastNow, now);
+  s.discarded = { item, until: Math.max(s.lastNow, now) + 30000 };
+  s.board[index] = null;
+  return finish(s, "discard", "已暂存丢弃物品，30秒内可撤回");
+}
+export function undoDiscard(s, now = Date.now()) {
+  now = Math.max(s.lastNow, safeNow(now));
+  if (!s.discarded || Math.max(s.lastNow, now) >= s.discarded.until)
+    return fail(s, "expired", "撤回时间已过");
+  const index = free(s);
+  if (index < 0) return fail(s, "full", "请先留一个空位");
+  s.lastNow = Math.max(s.lastNow, now);
+  const item = s.discarded.item;
+  resume(item, Math.max(s.lastNow, now));
+  s.board[index] = item;
+  s.discarded = null;
+  return finish(s, "undo", "物品已恢复", { index, item });
+}
+function toolAt(s, selection) {
+  if (typeof selection === "number" && unlocked(s, selection))
+    return {
+      item: s.board[selection],
+      remove: () => (s.board[selection] = null),
+    };
+  const i = s.tools.findIndex((x) => x.id === selection);
+  return { item: s.tools[i], remove: () => s.tools.splice(i, 1) };
+}
+export function useTool(s, selection, index, now = Date.now()) {
+  now = Math.max(s.lastNow, safeNow(now));
+  const tool = toolAt(s, selection),
+    d = definition(tool.item);
+  if (!d) return fail(s, "empty", "请先选择道具");
+  const f = d.family,
+    value = d.value;
+  let item =
+    unlocked(s, index) && s.board[index] && index !== selection
+      ? s.board[index]
+      : null;
+  if (f === "infinite") {
+    const remains = Math.max(0, s.infiniteUntil - now);
+    if (remains + value * 1000 > 3600000)
+      return fail(s, "max", "无限体力最多叠加1小时");
+    s.infiniteUntil = now + remains + value * 1000;
+  } else if (f === "backpack") {
+    if (s.storageCapacity >= 60) return fail(s, "max", "仓库已满，道具保留");
+    s.storageCapacity++;
+  } else if (f === "timeskip") {
+    for (let i = 0; i < 49; i++)
+      if (
+        s.board[i] &&
+        i !== selection &&
+        unlocked(s, i) &&
+        s.board[i].family !== "bubble"
+      ) {
+        settle(s.board[i], now);
+        advance(s.board[i], value * 1000);
+        deliverTimers(s, i, now, false);
+      }
+  } else {
+    if (!item || item.family === "bubble")
+      return fail(s, "target", "先选择一个有效目标");
+    const p = projected(item, now),
+      r = sourceRules(p),
+      m = r.manual;
+    if (f === "charge") {
+      if (
+        m?.mode !== "recharge" ||
+        p.stockOverflow ||
+        m.maxStock - p.stock < value
+      )
+        return fail(s, "waste", "仅补主动库存，且不能损失任何补货量");
+      p.stock += value;
+      s.board[index] = p;
+    } else if (f === "stopwatch") {
+      if (m?.mode !== "recharge" && !r.auto)
+        return fail(s, "target", "秒表需要永久生产源");
+      if (p.timeCredit + value * 1000 > 432000000)
+        return fail(s, "max", "秒表信用已达120小时");
+      p.timeCredit += value * 1000;
+      settle(p, now);
+      s.board[index] = p;
+    } else if (f === "splitter") {
+      if (
+        !["commodity", "hybrid"].includes(definition(p).kind) ||
+        isPermanent(p) ||
+        p.openedAt !== null ||
+        p.level < 2 ||
+        (value !== null && p.level > value) ||
+        sourceRules(p).cross
+      )
+        return fail(s, "target", "剪刀等级不足，或此物品受保护/已开启");
+      const empty = free(s);
+      if (empty < 0) return fail(s, "full", "剪切需要额外1个空位");
+      s.board[index] = makeItem(s, `${p.family}:${p.level - 1}`, now);
+      s.board[empty] = makeItem(s, `${p.family}:${p.level - 1}`, now);
+    } else if (f === "upgrade") {
+      const target = definition(p);
+      if (
+        !target.mergeTo ||
+        ITEMS[target.mergeTo].family !== p.family ||
+        p.openedAt !== null
+      )
+        return fail(s, "target", "此物品不能升级");
+      if (d.level === 2) {
+        if (target.kind !== "producer")
+          return fail(s, "target", "设备升级卡仅用于主生产器与零件");
+        s.board[index] = inherit(
+          s,
+          p,
+          { ...p, stock: 0, stockOverflow: 0, autoBuffer: 0, timeCredit: 0 },
+          target.mergeTo,
+          now,
+        );
+      } else {
+        if (
+          !["commodity", "hybrid"].includes(target.kind) ||
+          isPermanent(p) ||
+          sourceRules(p).cross
+        )
+          return fail(s, "target", "普通升级卡不适用此物品");
+        s.board[index] = makeItem(s, target.mergeTo, now);
+      }
+    } else return fail(s, "invalid", "这个物品无需选择目标使用");
+  }
+  s.lastNow = now;
+  tool.remove();
+  return finish(s, "booster", `已使用${d.name}`, {
+    index,
+    item: s.board[index],
+  });
+}
+export function previewTool(s, selection, index, now = Date.now()) {
+  now = Math.max(s.lastNow, safeNow(now));
+  const trial = clone(s);
+  const out = useTool(trial, selection, index, now);
+  return {
+    ...out,
+    state: undefined,
+    preview: out.ok
+      ? {
+          energy: trial.energy,
+          storage: trial.storageCapacity,
+          infiniteSeconds: Math.ceil(
+            Math.max(0, trial.infiniteUntil - Math.max(s.lastNow, now)) / 1000,
+          ),
+          target: index === null ? null : clone(trial.board[index]),
+          boardChanges: trial.board.filter(
+            (x, i) => JSON.stringify(x) !== JSON.stringify(s.board[i]),
+          ).length,
+        }
+      : null,
+  };
+}
+export function useBooster(s, type, index, now = Date.now()) {
+  now = Math.max(s.lastNow, safeNow(now));
+  if (type === "hourglass" && s.legacyFullRefill) {
+    const item = s.board[index],
+      m = item && sourceRules(item).manual;
+    if (!unlocked(s, index) || m?.mode !== "recharge")
+      return fail(s, "target", "选择主动生产源");
+    const p = projected(item, Math.max(s.lastNow, now));
+    if (p.stock >= m.maxStock) return fail(s, "full", "库存已满");
+    p.stock = m.maxStock;
+    p.rechargeRemaining = m.rechargeSeconds * 1000;
+    s.board[index] = p;
+    s.lastNow = now;
+    s.legacyFullRefill--;
+    return finish(s, "booster", "旧沙漏已立即补满");
+  }
+  const tool = s.tools.find(
+    (x) => x.family === (type === "scissors" ? "splitter" : "charge"),
+  );
+  return tool
+    ? useTool(s, tool.id, index, now)
+    : fail(s, "empty", "道具已用完");
+}
+export function resolveBubble(s, index, buy = false, now = Date.now()) {
+  now = Math.max(s.lastNow, safeNow(now));
+  const b = s.board[index];
+  if (!unlocked(s, index) || b?.family !== "bubble")
+    return fail(s, "invalid", "泡泡已消失");
+  if (buy && now < b.expiresAt && s.gems < b.cost)
+    return fail(s, "gems", `需要${b.cost}钻石`);
+  const purchase = buy && now < b.expiresAt;
+  s.lastNow = Math.max(s.lastNow, now);
+  if (purchase) s.gems -= b.cost;
+  const item = makeItem(
+    s,
+    purchase ? `${b.item.family}:${b.item.level}` : "coins:1",
+    now,
+  );
+  s.board[index] = item;
+  return finish(s, "bubble", purchase ? "物品已取出" : "泡泡变成金币", {
+    index,
+    item,
+  });
+}
+export const unlockCost = (s, index) => 12 + Math.floor(index / 7) * 4;
+export function unlockCell(s, index, now = Date.now()) {
+  now = Math.max(s.lastNow, safeNow(now));
+  if (!s.locked.includes(index)) return fail(s, "invalid", "格子已解锁");
+  const fee = unlockCost(s, index);
+  if (s.coins < fee) return fail(s, "coins", `需要${fee}金币`);
+  s.lastNow = now;
+  s.coins -= fee;
+  s.locked = s.locked.filter((i) => i !== index);
+  if (s.board[index]) resume(s.board[index], Math.max(s.lastNow, now));
+  return finish(s, "unlock", "台面已解锁", { index });
+}
+export function findMerge(s) {
+  for (let a = 0; a < 49; a++)
+    if (unlocked(s, a))
+      for (let b = 0; b < 49; b++)
+        if (a !== b && mergeTarget(s.board[a], s.board[b]))
+          return {
+            from: a,
+            to: b,
+            family: s.board[a].family,
+            level: s.board[a].level,
+          };
   return null;
 }
-export const serialize = state => JSON.stringify(state);
+export const serialize = (s) => JSON.stringify(s);
+export class SaveError extends Error {
+  constructor(message, raw) {
+    super(message);
+    this.raw = raw;
+  }
+}
+function migrate(raw, now) {
+  const old = restoreV2(raw, now),
+    s = base(now);
+  s.migration = {
+    from: raw.version,
+    originalXp: raw.xp,
+    legacyLevel: Math.floor((raw.xp || 0) / 100) + 1,
+    at: now,
+  };
+  s.coins = 0;
+  s.energy = 0;
+  s.stars = 0;
+  s.gems = 0;
+  for (const k of ["coins", "energy", "stars"])
+    add(s, k, Math.max(0, Number(raw[k] || 0)));
+  for (const k of [
+    "completed",
+    "merges",
+    "generationCount",
+    "cooked",
+    "orderSerial",
+  ])
+    s[k] = old[k];
+  s.stage = old.stage;
+  s.nextItemId = old.nextItemId;
+  s.storageCapacity = old.storageCapacity;
+  s.rng = old.rng;
+  s.locked = old.locked;
+  s.discovered = old.discovered.filter(
+    (id) => !["energy", "coins", "chest"].includes(id.split(":")[0]),
+  );
+  const level = Math.min(100, s.migration.legacyLevel);
+  s.xp =
+    levelFloor(level) +
+    Math.floor(((old.xp % 100) / 100) * (100 + 20 * (level - 1)));
+  s.levelRewardClaimedThrough = level;
+  s.lastEnergyAt = old.lastEnergyAt;
+  const convert = (x, location) => {
+    if (x.family === "bubble")
+      return {
+        ...x,
+        cost: Math.ceil(
+          Math.max(2, (definition(x.item)?.standardCost || 1) / 8),
+        ),
+      };
+    let id =
+      x.family === "producer"
+        ? `gen_${x.kind}:${x.level + PRODUCER_DEFS[x.kind].activeLevel - 1}`
+        : `${["energy", "coins", "chest"].includes(x.family) ? "legacy_" : ""}${x.family}:${x.level}`;
+    const item = makeItem(s, id, now, { location, discover: false });
+    item.id = x.id;
+    item.instanceId = x.id;
+    if (x.family === "producer") {
+      const m = sourceRules(item).manual,
+        oldCD = Math.max(30000, 60000 - (x.level - 1) * 10000);
+      item.stock = Math.min(x.charges, m.maxStock);
+      item.stockOverflow = Math.max(0, x.charges - m.maxStock);
+      item.rechargeRemaining =
+        x.readyAt > now
+          ? Math.min(1, (x.readyAt - now) / oldCD) * m.rechargeSeconds * 1000
+          : m.rechargeSeconds * 1000;
+    }
+    return item;
+  };
+  const rawAssets = [
+    ...raw.board,
+    ...(raw.inventory || []),
+    ...(raw.pending || []),
+  ].filter(Boolean);
+  const originalKinds = new Set(
+    rawAssets.filter((x) => x.family === "producer").map((x) => x.kind),
+  );
+  const wasOriginal = (x) =>
+    x.family !== "producer" || originalKinds.has(x.kind);
+  s.board = old.board.map((x) =>
+    x && wasOriginal(x) ? convert(x, "board") : null,
+  );
+  s.inventory = old.inventory.map((x) => convert(x, "inventory"));
+  s.pending = old.pending.filter(wasOriginal).map((x) => convert(x, "pending"));
+  for (let i = 0; i < old.boosters.scissors; i++)
+    s.tools.push(
+      makeItem(s, "splitter:3", now, { location: "tools", discover: false }),
+    );
+  s.legacyFullRefill = old.boosters.hourglass;
+  s.mainCompleted = BALANCE.storyOrders
+    .filter((o) => o.chapter <= s.stage)
+    .map((o) => o.id);
+  s.orders = old.orders.map((o, i) => ({
+    ...o,
+    id: `legacyOrder:${o.id}`,
+    slot: i,
+    legacyOrder: true,
+    standardCost: o.needs.reduce(
+      (sum, n) => sum + definition(n).standardCost * n.count,
+      0,
+    ),
+  }));
+  s.dailyClaimDate = old.dailyClaimDate;
+  if (old.dailyClaimDate) s.claimed[`daily:${old.dailyClaimDate}`] = true;
+  const added = [];
+  if (s.stage >= 5) added.push("gen_supply:4", "pantry:6");
+  if (s.stage >= 6) added.push("gen_flower:5");
+  if (s.stage >= 7) added.push("gen_publicity:4");
+  if (s.stage >= 8) added.push("gen_recycle:5");
+  grant(
+    s,
+    "migration:new-facilities",
+    added.map((item) => ({ item })),
+    now,
+  );
+  for (const p of BALANCE.producers.filter(
+    (p) => p.unlockChapter <= s.stage + 1,
+  ))
+    if (!all(s).some((x) => x.family === p.chain && x.level >= p.activeLevel))
+      grant(
+        s,
+        `migration:repair:${p.id}`,
+        [{ item: `${p.chain}:${p.activeLevel}` }],
+        now,
+      );
+  s.migrationNotice =
+    "旧资产已保值迁移。香草花盆现在产种子袋，最高级种子堆可开12次；旧沙漏仍能立即补满。";
+  return s;
+}
+function validateSave(s, raw) {
+  if (
+    s.balanceVersion !== BALANCE_VERSION ||
+    !Array.isArray(s.board) ||
+    s.board.length !== 49 ||
+    !Array.isArray(s.inventory) ||
+    !Array.isArray(s.pending) ||
+    !Array.isArray(s.tools)
+  )
+    throw new SaveError("存档结构或配置版本不支持，请导出备份", raw);
+  if (
+    !s.claimed ||
+    !s.credits ||
+    !s.day?.key ||
+    !s.week?.key ||
+    !Array.isArray(s.discovered) ||
+    !Array.isArray(s.orders) ||
+    !Array.isArray(s.mainCompleted) ||
+    !Array.isArray(s.locked)
+  )
+    throw new SaveError("存档状态结构无效", raw);
+  const ids = new Set();
+  for (const x of [
+    ...all(s),
+    ...s.tools,
+    ...(s.discarded ? [s.discarded.item] : []),
+  ]) {
+    if (!x.id || ids.has(x.id))
+      throw new SaveError("存档实例ID重复，请恢复备份", raw);
+    ids.add(x.id);
+    if (x.family !== "bubble") {
+      const d = definition(x);
+      if (
+        !d ||
+        d.family !== x.family ||
+        d.level !== x.level ||
+        x.instanceId !== x.id
+      )
+        throw new SaveError("存档包含未知或不一致物品，请导出备份", raw);
+      for (const key of [
+        "createdAt",
+        "stockOverflow",
+        "autoBuffer",
+        "sequenceIndex",
+        "timeCredit",
+        "clockAt",
+      ])
+        if (!Number.isFinite(x[key]) || x[key] < 0)
+          throw new SaveError("物品状态数值无效", raw);
+      for (const key of [
+        "stock",
+        "rechargeRemaining",
+        "autoRemaining",
+        "remainingDraws",
+        "openedAt",
+        "timerRemaining",
+      ])
+        if (x[key] !== null && (!Number.isFinite(x[key]) || x[key] < 0))
+          throw new SaveError("物品计时或次数无效", raw);
+    } else if (
+      !definition(x.item) ||
+      !Number.isFinite(x.expiresAt) ||
+      !Number.isSafeInteger(x.cost) ||
+      x.cost < 0
+    )
+      throw new SaveError("泡泡状态无效", raw);
+  }
+  for (const o of s.orders)
+    if (
+      !o.id ||
+      !Array.isArray(o.needs) ||
+      o.needs.some(
+        (n) => !definition(n) || !Number.isInteger(n.count) || n.count < 1,
+      ) ||
+      !["coins", "xp", "stars"].every(
+        (k) => Number.isSafeInteger(o[k]) && o[k] >= 0,
+      )
+    )
+      throw new SaveError("订单状态无效", raw);
+  for (const key of [
+    "coins",
+    "energy",
+    "gems",
+    "stars",
+    "xp",
+    "nextItemId",
+    "lastNow",
+  ])
+    if (!Number.isSafeInteger(s[key]) || s[key] < 0)
+      throw new SaveError("存档数值无效，请恢复备份", raw);
+}
+export function createGame(saved = null, now = Date.now()) {
+  now = safeNow(now);
+  if (saved === null) return fresh(now);
+  let raw;
+  try {
+    raw = typeof saved === "string" ? JSON.parse(saved) : clone(saved);
+  } catch {
+    throw new SaveError("无法读取存档，请导出后恢复备份", saved);
+  }
+  if (!raw || ![1, 2, 3].includes(raw.version))
+    throw new SaveError(
+      raw?.version > 3 ? "此存档来自较新版本，已保护原档" : "存档版本无效",
+      saved,
+    );
+  if (raw.version < 3) {
+    if (!Array.isArray(raw.board) || raw.board.length !== 49)
+      throw new SaveError("旧档棋盘结构无效", saved);
+    return migrate(raw, now);
+  }
+  validateSave(raw, saved);
+  tick(raw, Math.max(now, raw.lastNow), { offline: true });
+  return raw;
+}

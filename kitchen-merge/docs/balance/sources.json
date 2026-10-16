@@ -1,0 +1,184 @@
+[
+  {
+    "id": "S01",
+    "title": "官方 2023-06-30 更新公告",
+    "url": "https://www.taptap.cn/moment/423905649257087137?group_id=322770",
+    "date": "2023-06-30",
+    "limits": "官方公告图片已核读；饮品增加11级，体能测试增加5、6级；未公开完整掉率。"
+  },
+  {
+    "id": "S02",
+    "title": "游戏狗：初始物品来源",
+    "url": "https://www.gamedog.cn/games/a/3257892.html",
+    "date": "2023-02-07",
+    "limits": "早期来源关系；包含已被替换的装修工具箱，不能视作现版全量。"
+  },
+  {
+    "id": "S03",
+    "title": "维修工具箱、工具图鉴",
+    "url": "https://www.sohu.com/a/626888163_121631443",
+    "date": "2023-01-08",
+    "limits": "逐级物品名称；部分高等级缺失。"
+  },
+  {
+    "id": "S04",
+    "title": "冰箱、食品、药品、器材图鉴",
+    "url": "https://www.sohu.com/a/627837767_121631443",
+    "date": "2023-01-10",
+    "limits": "饮品上限早于官方扩级；药品末级文字存在冲突。"
+  },
+  {
+    "id": "S05",
+    "title": "购物车、储物柜图鉴",
+    "url": "https://www.taptap.cn/moment/431479647348196040",
+    "date": "2023-07-21",
+    "limits": "个别错字及重复名称；只采用能核对的连续等级。"
+  },
+  {
+    "id": "S06",
+    "title": "钥匙、遗失物、娱乐设施图鉴",
+    "url": "https://www.taptap.cn/moment/431855084888916076",
+    "date": "2023-07-22",
+    "limits": "遗失物1—6级及5/6级产U型枕；娱乐设施仅前段名称完整。"
+  },
+  {
+    "id": "S07",
+    "title": "植物、蜗牛与手办支线",
+    "url": "https://www.sohu.com/a/638585093_121631443",
+    "date": "2023-02-08",
+    "limits": "蜗牛编号冲突；NS后墙壁路径为历史记录。"
+  },
+  {
+    "id": "S08",
+    "title": "拼图13级图鉴",
+    "url": "https://www.9game.cn/news/9982361.html",
+    "date": "2024-04-01",
+    "limits": "图鉴截图已核读；正文首级及掉落描述有错误，仅采用对应名称和顺序。"
+  },
+  {
+    "id": "S09",
+    "title": "大白猫来源",
+    "url": "https://www.9game.cn/news/9650029.html",
+    "date": "2024-01-05",
+    "limits": "确认垃圾袋—老鼠—猫窝—猫关系；非全等级表。"
+  },
+  {
+    "id": "S10",
+    "title": "青春之舞订单物品",
+    "url": "https://www.9game.cn/news/9987817.html",
+    "date": "2024-04-02",
+    "limits": "用于确认名称存在，不能据订单排列推断等级。"
+  },
+  {
+    "id": "S11",
+    "title": "大扫除订单记录",
+    "url": "https://www.taptap.cn/moment/424948477592603287",
+    "date": "2023-07-03",
+    "limits": "确认高阶饮品及花卉名称；个别错字。"
+  },
+  {
+    "id": "S12",
+    "title": "原始玩家新手攻略",
+    "url": "https://www.taptap.cn/moment/260763709427681258?group_id=322770",
+    "date": "2022-04-06",
+    "limits": "早期主链、特殊发射器关系；旧刷新时间后来变更。"
+  },
+  {
+    "id": "S13",
+    "title": "台服游戏机与手办路径",
+    "url": "https://forum.gamer.com.tw/C.php?bsn=77871&snA=67",
+    "date": "2023",
+    "limits": "NS后野餐篮，与大陆旧墙壁路径单独保存。"
+  },
+  {
+    "id": "S14",
+    "title": "台服资源合成数值记录",
+    "url": "https://forum.gamer.com.tw/C.php?bsn=77871&snA=66",
+    "date": "2023-07-02",
+    "limits": "金币1/3/8/20/50/120，钻石1/3/8/20，能量1/6/15/40/100；台服玩家记录。"
+  },
+  {
+    "id": "S15",
+    "title": "体力自然恢复记录",
+    "url": "https://shouyou.3dmgame.com/gl/522320.html",
+    "date": "2024-09-02",
+    "limits": "每2分钟1体力；钻石购买仅确认首档5，完整购买表未核实。"
+  },
+  {
+    "id": "S16",
+    "title": "手提包、存钱罐和活动生产记录",
+    "url": "https://www.sohu.com/a/635390261_121631443",
+    "date": "2023-01-29",
+    "limits": "黑包10/22、粉包12/28、存钱罐15/18/53为历史次数；主生产器表图片分辨率不足，未抄录。"
+  },
+  {
+    "id": "S17",
+    "title": "日常辅助道具合集",
+    "url": "https://www.yeyulingfeng.com/214916.html",
+    "date": "2025-07-25",
+    "limits": "转载玩家资料；无限能量、加速器、充能器等档位。"
+  },
+  {
+    "id": "S18",
+    "title": "玩家版本变化记录",
+    "url": "https://www.taptap.cn/app/232158/review?os=android&page=2",
+    "date": "2022起",
+    "limits": "装修工具箱变冰箱、花篮产物变化；评论不等于官方配置。"
+  },
+  {
+    "id": "S19",
+    "title": "Kinfone生产器扩级记录",
+    "url": "https://www.douyin.com/user/MS4wLjABAAAAY6JWg7d_GHyFPSfRS3776OAg0FYcwHkoG12mn8Yv0vU",
+    "date": "2024—2025",
+    "limits": "购物车扩级、2025生产器调整；未读取到可确认现版全部参数的表。"
+  },
+  {
+    "id": "S20",
+    "title": "新春贺岁物品图鉴",
+    "url": "https://www.sohu.com/a/631887650_121631443",
+    "date": "2023-01",
+    "limits": "活动限定；荤菜链中有错字，不补猜。"
+  },
+  {
+    "id": "S21",
+    "title": "露营吧肥鹅活动",
+    "url": "https://forum.gamer.com.tw/C.php?bsn=77871&snA=191",
+    "date": "2023-08",
+    "limits": "投入材料、生产后降级的活动关系。"
+  },
+  {
+    "id": "S22",
+    "title": "健康餐大作战活动",
+    "url": "https://forum.gamer.com.tw/C.php?bsn=77871&snA=217",
+    "date": "2023",
+    "limits": "料理配方与主棋盘同物二合一分开。"
+  },
+  {
+    "id": "S23",
+    "title": "布袋玩偶来源",
+    "url": "https://www.youxi369.com/gonglue/126585.html",
+    "date": "2022-05-20",
+    "limits": "使用完的4级空袋二合一进入布袋玩偶系列。"
+  },
+  {
+    "id": "S24",
+    "title": "官方入驻游戏页",
+    "url": "https://www.taptap.cn/app/232158",
+    "date": "检索2026-10-16",
+    "limits": "页面展示5.9.1、2026-06-03；无法据此推断所有渠道/热更新内容。"
+  },
+  {
+    "id": "S25",
+    "title": "宣传与体能测试演示索引",
+    "url": "https://www.douyin.com/shipin/7304898466717878310",
+    "date": "历史视频索引",
+    "limits": "电视/电脑、4级热情的推荐与课程关系；索引转写有同音错误。"
+  },
+  {
+    "id": "S26",
+    "title": "早期装修工具记录",
+    "url": "https://www.taptap.cn/moment/285039542078017352",
+    "date": "2022-06",
+    "limits": "装修工具、砖头、油漆属于历史版本。"
+  }
+]

@@ -7,7 +7,7 @@ import {
   collectItem, claimPending, storeItem, retrieveItem, expandStorage, renovate,
   buyShopItem, claimDaily, useBooster, resolveBubble, unlockCell, unlockCost,
   getRecipeProgress, cookRecipe, chinaDate, getChapterProgress, claimChapter,
-} from '../dist/engine.mjs';
+} from '../dist/legacy-engine.mjs';
 const NOW=1_700_000_000_000;
 const blank=()=>{
   const state=createGame(null,NOW);

@@ -1,0 +1,35 @@
+name: Kitchen merge balance
+on:
+  pull_request:
+    paths:
+      - 'kitchen-merge/**'
+      - '.github/workflows/kitchen-merge.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'kitchen-merge/**'
+      - '.github/workflows/kitchen-merge.yml'
+permissions:
+  contents: read
+jobs:
+  kitchen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Regenerate and audit balance data
+        run: |
+          python kitchen-merge/docs/balance/build_docs.py
+          python kitchen-merge/docs/balance/validate_balance.py
+          python kitchen-merge/scripts/sync-balance.py
+          git diff --exit-code -- kitchen-merge/docs/balance/kitchen-target.json kitchen-merge/dist/balance-data.mjs
+      - name: Engine, compatibility and full catalogue behavior
+        run: |
+          node --test kitchen-merge/tests/*.test.mjs
+          node kitchen-merge/scripts/audit-runtime.mjs
+          for file in kitchen-merge/dist/*.mjs; do node --check "$file"; done
