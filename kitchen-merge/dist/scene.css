@@ -219,3 +219,5 @@ dialog[data-view="phone"] {background:linear-gradient(#f7e5cf,#f4e1c8);}
 @media(max-width:420px){.k-orders .order-card{flex-basis:31%;min-width:107px}.order-top h3{font-size:11px}.order-top p{font-size:9px}.order-refresh{font-size:13px}.order-bottom .reward small{font-size:9px}.selection-actions .small-button{padding:5px 8px;font-size:11px}}
 .qa-controls{position:sticky;top:0;z-index:20;padding:6px;display:flex;gap:8px;justify-content:center;background:#ead5af;font:11px system-ui}.qa-controls button,.qa-controls a{border:0;border-radius:5px;padding:4px;color:#6b5542;background:#fff8e7}
 .k-design .k-orders{display:flex;flex-wrap:nowrap;height:156px;align-items:flex-end;padding-top:34px;padding-bottom:5px;bottom:5px}.k-orders .order-card{flex-shrink:0;height:116px}.k-orders .order-refresh{position:absolute;right:3px;top:6px;z-index:2}
+.k-orders .main-order-avatar{flex:none;width:42px;height:42px;background-size:537.6px 800.8px;background-position:-12.25px -8.75px}.k-orders .order-top h3{overflow-wrap:anywhere}
+.k-orders .order-empty{font-size:11px;line-height:1.5;padding:12px 8px}.order-empty strong{display:block;margin-bottom:8px}

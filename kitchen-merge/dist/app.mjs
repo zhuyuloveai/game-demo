@@ -117,7 +117,7 @@ function renderBoard(popIndex=-1){
 }
 function renderStats(){
   $('#energy-count').textContent=state.energy;$('#coin-count').textContent=state.coins.toLocaleString();$('#completed-count').textContent=state.completed;$('#order-count').textContent=activeOrders(state).length;
-  const level=getLevel(state),names=['见习小厨','烘焙新秀','人气主厨','美味专家','厨房明星'];
+  const level=getLevel(state);
   $('#kitchen-level-label').textContent=`Lv. ${level}`;$('.puppy-profile').setAttribute('aria-label',`小狗店长，等级 ${level}，${LEVEL_NAMES[Math.min(level-1,4)]}，查看成长进度`);const within=state.xp-levelFloor(level),required=100+20*(level-1);$('#xp-progress').style.width=`${Math.min(100,within/required*100)}%`;$('#xp-label').textContent=`${within}/${required}`;
   $('#star-count').textContent=state.stars;$('#gem-count').textContent=state.gems;
   $('.v-meter').setAttribute('aria-label',`电量 ${state.energy}/${state.maxEnergy}，点击补充`);
@@ -154,7 +154,8 @@ function renderSelection(){
   $('#selection-card').innerHTML=`<span class="selected-art">${itemArt(item)}</span><div class="selection-copy"><strong>${esc(itemName(item))}<span class="selection-meta">Lv.${item.level||1}</span></strong><p>${esc(description)}</p></div><div class="selection-actions">${actions}</div>`;
 }
 function renderOrders(){
-  $('#orders').innerHTML=activeOrders(state).map((order,i)=>{const p=getOrderProgress(state,order);return `<article class="order-card ${p.ready?'is-ready':''}" data-order="${order.id}" style="${motionPhase(order.id)}"><div class="order-top">${(a=>`<span class="avatar ${a.name}">${a.svg}</span>`)(avatar(order.customer))}<div><h3>${esc(order.customer)}</h3><p>${esc(order.title)}</p></div></div><div class="order-needs">${p.needs.map(n=>`<div class="need ${!n.missing?'ready':''}" title="${esc(itemName(n))} ${n.have}/${n.count}"><span class="need-art">${itemArt(n)}</span><span class="need-count">${Math.min(n.have,n.count)}/${n.count}</span>${!n.missing?`<span class="need-check">${glyph('check')}</span>`:''}</div>`).join('')}</div><div class="order-bottom">${order.main?'':`<button class="order-refresh" data-refresh-order="${order.id}" aria-label="刷新${esc(order.customer)}订单">↻</button>`}<span class="reward"><span class="reward-coin">${icon('coin')}${order.coins}</span><small>★ ${order.stars||1}</small></span><button class="order-submit" data-fulfill="${order.id}" ${p.ready?'':'disabled'}>${p.ready?'交付 ✓':'待完成'}</button></div></article>`;}).join('');
+  $('#orders').innerHTML=activeOrders(state).map((order,i)=>{const p=getOrderProgress(state,order);return `<article class="order-card ${p.ready?'is-ready':''}" data-order="${order.id}" style="${motionPhase(order.id)}"><div class="order-top">${order.main?'<span class="main-order-avatar puppy-avatar" aria-hidden="true"></span>':(a=>`<span class="avatar ${a.name}">${a.svg}</span>`)(avatar(order.customer))}<div><h3>${esc(order.customer)}</h3><p>${esc(order.title)}</p></div></div><div class="order-needs">${p.needs.map(n=>`<div class="need ${!n.missing?'ready':''}" title="${esc(itemName(n))} ${n.have}/${n.count}"><span class="need-art">${itemArt(n)}</span><span class="need-count">${Math.min(n.have,n.count)}/${n.count}</span>${!n.missing?`<span class="need-check">${glyph('check')}</span>`:''}</div>`).join('')}</div><div class="order-bottom">${order.main?'':`<button class="order-refresh" data-refresh-order="${order.id}" aria-label="刷新${esc(order.customer)}订单">↻</button>`}<span class="reward"><span class="reward-coin">${icon('coin')}${order.coins}</span><small>★ ${order.stars||1}</small></span><button class="order-submit" data-fulfill="${order.id}" ${p.ready?'':'disabled'}>${p.ready?'交付 ✓':'待完成'}</button></div></article>`;}).join('');
+  if(state.orders.length<3)$('#orders').innerHTML+=`<article class="order-card order-empty"><strong>邻里订单</strong><p>请把生产器从仓库或待领区取到台面，保留空位后继续接单。</p></article>`;
 }
 function render(pop=-1){renderBoard(pop);renderStats();renderSelection();renderOrders();}
 function act(result,{pop=-1,fx=null,showMessage=false}={}){
@@ -218,7 +219,7 @@ function renderPanel(){
   }else if(modalView==='cash'){
     html=panelHeader('小猪存钱罐',`肚子里攒下了 ${state.coins.toLocaleString()} 金币。`)+resourcePortrait('.v-cash')+`<p class="source-note">交单、金币资源能攒金币，采购、刷新与扩容收纳柜会花费金币。体力使用钻石购买。</p><div class="panel-actions">${button('去采购','shop')}${button('看看收纳柜','storage')}</div>`;
   }else if(modalView==='stars'){
-    html=panelHeader('许愿星星罐',`已经收好 ${state.stars} 颗折纸星星。`)+resourcePortrait('.v-stars')+`<p class="source-note">每次交付订单都会收到许愿星。每章八单完成后使用星星布置厨房，十二章合计216星。</p><p class="source-note">现在完成小狗店长的章节任务就能解锁新设备，无需花费星星。</p>${button('看看开店手账','tasks')}`;
+    html=panelHeader('许愿星星罐',`已经收好 ${state.stars} 颗折纸星星。`)+resourcePortrait('.v-stars')+`<p class="source-note">每次交付订单都会收到许愿星。每章八单完成后使用星星布置厨房，十二章合计216星。</p><p class="source-note">本章主线提供足够星星，完成八单后布置并解锁新设施。</p>${button('看看开店手账','tasks')}`;
   }else if(modalView==='tasks'){
     const progress=getChapterProgress(state),chapter=progress.chapter;
     html=panelHeader('小狗店长的开店手账',chapter?`第 ${state.stage+1} / 12 章 · ${chapter.name}`:'十二章已经完成，继续收集主厨荣誉。');
@@ -315,7 +316,7 @@ document.addEventListener('click',event=>{
   if(target.dataset.locate!==undefined){selected=Number(target.dataset.locate);modal.close();renderBoard();renderSelection();playSound('select');return;}
   if(target.dataset.fulfill){const origin=target.getBoundingClientRect(),r=fulfillOrder(state,target.dataset.fulfill);if(r.ok)selected=null;if(act(r,{fx:'order'})){puppyMood('cheering');rewardFlight(origin);celebrate($('#orders'),`+${r.coins} 金币 · +${r.stars||1} 许愿星`,true);toast(r.message);}return;}
   const action=target.dataset.action;
-  if(['collection','storage','shop','rewards','tasks','phone','cash','stars','recipes','sources','item','energy','music','settings','help','reset-confirm','sell-confirm','tool-picker'].includes(action)){
+  if(['profile','collection','storage','shop','rewards','tasks','phone','cash','stars','recipes','sources','item','energy','music','settings','help','reset-confirm','sell-confirm','tool-picker'].includes(action)){
     if(target.dataset.familySource)catalogFamily=target.dataset.familySource;
     openPanel(action);playSound('tap');return;
   }

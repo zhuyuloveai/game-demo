@@ -704,7 +704,7 @@ export function mainOrder(s) {
 export function activeOrders(s) {
   return [
     ...(mainOrder(s)
-      ? [{ ...mainOrder(s), customer: "小狗 · 主线", main: true }]
+      ? [{ ...mainOrder(s), customer: "主线", main: true }]
       : []),
     ...s.orders,
   ];
@@ -1292,7 +1292,10 @@ export function useTool(s, selection, index, now = Date.now()) {
         s.board[i] &&
         i !== selection &&
         unlocked(s, i) &&
-        s.board[i].family !== "bubble"
+        s.board[i].family !== "bubble" &&
+        (sourceRules(s.board[i]).manual?.mode === "recharge" ||
+          sourceRules(s.board[i]).auto ||
+          s.board[i].timerRemaining !== null)
       ) {
         settle(s.board[i], now);
         advance(s.board[i], value * 1000);
