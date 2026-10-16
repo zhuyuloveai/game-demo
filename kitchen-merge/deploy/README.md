@@ -2,9 +2,9 @@
 
 Public URL: http://1.92.214.23/ (TCP 80).
 
-Active release: `kitchen-20261016-171353`, deployed 2026-10-16 (Asia/Shanghai).
-Previous target: `releases/kitchen-20261016-170403/site`.
-Rollback snapshot: `/srv/overtime-arena/releases/kitchen-20261016-171353/previous/`.
+Active release: `kitchen-20261016-171919`, deployed 2026-10-16 (Asia/Shanghai).
+Previous target: `releases/kitchen-20261016-171353/site`.
+Rollback snapshot: `/srv/overtime-arena/releases/kitchen-20261016-171919/previous/`.
 
 Validated: 42 game-rule tests covering chapters, stale claims, full boards,
 all chapter unlocks and legacy progress; 320, 375, 390 and 430 px portrait views;
@@ -17,6 +17,12 @@ internal files return 404; Nginx container is running and healthy.
 The page fits 390×744, 430×800 and 1280×900 viewports.
 320×667 and 375×667 retain 37 px vertical scrolling; 390×700 retains 4 px.
 All checked widths have no horizontal overflow, and order contents do not overlap.
+
+Board taps select items, including repeated taps on the same item; tapping an
+empty unlocked cell clears selection. Producers retain tap-to-generate. Moving,
+swapping and merging require dragging. Browser checks cover successive taps on
+same/different items, locked items and empty cells, drag swapping/merging/moving,
+locked-item merging, and producer drags without accidental extra generation.
 
 Orders retain hanging paper slips, 42 px floating customer portraits with names
 on the right, rewards above full-width 44 px buttons, and compact paper padding.

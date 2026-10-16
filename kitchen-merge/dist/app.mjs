@@ -123,7 +123,7 @@ function renderSelection(){
   if(selected!==null&&isLocked(selected)){
     $('#selection-card').innerHTML=`<span class="selected-art">${item?itemArt(item):icon('lock')}</span><div class="selection-copy"><strong>${item?esc(itemName(item)):'待整理台面'}</strong><p>${item?'拖入相同物品合成，即可解锁。':'在相邻格合成，即可清理空台面。'}</p></div>${button(`整理 ${unlockCost(state,selected)}币`,'unlock')}`;return;
   }
-  if(!item){$('#selection-card').innerHTML=`<div class="selection-copy"><strong>合成料理板</strong><p>${state.merges?'两份相同，合出美味':'两份小麦，合成第一份面粉'}</p></div>${button('找一找 ✧','hint')}`;return;}
+  if(!item){$('#selection-card').innerHTML=`<div class="selection-copy"><strong>合成料理板</strong><p>${state.merges?'拖动相同物品，合出美味':'拖动两份小麦，合出面粉'}</p></div>${button('找一找 ✧','hint')}`;return;}
   let description='',actions='';
   if(item.family==='producer'){
     const status=producerStatus(state,item);description=status.ready?`余 ${status.charges}/${status.maxCharges} 次 · 同级生产器可合并升级`:`冷却 ${formatTime(status.cooldownRemaining)} · 用沙漏立即补满`;
@@ -169,22 +169,12 @@ function doMove(from,to){
   }
 }
 function chooseCell(index){
-  const item=state.board[index],source=state.board[selected];
-  if(item?.family==='bubble'){selected=index;renderBoard();renderSelection();animateItem(index,'tap');return;}
-  if(isLocked(index)){
-    if(selected!==null&&selected!==index&&source&&!isLocked(selected)&&item&&source.family===item.family&&source.level===item.level){doMove(selected,index);return;}
-    selected=index;renderBoard();renderSelection();return;
-  }
-  if(item?.family==='producer'){
-    if(source?.family==='producer'&&selected!==index&&source.kind===item.kind&&source.level===item.level){doMove(selected,index);return;}
-    doGenerate(index);return;
-  }
-  if(selected===index)selected=null;
-  else if(selected!==null&&source&&!isLocked(selected)&&source.family!=='bubble'){doMove(selected,index);return;}
-  else selected=item?index:null;
+  const item=state.board[index];
+  if(item?.family==='producer'&&!isLocked(index)){doGenerate(index);return;}
+  selected=item||isLocked(index)?index:null;
   hinted=[];renderBoard();renderSelection();if(selected!==null)animateItem(selected,'tap');playSound('select');
 }
-function showHint(){const pair=findMerge(state);if(!pair){toast('暂时没有可合成的组合，试试生产器、仓库或礼物');return;}hinted=[pair.from,pair.to];selected=null;renderBoard();renderSelection();toast(`把发光的两份${itemName(state.board[pair.from])}合到一起`);clearTimeout(hintTimer);hintTimer=setTimeout(()=>{hinted=[];if(!pointer)renderBoard();},6000);}
+function showHint(){const pair=findMerge(state);if(!pair){toast('暂时没有可合成的组合，试试生产器、仓库或礼物');return;}hinted=[pair.from,pair.to];selected=null;renderBoard();renderSelection();toast(`把发光的两份${itemName(state.board[pair.from])}拖到一起`);clearTimeout(hintTimer);hintTimer=setTimeout(()=>{hinted=[];if(!pointer)renderBoard();},6000);}
 
 function syncOpenObjects(){
   for(const [selector,views] of [['.e-cupboard',['storage']],['.e-book',['recipes','collection','sources']],['.e-phone',['phone','shop','settings','help']]]){
@@ -272,7 +262,7 @@ function renderPanel(){
     html=panelHeader('厨房小设置','按自己的节奏，慢慢收集每一份美味。')+`<div class="settings-row"><span>玩法说明<small>生产、合成、做菜、交单与章节任务</small></span>${button('查看','help')}</div><div class="settings-row"><span>音乐和音效<small>分别开关与调节音量</small></span>${button('调整','music')}</div><div class="settings-row"><span>自动存档<small>${storageAvailable?'当前浏览器自动保存，旧版进度已兼容':'当前浏览器暂时无法保存'}</small></span>自动</div><div class="settings-row"><span>重新开张<small>清空当前进度，回到新手厨房</small></span>${button('重新开始','reset-confirm')}</div>`;
   }else if(modalView==='help'){
     html=panelHeader('厨房店长小手册','主玩法是两两合成，食谱与开店任务让每一件物品都有用途。');
-    const steps=[['生产与升级','点击篮子、厨具架等生产器消耗1电量获取材料。次数用完会冷却，同种同级生产器可拖动合并升级。'],['合成与解锁','相同种类和等级合成升级。拖入蒙尘的相同物品可解锁；空的锁定格可通过相邻合成整理，也能花金币清理。'],['订单与章节','订单只计算台面上的已解锁物品。交单可得金币、经验和许愿星；完成小狗店长手账的任务，逐步解锁咖啡、香草、亚洲及环球料理设备。星星保留用于未来布置。'],['食材与厨具','打开食谱，凑齐指定材料和对应等级厨具即可做菜。材料会消耗，厨具可以反复使用；更高级厨具同样有效。'],['仓库与礼物','在物品信息栏收纳物品；仓库可用金币扩容。每3单有礼盒，每日有开店礼。礼盒、金币和电量道具也能合成升级。'],['辅助道具','剪刀把2级以上材料拆成两份上一级，沙漏补满选中生产器。点击选中物品后，在“更多”里使用。'],['惊喜与自动产出','高级合成有机会产生限时泡泡，可以购买或变为金币。香草花园会定时自动产出，先给它留出相邻空位。'],['音乐与存档','原创音乐在首次操作后播放；离开页面会暂停。进度自动保存，音效与配乐可以分别关闭。']];
+    const steps=[['生产与升级','点击篮子、厨具架等生产器消耗1电量获取材料。次数用完会冷却，同种同级生产器可拖动合并升级。'],['合成与解锁','点击物品切换选中；拖到相同种类和等级的物品上合成，拖到不同物品上交换，拖到空格移动。拖入蒙尘的相同物品可解锁；空的锁定格可通过相邻合成整理，也能花金币清理。'],['订单与章节','订单只计算台面上的已解锁物品。交单可得金币、经验和许愿星；完成小狗店长手账的任务，逐步解锁咖啡、香草、亚洲及环球料理设备。星星保留用于未来布置。'],['食材与厨具','打开食谱，凑齐指定材料和对应等级厨具即可做菜。材料会消耗，厨具可以反复使用；更高级厨具同样有效。'],['仓库与礼物','在物品信息栏收纳物品；仓库可用金币扩容。每3单有礼盒，每日有开店礼。礼盒、金币和电量道具也能合成升级。'],['辅助道具','剪刀把2级以上材料拆成两份上一级，沙漏补满选中生产器。点击选中物品后，在“更多”里使用。'],['惊喜与自动产出','高级合成有机会产生限时泡泡，可以购买或变为金币。香草花园会定时自动产出，先给它留出相邻空位。'],['音乐与存档','原创音乐在首次操作后播放；离开页面会暂停。进度自动保存，音效与配乐可以分别关闭。']];
     html+=steps.map(([title,copy],i)=>`<div class="guide-step"><span class="step-num">${i+1}</span><div><strong>${title}</strong><p>${copy}</p></div></div>`).join('');
   }else if(modalView==='reset-confirm')html=panelHeader('让小狗厨房重新开张？','当前的棋盘、仓库、金币、章节、订单、图鉴都会清空。')+`<div class="reset-warning">此操作会覆盖当前浏览器中的游戏进度。</div><div class="reset-actions">${button('保留进度','settings')}${button('确定重新开始','reset')}</div>`;
   $('#modal-content').innerHTML=html+(modalView==='reset-confirm'?'':'<button class="primary-button" data-action="close">回到小狗厨房</button>');
