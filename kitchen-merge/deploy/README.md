@@ -2,9 +2,9 @@
 
 Public URL: http://1.92.214.23/ (TCP 80).
 
-Active release: `kitchen-20261016-165025`, deployed 2026-10-16 (Asia/Shanghai).
-Previous target: `releases/kitchen-20261016-163819/site`.
-Rollback snapshot: `/srv/overtime-arena/releases/kitchen-20261016-165025/previous/`.
+Active release: `kitchen-20261016-170403`, deployed 2026-10-16 (Asia/Shanghai).
+Previous target: `releases/kitchen-20261016-165025/site`.
+Rollback snapshot: `/srv/overtime-arena/releases/kitchen-20261016-170403/previous/`.
 
 Validated: 42 game-rule tests covering chapters, stale claims, full boards,
 all chapter unlocks and legacy progress; 320, 375, 390 and 430 px portrait views;
@@ -14,10 +14,15 @@ music/effect controls work, with both audio channels enabled by default.
 The profile and hint interactions pass browser checks; the existing level and
 XP survive the branding update. Public static files match local SHA-256 and expected MIME types; unshipped
 internal files return 404; Nginx container is running and healthy.
-Small screens scroll vertically while preserving readable labels and square tiles.
+The page fits 320×667, 375×667, 390×700, 390×744, 430×800 and 1280×900
+viewports. Extremely short screens retain scrolling to preserve usable square tiles.
 
-This release integrates the cream kitchen environment: round electricity meter,
-oval piggy bank, origami star jar, cabinets, hood/order rail, raised merge slab,
+Orders, cabinets and desktop spacing are compressed; the square board uses
+the browser’s dynamic viewport height, with safe-area insets included. Order,
+profile, cupboard, hint and gift controls retain 44 px or larger touch targets.
+
+This release integrates the cream kitchen environment: rounded rectangular LCD electricity meter,
+oval piggy bank with a half-inserted coin, origami star jar, cabinets, hood/order rail, raised merge slab,
 wooden desktop, recipe book, phone, upright radio and the white outline puppy.
 The game is named 小狗厨房. The top-left puppy portrait shows the real player
 level and opens an XP panel. The assistant idles, waves for hints and celebrates
