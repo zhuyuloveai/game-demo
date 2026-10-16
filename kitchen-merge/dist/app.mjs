@@ -120,7 +120,7 @@ function renderStats(){
   const level=getLevel(state);
   $('#kitchen-level-label').textContent=`Lv. ${level}`;$('.puppy-profile').setAttribute('aria-label',`小狗店长，等级 ${level}，${LEVEL_NAMES[Math.min(level-1,4)]}，查看成长进度`);const within=state.xp-levelFloor(level),required=100+20*(level-1);$('#xp-progress').style.width=`${Math.min(100,within/required*100)}%`;$('#xp-label').textContent=`${within}/${required}`;
   $('#star-count').textContent=state.stars;$('#gem-count').textContent=state.gems;
-  $('.gem-wallet').setAttribute('aria-label',`彩虹糖 ${state.gems} 颗，补充体力`);
+  $('.gem-wallet').setAttribute('aria-label',`彩虹糖罐，${state.gems} 颗，补充体力`);
   $('.v-meter').setAttribute('aria-label',`电量 ${state.energy}/${state.maxEnergy}，点击补充`);
   $('.v-cash').setAttribute('aria-label',`小猪存钱罐，${state.coins} 金币`);
   $('.v-stars').setAttribute('aria-label',`许愿星罐，${state.stars} 颗星星`);
@@ -413,7 +413,7 @@ document.addEventListener('visibilitychange',()=>{audio.setHidden(document.hidde
 window.addEventListener('pagehide',()=>{save();audio.setHidden(true);});
 window.addEventListener('pageshow',()=>{audio.setHidden(document.hidden);syncMotion();});
 setInterval(()=>{if(!document.hidden)refreshTime();},1000);
-$('#candy-art').innerHTML=icon('item/gems:1');
+document.querySelectorAll('.v-candy-piece').forEach(piece=>{piece.innerHTML=icon('item/gems:1');});
 for(const [id,name] of Object.entries({'recipe-art':'cake','parcel-art':'gift'}))$(`#${id}`).innerHTML=icon(name);
 $('#cabinet-art').innerHTML=icon('flour')+icon('pan');
 for(const [id,name] of Object.entries({'energy-icon':'energy','phone-icon':'bag','hint-icon':'sparkles','modal-close':'close'}))$(`#${id}`).innerHTML=glyph(name);
