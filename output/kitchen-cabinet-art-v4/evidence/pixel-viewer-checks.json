@@ -1,0 +1,13 @@
+{
+  "checks": [
+    "375×667 reference and actual dimensions",
+    "all source and generated evidence images loaded",
+    "50% overlay",
+    "same-coordinate pixel probe at (100,100)",
+    "before/after metric switch",
+    "4× RGB difference view",
+    "35% wipe position",
+    "hold-to-view original"
+  ],
+  "errors": []
+}

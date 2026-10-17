@@ -1,0 +1,368 @@
+{
+  "canvas": [
+    375,
+    667
+  ],
+  "board": [
+    19.5,
+    151,
+    336,
+    432
+  ],
+  "cell": [
+    48,
+    48
+  ],
+  "footer": [
+    12,
+    584,
+    351,
+    64
+  ],
+  "assets": {
+    "puppy": {
+      "recommendedBox": [
+        55,
+        56
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "book": {
+      "recommendedBox": [
+        62,
+        61
+      ],
+      "textSafe": [
+        0.29,
+        0.57,
+        0.38,
+        0.21
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "drawer": {
+      "recommendedBox": [
+        109,
+        55
+      ],
+      "textSafe": [
+        0.36,
+        0.45,
+        0.28,
+        0.15
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "phone": {
+      "recommendedBox": [
+        51,
+        64
+      ],
+      "textSafe": [
+        0.29,
+        0.32,
+        0.42,
+        0.38
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "radio": {
+      "recommendedBox": [
+        88,
+        53
+      ],
+      "textSafe": [
+        0.53,
+        0.34,
+        0.36,
+        0.28
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "energy": {
+      "recommendedBox": [
+        24,
+        33
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "pig": {
+      "recommendedBox": [
+        30,
+        33
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "stars": {
+      "recommendedBox": [
+        26,
+        33
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "candy": {
+      "recommendedBox": [
+        26,
+        33
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "gift": {
+      "recommendedBox": [
+        23,
+        24
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "customer": {
+      "recommendedBox": [
+        28,
+        30
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "wheat": {
+      "recommendedBox": [
+        38,
+        38
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "flour": {
+      "recommendedBox": [
+        36,
+        35
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "tomato": {
+      "recommendedBox": [
+        34,
+        34
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "orange": {
+      "recommendedBox": [
+        33,
+        33
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "strawberry": {
+      "recommendedBox": [
+        36,
+        33
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "bread": {
+      "recommendedBox": [
+        39,
+        33
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "bowl": {
+      "recommendedBox": [
+        35,
+        28
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "whisk": {
+      "recommendedBox": [
+        38,
+        38
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "saucepan": {
+      "recommendedBox": [
+        39,
+        32
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "producer": {
+      "recommendedBox": [
+        35,
+        39
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "deer": {
+      "recommendedBox": [
+        28,
+        30
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "bear": {
+      "recommendedBox": [
+        28,
+        30
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "panda": {
+      "recommendedBox": [
+        28,
+        30
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "main-card": {
+      "recommendedBox": [
+        154,
+        60
+      ],
+      "textSafe": [
+        0.08,
+        0.34,
+        0.84,
+        0.52
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "order-card": {
+      "recommendedBox": [
+        131,
+        55
+      ],
+      "textSafe": [
+        0.06,
+        0.12,
+        0.88,
+        0.76
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "detail-plate": {
+      "recommendedBox": [
+        333,
+        30
+      ],
+      "textSafe": [
+        0.04,
+        0.15,
+        0.92,
+        0.7
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "resource-plate": {
+      "recommendedBox": [
+        47,
+        20
+      ],
+      "textSafe": [
+        0.1,
+        0.2,
+        0.8,
+        0.6
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "cell-original": {
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    },
+    "cell": {
+      "recommendedBox": [
+        48,
+        48
+      ],
+      "pivot": [
+        0.5,
+        0.99
+      ]
+    }
+  }
+}

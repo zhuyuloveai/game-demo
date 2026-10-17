@@ -1,0 +1,38 @@
+小厨合合 · 厨房柜架美术工作进展存档
+2026-10-17
+
+用户已确认当前效果可用于保留工作进展，并明确授权本地Git提交。
+本次保存目录：output/kitchen-cabinet-art-v4/
+存档分支：codex/kitchen-cabinet-art-v4-progress
+起点：789ef26（当前主工作目录原HEAD）
+
+包含
+- 用户选定参考、失败案例、交接候选和交接说明。
+- 27张新生成原图及完整提示词；独立PNG/WebP素材和实测裁区。
+- 375×667浏览器样板，保留白色M帽小狗、主要入口、经典/新风格切换和共享进度。
+- 最新连续7×9柜格：整张底板、44px格距、共用细隔板。
+- 修改前后截图、逐像素差分、交互对照页、视觉检查说明与复现脚本。
+- 接手时原worktree的tracked diff快照及git状态记录。
+
+范围
+这是独立美术样板的本地存档，尚未将新素材接入原worktree正式游戏。
+原worktree /Users/zhuyu/.codex/worktrees/4e13/game-demo 的未提交修改保持原样。
+其tracked diff SHA-256：55b25919acef5a2097706b2cb253ef63c9109381367c353df888e848285f1d9c
+本次没有推送、合并或部署，也未扩展422项全量物品。
+DELIVERY/HANDOFF中的“不提交”描述记录此前阶段；本文件记录此次新增提交授权。
+预览日志与PID为临时运行状态，排除在提交之外。
+
+已完成的验证
+- browser-checks.json：63格正方形、不同窗口无整页溢出、主要入口、真实合成及共享进度。
+- grid-checks.json：单张连续底板，63个格位背景透明，横竖节距均44px。
+- pixel-viewer-checks.json：擦除/叠加、同坐标取色、修改前后切换与差分查看。
+- 已实际查看375×667浏览器截图、接缝三方放大图和逐像素差分。
+本次只保存进展，复用上述验证结果。视觉剩余差异详见GRID-REVIEW.txt和PIXEL-REVIEW.txt。
+
+重新打开预览
+在仓库根目录运行：
+python3 -m http.server 4197 --bind 127.0.0.1 --directory output/kitchen-cabinet-art-v4
+最终样板：http://127.0.0.1:4197/sample/?art=unified-grid-v1
+格槽对照：http://127.0.0.1:4197/grid-comparison.html
+像素对照：http://127.0.0.1:4197/comparison.html
+素材图集：http://127.0.0.1:4197/gallery.html

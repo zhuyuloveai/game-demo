@@ -1,0 +1,93 @@
+/* Current art direction: front-facing cream/blush wood cabinetry (reference v3).
+   The island preference key is retained solely for backward-compatible preferences. */
+[data-kitchen-style="island"] .game-shell.k-design{
+  --hud-height:48px;--scene-height:74px;--desk-height:105px;
+  grid-template-rows:48px 74px minmax(0,1fr) 105px;
+  background:#e7bba0 url('./assets/island-3d/cabinet-room.webp') center/100% 100% no-repeat;
+}
+[data-kitchen-style="island"] .k-design .k-hud{height:48px;background:none}
+[data-kitchen-style="island"] .k-design .k-hud .puppy-profile,
+[data-kitchen-style="island"] .k-design .k-hud>.v-meter,
+[data-kitchen-style="island"] .k-design .k-hud>.v-cash,
+[data-kitchen-style="island"] .k-design .k-hud>.v-stars,
+[data-kitchen-style="island"] .k-design .k-hud>.v-candy{height:48px}
+[data-kitchen-style="island"] .k-hud>button:before{height:38px;bottom:6px}
+[data-kitchen-style="island"] .k-hud .puppy-avatar{height:38px;width:38px;bottom:6px}
+[data-kitchen-style="island"] .k-hud #kitchen-level-label,
+[data-kitchen-style="island"] .k-hud #energy-count,
+[data-kitchen-style="island"] .k-hud .v-pig #coin-count,
+[data-kitchen-style="island"] .k-hud .v-stars #star-count,
+[data-kitchen-style="island"] .k-hud .v-candy #gem-count{bottom:6px;height:23px;border-color:#c48e5d;background:linear-gradient(#fff9ec,#ffecd2);box-shadow:inset 0 1px #fffef5,0 2px #a8774a44}
+[data-kitchen-style="island"] .k-design .k-scene{height:74px}
+[data-kitchen-style="island"] .k-design .k-orders{height:74px;padding-top:2px;padding-bottom:2px;gap:5px}
+[data-kitchen-style="island"] .k-design .k-orders .order-card{height:70px;min-height:70px}
+[data-kitchen-style="island"] .k-orders .order-paper,
+[data-kitchen-style="island"] .k-orders .order-card:not(.is-main) .order-paper,
+[data-kitchen-style="island"] .k-orders .is-main .order-paper{height:70px}
+[data-kitchen-style="island"] .k-orders .order-top .avatar{width:34px;height:38px}
+[data-kitchen-style="island"] .k-orders .order-card .order-submit{background:linear-gradient(#92b782,#5c8651);box-shadow:inset 0 1px #cbe2bf,0 1px #41643b}
+[data-kitchen-style="island"] .k-design .selection-card{top:2px;left:28px;right:28px;height:32px;min-height:32px;padding:0 3px;background:none;border:0;box-shadow:none;border-radius:0}
+[data-kitchen-style="island"] .selection-card .selected-art{width:29px;height:29px;flex-basis:29px}
+[data-kitchen-style="island"] .selection-card .selection-copy strong{font-size:13px;line-height:14px}
+[data-kitchen-style="island"] .selection-card .selection-copy p{font-size:10px;line-height:12px;margin-top:0}
+[data-kitchen-style="island"] .selection-card .small-button{height:28px;min-height:28px;min-width:35px;padding:0 6px;font-size:11px;line-height:24px;border-radius:10px}
+[data-kitchen-style="island"] .k-design .board{
+  position:absolute;left:50%;top:37px;width:calc(100% - 54px);height:calc(var(--room-height) - 272px);
+  transform:translateX(-50%);transform-origin:center;aspect-ratio:auto;
+  border:0;border-radius:2px;padding:0;gap:0;background:#f2e2c5;box-shadow:none;overflow:hidden;
+}
+[data-kitchen-style="island"] .board .cell{padding:0;border:0;background:none;overflow:visible}
+[data-kitchen-style="island"] .board .cell:before,
+[data-kitchen-style="island"] .board .cell:nth-child(even):before{
+  inset:0;border:0;border-radius:0;box-shadow:none;
+  background:#f5e7cd url('./assets/island-3d/cubby.webp') center/100% 100% no-repeat;
+}
+[data-kitchen-style="island"] .board .cell .item-art{width:100%;height:100%;transform:none;transform-origin:center 85%;filter:none}
+[data-kitchen-style="island"] .board .cell .island-3d-art{width:100%;height:100%;margin:0;transform:translateY(1px)}
+[data-kitchen-style="island"] .board .cell.selected .item-art{transform:scale(1.05)}
+[data-kitchen-style="island"] .board .cell.selected:before,
+[data-kitchen-style="island"] .board .cell.drop-target:before{inset:0;border-radius:2px;box-shadow:inset 0 0 0 2px #df9b50;background-image:url('./assets/island-3d/cubby.webp')}
+[data-kitchen-style="island"] .board .cell.locked:before{background:#dbceb7 url('./assets/island-3d/cubby.webp') center/100% 100%;filter:brightness(.94) saturate(.65)}
+[data-kitchen-style="island"] .board .cell.locked .item-art{opacity:.32}
+[data-kitchen-style="island"] .board .lock-badge{top:4px;left:4px;width:11px;height:11px;padding:2px;background:#aa957a}
+[data-kitchen-style="island"] .k-design .e-foreground{height:105px;background:none;border:0;box-shadow:none;overflow:visible}
+[data-kitchen-style="island"] .e-foreground:before,
+[data-kitchen-style="island"] .e-foreground:after{display:none}
+[data-kitchen-style="island"] .k-design .e-desk-items{inset:0 6px;height:105px;grid-template-columns:1.08fr 1.18fr .85fr 1fr;gap:2px;align-items:end}
+[data-kitchen-style="island"] .k-design .e-desk-items .island-object{height:105px;min-height:44px;background:none;border:0;border-radius:0}
+[data-kitchen-style="island"] .e-desk-items .island-object:before{bottom:22px;top:auto;height:84px;transform:none;filter:drop-shadow(1px 3px 2px #8c553f44);background-position:center bottom}
+[data-kitchen-style="island"] .e-desk-items .e-book:before{height:84px;background-image:url('./assets/island-3d/cabinet-book.webp')}
+[data-kitchen-style="island"] .e-desk-items .island-storage:before{height:80px;background-image:url('./assets/island-3d/cabinet-drawer.webp')}
+[data-kitchen-style="island"] .e-desk-items .e-phone:before{height:88px;bottom:21px;background-image:url('./assets/island-3d/cabinet-phone.webp')}
+[data-kitchen-style="island"] .e-desk-items .v-radio:before{height:80px;background-image:url('./assets/island-3d/cabinet-radio.webp')}
+[data-kitchen-style="island"] .island-object .object-label{padding:0;background:none;border:0;border-radius:0;box-shadow:none;color:#76462c;font:700 14px/18px var(--font);letter-spacing:1px;text-shadow:0 1px #fff5df;z-index:2}
+[data-kitchen-style="island"] .e-book .object-label{bottom:34px}
+[data-kitchen-style="island"] .island-storage .object-label{bottom:49px}
+[data-kitchen-style="island"] .e-phone .object-label{bottom:35px;color:#286990}
+[data-kitchen-style="island"] .v-radio .object-label{bottom:32px;left:64%;font-size:12px}
+[data-kitchen-style="island"] .island-storage .e-storage-count{bottom:32px;right:8px;background:#fff2df;color:#9b7049;font-size:9px;line-height:11px}
+[data-kitchen-style="island"] .resource-portrait>.v-cash{background:url('./assets/island-pig-v2.webp') center/contain no-repeat}
+[data-kitchen-style="island"] .resource-portrait>.v-stars{background:url('./assets/island-star-v2.webp') center/contain no-repeat}
+[data-kitchen-style="island"] .resource-portrait>.v-cash>*,
+[data-kitchen-style="island"] .resource-portrait>.v-stars>*{visibility:hidden}
+[data-kitchen-style="island"] .toast{bottom:111px}
+@media(max-width:350px){[data-kitchen-style="island"] .k-design .selection-card{left:24px;right:24px}[data-kitchen-style="island"] .selection-card .selection-copy p{font-size:9px}[data-kitchen-style="island"] .k-design .board{width:calc(100% - 44px)}}
+[data-kitchen-style="island"] .e-phone .object-label{bottom:47px}
+[data-kitchen-style="island"] .v-radio .object-label{bottom:45px}
+[data-kitchen-style="island"] .island-storage .e-storage-count{bottom:23px}
+/* Align the live detail text with the cabinet's generated crossbeam nameplate. */
+[data-kitchen-style="island"] .game-shell.k-design{--scene-height:69px;grid-template-rows:48px 69px minmax(0,1fr) 105px}
+[data-kitchen-style="island"] .k-design .k-scene,[data-kitchen-style="island"] .k-design .k-orders{height:69px}
+[data-kitchen-style="island"] .k-design .k-orders .order-card{height:65px;min-height:65px}
+[data-kitchen-style="island"] .k-orders .order-paper,[data-kitchen-style="island"] .k-orders .order-card:not(.is-main) .order-paper{height:65px;padding:1px 7px 4px 16px;grid-template-rows:minmax(0,1fr) 18px}
+[data-kitchen-style="island"] .k-orders .is-main .order-paper{height:65px;padding:12px 7px 2px 3px;grid-template-rows:minmax(0,1fr) 17px}
+[data-kitchen-style="island"] .k-orders .is-main .order-bottom{height:17px}
+[data-kitchen-style="island"] .story-assistant-slot,[data-kitchen-style="island"] .story-assistant-slot .e-assistant,[data-kitchen-style="island"] .k-orders .is-main .order-top{height:65px}
+[data-kitchen-style="island"] .story-assistant-slot .e-assistant-name{display:none}
+[data-kitchen-style="island"] .k-design .selection-card{top:0;height:32px;min-height:32px}
+[data-kitchen-style="island"] .k-design .board{top:42px}
+/* Keep dynamic rewards in the paper face, above the rendered wooden foot. */
+[data-kitchen-style="island"] .k-orders .order-card:not(.is-main) .need{height:19px}
+[data-kitchen-style="island"] .k-orders .order-card:not(.is-main) .order-bottom{transform:translateY(-5px)}
+[data-kitchen-style="island"] .k-orders .is-main .order-bottom{transform:translateY(-7px)}
+[data-kitchen-style="island"] .k-orders .is-main .need-visual,[data-kitchen-style="island"] .k-orders .is-main .need-art{width:34px;height:34px}
