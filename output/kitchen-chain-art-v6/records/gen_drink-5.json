@@ -1,0 +1,45 @@
+{
+  "id": "gen_drink:5",
+  "name": "玻璃搅拌机",
+  "source": "sources/gen_drink-5.png",
+  "prompt": "prompts/gen_drink-5.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-37062701-2b8c-4773-b7bf-1d6b02177bc6.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_drink-5.png",
+    "webp": "items/gen_drink-5.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      272,
+      44,
+      800,
+      1164
+    ],
+    "box": [
+      26.8,
+      39
+    ],
+    "contact": {
+      "x": 44.89,
+      "width": 17.12,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 629024,
+    "transparentPixels": 921647
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px paired sheet inspected for single main structure, distinct adjacent silhouette, alpha margins and scale.",
+    "evidence": [
+      "evidence/gen_drink.png",
+      "evidence/44px/page-07.png"
+    ]
+  }
+}

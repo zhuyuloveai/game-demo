@@ -1,0 +1,45 @@
+{
+  "id": "gen_asian:2",
+  "name": "加热炉芯",
+  "source": "sources/gen_asian-2.png",
+  "prompt": "prompts/gen_asian-2.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-aefb3b4a-cdad-4d7c-8746-bba70545daea.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_asian-2.png",
+    "webp": "items/gen_asian-2.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      100,
+      155,
+      1055,
+      949
+    ],
+    "box": [
+      40,
+      35.98
+    ],
+    "contact": {
+      "x": 50.15,
+      "width": 20.05,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 784135,
+    "transparentPixels": 778797
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px pairs inspected; adjacent machine structures and silhouettes distinct, no clipping or container sets.",
+    "evidence": [
+      "evidence/gen_asian.png",
+      "evidence/44px/page-07.png"
+    ]
+  }
+}

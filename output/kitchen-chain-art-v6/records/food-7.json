@@ -1,0 +1,45 @@
+{
+  "id": "food:7",
+  "name": "肉桂卷",
+  "source": "sources/food-7.png",
+  "prompt": "prompts/food-7.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-524f1064-cd16-4b5c-8c8d-71e8463d9094.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/food-7.png",
+    "webp": "items/food-7.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      74,
+      130,
+      1130,
+      1016
+    ],
+    "box": [
+      40,
+      35.96
+    ],
+    "contact": {
+      "x": 49.88,
+      "width": 20.07,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 874585,
+    "transparentPixels": 687298
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

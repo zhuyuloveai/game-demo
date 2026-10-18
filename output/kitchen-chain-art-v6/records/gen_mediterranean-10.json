@@ -1,0 +1,45 @@
+{
+  "id": "gen_mediterranean:10",
+  "name": "穹顶慢烤炉",
+  "source": "sources/gen_mediterranean-10.png",
+  "prompt": "prompts/gen_mediterranean-10.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-0f18af2f-3b81-4073-b0a9-f382971fb546.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_mediterranean-10.png",
+    "webp": "items/gen_mediterranean-10.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      109,
+      45,
+      1062,
+      1171
+    ],
+    "box": [
+      35.37,
+      39
+    ],
+    "contact": {
+      "x": 66.76,
+      "width": 24.26,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 858079,
+    "transparentPixels": 689727
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px pairs inspected; adjacent machine structures and silhouettes distinct, no clipping or container sets.",
+    "evidence": [
+      "evidence/gen_mediterranean.png",
+      "evidence/44px/page-08.png"
+    ]
+  }
+}

@@ -14,6 +14,9 @@ ROOT = Path(__file__).resolve().parent
 D = json.loads((ROOT / 'kitchen-target.json').read_text())
 B = json.loads((ROOT / 'current-baseline.json').read_text())
 F = json.loads((ROOT / 'feige-reference.json').read_text())
+ART = json.loads((ROOT.parent / 'art/ITEM_IDENTITIES_V6.json').read_text())
+ART_NAMES = {i['id']: i['name'] for c in ART['chains'] if c['runtimeEnabled'] for i in c['items']}
+ART_NAMES.update({old: ART_NAMES[new] for old, new in ART['legacyAliases'].items()})
 CHAINS = {c['id']: c for c in D['chains']}
 ITEMS = {i['id']: i for c in D['chains'] for i in c['items']}
 PRODUCERS = {p['id']: p for p in D['producers']}
@@ -229,10 +232,10 @@ for cid, old_items in B['chains'].items():
     if cid in ['energy', 'coins', 'chest']:
         for old in old_items:
             new = ITEMS[f"legacy_{cid}:{old['level']}"]
-            check(new['name'] == old['name'] and new.get('value') == old.get('value'), f"旧资源{old['id']}保值", '迁移')
+            check(new['name'] == ART_NAMES.get(new['id'], old['name']) and new.get('value') == old.get('value'), f"旧资源{old['id']}保值并使用当前图稿名称", '迁移')
     else:
         for old in old_items:
-            check(ITEMS[old['id']]['name'] == old['name'], f"旧普通物{old['id']}保留", '迁移')
+            check(ITEMS[old['id']]['name'] == ART_NAMES.get(old['id'], old['name']), f"旧普通物{old['id']}保留并使用当前图稿名称", '迁移')
 for kind, old in B['producers'].items():
     p = PRODUCERS[kind]
     for lv in range(1, old['maxLevel']+1):
@@ -372,7 +375,7 @@ report = [
     '## 检查覆盖\n', md_table(['组别','断言数'], sorted(COUNTS.items())),
     '\n断言数包含逐个物品、等级和订单检查，不能解读为同数量的独立场景测试。\n',
     '## 物品与路径\n', md_table(['类型','数量'], sorted(item_counts.items())),
-    f'\n合计{len(ITEMS)}项；除11项旧档资源外，{len(new_ids)}项都有来源闭包。主线96单逐章核对供给和解锁，原66个普通物ID/名称保留，原7类设备的28个等级映射均落在可生产范围。\n',
+    f'\n合计{len(ITEMS)}项；除11项旧档资源外，{len(new_ids)}项都有来源闭包。主线96单逐章核对供给和解锁，原66个普通物ID保留、名称对齐V6图稿，原7类设备的28个等级映射均落在可生产范围。\n',
     '可达性模型假设有足够时间、重复掉落次数和可腾出的空间；它检查来源依赖，不能证明有限时间或实际棋盘内的可完成性。升级卡只有等级奖励有限供应，未被当成持续合成原料。高阶无限体力和沙漏由每周补给持续提供，避免只靠有限升级奖励导致最高档无法合出。\n',
     '## 每章星星与来源闭包\n', md_table(['章','订单数','星星支出','主线星星','此章可达定义数'], chapter_results),
     '\n可达定义数包含未来通过升级获得的辅助道具，但订单材料均另检查所属章节；第12章表内不含通关后的荣誉，最终全物品闭包包含。\n',

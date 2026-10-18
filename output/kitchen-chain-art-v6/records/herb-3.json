@@ -1,0 +1,45 @@
+{
+  "id": "herb:3",
+  "name": "迷迭香",
+  "source": "sources/herb-3.png",
+  "prompt": "prompts/herb-3.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-910a90df-c8ee-4ff6-ab95-f1f8b2495068.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/herb-3.png",
+    "webp": "items/herb-3.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      189,
+      57,
+      1002,
+      1135
+    ],
+    "box": [
+      33.55,
+      38
+    ],
+    "contact": {
+      "x": 22.21,
+      "width": 13.26,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 505027,
+    "transparentPixels": 974918
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

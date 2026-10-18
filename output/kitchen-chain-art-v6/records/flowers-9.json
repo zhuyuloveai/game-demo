@@ -1,0 +1,45 @@
+{
+  "id": "flowers:9",
+  "name": "帝王花",
+  "source": "sources/flowers-9.png",
+  "prompt": "prompts/flowers-9.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-eec666d9-c2be-40e3-9960-658067c7a4b1.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/flowers-9.png",
+    "webp": "items/flowers-9.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      44,
+      85,
+      1180,
+      1125
+    ],
+    "box": [
+      39.86,
+      38
+    ],
+    "contact": {
+      "x": 48.4,
+      "width": 13.84,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 843935,
+    "transparentPixels": 705704
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

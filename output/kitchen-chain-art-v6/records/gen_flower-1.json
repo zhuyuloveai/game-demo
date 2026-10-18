@@ -1,0 +1,45 @@
+{
+  "id": "gen_flower:1",
+  "name": "园艺桶底",
+  "source": "sources/gen_flower-1.png",
+  "prompt": "prompts/gen_flower-1.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-4cb04ce8-ea56-44fd-80e4-dc64f9ce6a77.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_flower-1.png",
+    "webp": "items/gen_flower-1.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      48,
+      222,
+      1157,
+      862
+    ],
+    "box": [
+      40,
+      29.8
+    ],
+    "contact": {
+      "x": 49.88,
+      "width": 20.01,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 769150,
+    "transparentPixels": 793690
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px pairs inspected, including empty bucket parts, watering/spraying structures and wide versus tall growing enclosures.",
+    "evidence": [
+      "evidence/gen_flower.png",
+      "evidence/44px/page-08.png"
+    ]
+  }
+}

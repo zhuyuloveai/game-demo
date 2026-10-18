@@ -1,0 +1,2791 @@
+[
+  {
+    "id": "bakeware:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "bakeware:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "bakeware:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "bakeware:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "bakeware:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "bakeware:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "bakeware:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "blackbag:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "blackbag:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "cats:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "cats:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "cats:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "cats:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "cats:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "cats:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "cats:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "cats:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "charge:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "charge:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "charge:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "chest:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "chest:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "chest:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "chinese:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "chinese:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "chinese:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "chinese:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "chinese:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "chinese:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "chinese:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "chinese:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "coins:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "coins:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "coins:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "coins:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "coins:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "coins:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "comfort:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "comfort:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "comfort:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "comfort:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "comfort:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "comfort:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "comfort:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "comfort:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "courses:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "courses:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "courses:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "courses:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "courses:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "courses:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "doll:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "doll:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "doll:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "doll:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "doll:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "doll:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "doll:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "doll:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "drink:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "drink:10",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "drink:11",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "drink:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "drink:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "drink:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "drink:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "drink:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "drink:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "drink:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "drink:9",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "emptybag:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "emptybag:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "emptybag:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "emptybag:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "energy:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "energy:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "energy:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "energy:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "energy:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "flowers:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "flowers:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "flowers:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "flowers:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "flowers:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "flowers:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "flowers:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "flowers:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "flowers:9",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "food:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "food:10",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "food:11",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "food:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "food:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "food:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "food:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "food:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "food:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "food:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "food:9",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "fruit:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "fruit:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "fruit:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "fruit:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "fruit:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "fruit:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "fruit:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "fruit:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "garden_guest:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "garden_guest:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "garden_guest:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "garden_guest:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "garden_guest:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "garden_guest:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_asian:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_asian:10",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_asian:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_asian:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_asian:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_asian:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_asian:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_asian:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_asian:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_asian:9",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_drink:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_drink:10",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_drink:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_drink:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_drink:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_drink:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_drink:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_drink:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_drink:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_drink:9",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_flower:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_flower:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_flower:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_flower:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_flower:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_flower:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_flower:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_flower:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_flower:9",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_food:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_food:10",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_food:11",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_food:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_food:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_food:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_food:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_food:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_food:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_food:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_food:9",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_herb:1",
+    "touchesSource": false,
+    "parts": 2,
+    "extra": [
+      {
+        "area": 4551,
+        "box": [
+          71,
+          17,
+          154,
+          111
+        ]
+      }
+    ],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_herb:10",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_herb:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_herb:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_herb:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_herb:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_herb:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_herb:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_herb:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_herb:9",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_mediterranean:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_mediterranean:10",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_mediterranean:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_mediterranean:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_mediterranean:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_mediterranean:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_mediterranean:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_mediterranean:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_mediterranean:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_mediterranean:9",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_produce:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_produce:10",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_produce:11",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_produce:12",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_produce:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_produce:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_produce:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_produce:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_produce:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_produce:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_produce:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_produce:9",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_publicity:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_publicity:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_publicity:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_publicity:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_publicity:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_publicity:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_recycle:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_recycle:10",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_recycle:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_recycle:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_recycle:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_recycle:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_recycle:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_recycle:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_recycle:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_recycle:9",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_supply:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_supply:10",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_supply:11",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_supply:12",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_supply:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_supply:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_supply:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_supply:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_supply:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_supply:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_supply:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_supply:9",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_tools:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_tools:10",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_tools:11",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_tools:12",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_tools:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_tools:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_tools:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_tools:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_tools:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_tools:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_tools:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "gen_tools:9",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "grain:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "grain:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "grain:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "grain:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "grain:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "grain:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "grain:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "grain:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "herb:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "herb:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "herb:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "herb:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "herb:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "herb:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "honor:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "honor:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "honor:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "honor:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "honor:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "honor:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "honor:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "infinite:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "infinite:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "infinite:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "infinite:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "italian:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "italian:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "italian:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "italian:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "italian:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "italian:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "italian:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "italian:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "japanese:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "japanese:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "japanese:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "japanese:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "japanese:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "japanese:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "japanese:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "japanese:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "keys:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "keys:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "keys:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "keys:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "keys:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "lost:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "lost:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "lost:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "lost:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "lost:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "lost:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "mascot:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "mascot:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "mascot:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "mascot:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "mascot:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "mascot:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "mascot:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "mexican:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "mexican:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "mexican:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "mexican:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "mexican:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "mexican:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "mexican:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "mexican:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "pantry:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "pantry:10",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "pantry:11",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "pantry:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "pantry:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "pantry:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "pantry:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "pantry:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "pantry:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "pantry:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "pantry:9",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "pinkbag:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "pinkbag:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "preservation:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "preservation:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "preservation:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "preservation:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "puzzle:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "puzzle:10",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "puzzle:11",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "puzzle:12",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "puzzle:13",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "puzzle:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "puzzle:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "puzzle:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "puzzle:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "puzzle:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "puzzle:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "puzzle:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "puzzle:9",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "scraps:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "scraps:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "scraps:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "scraps:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "scraps:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "scraps:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "scraps:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "scraps:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "seedbag:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "seedbag:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "seedbag:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "seedbag:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "snail:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "snail:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "snail:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "snail:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "snail:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "snail:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "splitter:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "splitter:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "splitter:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "story:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "story:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "story:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "story:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "story:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tableware:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tableware:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tableware:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tableware:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tableware:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tableware:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tableware:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tableware:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tasting:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tasting:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tasting:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tasting:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tasting:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tasting:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "timegate:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "timegate:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "timegate:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "timegate:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "timegate:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "timegate:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "timeskip:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "timeskip:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "timeskip:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "timeskip:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "timeskip:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tools:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tools:10",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tools:11",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tools:12",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tools:13",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tools:14",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tools:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tools:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tools:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tools:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tools:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tools:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tools:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "tools:9",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "upgrade:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "upgrade:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "vegetable:1",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "vegetable:2",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "vegetable:3",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "vegetable:4",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "vegetable:5",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "vegetable:6",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "vegetable:7",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  },
+  {
+    "id": "vegetable:8",
+    "touchesSource": false,
+    "parts": 1,
+    "extra": [],
+    "needsInspection": false
+  }
+]

@@ -1,0 +1,48 @@
+{
+  "id": "snail:4",
+  "name": "叶壳蜗牛",
+  "source": "sources/snail-4.png",
+  "prompt": "prompts/snail-4.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-45bb26de-4c42-4060-b42f-068aa65abb01.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/snail-4.png",
+    "webp": "items/snail-4.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      105,
+      196,
+      1055,
+      934
+    ],
+    "box": [
+      40,
+      35.41
+    ],
+    "contact": {
+      "x": 56.85,
+      "width": 21.88,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 654032,
+    "transparentPixels": 896952
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

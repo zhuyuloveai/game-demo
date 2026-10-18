@@ -1,0 +1,11 @@
+{
+  "gameplayFieldsUnchanged": true,
+  "ignoredDisplayFields": [
+    "name",
+    "artIdentityVersion"
+  ],
+  "baselineHash": "85155bdd5f32cea2d34d431a1b599ebea0270c3b04a6f94b9036321bd9284034",
+  "currentHash": "85155bdd5f32cea2d34d431a1b599ebea0270c3b04a6f94b9036321bd9284034",
+  "runtimeItems": 422,
+  "grainEnabled": false
+}

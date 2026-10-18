@@ -1,0 +1,45 @@
+{
+  "id": "gen_produce:10",
+  "name": "四轮货箱车",
+  "source": "sources/gen_produce-10.png",
+  "prompt": "prompts/gen_produce-10.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-3dd97706-e83a-4f10-9fa1-5308f0092a43.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_produce-10.png",
+    "webp": "items/gen_produce-10.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      44,
+      151,
+      1181,
+      999
+    ],
+    "box": [
+      40,
+      33.84
+    ],
+    "contact": {
+      "x": 52.03,
+      "width": 8.26,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 723298,
+    "transparentPixels": 832249
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px paired sheet inspected for single main structure, distinct adjacent silhouette, alpha margins and scale.",
+    "evidence": [
+      "evidence/gen_produce.png",
+      "evidence/44px/page-07.png"
+    ]
+  }
+}

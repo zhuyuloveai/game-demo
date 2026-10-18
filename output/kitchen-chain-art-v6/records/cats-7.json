@@ -1,0 +1,48 @@
+{
+  "id": "cats:7",
+  "name": "缅因猫",
+  "source": "sources/cats-7.png",
+  "prompt": "prompts/cats-7.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-3bd4a799-b95e-4e83-a6e4-0cc0cb0c1ad3.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/cats-7.png",
+    "webp": "items/cats-7.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      126,
+      15,
+      996,
+      1216
+    ],
+    "box": [
+      31.13,
+      38
+    ],
+    "contact": {
+      "x": 55.1,
+      "width": 22.15,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 753948,
+    "transparentPixels": 779269
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

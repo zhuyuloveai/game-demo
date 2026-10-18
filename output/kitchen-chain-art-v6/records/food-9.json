@@ -1,0 +1,45 @@
+{
+  "id": "food:9",
+  "name": "樱桃丹麦酥",
+  "source": "sources/food-9.png",
+  "prompt": "prompts/food-9.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-2fb3491f-e28c-46db-9fae-24df0b49dec9.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/food-9.png",
+    "webp": "items/food-9.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      39,
+      104,
+      1179,
+      1048
+    ],
+    "box": [
+      40,
+      35.56
+    ],
+    "contact": {
+      "x": 48.65,
+      "width": 7.56,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 683172,
+    "transparentPixels": 880210
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

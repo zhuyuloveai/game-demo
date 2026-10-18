@@ -1,0 +1,45 @@
+{
+  "id": "herb:4",
+  "name": "百里香",
+  "source": "sources/herb-4.png",
+  "prompt": "prompts/herb-4.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-3e3739f1-b79a-46ff-aa2a-ba154a43ba61.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/herb-4.png",
+    "webp": "items/herb-4.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      60,
+      113,
+      1158,
+      1031
+    ],
+    "box": [
+      40,
+      35.61
+    ],
+    "contact": {
+      "x": 49.86,
+      "width": 7.99,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 496748,
+    "transparentPixels": 970147
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

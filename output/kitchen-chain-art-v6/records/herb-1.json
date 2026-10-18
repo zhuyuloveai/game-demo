@@ -1,0 +1,45 @@
+{
+  "id": "herb:1",
+  "name": "罗勒",
+  "source": "sources/herb-1.png",
+  "prompt": "prompts/herb-1.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-b0b555fe-41ed-41cd-b1cc-308e51934aa0.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/herb-1.png",
+    "webp": "items/herb-1.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      90,
+      201,
+      1109,
+      878
+    ],
+    "box": [
+      40,
+      31.67
+    ],
+    "contact": {
+      "x": 31.58,
+      "width": 29,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 616683,
+    "transparentPixels": 930730
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

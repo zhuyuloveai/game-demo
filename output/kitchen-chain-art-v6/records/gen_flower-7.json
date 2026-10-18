@@ -1,0 +1,45 @@
+{
+  "id": "gen_flower:7",
+  "name": "自动喷雾桶",
+  "source": "sources/gen_flower-7.png",
+  "prompt": "prompts/gen_flower-7.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-94baa4fe-0641-4245-bdb0-81810e39cfd3.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_flower-7.png",
+    "webp": "items/gen_flower-7.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      189,
+      59,
+      880,
+      1139
+    ],
+    "box": [
+      30.13,
+      39
+    ],
+    "contact": {
+      "x": 49.14,
+      "width": 15.6,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 610490,
+    "transparentPixels": 925195
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px pairs inspected, including empty bucket parts, watering/spraying structures and wide versus tall growing enclosures.",
+    "evidence": [
+      "evidence/gen_flower.png",
+      "evidence/44px/page-08.png"
+    ]
+  }
+}

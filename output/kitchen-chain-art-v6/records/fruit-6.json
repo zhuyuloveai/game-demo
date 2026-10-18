@@ -1,0 +1,45 @@
+{
+  "id": "fruit:6",
+  "name": "火龙果",
+  "source": "sources/fruit-6.png",
+  "prompt": "prompts/fruit-6.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-056b1504-b586-44a7-b80a-04bf8b2900db.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/fruit-6.png",
+    "webp": "items/fruit-6.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      102,
+      26,
+      1072,
+      1190
+    ],
+    "box": [
+      34.23,
+      38
+    ],
+    "contact": {
+      "x": 62.7,
+      "width": 15.96,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 792945,
+    "transparentPixels": 761869
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

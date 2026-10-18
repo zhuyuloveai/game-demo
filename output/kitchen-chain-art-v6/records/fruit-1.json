@@ -1,0 +1,45 @@
+{
+  "id": "fruit:1",
+  "name": "苹果",
+  "source": "sources/fruit-1.png",
+  "prompt": "prompts/fruit-1.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-193f0ab6-e028-40ef-8496-fbf40422a9a3.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/fruit-1.png",
+    "webp": "items/fruit-1.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      82,
+      65,
+      1093,
+      1126
+    ],
+    "box": [
+      36.89,
+      38
+    ],
+    "contact": {
+      "x": 49.78,
+      "width": 19.31,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 928266,
+    "transparentPixels": 634549
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

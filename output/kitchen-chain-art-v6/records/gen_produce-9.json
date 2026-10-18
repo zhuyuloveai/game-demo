@@ -1,0 +1,45 @@
+{
+  "id": "gen_produce:9",
+  "name": "双轮买菜车",
+  "source": "sources/gen_produce-9.png",
+  "prompt": "prompts/gen_produce-9.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-c2813914-678b-4300-b921-88ec1d265297.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_produce-9.png",
+    "webp": "items/gen_produce-9.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      233,
+      30,
+      802,
+      1182
+    ],
+    "box": [
+      26.46,
+      39
+    ],
+    "contact": {
+      "x": 54.47,
+      "width": 20.42,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 584057,
+    "transparentPixels": 969373
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px paired sheet inspected for single main structure, distinct adjacent silhouette, alpha margins and scale.",
+    "evidence": [
+      "evidence/gen_produce.png",
+      "evidence/44px/page-07.png"
+    ]
+  }
+}

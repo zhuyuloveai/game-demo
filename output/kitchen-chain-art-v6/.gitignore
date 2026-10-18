@@ -1,0 +1,8 @@
+# Local task state and duplicate preview build; production assets live in dist.
+/baseline/
+/sample/
+/TASK_STATE.txt
+/progress.json
+/staged-balance.json
+*.log
+*.pid

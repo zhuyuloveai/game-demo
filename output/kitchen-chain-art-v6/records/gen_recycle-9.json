@@ -1,0 +1,45 @@
+{
+  "id": "gen_recycle:9",
+  "name": "穹顶发酵罐",
+  "source": "sources/gen_recycle-9.png",
+  "prompt": "prompts/gen_recycle-9.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-f8819cc1-6340-47b6-8606-b8480e7c5a03.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_recycle-9.png",
+    "webp": "items/gen_recycle-9.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      133,
+      49,
+      988,
+      1171
+    ],
+    "box": [
+      32.91,
+      39
+    ],
+    "contact": {
+      "x": 49.6,
+      "width": 24.6,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 753796,
+    "transparentPixels": 805764
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px pairs inspected; distinct incomplete parts, vented body, drum, stirring bucket, pedal bin, round fermenter and recycling machine.",
+    "evidence": [
+      "evidence/gen_recycle.png",
+      "evidence/44px/page-08.png"
+    ]
+  }
+}

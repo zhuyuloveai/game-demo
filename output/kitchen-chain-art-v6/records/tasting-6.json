@@ -1,0 +1,48 @@
+{
+  "id": "tasting:6",
+  "name": "评审结果信筒",
+  "source": "sources/tasting-6.png",
+  "prompt": "prompts/tasting-6.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-93067f84-3bf2-4ac7-bad4-ee19855a5b10.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/tasting-6.png",
+    "webp": "items/tasting-6.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      57,
+      94,
+      1151,
+      1079
+    ],
+    "box": [
+      40,
+      37.5
+    ],
+    "contact": {
+      "x": 79.04,
+      "width": 9.28,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 502698,
+    "transparentPixels": 1060071
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

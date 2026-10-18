@@ -1,0 +1,45 @@
+{
+  "id": "gen_asian:5",
+  "name": "陶胆炖煮机",
+  "source": "sources/gen_asian-5.png",
+  "prompt": "prompts/gen_asian-5.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-97b01098-9e48-4ef5-abe1-ed2287d5c887.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_asian-5.png",
+    "webp": "items/gen_asian-5.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      64,
+      16,
+      1135,
+      1171
+    ],
+    "box": [
+      37.8,
+      39
+    ],
+    "contact": {
+      "x": 49.03,
+      "width": 20.18,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 810882,
+    "transparentPixels": 746043
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px pairs inspected; adjacent machine structures and silhouettes distinct, no clipping or container sets.",
+    "evidence": [
+      "evidence/gen_asian.png",
+      "evidence/44px/page-07.png"
+    ]
+  }
+}

@@ -604,7 +604,7 @@ test("pantry separate clocks operate at all eleven levels; parts preserve automa
     assert.equal(s.board[0].autoBuffer, rules.auto ? Math.min(rules.auto.capacity, Math.floor(rules.manual.rechargeSeconds/rules.auto.intervalSeconds)) : 0);
   }
 });
-test("new and old item art stays distinct by shape; original 66 illustrations remain exact", async () => {
+test("all item renderings retain their IDs and the original 66 slots use refreshed classic identities", async () => {
   const old = await import("../dist/legacy-catalog.mjs");
   const defs = Object.values(E.ITEMS),
     svgs = defs.map((d) => icon(d.icon));
@@ -612,8 +612,11 @@ test("new and old item art stays distinct by shape; original 66 illustrations re
   for (const [family, chain] of Object.entries(old.CHAINS).filter(
     ([f]) => !["energy", "coins", "chest"].includes(f),
   ))
-    for (const d of chain)
-      assert.equal(icon(E.ITEMS[d.id].icon), icon(d.icon), d.id);
+    for (const d of chain) {
+      const refreshed=icon(E.ITEMS[d.id].icon);
+      assert.ok(refreshed.includes(`data-classic-item="${d.id}"`), d.id);
+      assert.notEqual(refreshed, icon(d.icon), d.id);
+    }
 });
 test("new player balances start at exactly the approved values including zero XP", () => {
   const s = E.createGame(null, NOW);

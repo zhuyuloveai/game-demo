@@ -1,0 +1,45 @@
+{
+  "id": "gen_supply:1",
+  "name": "配送轮胎",
+  "source": "sources/gen_supply-1.png",
+  "prompt": "prompts/gen_supply-1.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-2d399813-0c42-451e-9ce9-36803837e743.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_supply-1.png",
+    "webp": "items/gen_supply-1.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      116,
+      78,
+      1039,
+      1118
+    ],
+    "box": [
+      36.24,
+      39
+    ],
+    "contact": {
+      "x": 50.72,
+      "width": 19.42,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 905282,
+    "transparentPixels": 657149
+  },
+  "visualReview": {
+    "scope": "Per-chain large view and actual 44px pairs inspected. Distinct frame, wheels, transport body or display structure per level; single unified subject.",
+    "evidence": [
+      "evidence/gen_supply.png",
+      "evidence/44px/page-08.png"
+    ]
+  }
+}

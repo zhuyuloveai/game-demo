@@ -1,0 +1,45 @@
+{
+  "id": "fruit:8",
+  "name": "榴莲",
+  "source": "sources/fruit-8.png",
+  "prompt": "prompts/fruit-8.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-5859a4ff-bb45-4e32-9bae-102a70e92639.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/fruit-8.png",
+    "webp": "items/fruit-8.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      80,
+      59,
+      1110,
+      1149
+    ],
+    "box": [
+      36.71,
+      38
+    ],
+    "contact": {
+      "x": 58.4,
+      "width": 19.82,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 878048,
+    "transparentPixels": 672991
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

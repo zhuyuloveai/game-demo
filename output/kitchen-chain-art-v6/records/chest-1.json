@@ -1,0 +1,45 @@
+{
+  "id": "chest:1",
+  "name": "方形厨房礼盒",
+  "source": "sources/chest-1.png",
+  "prompt": "prompts/chest-1.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-5b561760-b967-4b21-9047-e8870306dd00.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/chest-1.png",
+    "webp": "items/chest-1.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      97,
+      150,
+      1083,
+      1023
+    ],
+    "box": [
+      40,
+      37.78
+    ],
+    "contact": {
+      "x": 54.44,
+      "width": 15.07,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 816936,
+    "transparentPixels": 745399
+  },
+  "visualReview": {
+    "scope": "Per-chain full image and paired actual 44px review; single subject, level silhouette, alpha boundary and scale inspected. Pinkbag:2 revised to one bag and rechecked.",
+    "evidence": [
+      "evidence/chest.png",
+      "evidence/44px/page-06.png"
+    ]
+  }
+}

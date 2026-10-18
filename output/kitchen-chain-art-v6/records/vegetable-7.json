@@ -1,0 +1,45 @@
+{
+  "id": "vegetable:7",
+  "name": "宝塔花菜",
+  "source": "sources/vegetable-7.png",
+  "prompt": "prompts/vegetable-7.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-98e2dacf-5eef-4a83-857b-a6f4e9ddf363.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/vegetable-7.png",
+    "webp": "items/vegetable-7.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      63,
+      72,
+      1144,
+      1112
+    ],
+    "box": [
+      39.09,
+      38
+    ],
+    "contact": {
+      "x": 51.61,
+      "width": 15.8,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 769136,
+    "transparentPixels": 786320
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

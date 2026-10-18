@@ -1,0 +1,25 @@
+{
+  "nodeTests": {
+    "passed": 137,
+    "failed": 0,
+    "log": "evidence/node-tests.txt"
+  },
+  "identityPythonTests": {
+    "passed": 3,
+    "failed": 0
+  },
+  "balanceAudit": {
+    "assertions": 3581,
+    "failures": 0
+  },
+  "alphaAudit": {
+    "checked": 397,
+    "flags": 0
+  },
+  "visualReview": {
+    "classic": 397,
+    "threeD": 397,
+    "productionBrowser": true
+  },
+  "mechanicsUnchanged": true
+}

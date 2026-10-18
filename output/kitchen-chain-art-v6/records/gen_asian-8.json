@@ -1,0 +1,45 @@
+{
+  "id": "gen_asian:8",
+  "name": "穹顶蒸烤机",
+  "source": "sources/gen_asian-8.png",
+  "prompt": "prompts/gen_asian-8.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-837ab749-b129-4d07-9ed9-b43338de096c.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_asian-8.png",
+    "webp": "items/gen_asian-8.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      59,
+      51,
+      1174,
+      1146
+    ],
+    "box": [
+      39.95,
+      39
+    ],
+    "contact": {
+      "x": 53.44,
+      "width": 13.91,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 831240,
+    "transparentPixels": 709142
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px pairs inspected; adjacent machine structures and silhouettes distinct, no clipping or container sets.",
+    "evidence": [
+      "evidence/gen_asian.png",
+      "evidence/44px/page-07.png"
+    ]
+  }
+}

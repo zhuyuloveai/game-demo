@@ -1,0 +1,45 @@
+{
+  "id": "drink:3",
+  "name": "鲜榨橙汁",
+  "source": "sources/drink-3.png",
+  "prompt": "prompts/drink-3.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-1cb208ed-bd1a-4b79-9d3a-f20b8046738b.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/drink-3.png",
+    "webp": "items/drink-3.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      131,
+      132,
+      986,
+      1033
+    ],
+    "box": [
+      36.27,
+      38
+    ],
+    "contact": {
+      "x": 55.6,
+      "width": 17.57,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 738481,
+    "transparentPixels": 821232
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "gen_herb:2",
+  "name": "黏合花盆",
+  "source": "sources/rejected/gen_herb-2-v1.png",
+  "prompt": "prompts/gen_herb-2.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-88dbdb0d-82f8-4aed-8fb8-a8dcb9e3ce49.png",
+  "review": "pending-visual",
+  "processed": {
+    "png": "items/gen_herb-2.png",
+    "webp": "items/gen_herb-2.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      165,
+      89,
+      949,
+      1074
+    ],
+    "box": [
+      34.46,
+      39
+    ],
+    "contact": {
+      "x": 49.55,
+      "width": 16.17,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 728699,
+    "transparentPixels": 824945
+  }
+}

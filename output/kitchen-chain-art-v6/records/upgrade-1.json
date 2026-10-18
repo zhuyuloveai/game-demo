@@ -1,0 +1,45 @@
+{
+  "id": "upgrade:1",
+  "name": "普通升级卡",
+  "source": "sources/upgrade-1.png",
+  "prompt": "prompts/upgrade-1.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-c1380f49-0aa5-467f-aacf-402c4de96840.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/upgrade-1.png",
+    "webp": "items/upgrade-1.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      228,
+      119,
+      812,
+      1059
+    ],
+    "box": [
+      29.14,
+      38
+    ],
+    "contact": {
+      "x": 59.13,
+      "width": 15.04,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 640631,
+    "transparentPixels": 906930
+  },
+  "visualReview": {
+    "scope": "Per-chain full image and paired actual 44px review; single subject, level silhouette, alpha boundary and scale inspected. Pinkbag:2 revised to one bag and rechecked.",
+    "evidence": [
+      "evidence/upgrade.png",
+      "evidence/44px/page-06.png"
+    ]
+  }
+}

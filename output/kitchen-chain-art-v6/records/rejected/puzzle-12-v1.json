@@ -1,0 +1,39 @@
+{
+  "id": "puzzle:12",
+  "name": "周年纪念相册",
+  "source": "sources/rejected/puzzle-12-v1.png",
+  "prompt": "prompts/puzzle-12.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png",
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/kitchen-merge/dist/assets/cabinet-v5/ui/puppy.webp"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-0357c53b-3bc1-456b-8f04-4c426ad7e764.png",
+  "review": "pending-visual",
+  "processed": {
+    "png": "items/puzzle-12.png",
+    "webp": "items/puzzle-12.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      107,
+      23,
+      1040,
+      1219
+    ],
+    "box": [
+      32.42,
+      38
+    ],
+    "contact": {
+      "x": 50.21,
+      "width": 17.06,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 848883,
+    "transparentPixels": 705843
+  }
+}

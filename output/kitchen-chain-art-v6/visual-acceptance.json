@@ -1,0 +1,26 @@
+{
+  "complete": true,
+  "classicCount": 397,
+  "threeDCount": 397,
+  "runtimePairs": 389,
+  "previewGrainPairs": 8,
+  "method": "Per-chain large views, paired actual 44px contact sheets, targeted 512px repairs, and staged actual 375×667 browser views in both styles.",
+  "evidence": [
+    "evidence/44px/page-01.png",
+    "evidence/44px/page-02.png",
+    "evidence/44px/page-03.png",
+    "evidence/44px/page-04.png",
+    "evidence/44px/page-05.png",
+    "evidence/44px/page-06.png",
+    "evidence/44px/page-07.png",
+    "evidence/44px/page-08.png",
+    "evidence/classic-375x667.jpg",
+    "evidence/new-375x667.jpg",
+    "evidence/classic-browser-geometry.json",
+    "evidence/new-browser-geometry.json",
+    "evidence/style-switch-progress.json",
+    "evidence/alpha-audit.json"
+  ],
+  "productionBrowserVerified": true,
+  "productionUrl": "http://127.0.0.1:4200/game/?qa=full-art"
+}

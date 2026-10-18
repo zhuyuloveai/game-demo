@@ -1,0 +1,45 @@
+{
+  "id": "grain:2",
+  "name": "稻米",
+  "source": "sources/grain-2.png",
+  "prompt": "prompts/grain-2.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-810a0cc9-1926-4b1b-aaf4-a68ea35a2290.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/grain-2.png",
+    "webp": "items/grain-2.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      105,
+      110,
+      1097,
+      1074
+    ],
+    "box": [
+      38.81,
+      38
+    ],
+    "contact": {
+      "x": 32.37,
+      "width": 7,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 538945,
+    "transparentPixels": 966832
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

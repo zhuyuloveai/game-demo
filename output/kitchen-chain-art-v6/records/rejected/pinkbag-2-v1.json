@@ -1,0 +1,38 @@
+{
+  "id": "pinkbag:2",
+  "name": "拉链保鲜包",
+  "source": "sources/rejected/pinkbag-2-v1.png",
+  "prompt": "prompts/pinkbag-2.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-e3dfd763-8bc0-44a5-b959-5bea58cabd13.png",
+  "review": "pending-visual",
+  "processed": {
+    "png": "items/pinkbag-2.png",
+    "webp": "items/pinkbag-2.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      47,
+      77,
+      1177,
+      1098
+    ],
+    "box": [
+      40,
+      37.32
+    ],
+    "contact": {
+      "x": 43.45,
+      "width": 26.75,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 915235,
+    "transparentPixels": 639818
+  }
+}

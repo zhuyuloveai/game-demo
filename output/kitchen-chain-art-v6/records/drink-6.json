@@ -1,0 +1,45 @@
+{
+  "id": "drink:6",
+  "name": "珍珠奶茶",
+  "source": "sources/drink-6.png",
+  "prompt": "prompts/drink-6.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-93b3b595-a0a1-4f97-92f3-791145c45ab8.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/drink-6.png",
+    "webp": "items/drink-6.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      236,
+      51,
+      792,
+      1136
+    ],
+    "box": [
+      26.49,
+      38
+    ],
+    "contact": {
+      "x": 49.57,
+      "width": 13.45,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 580728,
+    "transparentPixels": 981827
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

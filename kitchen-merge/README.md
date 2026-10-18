@@ -31,9 +31,10 @@ python3 -m http.server 4173 --bind 127.0.0.1 --directory dist
 
 - 默认使用正面粉木/奶油柜架，375×667完整显示主入口。7列9行63格采用单张连续柜格背景，每格44×44，窗口变宽时整体等比缩放。
 - 保留白色身体、云朵耳、黑眼鼻嘴、红M帽的小狗，主线手札和礼物入口在订单区。底部为食谱、收纳、采购手机和收音机。
-- 422个物品ID全部接入新风格位图：401件新生成、10件沿用样板、11项旧档兼容映射。运行使用411件独立WebP，物品按底部轮廓设置接触阴影。
-- 底栏和设置中可切换经典/暖木柜架。经典风格保留原矢量物品和宠物图；两种风格共享正式存档，外观偏好单独保存。
-- `cabinet.css`、`cabinet-layout.mjs`负责柜架布局；`full-art-manifest.mjs`和`island-art.mjs`负责物品映射；`assets/cabinet-v5/`保存运行素材。游戏规则和数值保持原样。
+- 53条既有链的389个物品按确认的逐级身份重绘：经典使用独立SVG插画，新风格使用透明3D WebP。另保留22件范围外物品，11项旧档别名复用对应新图，422个ID继续有效。谷物8级双风格样板暂不接入玩法。
+- 底栏和设置中可切换经典/暖木柜架。两种风格共用物品名称和识别特征，共享正式存档，外观偏好单独保存。
+- `cabinet.css`、`cabinet-layout.mjs`负责柜架布局；`chain-classic-art.mjs`及布局模块负责经典插画；`full-art-manifest.mjs`和`island-art.mjs`负责新风格映射；`assets/cabinet-v5/`和`assets/cabinet-v6/`保存运行素材。游戏规则和数值保持原样。
+- [V6双风格美术](docs/art/ITEM_ART_V6.md)记录身份、制作与接入约束；`output/kitchen-chain-art-v6/`保存本轮原图、切片、提示词和视觉验收。389张新运行WebP约4 MiB，生成原图仅作为制作档案保存。
 - 原图、独立PNG切片、提示词、返修记录与逐像素对照保存在仓库的`output/kitchen-cabinet-art-v5/`。这些制作资料不随网站发布。
 - [柜架版本验收](docs/verification/cabinet-v5/README.md)记录实际浏览器截图、功能与旧档验证。原图稿对照仍有木纹、物品摆放和底部轮廓差异。
 - 自托管站酷快乐体及OFL许可见[字体来源](docs/fonts/ZCOOLKuaiLe-SOURCE.txt)。原创Web Audio配乐与音效保留。

@@ -1,0 +1,45 @@
+{
+  "id": "gen_publicity:6",
+  "name": "圆屏教学终端",
+  "source": "sources/gen_publicity-6.png",
+  "prompt": "prompts/gen_publicity-6.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-366adc2c-1eaa-45aa-8689-276bfa727084.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_publicity-6.png",
+    "webp": "items/gen_publicity-6.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      166,
+      125,
+      942,
+      1014
+    ],
+    "box": [
+      36.23,
+      39
+    ],
+    "contact": {
+      "x": 50.88,
+      "width": 20.47,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 711745,
+    "transparentPixels": 847878
+  },
+  "visualReview": {
+    "scope": "Per-chain large view and actual 44px pairs inspected. Distinct frame, wheels, transport body or display structure per level; single unified subject.",
+    "evidence": [
+      "evidence/gen_publicity.png",
+      "evidence/44px/page-08.png"
+    ]
+  }
+}

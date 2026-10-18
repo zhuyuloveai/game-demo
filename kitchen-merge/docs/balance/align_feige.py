@@ -192,6 +192,9 @@ def apply(config, reference_chains, reference_numbers, original_sources):
 
 def write_mapping(config, refs, table):
     refs={c['id']:c for c in refs}
+    identities=json.loads((ROOT.parent/'art/ITEM_IDENTITIES_V6.json').read_text())
+    refreshed={i['id'] for c in identities['chains'] if c['runtimeEnabled'] for i in c['items']}
+    aliases=identities.get('legacyAliases',{})
     rows=[]
     resource_names={'energy':'能量道具','coins':'金币','gems':'钻石','blackbag':'黑色手提包','pinkbag':'粉色手提包','tipjar':'肥鹅存钱罐','infinite':'无限能量','timeskip':'棋盘加速器','charge':'充能器','splitter':'拆分器（剪刀）','backpack':'扩容背包','stopwatch':'秒表','upgrade':'升级卡（小厨两类适配）','energybox':'能量箱'}
     for c in config['chains']:
@@ -205,13 +208,13 @@ def write_mapping(config, refs, table):
                 referenceReportedMax=reference.get('reportedMax') if reference else None,referenceCurrentMax=None,
                 routeEvidence='P历史机制适配；名称与美术为厨房原创' if reference else 'P档位/功能参照；使用边界见逐字段表' if c['sources'] else 'D厨房原创/旧档兼容',
                 sources=reference['sources'] if reference else c['sources'],mergeTo=it['mergeTo'],crossMergeTo=cross,
-                artKey=f"item/{it['id']}",change='新增' if it['id']=='gen_recycle:10' else '保留ID/名称/资产键',
+                artKey=f"item/{it['id']}",change='V6双风格重绘/名称更新；ID保留' if it['id'] in refreshed else '沿用V6对应资源图；旧ID保留' if it['id'] in aliases else '保留既有设计/ID/名称',
                 migration='旧v3猫窝保留永久规则；新猫窝有限12次' if it['id']=='garden_guest:6' else '旧实例ID/位置保留；库存溢出保值，当前计时剩余秒数保留',
                 limits=c['reference']))
     (ROOT/'item-reference-map.json').write_text(json.dumps(rows,ensure_ascii=False,indent=2)+'\n')
     out=['# 稳定物品ID、参考路线与美术交接\n',
         '生成源：`build_docs.py` + `align_feige.py`。逐项映射支持审查，P仅为历史机制参照。相同等级序号不代表外形/名称逐项相同；无逐级证据的名称为未知。厨房原创菜系、餐具、水果和旧档资源继续保留。\n',
-        '本轮已有421项ID、资产键全部保留，名称沿用最新main美术提交ae84b44的缸/罐/筐/桶调整，新增 `gen_recycle:10`（大师花园循环桶，资产键 `item/gen_recycle:10`）。沿用ae84b44的桶体扩展该节点，增加仪表和脚轮；既有1—9级图形保持。建议美术单独检查10级识别度。本轮没有重绘现有资产。空袋末级跨链与冒险场景耗尽转场分列。\n',
+        'V6物品身份清单更新53条既有升级链、389个定义的名称与双风格美术；11个旧档资源ID沿用对应的新图及名称。全部422个既有ID、等级数、资产调用键、数值和生产关系保持。经典为独立插画，新风格为3D。另有谷物8级候选图，尚未接入产出与数值；具体状态见[美术说明](../art/ITEM_ART_V6.md)。空袋末级跨链与冒险场景耗尽转场分列。\n',
         '原始肥鹅图仅供研究，未进入游戏素材。主生产器映射有结构差异：生鲜篮借鉴冰箱三支线，但厨房饮品来自独立咖啡台；餐具为保留原创副链；荣誉为永久里程碑，未恢复旧冠军活动。花篮采用花卉路径。\n',
         table(['稳定ID','厨房名称','肥鹅系列/逐级名称','合成→ / 跨链→','资产键','变更'],[(r['id'],r['name'],f"{r['referenceFamily'] or '厨房原创/兼容'} / {r['referenceName'] or '逐级名称未知'}",f"{r['mergeTo'] or '—'} / {r['crossMergeTo'] or '—'}",r['artKey'],r['change']) for r in rows])]
     (ROOT/'ITEM_REFERENCE_MAP.md').write_text('\n'.join(out))

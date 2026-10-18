@@ -1,0 +1,48 @@
+{
+  "id": "japanese:8",
+  "name": "樱花和果子",
+  "source": "sources/japanese-8.png",
+  "prompt": "prompts/japanese-8.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-affa01c9-2b00-43f9-a78f-d5295423c3cc.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/japanese-8.png",
+    "webp": "items/japanese-8.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      105,
+      115,
+      1060,
+      1024
+    ],
+    "box": [
+      39.34,
+      38
+    ],
+    "contact": {
+      "x": 50.43,
+      "width": 20.79,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 773201,
+    "transparentPixels": 787689
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "doll:8",
+  "name": "小白狗厨师布偶",
+  "source": "sources/rejected/doll-8-v1.png",
+  "prompt": "prompts/doll-8.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png",
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/kitchen-merge/dist/assets/cabinet-v5/ui/puppy.webp"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-3aa45e1e-a400-4692-b124-c7b4d977fcc2.png",
+  "review": "pending-visual",
+  "processed": {
+    "png": "items/doll-8.png",
+    "webp": "items/doll-8.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      119,
+      46,
+      1017,
+      1158
+    ],
+    "box": [
+      33.37,
+      38
+    ],
+    "contact": {
+      "x": 47.11,
+      "width": 15.29,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 723063,
+    "transparentPixels": 822602
+  }
+}

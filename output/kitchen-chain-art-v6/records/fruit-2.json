@@ -1,0 +1,45 @@
+{
+  "id": "fruit:2",
+  "name": "香橙",
+  "source": "sources/fruit-2.png",
+  "prompt": "prompts/fruit-2.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-aa6dc59d-bb3d-4659-aa47-d7061c530b36.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/fruit-2.png",
+    "webp": "items/fruit-2.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      70,
+      106,
+      1136,
+      1054
+    ],
+    "box": [
+      40,
+      37.11
+    ],
+    "contact": {
+      "x": 62.88,
+      "width": 22.03,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 909939,
+    "transparentPixels": 650025
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

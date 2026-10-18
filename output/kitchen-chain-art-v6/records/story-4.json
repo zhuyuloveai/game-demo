@@ -1,0 +1,48 @@
+{
+  "id": "story:4",
+  "name": "城堡通行符",
+  "source": "sources/story-4.png",
+  "prompt": "prompts/story-4.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-4a85e3ae-15b0-4f3c-bb92-334c67c77ef7.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/story-4.png",
+    "webp": "items/story-4.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      206,
+      80,
+      977,
+      1072
+    ],
+    "box": [
+      34.63,
+      38
+    ],
+    "contact": {
+      "x": 31.3,
+      "width": 9.67,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 581539,
+    "transparentPixels": 975895
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

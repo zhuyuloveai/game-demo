@@ -1,0 +1,48 @@
+{
+  "id": "keys:5",
+  "name": "餐厅感应手环",
+  "source": "sources/keys-5.png",
+  "prompt": "prompts/keys-5.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-1a3f32a4-16e0-44bc-93a3-fdb81ebc60c3.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/keys-5.png",
+    "webp": "items/keys-5.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      209,
+      111,
+      900,
+      1042
+    ],
+    "box": [
+      32.82,
+      38
+    ],
+    "contact": {
+      "x": 52.44,
+      "width": 15.19,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 611321,
+    "transparentPixels": 938353
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "food:5",
+  "name": "蝴蝶酥",
+  "source": "sources/food-5.png",
+  "prompt": "prompts/food-5.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-74f3da70-bf1f-47d1-b34f-e5264083839d.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/food-5.png",
+    "webp": "items/food-5.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      35,
+      166,
+      1194,
+      952
+    ],
+    "box": [
+      40,
+      31.89
+    ],
+    "contact": {
+      "x": 54.08,
+      "width": 17.68,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 824112,
+    "transparentPixels": 732465
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

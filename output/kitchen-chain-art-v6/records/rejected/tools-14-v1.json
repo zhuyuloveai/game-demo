@@ -1,0 +1,43 @@
+{
+  "id": "tools:14",
+  "name": "手动压面机",
+  "source": "sources/rejected/tools-14-v1.png",
+  "prompt": "prompts/tools-14.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-83a06ae4-3f0c-4668-b76e-2535304d5d4f.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/tools-14.png",
+    "webp": "items/tools-14.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      42,
+      221,
+      1212,
+      874
+    ],
+    "box": [
+      40,
+      28.84
+    ],
+    "contact": {
+      "x": 57.47,
+      "width": 7,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 529426,
+    "transparentPixels": 1023836
+  },
+  "visualReview": {
+    "date": "2026-10-19",
+    "method": "Individual subjects inspected in paired chain evidence; identity, silhouette, transparent edge and small-cell readability checked.",
+    "evidence": "evidence/tools.png"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "gen_mediterranean:6",
+  "name": "旋转烤肉炉",
+  "source": "sources/gen_mediterranean-6.png",
+  "prompt": "prompts/gen_mediterranean-6.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-ba70cb0e-bfb3-454a-a725-87800e4d4f42.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_mediterranean-6.png",
+    "webp": "items/gen_mediterranean-6.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      203,
+      55,
+      866,
+      1131
+    ],
+    "box": [
+      29.86,
+      39
+    ],
+    "contact": {
+      "x": 50.73,
+      "width": 19.43,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 736594,
+    "transparentPixels": 823683
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px pairs inspected; adjacent machine structures and silhouettes distinct, no clipping or container sets.",
+    "evidence": [
+      "evidence/gen_mediterranean.png",
+      "evidence/44px/page-08.png"
+    ]
+  }
+}

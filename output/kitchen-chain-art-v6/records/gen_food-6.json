@@ -1,0 +1,46 @@
+{
+  "id": "gen_food:6",
+  "name": "铸铁圆炉",
+  "source": "sources/gen_food-6.png",
+  "prompt": "prompts/gen_food-6.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-05965b48-d35f-4d02-a8fb-5b09c4351399.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_food-6.png",
+    "webp": "items/gen_food-6.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      45,
+      133,
+      1166,
+      996
+    ],
+    "box": [
+      40,
+      34.17
+    ],
+    "contact": {
+      "x": 49.94,
+      "width": 7,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 683279,
+    "transparentPixels": 875425
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px paired sheet inspected for housing structure, silhouette, margins and grounding.",
+    "evidence": [
+      "evidence/gen_food.png",
+      "evidence/44px/page-06.png",
+      "evidence/44px/page-07.png"
+    ]
+  }
+}

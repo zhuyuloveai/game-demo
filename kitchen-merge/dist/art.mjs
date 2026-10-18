@@ -1,3 +1,4 @@
+import {chainClassicMarkup} from './chain-classic-art.mjs';
 import {islandArt} from './island-art.mjs';
 import {itemMarkup,originalIcon} from './item-art.mjs';
 // Original SVG artwork for the little kitchen.
@@ -429,7 +430,8 @@ export function icon(name, className = '') {
   const raster=islandArt(name,className);if(raster)return raster;
   const id=name.startsWith('item/')?name.slice(5):null;
   const original=id&&originalIcon(id);
-  const body = original?artFor(original):id?render(itemMarkup(id, key=>art[key]), 'natural'):artFor(name);
+  const refreshed=id&&chainClassicMarkup(id);
+  const body = refreshed?render(refreshed,'natural'):original?artFor(original):id?render(itemMarkup(id, key=>art[key]), 'natural'):artFor(name);
   flushDefs();
   return `<svg class="${escapeAttribute(className)}" viewBox="0 0 80 80" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${body}</svg>`;
 }

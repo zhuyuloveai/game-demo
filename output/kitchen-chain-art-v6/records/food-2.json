@@ -1,0 +1,45 @@
+{
+  "id": "food:2",
+  "name": "芝麻贝果",
+  "source": "sources/food-2.png",
+  "prompt": "prompts/food-2.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-38309e0c-4693-4caa-8ca3-97cd7408cb74.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/food-2.png",
+    "webp": "items/food-2.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      72,
+      121,
+      1115,
+      1034
+    ],
+    "box": [
+      40,
+      37.09
+    ],
+    "contact": {
+      "x": 48.73,
+      "width": 21.5,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 845726,
+    "transparentPixels": 711813
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

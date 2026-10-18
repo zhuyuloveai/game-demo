@@ -1,0 +1,18 @@
+{
+  "complete": true,
+  "count": 397,
+  "sourceSha256": "fa20f972e497f5f58bf165f83de78790d973c732414f3a1be6ea0904b41902fe",
+  "evidence": [
+    "evidence/44px/page-01.png",
+    "evidence/44px/page-02.png",
+    "evidence/44px/page-03.png",
+    "evidence/44px/page-04.png",
+    "evidence/44px/page-05.png",
+    "evidence/44px/page-06.png",
+    "evidence/44px/page-07.png",
+    "evidence/44px/page-08.png",
+    "evidence/classic-375x667.jpg",
+    "evidence/classic-browser-geometry.json"
+  ],
+  "notes": "Separate native illustration set; all chain strips and 44px pairs inspected. Classic board screenshot inspected at 375×667; 63 square 46×46 cells, no page overflow."
+}

@@ -1,0 +1,38 @@
+{
+  "id": "honor:2",
+  "name": "铜勺奖章",
+  "source": "sources/rejected/honor-2-v1.png",
+  "prompt": "prompts/honor-2.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-1de774ac-cc4f-4233-8d32-e461fa06a721.png",
+  "review": "pending-visual",
+  "processed": {
+    "png": "items/honor-2.png",
+    "webp": "items/honor-2.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      307,
+      62,
+      640,
+      1070
+    ],
+    "box": [
+      22.73,
+      38
+    ],
+    "contact": {
+      "x": 49.95,
+      "width": 13.83,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 511739,
+    "transparentPixels": 1042901
+  }
+}

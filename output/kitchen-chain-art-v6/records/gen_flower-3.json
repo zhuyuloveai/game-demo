@@ -1,0 +1,45 @@
+{
+  "id": "gen_flower:3",
+  "name": "空提手花桶",
+  "source": "sources/gen_flower-3.png",
+  "prompt": "prompts/gen_flower-3.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-59001df4-9d30-4c72-911a-e211218ee988.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_flower-3.png",
+    "webp": "items/gen_flower-3.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      232,
+      61,
+      816,
+      1113
+    ],
+    "box": [
+      28.59,
+      39
+    ],
+    "contact": {
+      "x": 48.55,
+      "width": 16.53,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 575730,
+    "transparentPixels": 971554
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px pairs inspected, including empty bucket parts, watering/spraying structures and wide versus tall growing enclosures.",
+    "evidence": [
+      "evidence/gen_flower.png",
+      "evidence/44px/page-08.png"
+    ]
+  }
+}

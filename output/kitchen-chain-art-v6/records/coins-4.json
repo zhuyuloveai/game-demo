@@ -1,0 +1,45 @@
+{
+  "id": "coins:4",
+  "name": "金币钱匣",
+  "source": "sources/coins-4.png",
+  "prompt": "prompts/coins-4.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-8ed0ca9a-2b7a-427a-8863-dc7c3e550eac.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/coins-4.png",
+    "webp": "items/coins-4.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      83,
+      279,
+      1133,
+      717
+    ],
+    "box": [
+      40,
+      25.31
+    ],
+    "contact": {
+      "x": 67.2,
+      "width": 14.91,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 630481,
+    "transparentPixels": 931573
+  },
+  "visualReview": {
+    "scope": "Per-chain full image and paired actual 44px review; single subject, level silhouette, alpha boundary and scale inspected. Pinkbag:2 revised to one bag and rechecked.",
+    "evidence": [
+      "evidence/coins.png",
+      "evidence/44px/page-06.png"
+    ]
+  }
+}

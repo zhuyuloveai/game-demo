@@ -1,0 +1,45 @@
+{
+  "id": "gen_flower:2",
+  "name": "铆接桶壁",
+  "source": "sources/gen_flower-2.png",
+  "prompt": "prompts/gen_flower-2.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-800f82c4-1de4-4010-8105-52592514ed4e.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_flower-2.png",
+    "webp": "items/gen_flower-2.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      151,
+      108,
+      953,
+      1038
+    ],
+    "box": [
+      35.81,
+      39
+    ],
+    "contact": {
+      "x": 49.44,
+      "width": 24.08,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 855860,
+    "transparentPixels": 704555
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px pairs inspected, including empty bucket parts, watering/spraying structures and wide versus tall growing enclosures.",
+    "evidence": [
+      "evidence/gen_flower.png",
+      "evidence/44px/page-08.png"
+    ]
+  }
+}

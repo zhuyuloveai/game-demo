@@ -1,0 +1,45 @@
+{
+  "id": "gen_drink:7",
+  "name": "气泡饮料机",
+  "source": "sources/gen_drink-7.png",
+  "prompt": "prompts/gen_drink-7.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-d2203060-eaa1-45a6-b165-7877b02451ae.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_drink-7.png",
+    "webp": "items/gen_drink-7.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      365,
+      40,
+      572,
+      1172
+    ],
+    "box": [
+      19.03,
+      39
+    ],
+    "contact": {
+      "x": 41.27,
+      "width": 15.1,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 530836,
+    "transparentPixels": 1031390
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px paired sheet inspected for single main structure, distinct adjacent silhouette, alpha margins and scale.",
+    "evidence": [
+      "evidence/gen_drink.png",
+      "evidence/44px/page-07.png"
+    ]
+  }
+}

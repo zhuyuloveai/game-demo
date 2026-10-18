@@ -1,0 +1,45 @@
+{
+  "id": "gen_mediterranean:9",
+  "name": "滚筒翻烤机",
+  "source": "sources/gen_mediterranean-9.png",
+  "prompt": "prompts/gen_mediterranean-9.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-2dc41469-20ee-431f-ae6a-dcbcf6fcabc0.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_mediterranean-9.png",
+    "webp": "items/gen_mediterranean-9.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      102,
+      88,
+      1110,
+      1094
+    ],
+    "box": [
+      39.57,
+      39
+    ],
+    "contact": {
+      "x": 56.42,
+      "width": 12.94,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 828865,
+    "transparentPixels": 731359
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px pairs inspected; adjacent machine structures and silhouettes distinct, no clipping or container sets.",
+    "evidence": [
+      "evidence/gen_mediterranean.png",
+      "evidence/44px/page-08.png"
+    ]
+  }
+}

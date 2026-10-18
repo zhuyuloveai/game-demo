@@ -1,0 +1,45 @@
+{
+  "id": "gen_supply:6",
+  "name": "折叠平板车",
+  "source": "sources/gen_supply-6.png",
+  "prompt": "prompts/gen_supply-6.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-dba969f8-6207-4d91-bbb3-8e84eea621e6.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_supply-6.png",
+    "webp": "items/gen_supply-6.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      30,
+      281,
+      1214,
+      926
+    ],
+    "box": [
+      40,
+      30.51
+    ],
+    "contact": {
+      "x": 45.79,
+      "width": 7,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 579386,
+    "transparentPixels": 975989
+  },
+  "visualReview": {
+    "scope": "Per-chain large view and actual 44px pairs inspected. Distinct frame, wheels, transport body or display structure per level; single unified subject.",
+    "evidence": [
+      "evidence/gen_supply.png",
+      "evidence/44px/page-08.png"
+    ]
+  }
+}

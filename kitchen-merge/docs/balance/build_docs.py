@@ -2,10 +2,13 @@
 """Build the reviewable balance data and item appendices; never edits runtime files."""
 import json
 import math
+import sys
 from pathlib import Path
 from align_feige import apply as align_feige, write_mapping
 
 ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT.parents[1] / 'scripts'))
+from item_identities import apply_item_identities
 DATE = '2026-10-16'
 BASE = json.loads((ROOT / 'current-baseline.json').read_text())
 
@@ -381,6 +384,7 @@ CONFIG=dict(schemaVersion=1,balanceVersion='kitchen-reference-v1-draft',status='
  validation=dict(samples=10000,seed=20261016,limits='期望值与静态一致性审计；不代表真实留存、完成时长或现版肥鹅数值'))
 
 align_feige(CONFIG, FE_CHAINS, FE_NUMBERS, SOURCES)
+apply_item_identities(CONFIG)
 
 def dump(name,obj): (ROOT/name).write_text(json.dumps(obj,ensure_ascii=False,indent=2,allow_nan=False)+'\n')
 def table(headers,rows):

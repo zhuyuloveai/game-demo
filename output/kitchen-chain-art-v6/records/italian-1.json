@@ -1,0 +1,48 @@
+{
+  "id": "italian:1",
+  "name": "意式面包棒",
+  "source": "sources/italian-1.png",
+  "prompt": "prompts/italian-1.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-021a6597-66e2-43c1-8435-678bc13e2a32.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/italian-1.png",
+    "webp": "items/italian-1.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      80,
+      110,
+      1117,
+      1046
+    ],
+    "box": [
+      40,
+      37.46
+    ],
+    "contact": {
+      "x": 83.06,
+      "width": 7.67,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 391110,
+    "transparentPixels": 1171179
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

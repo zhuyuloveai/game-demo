@@ -1,0 +1,45 @@
+{
+  "id": "gen_produce:11",
+  "name": "抽屉保鲜柜",
+  "source": "sources/gen_produce-11.png",
+  "prompt": "prompts/gen_produce-11.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-97a440b5-db3f-4549-ad63-3b7de071be6c.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_produce-11.png",
+    "webp": "items/gen_produce-11.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      125,
+      140,
+      1042,
+      1014
+    ],
+    "box": [
+      40,
+      38.93
+    ],
+    "contact": {
+      "x": 71.34,
+      "width": 12.01,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 873343,
+    "transparentPixels": 681566
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px paired sheet inspected for single main structure, distinct adjacent silhouette, alpha margins and scale.",
+    "evidence": [
+      "evidence/gen_produce.png",
+      "evidence/44px/page-07.png"
+    ]
+  }
+}

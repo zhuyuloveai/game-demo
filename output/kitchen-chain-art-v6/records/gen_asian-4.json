@@ -1,0 +1,45 @@
+{
+  "id": "gen_asian:4",
+  "name": "竹笼蒸汽炉",
+  "source": "sources/gen_asian-4.png",
+  "prompt": "prompts/gen_asian-4.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-de8a0bd1-bdd4-477b-81f6-9994da6db9d9.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_asian-4.png",
+    "webp": "items/gen_asian-4.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      71,
+      66,
+      1112,
+      1134
+    ],
+    "box": [
+      38.24,
+      39
+    ],
+    "contact": {
+      "x": 50,
+      "width": 21.6,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 928599,
+    "transparentPixels": 629789
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px pairs inspected; adjacent machine structures and silhouettes distinct, no clipping or container sets.",
+    "evidence": [
+      "evidence/gen_asian.png",
+      "evidence/44px/page-07.png"
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "herb:6",
+  "name": "藏红花",
+  "source": "sources/herb-6.png",
+  "prompt": "prompts/herb-6.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-af7cbaf2-0f01-452f-874a-0636b2a5f6b9.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/herb-6.png",
+    "webp": "items/herb-6.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      85,
+      109,
+      1116,
+      1050
+    ],
+    "box": [
+      40,
+      37.63
+    ],
+    "contact": {
+      "x": 50.18,
+      "width": 10.69,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 670362,
+    "transparentPixels": 888283
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

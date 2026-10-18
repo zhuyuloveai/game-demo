@@ -1,0 +1,46 @@
+{
+  "id": "gen_food:3",
+  "name": "烤炉内胆",
+  "source": "sources/gen_food-3.png",
+  "prompt": "prompts/gen_food-3.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-b67f7c00-3800-4536-b9f6-5e479657556d.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_food-3.png",
+    "webp": "items/gen_food-3.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      49,
+      226,
+      1175,
+      878
+    ],
+    "box": [
+      40,
+      29.89
+    ],
+    "contact": {
+      "x": 78.46,
+      "width": 9.64,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 831328,
+    "transparentPixels": 728574
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px paired sheet inspected for housing structure, silhouette, margins and grounding.",
+    "evidence": [
+      "evidence/gen_food.png",
+      "evidence/44px/page-06.png",
+      "evidence/44px/page-07.png"
+    ]
+  }
+}

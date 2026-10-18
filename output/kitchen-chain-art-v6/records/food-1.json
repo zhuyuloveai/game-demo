@@ -1,0 +1,45 @@
+{
+  "id": "food:1",
+  "name": "黄油曲奇",
+  "source": "sources/food-1.png",
+  "prompt": "prompts/food-1.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-e4e3652f-db6b-44d0-a75e-8c92b871cb17.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/food-1.png",
+    "webp": "items/food-1.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      88,
+      114,
+      1089,
+      1026
+    ],
+    "box": [
+      40,
+      37.69
+    ],
+    "contact": {
+      "x": 51,
+      "width": 18.55,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 825505,
+    "transparentPixels": 737051
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

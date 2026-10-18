@@ -1,0 +1,45 @@
+{
+  "id": "gen_produce:8",
+  "name": "保温采购包",
+  "source": "sources/gen_produce-8.png",
+  "prompt": "prompts/gen_produce-8.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-b102fe29-63a3-419e-8844-0fff111044aa.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_produce-8.png",
+    "webp": "items/gen_produce-8.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      71,
+      60,
+      1128,
+      1135
+    ],
+    "box": [
+      38.76,
+      39
+    ],
+    "contact": {
+      "x": 60.07,
+      "width": 22.14,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 926453,
+    "transparentPixels": 623354
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px paired sheet inspected for single main structure, distinct adjacent silhouette, alpha margins and scale.",
+    "evidence": [
+      "evidence/gen_produce.png",
+      "evidence/44px/page-07.png"
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "flowers:5",
+  "name": "百合",
+  "source": "sources/flowers-5.png",
+  "prompt": "prompts/flowers-5.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-bd66cd36-ab47-402c-b082-155bcc38ab38.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/flowers-5.png",
+    "webp": "items/flowers-5.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      50,
+      65,
+      1156,
+      1121
+    ],
+    "box": [
+      39.19,
+      38
+    ],
+    "contact": {
+      "x": 62.78,
+      "width": 17.66,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 692727,
+    "transparentPixels": 848579
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

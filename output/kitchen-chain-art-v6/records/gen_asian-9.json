@@ -1,0 +1,45 @@
+{
+  "id": "gen_asian:9",
+  "name": "环形蒸汽机",
+  "source": "sources/gen_asian-9.png",
+  "prompt": "prompts/gen_asian-9.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-30448570-ca58-48c1-83ce-38e52dcb7c46.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_asian-9.png",
+    "webp": "items/gen_asian-9.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      11,
+      56,
+      1233,
+      1093
+    ],
+    "box": [
+      40,
+      35.46
+    ],
+    "contact": {
+      "x": 49.96,
+      "width": 18.23,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 706603,
+    "transparentPixels": 853663
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px pairs inspected; adjacent machine structures and silhouettes distinct, no clipping or container sets.",
+    "evidence": [
+      "evidence/gen_asian.png",
+      "evidence/44px/page-07.png"
+    ]
+  }
+}

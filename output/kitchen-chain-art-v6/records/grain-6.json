@@ -1,0 +1,45 @@
+{
+  "id": "grain:6",
+  "name": "荞麦",
+  "source": "sources/grain-6.png",
+  "prompt": "prompts/grain-6.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-b03860be-2d52-48d6-be9d-f956c9de9756.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/grain-6.png",
+    "webp": "items/grain-6.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      87,
+      173,
+      1092,
+      896
+    ],
+    "box": [
+      40,
+      32.82
+    ],
+    "contact": {
+      "x": 53.01,
+      "width": 15.47,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 634775,
+    "transparentPixels": 925313
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

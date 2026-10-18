@@ -1,0 +1,46 @@
+{
+  "id": "gen_food:5",
+  "name": "铁皮小烤炉",
+  "source": "sources/gen_food-5.png",
+  "prompt": "prompts/gen_food-5.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-94a088e2-b20a-4f57-8024-dc7f95d76ac3.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_food-5.png",
+    "webp": "items/gen_food-5.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      67,
+      157,
+      1140,
+      986
+    ],
+    "box": [
+      40,
+      34.6
+    ],
+    "contact": {
+      "x": 66.4,
+      "width": 12.29,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 894410,
+    "transparentPixels": 663109
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px paired sheet inspected for housing structure, silhouette, margins and grounding.",
+    "evidence": [
+      "evidence/gen_food.png",
+      "evidence/44px/page-06.png",
+      "evidence/44px/page-07.png"
+    ]
+  }
+}
