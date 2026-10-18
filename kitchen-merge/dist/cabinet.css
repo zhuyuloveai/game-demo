@@ -55,6 +55,11 @@ body{display:block;background:#2c2422;color:#61412d;font-family:-apple-system,Bl
 [data-kitchen-style="island"] .is-main .order-top{left:0;top:1px;width:56px;height:64px}
 [data-kitchen-style="island"] .is-main .order-top>div{display:none}
 [data-kitchen-style="island"] .story-assistant-slot,[data-kitchen-style="island"] .e-assistant{display:block;position:relative;width:56px;height:64px}
+/* Without a main order, keep the handbook and gifts outside the scrolling rail. */
+[data-kitchen-style="island"] .story-assistant-home{position:absolute;left:20px;top:1px;z-index:4}
+[data-kitchen-style="island"] #orders.has-standalone-assistant{left:80px;width:295px}
+[data-kitchen-style="classic"] .story-assistant-home{position:absolute;left:10px;top:4px;width:46px;height:65px;z-index:4}
+[data-kitchen-style="classic"] .k-design #orders.has-standalone-assistant{left:66px}
 [data-kitchen-style="island"] .k-buddy{position:absolute;left:-2px;top:5px;width:55px;height:56px;display:block}
 [data-kitchen-style="island"] .puppy-sprite{display:block;width:55px;height:56px;background:url('./assets/cabinet-v5/ui/puppy.webp') center bottom/contain no-repeat}
 [data-kitchen-style="island"] .e-assistant-face{position:absolute;left:0;top:0;width:50px;height:57px;display:block}

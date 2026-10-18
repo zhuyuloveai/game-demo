@@ -63,6 +63,22 @@ const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
   await cell(11).click();await p.locator('#selection-card [data-action="collect"]').click();assert.equal((await state('little-kitchen-qa-resources')).board[11],null);
   assert.equal((await state()).energy,95);
   checks.push('Finite producers, resources, tools, bag opening/cooldown expiry, drag merge and QA isolation');
+  // Completing a chapter must not scroll the handbook/gifts out of reach.
+  await p.goto(base+'/?qa=chapter');await ready();
+  await p.locator('.is-main [data-fulfill]').click();
+  assert.equal(await p.locator('.order-card.is-main').count(),0);
+  const keeper=p.locator('.story-assistant-home'),before=await keeper.boundingBox();
+  assert.ok(before&&before.x>=0&&before.y>=0);
+  await p.locator('#orders').hover();await p.mouse.wheel(600,0);await wait(200);
+  const after=await keeper.boundingBox();assert.equal(after.x,before.x);
+  await p.locator('.e-parcel').click();assert.match(await p.locator('#modal h2').innerText(),/礼物/);
+  await p.locator('#modal-close').click();
+  await p.locator('.e-assistant-face').click();await p.locator('[data-action="chapter-claim"]').click();
+  assert.equal(await p.locator('.order-card.is-main').count(),1);
+  assert.equal(await keeper.count(),0);assert.equal(await p.locator('.puppy-sprite').count(),1);
+  await p.locator('#modal-close').click();await p.reload();await ready();
+  assert.equal(await p.locator('.order-card.is-main .e-assistant-face').count(),1);
+  checks.push('Chapter completion keeps mascot and gifts fixed; chapter claim and reload restore the main-order anchor');
  }
  for(const viewport of [{width:375,height:667},{width:768,height:667},{width:1280,height:900}]){
   await p.setViewportSize(viewport);const g=await p.evaluate(()=>{const c=[...document.querySelectorAll('[data-cell]')].map(e=>e.getBoundingClientRect());return{cells:c.length,w:c[0].width,h:c[0].height,x:c[1].x-c[0].right,y:c[7].y-c[0].bottom,scroll:document.documentElement.scrollHeight,view:innerHeight}});
