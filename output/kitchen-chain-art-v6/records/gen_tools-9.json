@@ -1,0 +1,45 @@
+{
+  "id": "gen_tools:9",
+  "name": "抽拉刀具座",
+  "source": "sources/gen_tools-9.png",
+  "prompt": "prompts/gen_tools-9.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-3d69d812-a181-4494-96bd-935f7b2afb23.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_tools-9.png",
+    "webp": "items/gen_tools-9.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      111,
+      93,
+      1053,
+      1076
+    ],
+    "box": [
+      38.17,
+      39
+    ],
+    "contact": {
+      "x": 55.01,
+      "width": 16.67,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 715434,
+    "transparentPixels": 847209
+  },
+  "visualReview": {
+    "scope": "Per-chain full image and paired actual 44px review; single subject, level silhouette, alpha boundary and scale inspected. Pinkbag:2 revised to one bag and rechecked.",
+    "evidence": [
+      "evidence/gen_tools.png",
+      "evidence/44px/page-06.png"
+    ]
+  }
+}

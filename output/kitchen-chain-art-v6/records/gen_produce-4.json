@@ -1,0 +1,45 @@
+{
+  "id": "gen_produce:4",
+  "name": "双耳提篮",
+  "source": "sources/gen_produce-4.png",
+  "prompt": "prompts/gen_produce-4.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-cf9e24f3-15f9-47d8-93d9-b648717c636f.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_produce-4.png",
+    "webp": "items/gen_produce-4.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      33,
+      122,
+      1195,
+      1036
+    ],
+    "box": [
+      40,
+      34.68
+    ],
+    "contact": {
+      "x": 43.06,
+      "width": 17.41,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 840398,
+    "transparentPixels": 715545
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px paired sheet inspected for single main structure, distinct adjacent silhouette, alpha margins and scale.",
+    "evidence": [
+      "evidence/gen_produce.png",
+      "evidence/44px/page-07.png"
+    ]
+  }
+}

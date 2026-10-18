@@ -1,0 +1,46 @@
+{
+  "id": "gen_herb:2",
+  "name": "黏合花盆",
+  "source": "sources/gen_herb-2.png",
+  "prompt": "prompts/gen_herb-2-revision-2.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-chain-art-v6/references/gen_herb-2-v1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-4ed49cbc-473a-4f26-91cc-5c6ab46a5159.png",
+  "review": "visual-approved",
+  "revision": 2,
+  "processed": {
+    "png": "items/gen_herb-2.png",
+    "webp": "items/gen_herb-2.webp",
+    "sourceSize": [
+      1178,
+      1335
+    ],
+    "crop": [
+      15,
+      271,
+      1144,
+      985
+    ],
+    "box": [
+      40,
+      34.44
+    ],
+    "contact": {
+      "x": 49.96,
+      "width": 17.51,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 851747,
+    "transparentPixels": 710155
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px pair inspected. Level 2 repaired to empty pot; unfinished components separate clearly from planted equipment.",
+    "evidence": [
+      "evidence/gen_herb.png",
+      "evidence/44px/page-07.png"
+    ]
+  }
+}

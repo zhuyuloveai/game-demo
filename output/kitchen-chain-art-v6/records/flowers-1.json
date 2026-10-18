@@ -1,0 +1,45 @@
+{
+  "id": "flowers:1",
+  "name": "雏菊",
+  "source": "sources/flowers-1.png",
+  "prompt": "prompts/flowers-1.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-3e995831-5bb7-4fd8-9540-8c0e1c1012fc.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/flowers-1.png",
+    "webp": "items/flowers-1.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      136,
+      84,
+      1020,
+      1117
+    ],
+    "box": [
+      34.7,
+      38
+    ],
+    "contact": {
+      "x": 49.36,
+      "width": 7.63,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 639530,
+    "transparentPixels": 896153
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

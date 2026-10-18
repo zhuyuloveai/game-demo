@@ -155,10 +155,20 @@ test('purple scissors stack up to 20; use, full-board failure, reload and wareho
   r.board[3]=null;E.retrieveItem(r,0,NOW);assert.equal(r.board.find(x=>x?.family==='splitter'&&x.uses===19)?.uses,19);
 });
 
-test('all 421 committed main artwork assets remain byte-identical after numeric changes',async()=>{
+test('art outside the approved V6 redesign stays byte-identical; refreshed IDs use separate illustrations',async()=>{
   const {createHash}=await import('node:crypto'),{icon}=await import('../dist/art.mjs');
   const {hashes}=JSON.parse(fs.readFileSync(new URL('./fixtures/art-main-ae84b44.json',import.meta.url),'utf8'));
+  const plan=JSON.parse(fs.readFileSync(new URL('../docs/art/ITEM_IDENTITIES_V6.json',import.meta.url),'utf8'));
+  const refreshed=new Set([...plan.chains.filter(c=>c.runtimeEnabled).flatMap(c=>c.items.map(i=>i.id)),...Object.keys(plan.legacyAliases)]);
   assert.equal(Object.keys(hashes).length,421);
-  for(const [id,digest]of Object.entries(hashes))assert.equal(createHash('sha256').update(icon(E.ITEMS[id].icon)).digest('hex'),digest,id);
+  let retained=0;
+  for(const [id,digest]of Object.entries(hashes)){
+    const svg=icon(E.ITEMS[id].icon),actual=createHash('sha256').update(svg).digest('hex');
+    if(refreshed.has(id)){
+      assert.ok(svg.includes(`data-classic-item="${id}"`),id);
+      assert.notEqual(actual,digest,id);
+    }else{assert.equal(actual,digest,id);retained++;}
+  }
+  assert.equal(retained,22);
   assert.ok(!/NaN|undefined/.test(icon(E.ITEMS['gen_recycle:10'].icon)));
 });

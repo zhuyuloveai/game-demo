@@ -1,0 +1,45 @@
+{
+  "id": "drink:4",
+  "name": "浓缩咖啡",
+  "source": "sources/drink-4.png",
+  "prompt": "prompts/drink-4.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-b74c759d-bf4a-4f0f-a50a-3388a60e971c.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/drink-4.png",
+    "webp": "items/drink-4.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      166,
+      234,
+      1025,
+      816
+    ],
+    "box": [
+      40,
+      31.84
+    ],
+    "contact": {
+      "x": 41.31,
+      "width": 13.8,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 572614,
+    "transparentPixels": 980468
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

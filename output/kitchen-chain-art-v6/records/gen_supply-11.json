@@ -1,0 +1,45 @@
+{
+  "id": "gen_supply:11",
+  "name": "履带运输车",
+  "source": "sources/gen_supply-11.png",
+  "prompt": "prompts/gen_supply-11.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-7df64cb0-8e50-4735-8458-5dc582bd654a.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_supply-11.png",
+    "webp": "items/gen_supply-11.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      37,
+      210,
+      1180,
+      883
+    ],
+    "box": [
+      40,
+      29.93
+    ],
+    "contact": {
+      "x": 45.82,
+      "width": 13.25,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 768013,
+    "transparentPixels": 794247
+  },
+  "visualReview": {
+    "scope": "Per-chain large view and actual 44px pairs inspected. Distinct frame, wheels, transport body or display structure per level; single unified subject.",
+    "evidence": [
+      "evidence/gen_supply.png",
+      "evidence/44px/page-08.png"
+    ]
+  }
+}

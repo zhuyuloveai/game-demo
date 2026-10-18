@@ -1,0 +1,49 @@
+{
+  "id": "story:5",
+  "name": "守护者徽盒",
+  "source": "sources/story-5.png",
+  "prompt": "prompts/story-5.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png",
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/kitchen-merge/dist/assets/cabinet-v5/ui/puppy.webp"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-3cd5aeb7-c317-43d5-b5db-c1cf36aeccfb.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/story-5.png",
+    "webp": "items/story-5.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      160,
+      24,
+      1030,
+      1185
+    ],
+    "box": [
+      33.03,
+      38
+    ],
+    "contact": {
+      "x": 41.61,
+      "width": 14.15,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 836399,
+    "transparentPixels": 723477
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "gen_herb:9",
+  "name": "玻璃育苗罩",
+  "source": "sources/gen_herb-9.png",
+  "prompt": "prompts/gen_herb-9.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-f7b2f596-5e66-4736-a908-13cdfe23fc70.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_herb-9.png",
+    "webp": "items/gen_herb-9.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      179,
+      96,
+      898,
+      1036
+    ],
+    "box": [
+      33.81,
+      39
+    ],
+    "contact": {
+      "x": 50.55,
+      "width": 25.15,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 674493,
+    "transparentPixels": 885634
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px pair inspected. Level 2 repaired to empty pot; unfinished components separate clearly from planted equipment.",
+    "evidence": [
+      "evidence/gen_herb.png",
+      "evidence/44px/page-07.png"
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "honor:6",
+  "name": "城市桂冠奖杯",
+  "source": "sources/honor-6.png",
+  "prompt": "prompts/honor-6.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-a6bec060-3721-46c7-bb61-29c64f78c529.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/honor-6.png",
+    "webp": "items/honor-6.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      79,
+      112,
+      1096,
+      1058
+    ],
+    "box": [
+      39.36,
+      38
+    ],
+    "contact": {
+      "x": 49.92,
+      "width": 16,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 732286,
+    "transparentPixels": 803830
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px pair inspected. Honor:2 and honor:4 silhouettes corrected and rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/honor.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

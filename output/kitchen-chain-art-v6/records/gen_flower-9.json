@@ -1,0 +1,45 @@
+{
+  "id": "gen_flower:9",
+  "name": "灯塔育花柜",
+  "source": "sources/gen_flower-9.png",
+  "prompt": "prompts/gen_flower-9.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-af5b32a8-92c3-4cc0-b67b-98e81e1a8799.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_flower-9.png",
+    "webp": "items/gen_flower-9.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      327,
+      43,
+      600,
+      1159
+    ],
+    "box": [
+      20.19,
+      39
+    ],
+    "contact": {
+      "x": 49.95,
+      "width": 16.62,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 595098,
+    "transparentPixels": 958677
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px pairs inspected, including empty bucket parts, watering/spraying structures and wide versus tall growing enclosures.",
+    "evidence": [
+      "evidence/gen_flower.png",
+      "evidence/44px/page-08.png"
+    ]
+  }
+}

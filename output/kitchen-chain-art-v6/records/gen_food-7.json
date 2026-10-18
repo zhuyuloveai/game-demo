@@ -1,0 +1,46 @@
+{
+  "id": "gen_food:7",
+  "name": "窗式电烤箱",
+  "source": "sources/gen_food-7.png",
+  "prompt": "prompts/gen_food-7.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-cbd1c5b2-1b1b-4825-87f7-ae7d177e8855.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_food-7.png",
+    "webp": "items/gen_food-7.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      13,
+      255,
+      1232,
+      867
+    ],
+    "box": [
+      40,
+      28.15
+    ],
+    "contact": {
+      "x": 78.23,
+      "width": 8.86,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 842675,
+    "transparentPixels": 711591
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px paired sheet inspected for housing structure, silhouette, margins and grounding.",
+    "evidence": [
+      "evidence/gen_food.png",
+      "evidence/44px/page-06.png",
+      "evidence/44px/page-07.png"
+    ]
+  }
+}

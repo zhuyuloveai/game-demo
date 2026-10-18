@@ -1,0 +1,45 @@
+{
+  "id": "gen_supply:5",
+  "name": "双轮手推车",
+  "source": "sources/gen_supply-5.png",
+  "prompt": "prompts/gen_supply-5.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-cf6a0a19-96bf-46d7-8800-761239d9d6a7.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_supply-5.png",
+    "webp": "items/gen_supply-5.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      187,
+      30,
+      931,
+      1177
+    ],
+    "box": [
+      30.85,
+      39
+    ],
+    "contact": {
+      "x": 48.61,
+      "width": 21.35,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 415527,
+    "transparentPixels": 1126864
+  },
+  "visualReview": {
+    "scope": "Per-chain large view and actual 44px pairs inspected. Distinct frame, wheels, transport body or display structure per level; single unified subject.",
+    "evidence": [
+      "evidence/gen_supply.png",
+      "evidence/44px/page-08.png"
+    ]
+  }
+}

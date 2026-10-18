@@ -1,0 +1,48 @@
+{
+  "id": "doll:4",
+  "name": "布艺胡萝卜",
+  "source": "sources/doll-4.png",
+  "prompt": "prompts/doll-4.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-036ae25e-20d3-4f89-abf4-e4297e48b05b.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/doll-4.png",
+    "webp": "items/doll-4.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      158,
+      46,
+      1061,
+      1162
+    ],
+    "box": [
+      34.7,
+      38
+    ],
+    "contact": {
+      "x": 11.35,
+      "width": 8.01,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 565754,
+    "transparentPixels": 989929
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

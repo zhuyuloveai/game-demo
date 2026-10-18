@@ -45,7 +45,7 @@
 | 每日免费礼 | 每日1次 | 小厨存钱罐 ×1 (tipjar:1)；能量补给箱 ×1 (energybox:1) |
 | 休息补能 | 每日3次 | 每次25体力 |
 | 每日设备委托 | 每日完成3单，北京日期奇/偶 | 黑包L1 / 粉包L1，各日仅1个 |
-| 每周委托 | 周一0时起完成20单，限1次 | 高级设备工具包 ×1 (blackbag:2)；高级食材设备包 ×1 (pinkbag:2)；一小时秒表 ×1 (stopwatch:1)；短时无限体力 ×1 (infinite:1)；一小时沙漏 ×1 (timeskip:1) |
+| 每周委托 | 周一0时起完成20单，限1次 | 硬壳工具箱 ×1 (blackbag:2)；拉链保鲜包 ×1 (pinkbag:2)；一小时秒表 ×1 (stopwatch:1)；30秒无限体力 ×1 (infinite:1)；1小时沙漏 ×1 (timeskip:1) |
 | 订单礼盒 | 每5个C≥4的已交订单；每日最多3个 | 订单礼盒L1 |
 | 主厨荣誉 | 通关12章后，每10个C≥4的订单 | 荣誉L1，无日上限 |
 
@@ -210,9 +210,9 @@
 
 | 礼盒级别 | 确定奖励 |
 | --- | --- |
-| 1 | 能量球 ×1 (energy:2)；一小袋金币 ×1 (coins:3) |
-| 2 | 大能量球 ×1 (energy:3)；一袋金币 ×1 (coins:4) |
-| 3 | 充沛能量 ×1 (energy:4)；金币罐 ×1 (coins:5)；基础剪刀 ×1 (splitter:1) |
+| 1 | 能量晶滴 ×1 (energy:2)；金币布袋 ×1 (coins:3) |
+| 2 | 能量晶球 ×1 (energy:3)；金币钱匣 ×1 (coins:4) |
+| 3 | 能量电池 ×1 (energy:4)；金币罐 ×1 (coins:5)；折叠剪刀 ×1 (splitter:1) |
 
 
 ## 2—100级逐级奖励
@@ -224,99 +224,99 @@
 | 2 | 100 | 能量补给箱 ×1 (energybox:1) |
 | 3 | 220 | 能量补给箱 ×1 (energybox:1) |
 | 4 | 360 | 能量补给箱 ×1 (energybox:1) |
-| 5 | 520 | 能量补给箱 ×1 (energybox:1)；设备工具包 ×1 (blackbag:1) |
+| 5 | 520 | 能量补给箱 ×1 (energybox:1)；卷折工具包 ×1 (blackbag:1) |
 | 6 | 700 | 能量补给箱 ×1 (energybox:1) |
 | 7 | 900 | 能量补给箱 ×1 (energybox:1) |
 | 8 | 1120 | 能量补给箱 ×1 (energybox:1) |
 | 9 | 1360 | 能量补给箱 ×1 (energybox:1) |
-| 10 | 1620 | 能量补给箱 ×1 (energybox:1)；高级设备工具包 ×1 (blackbag:2)；高级食材设备包 ×1 (pinkbag:2)；一小时沙漏 ×1 (timeskip:1) |
+| 10 | 1620 | 能量补给箱 ×1 (energybox:1)；硬壳工具箱 ×1 (blackbag:2)；拉链保鲜包 ×1 (pinkbag:2)；1小时沙漏 ×1 (timeskip:1) |
 | 11 | 1900 | 能量补给箱 ×1 (energybox:1) |
 | 12 | 2200 | 能量补给箱 ×1 (energybox:1) |
 | 13 | 2520 | 能量补给箱 ×1 (energybox:1) |
 | 14 | 2860 | 能量补给箱 ×1 (energybox:1) |
-| 15 | 3220 | 能量补给箱 ×1 (energybox:1)；食材设备包 ×1 (pinkbag:1)；短时无限体力 ×1 (infinite:1) |
+| 15 | 3220 | 能量补给箱 ×1 (energybox:1)；束口食材袋 ×1 (pinkbag:1)；30秒无限体力 ×1 (infinite:1) |
 | 16 | 3600 | 能量补给箱 ×1 (energybox:1) |
 | 17 | 4000 | 能量补给箱 ×1 (energybox:1) |
 | 18 | 4420 | 能量补给箱 ×1 (energybox:1) |
 | 19 | 4860 | 能量补给箱 ×1 (energybox:1) |
-| 20 | 5320 | 能量补给箱 ×1 (energybox:1)；高级设备工具包 ×1 (blackbag:2)；高级食材设备包 ×1 (pinkbag:2)；一小时沙漏 ×1 (timeskip:1)；普通升级卡 ×1 (upgrade:1) |
+| 20 | 5320 | 能量补给箱 ×1 (energybox:1)；硬壳工具箱 ×1 (blackbag:2)；拉链保鲜包 ×1 (pinkbag:2)；1小时沙漏 ×1 (timeskip:1)；普通升级卡 ×1 (upgrade:1) |
 | 21 | 5800 | 能量补给箱 ×1 (energybox:1) |
 | 22 | 6300 | 能量补给箱 ×1 (energybox:1) |
 | 23 | 6820 | 能量补给箱 ×1 (energybox:1) |
 | 24 | 7360 | 能量补给箱 ×1 (energybox:1) |
-| 25 | 7920 | 能量补给箱 ×1 (energybox:1)；设备工具包 ×1 (blackbag:1)；收纳扩容包 ×1 (backpack:1) |
+| 25 | 7920 | 能量补给箱 ×1 (energybox:1)；卷折工具包 ×1 (blackbag:1)；收纳扩容包 ×1 (backpack:1) |
 | 26 | 8500 | 能量补给箱 ×1 (energybox:1) |
 | 27 | 9100 | 能量补给箱 ×1 (energybox:1) |
 | 28 | 9720 | 能量补给箱 ×1 (energybox:1) |
 | 29 | 10360 | 能量补给箱 ×1 (energybox:1) |
-| 30 | 11020 | 能量补给箱 ×1 (energybox:1)；高级设备工具包 ×1 (blackbag:2)；高级食材设备包 ×1 (pinkbag:2)；一小时沙漏 ×1 (timeskip:1)；短时无限体力 ×1 (infinite:1) |
+| 30 | 11020 | 能量补给箱 ×1 (energybox:1)；硬壳工具箱 ×1 (blackbag:2)；拉链保鲜包 ×1 (pinkbag:2)；1小时沙漏 ×1 (timeskip:1)；30秒无限体力 ×1 (infinite:1) |
 | 31 | 11700 | 能量补给箱 ×1 (energybox:1) |
 | 32 | 12400 | 能量补给箱 ×1 (energybox:1) |
 | 33 | 13120 | 能量补给箱 ×1 (energybox:1) |
 | 34 | 13860 | 能量补给箱 ×1 (energybox:1) |
-| 35 | 14620 | 能量补给箱 ×1 (energybox:1)；食材设备包 ×1 (pinkbag:1) |
+| 35 | 14620 | 能量补给箱 ×1 (energybox:1)；束口食材袋 ×1 (pinkbag:1) |
 | 36 | 15400 | 能量补给箱 ×1 (energybox:1) |
 | 37 | 16200 | 能量补给箱 ×1 (energybox:1) |
 | 38 | 17020 | 能量补给箱 ×1 (energybox:1) |
 | 39 | 17860 | 能量补给箱 ×1 (energybox:1) |
-| 40 | 18720 | 能量补给箱 ×1 (energybox:1)；高级设备工具包 ×1 (blackbag:2)；高级食材设备包 ×1 (pinkbag:2)；一小时沙漏 ×1 (timeskip:1)；普通升级卡 ×1 (upgrade:1) |
+| 40 | 18720 | 能量补给箱 ×1 (energybox:1)；硬壳工具箱 ×1 (blackbag:2)；拉链保鲜包 ×1 (pinkbag:2)；1小时沙漏 ×1 (timeskip:1)；普通升级卡 ×1 (upgrade:1) |
 | 41 | 19600 | 能量补给箱 ×1 (energybox:1) |
 | 42 | 20500 | 能量补给箱 ×1 (energybox:1) |
 | 43 | 21420 | 能量补给箱 ×1 (energybox:1) |
 | 44 | 22360 | 能量补给箱 ×1 (energybox:1) |
-| 45 | 23320 | 能量补给箱 ×1 (energybox:1)；设备工具包 ×1 (blackbag:1)；短时无限体力 ×1 (infinite:1) |
+| 45 | 23320 | 能量补给箱 ×1 (energybox:1)；卷折工具包 ×1 (blackbag:1)；30秒无限体力 ×1 (infinite:1) |
 | 46 | 24300 | 能量补给箱 ×1 (energybox:1) |
 | 47 | 25300 | 能量补给箱 ×1 (energybox:1) |
 | 48 | 26320 | 能量补给箱 ×1 (energybox:1) |
 | 49 | 27360 | 能量补给箱 ×1 (energybox:1) |
-| 50 | 28420 | 能量补给箱 ×1 (energybox:1)；高级设备工具包 ×1 (blackbag:2)；高级食材设备包 ×1 (pinkbag:2)；一小时沙漏 ×1 (timeskip:1)；收纳扩容包 ×1 (backpack:1)；设备升级卡 ×1 (upgrade:2) |
+| 50 | 28420 | 能量补给箱 ×1 (energybox:1)；硬壳工具箱 ×1 (blackbag:2)；拉链保鲜包 ×1 (pinkbag:2)；1小时沙漏 ×1 (timeskip:1)；收纳扩容包 ×1 (backpack:1)；设备升级牌 ×1 (upgrade:2) |
 | 51 | 29500 | 能量补给箱 ×1 (energybox:1) |
 | 52 | 30600 | 能量补给箱 ×1 (energybox:1) |
 | 53 | 31720 | 能量补给箱 ×1 (energybox:1) |
 | 54 | 32860 | 能量补给箱 ×1 (energybox:1) |
-| 55 | 34020 | 能量补给箱 ×1 (energybox:1)；食材设备包 ×1 (pinkbag:1) |
+| 55 | 34020 | 能量补给箱 ×1 (energybox:1)；束口食材袋 ×1 (pinkbag:1) |
 | 56 | 35200 | 能量补给箱 ×1 (energybox:1) |
 | 57 | 36400 | 能量补给箱 ×1 (energybox:1) |
 | 58 | 37620 | 能量补给箱 ×1 (energybox:1) |
 | 59 | 38860 | 能量补给箱 ×1 (energybox:1) |
-| 60 | 40120 | 能量补给箱 ×1 (energybox:1)；高级设备工具包 ×1 (blackbag:2)；高级食材设备包 ×1 (pinkbag:2)；一小时沙漏 ×1 (timeskip:1)；短时无限体力 ×1 (infinite:1)；普通升级卡 ×1 (upgrade:1) |
+| 60 | 40120 | 能量补给箱 ×1 (energybox:1)；硬壳工具箱 ×1 (blackbag:2)；拉链保鲜包 ×1 (pinkbag:2)；1小时沙漏 ×1 (timeskip:1)；30秒无限体力 ×1 (infinite:1)；普通升级卡 ×1 (upgrade:1) |
 | 61 | 41400 | 能量补给箱 ×1 (energybox:1) |
 | 62 | 42700 | 能量补给箱 ×1 (energybox:1) |
 | 63 | 44020 | 能量补给箱 ×1 (energybox:1) |
 | 64 | 45360 | 能量补给箱 ×1 (energybox:1) |
-| 65 | 46720 | 能量补给箱 ×1 (energybox:1)；设备工具包 ×1 (blackbag:1) |
+| 65 | 46720 | 能量补给箱 ×1 (energybox:1)；卷折工具包 ×1 (blackbag:1) |
 | 66 | 48100 | 能量补给箱 ×1 (energybox:1) |
 | 67 | 49500 | 能量补给箱 ×1 (energybox:1) |
 | 68 | 50920 | 能量补给箱 ×1 (energybox:1) |
 | 69 | 52360 | 能量补给箱 ×1 (energybox:1) |
-| 70 | 53820 | 能量补给箱 ×1 (energybox:1)；高级设备工具包 ×1 (blackbag:2)；高级食材设备包 ×1 (pinkbag:2)；一小时沙漏 ×1 (timeskip:1) |
+| 70 | 53820 | 能量补给箱 ×1 (energybox:1)；硬壳工具箱 ×1 (blackbag:2)；拉链保鲜包 ×1 (pinkbag:2)；1小时沙漏 ×1 (timeskip:1) |
 | 71 | 55300 | 能量补给箱 ×1 (energybox:1) |
 | 72 | 56800 | 能量补给箱 ×1 (energybox:1) |
 | 73 | 58320 | 能量补给箱 ×1 (energybox:1) |
 | 74 | 59860 | 能量补给箱 ×1 (energybox:1) |
-| 75 | 61420 | 能量补给箱 ×1 (energybox:1)；食材设备包 ×1 (pinkbag:1)；短时无限体力 ×1 (infinite:1)；收纳扩容包 ×1 (backpack:1) |
+| 75 | 61420 | 能量补给箱 ×1 (energybox:1)；束口食材袋 ×1 (pinkbag:1)；30秒无限体力 ×1 (infinite:1)；收纳扩容包 ×1 (backpack:1) |
 | 76 | 63000 | 能量补给箱 ×1 (energybox:1) |
 | 77 | 64600 | 能量补给箱 ×1 (energybox:1) |
 | 78 | 66220 | 能量补给箱 ×1 (energybox:1) |
 | 79 | 67860 | 能量补给箱 ×1 (energybox:1) |
-| 80 | 69520 | 能量补给箱 ×1 (energybox:1)；高级设备工具包 ×1 (blackbag:2)；高级食材设备包 ×1 (pinkbag:2)；一小时沙漏 ×1 (timeskip:1)；普通升级卡 ×1 (upgrade:1) |
+| 80 | 69520 | 能量补给箱 ×1 (energybox:1)；硬壳工具箱 ×1 (blackbag:2)；拉链保鲜包 ×1 (pinkbag:2)；1小时沙漏 ×1 (timeskip:1)；普通升级卡 ×1 (upgrade:1) |
 | 81 | 71200 | 能量补给箱 ×1 (energybox:1) |
 | 82 | 72900 | 能量补给箱 ×1 (energybox:1) |
 | 83 | 74620 | 能量补给箱 ×1 (energybox:1) |
 | 84 | 76360 | 能量补给箱 ×1 (energybox:1) |
-| 85 | 78120 | 能量补给箱 ×1 (energybox:1)；设备工具包 ×1 (blackbag:1) |
+| 85 | 78120 | 能量补给箱 ×1 (energybox:1)；卷折工具包 ×1 (blackbag:1) |
 | 86 | 79900 | 能量补给箱 ×1 (energybox:1) |
 | 87 | 81700 | 能量补给箱 ×1 (energybox:1) |
 | 88 | 83520 | 能量补给箱 ×1 (energybox:1) |
 | 89 | 85360 | 能量补给箱 ×1 (energybox:1) |
-| 90 | 87220 | 能量补给箱 ×1 (energybox:1)；高级设备工具包 ×1 (blackbag:2)；高级食材设备包 ×1 (pinkbag:2)；一小时沙漏 ×1 (timeskip:1)；短时无限体力 ×1 (infinite:1) |
+| 90 | 87220 | 能量补给箱 ×1 (energybox:1)；硬壳工具箱 ×1 (blackbag:2)；拉链保鲜包 ×1 (pinkbag:2)；1小时沙漏 ×1 (timeskip:1)；30秒无限体力 ×1 (infinite:1) |
 | 91 | 89100 | 能量补给箱 ×1 (energybox:1) |
 | 92 | 91000 | 能量补给箱 ×1 (energybox:1) |
 | 93 | 92920 | 能量补给箱 ×1 (energybox:1) |
 | 94 | 94860 | 能量补给箱 ×1 (energybox:1) |
-| 95 | 96820 | 能量补给箱 ×1 (energybox:1)；食材设备包 ×1 (pinkbag:1) |
+| 95 | 96820 | 能量补给箱 ×1 (energybox:1)；束口食材袋 ×1 (pinkbag:1) |
 | 96 | 98800 | 能量补给箱 ×1 (energybox:1) |
 | 97 | 100800 | 能量补给箱 ×1 (energybox:1) |
 | 98 | 102820 | 能量补给箱 ×1 (energybox:1) |
 | 99 | 104860 | 能量补给箱 ×1 (energybox:1) |
-| 100 | 106920 | 能量补给箱 ×1 (energybox:1)；高级设备工具包 ×1 (blackbag:2)；高级食材设备包 ×1 (pinkbag:2)；一小时沙漏 ×1 (timeskip:1)；普通升级卡 ×1 (upgrade:1)；收纳扩容包 ×1 (backpack:1)；设备升级卡 ×1 (upgrade:2) |
+| 100 | 106920 | 能量补给箱 ×1 (energybox:1)；硬壳工具箱 ×1 (blackbag:2)；拉链保鲜包 ×1 (pinkbag:2)；1小时沙漏 ×1 (timeskip:1)；普通升级卡 ×1 (upgrade:1)；收纳扩容包 ×1 (backpack:1)；设备升级牌 ×1 (upgrade:2) |

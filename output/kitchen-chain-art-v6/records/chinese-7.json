@@ -1,0 +1,48 @@
+{
+  "id": "chinese:7",
+  "name": "东坡肉",
+  "source": "sources/chinese-7.png",
+  "prompt": "prompts/chinese-7.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-5ac7599c-77e1-4744-a2d8-3541f8b2c1f3.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/chinese-7.png",
+    "webp": "items/chinese-7.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      88,
+      167,
+      1090,
+      978
+    ],
+    "box": [
+      40,
+      35.89
+    ],
+    "contact": {
+      "x": 60.99,
+      "width": 13.48,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 804300,
+    "transparentPixels": 758099
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

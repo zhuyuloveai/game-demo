@@ -1,0 +1,48 @@
+{
+  "id": "comfort:3",
+  "name": "按摩靠垫",
+  "source": "sources/comfort-3.png",
+  "prompt": "prompts/comfort-3.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-826ad142-d498-4cbe-839a-d4c313ea000c.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/comfort-3.png",
+    "webp": "items/comfort-3.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      82,
+      153,
+      1105,
+      1017
+    ],
+    "box": [
+      40,
+      36.81
+    ],
+    "contact": {
+      "x": 67.56,
+      "width": 17.69,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 830321,
+    "transparentPixels": 727810
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

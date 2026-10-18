@@ -1,0 +1,48 @@
+{
+  "id": "puzzle:3",
+  "name": "装修色卡",
+  "source": "sources/puzzle-3.png",
+  "prompt": "prompts/puzzle-3.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-7f757a72-cd32-4b62-a83e-41cac4a1539a.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/puzzle-3.png",
+    "webp": "items/puzzle-3.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      47,
+      138,
+      1169,
+      1029
+    ],
+    "box": [
+      40,
+      35.21
+    ],
+    "contact": {
+      "x": 48.37,
+      "width": 11.14,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 773092,
+    "transparentPixels": 790921
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

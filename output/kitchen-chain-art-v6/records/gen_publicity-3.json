@@ -1,0 +1,45 @@
+{
+  "id": "gen_publicity:3",
+  "name": "折叠翻页架",
+  "source": "sources/gen_publicity-3.png",
+  "prompt": "prompts/gen_publicity-3.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-97799094-9224-4c9f-863e-8356b50961f0.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_publicity-3.png",
+    "webp": "items/gen_publicity-3.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      72,
+      133,
+      1111,
+      1045
+    ],
+    "box": [
+      40,
+      37.62
+    ],
+    "contact": {
+      "x": 66.87,
+      "width": 11.17,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 779379,
+    "transparentPixels": 775255
+  },
+  "visualReview": {
+    "scope": "Per-chain large view and actual 44px pairs inspected. Distinct frame, wheels, transport body or display structure per level; single unified subject.",
+    "evidence": [
+      "evidence/gen_publicity.png",
+      "evidence/44px/page-08.png"
+    ]
+  }
+}

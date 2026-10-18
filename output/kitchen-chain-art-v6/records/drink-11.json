@@ -1,0 +1,45 @@
+{
+  "id": "drink:11",
+  "name": "蝶豆花特调",
+  "source": "sources/drink-11.png",
+  "prompt": "prompts/drink-11.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-4ec5bc3e-a125-41a8-ae60-a289bbef890d.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/drink-11.png",
+    "webp": "items/drink-11.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      323,
+      86,
+      624,
+      1096
+    ],
+    "box": [
+      21.64,
+      38
+    ],
+    "contact": {
+      "x": 49.75,
+      "width": 13.85,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 515154,
+    "transparentPixels": 1040374
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

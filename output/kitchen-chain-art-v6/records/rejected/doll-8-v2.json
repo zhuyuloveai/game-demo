@@ -1,0 +1,39 @@
+{
+  "id": "doll:8",
+  "name": "小白狗厨师布偶",
+  "source": "sources/rejected/doll-8-v2.png",
+  "prompt": "prompts/doll-8-revision-2.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-chain-art-v6/references/doll-8-v1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-e4cfd90b-bd3b-40c8-ad14-b6a88eec6374.png",
+  "review": "pending-visual",
+  "revision": 2,
+  "processed": {
+    "png": "items/doll-8.png",
+    "webp": "items/doll-8.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      108,
+      1,
+      1061,
+      1248
+    ],
+    "box": [
+      32.31,
+      38
+    ],
+    "contact": {
+      "x": 46.23,
+      "width": 15.14,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 791493,
+    "transparentPixels": 753034
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "honor:4",
+  "name": "金帽奖章",
+  "source": "sources/rejected/honor-4-v1.png",
+  "prompt": "prompts/honor-4.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-e9587c7f-fbbb-4614-9690-06c0bdafa7e8.png",
+  "review": "pending-visual",
+  "processed": {
+    "png": "items/honor-4.png",
+    "webp": "items/honor-4.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      240,
+      80,
+      768,
+      1080
+    ],
+    "box": [
+      27.02,
+      38
+    ],
+    "contact": {
+      "x": 49.71,
+      "width": 15.67,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 611707,
+    "transparentPixels": 950491
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "gen_mediterranean:8",
+  "name": "斜面石板炉",
+  "source": "sources/gen_mediterranean-8.png",
+  "prompt": "prompts/gen_mediterranean-8.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-0f317660-4496-43b5-b25a-6ef3edf5f162.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_mediterranean-8.png",
+    "webp": "items/gen_mediterranean-8.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      40,
+      202,
+      1195,
+      993
+    ],
+    "box": [
+      40,
+      33.24
+    ],
+    "contact": {
+      "x": 66.62,
+      "width": 8.91,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 803641,
+    "transparentPixels": 754475
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px pairs inspected; adjacent machine structures and silhouettes distinct, no clipping or container sets.",
+    "evidence": [
+      "evidence/gen_mediterranean.png",
+      "evidence/44px/page-08.png"
+    ]
+  }
+}

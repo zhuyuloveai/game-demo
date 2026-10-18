@@ -1,0 +1,45 @@
+{
+  "id": "gen_mediterranean:7",
+  "name": "披萨转盘炉",
+  "source": "sources/gen_mediterranean-7.png",
+  "prompt": "prompts/gen_mediterranean-7.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-3695bea5-d7b9-4153-a207-052a8a1c99ce.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_mediterranean-7.png",
+    "webp": "items/gen_mediterranean-7.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      82,
+      114,
+      1129,
+      1035
+    ],
+    "box": [
+      40,
+      36.67
+    ],
+    "contact": {
+      "x": 79.05,
+      "width": 27.13,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 781470,
+    "transparentPixels": 757979
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px pairs inspected; adjacent machine structures and silhouettes distinct, no clipping or container sets.",
+    "evidence": [
+      "evidence/gen_mediterranean.png",
+      "evidence/44px/page-08.png"
+    ]
+  }
+}

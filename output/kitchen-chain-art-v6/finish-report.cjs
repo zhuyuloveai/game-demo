@@ -1,0 +1,20 @@
+const fs=require('fs'),path=require('path');
+const root=__dirname,dist=path.resolve(root,'../../kitchen-merge/dist');
+const jobs=JSON.parse(fs.readFileSync(path.join(root,'jobs.json')));
+const read=p=>JSON.parse(fs.readFileSync(path.join(root,p)));
+const mib=n=>(n/1024/1024).toFixed(2)+' MiB';
+const treeBytes=p=>fs.readdirSync(p,{withFileTypes:true}).reduce((n,x)=>n+(x.isDirectory()?treeBytes(path.join(p,x.name)):x.isFile()?fs.statSync(path.join(p,x.name)).size:0),0);
+(async()=>{
+ const acceptance=read('visual-acceptance.json');if(!acceptance.complete)throw Error('Visual review incomplete');
+ const runtime=(await import(path.join(dist,'full-art-manifest.mjs'))).default;
+ const assets=jobs.map(j=>{
+  const r=read('records/'+j.key+'.json');if(r.review!=='visual-approved')throw Error('Unreviewed '+j.id);
+  return {id:j.id,name:j.name,family:j.family,level:j.level,recognitionCue:j.cue,runtimeEnabled:j.family!=='grain',classic:'classic/'+j.key+'.svg',source:r.source,png:r.processed.png,webp:r.processed.webp,finalPrompt:r.prompt,revision:r.revision||1,cellBox:r.processed.box,contact:r.processed.contact,review:r.visualReview};
+ });
+ const stats={planned:jobs.length,activePairs:assets.filter(x=>x.runtimeEnabled).length,previewPairs:assets.filter(x=>!x.runtimeEnabled).length,runtimeIds:Object.keys(runtime).length,uniqueRuntimeSprites:new Set(Object.values(runtime).map(x=>x.src)).size,finalSourceBytes:assets.reduce((n,a)=>n+fs.statSync(path.join(root,a.source)).size,0),newRuntimeWebpBytes:assets.filter(x=>x.runtimeEnabled).reduce((n,a)=>n+fs.statSync(path.join(root,a.webp)).size,0),referencedItemWebpBytes:[...new Set(Object.values(runtime).map(x=>x.src))].reduce((n,p)=>n+fs.statSync(path.join(dist,p)).size,0),classicModuleBytes:fs.statSync(path.join(dist,'chain-classic-art.mjs')).size+fs.statSync(path.join(dist,'chain-classic-layout.mjs')).size,wholeDistBytes:treeBytes(dist)};
+ if(assets.some(x=>x.runtimeEnabled&&!runtime[x.id]?.src.includes('/cabinet-v6/')))throw Error('Runtime has not installed every refreshed sprite');
+ if(stats.planned!==397||stats.activePairs!==389||stats.runtimeIds!==422)throw Error('Unexpected delivery scope');
+ fs.writeFileSync(path.join(root,'delivery-manifest.json'),JSON.stringify({version:'item-identities-v6',stats,referenceMap:read('reference-map.json'),assets},null,2)+'\n');
+ fs.writeFileSync(path.join(root,'README.md'),`# 小厨合合 · 双风格物品 V6\n\n已按确认的升级链完成 389 个既有物品的两套独立美术：经典插画与精致 3D。另有 8 个谷物候选，两套均可预览；谷物尚未接入生产器或订单。运行时仍有 422 个 ID：389 个刷新、22 个保留、11 个旧档别名复用对应新图。\n\n## 查看\n\n- [实际游戏样板，可切换经典 / 新风格](http://127.0.0.1:4200/game/?qa=full-art)\n- [逐级双风格对照与原图下载](http://127.0.0.1:4200/index.html)\n- [两套 375×667 浏览器截图](comparison.html)\n\n预览使用本地验收存档，与正常游戏存档分开。服务从本目录运行：\n\n\`python3 -m http.server 4200 --bind 127.0.0.1\`\n\n## 文件与用途\n\n- \`delivery-manifest.json\`：逐件 ID、名称、识别特征、两套文件、最终提示词、格内尺寸及验收证据。\n- \`sources/\`：内置 imagegen 逐件生成的透明原图。\n- \`items/\`：保留原 alpha 的 512px PNG 与 160px WebP；逐件按实际边界裁切，无图集均分。\n- \`classic/\`：397 张独立 SVG 插画导出。正式游戏使用 \`kitchen-merge/dist/chain-classic-art.mjs\` 和布局测量文件，延续经典材质系统。\n- \`prompts/\`、\`records/\`：生成提示词、返修版本、原始图路径、裁切边界与视觉记录。最终提示词以每件 record 的 \`prompt\` 为准。\n- \`references/\`、\`reference-map.json\`：风格与角色参考、返修前的准确输入图。\n- \`sources/rejected/\`、\`records/rejected/\`：返修前版本，供追溯。\n- \`evidence/\`：逐链大图、44px 双风格检查表、浏览器截图、几何和存档一致性检查。\n\n## 接入和验证\n\n53 条既有链的物品、生产器名称与配方标题已同步。ID、等级数、数值、合成关系、掉率、配方输入输出和存档结构保持原值。完整规则差异见 \`evidence/gameplay-invariants.json\`。\n\n经典与新版均在 375×667 实际浏览器中检查；7×9 共 63 格，经典 46×46、新版 44×44，行列额外间隔均为 0，无整页溢出。切换风格前后，棋盘与资源显示一致。全部 397 件分别检查大图和实际小尺寸，返修了重复包、奖章轮廓、物体裁边、相册主体和提前长出植物等问题。\n\n## 体积\n\n- 389 张新运行时 WebP：${mib(stats.newRuntimeWebpBytes)}\n- 运行时实际引用的全部 411 张物品 WebP：${mib(stats.referencedItemWebpBytes)}\n- 经典绘制与布局模块：${mib(stats.classicModuleBytes)}\n- 当前整个 dist 目录：${mib(stats.wholeDistBytes)}\n- 397 张最终生成原图：${mib(stats.finalSourceBytes)}，仅存于制作档案，不属于游戏 dist。\n\n3D 采用内置 imagegen；经典延续项目原生 SVG 插画系统独立绘制，未复用 3D 图片做滤镜。\n`);
+ console.log(JSON.stringify(stats,null,2));
+})().catch(e=>{console.error(e);process.exit(1)});

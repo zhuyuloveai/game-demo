@@ -1,0 +1,45 @@
+{
+  "id": "gen_flower:6",
+  "name": "旋转育花台",
+  "source": "sources/gen_flower-6.png",
+  "prompt": "prompts/gen_flower-6.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-7324e8c8-e728-4e1f-99e9-c6fa87196766.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_flower-6.png",
+    "webp": "items/gen_flower-6.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      121,
+      66,
+      1043,
+      1092
+    ],
+    "box": [
+      37.25,
+      39
+    ],
+    "contact": {
+      "x": 48.75,
+      "width": 16.79,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 733896,
+    "transparentPixels": 826184
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px pairs inspected, including empty bucket parts, watering/spraying structures and wide versus tall growing enclosures.",
+    "evidence": [
+      "evidence/gen_flower.png",
+      "evidence/44px/page-08.png"
+    ]
+  }
+}

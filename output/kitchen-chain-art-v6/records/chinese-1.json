@@ -1,0 +1,45 @@
+{
+  "id": "chinese:1",
+  "name": "葱油饼",
+  "source": "sources/chinese-1.png",
+  "prompt": "prompts/chinese-1.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-9977377e-ae63-4a1e-a1f6-ecb59dfff1c2.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/chinese-1.png",
+    "webp": "items/chinese-1.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      45,
+      184,
+      1167,
+      917
+    ],
+    "box": [
+      40,
+      31.43
+    ],
+    "contact": {
+      "x": 50.18,
+      "width": 20.34,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 817057,
+    "transparentPixels": 743547
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

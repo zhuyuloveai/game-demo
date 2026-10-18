@@ -1,0 +1,45 @@
+{
+  "id": "gen_produce:2",
+  "name": "编织篮底",
+  "source": "sources/gen_produce-2.png",
+  "prompt": "prompts/gen_produce-2.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-3d6b2c39-c776-4f22-b2f3-cc2a3180b843.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_produce-2.png",
+    "webp": "items/gen_produce-2.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      57,
+      262,
+      1162,
+      753
+    ],
+    "box": [
+      40,
+      25.92
+    ],
+    "contact": {
+      "x": 54.34,
+      "width": 22.09,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 671617,
+    "transparentPixels": 887869
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px paired sheet inspected for single main structure, distinct adjacent silhouette, alpha margins and scale.",
+    "evidence": [
+      "evidence/gen_produce.png",
+      "evidence/44px/page-07.png"
+    ]
+  }
+}

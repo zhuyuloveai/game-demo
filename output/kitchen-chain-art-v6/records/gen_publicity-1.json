@@ -1,0 +1,45 @@
+{
+  "id": "gen_publicity:1",
+  "name": "食谱夹",
+  "source": "sources/gen_publicity-1.png",
+  "prompt": "prompts/gen_publicity-1.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-d042ab42-6d06-4002-8c1d-b5fc0fdfc4f5.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_publicity-1.png",
+    "webp": "items/gen_publicity-1.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      170,
+      100,
+      965,
+      1045
+    ],
+    "box": [
+      36.01,
+      39
+    ],
+    "contact": {
+      "x": 60.62,
+      "width": 12.12,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 493803,
+    "transparentPixels": 1061742
+  },
+  "visualReview": {
+    "scope": "Per-chain large view and actual 44px pairs inspected. Distinct frame, wheels, transport body or display structure per level; single unified subject.",
+    "evidence": [
+      "evidence/gen_publicity.png",
+      "evidence/44px/page-08.png"
+    ]
+  }
+}

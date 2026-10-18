@@ -1,0 +1,45 @@
+{
+  "id": "grain:3",
+  "name": "玉米",
+  "source": "sources/grain-3.png",
+  "prompt": "prompts/grain-3.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-4e14f2f0-57d5-4a23-b113-068c0a91afa5.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/grain-3.png",
+    "webp": "items/grain-3.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      117,
+      77,
+      1086,
+      1103
+    ],
+    "box": [
+      37.41,
+      38
+    ],
+    "contact": {
+      "x": 28.1,
+      "width": 17.01,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 734254,
+    "transparentPixels": 816357
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "gen_supply:8",
+  "name": "升降搬运车",
+  "source": "sources/gen_supply-8.png",
+  "prompt": "prompts/gen_supply-8.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-fdc503c6-6ef6-4674-aad3-60f48c3452f2.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_supply-8.png",
+    "webp": "items/gen_supply-8.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      73,
+      117,
+      1142,
+      1060
+    ],
+    "box": [
+      40,
+      37.13
+    ],
+    "contact": {
+      "x": 27.73,
+      "width": 7,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 604823,
+    "transparentPixels": 943543
+  },
+  "visualReview": {
+    "scope": "Per-chain large view and actual 44px pairs inspected. Distinct frame, wheels, transport body or display structure per level; single unified subject.",
+    "evidence": [
+      "evidence/gen_supply.png",
+      "evidence/44px/page-08.png"
+    ]
+  }
+}

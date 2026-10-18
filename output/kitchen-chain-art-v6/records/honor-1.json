@@ -1,0 +1,45 @@
+{
+  "id": "honor:1",
+  "name": "参与绶带",
+  "source": "sources/honor-1.png",
+  "prompt": "prompts/honor-1.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-dc934403-8fcc-4f43-9ade-df69433b1380.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/honor-1.png",
+    "webp": "items/honor-1.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      85,
+      131,
+      1084,
+      910
+    ],
+    "box": [
+      40,
+      33.58
+    ],
+    "contact": {
+      "x": 49.81,
+      "width": 9.6,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 516970,
+    "transparentPixels": 1043218
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px pair inspected. Honor:2 and honor:4 silhouettes corrected and rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/honor.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

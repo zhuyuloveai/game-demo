@@ -1,0 +1,45 @@
+{
+  "id": "gen_drink:9",
+  "name": "立式奶昔机",
+  "source": "sources/gen_drink-9.png",
+  "prompt": "prompts/gen_drink-9.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-d7e52457-d7ea-4139-bf45-fe2fc7355977.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_drink-9.png",
+    "webp": "items/gen_drink-9.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      344,
+      51,
+      655,
+      1173
+    ],
+    "box": [
+      21.78,
+      39
+    ],
+    "contact": {
+      "x": 35.54,
+      "width": 13.85,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 518465,
+    "transparentPixels": 1038542
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px paired sheet inspected for single main structure, distinct adjacent silhouette, alpha margins and scale.",
+    "evidence": [
+      "evidence/gen_drink.png",
+      "evidence/44px/page-07.png"
+    ]
+  }
+}

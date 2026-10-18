@@ -1,0 +1,45 @@
+{
+  "id": "gen_mediterranean:1",
+  "name": "煎烤炉脚",
+  "source": "sources/gen_mediterranean-1.png",
+  "prompt": "prompts/gen_mediterranean-1.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-d4937cf6-5fbd-43de-9a37-3e4872ff0a6a.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_mediterranean-1.png",
+    "webp": "items/gen_mediterranean-1.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      62,
+      216,
+      1131,
+      837
+    ],
+    "box": [
+      40,
+      29.6
+    ],
+    "contact": {
+      "x": 49.93,
+      "width": 7.52,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 444637,
+    "transparentPixels": 1104193
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px pairs inspected; adjacent machine structures and silhouettes distinct, no clipping or container sets.",
+    "evidence": [
+      "evidence/gen_mediterranean.png",
+      "evidence/44px/page-08.png"
+    ]
+  }
+}

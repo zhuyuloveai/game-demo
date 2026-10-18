@@ -15,7 +15,7 @@
 
 ## 当前运行内容
 
-64条物品链、422个物品定义（411个新定义、11个旧定义）、11类主生产器、24种特殊转换、12章节/96个主线订单、10份食谱。暖木柜架美术覆盖全部422个ID，使用411件独立WebP（401新生成+10沿用），另有11项旧档兼容映射。
+64条物品链、422个物品定义（411个新定义、11个旧定义）、11类主生产器、24种特殊转换、12章节/96个主线订单、10份食谱。V6刷新53条既有链的389件双风格物品，保留22件范围外物品及11项旧档别名。经典使用独立SVG插画，暖木柜架使用411件独立WebP。谷物8级候选仅保存在制作档案。
 
 粉木/奶油柜架采用375×667整体等比布局，63个44×44方格无重复单格边框。经典/新风格共享进度，默认音乐/音效和核心操作保留。点击选择；点击可用设备生产；移动、交换、合成采用拖动。升级链与经济参数在美术更新中保持不变。
 
@@ -23,7 +23,7 @@
 
 ## 发布流程
 
-1. 执行 `node --test kitchen-merge/tests/*.test.mjs`、`node kitchen-merge/scripts/audit-runtime.mjs`、`python3 kitchen-merge/docs/balance/validate_balance.py` 及模块语法检查。
+1. 执行 `node --test kitchen-merge/tests/*.test.mjs`、`python3 kitchen-merge/tests/item-identities.test.py`、`node kitchen-merge/scripts/audit-runtime.mjs`、`python3 kitchen-merge/docs/balance/validate_balance.py` 及模块语法检查。
 2. 在本地浏览器验收生产、选中、拖动合成/交换、刷新存档以及手机宽度。`?qa=producers` 等验收入口只在loopback主机启用，使用独立存储键。
 3. 将完整已跟踪 `dist/` 内容复制到全新发布目录的 `site/`，将 `nginx.conf`、`activate.sh` 和SHA-256清单放在 `site/` 外。
 4. 上传到新发布目录，在其中执行 `bash activate.sh <release-name>`。脚本校验文件、备份配置/部署记录/旧目标，再执行 `nginx -t` 和原子链接切换；失败会自动恢复。

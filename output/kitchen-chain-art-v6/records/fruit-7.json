@@ -1,0 +1,45 @@
+{
+  "id": "fruit:7",
+  "name": "山竹",
+  "source": "sources/fruit-7.png",
+  "prompt": "prompts/fruit-7.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-6fb490c5-a72c-4e42-ad1e-96faaa40eb8c.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/fruit-7.png",
+    "webp": "items/fruit-7.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      62,
+      99,
+      1162,
+      1058
+    ],
+    "box": [
+      40,
+      36.42
+    ],
+    "contact": {
+      "x": 68.36,
+      "width": 14.57,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 794966,
+    "transparentPixels": 762572
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

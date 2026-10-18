@@ -1,0 +1,45 @@
+{
+  "id": "energy:2",
+  "name": "能量晶滴",
+  "source": "sources/energy-2.png",
+  "prompt": "prompts/energy-2.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-9c79310a-ffa4-4962-a344-b7f324dd666b.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/energy-2.png",
+    "webp": "items/energy-2.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      213,
+      83,
+      861,
+      1103
+    ],
+    "box": [
+      29.66,
+      38
+    ],
+    "contact": {
+      "x": 49.72,
+      "width": 17.13,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 623387,
+    "transparentPixels": 939299
+  },
+  "visualReview": {
+    "scope": "Per-chain full image and paired actual 44px review; single subject, level silhouette, alpha boundary and scale inspected. Pinkbag:2 revised to one bag and rechecked.",
+    "evidence": [
+      "evidence/energy.png",
+      "evidence/44px/page-06.png"
+    ]
+  }
+}

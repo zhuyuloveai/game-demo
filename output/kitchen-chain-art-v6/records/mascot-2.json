@@ -1,0 +1,49 @@
+{
+  "id": "mascot:2",
+  "name": "坐姿小厨",
+  "source": "sources/mascot-2.png",
+  "prompt": "prompts/mascot-2.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png",
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/kitchen-merge/dist/assets/cabinet-v5/ui/puppy.webp"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-63679f3e-ca58-43ae-803a-f055b352365a.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/mascot-2.png",
+    "webp": "items/mascot-2.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      90,
+      82,
+      1095,
+      1122
+    ],
+    "box": [
+      37.09,
+      38
+    ],
+    "contact": {
+      "x": 52.84,
+      "width": 22.08,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 770495,
+    "transparentPixels": 771061
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "food:3",
+  "name": "牛奶吐司",
+  "source": "sources/food-3.png",
+  "prompt": "prompts/food-3.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-bdfdd9ce-d29f-413f-8abb-332ae4dee45a.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/food-3.png",
+    "webp": "items/food-3.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      103,
+      123,
+      1084,
+      1038
+    ],
+    "box": [
+      39.68,
+      38
+    ],
+    "contact": {
+      "x": 48.53,
+      "width": 15.65,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 869485,
+    "transparentPixels": 690730
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

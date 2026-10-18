@@ -1,0 +1,2780 @@
+{
+  "version": "chain-identities-v6-20261019",
+  "approvedByUser": true,
+  "scope": "53 existing chains keep IDs and mechanics; grain is art preview only pending source/odds design",
+  "chains": [
+    {
+      "id": "fruit",
+      "name": "缤纷水果",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "fruit:1",
+          "level": 1,
+          "name": "苹果",
+          "cue": "红色圆果，顶部凹口，一片绿叶"
+        },
+        {
+          "id": "fruit:2",
+          "level": 2,
+          "name": "香橙",
+          "cue": "橙色球体，粗孔果皮，少量同果切面"
+        },
+        {
+          "id": "fruit:3",
+          "level": 3,
+          "name": "香蕉",
+          "cue": "弯月形黄色果身，一根半剥皮香蕉"
+        },
+        {
+          "id": "fruit:4",
+          "level": 4,
+          "name": "草莓",
+          "cue": "红色心形果身，明显绿萼和浅色籽点"
+        },
+        {
+          "id": "fruit:5",
+          "level": 5,
+          "name": "芒果",
+          "cue": "黄橙不对称椭圆，保留果肩弧线"
+        },
+        {
+          "id": "fruit:6",
+          "level": 6,
+          "name": "火龙果",
+          "cue": "玫红椭圆，绿色外翻鳞片"
+        },
+        {
+          "id": "fruit:7",
+          "level": 7,
+          "name": "山竹",
+          "cue": "深紫圆壳，厚绿萼，小块白色分瓣果肉"
+        },
+        {
+          "id": "fruit:8",
+          "level": 8,
+          "name": "榴莲",
+          "cue": "橄榄绿尖刺卵形，大块奶黄色果肉"
+        }
+      ]
+    },
+    {
+      "id": "vegetable",
+      "name": "田园蔬菜",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "vegetable:1",
+          "level": 1,
+          "name": "胡萝卜",
+          "cue": "橙色长锥根，少量绿色叶柄"
+        },
+        {
+          "id": "vegetable:2",
+          "level": 2,
+          "name": "黄瓜",
+          "cue": "深绿色长圆柱，疙瘩纹，斜向摆放"
+        },
+        {
+          "id": "vegetable:3",
+          "level": 3,
+          "name": "茄子",
+          "cue": "深紫水滴形，粗绿色萼"
+        },
+        {
+          "id": "vegetable:4",
+          "level": 4,
+          "name": "西兰花",
+          "cue": "深绿树冠状花球，粗浅绿短茎"
+        },
+        {
+          "id": "vegetable:5",
+          "level": 5,
+          "name": "南瓜",
+          "cue": "橙色扁圆大瓣，短棕色果柄"
+        },
+        {
+          "id": "vegetable:6",
+          "level": 6,
+          "name": "芦笋",
+          "cue": "三根同种嫩茎，尖头鳞片，细长三角轮廓"
+        },
+        {
+          "id": "vegetable:7",
+          "level": 7,
+          "name": "宝塔花菜",
+          "cue": "黄绿色锥形花球，大块螺旋层级"
+        },
+        {
+          "id": "vegetable:8",
+          "level": 8,
+          "name": "朝鲜蓟",
+          "cue": "灰绿色卵形花苞，外翻厚鳞片"
+        }
+      ]
+    },
+    {
+      "id": "grain",
+      "name": "谷物与杂粮",
+      "runtimeEnabled": false,
+      "items": [
+        {
+          "id": "grain:1",
+          "level": 1,
+          "name": "小麦",
+          "cue": "金色直立麦穗，大颗交错麦粒"
+        },
+        {
+          "id": "grain:2",
+          "level": 2,
+          "name": "稻米",
+          "cue": "浅金色下垂稻穗，弯弧形轮廓"
+        },
+        {
+          "id": "grain:3",
+          "level": 3,
+          "name": "玉米",
+          "cue": "黄色整根玉米，半剥开的绿色苞叶"
+        },
+        {
+          "id": "grain:4",
+          "level": 4,
+          "name": "燕麦",
+          "cue": "浅褐色下垂分枝穗，疏朗铃铛状颗粒"
+        },
+        {
+          "id": "grain:5",
+          "level": 5,
+          "name": "高粱",
+          "cue": "酒红色密集穗头，粗直茎"
+        },
+        {
+          "id": "grain:6",
+          "level": 6,
+          "name": "荞麦",
+          "cue": "少量放大的深褐三棱籽粒，三角形轮廓"
+        },
+        {
+          "id": "grain:7",
+          "level": 7,
+          "name": "黑米",
+          "cue": "紫黑色细长米粒与一段弯穗，主色整体深紫"
+        },
+        {
+          "id": "grain:8",
+          "level": 8,
+          "name": "藜麦",
+          "cue": "玫红紧密穗簇，少量奶白圆籽，蓬松锥形"
+        }
+      ]
+    },
+    {
+      "id": "herb",
+      "name": "香草与香料",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "herb:1",
+          "level": 1,
+          "name": "罗勒",
+          "cue": "亮绿宽卵叶，成对圆润叶片"
+        },
+        {
+          "id": "herb:2",
+          "level": 2,
+          "name": "薄荷",
+          "cue": "冷绿锯齿叶，短枝呈十字分叉"
+        },
+        {
+          "id": "herb:3",
+          "level": 3,
+          "name": "迷迭香",
+          "cue": "深绿针叶，细长直立枝"
+        },
+        {
+          "id": "herb:4",
+          "level": 4,
+          "name": "百里香",
+          "cue": "灰绿细枝，小叶形成低矮扇形"
+        },
+        {
+          "id": "herb:5",
+          "level": 5,
+          "name": "紫苏",
+          "cue": "紫红色大锯齿叶，心形叶面"
+        },
+        {
+          "id": "herb:6",
+          "level": 6,
+          "name": "藏红花",
+          "cue": "紫色花冠，三根醒目的红色柱头"
+        }
+      ]
+    },
+    {
+      "id": "flowers",
+      "name": "珍稀花卉",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "flowers:1",
+          "level": 1,
+          "name": "雏菊",
+          "cue": "白色放射花瓣，黄色圆花心"
+        },
+        {
+          "id": "flowers:2",
+          "level": 2,
+          "name": "向日葵",
+          "cue": "金黄大瓣，深棕大圆花盘"
+        },
+        {
+          "id": "flowers:3",
+          "level": 3,
+          "name": "郁金香",
+          "cue": "橙红杯形花苞，宽绿色叶片"
+        },
+        {
+          "id": "flowers:4",
+          "level": 4,
+          "name": "康乃馨",
+          "cue": "粉红层叠锯齿瓣，扇形花冠"
+        },
+        {
+          "id": "flowers:5",
+          "level": 5,
+          "name": "百合",
+          "cue": "奶白六瓣星形，明显长花蕊"
+        },
+        {
+          "id": "flowers:6",
+          "level": 6,
+          "name": "玫瑰",
+          "cue": "红色螺旋花心，厚实卷边花瓣"
+        },
+        {
+          "id": "flowers:7",
+          "level": 7,
+          "name": "绣球",
+          "cue": "蓝紫球形花序，整体大色块"
+        },
+        {
+          "id": "flowers:8",
+          "level": 8,
+          "name": "蝴蝶兰",
+          "cue": "白紫蝴蝶形花朵，弧形短花梗"
+        },
+        {
+          "id": "flowers:9",
+          "level": 9,
+          "name": "帝王花",
+          "cue": "粉白尖瓣环绕大花心，宽大杯状轮廓"
+        }
+      ]
+    },
+    {
+      "id": "food",
+      "name": "烘焙甜点",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "food:1",
+          "level": 1,
+          "name": "黄油曲奇",
+          "cue": "金黄色齿边圆饼，深色旋纹"
+        },
+        {
+          "id": "food:2",
+          "level": 2,
+          "name": "芝麻贝果",
+          "cue": "棕色圆环面包，中央大孔"
+        },
+        {
+          "id": "food:3",
+          "level": 3,
+          "name": "牛奶吐司",
+          "cue": "方顶长面包，露出一片奶白切面"
+        },
+        {
+          "id": "food:4",
+          "level": 4,
+          "name": "黄油可颂",
+          "cue": "金黄弯月轮廓，清楚的酥皮节段"
+        },
+        {
+          "id": "food:5",
+          "level": 5,
+          "name": "蝴蝶酥",
+          "cue": "左右双卷的蝴蝶形薄酥"
+        },
+        {
+          "id": "food:6",
+          "level": 6,
+          "name": "闪电泡芙",
+          "cue": "长条棕色泡芙，顶部整块巧克力"
+        },
+        {
+          "id": "food:7",
+          "level": 7,
+          "name": "肉桂卷",
+          "cue": "直立圆螺旋，奶白糖霜条纹"
+        },
+        {
+          "id": "food:8",
+          "level": 8,
+          "name": "蓝莓玛芬",
+          "cue": "紫蓝圆顶，深蓝褶纸杯"
+        },
+        {
+          "id": "food:9",
+          "level": 9,
+          "name": "樱桃丹麦酥",
+          "cue": "菱形翻角酥皮，中心一颗红樱桃"
+        },
+        {
+          "id": "food:10",
+          "level": 10,
+          "name": "树根蛋糕",
+          "cue": "横向短圆木形，深棕纹理和一个切口"
+        },
+        {
+          "id": "food:11",
+          "level": 11,
+          "name": "草莓夏洛特蛋糕",
+          "cue": "单个圆柱蛋糕，浅色手指饼围边，红色果顶"
+        }
+      ]
+    },
+    {
+      "id": "drink",
+      "name": "手作饮品",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "drink:1",
+          "level": 1,
+          "name": "鲜牛奶",
+          "cue": "矮胖白色奶瓶，蓝色瓶盖"
+        },
+        {
+          "id": "drink:2",
+          "level": 2,
+          "name": "柠檬汽水",
+          "cue": "浅黄色透明长杯，一片柠檬和明显气泡"
+        },
+        {
+          "id": "drink:3",
+          "level": 3,
+          "name": "鲜榨橙汁",
+          "cue": "橙色大肚杯，短绿吸管"
+        },
+        {
+          "id": "drink:4",
+          "level": 4,
+          "name": "浓缩咖啡",
+          "cue": "深棕液面，白色小柄杯，杯身很矮"
+        },
+        {
+          "id": "drink:5",
+          "level": 5,
+          "name": "抹茶拿铁",
+          "cue": "绿色宽口杯，浅白奶层"
+        },
+        {
+          "id": "drink:6",
+          "level": 6,
+          "name": "珍珠奶茶",
+          "cue": "棕米色桶形杯，底部大黑珍珠"
+        },
+        {
+          "id": "drink:7",
+          "level": 7,
+          "name": "草莓奶昔",
+          "cue": "粉红高脚波纹杯，单个旋转奶油顶"
+        },
+        {
+          "id": "drink:8",
+          "level": 8,
+          "name": "椰青冷萃",
+          "cue": "绿色椰壳，白色开口，深棕咖啡液"
+        },
+        {
+          "id": "drink:9",
+          "level": 9,
+          "name": "芒果冰沙",
+          "cue": "橙黄锥形冰沙，透明倒三角杯"
+        },
+        {
+          "id": "drink:10",
+          "level": 10,
+          "name": "蓝莓酸奶昔",
+          "cue": "深紫圆腹玻璃罐，宽白色酸奶旋纹"
+        },
+        {
+          "id": "drink:11",
+          "level": 11,
+          "name": "蝶豆花特调",
+          "cue": "蓝紫渐变细腰杯，清晰上下色层"
+        }
+      ]
+    },
+    {
+      "id": "chinese",
+      "name": "中式料理",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "chinese:1",
+          "level": 1,
+          "name": "葱油饼",
+          "cue": "扁圆金黄饼，粗螺旋纹和绿色葱点"
+        },
+        {
+          "id": "chinese:2",
+          "level": 2,
+          "name": "水饺",
+          "cue": "一只饱满月牙饺，清楚的褶边"
+        },
+        {
+          "id": "chinese:3",
+          "level": 3,
+          "name": "小笼包",
+          "cue": "一只圆形包，向上收拢的褶口"
+        },
+        {
+          "id": "chinese:4",
+          "level": 4,
+          "name": "牛肉汤面",
+          "cue": "深色宽碗，粗面条和一大片牛肉"
+        },
+        {
+          "id": "chinese:5",
+          "level": 5,
+          "name": "糯米烧卖",
+          "cue": "敞口花边皮，深色糯米圆心"
+        },
+        {
+          "id": "chinese:6",
+          "level": 6,
+          "name": "荷叶糯米鸡",
+          "cue": "深绿方形荷叶包，掀开一角露出米馅"
+        },
+        {
+          "id": "chinese:7",
+          "level": 7,
+          "name": "东坡肉",
+          "cue": "单块红褐方肉，明显上下肥瘦层"
+        },
+        {
+          "id": "chinese:8",
+          "level": 8,
+          "name": "松鼠桂鱼",
+          "cue": "整鱼翘尾造型，橙红菱格炸纹"
+        }
+      ]
+    },
+    {
+      "id": "japanese",
+      "name": "日式料理",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "japanese:1",
+          "level": 1,
+          "name": "梅子饭团",
+          "cue": "白色三角形，黑海苔底边，红梅子点"
+        },
+        {
+          "id": "japanese:2",
+          "level": 2,
+          "name": "厚蛋烧",
+          "cue": "金黄长方卷，明显螺旋切面"
+        },
+        {
+          "id": "japanese:3",
+          "level": 3,
+          "name": "三文鱼握寿司",
+          "cue": "橙色鱼片盖白色米团，长椭圆形"
+        },
+        {
+          "id": "japanese:4",
+          "level": 4,
+          "name": "海苔手卷",
+          "cue": "黑色锥筒，顶部少量亮色馅料"
+        },
+        {
+          "id": "japanese:5",
+          "level": 5,
+          "name": "炸虾天妇罗",
+          "cue": "金黄弯虾，露出红色尾扇"
+        },
+        {
+          "id": "japanese:6",
+          "level": 6,
+          "name": "豚骨拉面",
+          "cue": "红黑深碗，奶白汤面，一片叉烧"
+        },
+        {
+          "id": "japanese:7",
+          "level": 7,
+          "name": "鳗鱼饭",
+          "cue": "朱红长方饭盒，表面一整片深褐鳗鱼"
+        },
+        {
+          "id": "japanese:8",
+          "level": 8,
+          "name": "樱花和果子",
+          "cue": "单颗粉色五瓣花形，黄色小花心"
+        }
+      ]
+    },
+    {
+      "id": "italian",
+      "name": "意式料理",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "italian:1",
+          "level": 1,
+          "name": "意式面包棒",
+          "cue": "两根同种金黄长棒，稀疏芝麻点"
+        },
+        {
+          "id": "italian:2",
+          "level": 2,
+          "name": "番茄意面",
+          "cue": "红酱面条卷成一个高圆顶，白色浅盘"
+        },
+        {
+          "id": "italian:3",
+          "level": 3,
+          "name": "玛格丽特披萨",
+          "cue": "完整薄圆饼，大块白芝士与绿罗勒"
+        },
+        {
+          "id": "italian:4",
+          "level": 4,
+          "name": "南瓜烩饭",
+          "cue": "橙黄米饭小圆丘，单片南瓜作主标志"
+        },
+        {
+          "id": "italian:5",
+          "level": 5,
+          "name": "千层面",
+          "cue": "一块高方形，红白相间切层"
+        },
+        {
+          "id": "italian:6",
+          "level": 6,
+          "name": "菠菜方饺",
+          "cue": "一枚放大绿色方饺，波浪齿边"
+        },
+        {
+          "id": "italian:7",
+          "level": 7,
+          "name": "墨鱼汁意面",
+          "cue": "黑色卷面，浅色窄盘，整体深色主体"
+        },
+        {
+          "id": "italian:8",
+          "level": 8,
+          "name": "提拉米苏",
+          "cue": "一块可可色长方蛋糕，清楚的棕白双层"
+        }
+      ]
+    },
+    {
+      "id": "mexican",
+      "name": "墨西哥料理",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "mexican:1",
+          "level": 1,
+          "name": "墨西哥烤玉米",
+          "cue": "完整金黄玉米棒，白色酱纹，红色香料点"
+        },
+        {
+          "id": "mexican:2",
+          "level": 2,
+          "name": "塔可",
+          "cue": "开口黄色弯壳，侧面可见整块馅料"
+        },
+        {
+          "id": "mexican:3",
+          "level": 3,
+          "name": "芝士夹饼",
+          "cue": "一块金黄三角薄饼，短拉丝芝士"
+        },
+        {
+          "id": "mexican:4",
+          "level": 4,
+          "name": "墨西哥卷饼",
+          "cue": "米白色粗圆筒，一端斜切"
+        },
+        {
+          "id": "mexican:5",
+          "level": 5,
+          "name": "玉米叶塔玛利",
+          "cue": "浅褐玉米叶包，纵向打开露出黄面团"
+        },
+        {
+          "id": "mexican:6",
+          "level": 6,
+          "name": "酿馅辣椒",
+          "cue": "一整只深绿大椒，开口露出浅色馅"
+        },
+        {
+          "id": "mexican:7",
+          "level": 7,
+          "name": "红酱恩奇拉达",
+          "cue": "一根红酱烤饼卷，顶部白色横条"
+        },
+        {
+          "id": "mexican:8",
+          "level": 8,
+          "name": "亡灵节面包",
+          "cue": "棕色圆顶面包，浅色交叉骨节形面纹"
+        }
+      ]
+    },
+    {
+      "id": "tools",
+      "name": "料理厨具",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "tools:1",
+          "level": 1,
+          "name": "木勺",
+          "cue": "浅木色长柄，椭圆凹勺头"
+        },
+        {
+          "id": "tools:2",
+          "level": 2,
+          "name": "打蛋器",
+          "cue": "细长银色线笼，蓝色短柄"
+        },
+        {
+          "id": "tools:3",
+          "level": 3,
+          "name": "厨房夹",
+          "cue": "V 形开合长夹，两个圆齿夹头"
+        },
+        {
+          "id": "tools:4",
+          "level": 4,
+          "name": "硅胶刮刀",
+          "cue": "粉红宽方头，短木柄"
+        },
+        {
+          "id": "tools:5",
+          "level": 5,
+          "name": "漏勺",
+          "cue": "圆形网勺，大孔网面，细长柄"
+        },
+        {
+          "id": "tools:6",
+          "level": 6,
+          "name": "擀面杖",
+          "cue": "粗木圆柱，两端短把"
+        },
+        {
+          "id": "tools:7",
+          "level": 7,
+          "name": "刨丝器",
+          "cue": "立体四棱锥金属塔，顶端弧柄"
+        },
+        {
+          "id": "tools:8",
+          "level": 8,
+          "name": "石臼",
+          "cue": "深灰矮圆石碗，一根粗杵"
+        },
+        {
+          "id": "tools:9",
+          "level": 9,
+          "name": "煎锅",
+          "cue": "黑色扁圆锅身，单根长柄"
+        },
+        {
+          "id": "tools:10",
+          "level": 10,
+          "name": "双耳汤锅",
+          "cue": "银色高筒锅，左右小耳"
+        },
+        {
+          "id": "tools:11",
+          "level": 11,
+          "name": "铸铁炖锅",
+          "cue": "红色矮胖圆锅，厚盖和黑圆钮"
+        },
+        {
+          "id": "tools:12",
+          "level": 12,
+          "name": "压力锅",
+          "cue": "银色短粗锅，横向锁杆和顶部压力阀"
+        },
+        {
+          "id": "tools:13",
+          "level": 13,
+          "name": "手摇绞肉机",
+          "cue": "侧向短筒，顶部漏斗，弯曲摇柄"
+        },
+        {
+          "id": "tools:14",
+          "level": 14,
+          "name": "手动压面机",
+          "cue": "横向双滚筒，侧置大摇柄，平直支脚"
+        }
+      ]
+    },
+    {
+      "id": "tableware",
+      "name": "精致餐具",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "tableware:1",
+          "level": 1,
+          "name": "小瓷碟",
+          "cue": "白底蓝边扁圆碟"
+        },
+        {
+          "id": "tableware:2",
+          "level": 2,
+          "name": "陶瓷饭碗",
+          "cue": "天蓝色半球碗，厚足圈"
+        },
+        {
+          "id": "tableware:3",
+          "level": 3,
+          "name": "双耳汤盅",
+          "cue": "奶白小圆盅，左右双耳与圆盖"
+        },
+        {
+          "id": "tableware:4",
+          "level": 4,
+          "name": "高脚玻璃杯",
+          "cue": "透明长杯脚，上部倒钟形杯腹"
+        },
+        {
+          "id": "tableware:5",
+          "level": 5,
+          "name": "花瓣茶壶",
+          "cue": "粉白圆腹壶，一侧弯嘴一侧圆把"
+        },
+        {
+          "id": "tableware:6",
+          "level": 6,
+          "name": "船形酱汁壶",
+          "cue": "白色长船腹，尖嘴和低弧把"
+        },
+        {
+          "id": "tableware:7",
+          "level": 7,
+          "name": "带盖陶瓷汤盆",
+          "cue": "青色宽椭圆盆，拱形厚盖"
+        },
+        {
+          "id": "tableware:8",
+          "level": 8,
+          "name": "天鹅糖罐",
+          "cue": "白色天鹅曲颈主体，背部可开盖"
+        }
+      ]
+    },
+    {
+      "id": "preservation",
+      "name": "食材保鲜",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "preservation:1",
+          "level": 1,
+          "name": "保鲜膜卷",
+          "cue": "横向透明薄膜卷，棕色纸芯"
+        },
+        {
+          "id": "preservation:2",
+          "level": 2,
+          "name": "拉链密封袋",
+          "cue": "透明扁平袋，红色粗封口线"
+        },
+        {
+          "id": "preservation:3",
+          "level": 3,
+          "name": "扣盖保鲜盒",
+          "cue": "浅绿方盒，左右明显卡扣"
+        },
+        {
+          "id": "preservation:4",
+          "level": 4,
+          "name": "台式真空封口机",
+          "cue": "奶白长条机器，前方压合缝"
+        }
+      ]
+    },
+    {
+      "id": "bakeware",
+      "name": "烘焙器具",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "bakeware:1",
+          "level": 1,
+          "name": "纸杯模具",
+          "cue": "粉色褶边圆纸杯"
+        },
+        {
+          "id": "bakeware:2",
+          "level": 2,
+          "name": "菊花蛋糕模",
+          "cue": "银色深筒，整圈花瓣凹槽"
+        },
+        {
+          "id": "bakeware:3",
+          "level": 3,
+          "name": "圆形蛋糕模",
+          "cue": "低矮银色圆环，平底"
+        },
+        {
+          "id": "bakeware:4",
+          "level": 4,
+          "name": "长方烤盘",
+          "cue": "粉色扁长矩形，左右短耳"
+        },
+        {
+          "id": "bakeware:5",
+          "level": 5,
+          "name": "六孔玛芬盘",
+          "cue": "奶白平板，六个醒目的深孔"
+        },
+        {
+          "id": "bakeware:6",
+          "level": 6,
+          "name": "旋转裱花台",
+          "cue": "银色平圆台，单根粗底座"
+        },
+        {
+          "id": "bakeware:7",
+          "level": 7,
+          "name": "城堡蛋糕模",
+          "cue": "金色单体模具，中央塔和四角塔轮廓"
+        }
+      ]
+    },
+    {
+      "id": "seedbag",
+      "name": "香草种子包装",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "seedbag:1",
+          "level": 1,
+          "name": "扁平种子纸包",
+          "cue": "浅绿扁矩形纸包，巨大叶片印记"
+        },
+        {
+          "id": "seedbag:2",
+          "level": 2,
+          "name": "三角种子袋",
+          "cue": "淡黄立体三棱纸袋，短折封边"
+        },
+        {
+          "id": "seedbag:3",
+          "level": 3,
+          "name": "束口种子袋",
+          "cue": "米白水滴形布袋，长束口绳"
+        },
+        {
+          "id": "seedbag:4",
+          "level": 4,
+          "name": "立底亚麻种子袋",
+          "cue": "棕色高方袋，宽平底，翻卷袋口"
+        }
+      ]
+    },
+    {
+      "id": "emptybag",
+      "name": "布袋再利用",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "emptybag:1",
+          "level": 1,
+          "name": "空亚麻袋",
+          "cue": "软塌棕色布袋，敞开大袋口"
+        },
+        {
+          "id": "emptybag:2",
+          "level": 2,
+          "name": "拆线布片",
+          "cue": "不规则浅褐布片，大块毛边"
+        },
+        {
+          "id": "emptybag:3",
+          "level": 3,
+          "name": "缝补方巾",
+          "cue": "粉白对角折方巾，明显十字补丁"
+        },
+        {
+          "id": "emptybag:4",
+          "level": 4,
+          "name": "熨平布卷",
+          "cue": "横向奶白圆柱布卷，粉色绑带"
+        }
+      ]
+    },
+    {
+      "id": "pantry",
+      "name": "餐厅储物柜",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "pantry:1",
+          "level": 1,
+          "name": "藤编储物篮",
+          "cue": "低矮敞口椭圆篮，单根弧柄"
+        },
+        {
+          "id": "pantry:2",
+          "level": 2,
+          "name": "扣锁收纳箱",
+          "cue": "棕色横向木箱，顶部平盖和大锁扣"
+        },
+        {
+          "id": "pantry:3",
+          "level": 3,
+          "name": "单格抽屉",
+          "cue": "奶白短方抽屉，前方单拉环"
+        },
+        {
+          "id": "pantry:4",
+          "level": 4,
+          "name": "双层抽屉柜",
+          "cue": "粉木矮柜，上下两块大抽面"
+        },
+        {
+          "id": "pantry:5",
+          "level": 5,
+          "name": "百叶矮柜",
+          "cue": "青绿色宽柜，正面粗横百叶"
+        },
+        {
+          "id": "pantry:6",
+          "level": 6,
+          "name": "拱顶餐具柜",
+          "cue": "奶白高柜，顶部单圆拱"
+        },
+        {
+          "id": "pantry:7",
+          "level": 7,
+          "name": "转角橱柜",
+          "cue": "浅木三角柜体，明显折角门面"
+        },
+        {
+          "id": "pantry:8",
+          "level": 8,
+          "name": "圆筒转盘柜",
+          "cue": "棕色圆筒，中央竖轴和半开弧门"
+        },
+        {
+          "id": "pantry:9",
+          "level": 9,
+          "name": "玻璃展柜",
+          "cue": "天蓝色细边高柜，一整块透亮玻璃门"
+        },
+        {
+          "id": "pantry:10",
+          "level": 10,
+          "name": "卷帘高柜",
+          "cue": "深粉长柜，顶部向内卷起的弧形帘"
+        },
+        {
+          "id": "pantry:11",
+          "level": 11,
+          "name": "穹顶珍藏柜",
+          "cue": "奶白八角柜体，顶部透明穹盖"
+        }
+      ]
+    },
+    {
+      "id": "lost",
+      "name": "客人遗失物",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "lost:1",
+          "level": 1,
+          "name": "圆框眼镜",
+          "cue": "金色双圆镜片，折叠细镜腿"
+        },
+        {
+          "id": "lost:2",
+          "level": 2,
+          "name": "条纹围巾",
+          "cue": "紫白长条，两个垂落尾端"
+        },
+        {
+          "id": "lost:3",
+          "level": 3,
+          "name": "折叠雨伞",
+          "cue": "蓝色细锥伞套，弯钩柄"
+        },
+        {
+          "id": "lost:4",
+          "level": 4,
+          "name": "胶片相机",
+          "cue": "黑银横向机身，巨大圆镜头"
+        },
+        {
+          "id": "lost:5",
+          "level": 5,
+          "name": "旅行手提包",
+          "cue": "棕色软质圆肩包，大弧柄"
+        },
+        {
+          "id": "lost:6",
+          "level": 6,
+          "name": "复古旅行箱",
+          "cue": "酒红硬壳长方箱，浅色双绑带"
+        }
+      ]
+    },
+    {
+      "id": "comfort",
+      "name": "待客休闲",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "comfort:1",
+          "level": 1,
+          "name": "旅行颈枕",
+          "cue": "淡黄 U 形软枕"
+        },
+        {
+          "id": "comfort:2",
+          "level": 2,
+          "name": "豆袋靠垫",
+          "cue": "紫色水滴坐垫，软塌外形"
+        },
+        {
+          "id": "comfort:3",
+          "level": 3,
+          "name": "按摩靠垫",
+          "cue": "米白方垫，四个大橙色按摩凸点"
+        },
+        {
+          "id": "comfort:4",
+          "level": 4,
+          "name": "筋膜按摩枪",
+          "cue": "粉色 T 形机身，黑色圆球头"
+        },
+        {
+          "id": "comfort:5",
+          "level": 5,
+          "name": "手摇音乐盒",
+          "cue": "浅木小方盒，一根醒目侧摇柄"
+        },
+        {
+          "id": "comfort:6",
+          "level": 6,
+          "name": "便携音箱",
+          "cue": "青色短圆柱，正面大圆网罩"
+        },
+        {
+          "id": "comfort:7",
+          "level": 7,
+          "name": "沉浸观影镜",
+          "cue": "黑紫横向护目镜，宽头带"
+        },
+        {
+          "id": "comfort:8",
+          "level": 8,
+          "name": "翻盖游戏匣",
+          "cue": "红白便携游戏匣，半开盖内一个大手柄标志"
+        }
+      ]
+    },
+    {
+      "id": "doll",
+      "name": "布艺手作",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "doll:1",
+          "level": 1,
+          "name": "剪裁布片",
+          "cue": "带剪口的奶白方布，粉色粗定位线"
+        },
+        {
+          "id": "doll:2",
+          "level": 2,
+          "name": "针线包",
+          "cue": "紫色卷折针线包，露出一枚大线轴"
+        },
+        {
+          "id": "doll:3",
+          "level": 3,
+          "name": "番茄针插",
+          "cue": "红色软番茄球，绿色毡叶"
+        },
+        {
+          "id": "doll:4",
+          "level": 4,
+          "name": "布艺胡萝卜",
+          "cue": "橙色长锥布玩具，粗绿色布叶"
+        },
+        {
+          "id": "doll:5",
+          "level": 5,
+          "name": "布艺小鱼",
+          "cue": "蓝色扁鱼，巨大三角尾，粗缝线"
+        },
+        {
+          "id": "doll:6",
+          "level": 6,
+          "name": "条纹袜子猫",
+          "cue": "灰白长身布猫，细长上翘尾"
+        },
+        {
+          "id": "doll:7",
+          "level": 7,
+          "name": "长耳布兔",
+          "cue": "米白布兔，两只长竖耳，粉色肚皮"
+        },
+        {
+          "id": "doll:8",
+          "level": 8,
+          "name": "小白狗厨师布偶",
+          "cue": "白身云朵耳，红 M 帽，红围裙，粗缝线柔软质感"
+        }
+      ]
+    },
+    {
+      "id": "snail",
+      "name": "奇趣蜗牛",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "snail:1",
+          "level": 1,
+          "name": "空螺壳",
+          "cue": "棕色圆螺壳，明确空洞"
+        },
+        {
+          "id": "snail:2",
+          "level": 2,
+          "name": "圆壳小蜗牛",
+          "cue": "浅黄低圆壳，小巧身体"
+        },
+        {
+          "id": "snail:3",
+          "level": 3,
+          "name": "锥壳蜗牛",
+          "cue": "橙色高锥壳，黑色大斑点"
+        },
+        {
+          "id": "snail:4",
+          "level": 4,
+          "name": "叶壳蜗牛",
+          "cue": "绿色叶片形壳，宽大叶脊"
+        },
+        {
+          "id": "snail:5",
+          "level": 5,
+          "name": "花壳蜗牛",
+          "cue": "粉色玫瑰形壳，花瓣大卷边"
+        },
+        {
+          "id": "snail:6",
+          "level": 6,
+          "name": "星月蜗牛",
+          "cue": "深蓝新月形壳，单个金色大星"
+        }
+      ]
+    },
+    {
+      "id": "story",
+      "name": "厨房冒险信物",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "story:1",
+          "level": 1,
+          "name": "启程地图",
+          "cue": "米黄半卷地图，醒目红路线"
+        },
+        {
+          "id": "story:2",
+          "level": 2,
+          "name": "伙伴口哨",
+          "cue": "青色短圆哨，一圈红绳"
+        },
+        {
+          "id": "story:3",
+          "level": 3,
+          "name": "旅途罗盘",
+          "cue": "黄铜圆盘，蓝色大指针"
+        },
+        {
+          "id": "story:4",
+          "level": 4,
+          "name": "城堡通行符",
+          "cue": "紫色盾形通行牌，大拱门符号"
+        },
+        {
+          "id": "story:5",
+          "level": 5,
+          "name": "守护者徽盒",
+          "cue": "红白盾形可开徽盒，原小白狗正脸浮雕"
+        }
+      ]
+    },
+    {
+      "id": "mascot",
+      "name": "小厨手办",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "mascot:1",
+          "level": 1,
+          "name": "趴睡小厨",
+          "cue": "横向趴卧，白色云朵耳，红 M 帽压低"
+        },
+        {
+          "id": "mascot:2",
+          "level": 2,
+          "name": "坐姿小厨",
+          "cue": "短胖三角坐姿，前爪贴地"
+        },
+        {
+          "id": "mascot:3",
+          "level": 3,
+          "name": "擀面小厨",
+          "cue": "双臂横抱一根大擀面杖，身体宽展开"
+        },
+        {
+          "id": "mascot:4",
+          "level": 4,
+          "name": "抱锅小厨",
+          "cue": "双手抱一个深蓝大锅，形成圆形主体"
+        },
+        {
+          "id": "mascot:5",
+          "level": 5,
+          "name": "浇花小厨",
+          "cue": "身体侧倾，提一只绿色长嘴壶"
+        },
+        {
+          "id": "mascot:6",
+          "level": 6,
+          "name": "送餐小厨",
+          "cue": "单脚迈步，肩侧托一个大银色餐盖"
+        },
+        {
+          "id": "mascot:7",
+          "level": 7,
+          "name": "挥勺主厨",
+          "cue": "正面站立，双臂张开，举一把大金勺"
+        }
+      ]
+    },
+    {
+      "id": "puzzle",
+      "name": "开店纪念物",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "puzzle:1",
+          "level": 1,
+          "name": "店面草图",
+          "cue": "米黄不规则草图纸，大红屋顶线稿"
+        },
+        {
+          "id": "puzzle:2",
+          "level": 2,
+          "name": "量房卷尺",
+          "cue": "橙色圆卷尺，伸出一小段粗尺带"
+        },
+        {
+          "id": "puzzle:3",
+          "level": 3,
+          "name": "装修色卡",
+          "cue": "扇形展开的五块大色片"
+        },
+        {
+          "id": "puzzle:4",
+          "level": 4,
+          "name": "开业请柬",
+          "cue": "红色对折卡，白色门形镂空"
+        },
+        {
+          "id": "puzzle:5",
+          "level": 5,
+          "name": "首版菜单",
+          "cue": "深绿窄长双折板，大白叉勺图案"
+        },
+        {
+          "id": "puzzle:6",
+          "level": 6,
+          "name": "首单小票",
+          "cue": "白色锯齿长纸条，大红完成印"
+        },
+        {
+          "id": "puzzle:7",
+          "level": 7,
+          "name": "开店纪念币",
+          "cue": "黄铜单币，中央大店铺浮雕，深绿缎带"
+        },
+        {
+          "id": "puzzle:8",
+          "level": 8,
+          "name": "旧店员围裙",
+          "cue": "靛蓝完整围裙，中央单个白口袋"
+        },
+        {
+          "id": "puzzle:9",
+          "level": 9,
+          "name": "木制旧招牌",
+          "cue": "深棕横向招牌，奶白大狗爪徽记"
+        },
+        {
+          "id": "puzzle:10",
+          "level": 10,
+          "name": "第一张合影",
+          "cue": "横向白边照片，原小白狗站在店门前"
+        },
+        {
+          "id": "puzzle:11",
+          "level": 11,
+          "name": "开店报纸剪报",
+          "cue": "灰白折角报纸，大黑白店门照片"
+        },
+        {
+          "id": "puzzle:12",
+          "level": 12,
+          "name": "周年纪念相册",
+          "cue": "酒红厚相册，扣带和大椭圆照片窗"
+        },
+        {
+          "id": "puzzle:13",
+          "level": 13,
+          "name": "珍藏开店相框",
+          "cue": "竖向金木相框，完整白狗开店照"
+        }
+      ]
+    },
+    {
+      "id": "keys",
+      "name": "储物通行物",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "keys:1",
+          "level": 1,
+          "name": "铜制小钥匙",
+          "cue": "金色传统长齿钥匙，圆头"
+        },
+        {
+          "id": "keys:2",
+          "level": 2,
+          "name": "三齿钥匙串",
+          "cue": "一只大圆环，三根不同长度齿钥匙"
+        },
+        {
+          "id": "keys:3",
+          "level": 3,
+          "name": "感应门卡",
+          "cue": "蓝色扁平长方卡，巨大感应波纹"
+        },
+        {
+          "id": "keys:4",
+          "level": 4,
+          "name": "旋钮钥匙扣",
+          "cue": "红色圆形遥控扣，中央凸起大旋钮"
+        },
+        {
+          "id": "keys:5",
+          "level": 5,
+          "name": "餐厅感应手环",
+          "cue": "奶白闭环腕带，圆形红狗爪表面"
+        }
+      ]
+    },
+    {
+      "id": "timegate",
+      "name": "旧日记忆",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "timegate:1",
+          "level": 1,
+          "name": "旧店门牌",
+          "cue": "蓝白椭圆搪瓷牌，粗门框纹样"
+        },
+        {
+          "id": "timegate:2",
+          "level": 2,
+          "name": "黄铜门铃",
+          "cue": "金色小钟形，红色粗拉绳"
+        },
+        {
+          "id": "timegate:3",
+          "level": 3,
+          "name": "手摇唱片机",
+          "cue": "棕色扁机箱，露出大黑唱片和银色摇臂"
+        },
+        {
+          "id": "timegate:4",
+          "level": 4,
+          "name": "摆锤挂钟",
+          "cue": "深木长钟壳，下方大圆摆锤"
+        },
+        {
+          "id": "timegate:5",
+          "level": 5,
+          "name": "旋转走马灯",
+          "cue": "奶白六角灯体，内部一整块店门剪影"
+        },
+        {
+          "id": "timegate:6",
+          "level": 6,
+          "name": "喇叭留声机",
+          "cue": "巨大的黄铜喇叭口，深木短底座"
+        }
+      ]
+    },
+    {
+      "id": "tasting",
+      "name": "试菜评估",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "tasting:1",
+          "level": 1,
+          "name": "试味瓷勺",
+          "cue": "白色短宽汤勺，蓝色勺柄"
+        },
+        {
+          "id": "tasting:2",
+          "level": 2,
+          "name": "口味转盘",
+          "cue": "圆形五瓣色盘，中央红指针"
+        },
+        {
+          "id": "tasting:3",
+          "level": 3,
+          "name": "调味评分板",
+          "cue": "横向木夹板，三块大圆形评分片"
+        },
+        {
+          "id": "tasting:4",
+          "level": 4,
+          "name": "主厨推荐印章",
+          "cue": "红色大钮印章，底面厨师帽图案"
+        },
+        {
+          "id": "tasting:5",
+          "level": 5,
+          "name": "菜单诊断卷轴",
+          "cue": "横向展开米黄卷轴，大红勾和餐盘图"
+        },
+        {
+          "id": "tasting:6",
+          "level": 6,
+          "name": "评审结果信筒",
+          "cue": "深蓝圆柱信筒，金色蜡封和短卷纸边"
+        }
+      ]
+    },
+    {
+      "id": "courses",
+      "name": "烹饪课程",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "courses:1",
+          "level": 1,
+          "name": "折页食谱",
+          "cue": "三折浅绿纸页，明显 Z 形侧面"
+        },
+        {
+          "id": "courses:2",
+          "level": 2,
+          "name": "环装操作卡",
+          "cue": "扇形卡片，大银环装订"
+        },
+        {
+          "id": "courses:3",
+          "level": 3,
+          "name": "线装菜谱",
+          "cue": "靛蓝软封书，粗白线装书脊"
+        },
+        {
+          "id": "courses:4",
+          "level": 4,
+          "name": "立体示范书",
+          "cue": "敞开的粉色书，一块立体锅形折纸"
+        },
+        {
+          "id": "courses:5",
+          "level": 5,
+          "name": "烹饪教学胶片",
+          "cue": "银色圆形胶片盘，短黑色片带"
+        },
+        {
+          "id": "courses:6",
+          "level": 6,
+          "name": "厨师结业证书",
+          "cue": "奶白展开证书，红色大蜡封，金色宽边"
+        }
+      ]
+    },
+    {
+      "id": "scraps",
+      "name": "花园堆肥",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "scraps:1",
+          "level": 1,
+          "name": "苹果果核",
+          "cue": "单个红皮果核，浅黄腰部"
+        },
+        {
+          "id": "scraps:2",
+          "level": 2,
+          "name": "咖啡粉饼",
+          "cue": "深棕圆柱压粉饼，清楚的碎裂边"
+        },
+        {
+          "id": "scraps:3",
+          "level": 3,
+          "name": "干枯落叶",
+          "cue": "一片橙棕卷曲大叶"
+        },
+        {
+          "id": "scraps:4",
+          "level": 4,
+          "name": "香蕉果皮",
+          "cue": "黄色三瓣张开的果皮，明显棕色端部"
+        },
+        {
+          "id": "scraps:5",
+          "level": 5,
+          "name": "堆肥料砖",
+          "cue": "棕绿色方砖，压实的粗纤维切面"
+        },
+        {
+          "id": "scraps:6",
+          "level": 6,
+          "name": "发酵菌团",
+          "cue": "深褐圆团，宽白色菌丝带"
+        },
+        {
+          "id": "scraps:7",
+          "level": 7,
+          "name": "熟成腐殖土",
+          "cue": "黑褐圆锥土丘，疏松大颗粒"
+        },
+        {
+          "id": "scraps:8",
+          "level": 8,
+          "name": "花园生态土丘",
+          "cue": "浅棕半球土丘，一株大三叶草与明显洞口"
+        }
+      ]
+    },
+    {
+      "id": "garden_guest",
+      "name": "猫咪安居",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "garden_guest:1",
+          "level": 1,
+          "name": "旧毛线球",
+          "cue": "橘色线球，一根短线尾"
+        },
+        {
+          "id": "garden_guest:2",
+          "level": 2,
+          "name": "鱼形逗猫棒",
+          "cue": "蓝色鱼布玩具，弯杆形成大弧"
+        },
+        {
+          "id": "garden_guest:3",
+          "level": 3,
+          "name": "瓦楞猫抓板",
+          "cue": "棕色波浪 S 形纸板，粗层纹"
+        },
+        {
+          "id": "garden_guest:4",
+          "level": 4,
+          "name": "圆形猫垫",
+          "cue": "紫色甜甜圈软垫，中央大凹陷"
+        },
+        {
+          "id": "garden_guest:5",
+          "level": 5,
+          "name": "帐篷猫窝",
+          "cue": "青色三角帐篷，一个大圆入口"
+        },
+        {
+          "id": "garden_guest:6",
+          "level": 6,
+          "name": "南瓜猫屋",
+          "cue": "橙色瓜瓣房体，绿色短顶柄，正面大洞口"
+        }
+      ]
+    },
+    {
+      "id": "cats",
+      "name": "餐厅猫咪",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "cats:1",
+          "level": 1,
+          "name": "橘猫",
+          "cue": "橙色短毛，粗深橙条纹，圆脸"
+        },
+        {
+          "id": "cats:2",
+          "level": 2,
+          "name": "奶牛猫",
+          "cue": "白底大块黑斑，黑色单耳"
+        },
+        {
+          "id": "cats:3",
+          "level": 3,
+          "name": "暹罗猫",
+          "cue": "奶白瘦长身体，深棕脸与四爪"
+        },
+        {
+          "id": "cats:4",
+          "level": 4,
+          "name": "狸花猫",
+          "cue": "灰褐短毛，明显深色脊背条纹"
+        },
+        {
+          "id": "cats:5",
+          "level": 5,
+          "name": "银渐层猫",
+          "cue": "银白圆脸胖身，短小耳朵"
+        },
+        {
+          "id": "cats:6",
+          "level": 6,
+          "name": "布偶猫",
+          "cue": "白色长毛三角轮廓，深色面罩与蓬松尾"
+        },
+        {
+          "id": "cats:7",
+          "level": 7,
+          "name": "缅因猫",
+          "cue": "棕色高大长毛身体，尖耳毛簇和大胸鬃"
+        },
+        {
+          "id": "cats:8",
+          "level": 8,
+          "name": "围裙店长猫",
+          "cue": "单只橘猫，青绿色完整围裙，坐姿挺直"
+        }
+      ]
+    },
+    {
+      "id": "honor",
+      "name": "主厨荣誉",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "honor:1",
+          "level": 1,
+          "name": "参与绶带",
+          "cue": "一条红色 V 形软缎带，奶白圆章"
+        },
+        {
+          "id": "honor:2",
+          "level": 2,
+          "name": "铜勺奖章",
+          "cue": "铜色勺形奖章，绿色短带"
+        },
+        {
+          "id": "honor:3",
+          "level": 3,
+          "name": "银锅奖章",
+          "cue": "银色双耳锅形奖章，蓝色短带"
+        },
+        {
+          "id": "honor:4",
+          "level": 4,
+          "name": "金帽奖章",
+          "cue": "金色厨师帽形奖章，紫色短带"
+        },
+        {
+          "id": "honor:5",
+          "level": 5,
+          "name": "街区星杯",
+          "cue": "金色五角星顶，低圆底座"
+        },
+        {
+          "id": "honor:6",
+          "level": 6,
+          "name": "城市桂冠奖杯",
+          "cue": "大开口双月桂枝，中央银色圆盘"
+        },
+        {
+          "id": "honor:7",
+          "level": 7,
+          "name": "年度金帽奖杯",
+          "cue": "一顶完整金色厨师帽雕塑，黑色方底座"
+        }
+      ]
+    },
+    {
+      "id": "energy",
+      "name": "体力补给",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "energy:1",
+          "level": 1,
+          "name": "能量火花",
+          "cue": "单个金黄闪电碎晶"
+        },
+        {
+          "id": "energy:2",
+          "level": 2,
+          "name": "能量晶滴",
+          "cue": "金黄水滴晶体，内部一枚白闪电"
+        },
+        {
+          "id": "energy:3",
+          "level": 3,
+          "name": "能量晶球",
+          "cue": "金黄圆球，青色粗腰环"
+        },
+        {
+          "id": "energy:4",
+          "level": 4,
+          "name": "能量电池",
+          "cue": "金黄短圆柱，蓝色平顶，正面大闪电"
+        },
+        {
+          "id": "energy:5",
+          "level": 5,
+          "name": "能量核心",
+          "cue": "金黄六边形核心，粗青色六角外框"
+        }
+      ]
+    },
+    {
+      "id": "coins",
+      "name": "金币",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "coins:1",
+          "level": 1,
+          "name": "一枚金币",
+          "cue": "单枚侧立金色圆币，大狗爪浮雕"
+        },
+        {
+          "id": "coins:2",
+          "level": 2,
+          "name": "一叠金币",
+          "cue": "矮圆柱金色币叠"
+        },
+        {
+          "id": "coins:3",
+          "level": 3,
+          "name": "金币布袋",
+          "cue": "米白束口袋，露出两枚大金币"
+        },
+        {
+          "id": "coins:4",
+          "level": 4,
+          "name": "金币钱匣",
+          "cue": "横向银色薄匣，正面大金色投币槽"
+        },
+        {
+          "id": "coins:5",
+          "level": 5,
+          "name": "金币罐",
+          "cue": "透明圆腹罐，红色粗封口布"
+        },
+        {
+          "id": "coins:6",
+          "level": 6,
+          "name": "金币宝箱",
+          "cue": "棕色拱盖木箱，露出大块金色币面"
+        }
+      ]
+    },
+    {
+      "id": "blackbag",
+      "name": "设备工具包",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "blackbag:1",
+          "level": 1,
+          "name": "卷折工具包",
+          "cue": "青灰色横向卷包，橙色扣带，大扳手徽记"
+        },
+        {
+          "id": "blackbag:2",
+          "level": 2,
+          "name": "硬壳工具箱",
+          "cue": "深蓝方箱，大弧柄，正面银色扳手标志"
+        }
+      ]
+    },
+    {
+      "id": "pinkbag",
+      "name": "食材设备包",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "pinkbag:1",
+          "level": 1,
+          "name": "束口食材袋",
+          "cue": "粉色水滴袋，奶白大叶片印记"
+        },
+        {
+          "id": "pinkbag:2",
+          "level": 2,
+          "name": "拉链保鲜包",
+          "cue": "粉白梯形软包，青色大拉链与粗提手"
+        }
+      ]
+    },
+    {
+      "id": "infinite",
+      "name": "无限体力",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "infinite:1",
+          "level": 1,
+          "name": "30秒无限体力",
+          "cue": "紫色短胶囊，中央白色大无限符号"
+        },
+        {
+          "id": "infinite:2",
+          "level": 2,
+          "name": "1分钟无限体力",
+          "cue": "紫色圆环核心，中央白色大无限符号"
+        },
+        {
+          "id": "infinite:3",
+          "level": 3,
+          "name": "2分钟无限体力",
+          "cue": "紫色菱形晶体，中央白色大无限符号"
+        },
+        {
+          "id": "infinite:4",
+          "level": 4,
+          "name": "5分钟无限体力",
+          "cue": "紫色四芒星核，中央白色大无限符号"
+        }
+      ]
+    },
+    {
+      "id": "timeskip",
+      "name": "棋盘加速",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "timeskip:1",
+          "level": 1,
+          "name": "1小时沙漏",
+          "cue": "棕木双柱沙漏，窄直立外框"
+        },
+        {
+          "id": "timeskip:2",
+          "level": 2,
+          "name": "2小时沙漏",
+          "cue": "银蓝圆环沙漏，整体椭圆轮廓"
+        },
+        {
+          "id": "timeskip:3",
+          "level": 3,
+          "name": "4小时沙漏",
+          "cue": "红铜三角支架，宽三角底"
+        },
+        {
+          "id": "timeskip:4",
+          "level": 4,
+          "name": "8小时沙漏",
+          "cue": "紫色横向双翼框，明显宽轮廓"
+        },
+        {
+          "id": "timeskip:5",
+          "level": 5,
+          "name": "16小时沙漏",
+          "cue": "金色五角星外框，沙漏置于大星中央"
+        }
+      ]
+    },
+    {
+      "id": "charge",
+      "name": "设备补货",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "charge:1",
+          "level": 1,
+          "name": "补货手提盒",
+          "cue": "黄绿色扁方盒，单根短提手"
+        },
+        {
+          "id": "charge:2",
+          "level": 2,
+          "name": "补货保温箱",
+          "cue": "奶白高方箱，绿色厚盖和侧扣"
+        },
+        {
+          "id": "charge:3",
+          "level": 3,
+          "name": "补货滚轮箱",
+          "cue": "深绿直立箱，两个大轮和伸缩拉杆"
+        }
+      ]
+    },
+    {
+      "id": "splitter",
+      "name": "合成剪刀",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "splitter:1",
+          "level": 1,
+          "name": "折叠剪刀",
+          "cue": "银色短剪，两个圆环柄，折叠铰链"
+        },
+        {
+          "id": "splitter:2",
+          "level": 2,
+          "name": "厨房剪刀",
+          "cue": "红色粗不对称握柄，宽长刀刃"
+        },
+        {
+          "id": "splitter:3",
+          "level": 3,
+          "name": "齿轮助力剪",
+          "cue": "青色弯柄，巨大金色圆齿轮，弯曲宽刃"
+        }
+      ]
+    },
+    {
+      "id": "chest",
+      "name": "订单礼盒",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "chest:1",
+          "level": 1,
+          "name": "方形厨房礼盒",
+          "cue": "粉色正方盒，奶白十字宽带"
+        },
+        {
+          "id": "chest:2",
+          "level": 2,
+          "name": "心形精致礼盒",
+          "cue": "红色心形盒，侧置金色大结"
+        },
+        {
+          "id": "chest:3",
+          "level": 3,
+          "name": "拱顶紫金礼箱",
+          "cue": "深紫拱顶长箱，金色粗包角"
+        }
+      ]
+    },
+    {
+      "id": "upgrade",
+      "name": "升级道具",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "upgrade:1",
+          "level": 1,
+          "name": "普通升级卡",
+          "cue": "绿色竖长卡，大白色向上箭头"
+        },
+        {
+          "id": "upgrade:2",
+          "level": 2,
+          "name": "设备升级牌",
+          "cue": "蓝色齿轮形厚牌，大白色扳手与箭头"
+        }
+      ]
+    },
+    {
+      "id": "gen_tools",
+      "name": "厨具收纳器",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "gen_tools:1",
+          "level": 1,
+          "name": "陶土坯",
+          "cue": "棕色矮椭圆泥坯，粗糙未成形"
+        },
+        {
+          "id": "gen_tools:2",
+          "level": 2,
+          "name": "圆筒陶坯",
+          "cue": "灰白直筒，厚毛边开口"
+        },
+        {
+          "id": "gen_tools:3",
+          "level": 3,
+          "name": "烧制空缸",
+          "cue": "奶白空圆缸，平整陶口，无厨具"
+        },
+        {
+          "id": "gen_tools:4",
+          "level": 4,
+          "name": "素陶厨具缸",
+          "cue": "奶白单缸，正面大木勺纹，露出一把木勺"
+        },
+        {
+          "id": "gen_tools:5",
+          "level": 5,
+          "name": "双耳厨具瓮",
+          "cue": "粉色圆腹瓮，左右两个大耳"
+        },
+        {
+          "id": "gen_tools:6",
+          "level": 6,
+          "name": "方口分格缸",
+          "cue": "青色方筒，明显十字隔板"
+        },
+        {
+          "id": "gen_tools:7",
+          "level": 7,
+          "name": "壁挂厨具筒",
+          "cue": "奶白半圆筒，背部高拱挂板"
+        },
+        {
+          "id": "gen_tools:8",
+          "level": 8,
+          "name": "旋转厨具架",
+          "cue": "粉木圆形转盘，中央粗立柱和放射挂位"
+        },
+        {
+          "id": "gen_tools:9",
+          "level": 9,
+          "name": "抽拉刀具座",
+          "cue": "深木楔形主体，斜向抽拉面"
+        },
+        {
+          "id": "gen_tools:10",
+          "level": 10,
+          "name": "翻盖厨具箱",
+          "cue": "奶白横箱，向上展开的单片粉盖"
+        },
+        {
+          "id": "gen_tools:11",
+          "level": 11,
+          "name": "立柱悬挂架",
+          "cue": "青色高 T 形支柱，两侧粗挂钩"
+        },
+        {
+          "id": "gen_tools:12",
+          "level": 12,
+          "name": "旋转收纳塔",
+          "cue": "奶白圆塔，三个错位转动的大扇形仓"
+        }
+      ]
+    },
+    {
+      "id": "gen_food",
+      "name": "烘焙设备",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "gen_food:1",
+          "level": 1,
+          "name": "耐火砖",
+          "cue": "一块红褐厚砖，中央矩形凹槽"
+        },
+        {
+          "id": "gen_food:2",
+          "level": 2,
+          "name": "烤炉门板",
+          "cue": "粉色矩形门板，奶白粗把手"
+        },
+        {
+          "id": "gen_food:3",
+          "level": 3,
+          "name": "烤炉内胆",
+          "cue": "银色横向方腔，正面大开口"
+        },
+        {
+          "id": "gen_food:4",
+          "level": 4,
+          "name": "未装门烤炉",
+          "cue": "粉色完整外壳，正面门框敞空"
+        },
+        {
+          "id": "gen_food:5",
+          "level": 5,
+          "name": "铁皮小烤炉",
+          "cue": "奶白矮方炉，圆形小观察窗"
+        },
+        {
+          "id": "gen_food:6",
+          "level": 6,
+          "name": "铸铁圆炉",
+          "cue": "深灰短圆炉，粗圆盖和三短脚"
+        },
+        {
+          "id": "gen_food:7",
+          "level": 7,
+          "name": "窗式电烤箱",
+          "cue": "粉色长方炉，横向大窗与两个大旋钮"
+        },
+        {
+          "id": "gen_food:8",
+          "level": 8,
+          "name": "拱顶石炉",
+          "cue": "奶白半圆拱炉，红褐宽炉口"
+        },
+        {
+          "id": "gen_food:9",
+          "level": 9,
+          "name": "立式旋转烤炉",
+          "cue": "粉色高筒炉，长竖窗与圆顶"
+        },
+        {
+          "id": "gen_food:10",
+          "level": 10,
+          "name": "圆舱热风炉",
+          "cue": "奶白球形机舱，正面大圆风窗"
+        },
+        {
+          "id": "gen_food:11",
+          "level": 11,
+          "name": "隧道输送烤炉",
+          "cue": "粉白低矮拱腔，前后伸出一段粗输送带"
+        }
+      ]
+    },
+    {
+      "id": "gen_produce",
+      "name": "生鲜采购器",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "gen_produce:1",
+          "level": 1,
+          "name": "藤条圈",
+          "cue": "浅棕粗圆环，端部松开的长藤条"
+        },
+        {
+          "id": "gen_produce:2",
+          "level": 2,
+          "name": "编织篮底",
+          "cue": "浅棕椭圆底板，短直立编织骨条"
+        },
+        {
+          "id": "gen_produce:3",
+          "level": 3,
+          "name": "单柄菜篮",
+          "cue": "棕色半圆篮，一根高拱柄"
+        },
+        {
+          "id": "gen_produce:4",
+          "level": 4,
+          "name": "双耳提篮",
+          "cue": "奶白宽方篮，左右短耳"
+        },
+        {
+          "id": "gen_produce:5",
+          "level": 5,
+          "name": "背负菜篓",
+          "cue": "深棕高锥篓，背面两条宽背带"
+        },
+        {
+          "id": "gen_produce:6",
+          "level": 6,
+          "name": "折叠菜筐",
+          "cue": "青色低方筐，X 形侧架"
+        },
+        {
+          "id": "gen_produce:7",
+          "level": 7,
+          "name": "带盖采购篮",
+          "cue": "粉色椭圆篮，两片半圆盖合拢"
+        },
+        {
+          "id": "gen_produce:8",
+          "level": 8,
+          "name": "保温采购包",
+          "cue": "奶白高软包，青色大拉链"
+        },
+        {
+          "id": "gen_produce:9",
+          "level": 9,
+          "name": "双轮买菜车",
+          "cue": "粉色直立袋车，两个大轮和长拉柄"
+        },
+        {
+          "id": "gen_produce:10",
+          "level": 10,
+          "name": "四轮货箱车",
+          "cue": "青色低长方车斗，四角粗轮"
+        },
+        {
+          "id": "gen_produce:11",
+          "level": 11,
+          "name": "抽屉保鲜柜",
+          "cue": "奶白矮柜，两块宽青色抽面"
+        },
+        {
+          "id": "gen_produce:12",
+          "level": 12,
+          "name": "立式冷藏柜",
+          "cue": "青色高柜，一扇拱角大门与长把手"
+        }
+      ]
+    },
+    {
+      "id": "gen_drink",
+      "name": "饮品制作机",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "gen_drink:1",
+          "level": 1,
+          "name": "饮料出液嘴",
+          "cue": "银色短弯管，青色阀门帽"
+        },
+        {
+          "id": "gen_drink:2",
+          "level": 2,
+          "name": "搅拌机电机",
+          "cue": "青色矮圆柱电机，顶部粗轴"
+        },
+        {
+          "id": "gen_drink:3",
+          "level": 3,
+          "name": "饮品机底座",
+          "cue": "奶白低方底座，顶部敞开的装配口"
+        },
+        {
+          "id": "gen_drink:4",
+          "level": 4,
+          "name": "手压榨汁机",
+          "cue": "青色高弧压杆，黄色倒锥压头"
+        },
+        {
+          "id": "gen_drink:5",
+          "level": 5,
+          "name": "玻璃搅拌机",
+          "cue": "奶白短底座，上方透明锥形搅拌杯"
+        },
+        {
+          "id": "gen_drink:6",
+          "level": 6,
+          "name": "意式咖啡机",
+          "cue": "青色拱肩方机，正面单个大冲煮头"
+        },
+        {
+          "id": "gen_drink:7",
+          "level": 7,
+          "name": "气泡饮料机",
+          "cue": "奶白细高机身，正面嵌一个大气瓶"
+        },
+        {
+          "id": "gen_drink:8",
+          "level": 8,
+          "name": "双缸冷饮机",
+          "cue": "青色矮底座，两个连体透明方缸"
+        },
+        {
+          "id": "gen_drink:9",
+          "level": 9,
+          "name": "立式奶昔机",
+          "cue": "奶白单根立柱，侧挂高金属搅拌杯"
+        },
+        {
+          "id": "gen_drink:10",
+          "level": 10,
+          "name": "冷热饮一体机",
+          "cue": "青色圆角立舱，正面红蓝两个大出液区"
+        }
+      ]
+    },
+    {
+      "id": "gen_herb",
+      "name": "香草栽培器",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "gen_herb:1",
+          "level": 1,
+          "name": "陶盆碎片",
+          "cue": "两块可拼合的红陶大弧片"
+        },
+        {
+          "id": "gen_herb:2",
+          "level": 2,
+          "name": "黏合花盆",
+          "cue": "红陶圆盆，明显粗接缝"
+        },
+        {
+          "id": "gen_herb:3",
+          "level": 3,
+          "name": "带孔育苗盆",
+          "cue": "空奶白矮盆，底部三个大排水孔"
+        },
+        {
+          "id": "gen_herb:4",
+          "level": 4,
+          "name": "红陶香草盆",
+          "cue": "红陶矮圆盆，一块清楚的绿冠"
+        },
+        {
+          "id": "gen_herb:5",
+          "level": 5,
+          "name": "长槽育苗箱",
+          "cue": "奶白长方槽，低矮横向轮廓"
+        },
+        {
+          "id": "gen_herb:6",
+          "level": 6,
+          "name": "悬吊栽培篮",
+          "cue": "青色半球篮，两条绳形成大三角"
+        },
+        {
+          "id": "gen_herb:7",
+          "level": 7,
+          "name": "自吸水花盆",
+          "cue": "奶白高方盆，下部透明蓝水仓"
+        },
+        {
+          "id": "gen_herb:8",
+          "level": 8,
+          "name": "壁挂种植板",
+          "cue": "粉木竖长板，正面两个大斜口种植槽"
+        },
+        {
+          "id": "gen_herb:9",
+          "level": 9,
+          "name": "玻璃育苗罩",
+          "cue": "青色短底座，整体透明钟罩"
+        },
+        {
+          "id": "gen_herb:10",
+          "level": 10,
+          "name": "旋转水培柱",
+          "cue": "奶白粗立柱，螺旋向外的大种植口"
+        }
+      ]
+    },
+    {
+      "id": "gen_asian",
+      "name": "蒸煮料理机",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "gen_asian:1",
+          "level": 1,
+          "name": "蒸汽阀",
+          "cue": "红铜粗阀体，顶端三瓣旋钮"
+        },
+        {
+          "id": "gen_asian:2",
+          "level": 2,
+          "name": "加热炉芯",
+          "cue": "红铜圆环，内部一根粗加热线"
+        },
+        {
+          "id": "gen_asian:3",
+          "level": 3,
+          "name": "蒸汽底座",
+          "cue": "奶白圆底盘，顶部空接管"
+        },
+        {
+          "id": "gen_asian:4",
+          "level": 4,
+          "name": "竹笼蒸汽炉",
+          "cue": "圆形红铜炉座，上方一个大竹笼"
+        },
+        {
+          "id": "gen_asian:5",
+          "level": 5,
+          "name": "陶胆炖煮机",
+          "cue": "奶白卵形机体，红陶厚盖"
+        },
+        {
+          "id": "gen_asian:6",
+          "level": 6,
+          "name": "立式蒸柜",
+          "cue": "红铜高柜，单扇长窗门"
+        },
+        {
+          "id": "gen_asian:7",
+          "level": 7,
+          "name": "抽屉蒸炉",
+          "cue": "奶白矮长炉，两个宽蒸屉抽口"
+        },
+        {
+          "id": "gen_asian:8",
+          "level": 8,
+          "name": "穹顶蒸烤机",
+          "cue": "红铜半球罩，侧面粗蒸汽管"
+        },
+        {
+          "id": "gen_asian:9",
+          "level": 9,
+          "name": "环形蒸汽机",
+          "cue": "奶白圆环炉，中央高烟囱和整体圆盘"
+        },
+        {
+          "id": "gen_asian:10",
+          "level": 10,
+          "name": "压力蒸煮舱",
+          "cue": "红铜椭圆舱，正面轮式大封门"
+        }
+      ]
+    },
+    {
+      "id": "gen_mediterranean",
+      "name": "环球煎烤机",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "gen_mediterranean:1",
+          "level": 1,
+          "name": "煎烤炉脚",
+          "cue": "一只青色粗三角支脚"
+        },
+        {
+          "id": "gen_mediterranean:2",
+          "level": 2,
+          "name": "铸铁热板",
+          "cue": "黑色宽矩形板，粗凸烤纹"
+        },
+        {
+          "id": "gen_mediterranean:3",
+          "level": 3,
+          "name": "煎烤机框架",
+          "cue": "青色门形空框，顶部热板接口"
+        },
+        {
+          "id": "gen_mediterranean:4",
+          "level": 4,
+          "name": "铸铁煎烤炉",
+          "cue": "青色矮台，整块黑色平烤面"
+        },
+        {
+          "id": "gen_mediterranean:5",
+          "level": 5,
+          "name": "双面压烤机",
+          "cue": "青色贝壳式翻盖，橙色厚把手"
+        },
+        {
+          "id": "gen_mediterranean:6",
+          "level": 6,
+          "name": "旋转烤肉炉",
+          "cue": "青色高背板，中央粗立式旋转烤轴"
+        },
+        {
+          "id": "gen_mediterranean:7",
+          "level": 7,
+          "name": "披萨转盘炉",
+          "cue": "青色圆盘低炉，短拱形罩"
+        },
+        {
+          "id": "gen_mediterranean:8",
+          "level": 8,
+          "name": "斜面石板炉",
+          "cue": "青色梯形底座，一块倾斜灰黑热板"
+        },
+        {
+          "id": "gen_mediterranean:9",
+          "level": 9,
+          "name": "滚筒翻烤机",
+          "cue": "青色横置粗滚筒，前端圆形观察口"
+        },
+        {
+          "id": "gen_mediterranean:10",
+          "level": 10,
+          "name": "穹顶慢烤炉",
+          "cue": "青色高卵形封闭炉，正面小拱门与厚侧铰链"
+        }
+      ]
+    },
+    {
+      "id": "gen_supply",
+      "name": "设备配送器",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "gen_supply:1",
+          "level": 1,
+          "name": "配送轮胎",
+          "cue": "一只深灰粗轮，奶白轮毂"
+        },
+        {
+          "id": "gen_supply:2",
+          "level": 2,
+          "name": "配送车轴",
+          "cue": "横向银轴，两端大圆轮毂"
+        },
+        {
+          "id": "gen_supply:3",
+          "level": 3,
+          "name": "配送车架",
+          "cue": "奶白矩形空车架，弯曲推柄"
+        },
+        {
+          "id": "gen_supply:4",
+          "level": 4,
+          "name": "独轮推车",
+          "cue": "粉色单斗，一只大前轮，两根长柄"
+        },
+        {
+          "id": "gen_supply:5",
+          "level": 5,
+          "name": "双轮手推车",
+          "cue": "青色竖向 L 形车架，两只大轮"
+        },
+        {
+          "id": "gen_supply:6",
+          "level": 6,
+          "name": "折叠平板车",
+          "cue": "奶白低平车板，折起的 U 形推杆"
+        },
+        {
+          "id": "gen_supply:7",
+          "level": 7,
+          "name": "带篷送货车",
+          "cue": "粉色小车斗，上方一个大弧篷"
+        },
+        {
+          "id": "gen_supply:8",
+          "level": 8,
+          "name": "升降搬运车",
+          "cue": "青色低车，中央粗 X 形升降臂"
+        },
+        {
+          "id": "gen_supply:9",
+          "level": 9,
+          "name": "封闭保温推车",
+          "cue": "奶白封闭立箱，粉色大圆角门"
+        },
+        {
+          "id": "gen_supply:10",
+          "level": 10,
+          "name": "电动搬运车",
+          "cue": "青色矮宽底盘，后置大方向杆"
+        },
+        {
+          "id": "gen_supply:11",
+          "level": 11,
+          "name": "履带运输车",
+          "cue": "粉色短斗，左右两条粗黑履带"
+        },
+        {
+          "id": "gen_supply:12",
+          "level": 12,
+          "name": "圆舱配送机器人",
+          "cue": "奶白卵形舱，两只大侧轮，青色单面罩"
+        }
+      ]
+    },
+    {
+      "id": "gen_publicity",
+      "name": "食谱教学器",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "gen_publicity:1",
+          "level": 1,
+          "name": "食谱夹",
+          "cue": "一只红铜宽夹，短平底"
+        },
+        {
+          "id": "gen_publicity:2",
+          "level": 2,
+          "name": "木质支架",
+          "cue": "粉木倒 V 形支架，前方短托条"
+        },
+        {
+          "id": "gen_publicity:3",
+          "level": 3,
+          "name": "折叠翻页架",
+          "cue": "奶白空书架，大银色装订轴"
+        },
+        {
+          "id": "gen_publicity:4",
+          "level": 4,
+          "name": "翻页食谱架",
+          "cue": "粉木竖架，一页大绿食谱和粗翻页轴"
+        },
+        {
+          "id": "gen_publicity:5",
+          "level": 5,
+          "name": "手摇印谱机",
+          "cue": "红铜矮机身，大滚筒与侧摇柄"
+        },
+        {
+          "id": "gen_publicity:6",
+          "level": 6,
+          "name": "圆屏教学终端",
+          "cue": "奶白椭圆终端，大青色圆屏和短支脚"
+        }
+      ]
+    },
+    {
+      "id": "gen_flower",
+      "name": "花卉培育器",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "gen_flower:1",
+          "level": 1,
+          "name": "园艺桶底",
+          "cue": "一片粉色厚圆底，外侧凸起边"
+        },
+        {
+          "id": "gen_flower:2",
+          "level": 2,
+          "name": "铆接桶壁",
+          "cue": "粉色开缝圆筒，三颗大铆钉"
+        },
+        {
+          "id": "gen_flower:3",
+          "level": 3,
+          "name": "空提手花桶",
+          "cue": "奶白圆桶，顶部宽拱柄"
+        },
+        {
+          "id": "gen_flower:4",
+          "level": 4,
+          "name": "未装嘴浇花桶",
+          "cue": "粉色矮圆桶，前侧一个圆接口"
+        },
+        {
+          "id": "gen_flower:5",
+          "level": 5,
+          "name": "长嘴浇花桶",
+          "cue": "奶白圆腹，细长青色弯嘴"
+        },
+        {
+          "id": "gen_flower:6",
+          "level": 6,
+          "name": "旋转育花台",
+          "cue": "粉色圆转盘，中央粗立杆，三个大育苗位"
+        },
+        {
+          "id": "gen_flower:7",
+          "level": 7,
+          "name": "自动喷雾桶",
+          "cue": "奶白高桶，顶部一根粗 T 形喷杆"
+        },
+        {
+          "id": "gen_flower:8",
+          "level": 8,
+          "name": "拱罩育花箱",
+          "cue": "粉色长方箱，透明半圆玻璃罩"
+        },
+        {
+          "id": "gen_flower:9",
+          "level": 9,
+          "name": "灯塔育花柜",
+          "cue": "奶白高六角柜，顶部大环形暖灯"
+        }
+      ]
+    },
+    {
+      "id": "gen_recycle",
+      "name": "花园循环机",
+      "runtimeEnabled": true,
+      "items": [
+        {
+          "id": "gen_recycle:1",
+          "level": 1,
+          "name": "堆肥底板",
+          "cue": "一块深木方底板，粗四角榫口"
+        },
+        {
+          "id": "gen_recycle:2",
+          "level": 2,
+          "name": "堆肥箱壁",
+          "cue": "三面相连木壁，明显 U 形缺口"
+        },
+        {
+          "id": "gen_recycle:3",
+          "level": 3,
+          "name": "铰链箱盖",
+          "cue": "单片青色厚盖，后沿两只大铰链"
+        },
+        {
+          "id": "gen_recycle:4",
+          "level": 4,
+          "name": "通风桶壳",
+          "cue": "奶白空方壳，两条宽透气槽"
+        },
+        {
+          "id": "gen_recycle:5",
+          "level": 5,
+          "name": "方形堆肥桶",
+          "cue": "深木方桶，青色大掀盖"
+        },
+        {
+          "id": "gen_recycle:6",
+          "level": 6,
+          "name": "圆筒翻滚桶",
+          "cue": "青色横圆筒，奶白双脚支架"
+        },
+        {
+          "id": "gen_recycle:7",
+          "level": 7,
+          "name": "螺旋搅拌桶",
+          "cue": "奶白高圆筒，顶部大螺旋摇柄"
+        },
+        {
+          "id": "gen_recycle:8",
+          "level": 8,
+          "name": "脚踏密封桶",
+          "cue": "青色梯形桶，前方大橙踏板"
+        },
+        {
+          "id": "gen_recycle:9",
+          "level": 9,
+          "name": "穹顶发酵罐",
+          "cue": "奶白球形罐，顶部大气阀"
+        },
+        {
+          "id": "gen_recycle:10",
+          "level": 10,
+          "name": "圆舱循环机",
+          "cue": "青色圆鼓机体，正面奶白圆门和粗回环箭头"
+        }
+      ]
+    }
+  ],
+  "legacyAliases": {
+    "legacy_energy:1": "energy:1",
+    "legacy_energy:2": "energy:2",
+    "legacy_energy:3": "energy:3",
+    "legacy_energy:4": "energy:5",
+    "legacy_coins:1": "coins:1",
+    "legacy_coins:2": "coins:2",
+    "legacy_coins:3": "coins:4",
+    "legacy_coins:4": "coins:6",
+    "legacy_chest:1": "chest:1",
+    "legacy_chest:2": "chest:2",
+    "legacy_chest:3": "chest:3"
+  }
+}

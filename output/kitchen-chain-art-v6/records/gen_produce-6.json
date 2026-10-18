@@ -1,0 +1,45 @@
+{
+  "id": "gen_produce:6",
+  "name": "折叠菜筐",
+  "source": "sources/gen_produce-6.png",
+  "prompt": "prompts/gen_produce-6.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-7b63728b-925a-4998-a944-47eee6c2c1d5.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_produce-6.png",
+    "webp": "items/gen_produce-6.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      39,
+      195,
+      1187,
+      910
+    ],
+    "box": [
+      40,
+      30.67
+    ],
+    "contact": {
+      "x": 49.17,
+      "width": 8.88,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 701856,
+    "transparentPixels": 851848
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px paired sheet inspected for single main structure, distinct adjacent silhouette, alpha margins and scale.",
+    "evidence": [
+      "evidence/gen_produce.png",
+      "evidence/44px/page-07.png"
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "scraps:7",
+  "name": "熟成腐殖土",
+  "source": "sources/scraps-7.png",
+  "prompt": "prompts/scraps-7.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-1d217e9c-acdd-491d-8faa-5907814247d7.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/scraps-7.png",
+    "webp": "items/scraps-7.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      36,
+      186,
+      1184,
+      897
+    ],
+    "box": [
+      40,
+      30.3
+    ],
+    "contact": {
+      "x": 50.28,
+      "width": 22.86,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 675172,
+    "transparentPixels": 878702
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

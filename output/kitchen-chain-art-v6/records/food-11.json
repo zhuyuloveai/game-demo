@@ -1,0 +1,45 @@
+{
+  "id": "food:11",
+  "name": "草莓夏洛特蛋糕",
+  "source": "sources/food-11.png",
+  "prompt": "prompts/food-11.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-aa2340cc-61ee-44ce-bcce-c3e2f1aad2ea.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/food-11.png",
+    "webp": "items/food-11.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      77,
+      85,
+      1130,
+      1079
+    ],
+    "box": [
+      39.8,
+      38
+    ],
+    "contact": {
+      "x": 50.53,
+      "width": 22.63,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 943646,
+    "transparentPixels": 615453
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

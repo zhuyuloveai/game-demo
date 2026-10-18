@@ -1,0 +1,48 @@
+{
+  "id": "scraps:4",
+  "name": "香蕉果皮",
+  "source": "sources/scraps-4.png",
+  "prompt": "prompts/scraps-4.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-1e554e9e-26ff-491e-9b00-39b0ac7ecadb.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/scraps-4.png",
+    "webp": "items/scraps-4.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      31,
+      96,
+      1213,
+      1038
+    ],
+    "box": [
+      40,
+      34.23
+    ],
+    "contact": {
+      "x": 39.14,
+      "width": 21.61,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 427323,
+    "transparentPixels": 1127521
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

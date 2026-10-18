@@ -1,0 +1,45 @@
+{
+  "id": "drink:1",
+  "name": "鲜牛奶",
+  "source": "sources/drink-1.png",
+  "prompt": "prompts/drink-1.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-78ba75d2-61ac-4196-b925-dca11f31530c.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/drink-1.png",
+    "webp": "items/drink-1.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      224,
+      94,
+      807,
+      1086
+    ],
+    "box": [
+      28.24,
+      38
+    ],
+    "contact": {
+      "x": 49.78,
+      "width": 18.11,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 663425,
+    "transparentPixels": 895508
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

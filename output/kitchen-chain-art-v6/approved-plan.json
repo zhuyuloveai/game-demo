@@ -1,0 +1,3636 @@
+{
+  "version": "chain-replan-v1",
+  "date": "2026-10-19",
+  "status": "approved-by-user-2026-10-19",
+  "counts": {
+    "replannedExistingChains": 53,
+    "proposedNewChains": 1,
+    "existingLevels": 389,
+    "proposedNewLevels": 8
+  },
+  "rules": [
+    "水果、蔬菜、谷物每级一个具体品种；常见、精选、稀有、珍藏均为游戏内解锁分档，未按现实价格或全球珍稀程度排名。",
+    "既有链保留等级数；新谷物链增加8级，来源和数值须在清单确认后设计。所有旧ID均为对应定位，尚未写入运行时。",
+    "每格一个主体。同种少量成组、同果切面、必要餐盘和机器本身的结构允许保留；容器和配件不能替代主体。",
+    "同链相邻等级至少在轮廓、主色、结构中有两项可辨差异；不能只依赖微小花纹、名称或增加摆件。",
+    "食品用具体配方与加工形态推进；设备用结构与功能推进；收藏物用主题与姿态推进；资源保留实际数值与功能。",
+    "原小白狗固定为白身、云朵耳、黑眼鼻嘴、红M帽。所有布偶、手办和照片涉及该角色时遵循同一设定。",
+    "每个新定义仍需通过44px视觉样板验收；此清单未声称已经完成小图可读性验证。"
+  ],
+  "structuralChanges": [
+    "新增谷物与杂粮8级；原food链保留11级并改为具体烘焙成品，避免覆盖现有烘焙进度。",
+    "咖啡饮品改手作饮品，咖啡工作台改饮品制作机；生产器现有激活等级和次数保留。",
+    "烘焙原料罐改烘焙设备，避免原料罐直接产出成品时的题材落差。",
+    "照片链改开店纪念物；冒险卡改冒险信物；花园来客改猫咪安居。涉及名称与叙事调整，须同步更新订单文案。",
+    "pantry各级仍为完整收纳物；lost末两级保留包箱；comfort末级保留游戏匣；seedbag末级保留可耗尽布袋；garden_guest末级保留猫屋。",
+    "新谷物加入生鲜来源会影响掉率、解锁和订单成本，本轮仅列候选关系。其他链的产出ID、次数和数值本轮均未修改。"
+  ],
+  "chains": [
+    {
+      "id": "fruit",
+      "oldName": "缤纷水果",
+      "name": "缤纷水果",
+      "group": "原料与植物",
+      "note": "每级一个明确水果品种；同种可带一小块切面帮助识别，不混入其他水果。",
+      "status": "待用户审阅",
+      "levelCount": 8,
+      "items": [
+        {
+          "level": 1,
+          "id": "fruit:1",
+          "oldName": "苹果",
+          "name": "苹果",
+          "cue": "红色圆果，顶部凹口，一片绿叶",
+          "gameRarity": "常见"
+        },
+        {
+          "level": 2,
+          "id": "fruit:2",
+          "oldName": "香橙",
+          "name": "香橙",
+          "cue": "橙色球体，粗孔果皮，少量同果切面",
+          "gameRarity": "常见"
+        },
+        {
+          "level": 3,
+          "id": "fruit:3",
+          "oldName": "草莓",
+          "name": "香蕉",
+          "cue": "弯月形黄色果身，一根半剥皮香蕉",
+          "gameRarity": "常见"
+        },
+        {
+          "level": 4,
+          "id": "fruit:4",
+          "oldName": "水果碗",
+          "name": "草莓",
+          "cue": "红色心形果身，明显绿萼和浅色籽点",
+          "gameRarity": "精选"
+        },
+        {
+          "level": 5,
+          "id": "fruit:5",
+          "oldName": "手作果酱",
+          "name": "芒果",
+          "cue": "黄橙不对称椭圆，保留果肩弧线",
+          "gameRarity": "精选"
+        },
+        {
+          "level": 6,
+          "id": "fruit:6",
+          "oldName": "水果挞",
+          "name": "火龙果",
+          "cue": "玫红椭圆，绿色外翻鳞片",
+          "gameRarity": "稀有"
+        },
+        {
+          "level": 7,
+          "id": "fruit:7",
+          "oldName": "四季水果塔",
+          "name": "山竹",
+          "cue": "深紫圆壳，厚绿萼，小块白色分瓣果肉",
+          "gameRarity": "稀有"
+        },
+        {
+          "level": 8,
+          "id": "fruit:8",
+          "oldName": "缤纷鲜果宴",
+          "name": "榴莲",
+          "cue": "橄榄绿尖刺卵形，大块奶黄色果肉",
+          "gameRarity": "珍藏"
+        }
+      ]
+    },
+    {
+      "id": "vegetable",
+      "oldName": "田园蔬菜",
+      "name": "田园蔬菜",
+      "group": "原料与植物",
+      "note": "采用具体蔬菜品种，以根、果、花球、嫩茎的外形差异建立等级记忆。",
+      "status": "待用户审阅",
+      "levelCount": 8,
+      "items": [
+        {
+          "level": 1,
+          "id": "vegetable:1",
+          "oldName": "小萝卜",
+          "name": "胡萝卜",
+          "cue": "橙色长锥根，少量绿色叶柄",
+          "gameRarity": "常见"
+        },
+        {
+          "level": 2,
+          "id": "vegetable:2",
+          "oldName": "番茄",
+          "name": "黄瓜",
+          "cue": "深绿色长圆柱，疙瘩纹，斜向摆放",
+          "gameRarity": "常见"
+        },
+        {
+          "level": 3,
+          "id": "vegetable:3",
+          "oldName": "西兰花",
+          "name": "茄子",
+          "cue": "深紫水滴形，粗绿色萼",
+          "gameRarity": "常见"
+        },
+        {
+          "level": 4,
+          "id": "vegetable:4",
+          "oldName": "蔬菜沙拉",
+          "name": "西兰花",
+          "cue": "深绿树冠状花球，粗浅绿短茎",
+          "gameRarity": "精选"
+        },
+        {
+          "level": 5,
+          "id": "vegetable:5",
+          "oldName": "烤蔬菜",
+          "name": "南瓜",
+          "cue": "橙色扁圆大瓣，短棕色果柄",
+          "gameRarity": "精选"
+        },
+        {
+          "level": 6,
+          "id": "vegetable:6",
+          "oldName": "田园拼盘",
+          "name": "芦笋",
+          "cue": "三根同种嫩茎，尖头鳞片，细长三角轮廓",
+          "gameRarity": "稀有"
+        },
+        {
+          "level": 7,
+          "id": "vegetable:7",
+          "oldName": "四季蔬食宴",
+          "name": "宝塔花菜",
+          "cue": "黄绿色锥形花球，大块螺旋层级",
+          "gameRarity": "稀有"
+        },
+        {
+          "level": 8,
+          "id": "vegetable:8",
+          "oldName": "丰收长桌宴",
+          "name": "朝鲜蓟",
+          "cue": "灰绿色卵形花苞，外翻厚鳞片",
+          "gameRarity": "珍藏"
+        }
+      ]
+    },
+    {
+      "id": "grain",
+      "oldName": null,
+      "name": "谷物与杂粮",
+      "group": "原料与植物",
+      "note": "新增 8 级候选链；独立于烘焙。拟由生鲜采购器供给，掉率、订单和解锁成本在确认清单后另行设计。图标利用穗形与籽粒特征，统一不用粮袋包装。",
+      "status": "待用户审阅",
+      "levelCount": 8,
+      "items": [
+        {
+          "level": 1,
+          "id": "proposed_grain:1",
+          "oldName": "新增候选",
+          "name": "小麦",
+          "cue": "金色直立麦穗，大颗交错麦粒",
+          "gameRarity": "常见"
+        },
+        {
+          "level": 2,
+          "id": "proposed_grain:2",
+          "oldName": "新增候选",
+          "name": "稻米",
+          "cue": "浅金色下垂稻穗，弯弧形轮廓",
+          "gameRarity": "常见"
+        },
+        {
+          "level": 3,
+          "id": "proposed_grain:3",
+          "oldName": "新增候选",
+          "name": "玉米",
+          "cue": "黄色整根玉米，半剥开的绿色苞叶",
+          "gameRarity": "常见"
+        },
+        {
+          "level": 4,
+          "id": "proposed_grain:4",
+          "oldName": "新增候选",
+          "name": "燕麦",
+          "cue": "浅褐色下垂分枝穗，疏朗铃铛状颗粒",
+          "gameRarity": "精选"
+        },
+        {
+          "level": 5,
+          "id": "proposed_grain:5",
+          "oldName": "新增候选",
+          "name": "高粱",
+          "cue": "酒红色密集穗头，粗直茎",
+          "gameRarity": "精选"
+        },
+        {
+          "level": 6,
+          "id": "proposed_grain:6",
+          "oldName": "新增候选",
+          "name": "荞麦",
+          "cue": "少量放大的深褐三棱籽粒，三角形轮廓",
+          "gameRarity": "稀有"
+        },
+        {
+          "level": 7,
+          "id": "proposed_grain:7",
+          "oldName": "新增候选",
+          "name": "黑米",
+          "cue": "紫黑色细长米粒与一段弯穗，主色整体深紫",
+          "gameRarity": "稀有"
+        },
+        {
+          "level": 8,
+          "id": "proposed_grain:8",
+          "oldName": "新增候选",
+          "name": "藜麦",
+          "cue": "玫红紧密穗簇，少量奶白圆籽，蓬松锥形",
+          "gameRarity": "珍藏"
+        }
+      ]
+    },
+    {
+      "id": "herb",
+      "oldName": "香草花园",
+      "name": "香草与香料",
+      "group": "原料与植物",
+      "note": "从泛称香草改为具体植物；每级只展示一种，不画花盆、种子袋或调味品套组。",
+      "status": "待用户审阅",
+      "levelCount": 6,
+      "items": [
+        {
+          "level": 1,
+          "id": "herb:1",
+          "oldName": "香草种子",
+          "name": "罗勒",
+          "cue": "亮绿宽卵叶，成对圆润叶片"
+        },
+        {
+          "level": 2,
+          "id": "herb:2",
+          "oldName": "香草嫩芽",
+          "name": "薄荷",
+          "cue": "冷绿锯齿叶，短枝呈十字分叉"
+        },
+        {
+          "level": 3,
+          "id": "herb:3",
+          "oldName": "罗勒叶",
+          "name": "迷迭香",
+          "cue": "深绿针叶，细长直立枝"
+        },
+        {
+          "level": 4,
+          "id": "herb:4",
+          "oldName": "香草盆栽",
+          "name": "百里香",
+          "cue": "灰绿细枝，小叶形成低矮扇形"
+        },
+        {
+          "level": 5,
+          "id": "herb:5",
+          "oldName": "香草篮",
+          "name": "紫苏",
+          "cue": "紫红色大锯齿叶，心形叶面"
+        },
+        {
+          "level": 6,
+          "id": "herb:6",
+          "oldName": "秘制调味料",
+          "name": "藏红花",
+          "cue": "紫色花冠，三根醒目的红色柱头"
+        }
+      ]
+    },
+    {
+      "id": "flowers",
+      "oldName": "餐桌花艺",
+      "name": "珍稀花卉",
+      "group": "原料与植物",
+      "note": "每级一种花；以一朵主花或同株自然花序作主体，去掉花瓶、混合花束、花墙。",
+      "status": "待用户审阅",
+      "levelCount": 9,
+      "items": [
+        {
+          "level": 1,
+          "id": "flowers:1",
+          "oldName": "小花枝",
+          "name": "雏菊",
+          "cue": "白色放射花瓣，黄色圆花心"
+        },
+        {
+          "level": 2,
+          "id": "flowers:2",
+          "oldName": "一束鲜花",
+          "name": "向日葵",
+          "cue": "金黄大瓣，深棕大圆花盘"
+        },
+        {
+          "level": 3,
+          "id": "flowers:3",
+          "oldName": "散装郁金香",
+          "name": "郁金香",
+          "cue": "橙红杯形花苞，宽绿色叶片"
+        },
+        {
+          "level": 4,
+          "id": "flowers:4",
+          "oldName": "郁金香捧花",
+          "name": "康乃馨",
+          "cue": "粉红层叠锯齿瓣，扇形花冠"
+        },
+        {
+          "level": 5,
+          "id": "flowers:5",
+          "oldName": "桌边花瓶",
+          "name": "百合",
+          "cue": "奶白六瓣星形，明显长花蕊"
+        },
+        {
+          "level": 6,
+          "id": "flowers:6",
+          "oldName": "餐桌花艺",
+          "name": "玫瑰",
+          "cue": "红色螺旋花心，厚实卷边花瓣"
+        },
+        {
+          "level": 7,
+          "id": "flowers:7",
+          "oldName": "宴会插花",
+          "name": "绣球",
+          "cue": "蓝紫球形花序，整体大色块"
+        },
+        {
+          "level": 8,
+          "id": "flowers:8",
+          "oldName": "花园花墙",
+          "name": "蝴蝶兰",
+          "cue": "白紫蝴蝶形花朵，弧形短花梗"
+        },
+        {
+          "level": 9,
+          "id": "flowers:9",
+          "oldName": "盛典花艺",
+          "name": "帝王花",
+          "cue": "粉白尖瓣环绕大花心，宽大杯状轮廓"
+        }
+      ]
+    },
+    {
+      "id": "food",
+      "oldName": "甜蜜烘焙",
+      "name": "烘焙甜点",
+      "group": "食品与饮品",
+      "note": "现有 11 级保留，原料移出本链，全部采用单件烘焙成品。最后一级仍是一个完整甜点。",
+      "status": "待用户审阅",
+      "levelCount": 11,
+      "items": [
+        {
+          "level": 1,
+          "id": "food:1",
+          "oldName": "小麦",
+          "name": "黄油曲奇",
+          "cue": "金黄色齿边圆饼，深色旋纹"
+        },
+        {
+          "level": 2,
+          "id": "food:2",
+          "oldName": "面粉",
+          "name": "芝麻贝果",
+          "cue": "棕色圆环面包，中央大孔"
+        },
+        {
+          "level": 3,
+          "id": "food:3",
+          "oldName": "面团",
+          "name": "牛奶吐司",
+          "cue": "方顶长面包，露出一片奶白切面"
+        },
+        {
+          "level": 4,
+          "id": "food:4",
+          "oldName": "吐司",
+          "name": "黄油可颂",
+          "cue": "金黄弯月轮廓，清楚的酥皮节段"
+        },
+        {
+          "level": 5,
+          "id": "food:5",
+          "oldName": "可颂",
+          "name": "蝴蝶酥",
+          "cue": "左右双卷的蝴蝶形薄酥"
+        },
+        {
+          "level": 6,
+          "id": "food:6",
+          "oldName": "庆祝蛋糕",
+          "name": "闪电泡芙",
+          "cue": "长条棕色泡芙，顶部整块巧克力"
+        },
+        {
+          "level": 7,
+          "id": "food:7",
+          "oldName": "双层庆典蛋糕",
+          "name": "肉桂卷",
+          "cue": "直立圆螺旋，奶白糖霜条纹"
+        },
+        {
+          "level": 8,
+          "id": "food:8",
+          "oldName": "缤纷甜品塔",
+          "name": "蓝莓玛芬",
+          "cue": "紫蓝圆顶，深蓝褶纸杯"
+        },
+        {
+          "level": 9,
+          "id": "food:9",
+          "oldName": "宴会甜品桌",
+          "name": "樱桃丹麦酥",
+          "cue": "菱形翻角酥皮，中心一颗红樱桃"
+        },
+        {
+          "level": 10,
+          "id": "food:10",
+          "oldName": "婚礼甜品台",
+          "name": "树根蛋糕",
+          "cue": "横向短圆木形，深棕纹理和一个切口"
+        },
+        {
+          "level": 11,
+          "id": "food:11",
+          "oldName": "大师甜品盛宴",
+          "name": "草莓夏洛特蛋糕",
+          "cue": "单个圆柱蛋糕，浅色手指饼围边，红色果顶"
+        }
+      ]
+    },
+    {
+      "id": "drink",
+      "oldName": "咖啡饮品",
+      "name": "手作饮品",
+      "group": "食品与饮品",
+      "note": "由咖啡饮品扩展为手作饮品；每级一杯或一个天然容器。生产器同步拟改为饮品制作机。差异以饮料主色、质地、轮廓为主。",
+      "status": "待用户审阅",
+      "levelCount": 11,
+      "items": [
+        {
+          "level": 1,
+          "id": "drink:1",
+          "oldName": "咖啡豆",
+          "name": "鲜牛奶",
+          "cue": "矮胖白色奶瓶，蓝色瓶盖"
+        },
+        {
+          "level": 2,
+          "id": "drink:2",
+          "oldName": "浓缩咖啡",
+          "name": "柠檬汽水",
+          "cue": "浅黄色透明长杯，一片柠檬和明显气泡"
+        },
+        {
+          "level": 3,
+          "id": "drink:3",
+          "oldName": "牛奶咖啡",
+          "name": "鲜榨橙汁",
+          "cue": "橙色大肚杯，短绿吸管"
+        },
+        {
+          "level": 4,
+          "id": "drink:4",
+          "oldName": "拉花拿铁",
+          "name": "浓缩咖啡",
+          "cue": "深棕液面，白色小柄杯，杯身很矮"
+        },
+        {
+          "level": 5,
+          "id": "drink:5",
+          "oldName": "冰咖啡",
+          "name": "抹茶拿铁",
+          "cue": "绿色宽口杯，浅白奶层"
+        },
+        {
+          "level": 6,
+          "id": "drink:6",
+          "oldName": "咖啡分享塔",
+          "name": "珍珠奶茶",
+          "cue": "棕米色桶形杯，底部大黑珍珠"
+        },
+        {
+          "level": 7,
+          "id": "drink:7",
+          "oldName": "手冲咖啡套组",
+          "name": "草莓奶昔",
+          "cue": "粉红高脚波纹杯，单个旋转奶油顶"
+        },
+        {
+          "level": 8,
+          "id": "drink:8",
+          "oldName": "冷萃咖啡桶",
+          "name": "椰青冷萃",
+          "cue": "绿色椰壳，白色开口，深棕咖啡液"
+        },
+        {
+          "level": 9,
+          "id": "drink:9",
+          "oldName": "精品咖啡吧",
+          "name": "芒果冰沙",
+          "cue": "橙黄锥形冰沙，透明倒三角杯"
+        },
+        {
+          "level": 10,
+          "id": "drink:10",
+          "oldName": "冠军咖啡台",
+          "name": "蓝莓酸奶昔",
+          "cue": "深紫圆腹玻璃罐，宽白色酸奶旋纹"
+        },
+        {
+          "level": 11,
+          "id": "drink:11",
+          "oldName": "世界咖啡盛典",
+          "name": "蝶豆花特调",
+          "cue": "蓝紫渐变细腰杯，清晰上下色层"
+        }
+      ]
+    },
+    {
+      "id": "chinese",
+      "oldName": "中式料理",
+      "name": "中式料理",
+      "group": "食品与饮品",
+      "note": "每级一道具体菜；容器仅承托主体，避免周围再放小碟配菜。",
+      "status": "待用户审阅",
+      "levelCount": 8,
+      "items": [
+        {
+          "level": 1,
+          "id": "chinese:1",
+          "oldName": "香米",
+          "name": "葱油饼",
+          "cue": "扁圆金黄饼，粗螺旋纹和绿色葱点"
+        },
+        {
+          "level": 2,
+          "id": "chinese:2",
+          "oldName": "水饺",
+          "name": "水饺",
+          "cue": "一只饱满月牙饺，清楚的褶边"
+        },
+        {
+          "level": 3,
+          "id": "chinese:3",
+          "oldName": "小笼包",
+          "name": "小笼包",
+          "cue": "一只圆形包，向上收拢的褶口"
+        },
+        {
+          "level": 4,
+          "id": "chinese:4",
+          "oldName": "汤面",
+          "name": "牛肉汤面",
+          "cue": "深色宽碗，粗面条和一大片牛肉"
+        },
+        {
+          "level": 5,
+          "id": "chinese:5",
+          "oldName": "暖心火锅",
+          "name": "糯米烧卖",
+          "cue": "敞口花边皮，深色糯米圆心"
+        },
+        {
+          "level": 6,
+          "id": "chinese:6",
+          "oldName": "中式点心宴",
+          "name": "荷叶糯米鸡",
+          "cue": "深绿方形荷叶包，掀开一角露出米馅"
+        },
+        {
+          "level": 7,
+          "id": "chinese:7",
+          "oldName": "团圆家宴",
+          "name": "东坡肉",
+          "cue": "单块红褐方肉，明显上下肥瘦层"
+        },
+        {
+          "level": 8,
+          "id": "chinese:8",
+          "oldName": "四季中华宴",
+          "name": "松鼠桂鱼",
+          "cue": "整鱼翘尾造型，橙红菱格炸纹"
+        }
+      ]
+    },
+    {
+      "id": "japanese",
+      "oldName": "日式料理",
+      "name": "日式料理",
+      "group": "食品与饮品",
+      "note": "全部使用明确的单品料理；末级改为单颗精致和果子。",
+      "status": "待用户审阅",
+      "levelCount": 8,
+      "items": [
+        {
+          "level": 1,
+          "id": "japanese:1",
+          "oldName": "海苔",
+          "name": "梅子饭团",
+          "cue": "白色三角形，黑海苔底边，红梅子点"
+        },
+        {
+          "level": 2,
+          "id": "japanese:2",
+          "oldName": "饭团",
+          "name": "厚蛋烧",
+          "cue": "金黄长方卷，明显螺旋切面"
+        },
+        {
+          "level": 3,
+          "id": "japanese:3",
+          "oldName": "寿司",
+          "name": "三文鱼握寿司",
+          "cue": "橙色鱼片盖白色米团，长椭圆形"
+        },
+        {
+          "level": 4,
+          "id": "japanese:4",
+          "oldName": "手卷",
+          "name": "海苔手卷",
+          "cue": "黑色锥筒，顶部少量亮色馅料"
+        },
+        {
+          "level": 5,
+          "id": "japanese:5",
+          "oldName": "豚骨拉面",
+          "name": "炸虾天妇罗",
+          "cue": "金黄弯虾，露出红色尾扇"
+        },
+        {
+          "level": 6,
+          "id": "japanese:6",
+          "oldName": "和风便当",
+          "name": "豚骨拉面",
+          "cue": "红黑深碗，奶白汤面，一片叉烧"
+        },
+        {
+          "level": 7,
+          "id": "japanese:7",
+          "oldName": "樱花会席",
+          "name": "鳗鱼饭",
+          "cue": "朱红长方饭盒，表面一整片深褐鳗鱼"
+        },
+        {
+          "level": 8,
+          "id": "japanese:8",
+          "oldName": "和风庆典宴",
+          "name": "樱花和果子",
+          "cue": "单颗粉色五瓣花形，黄色小花心"
+        }
+      ]
+    },
+    {
+      "id": "italian",
+      "oldName": "意式料理",
+      "name": "意式料理",
+      "group": "食品与饮品",
+      "note": "意面、披萨、米饭、烤制面食与甜点分别占用一个明确等级。",
+      "status": "待用户审阅",
+      "levelCount": 8,
+      "items": [
+        {
+          "level": 1,
+          "id": "italian:1",
+          "oldName": "意面原料",
+          "name": "意式面包棒",
+          "cue": "两根同种金黄长棒，稀疏芝麻点"
+        },
+        {
+          "level": 2,
+          "id": "italian:2",
+          "oldName": "番茄意面",
+          "name": "番茄意面",
+          "cue": "红酱面条卷成一个高圆顶，白色浅盘"
+        },
+        {
+          "level": 3,
+          "id": "italian:3",
+          "oldName": "芝士披萨",
+          "name": "玛格丽特披萨",
+          "cue": "完整薄圆饼，大块白芝士与绿罗勒"
+        },
+        {
+          "level": 4,
+          "id": "italian:4",
+          "oldName": "奶油烩饭",
+          "name": "南瓜烩饭",
+          "cue": "橙黄米饭小圆丘，单片南瓜作主标志"
+        },
+        {
+          "level": 5,
+          "id": "italian:5",
+          "oldName": "千层面",
+          "name": "千层面",
+          "cue": "一块高方形，红白相间切层"
+        },
+        {
+          "level": 6,
+          "id": "italian:6",
+          "oldName": "意式盛宴",
+          "name": "菠菜方饺",
+          "cue": "一枚放大绿色方饺，波浪齿边"
+        },
+        {
+          "level": 7,
+          "id": "italian:7",
+          "oldName": "托斯卡纳长桌",
+          "name": "墨鱼汁意面",
+          "cue": "黑色卷面，浅色窄盘，整体深色主体"
+        },
+        {
+          "level": 8,
+          "id": "italian:8",
+          "oldName": "地中海庆典宴",
+          "name": "提拉米苏",
+          "cue": "一块可可色长方蛋糕，清楚的棕白双层"
+        }
+      ]
+    },
+    {
+      "id": "mexican",
+      "oldName": "墨西哥料理",
+      "name": "墨西哥料理",
+      "group": "食品与饮品",
+      "note": "保留单份地方料理；塔玛利与恩奇拉达使用明确菜品身份。",
+      "status": "待用户审阅",
+      "levelCount": 8,
+      "items": [
+        {
+          "level": 1,
+          "id": "mexican:1",
+          "oldName": "甜玉米",
+          "name": "墨西哥烤玉米",
+          "cue": "完整金黄玉米棒，白色酱纹，红色香料点"
+        },
+        {
+          "level": 2,
+          "id": "mexican:2",
+          "oldName": "塔可",
+          "name": "塔可",
+          "cue": "开口黄色弯壳，侧面可见整块馅料"
+        },
+        {
+          "level": 3,
+          "id": "mexican:3",
+          "oldName": "芝士夹饼",
+          "name": "芝士夹饼",
+          "cue": "一块金黄三角薄饼，短拉丝芝士"
+        },
+        {
+          "level": 4,
+          "id": "mexican:4",
+          "oldName": "墨西哥卷饼",
+          "name": "墨西哥卷饼",
+          "cue": "米白色粗圆筒，一端斜切"
+        },
+        {
+          "level": 5,
+          "id": "mexican:5",
+          "oldName": "玉米片拼盘",
+          "name": "玉米叶塔玛利",
+          "cue": "浅褐玉米叶包，纵向打开露出黄面团"
+        },
+        {
+          "level": 6,
+          "id": "mexican:6",
+          "oldName": "墨西哥派对餐",
+          "name": "酿馅辣椒",
+          "cue": "一整只深绿大椒，开口露出浅色馅"
+        },
+        {
+          "level": 7,
+          "id": "mexican:7",
+          "oldName": "阳光街头宴",
+          "name": "红酱恩奇拉达",
+          "cue": "一根红酱烤饼卷，顶部白色横条"
+        },
+        {
+          "level": 8,
+          "id": "mexican:8",
+          "oldName": "嘉年华大餐",
+          "name": "亡灵节面包",
+          "cue": "棕色圆顶面包，浅色交叉骨节形面纹"
+        }
+      ]
+    },
+    {
+      "id": "tools",
+      "oldName": "料理厨具",
+      "name": "料理厨具",
+      "group": "器具与收纳",
+      "note": "14 级均为一个可拿取或放在台面的厨具，最后两级为手动机械；烤炉归入烘焙生产器，整间厨房退出本链。",
+      "status": "待用户审阅",
+      "levelCount": 14,
+      "items": [
+        {
+          "level": 1,
+          "id": "tools:1",
+          "oldName": "木勺",
+          "name": "木勺",
+          "cue": "浅木色长柄，椭圆凹勺头"
+        },
+        {
+          "level": 2,
+          "id": "tools:2",
+          "oldName": "打蛋器",
+          "name": "打蛋器",
+          "cue": "细长银色线笼，蓝色短柄"
+        },
+        {
+          "level": 3,
+          "id": "tools:3",
+          "oldName": "平底锅",
+          "name": "厨房夹",
+          "cue": "V 形开合长夹，两个圆齿夹头"
+        },
+        {
+          "level": 4,
+          "id": "tools:4",
+          "oldName": "炖锅",
+          "name": "硅胶刮刀",
+          "cue": "粉红宽方头，短木柄"
+        },
+        {
+          "level": 5,
+          "id": "tools:5",
+          "oldName": "厨师机",
+          "name": "漏勺",
+          "cue": "圆形网勺，大孔网面，细长柄"
+        },
+        {
+          "level": 6,
+          "id": "tools:6",
+          "oldName": "梦幻烤箱",
+          "name": "擀面杖",
+          "cue": "粗木圆柱，两端短把"
+        },
+        {
+          "level": 7,
+          "id": "tools:7",
+          "oldName": "商用烤箱",
+          "name": "刨丝器",
+          "cue": "立体四棱锥金属塔，顶端弧柄"
+        },
+        {
+          "level": 8,
+          "id": "tools:8",
+          "oldName": "双层烤箱",
+          "name": "石臼",
+          "cue": "深灰矮圆石碗，一根粗杵"
+        },
+        {
+          "level": 9,
+          "id": "tools:9",
+          "oldName": "蒸烤一体机",
+          "name": "煎锅",
+          "cue": "黑色扁圆锅身，单根长柄"
+        },
+        {
+          "level": 10,
+          "id": "tools:10",
+          "oldName": "多功能料理台",
+          "name": "双耳汤锅",
+          "cue": "银色高筒锅，左右小耳"
+        },
+        {
+          "level": 11,
+          "id": "tools:11",
+          "oldName": "中央备餐台",
+          "name": "铸铁炖锅",
+          "cue": "红色矮胖圆锅，厚盖和黑圆钮"
+        },
+        {
+          "level": 12,
+          "id": "tools:12",
+          "oldName": "主厨工作站",
+          "name": "压力锅",
+          "cue": "银色短粗锅，横向锁杆和顶部压力阀"
+        },
+        {
+          "level": 13,
+          "id": "tools:13",
+          "oldName": "开放式中央厨房",
+          "name": "手摇绞肉机",
+          "cue": "侧向短筒，顶部漏斗，弯曲摇柄"
+        },
+        {
+          "level": 14,
+          "id": "tools:14",
+          "oldName": "星级宴会厨房",
+          "name": "手动压面机",
+          "cue": "横向双滚筒，侧置大摇柄，平直支脚"
+        }
+      ]
+    },
+    {
+      "id": "tableware",
+      "oldName": "精致餐具",
+      "name": "精致餐具",
+      "group": "器具与收纳",
+      "note": "8 级各一个餐具主体，利用碟、碗、盅、杯、壶等形态区分。",
+      "status": "待用户审阅",
+      "levelCount": 8,
+      "items": [
+        {
+          "level": 1,
+          "id": "tableware:1",
+          "oldName": "小碟子",
+          "name": "小瓷碟",
+          "cue": "白底蓝边扁圆碟"
+        },
+        {
+          "level": 2,
+          "id": "tableware:2",
+          "oldName": "陶瓷碗",
+          "name": "陶瓷饭碗",
+          "cue": "天蓝色半球碗，厚足圈"
+        },
+        {
+          "level": 3,
+          "id": "tableware:3",
+          "oldName": "花边餐盘",
+          "name": "双耳汤盅",
+          "cue": "奶白小圆盅，左右双耳与圆盖"
+        },
+        {
+          "level": 4,
+          "id": "tableware:4",
+          "oldName": "下午茶壶",
+          "name": "高脚玻璃杯",
+          "cue": "透明长杯脚，上部倒钟形杯腹"
+        },
+        {
+          "level": 5,
+          "id": "tableware:5",
+          "oldName": "精致茶具",
+          "name": "花瓣茶壶",
+          "cue": "粉白圆腹壶，一侧弯嘴一侧圆把"
+        },
+        {
+          "level": 6,
+          "id": "tableware:6",
+          "oldName": "宴会餐具",
+          "name": "船形酱汁壶",
+          "cue": "白色长船腹，尖嘴和低弧把"
+        },
+        {
+          "level": 7,
+          "id": "tableware:7",
+          "oldName": "典藏瓷器柜",
+          "name": "带盖陶瓷汤盆",
+          "cue": "青色宽椭圆盆，拱形厚盖"
+        },
+        {
+          "level": 8,
+          "id": "tableware:8",
+          "oldName": "皇家宴会餐台",
+          "name": "天鹅糖罐",
+          "cue": "白色天鹅曲颈主体，背部可开盖"
+        }
+      ]
+    },
+    {
+      "id": "preservation",
+      "oldName": "食材保鲜",
+      "name": "食材保鲜",
+      "group": "器具与收纳",
+      "note": "末级替换为单台真空封口机；每级都保持清楚的保鲜用品形态。",
+      "status": "待用户审阅",
+      "levelCount": 4,
+      "items": [
+        {
+          "level": 1,
+          "id": "preservation:1",
+          "oldName": "保鲜贴",
+          "name": "保鲜膜卷",
+          "cue": "横向透明薄膜卷，棕色纸芯"
+        },
+        {
+          "level": 2,
+          "id": "preservation:2",
+          "oldName": "密封袋",
+          "name": "拉链密封袋",
+          "cue": "透明扁平袋，红色粗封口线"
+        },
+        {
+          "level": 3,
+          "id": "preservation:3",
+          "oldName": "保鲜盒",
+          "name": "扣盖保鲜盒",
+          "cue": "浅绿方盒，左右明显卡扣"
+        },
+        {
+          "level": 4,
+          "id": "preservation:4",
+          "oldName": "冷藏保鲜套装",
+          "name": "台式真空封口机",
+          "cue": "奶白长条机器，前方压合缝"
+        }
+      ]
+    },
+    {
+      "id": "bakeware",
+      "oldName": "烘焙器具",
+      "name": "烘焙器具",
+      "group": "器具与收纳",
+      "note": "保留前六级的器型差异；最后一级使用单件立体模具。",
+      "status": "待用户审阅",
+      "levelCount": 7,
+      "items": [
+        {
+          "level": 1,
+          "id": "bakeware:1",
+          "oldName": "纸杯模具",
+          "name": "纸杯模具",
+          "cue": "粉色褶边圆纸杯"
+        },
+        {
+          "level": 2,
+          "id": "bakeware:2",
+          "oldName": "小蛋糕模",
+          "name": "菊花蛋糕模",
+          "cue": "银色深筒，整圈花瓣凹槽"
+        },
+        {
+          "level": 3,
+          "id": "bakeware:3",
+          "oldName": "圆形烤盘",
+          "name": "圆形蛋糕模",
+          "cue": "低矮银色圆环，平底"
+        },
+        {
+          "level": 4,
+          "id": "bakeware:4",
+          "oldName": "长方烤盘",
+          "name": "长方烤盘",
+          "cue": "粉色扁长矩形，左右短耳"
+        },
+        {
+          "level": 5,
+          "id": "bakeware:5",
+          "oldName": "多格烤盘",
+          "name": "六孔玛芬盘",
+          "cue": "奶白平板，六个醒目的深孔"
+        },
+        {
+          "level": 6,
+          "id": "bakeware:6",
+          "oldName": "旋转裱花台",
+          "name": "旋转裱花台",
+          "cue": "银色平圆台，单根粗底座"
+        },
+        {
+          "level": 7,
+          "id": "bakeware:7",
+          "oldName": "专业烘焙套组",
+          "name": "城堡蛋糕模",
+          "cue": "金色单体模具，中央塔和四角塔轮廓"
+        }
+      ]
+    },
+    {
+      "id": "seedbag",
+      "oldName": "香草种子袋",
+      "name": "香草种子包装",
+      "group": "器具与收纳",
+      "note": "保持四级末端可播种、耗尽变空袋的功能；用袋形区分，最后一级为亚麻袋。",
+      "status": "待用户审阅",
+      "levelCount": 4,
+      "items": [
+        {
+          "level": 1,
+          "id": "seedbag:1",
+          "oldName": "小种子包",
+          "name": "扁平种子纸包",
+          "cue": "浅绿扁矩形纸包，巨大叶片印记"
+        },
+        {
+          "level": 2,
+          "id": "seedbag:2",
+          "oldName": "加量种子包",
+          "name": "三角种子袋",
+          "cue": "淡黄立体三棱纸袋，短折封边"
+        },
+        {
+          "level": 3,
+          "id": "seedbag:3",
+          "oldName": "大种子包",
+          "name": "束口种子袋",
+          "cue": "米白水滴形布袋，长束口绳"
+        },
+        {
+          "level": 4,
+          "id": "seedbag:4",
+          "oldName": "香草种子堆",
+          "name": "立底亚麻种子袋",
+          "cue": "棕色高方袋，宽平底，翻卷袋口"
+        }
+      ]
+    },
+    {
+      "id": "emptybag",
+      "oldName": "空种子袋",
+      "name": "布袋再利用",
+      "group": "器具与收纳",
+      "note": "沿用耗尽袋进入再利用、末级进入布艺链的关系，材料统一为布。",
+      "status": "待用户审阅",
+      "levelCount": 4,
+      "items": [
+        {
+          "level": 1,
+          "id": "emptybag:1",
+          "oldName": "空纸袋",
+          "name": "空亚麻袋",
+          "cue": "软塌棕色布袋，敞开大袋口"
+        },
+        {
+          "level": 2,
+          "id": "emptybag:2",
+          "oldName": "折叠空袋",
+          "name": "拆线布片",
+          "cue": "不规则浅褐布片，大块毛边"
+        },
+        {
+          "level": 3,
+          "id": "emptybag:3",
+          "oldName": "空袋束",
+          "name": "缝补方巾",
+          "cue": "粉白对角折方巾，明显十字补丁"
+        },
+        {
+          "level": 4,
+          "id": "emptybag:4",
+          "oldName": "整捆空袋",
+          "name": "熨平布卷",
+          "cue": "横向奶白圆柱布卷，粉色绑带"
+        }
+      ]
+    },
+    {
+      "id": "pantry",
+      "oldName": "餐厅储物柜",
+      "name": "餐厅储物柜",
+      "group": "器具与收纳",
+      "note": "全部等级都是可收纳的完整容器，以保持现有各级产出功能；高阶以门形和柜体结构区分。",
+      "status": "待用户审阅",
+      "levelCount": 11,
+      "items": [
+        {
+          "level": 1,
+          "id": "pantry:1",
+          "oldName": "藤编储物篮",
+          "name": "藤编储物篮",
+          "cue": "低矮敞口椭圆篮，单根弧柄"
+        },
+        {
+          "level": 2,
+          "id": "pantry:2",
+          "oldName": "抽屉木板",
+          "name": "扣锁收纳箱",
+          "cue": "棕色横向木箱，顶部平盖和大锁扣"
+        },
+        {
+          "level": 3,
+          "id": "pantry:3",
+          "oldName": "抽屉框架",
+          "name": "单格抽屉",
+          "cue": "奶白短方抽屉，前方单拉环"
+        },
+        {
+          "level": 4,
+          "id": "pantry:4",
+          "oldName": "旧餐具抽屉",
+          "name": "双层抽屉柜",
+          "cue": "粉木矮柜，上下两块大抽面"
+        },
+        {
+          "level": 5,
+          "id": "pantry:5",
+          "oldName": "餐具收纳抽屉",
+          "name": "百叶矮柜",
+          "cue": "青绿色宽柜，正面粗横百叶"
+        },
+        {
+          "level": 6,
+          "id": "pantry:6",
+          "oldName": "双层餐厅柜",
+          "name": "拱顶餐具柜",
+          "cue": "奶白高柜，顶部单圆拱"
+        },
+        {
+          "level": 7,
+          "id": "pantry:7",
+          "oldName": "双排餐厅柜",
+          "name": "转角橱柜",
+          "cue": "浅木三角柜体，明显折角门面"
+        },
+        {
+          "level": 8,
+          "id": "pantry:8",
+          "oldName": "橡木储物柜",
+          "name": "圆筒转盘柜",
+          "cue": "棕色圆筒，中央竖轴和半开弧门"
+        },
+        {
+          "level": 9,
+          "id": "pantry:9",
+          "oldName": "玻璃餐具柜",
+          "name": "玻璃展柜",
+          "cue": "天蓝色细边高柜，一整块透亮玻璃门"
+        },
+        {
+          "level": 10,
+          "id": "pantry:10",
+          "oldName": "典藏陈列柜",
+          "name": "卷帘高柜",
+          "cue": "深粉长柜，顶部向内卷起的弧形帘"
+        },
+        {
+          "level": 11,
+          "id": "pantry:11",
+          "oldName": "主厨收藏柜",
+          "name": "穹顶珍藏柜",
+          "cue": "奶白八角柜体，顶部透明穹盖"
+        }
+      ]
+    },
+    {
+      "id": "lost",
+      "oldName": "客人遗失物",
+      "name": "客人遗失物",
+      "group": "收藏与支线",
+      "note": "每级一件明确失物；末两级保留可容纳休闲用品的包、箱形态。",
+      "status": "待用户审阅",
+      "levelCount": 6,
+      "items": [
+        {
+          "level": 1,
+          "id": "lost:1",
+          "oldName": "遗落眼镜",
+          "name": "圆框眼镜",
+          "cue": "金色双圆镜片，折叠细镜腿"
+        },
+        {
+          "level": 2,
+          "id": "lost:2",
+          "oldName": "手写便签",
+          "name": "条纹围巾",
+          "cue": "紫白长条，两个垂落尾端"
+        },
+        {
+          "level": 3,
+          "id": "lost:3",
+          "oldName": "遗落围巾",
+          "name": "折叠雨伞",
+          "cue": "蓝色细锥伞套，弯钩柄"
+        },
+        {
+          "level": 4,
+          "id": "lost:4",
+          "oldName": "小失物篮",
+          "name": "胶片相机",
+          "cue": "黑银横向机身，巨大圆镜头"
+        },
+        {
+          "level": 5,
+          "id": "lost:5",
+          "oldName": "大失物篮",
+          "name": "旅行手提包",
+          "cue": "棕色软质圆肩包，大弧柄"
+        },
+        {
+          "level": 6,
+          "id": "lost:6",
+          "oldName": "邻里失物招领台",
+          "name": "复古旅行箱",
+          "cue": "酒红硬壳长方箱，浅色双绑带"
+        }
+      ]
+    },
+    {
+      "id": "comfort",
+      "oldName": "待客休闲",
+      "name": "待客休闲",
+      "group": "收藏与支线",
+      "note": "保持前段身体放松到后段视听娱乐的方向；末级保留承接游戏机支线的游戏匣。",
+      "status": "待用户审阅",
+      "levelCount": 8,
+      "items": [
+        {
+          "level": 1,
+          "id": "comfort:1",
+          "oldName": "颈枕",
+          "name": "旅行颈枕",
+          "cue": "淡黄 U 形软枕"
+        },
+        {
+          "level": 2,
+          "id": "comfort:2",
+          "oldName": "软靠垫",
+          "name": "豆袋靠垫",
+          "cue": "紫色水滴坐垫，软塌外形"
+        },
+        {
+          "level": 3,
+          "id": "comfort:3",
+          "oldName": "按摩靠枕",
+          "name": "按摩靠垫",
+          "cue": "米白方垫，四个大橙色按摩凸点"
+        },
+        {
+          "level": 4,
+          "id": "comfort:4",
+          "oldName": "筋膜放松器",
+          "name": "筋膜按摩枪",
+          "cue": "粉色 T 形机身，黑色圆球头"
+        },
+        {
+          "level": 5,
+          "id": "comfort:5",
+          "oldName": "随身音乐盒",
+          "name": "手摇音乐盒",
+          "cue": "浅木小方盒，一根醒目侧摇柄"
+        },
+        {
+          "level": 6,
+          "id": "comfort:6",
+          "oldName": "掌上音响",
+          "name": "便携音箱",
+          "cue": "青色短圆柱，正面大圆网罩"
+        },
+        {
+          "level": 7,
+          "id": "comfort:7",
+          "oldName": "沉浸观影镜",
+          "name": "沉浸观影镜",
+          "cue": "黑紫横向护目镜，宽头带"
+        },
+        {
+          "level": 8,
+          "id": "comfort:8",
+          "oldName": "复古游戏礼盒",
+          "name": "翻盖游戏匣",
+          "cue": "红白便携游戏匣，半开盖内一个大手柄标志"
+        }
+      ]
+    },
+    {
+      "id": "doll",
+      "oldName": "手作布偶",
+      "name": "布艺手作",
+      "group": "收藏与支线",
+      "note": "用不同手作对象区分等级；最后一级回到原小白狗，保留白身、云朵耳、黑眼鼻嘴和红 M 帽。",
+      "status": "待用户审阅",
+      "levelCount": 8,
+      "items": [
+        {
+          "level": 1,
+          "id": "doll:1",
+          "oldName": "麻布片",
+          "name": "剪裁布片",
+          "cue": "带剪口的奶白方布，粉色粗定位线"
+        },
+        {
+          "level": 2,
+          "id": "doll:2",
+          "oldName": "布偶裁片",
+          "name": "针线包",
+          "cue": "紫色卷折针线包，露出一枚大线轴"
+        },
+        {
+          "level": 3,
+          "id": "doll:3",
+          "oldName": "填充布偶",
+          "name": "番茄针插",
+          "cue": "红色软番茄球，绿色毡叶"
+        },
+        {
+          "level": 4,
+          "id": "doll:4",
+          "oldName": "围裙小偶",
+          "name": "布艺胡萝卜",
+          "cue": "橙色长锥布玩具，粗绿色布叶"
+        },
+        {
+          "level": 5,
+          "id": "doll:5",
+          "oldName": "主厨布偶",
+          "name": "布艺小鱼",
+          "cue": "蓝色扁鱼，巨大三角尾，粗缝线"
+        },
+        {
+          "level": 6,
+          "id": "doll:6",
+          "oldName": "餐厅吉祥偶",
+          "name": "条纹袜子猫",
+          "cue": "灰白长身布猫，细长上翘尾"
+        },
+        {
+          "level": 7,
+          "id": "doll:7",
+          "oldName": "布偶小剧场",
+          "name": "长耳布兔",
+          "cue": "米白布兔，两只长竖耳，粉色肚皮"
+        },
+        {
+          "level": 8,
+          "id": "doll:8",
+          "oldName": "厨房布偶大家庭",
+          "name": "小白狗厨师布偶",
+          "cue": "白身云朵耳，红 M 帽，红围裙，粗缝线柔软质感"
+        }
+      ]
+    },
+    {
+      "id": "snail",
+      "oldName": "花园蜗牛",
+      "name": "奇趣蜗牛",
+      "group": "收藏与支线",
+      "note": "幻想收藏链，以壳的大形和主色递进；不作现实物种稀有度排序。",
+      "status": "待用户审阅",
+      "levelCount": 6,
+      "items": [
+        {
+          "level": 1,
+          "id": "snail:1",
+          "oldName": "小蜗牛壳",
+          "name": "空螺壳",
+          "cue": "棕色圆螺壳，明确空洞"
+        },
+        {
+          "level": 2,
+          "id": "snail:2",
+          "oldName": "初生蜗牛",
+          "name": "圆壳小蜗牛",
+          "cue": "浅黄低圆壳，小巧身体"
+        },
+        {
+          "level": 3,
+          "id": "snail:3",
+          "oldName": "花园蜗牛",
+          "name": "锥壳蜗牛",
+          "cue": "橙色高锥壳，黑色大斑点"
+        },
+        {
+          "level": 4,
+          "id": "snail:4",
+          "oldName": "大叶蜗牛",
+          "name": "叶壳蜗牛",
+          "cue": "绿色叶片形壳，宽大叶脊"
+        },
+        {
+          "level": 5,
+          "id": "snail:5",
+          "oldName": "彩壳蜗牛",
+          "name": "花壳蜗牛",
+          "cue": "粉色玫瑰形壳，花瓣大卷边"
+        },
+        {
+          "level": 6,
+          "id": "snail:6",
+          "oldName": "星光蜗牛",
+          "name": "星月蜗牛",
+          "cue": "深蓝新月形壳，单个金色大星"
+        }
+      ]
+    },
+    {
+      "id": "story",
+      "oldName": "厨房冒险卡",
+      "name": "厨房冒险信物",
+      "group": "收藏与支线",
+      "note": "从连续金边卡改成不同信物；末级仍承接手办产出，用可打开的守护者徽盒表达。",
+      "status": "待用户审阅",
+      "levelCount": 5,
+      "items": [
+        {
+          "level": 1,
+          "id": "story:1",
+          "oldName": "启程卡",
+          "name": "启程地图",
+          "cue": "米黄半卷地图，醒目红路线"
+        },
+        {
+          "level": 2,
+          "id": "story:2",
+          "oldName": "伙伴卡",
+          "name": "伙伴口哨",
+          "cue": "青色短圆哨，一圈红绳"
+        },
+        {
+          "level": 3,
+          "id": "story:3",
+          "oldName": "旅途卡",
+          "name": "旅途罗盘",
+          "cue": "黄铜圆盘，蓝色大指针"
+        },
+        {
+          "level": 4,
+          "id": "story:4",
+          "oldName": "城堡卡",
+          "name": "城堡通行符",
+          "cue": "紫色盾形通行牌，大拱门符号"
+        },
+        {
+          "level": 5,
+          "id": "story:5",
+          "oldName": "大厨守护者",
+          "name": "守护者徽盒",
+          "cue": "红白盾形可开徽盒，原小白狗正脸浮雕"
+        }
+      ]
+    },
+    {
+      "id": "mascot",
+      "oldName": "厨房手办",
+      "name": "小厨手办",
+      "group": "收藏与支线",
+      "note": "七级均为一只原小白狗，采用明显不同的整体姿态；硬质树脂表面与布偶链拉开材质差异。",
+      "status": "待用户审阅",
+      "levelCount": 7,
+      "items": [
+        {
+          "level": 1,
+          "id": "mascot:1",
+          "oldName": "小厨精灵",
+          "name": "趴睡小厨",
+          "cue": "横向趴卧，白色云朵耳，红 M 帽压低"
+        },
+        {
+          "level": 2,
+          "id": "mascot:2",
+          "oldName": "围裙小厨",
+          "name": "坐姿小厨",
+          "cue": "短胖三角坐姿，前爪贴地"
+        },
+        {
+          "level": 3,
+          "id": "mascot:3",
+          "oldName": "烘焙小厨",
+          "name": "擀面小厨",
+          "cue": "双臂横抱一根大擀面杖，身体宽展开"
+        },
+        {
+          "level": 4,
+          "id": "mascot:4",
+          "oldName": "咖啡小厨",
+          "name": "抱锅小厨",
+          "cue": "双手抱一个深蓝大锅，形成圆形主体"
+        },
+        {
+          "level": 5,
+          "id": "mascot:5",
+          "oldName": "花园小厨",
+          "name": "浇花小厨",
+          "cue": "身体侧倾，提一只绿色长嘴壶"
+        },
+        {
+          "level": 6,
+          "id": "mascot:6",
+          "oldName": "庆典主厨",
+          "name": "送餐小厨",
+          "cue": "单脚迈步，肩侧托一个大银色餐盖"
+        },
+        {
+          "level": 7,
+          "id": "mascot:7",
+          "oldName": "小厨全家福",
+          "name": "挥勺主厨",
+          "cue": "正面站立，双臂张开，举一把大金勺"
+        }
+      ]
+    },
+    {
+      "id": "puzzle",
+      "oldName": "餐厅旧照片",
+      "name": "开店纪念物",
+      "group": "收藏与支线",
+      "note": "原 13 级照片链改为开店过程的单件纪念物：筹备、开业、经营、纪念。末级保留相框照片；原 ID 仅用于对应现有进度。",
+      "status": "待用户审阅",
+      "levelCount": 13,
+      "items": [
+        {
+          "level": 1,
+          "id": "puzzle:1",
+          "oldName": "碎纸堆",
+          "name": "店面草图",
+          "cue": "米黄不规则草图纸，大红屋顶线稿"
+        },
+        {
+          "level": 2,
+          "id": "puzzle:2",
+          "oldName": "照片纸片",
+          "name": "量房卷尺",
+          "cue": "橙色圆卷尺，伸出一小段粗尺带"
+        },
+        {
+          "level": 3,
+          "id": "puzzle:3",
+          "oldName": "一块照片",
+          "name": "装修色卡",
+          "cue": "扇形展开的五块大色片"
+        },
+        {
+          "level": 4,
+          "id": "puzzle:4",
+          "oldName": "照片拼接",
+          "name": "开业请柬",
+          "cue": "红色对折卡，白色门形镂空"
+        },
+        {
+          "level": 5,
+          "id": "puzzle:5",
+          "oldName": "小块照片",
+          "name": "首版菜单",
+          "cue": "深绿窄长双折板，大白叉勺图案"
+        },
+        {
+          "level": 6,
+          "id": "puzzle:6",
+          "oldName": "大块照片",
+          "name": "首单小票",
+          "cue": "白色锯齿长纸条，大红完成印"
+        },
+        {
+          "level": 7,
+          "id": "puzzle:7",
+          "oldName": "照片一角",
+          "name": "开店纪念币",
+          "cue": "黄铜单币，中央大店铺浮雕，深绿缎带"
+        },
+        {
+          "level": 8,
+          "id": "puzzle:8",
+          "oldName": "模糊合影",
+          "name": "旧店员围裙",
+          "cue": "靛蓝完整围裙，中央单个白口袋"
+        },
+        {
+          "level": 9,
+          "id": "puzzle:9",
+          "oldName": "清晰合影",
+          "name": "木制旧招牌",
+          "cue": "深棕横向招牌，奶白大狗爪徽记"
+        },
+        {
+          "level": 10,
+          "id": "puzzle:10",
+          "oldName": "旧照片轮廓",
+          "name": "第一张合影",
+          "cue": "横向白边照片，原小白狗站在店门前"
+        },
+        {
+          "level": 11,
+          "id": "puzzle:11",
+          "oldName": "餐厅相框",
+          "name": "开店报纸剪报",
+          "cue": "灰白折角报纸，大黑白店门照片"
+        },
+        {
+          "level": 12,
+          "id": "puzzle:12",
+          "oldName": "旧日信封",
+          "name": "周年纪念相册",
+          "cue": "酒红厚相册，扣带和大椭圆照片窗"
+        },
+        {
+          "level": 13,
+          "id": "puzzle:13",
+          "oldName": "珍藏开店照",
+          "name": "珍藏开店相框",
+          "cue": "竖向金木相框，完整白狗开店照"
+        }
+      ]
+    },
+    {
+      "id": "keys",
+      "oldName": "储物钥匙",
+      "name": "储物通行物",
+      "group": "收藏与支线",
+      "note": "以机械、电子、佩戴形态区分；末级手环继续承接记忆支线。",
+      "status": "待用户审阅",
+      "levelCount": 5,
+      "items": [
+        {
+          "level": 1,
+          "id": "keys:1",
+          "oldName": "小钥匙",
+          "name": "铜制小钥匙",
+          "cue": "金色传统长齿钥匙，圆头"
+        },
+        {
+          "level": 2,
+          "id": "keys:2",
+          "oldName": "钥匙串",
+          "name": "三齿钥匙串",
+          "cue": "一只大圆环，三根不同长度齿钥匙"
+        },
+        {
+          "level": 3,
+          "id": "keys:3",
+          "oldName": "感应钥匙",
+          "name": "感应门卡",
+          "cue": "蓝色扁平长方卡，巨大感应波纹"
+        },
+        {
+          "level": 4,
+          "id": "keys:4",
+          "oldName": "自动感应钥匙",
+          "name": "旋钮钥匙扣",
+          "cue": "红色圆形遥控扣，中央凸起大旋钮"
+        },
+        {
+          "level": 5,
+          "id": "keys:5",
+          "oldName": "餐厅感应手环",
+          "name": "餐厅感应手环",
+          "cue": "奶白闭环腕带，圆形红狗爪表面"
+        }
+      ]
+    },
+    {
+      "id": "timegate",
+      "oldName": "旧日记忆",
+      "name": "旧日记忆",
+      "group": "收藏与支线",
+      "note": "每级以一个可唤起记忆的旧物表达，避免重复精装书。",
+      "status": "待用户审阅",
+      "levelCount": 6,
+      "items": [
+        {
+          "level": 1,
+          "id": "timegate:1",
+          "oldName": "记忆微光",
+          "name": "旧店门牌",
+          "cue": "蓝白椭圆搪瓷牌，粗门框纹样"
+        },
+        {
+          "level": 2,
+          "id": "timegate:2",
+          "oldName": "记忆碎片",
+          "name": "黄铜门铃",
+          "cue": "金色小钟形，红色粗拉绳"
+        },
+        {
+          "level": 3,
+          "id": "timegate:3",
+          "oldName": "记忆窗口",
+          "name": "手摇唱片机",
+          "cue": "棕色扁机箱，露出大黑唱片和银色摇臂"
+        },
+        {
+          "level": 4,
+          "id": "timegate:4",
+          "oldName": "旧日门扉",
+          "name": "摆锤挂钟",
+          "cue": "深木长钟壳，下方大圆摆锤"
+        },
+        {
+          "level": 5,
+          "id": "timegate:5",
+          "oldName": "往日厨房",
+          "name": "旋转走马灯",
+          "cue": "奶白六角灯体，内部一整块店门剪影"
+        },
+        {
+          "level": 6,
+          "id": "timegate:6",
+          "oldName": "开店纪念馆",
+          "name": "喇叭留声机",
+          "cue": "巨大的黄铜喇叭口，深木短底座"
+        }
+      ]
+    },
+    {
+      "id": "tasting",
+      "oldName": "试菜评估",
+      "name": "试菜评估",
+      "group": "收藏与支线",
+      "note": "从试味工具到评估记录、推荐与评审；L4–6 保留能产出课程的评估载体。",
+      "status": "待用户审阅",
+      "levelCount": 6,
+      "items": [
+        {
+          "level": 1,
+          "id": "tasting:1",
+          "oldName": "试菜便签",
+          "name": "试味瓷勺",
+          "cue": "白色短宽汤勺，蓝色勺柄"
+        },
+        {
+          "level": 2,
+          "id": "tasting:2",
+          "oldName": "试吃记录",
+          "name": "口味转盘",
+          "cue": "圆形五瓣色盘，中央红指针"
+        },
+        {
+          "level": 3,
+          "id": "tasting:3",
+          "oldName": "口味报告",
+          "name": "调味评分板",
+          "cue": "横向木夹板，三块大圆形评分片"
+        },
+        {
+          "level": 4,
+          "id": "tasting:4",
+          "oldName": "主厨推荐",
+          "name": "主厨推荐印章",
+          "cue": "红色大钮印章，底面厨师帽图案"
+        },
+        {
+          "level": 5,
+          "id": "tasting:5",
+          "oldName": "菜单分析",
+          "name": "菜单诊断卷轴",
+          "cue": "横向展开米黄卷轴，大红勾和餐盘图"
+        },
+        {
+          "level": 6,
+          "id": "tasting:6",
+          "oldName": "宴会评审",
+          "name": "评审结果信筒",
+          "cue": "深蓝圆柱信筒，金色蜡封和短卷纸边"
+        }
+      ]
+    },
+    {
+      "id": "courses",
+      "oldName": "烹饪课程",
+      "name": "烹饪课程",
+      "group": "收藏与支线",
+      "note": "学习阶段使用不同媒介的大轮廓区分，不用连续六本相似书。",
+      "status": "待用户审阅",
+      "levelCount": 6,
+      "items": [
+        {
+          "level": 1,
+          "id": "courses:1",
+          "oldName": "入门笔记",
+          "name": "折页食谱",
+          "cue": "三折浅绿纸页，明显 Z 形侧面"
+        },
+        {
+          "level": 2,
+          "id": "courses:2",
+          "oldName": "基础课程",
+          "name": "环装操作卡",
+          "cue": "扇形卡片，大银环装订"
+        },
+        {
+          "level": 3,
+          "id": "courses:3",
+          "oldName": "进阶课程",
+          "name": "线装菜谱",
+          "cue": "靛蓝软封书，粗白线装书脊"
+        },
+        {
+          "level": 4,
+          "id": "courses:4",
+          "oldName": "烘焙课程",
+          "name": "立体示范书",
+          "cue": "敞开的粉色书，一块立体锅形折纸"
+        },
+        {
+          "level": 5,
+          "id": "courses:5",
+          "oldName": "主厨课程",
+          "name": "烹饪教学胶片",
+          "cue": "银色圆形胶片盘，短黑色片带"
+        },
+        {
+          "level": 6,
+          "id": "courses:6",
+          "oldName": "大师课程",
+          "name": "厨师结业证书",
+          "cue": "奶白展开证书，红色大蜡封，金色宽边"
+        }
+      ]
+    },
+    {
+      "id": "scraps",
+      "oldName": "花园堆肥",
+      "name": "花园堆肥",
+      "group": "收藏与支线",
+      "note": "按材料到熟成的过程设计。L8 用花园生态土丘表达持续引来访客，生产器仍保留机器或桶体外形。",
+      "status": "待用户审阅",
+      "levelCount": 8,
+      "items": [
+        {
+          "level": 1,
+          "id": "scraps:1",
+          "oldName": "果蔬边角",
+          "name": "苹果果核",
+          "cue": "单个红皮果核，浅黄腰部"
+        },
+        {
+          "level": 2,
+          "id": "scraps:2",
+          "oldName": "咖啡渣",
+          "name": "咖啡粉饼",
+          "cue": "深棕圆柱压粉饼，清楚的碎裂边"
+        },
+        {
+          "level": 3,
+          "id": "scraps:3",
+          "oldName": "落叶堆",
+          "name": "干枯落叶",
+          "cue": "一片橙棕卷曲大叶"
+        },
+        {
+          "level": 4,
+          "id": "scraps:4",
+          "oldName": "混合厨余",
+          "name": "香蕉果皮",
+          "cue": "黄色三瓣张开的果皮，明显棕色端部"
+        },
+        {
+          "level": 5,
+          "id": "scraps:5",
+          "oldName": "堆肥袋",
+          "name": "堆肥料砖",
+          "cue": "棕绿色方砖，压实的粗纤维切面"
+        },
+        {
+          "level": 6,
+          "id": "scraps:6",
+          "oldName": "发酵堆肥",
+          "name": "发酵菌团",
+          "cue": "深褐圆团，宽白色菌丝带"
+        },
+        {
+          "level": 7,
+          "id": "scraps:7",
+          "oldName": "熟成堆肥",
+          "name": "熟成腐殖土",
+          "cue": "黑褐圆锥土丘，疏松大颗粒"
+        },
+        {
+          "level": 8,
+          "id": "scraps:8",
+          "oldName": "花园堆肥箱",
+          "name": "花园生态土丘",
+          "cue": "浅棕半球土丘，一株大三叶草与明显洞口"
+        }
+      ]
+    },
+    {
+      "id": "garden_guest",
+      "oldName": "花园来客",
+      "name": "猫咪安居",
+      "group": "收藏与支线",
+      "note": "用准备猫咪居所的过程替换田鼠变猫窝；L6 保留猫窝产猫功能，L1 拟由堆肥旁发现旧毛线球的叙事承接。",
+      "status": "待用户审阅",
+      "levelCount": 6,
+      "items": [
+        {
+          "level": 1,
+          "id": "garden_guest:1",
+          "oldName": "小田鼠",
+          "name": "旧毛线球",
+          "cue": "橘色线球，一根短线尾"
+        },
+        {
+          "level": 2,
+          "id": "garden_guest:2",
+          "oldName": "灰田鼠",
+          "name": "鱼形逗猫棒",
+          "cue": "蓝色鱼布玩具，弯杆形成大弧"
+        },
+        {
+          "level": 3,
+          "id": "garden_guest:3",
+          "oldName": "田鼠伙伴",
+          "name": "瓦楞猫抓板",
+          "cue": "棕色波浪 S 形纸板，粗层纹"
+        },
+        {
+          "level": 4,
+          "id": "garden_guest:4",
+          "oldName": "田鼠小屋",
+          "name": "圆形猫垫",
+          "cue": "紫色甜甜圈软垫，中央大凹陷"
+        },
+        {
+          "level": 5,
+          "id": "garden_guest:5",
+          "oldName": "花园小窝",
+          "name": "帐篷猫窝",
+          "cue": "青色三角帐篷，一个大圆入口"
+        },
+        {
+          "level": 6,
+          "id": "garden_guest:6",
+          "oldName": "温暖猫窝",
+          "name": "南瓜猫屋",
+          "cue": "橙色瓜瓣房体，绿色短顶柄，正面大洞口"
+        }
+      ]
+    },
+    {
+      "id": "cats",
+      "oldName": "餐厅猫咪",
+      "name": "餐厅猫咪",
+      "group": "收藏与支线",
+      "note": "按游戏收藏顺序排列单只猫；毛色、身形与毛长共同区分，末级为单只围裙店长猫。",
+      "status": "待用户审阅",
+      "levelCount": 8,
+      "items": [
+        {
+          "level": 1,
+          "id": "cats:1",
+          "oldName": "田园小猫",
+          "name": "橘猫",
+          "cue": "橙色短毛，粗深橙条纹，圆脸"
+        },
+        {
+          "level": 2,
+          "id": "cats:2",
+          "oldName": "奶牛小猫",
+          "name": "奶牛猫",
+          "cue": "白底大块黑斑，黑色单耳"
+        },
+        {
+          "level": 3,
+          "id": "cats:3",
+          "oldName": "橘色小猫",
+          "name": "暹罗猫",
+          "cue": "奶白瘦长身体，深棕脸与四爪"
+        },
+        {
+          "level": 4,
+          "id": "cats:4",
+          "oldName": "灰色小猫",
+          "name": "狸花猫",
+          "cue": "灰褐短毛，明显深色脊背条纹"
+        },
+        {
+          "level": 5,
+          "id": "cats:5",
+          "oldName": "白色长毛猫",
+          "name": "银渐层猫",
+          "cue": "银白圆脸胖身，短小耳朵"
+        },
+        {
+          "level": 6,
+          "id": "cats:6",
+          "oldName": "布偶猫",
+          "name": "布偶猫",
+          "cue": "白色长毛三角轮廓，深色面罩与蓬松尾"
+        },
+        {
+          "level": 7,
+          "id": "cats:7",
+          "oldName": "围裙店长猫",
+          "name": "缅因猫",
+          "cue": "棕色高大长毛身体，尖耳毛簇和大胸鬃"
+        },
+        {
+          "level": 8,
+          "id": "cats:8",
+          "oldName": "花园猫咪一家",
+          "name": "围裙店长猫",
+          "cue": "单只橘猫，青绿色完整围裙，坐姿挺直"
+        }
+      ]
+    },
+    {
+      "id": "honor",
+      "oldName": "主厨荣誉",
+      "name": "主厨荣誉",
+      "group": "收藏与支线",
+      "note": "让每一级的主徽形不同，金属颜色只作辅助。",
+      "status": "待用户审阅",
+      "levelCount": 7,
+      "items": [
+        {
+          "level": 1,
+          "id": "honor:1",
+          "oldName": "参与徽章",
+          "name": "参与绶带",
+          "cue": "一条红色 V 形软缎带，奶白圆章"
+        },
+        {
+          "level": 2,
+          "id": "honor:2",
+          "oldName": "铜色徽章",
+          "name": "铜勺奖章",
+          "cue": "铜色勺形奖章，绿色短带"
+        },
+        {
+          "level": 3,
+          "id": "honor:3",
+          "oldName": "银色徽章",
+          "name": "银锅奖章",
+          "cue": "银色双耳锅形奖章，蓝色短带"
+        },
+        {
+          "level": 4,
+          "id": "honor:4",
+          "oldName": "金色徽章",
+          "name": "金帽奖章",
+          "cue": "金色厨师帽形奖章，紫色短带"
+        },
+        {
+          "level": 5,
+          "id": "honor:5",
+          "oldName": "街区奖杯",
+          "name": "街区星杯",
+          "cue": "金色五角星顶，低圆底座"
+        },
+        {
+          "level": 6,
+          "id": "honor:6",
+          "oldName": "城市奖杯",
+          "name": "城市桂冠奖杯",
+          "cue": "大开口双月桂枝，中央银色圆盘"
+        },
+        {
+          "level": 7,
+          "id": "honor:7",
+          "oldName": "年度主厨奖杯",
+          "name": "年度金帽奖杯",
+          "cue": "一顶完整金色厨师帽雕塑，黑色方底座"
+        }
+      ]
+    },
+    {
+      "id": "energy",
+      "oldName": "体力补给",
+      "name": "体力补给",
+      "group": "功能资源",
+      "note": "数值保留 1、6、15、40、100；大闪电为共同功能标记。去掉有限体力上的无限符号。",
+      "status": "待用户审阅",
+      "levelCount": 5,
+      "items": [
+        {
+          "level": 1,
+          "id": "energy:1",
+          "oldName": "小能量球",
+          "name": "能量火花",
+          "cue": "单个金黄闪电碎晶",
+          "preservedValue": 1,
+          "valueUnit": "energy"
+        },
+        {
+          "level": 2,
+          "id": "energy:2",
+          "oldName": "能量球",
+          "name": "能量晶滴",
+          "cue": "金黄水滴晶体，内部一枚白闪电",
+          "preservedValue": 6,
+          "valueUnit": "energy"
+        },
+        {
+          "level": 3,
+          "id": "energy:3",
+          "oldName": "大能量球",
+          "name": "能量晶球",
+          "cue": "金黄圆球，青色粗腰环",
+          "preservedValue": 15,
+          "valueUnit": "energy"
+        },
+        {
+          "level": 4,
+          "id": "energy:4",
+          "oldName": "充沛能量",
+          "name": "能量电池",
+          "cue": "金黄短圆柱，蓝色平顶，正面大闪电",
+          "preservedValue": 40,
+          "valueUnit": "energy"
+        },
+        {
+          "level": 5,
+          "id": "energy:5",
+          "oldName": "满满能量",
+          "name": "能量核心",
+          "cue": "金黄六边形核心，粗青色六角外框",
+          "preservedValue": 100,
+          "valueUnit": "energy"
+        }
+      ]
+    },
+    {
+      "id": "coins",
+      "oldName": "金币",
+      "name": "金币",
+      "group": "功能资源",
+      "note": "数值保留 1、3、8、20、50、120；L4 改成钱匣，拉开两种钱袋的差别。",
+      "status": "待用户审阅",
+      "levelCount": 6,
+      "items": [
+        {
+          "level": 1,
+          "id": "coins:1",
+          "oldName": "零散金币",
+          "name": "一枚金币",
+          "cue": "单枚侧立金色圆币，大狗爪浮雕",
+          "preservedValue": 1,
+          "valueUnit": "coins"
+        },
+        {
+          "level": 2,
+          "id": "coins:2",
+          "oldName": "一叠金币",
+          "name": "一叠金币",
+          "cue": "矮圆柱金色币叠",
+          "preservedValue": 3,
+          "valueUnit": "coins"
+        },
+        {
+          "level": 3,
+          "id": "coins:3",
+          "oldName": "一小袋金币",
+          "name": "金币布袋",
+          "cue": "米白束口袋，露出两枚大金币",
+          "preservedValue": 8,
+          "valueUnit": "coins"
+        },
+        {
+          "level": 4,
+          "id": "coins:4",
+          "oldName": "一袋金币",
+          "name": "金币钱匣",
+          "cue": "横向银色薄匣，正面大金色投币槽",
+          "preservedValue": 20,
+          "valueUnit": "coins"
+        },
+        {
+          "level": 5,
+          "id": "coins:5",
+          "oldName": "金币罐",
+          "name": "金币罐",
+          "cue": "透明圆腹罐，红色粗封口布",
+          "preservedValue": 50,
+          "valueUnit": "coins"
+        },
+        {
+          "level": 6,
+          "id": "coins:6",
+          "oldName": "金币宝箱",
+          "name": "金币宝箱",
+          "cue": "棕色拱盖木箱，露出大块金色币面",
+          "preservedValue": 120,
+          "valueUnit": "coins"
+        }
+      ]
+    },
+    {
+      "id": "blackbag",
+      "oldName": "设备工具包",
+      "name": "设备工具包",
+      "group": "功能资源",
+      "note": "两级同功能，通过软包与硬箱的大外形区分。",
+      "status": "待用户审阅",
+      "levelCount": 2,
+      "items": [
+        {
+          "level": 1,
+          "id": "blackbag:1",
+          "oldName": "设备工具包",
+          "name": "卷折工具包",
+          "cue": "青灰色横向卷包，橙色扣带，大扳手徽记",
+          "preservedValue": 10,
+          "valueUnit": "draws"
+        },
+        {
+          "level": 2,
+          "id": "blackbag:2",
+          "oldName": "高级设备工具包",
+          "name": "硬壳工具箱",
+          "cue": "深蓝方箱，大弧柄，正面银色扳手标志",
+          "preservedValue": 22,
+          "valueUnit": "draws"
+        }
+      ]
+    },
+    {
+      "id": "pinkbag",
+      "oldName": "食材设备包",
+      "name": "食材设备包",
+      "group": "功能资源",
+      "note": "两个封闭包装主体，使用大叶片标志；避免画成装满零碎食材的篮子。",
+      "status": "待用户审阅",
+      "levelCount": 2,
+      "items": [
+        {
+          "level": 1,
+          "id": "pinkbag:1",
+          "oldName": "食材设备包",
+          "name": "束口食材袋",
+          "cue": "粉色水滴袋，奶白大叶片印记",
+          "preservedValue": 12,
+          "valueUnit": "draws"
+        },
+        {
+          "level": 2,
+          "id": "pinkbag:2",
+          "oldName": "高级食材设备包",
+          "name": "拉链保鲜包",
+          "cue": "粉白梯形软包，青色大拉链与粗提手",
+          "preservedValue": 28,
+          "valueUnit": "draws"
+        }
+      ]
+    },
+    {
+      "id": "infinite",
+      "oldName": "无限体力",
+      "name": "无限体力",
+      "group": "功能资源",
+      "note": "实际时长保留 30 秒、1 分钟、2 分钟、5 分钟；统一紫色与大 ∞。具体时间由界面角标呈现，图形采用不同大轮廓。",
+      "status": "待用户审阅",
+      "levelCount": 4,
+      "items": [
+        {
+          "level": 1,
+          "id": "infinite:1",
+          "oldName": "短时无限体力",
+          "name": "30秒无限体力",
+          "cue": "紫色短胶囊，中央白色大无限符号",
+          "preservedValue": 30,
+          "valueUnit": "seconds"
+        },
+        {
+          "level": 2,
+          "id": "infinite:2",
+          "oldName": "一分钟无限体力",
+          "name": "1分钟无限体力",
+          "cue": "紫色圆环核心，中央白色大无限符号",
+          "preservedValue": 60,
+          "valueUnit": "seconds"
+        },
+        {
+          "level": 3,
+          "id": "infinite:3",
+          "oldName": "两分钟无限体力",
+          "name": "2分钟无限体力",
+          "cue": "紫色菱形晶体，中央白色大无限符号",
+          "preservedValue": 120,
+          "valueUnit": "seconds"
+        },
+        {
+          "level": 4,
+          "id": "infinite:4",
+          "oldName": "五分钟无限体力",
+          "name": "5分钟无限体力",
+          "cue": "紫色四芒星核，中央白色大无限符号",
+          "preservedValue": 300,
+          "valueUnit": "seconds"
+        }
+      ]
+    },
+    {
+      "id": "timeskip",
+      "oldName": "棋盘加速",
+      "name": "棋盘加速",
+      "group": "功能资源",
+      "note": "实际时长保留 1、2、4、8、16 小时；统一沙漏功能符号，主框大形与主色分档，时间角标使用真实数值。",
+      "status": "待用户审阅",
+      "levelCount": 5,
+      "items": [
+        {
+          "level": 1,
+          "id": "timeskip:1",
+          "oldName": "一小时沙漏",
+          "name": "1小时沙漏",
+          "cue": "棕木双柱沙漏，窄直立外框",
+          "preservedValue": 3600,
+          "valueUnit": "seconds"
+        },
+        {
+          "level": 2,
+          "id": "timeskip:2",
+          "oldName": "两小时沙漏",
+          "name": "2小时沙漏",
+          "cue": "银蓝圆环沙漏，整体椭圆轮廓",
+          "preservedValue": 7200,
+          "valueUnit": "seconds"
+        },
+        {
+          "level": 3,
+          "id": "timeskip:3",
+          "oldName": "四小时沙漏",
+          "name": "4小时沙漏",
+          "cue": "红铜三角支架，宽三角底",
+          "preservedValue": 14400,
+          "valueUnit": "seconds"
+        },
+        {
+          "level": 4,
+          "id": "timeskip:4",
+          "oldName": "八小时沙漏",
+          "name": "8小时沙漏",
+          "cue": "紫色横向双翼框，明显宽轮廓",
+          "preservedValue": 28800,
+          "valueUnit": "seconds"
+        },
+        {
+          "level": 5,
+          "id": "timeskip:5",
+          "oldName": "十六小时沙漏",
+          "name": "16小时沙漏",
+          "cue": "金色五角星外框，沙漏置于大星中央",
+          "preservedValue": 57600,
+          "valueUnit": "seconds"
+        }
+      ]
+    },
+    {
+      "id": "charge",
+      "oldName": "补货道具",
+      "name": "设备补货",
+      "group": "功能资源",
+      "note": "保持 5、10、20 次补货；三种完整容器，统一绿色回补箭头，不靠箱内堆叠物品。",
+      "status": "待用户审阅",
+      "levelCount": 3,
+      "items": [
+        {
+          "level": 1,
+          "id": "charge:1",
+          "oldName": "小补货箱",
+          "name": "补货手提盒",
+          "cue": "黄绿色扁方盒，单根短提手",
+          "preservedValue": 5,
+          "valueUnit": "charges"
+        },
+        {
+          "level": 2,
+          "id": "charge:2",
+          "oldName": "补货箱",
+          "name": "补货保温箱",
+          "cue": "奶白高方箱，绿色厚盖和侧扣",
+          "preservedValue": 10,
+          "valueUnit": "charges"
+        },
+        {
+          "level": 3,
+          "id": "charge:3",
+          "oldName": "大补货箱",
+          "name": "补货滚轮箱",
+          "cue": "深绿直立箱，两个大轮和伸缩拉杆",
+          "preservedValue": 20,
+          "valueUnit": "charges"
+        }
+      ]
+    },
+    {
+      "id": "splitter",
+      "oldName": "剪刀",
+      "name": "合成剪刀",
+      "group": "功能资源",
+      "note": "保留各等级可作用范围；用刀柄、刀身和机构的大结构区别。",
+      "status": "待用户审阅",
+      "levelCount": 3,
+      "items": [
+        {
+          "level": 1,
+          "id": "splitter:1",
+          "oldName": "基础剪刀",
+          "name": "折叠剪刀",
+          "cue": "银色短剪，两个圆环柄，折叠铰链",
+          "preservedValue": 4,
+          "valueUnit": "maxTargetLevel"
+        },
+        {
+          "level": 2,
+          "id": "splitter:2",
+          "oldName": "精细剪刀",
+          "name": "厨房剪刀",
+          "cue": "红色粗不对称握柄，宽长刀刃",
+          "preservedValue": 8,
+          "valueUnit": "maxTargetLevel"
+        },
+        {
+          "level": 3,
+          "id": "splitter:3",
+          "oldName": "万能剪刀",
+          "name": "齿轮助力剪",
+          "cue": "青色弯柄，巨大金色圆齿轮，弯曲宽刃",
+          "preservedValue": null,
+          "valueUnit": "maxTargetLevel"
+        }
+      ]
+    },
+    {
+      "id": "chest",
+      "oldName": "订单礼盒",
+      "name": "订单礼盒",
+      "group": "功能资源",
+      "note": "保留三档奖励；全部画闭合包装，开箱由交互表达。",
+      "status": "待用户审阅",
+      "levelCount": 3,
+      "items": [
+        {
+          "level": 1,
+          "id": "chest:1",
+          "oldName": "厨房礼盒",
+          "name": "方形厨房礼盒",
+          "cue": "粉色正方盒，奶白十字宽带",
+          "preservedValue": 1,
+          "valueUnit": "rewardTier"
+        },
+        {
+          "level": 2,
+          "id": "chest:2",
+          "oldName": "精致礼盒",
+          "name": "心形精致礼盒",
+          "cue": "红色心形盒，侧置金色大结",
+          "preservedValue": 2,
+          "valueUnit": "rewardTier"
+        },
+        {
+          "level": 3,
+          "id": "chest:3",
+          "oldName": "豪华礼盒",
+          "name": "拱顶紫金礼箱",
+          "cue": "深紫拱顶长箱，金色粗包角",
+          "preservedValue": 3,
+          "valueUnit": "rewardTier"
+        }
+      ]
+    },
+    {
+      "id": "upgrade",
+      "oldName": "升级卡",
+      "name": "升级道具",
+      "group": "功能资源",
+      "note": "保留普通升级和设备升级的作用范围；两种大外轮廓加功能图标。",
+      "status": "待用户审阅",
+      "levelCount": 2,
+      "items": [
+        {
+          "level": 1,
+          "id": "upgrade:1",
+          "oldName": "普通升级卡",
+          "name": "普通升级卡",
+          "cue": "绿色竖长卡，大白色向上箭头",
+          "preservedValue": 1,
+          "valueUnit": "levels"
+        },
+        {
+          "level": 2,
+          "id": "upgrade:2",
+          "oldName": "设备升级卡",
+          "name": "设备升级牌",
+          "cue": "蓝色齿轮形厚牌，大白色扳手与箭头",
+          "preservedValue": 1,
+          "valueUnit": "levels"
+        }
+      ]
+    },
+    {
+      "id": "gen_tools",
+      "oldName": "厨具收纳缸",
+      "name": "厨具收纳器",
+      "group": "生产器",
+      "note": "保留 12 级、L4 开始生产。前三级为真实未完成结构；后段每级改变收纳机构，画面最多露出一件代表厨具。",
+      "status": "待用户审阅",
+      "levelCount": 12,
+      "items": [
+        {
+          "level": 1,
+          "id": "gen_tools:1",
+          "oldName": "厨具收纳缸零件",
+          "name": "陶土坯",
+          "cue": "棕色矮椭圆泥坯，粗糙未成形"
+        },
+        {
+          "level": 2,
+          "id": "gen_tools:2",
+          "oldName": "厨具收纳缸组件",
+          "name": "圆筒陶坯",
+          "cue": "灰白直筒，厚毛边开口"
+        },
+        {
+          "level": 3,
+          "id": "gen_tools:3",
+          "oldName": "厨具收纳缸框架",
+          "name": "烧制空缸",
+          "cue": "奶白空圆缸，平整陶口，无厨具"
+        },
+        {
+          "level": 4,
+          "id": "gen_tools:4",
+          "oldName": "入门厨具收纳缸",
+          "name": "素陶厨具缸",
+          "cue": "奶白单缸，正面大木勺纹，露出一把木勺"
+        },
+        {
+          "level": 5,
+          "id": "gen_tools:5",
+          "oldName": "实用厨具收纳缸",
+          "name": "双耳厨具瓮",
+          "cue": "粉色圆腹瓮，左右两个大耳"
+        },
+        {
+          "level": 6,
+          "id": "gen_tools:6",
+          "oldName": "专业厨具收纳缸",
+          "name": "方口分格缸",
+          "cue": "青色方筒，明显十字隔板"
+        },
+        {
+          "level": 7,
+          "id": "gen_tools:7",
+          "oldName": "双层厨具收纳缸",
+          "name": "壁挂厨具筒",
+          "cue": "奶白半圆筒，背部高拱挂板"
+        },
+        {
+          "level": 8,
+          "id": "gen_tools:8",
+          "oldName": "高效厨具收纳缸",
+          "name": "旋转厨具架",
+          "cue": "粉木圆形转盘，中央粗立柱和放射挂位"
+        },
+        {
+          "level": 9,
+          "id": "gen_tools:9",
+          "oldName": "大师厨具收纳缸",
+          "name": "抽拉刀具座",
+          "cue": "深木楔形主体，斜向抽拉面"
+        },
+        {
+          "level": 10,
+          "id": "gen_tools:10",
+          "oldName": "豪华厨具收纳缸",
+          "name": "翻盖厨具箱",
+          "cue": "奶白横箱，向上展开的单片粉盖"
+        },
+        {
+          "level": 11,
+          "id": "gen_tools:11",
+          "oldName": "旗舰厨具收纳缸",
+          "name": "立柱悬挂架",
+          "cue": "青色高 T 形支柱，两侧粗挂钩"
+        },
+        {
+          "level": 12,
+          "id": "gen_tools:12",
+          "oldName": "典藏厨具收纳缸",
+          "name": "旋转收纳塔",
+          "cue": "奶白圆塔，三个错位转动的大扇形仓"
+        }
+      ],
+      "activeLevel": 4
+    },
+    {
+      "id": "gen_food",
+      "oldName": "烘焙原料罐",
+      "name": "烘焙设备",
+      "group": "生产器",
+      "note": "原烘焙原料罐拟改为烘焙设备，承接成品甜点。保留 11 级、L5 开始生产；每级一台炉体，炉内最多一个大面包轮廓。",
+      "status": "待用户审阅",
+      "levelCount": 11,
+      "items": [
+        {
+          "level": 1,
+          "id": "gen_food:1",
+          "oldName": "烘焙原料罐零件",
+          "name": "耐火砖",
+          "cue": "一块红褐厚砖，中央矩形凹槽"
+        },
+        {
+          "level": 2,
+          "id": "gen_food:2",
+          "oldName": "烘焙原料罐组件",
+          "name": "烤炉门板",
+          "cue": "粉色矩形门板，奶白粗把手"
+        },
+        {
+          "level": 3,
+          "id": "gen_food:3",
+          "oldName": "烘焙原料罐框架",
+          "name": "烤炉内胆",
+          "cue": "银色横向方腔，正面大开口"
+        },
+        {
+          "level": 4,
+          "id": "gen_food:4",
+          "oldName": "烘焙原料罐雏形",
+          "name": "未装门烤炉",
+          "cue": "粉色完整外壳，正面门框敞空"
+        },
+        {
+          "level": 5,
+          "id": "gen_food:5",
+          "oldName": "入门烘焙原料罐",
+          "name": "铁皮小烤炉",
+          "cue": "奶白矮方炉，圆形小观察窗"
+        },
+        {
+          "level": 6,
+          "id": "gen_food:6",
+          "oldName": "实用烘焙原料罐",
+          "name": "铸铁圆炉",
+          "cue": "深灰短圆炉，粗圆盖和三短脚"
+        },
+        {
+          "level": 7,
+          "id": "gen_food:7",
+          "oldName": "专业烘焙原料罐",
+          "name": "窗式电烤箱",
+          "cue": "粉色长方炉，横向大窗与两个大旋钮"
+        },
+        {
+          "level": 8,
+          "id": "gen_food:8",
+          "oldName": "双层烘焙原料罐",
+          "name": "拱顶石炉",
+          "cue": "奶白半圆拱炉，红褐宽炉口"
+        },
+        {
+          "level": 9,
+          "id": "gen_food:9",
+          "oldName": "高效烘焙原料罐",
+          "name": "立式旋转烤炉",
+          "cue": "粉色高筒炉，长竖窗与圆顶"
+        },
+        {
+          "level": 10,
+          "id": "gen_food:10",
+          "oldName": "大师烘焙原料罐",
+          "name": "圆舱热风炉",
+          "cue": "奶白球形机舱，正面大圆风窗"
+        },
+        {
+          "level": 11,
+          "id": "gen_food:11",
+          "oldName": "豪华烘焙原料罐",
+          "name": "隧道输送烤炉",
+          "cue": "粉白低矮拱腔，前后伸出一段粗输送带"
+        }
+      ],
+      "activeLevel": 5
+    },
+    {
+      "id": "gen_produce",
+      "oldName": "生鲜采购筐",
+      "name": "生鲜采购器",
+      "group": "生产器",
+      "note": "保留 12 级、L3 开始生产。采购能力按容器、搬运、保鲜结构发展；内部只放一个大叶菜标志，避免同款菜篮堆数量。新增谷物拟从本链供给，数值待后续设计。",
+      "status": "待用户审阅",
+      "levelCount": 12,
+      "items": [
+        {
+          "level": 1,
+          "id": "gen_produce:1",
+          "oldName": "生鲜采购筐零件",
+          "name": "藤条圈",
+          "cue": "浅棕粗圆环，端部松开的长藤条"
+        },
+        {
+          "level": 2,
+          "id": "gen_produce:2",
+          "oldName": "生鲜采购筐组件",
+          "name": "编织篮底",
+          "cue": "浅棕椭圆底板，短直立编织骨条"
+        },
+        {
+          "level": 3,
+          "id": "gen_produce:3",
+          "oldName": "入门生鲜采购筐",
+          "name": "单柄菜篮",
+          "cue": "棕色半圆篮，一根高拱柄"
+        },
+        {
+          "level": 4,
+          "id": "gen_produce:4",
+          "oldName": "实用生鲜采购筐",
+          "name": "双耳提篮",
+          "cue": "奶白宽方篮，左右短耳"
+        },
+        {
+          "level": 5,
+          "id": "gen_produce:5",
+          "oldName": "专业生鲜采购筐",
+          "name": "背负菜篓",
+          "cue": "深棕高锥篓，背面两条宽背带"
+        },
+        {
+          "level": 6,
+          "id": "gen_produce:6",
+          "oldName": "双层生鲜采购筐",
+          "name": "折叠菜筐",
+          "cue": "青色低方筐，X 形侧架"
+        },
+        {
+          "level": 7,
+          "id": "gen_produce:7",
+          "oldName": "高效生鲜采购筐",
+          "name": "带盖采购篮",
+          "cue": "粉色椭圆篮，两片半圆盖合拢"
+        },
+        {
+          "level": 8,
+          "id": "gen_produce:8",
+          "oldName": "大师生鲜采购筐",
+          "name": "保温采购包",
+          "cue": "奶白高软包，青色大拉链"
+        },
+        {
+          "level": 9,
+          "id": "gen_produce:9",
+          "oldName": "豪华生鲜采购筐",
+          "name": "双轮买菜车",
+          "cue": "粉色直立袋车，两个大轮和长拉柄"
+        },
+        {
+          "level": 10,
+          "id": "gen_produce:10",
+          "oldName": "旗舰生鲜采购筐",
+          "name": "四轮货箱车",
+          "cue": "青色低长方车斗，四角粗轮"
+        },
+        {
+          "level": 11,
+          "id": "gen_produce:11",
+          "oldName": "典藏生鲜采购筐",
+          "name": "抽屉保鲜柜",
+          "cue": "奶白矮柜，两块宽青色抽面"
+        },
+        {
+          "level": 12,
+          "id": "gen_produce:12",
+          "oldName": "臻选生鲜采购筐",
+          "name": "立式冷藏柜",
+          "cue": "青色高柜，一扇拱角大门与长把手"
+        }
+      ],
+      "activeLevel": 3
+    },
+    {
+      "id": "gen_drink",
+      "oldName": "咖啡工作台",
+      "name": "饮品制作机",
+      "group": "生产器",
+      "note": "原咖啡工作台同步扩为饮品制作机，保留 10 级、L4 开始生产。每级一台具体饮品设备，排除柜台与咖啡馆场景。",
+      "status": "待用户审阅",
+      "levelCount": 10,
+      "items": [
+        {
+          "level": 1,
+          "id": "gen_drink:1",
+          "oldName": "咖啡工作台零件",
+          "name": "饮料出液嘴",
+          "cue": "银色短弯管，青色阀门帽"
+        },
+        {
+          "level": 2,
+          "id": "gen_drink:2",
+          "oldName": "咖啡工作台组件",
+          "name": "搅拌机电机",
+          "cue": "青色矮圆柱电机，顶部粗轴"
+        },
+        {
+          "level": 3,
+          "id": "gen_drink:3",
+          "oldName": "咖啡工作台框架",
+          "name": "饮品机底座",
+          "cue": "奶白低方底座，顶部敞开的装配口"
+        },
+        {
+          "level": 4,
+          "id": "gen_drink:4",
+          "oldName": "入门咖啡工作台",
+          "name": "手压榨汁机",
+          "cue": "青色高弧压杆，黄色倒锥压头"
+        },
+        {
+          "level": 5,
+          "id": "gen_drink:5",
+          "oldName": "实用咖啡工作台",
+          "name": "玻璃搅拌机",
+          "cue": "奶白短底座，上方透明锥形搅拌杯"
+        },
+        {
+          "level": 6,
+          "id": "gen_drink:6",
+          "oldName": "专业咖啡工作台",
+          "name": "意式咖啡机",
+          "cue": "青色拱肩方机，正面单个大冲煮头"
+        },
+        {
+          "level": 7,
+          "id": "gen_drink:7",
+          "oldName": "双层咖啡工作台",
+          "name": "气泡饮料机",
+          "cue": "奶白细高机身，正面嵌一个大气瓶"
+        },
+        {
+          "level": 8,
+          "id": "gen_drink:8",
+          "oldName": "高效咖啡工作台",
+          "name": "双缸冷饮机",
+          "cue": "青色矮底座，两个连体透明方缸"
+        },
+        {
+          "level": 9,
+          "id": "gen_drink:9",
+          "oldName": "大师咖啡工作台",
+          "name": "立式奶昔机",
+          "cue": "奶白单根立柱，侧挂高金属搅拌杯"
+        },
+        {
+          "level": 10,
+          "id": "gen_drink:10",
+          "oldName": "豪华咖啡工作台",
+          "name": "冷热饮一体机",
+          "cue": "青色圆角立舱，正面红蓝两个大出液区"
+        }
+      ],
+      "activeLevel": 4
+    },
+    {
+      "id": "gen_herb",
+      "oldName": "香草花盆",
+      "name": "香草栽培器",
+      "group": "生产器",
+      "note": "保留 10 级、L4 开始生产。通过土培、悬挂、自吸水和水培的结构差异递进。植物只作一块简洁绿冠。",
+      "status": "待用户审阅",
+      "levelCount": 10,
+      "items": [
+        {
+          "level": 1,
+          "id": "gen_herb:1",
+          "oldName": "香草花盆零件",
+          "name": "陶盆碎片",
+          "cue": "两块可拼合的红陶大弧片"
+        },
+        {
+          "level": 2,
+          "id": "gen_herb:2",
+          "oldName": "香草花盆组件",
+          "name": "黏合花盆",
+          "cue": "红陶圆盆，明显粗接缝"
+        },
+        {
+          "level": 3,
+          "id": "gen_herb:3",
+          "oldName": "香草花盆框架",
+          "name": "带孔育苗盆",
+          "cue": "空奶白矮盆，底部三个大排水孔"
+        },
+        {
+          "level": 4,
+          "id": "gen_herb:4",
+          "oldName": "入门香草花盆",
+          "name": "红陶香草盆",
+          "cue": "红陶矮圆盆，一块清楚的绿冠"
+        },
+        {
+          "level": 5,
+          "id": "gen_herb:5",
+          "oldName": "实用香草花盆",
+          "name": "长槽育苗箱",
+          "cue": "奶白长方槽，低矮横向轮廓"
+        },
+        {
+          "level": 6,
+          "id": "gen_herb:6",
+          "oldName": "专业香草花盆",
+          "name": "悬吊栽培篮",
+          "cue": "青色半球篮，两条绳形成大三角"
+        },
+        {
+          "level": 7,
+          "id": "gen_herb:7",
+          "oldName": "双层香草花盆",
+          "name": "自吸水花盆",
+          "cue": "奶白高方盆，下部透明蓝水仓"
+        },
+        {
+          "level": 8,
+          "id": "gen_herb:8",
+          "oldName": "高效香草花盆",
+          "name": "壁挂种植板",
+          "cue": "粉木竖长板，正面两个大斜口种植槽"
+        },
+        {
+          "level": 9,
+          "id": "gen_herb:9",
+          "oldName": "大师香草花盆",
+          "name": "玻璃育苗罩",
+          "cue": "青色短底座，整体透明钟罩"
+        },
+        {
+          "level": 10,
+          "id": "gen_herb:10",
+          "oldName": "豪华香草花盆",
+          "name": "旋转水培柱",
+          "cue": "奶白粗立柱，螺旋向外的大种植口"
+        }
+      ],
+      "activeLevel": 4
+    },
+    {
+      "id": "gen_asian",
+      "oldName": "亚洲料理台",
+      "name": "蒸煮料理机",
+      "group": "生产器",
+      "note": "保留 10 级、L4 开始生产，继续承接中式与日式料理。红铜和蒸汽结构形成家族标识，末级仍是一台机器。",
+      "status": "待用户审阅",
+      "levelCount": 10,
+      "items": [
+        {
+          "level": 1,
+          "id": "gen_asian:1",
+          "oldName": "亚洲料理台零件",
+          "name": "蒸汽阀",
+          "cue": "红铜粗阀体，顶端三瓣旋钮"
+        },
+        {
+          "level": 2,
+          "id": "gen_asian:2",
+          "oldName": "亚洲料理台组件",
+          "name": "加热炉芯",
+          "cue": "红铜圆环，内部一根粗加热线"
+        },
+        {
+          "level": 3,
+          "id": "gen_asian:3",
+          "oldName": "亚洲料理台框架",
+          "name": "蒸汽底座",
+          "cue": "奶白圆底盘，顶部空接管"
+        },
+        {
+          "level": 4,
+          "id": "gen_asian:4",
+          "oldName": "入门亚洲料理台",
+          "name": "竹笼蒸汽炉",
+          "cue": "圆形红铜炉座，上方一个大竹笼"
+        },
+        {
+          "level": 5,
+          "id": "gen_asian:5",
+          "oldName": "实用亚洲料理台",
+          "name": "陶胆炖煮机",
+          "cue": "奶白卵形机体，红陶厚盖"
+        },
+        {
+          "level": 6,
+          "id": "gen_asian:6",
+          "oldName": "专业亚洲料理台",
+          "name": "立式蒸柜",
+          "cue": "红铜高柜，单扇长窗门"
+        },
+        {
+          "level": 7,
+          "id": "gen_asian:7",
+          "oldName": "双层亚洲料理台",
+          "name": "抽屉蒸炉",
+          "cue": "奶白矮长炉，两个宽蒸屉抽口"
+        },
+        {
+          "level": 8,
+          "id": "gen_asian:8",
+          "oldName": "高效亚洲料理台",
+          "name": "穹顶蒸烤机",
+          "cue": "红铜半球罩，侧面粗蒸汽管"
+        },
+        {
+          "level": 9,
+          "id": "gen_asian:9",
+          "oldName": "大师亚洲料理台",
+          "name": "环形蒸汽机",
+          "cue": "奶白圆环炉，中央高烟囱和整体圆盘"
+        },
+        {
+          "level": 10,
+          "id": "gen_asian:10",
+          "oldName": "豪华亚洲料理台",
+          "name": "压力蒸煮舱",
+          "cue": "红铜椭圆舱，正面轮式大封门"
+        }
+      ],
+      "activeLevel": 4
+    },
+    {
+      "id": "gen_mediterranean",
+      "oldName": "环球料理台",
+      "name": "环球煎烤机",
+      "group": "生产器",
+      "note": "保留 10 级、L4 开始生产，继续承接意式与墨西哥料理。青绿外壳和橙色热面区别于烘焙炉与蒸汽机。",
+      "status": "待用户审阅",
+      "levelCount": 10,
+      "items": [
+        {
+          "level": 1,
+          "id": "gen_mediterranean:1",
+          "oldName": "环球料理台零件",
+          "name": "煎烤炉脚",
+          "cue": "一只青色粗三角支脚"
+        },
+        {
+          "level": 2,
+          "id": "gen_mediterranean:2",
+          "oldName": "环球料理台组件",
+          "name": "铸铁热板",
+          "cue": "黑色宽矩形板，粗凸烤纹"
+        },
+        {
+          "level": 3,
+          "id": "gen_mediterranean:3",
+          "oldName": "环球料理台框架",
+          "name": "煎烤机框架",
+          "cue": "青色门形空框，顶部热板接口"
+        },
+        {
+          "level": 4,
+          "id": "gen_mediterranean:4",
+          "oldName": "入门环球料理台",
+          "name": "铸铁煎烤炉",
+          "cue": "青色矮台，整块黑色平烤面"
+        },
+        {
+          "level": 5,
+          "id": "gen_mediterranean:5",
+          "oldName": "实用环球料理台",
+          "name": "双面压烤机",
+          "cue": "青色贝壳式翻盖，橙色厚把手"
+        },
+        {
+          "level": 6,
+          "id": "gen_mediterranean:6",
+          "oldName": "专业环球料理台",
+          "name": "旋转烤肉炉",
+          "cue": "青色高背板，中央粗立式旋转烤轴"
+        },
+        {
+          "level": 7,
+          "id": "gen_mediterranean:7",
+          "oldName": "双层环球料理台",
+          "name": "披萨转盘炉",
+          "cue": "青色圆盘低炉，短拱形罩"
+        },
+        {
+          "level": 8,
+          "id": "gen_mediterranean:8",
+          "oldName": "高效环球料理台",
+          "name": "斜面石板炉",
+          "cue": "青色梯形底座，一块倾斜灰黑热板"
+        },
+        {
+          "level": 9,
+          "id": "gen_mediterranean:9",
+          "oldName": "大师环球料理台",
+          "name": "滚筒翻烤机",
+          "cue": "青色横置粗滚筒，前端圆形观察口"
+        },
+        {
+          "level": 10,
+          "id": "gen_mediterranean:10",
+          "oldName": "豪华环球料理台",
+          "name": "穹顶慢烤炉",
+          "cue": "青色高卵形封闭炉，正面小拱门与厚侧铰链"
+        }
+      ],
+      "activeLevel": 4
+    },
+    {
+      "id": "gen_supply",
+      "oldName": "设备采购车",
+      "name": "设备配送器",
+      "group": "生产器",
+      "note": "保留 12 级、L4 开始生产。以运输结构发展表现采购能力，车厢保持封闭或只露出一件大工具。",
+      "status": "待用户审阅",
+      "levelCount": 12,
+      "items": [
+        {
+          "level": 1,
+          "id": "gen_supply:1",
+          "oldName": "设备采购车零件",
+          "name": "配送轮胎",
+          "cue": "一只深灰粗轮，奶白轮毂"
+        },
+        {
+          "level": 2,
+          "id": "gen_supply:2",
+          "oldName": "设备采购车组件",
+          "name": "配送车轴",
+          "cue": "横向银轴，两端大圆轮毂"
+        },
+        {
+          "level": 3,
+          "id": "gen_supply:3",
+          "oldName": "设备采购车框架",
+          "name": "配送车架",
+          "cue": "奶白矩形空车架，弯曲推柄"
+        },
+        {
+          "level": 4,
+          "id": "gen_supply:4",
+          "oldName": "入门设备采购车",
+          "name": "独轮推车",
+          "cue": "粉色单斗，一只大前轮，两根长柄"
+        },
+        {
+          "level": 5,
+          "id": "gen_supply:5",
+          "oldName": "实用设备采购车",
+          "name": "双轮手推车",
+          "cue": "青色竖向 L 形车架，两只大轮"
+        },
+        {
+          "level": 6,
+          "id": "gen_supply:6",
+          "oldName": "专业设备采购车",
+          "name": "折叠平板车",
+          "cue": "奶白低平车板，折起的 U 形推杆"
+        },
+        {
+          "level": 7,
+          "id": "gen_supply:7",
+          "oldName": "双层设备采购车",
+          "name": "带篷送货车",
+          "cue": "粉色小车斗，上方一个大弧篷"
+        },
+        {
+          "level": 8,
+          "id": "gen_supply:8",
+          "oldName": "高效设备采购车",
+          "name": "升降搬运车",
+          "cue": "青色低车，中央粗 X 形升降臂"
+        },
+        {
+          "level": 9,
+          "id": "gen_supply:9",
+          "oldName": "大师设备采购车",
+          "name": "封闭保温推车",
+          "cue": "奶白封闭立箱，粉色大圆角门"
+        },
+        {
+          "level": 10,
+          "id": "gen_supply:10",
+          "oldName": "豪华设备采购车",
+          "name": "电动搬运车",
+          "cue": "青色矮宽底盘，后置大方向杆"
+        },
+        {
+          "level": 11,
+          "id": "gen_supply:11",
+          "oldName": "旗舰设备采购车",
+          "name": "履带运输车",
+          "cue": "粉色短斗，左右两条粗黑履带"
+        },
+        {
+          "level": 12,
+          "id": "gen_supply:12",
+          "oldName": "典藏设备采购车",
+          "name": "圆舱配送机器人",
+          "cue": "奶白卵形舱，两只大侧轮，青色单面罩"
+        }
+      ],
+      "activeLevel": 4
+    },
+    {
+      "id": "gen_publicity",
+      "oldName": "食谱研究台",
+      "name": "食谱教学器",
+      "group": "生产器",
+      "note": "保留 6 级、L4 开始生产，继续承接试菜与课程。书架、印谱机和教学终端形成三个明确功能阶段。",
+      "status": "待用户审阅",
+      "levelCount": 6,
+      "items": [
+        {
+          "level": 1,
+          "id": "gen_publicity:1",
+          "oldName": "食谱研究台零件",
+          "name": "食谱夹",
+          "cue": "一只红铜宽夹，短平底"
+        },
+        {
+          "level": 2,
+          "id": "gen_publicity:2",
+          "oldName": "食谱研究台组件",
+          "name": "木质支架",
+          "cue": "粉木倒 V 形支架，前方短托条"
+        },
+        {
+          "level": 3,
+          "id": "gen_publicity:3",
+          "oldName": "食谱研究台框架",
+          "name": "折叠翻页架",
+          "cue": "奶白空书架，大银色装订轴"
+        },
+        {
+          "level": 4,
+          "id": "gen_publicity:4",
+          "oldName": "入门食谱研究台",
+          "name": "翻页食谱架",
+          "cue": "粉木竖架，一页大绿食谱和粗翻页轴"
+        },
+        {
+          "level": 5,
+          "id": "gen_publicity:5",
+          "oldName": "实用食谱研究台",
+          "name": "手摇印谱机",
+          "cue": "红铜矮机身，大滚筒与侧摇柄"
+        },
+        {
+          "level": 6,
+          "id": "gen_publicity:6",
+          "oldName": "专业食谱研究台",
+          "name": "圆屏教学终端",
+          "cue": "奶白椭圆终端，大青色圆屏和短支脚"
+        }
+      ],
+      "activeLevel": 4
+    },
+    {
+      "id": "gen_flower",
+      "oldName": "花艺工具桶",
+      "name": "花卉培育器",
+      "group": "生产器",
+      "note": "保留 9 级、L5 开始生产。用浇水、旋转育苗、喷雾和育花灯的结构差异推进；每台至多一朵代表花。",
+      "status": "待用户审阅",
+      "levelCount": 9,
+      "items": [
+        {
+          "level": 1,
+          "id": "gen_flower:1",
+          "oldName": "花艺工具桶零件",
+          "name": "园艺桶底",
+          "cue": "一片粉色厚圆底，外侧凸起边"
+        },
+        {
+          "level": 2,
+          "id": "gen_flower:2",
+          "oldName": "花艺工具桶组件",
+          "name": "铆接桶壁",
+          "cue": "粉色开缝圆筒，三颗大铆钉"
+        },
+        {
+          "level": 3,
+          "id": "gen_flower:3",
+          "oldName": "花艺工具桶框架",
+          "name": "空提手花桶",
+          "cue": "奶白圆桶，顶部宽拱柄"
+        },
+        {
+          "level": 4,
+          "id": "gen_flower:4",
+          "oldName": "花艺工具桶雏形",
+          "name": "未装嘴浇花桶",
+          "cue": "粉色矮圆桶，前侧一个圆接口"
+        },
+        {
+          "level": 5,
+          "id": "gen_flower:5",
+          "oldName": "入门花艺工具桶",
+          "name": "长嘴浇花桶",
+          "cue": "奶白圆腹，细长青色弯嘴"
+        },
+        {
+          "level": 6,
+          "id": "gen_flower:6",
+          "oldName": "实用花艺工具桶",
+          "name": "旋转育花台",
+          "cue": "粉色圆转盘，中央粗立杆，三个大育苗位"
+        },
+        {
+          "level": 7,
+          "id": "gen_flower:7",
+          "oldName": "专业花艺工具桶",
+          "name": "自动喷雾桶",
+          "cue": "奶白高桶，顶部一根粗 T 形喷杆"
+        },
+        {
+          "level": 8,
+          "id": "gen_flower:8",
+          "oldName": "双层花艺工具桶",
+          "name": "拱罩育花箱",
+          "cue": "粉色长方箱，透明半圆玻璃罩"
+        },
+        {
+          "level": 9,
+          "id": "gen_flower:9",
+          "oldName": "高效花艺工具桶",
+          "name": "灯塔育花柜",
+          "cue": "奶白高六角柜，顶部大环形暖灯"
+        }
+      ],
+      "activeLevel": 5
+    },
+    {
+      "id": "gen_recycle",
+      "oldName": "花园循环桶",
+      "name": "花园循环机",
+      "group": "生产器",
+      "note": "保留 10 级、L5 开始生产。生产器以整台处理设施表达，堆肥产物链使用裸露材料与土丘。",
+      "status": "待用户审阅",
+      "levelCount": 10,
+      "items": [
+        {
+          "level": 1,
+          "id": "gen_recycle:1",
+          "oldName": "花园循环桶零件",
+          "name": "堆肥底板",
+          "cue": "一块深木方底板，粗四角榫口"
+        },
+        {
+          "level": 2,
+          "id": "gen_recycle:2",
+          "oldName": "花园循环桶组件",
+          "name": "堆肥箱壁",
+          "cue": "三面相连木壁，明显 U 形缺口"
+        },
+        {
+          "level": 3,
+          "id": "gen_recycle:3",
+          "oldName": "花园循环桶框架",
+          "name": "铰链箱盖",
+          "cue": "单片青色厚盖，后沿两只大铰链"
+        },
+        {
+          "level": 4,
+          "id": "gen_recycle:4",
+          "oldName": "花园循环桶雏形",
+          "name": "通风桶壳",
+          "cue": "奶白空方壳，两条宽透气槽"
+        },
+        {
+          "level": 5,
+          "id": "gen_recycle:5",
+          "oldName": "入门花园循环桶",
+          "name": "方形堆肥桶",
+          "cue": "深木方桶，青色大掀盖"
+        },
+        {
+          "level": 6,
+          "id": "gen_recycle:6",
+          "oldName": "实用花园循环桶",
+          "name": "圆筒翻滚桶",
+          "cue": "青色横圆筒，奶白双脚支架"
+        },
+        {
+          "level": 7,
+          "id": "gen_recycle:7",
+          "oldName": "专业花园循环桶",
+          "name": "螺旋搅拌桶",
+          "cue": "奶白高圆筒，顶部大螺旋摇柄"
+        },
+        {
+          "level": 8,
+          "id": "gen_recycle:8",
+          "oldName": "双层花园循环桶",
+          "name": "脚踏密封桶",
+          "cue": "青色梯形桶，前方大橙踏板"
+        },
+        {
+          "level": 9,
+          "id": "gen_recycle:9",
+          "oldName": "高效花园循环桶",
+          "name": "穹顶发酵罐",
+          "cue": "奶白球形罐，顶部大气阀"
+        },
+        {
+          "level": 10,
+          "id": "gen_recycle:10",
+          "oldName": "大师花园循环桶",
+          "name": "圆舱循环机",
+          "cue": "青色圆鼓机体，正面奶白圆门和粗回环箭头"
+        }
+      ],
+      "activeLevel": 5
+    }
+  ],
+  "retained": [
+    {
+      "id": "linen",
+      "name": "厨房织物",
+      "reason": "保留当前定义，后续按统一画风复核",
+      "levels": [
+        "单只隔热手套",
+        "一双隔热手套",
+        "主厨隔热手套"
+      ]
+    },
+    {
+      "id": "console",
+      "name": "复古游戏机",
+      "reason": "保留当前定义，后续按统一画风复核",
+      "levels": [
+        "迷你掌机",
+        "彩屏掌机",
+        "双人掌机",
+        "家庭游戏机"
+      ]
+    },
+    {
+      "id": "adventure_box",
+      "name": "厨房冒险场景",
+      "reason": "保留当前定义，后续按统一画风复核",
+      "levels": [
+        "食材森林",
+        "烘焙山谷",
+        "汤锅港口",
+        "甜品城堡",
+        "星光宴会厅"
+      ]
+    },
+    {
+      "id": "gems",
+      "name": "彩虹糖",
+      "reason": "保留当前定义，后续按统一画风复核",
+      "levels": [
+        "彩虹糖",
+        "几颗彩虹糖",
+        "一袋彩虹糖",
+        "彩虹糖罐"
+      ]
+    },
+    {
+      "id": "tipjar",
+      "name": "小厨存钱罐",
+      "reason": "保留当前定义，后续按统一画风复核",
+      "levels": [
+        "小厨存钱罐",
+        "胖胖存钱罐",
+        "金色存钱罐"
+      ]
+    },
+    {
+      "id": "energybox",
+      "name": "能量补给箱",
+      "reason": "保留当前定义，后续按统一画风复核",
+      "levels": [
+        "能量补给箱"
+      ]
+    },
+    {
+      "id": "backpack",
+      "name": "扩容背包",
+      "reason": "保留当前定义，后续按统一画风复核",
+      "levels": [
+        "收纳扩容包"
+      ]
+    },
+    {
+      "id": "stopwatch",
+      "name": "单机加速",
+      "reason": "保留当前定义，后续按统一画风复核",
+      "levels": [
+        "一小时秒表"
+      ]
+    },
+    {
+      "id": "legacy_energy",
+      "name": "旧档能量补给",
+      "reason": "旧档兼容映射，跟随对应资源素材",
+      "levels": [
+        "小能量球",
+        "能量球",
+        "大能量球",
+        "满满能量"
+      ]
+    },
+    {
+      "id": "legacy_coins",
+      "name": "旧档金币收藏",
+      "reason": "旧档兼容映射，跟随对应资源素材",
+      "levels": [
+        "零用金币",
+        "一叠金币",
+        "一袋金币",
+        "金币宝箱"
+      ]
+    },
+    {
+      "id": "legacy_chest",
+      "name": "旧档厨房礼盒",
+      "reason": "旧档兼容映射，跟随对应资源素材",
+      "levels": [
+        "厨房礼盒",
+        "精致礼盒",
+        "豪华礼盒"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "chain": "mexican",
+      "claim": "塔玛利是包叶玉米面食品，恩奇拉达为裹馅饼与辣椒酱料理；此处仅参考具体菜品身份，级序与画法为游戏提案。",
+      "links": [
+        {
+          "title": "墨西哥农业部：Tamales",
+          "url": "https://www.gob.mx/agricultura/articulos/tamales-una-historia-de-sabor"
+        },
+        {
+          "title": "墨西哥农业部：Enchiladas",
+          "url": "https://www.gob.mx/agricultura/articulos/enchiladas-una-por-cada-rincon-de-mexico?idiom=es"
+        }
+      ]
+    }
+  ]
+}

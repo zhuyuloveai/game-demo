@@ -1,0 +1,46 @@
+{
+  "id": "honor:2",
+  "name": "铜勺奖章",
+  "source": "sources/honor-2.png",
+  "prompt": "prompts/honor-2-revision-2.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-chain-art-v6/references/honor-2-v1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-6f37d844-fded-4c74-a7fd-b756c58322ef.png",
+  "review": "visual-approved",
+  "revision": 2,
+  "processed": {
+    "png": "items/honor-2.png",
+    "webp": "items/honor-2.webp",
+    "sourceSize": [
+      969,
+      1622
+    ],
+    "crop": [
+      62,
+      22,
+      847,
+      1545
+    ],
+    "box": [
+      20.83,
+      38
+    ],
+    "contact": {
+      "x": 49.32,
+      "width": 7,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 557918,
+    "transparentPixels": 1000462
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px pair inspected. Honor:2 and honor:4 silhouettes corrected and rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/honor.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "gen_tools:8",
+  "name": "旋转厨具架",
+  "source": "sources/gen_tools-8.png",
+  "prompt": "prompts/gen_tools-8.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-46a1eb1c-ac49-41d5-bb5e-3b691b7700c8.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_tools-8.png",
+    "webp": "items/gen_tools-8.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      130,
+      56,
+      985,
+      1156
+    ],
+    "box": [
+      33.23,
+      39
+    ],
+    "contact": {
+      "x": 49.94,
+      "width": 21.16,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 647234,
+    "transparentPixels": 889364
+  },
+  "visualReview": {
+    "scope": "Per-chain full image and paired actual 44px review; single subject, level silhouette, alpha boundary and scale inspected. Pinkbag:2 revised to one bag and rechecked.",
+    "evidence": [
+      "evidence/gen_tools.png",
+      "evidence/44px/page-06.png"
+    ]
+  }
+}

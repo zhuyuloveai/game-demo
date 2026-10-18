@@ -1,0 +1,45 @@
+{
+  "id": "honor:5",
+  "name": "街区星杯",
+  "source": "sources/honor-5.png",
+  "prompt": "prompts/honor-5.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-f8a65514-52f2-4ea4-ac71-c68547724a54.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/honor-5.png",
+    "webp": "items/honor-5.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      187,
+      77,
+      885,
+      1103
+    ],
+    "box": [
+      30.49,
+      38
+    ],
+    "contact": {
+      "x": 49.58,
+      "width": 16.66,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 519960,
+    "transparentPixels": 1038543
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px pair inspected. Honor:2 and honor:4 silhouettes corrected and rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/honor.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

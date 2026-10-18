@@ -294,7 +294,7 @@
   "chains": [
     {
       "id": "food",
-      "name": "甜蜜烘焙",
+      "name": "烘焙甜点",
       "kind": "commodity",
       "unlockChapter": 1,
       "reference": "有氧器材11级长主链；厨房题材适配",
@@ -305,7 +305,7 @@
         {
           "id": "food:1",
           "level": 1,
-          "name": "小麦",
+          "name": "黄油曲奇",
           "baseUnits": 1,
           "mergeTo": "food:2",
           "sellCoins": 1,
@@ -317,7 +317,7 @@
         {
           "id": "food:2",
           "level": 2,
-          "name": "面粉",
+          "name": "芝麻贝果",
           "baseUnits": 2,
           "mergeTo": "food:3",
           "sellCoins": 1,
@@ -329,7 +329,7 @@
         {
           "id": "food:3",
           "level": 3,
-          "name": "面团",
+          "name": "牛奶吐司",
           "baseUnits": 4,
           "mergeTo": "food:4",
           "sellCoins": 2,
@@ -341,7 +341,7 @@
         {
           "id": "food:4",
           "level": 4,
-          "name": "吐司",
+          "name": "黄油可颂",
           "baseUnits": 8,
           "mergeTo": "food:5",
           "sellCoins": 2,
@@ -353,7 +353,7 @@
         {
           "id": "food:5",
           "level": 5,
-          "name": "可颂",
+          "name": "蝴蝶酥",
           "baseUnits": 16,
           "mergeTo": "food:6",
           "sellCoins": 3,
@@ -365,7 +365,7 @@
         {
           "id": "food:6",
           "level": 6,
-          "name": "庆祝蛋糕",
+          "name": "闪电泡芙",
           "baseUnits": 32,
           "mergeTo": "food:7",
           "sellCoins": 3,
@@ -377,7 +377,7 @@
         {
           "id": "food:7",
           "level": 7,
-          "name": "双层庆典蛋糕",
+          "name": "肉桂卷",
           "baseUnits": 64,
           "mergeTo": "food:8",
           "sellCoins": 4,
@@ -389,7 +389,7 @@
         {
           "id": "food:8",
           "level": 8,
-          "name": "缤纷甜品塔",
+          "name": "蓝莓玛芬",
           "baseUnits": 128,
           "mergeTo": "food:9",
           "sellCoins": 4,
@@ -401,7 +401,7 @@
         {
           "id": "food:9",
           "level": 9,
-          "name": "宴会甜品桌",
+          "name": "樱桃丹麦酥",
           "baseUnits": 256,
           "mergeTo": "food:10",
           "sellCoins": 5,
@@ -413,7 +413,7 @@
         {
           "id": "food:10",
           "level": 10,
-          "name": "婚礼甜品台",
+          "name": "树根蛋糕",
           "baseUnits": 512,
           "mergeTo": "food:11",
           "sellCoins": 5,
@@ -425,7 +425,7 @@
         {
           "id": "food:11",
           "level": 11,
-          "name": "大师甜品盛宴",
+          "name": "草莓夏洛特蛋糕",
           "baseUnits": 1024,
           "mergeTo": null,
           "sellCoins": 6,
@@ -475,7 +475,7 @@
         {
           "id": "tools:3",
           "level": 3,
-          "name": "平底锅",
+          "name": "厨房夹",
           "baseUnits": 4,
           "mergeTo": "tools:4",
           "sellCoins": 2,
@@ -487,7 +487,7 @@
         {
           "id": "tools:4",
           "level": 4,
-          "name": "炖锅",
+          "name": "硅胶刮刀",
           "baseUnits": 8,
           "mergeTo": "tools:5",
           "sellCoins": 2,
@@ -499,7 +499,7 @@
         {
           "id": "tools:5",
           "level": 5,
-          "name": "厨师机",
+          "name": "漏勺",
           "baseUnits": 16,
           "mergeTo": "tools:6",
           "sellCoins": 3,
@@ -511,7 +511,7 @@
         {
           "id": "tools:6",
           "level": 6,
-          "name": "梦幻烤箱",
+          "name": "擀面杖",
           "baseUnits": 32,
           "mergeTo": "tools:7",
           "sellCoins": 3,
@@ -523,7 +523,7 @@
         {
           "id": "tools:7",
           "level": 7,
-          "name": "商用烤箱",
+          "name": "刨丝器",
           "baseUnits": 64,
           "mergeTo": "tools:8",
           "sellCoins": 4,
@@ -535,7 +535,7 @@
         {
           "id": "tools:8",
           "level": 8,
-          "name": "双层烤箱",
+          "name": "石臼",
           "baseUnits": 128,
           "mergeTo": "tools:9",
           "sellCoins": 4,
@@ -547,7 +547,7 @@
         {
           "id": "tools:9",
           "level": 9,
-          "name": "蒸烤一体机",
+          "name": "煎锅",
           "baseUnits": 256,
           "mergeTo": "tools:10",
           "sellCoins": 5,
@@ -559,7 +559,7 @@
         {
           "id": "tools:10",
           "level": 10,
-          "name": "多功能料理台",
+          "name": "双耳汤锅",
           "baseUnits": 512,
           "mergeTo": "tools:11",
           "sellCoins": 5,
@@ -571,7 +571,7 @@
         {
           "id": "tools:11",
           "level": 11,
-          "name": "中央备餐台",
+          "name": "铸铁炖锅",
           "baseUnits": 1024,
           "mergeTo": "tools:12",
           "sellCoins": 6,
@@ -583,7 +583,7 @@
         {
           "id": "tools:12",
           "level": 12,
-          "name": "主厨工作站",
+          "name": "压力锅",
           "baseUnits": 2048,
           "mergeTo": "tools:13",
           "sellCoins": 6,
@@ -595,7 +595,7 @@
         {
           "id": "tools:13",
           "level": 13,
-          "name": "开放式中央厨房",
+          "name": "手摇绞肉机",
           "baseUnits": 4096,
           "mergeTo": "tools:14",
           "sellCoins": 7,
@@ -607,7 +607,7 @@
         {
           "id": "tools:14",
           "level": 14,
-          "name": "星级宴会厨房",
+          "name": "手动压面机",
           "baseUnits": 8192,
           "mergeTo": null,
           "sellCoins": 7,
@@ -633,7 +633,7 @@
         {
           "id": "vegetable:1",
           "level": 1,
-          "name": "小萝卜",
+          "name": "胡萝卜",
           "baseUnits": 1,
           "mergeTo": "vegetable:2",
           "sellCoins": 1,
@@ -645,7 +645,7 @@
         {
           "id": "vegetable:2",
           "level": 2,
-          "name": "番茄",
+          "name": "黄瓜",
           "baseUnits": 2,
           "mergeTo": "vegetable:3",
           "sellCoins": 1,
@@ -657,7 +657,7 @@
         {
           "id": "vegetable:3",
           "level": 3,
-          "name": "西兰花",
+          "name": "茄子",
           "baseUnits": 4,
           "mergeTo": "vegetable:4",
           "sellCoins": 2,
@@ -669,7 +669,7 @@
         {
           "id": "vegetable:4",
           "level": 4,
-          "name": "蔬菜沙拉",
+          "name": "西兰花",
           "baseUnits": 8,
           "mergeTo": "vegetable:5",
           "sellCoins": 2,
@@ -681,7 +681,7 @@
         {
           "id": "vegetable:5",
           "level": 5,
-          "name": "烤蔬菜",
+          "name": "南瓜",
           "baseUnits": 16,
           "mergeTo": "vegetable:6",
           "sellCoins": 3,
@@ -693,7 +693,7 @@
         {
           "id": "vegetable:6",
           "level": 6,
-          "name": "田园拼盘",
+          "name": "芦笋",
           "baseUnits": 32,
           "mergeTo": "vegetable:7",
           "sellCoins": 3,
@@ -705,7 +705,7 @@
         {
           "id": "vegetable:7",
           "level": 7,
-          "name": "四季蔬食宴",
+          "name": "宝塔花菜",
           "baseUnits": 64,
           "mergeTo": "vegetable:8",
           "sellCoins": 4,
@@ -717,7 +717,7 @@
         {
           "id": "vegetable:8",
           "level": 8,
-          "name": "丰收长桌宴",
+          "name": "朝鲜蓟",
           "baseUnits": 128,
           "mergeTo": null,
           "sellCoins": 4,
@@ -767,7 +767,7 @@
         {
           "id": "fruit:3",
           "level": 3,
-          "name": "草莓",
+          "name": "香蕉",
           "baseUnits": 4,
           "mergeTo": "fruit:4",
           "sellCoins": 2,
@@ -779,7 +779,7 @@
         {
           "id": "fruit:4",
           "level": 4,
-          "name": "水果碗",
+          "name": "草莓",
           "baseUnits": 8,
           "mergeTo": "fruit:5",
           "sellCoins": 2,
@@ -791,7 +791,7 @@
         {
           "id": "fruit:5",
           "level": 5,
-          "name": "手作果酱",
+          "name": "芒果",
           "baseUnits": 16,
           "mergeTo": "fruit:6",
           "sellCoins": 3,
@@ -803,7 +803,7 @@
         {
           "id": "fruit:6",
           "level": 6,
-          "name": "水果挞",
+          "name": "火龙果",
           "baseUnits": 32,
           "mergeTo": "fruit:7",
           "sellCoins": 3,
@@ -815,7 +815,7 @@
         {
           "id": "fruit:7",
           "level": 7,
-          "name": "四季水果塔",
+          "name": "山竹",
           "baseUnits": 64,
           "mergeTo": "fruit:8",
           "sellCoins": 4,
@@ -827,7 +827,7 @@
         {
           "id": "fruit:8",
           "level": 8,
-          "name": "缤纷鲜果宴",
+          "name": "榴莲",
           "baseUnits": 128,
           "mergeTo": null,
           "sellCoins": 4,
@@ -842,7 +842,7 @@
     },
     {
       "id": "drink",
-      "name": "咖啡饮品",
+      "name": "手作饮品",
       "kind": "commodity",
       "unlockChapter": 2,
       "reference": "饮品至少11级",
@@ -853,7 +853,7 @@
         {
           "id": "drink:1",
           "level": 1,
-          "name": "咖啡豆",
+          "name": "鲜牛奶",
           "baseUnits": 1,
           "mergeTo": "drink:2",
           "sellCoins": 1,
@@ -865,7 +865,7 @@
         {
           "id": "drink:2",
           "level": 2,
-          "name": "浓缩咖啡",
+          "name": "柠檬汽水",
           "baseUnits": 2,
           "mergeTo": "drink:3",
           "sellCoins": 1,
@@ -877,7 +877,7 @@
         {
           "id": "drink:3",
           "level": 3,
-          "name": "牛奶咖啡",
+          "name": "鲜榨橙汁",
           "baseUnits": 4,
           "mergeTo": "drink:4",
           "sellCoins": 2,
@@ -889,7 +889,7 @@
         {
           "id": "drink:4",
           "level": 4,
-          "name": "拉花拿铁",
+          "name": "浓缩咖啡",
           "baseUnits": 8,
           "mergeTo": "drink:5",
           "sellCoins": 2,
@@ -901,7 +901,7 @@
         {
           "id": "drink:5",
           "level": 5,
-          "name": "冰咖啡",
+          "name": "抹茶拿铁",
           "baseUnits": 16,
           "mergeTo": "drink:6",
           "sellCoins": 3,
@@ -913,7 +913,7 @@
         {
           "id": "drink:6",
           "level": 6,
-          "name": "咖啡分享塔",
+          "name": "珍珠奶茶",
           "baseUnits": 32,
           "mergeTo": "drink:7",
           "sellCoins": 3,
@@ -925,7 +925,7 @@
         {
           "id": "drink:7",
           "level": 7,
-          "name": "手冲咖啡套组",
+          "name": "草莓奶昔",
           "baseUnits": 64,
           "mergeTo": "drink:8",
           "sellCoins": 4,
@@ -937,7 +937,7 @@
         {
           "id": "drink:8",
           "level": 8,
-          "name": "冷萃咖啡桶",
+          "name": "椰青冷萃",
           "baseUnits": 128,
           "mergeTo": "drink:9",
           "sellCoins": 4,
@@ -949,7 +949,7 @@
         {
           "id": "drink:9",
           "level": 9,
-          "name": "精品咖啡吧",
+          "name": "芒果冰沙",
           "baseUnits": 256,
           "mergeTo": "drink:10",
           "sellCoins": 5,
@@ -961,7 +961,7 @@
         {
           "id": "drink:10",
           "level": 10,
-          "name": "冠军咖啡台",
+          "name": "蓝莓酸奶昔",
           "baseUnits": 512,
           "mergeTo": "drink:11",
           "sellCoins": 5,
@@ -973,7 +973,7 @@
         {
           "id": "drink:11",
           "level": 11,
-          "name": "世界咖啡盛典",
+          "name": "蝶豆花特调",
           "baseUnits": 1024,
           "mergeTo": null,
           "sellCoins": 6,
@@ -999,7 +999,7 @@
         {
           "id": "tableware:1",
           "level": 1,
-          "name": "小碟子",
+          "name": "小瓷碟",
           "baseUnits": 1,
           "mergeTo": "tableware:2",
           "sellCoins": 1,
@@ -1011,7 +1011,7 @@
         {
           "id": "tableware:2",
           "level": 2,
-          "name": "陶瓷碗",
+          "name": "陶瓷饭碗",
           "baseUnits": 2,
           "mergeTo": "tableware:3",
           "sellCoins": 1,
@@ -1023,7 +1023,7 @@
         {
           "id": "tableware:3",
           "level": 3,
-          "name": "花边餐盘",
+          "name": "双耳汤盅",
           "baseUnits": 4,
           "mergeTo": "tableware:4",
           "sellCoins": 2,
@@ -1035,7 +1035,7 @@
         {
           "id": "tableware:4",
           "level": 4,
-          "name": "下午茶壶",
+          "name": "高脚玻璃杯",
           "baseUnits": 8,
           "mergeTo": "tableware:5",
           "sellCoins": 2,
@@ -1047,7 +1047,7 @@
         {
           "id": "tableware:5",
           "level": 5,
-          "name": "精致茶具",
+          "name": "花瓣茶壶",
           "baseUnits": 16,
           "mergeTo": "tableware:6",
           "sellCoins": 3,
@@ -1059,7 +1059,7 @@
         {
           "id": "tableware:6",
           "level": 6,
-          "name": "宴会餐具",
+          "name": "船形酱汁壶",
           "baseUnits": 32,
           "mergeTo": "tableware:7",
           "sellCoins": 3,
@@ -1071,7 +1071,7 @@
         {
           "id": "tableware:7",
           "level": 7,
-          "name": "典藏瓷器柜",
+          "name": "带盖陶瓷汤盆",
           "baseUnits": 64,
           "mergeTo": "tableware:8",
           "sellCoins": 4,
@@ -1083,7 +1083,7 @@
         {
           "id": "tableware:8",
           "level": 8,
-          "name": "皇家宴会餐台",
+          "name": "天鹅糖罐",
           "baseUnits": 128,
           "mergeTo": null,
           "sellCoins": 4,
@@ -1098,7 +1098,7 @@
     },
     {
       "id": "herb",
-      "name": "香草花园",
+      "name": "香草与香料",
       "kind": "commodity",
       "unlockChapter": 3,
       "reference": "植物6级及末端自动产物",
@@ -1109,7 +1109,7 @@
         {
           "id": "herb:1",
           "level": 1,
-          "name": "香草种子",
+          "name": "罗勒",
           "baseUnits": 1,
           "mergeTo": "herb:2",
           "sellCoins": 1,
@@ -1121,7 +1121,7 @@
         {
           "id": "herb:2",
           "level": 2,
-          "name": "香草嫩芽",
+          "name": "薄荷",
           "baseUnits": 2,
           "mergeTo": "herb:3",
           "sellCoins": 1,
@@ -1133,7 +1133,7 @@
         {
           "id": "herb:3",
           "level": 3,
-          "name": "罗勒叶",
+          "name": "迷迭香",
           "baseUnits": 4,
           "mergeTo": "herb:4",
           "sellCoins": 2,
@@ -1145,7 +1145,7 @@
         {
           "id": "herb:4",
           "level": 4,
-          "name": "香草盆栽",
+          "name": "百里香",
           "baseUnits": 8,
           "mergeTo": "herb:5",
           "sellCoins": 2,
@@ -1157,7 +1157,7 @@
         {
           "id": "herb:5",
           "level": 5,
-          "name": "香草篮",
+          "name": "紫苏",
           "baseUnits": 16,
           "mergeTo": "herb:6",
           "sellCoins": 3,
@@ -1169,7 +1169,7 @@
         {
           "id": "herb:6",
           "level": 6,
-          "name": "秘制调味料",
+          "name": "藏红花",
           "baseUnits": 32,
           "mergeTo": null,
           "sellCoins": 0,
@@ -1195,7 +1195,7 @@
         {
           "id": "chinese:1",
           "level": 1,
-          "name": "香米",
+          "name": "葱油饼",
           "baseUnits": 1,
           "mergeTo": "chinese:2",
           "sellCoins": 1,
@@ -1231,7 +1231,7 @@
         {
           "id": "chinese:4",
           "level": 4,
-          "name": "汤面",
+          "name": "牛肉汤面",
           "baseUnits": 8,
           "mergeTo": "chinese:5",
           "sellCoins": 2,
@@ -1243,7 +1243,7 @@
         {
           "id": "chinese:5",
           "level": 5,
-          "name": "暖心火锅",
+          "name": "糯米烧卖",
           "baseUnits": 16,
           "mergeTo": "chinese:6",
           "sellCoins": 3,
@@ -1255,7 +1255,7 @@
         {
           "id": "chinese:6",
           "level": 6,
-          "name": "中式点心宴",
+          "name": "荷叶糯米鸡",
           "baseUnits": 32,
           "mergeTo": "chinese:7",
           "sellCoins": 3,
@@ -1267,7 +1267,7 @@
         {
           "id": "chinese:7",
           "level": 7,
-          "name": "团圆家宴",
+          "name": "东坡肉",
           "baseUnits": 64,
           "mergeTo": "chinese:8",
           "sellCoins": 4,
@@ -1279,7 +1279,7 @@
         {
           "id": "chinese:8",
           "level": 8,
-          "name": "四季中华宴",
+          "name": "松鼠桂鱼",
           "baseUnits": 128,
           "mergeTo": null,
           "sellCoins": 4,
@@ -1305,7 +1305,7 @@
         {
           "id": "japanese:1",
           "level": 1,
-          "name": "海苔",
+          "name": "梅子饭团",
           "baseUnits": 1,
           "mergeTo": "japanese:2",
           "sellCoins": 1,
@@ -1317,7 +1317,7 @@
         {
           "id": "japanese:2",
           "level": 2,
-          "name": "饭团",
+          "name": "厚蛋烧",
           "baseUnits": 2,
           "mergeTo": "japanese:3",
           "sellCoins": 1,
@@ -1329,7 +1329,7 @@
         {
           "id": "japanese:3",
           "level": 3,
-          "name": "寿司",
+          "name": "三文鱼握寿司",
           "baseUnits": 4,
           "mergeTo": "japanese:4",
           "sellCoins": 2,
@@ -1341,7 +1341,7 @@
         {
           "id": "japanese:4",
           "level": 4,
-          "name": "手卷",
+          "name": "海苔手卷",
           "baseUnits": 8,
           "mergeTo": "japanese:5",
           "sellCoins": 2,
@@ -1353,7 +1353,7 @@
         {
           "id": "japanese:5",
           "level": 5,
-          "name": "豚骨拉面",
+          "name": "炸虾天妇罗",
           "baseUnits": 16,
           "mergeTo": "japanese:6",
           "sellCoins": 3,
@@ -1365,7 +1365,7 @@
         {
           "id": "japanese:6",
           "level": 6,
-          "name": "和风便当",
+          "name": "豚骨拉面",
           "baseUnits": 32,
           "mergeTo": "japanese:7",
           "sellCoins": 3,
@@ -1377,7 +1377,7 @@
         {
           "id": "japanese:7",
           "level": 7,
-          "name": "樱花会席",
+          "name": "鳗鱼饭",
           "baseUnits": 64,
           "mergeTo": "japanese:8",
           "sellCoins": 4,
@@ -1389,7 +1389,7 @@
         {
           "id": "japanese:8",
           "level": 8,
-          "name": "和风庆典宴",
+          "name": "樱花和果子",
           "baseUnits": 128,
           "mergeTo": null,
           "sellCoins": 4,
@@ -1415,7 +1415,7 @@
         {
           "id": "italian:1",
           "level": 1,
-          "name": "意面原料",
+          "name": "意式面包棒",
           "baseUnits": 1,
           "mergeTo": "italian:2",
           "sellCoins": 1,
@@ -1439,7 +1439,7 @@
         {
           "id": "italian:3",
           "level": 3,
-          "name": "芝士披萨",
+          "name": "玛格丽特披萨",
           "baseUnits": 4,
           "mergeTo": "italian:4",
           "sellCoins": 2,
@@ -1451,7 +1451,7 @@
         {
           "id": "italian:4",
           "level": 4,
-          "name": "奶油烩饭",
+          "name": "南瓜烩饭",
           "baseUnits": 8,
           "mergeTo": "italian:5",
           "sellCoins": 2,
@@ -1475,7 +1475,7 @@
         {
           "id": "italian:6",
           "level": 6,
-          "name": "意式盛宴",
+          "name": "菠菜方饺",
           "baseUnits": 32,
           "mergeTo": "italian:7",
           "sellCoins": 3,
@@ -1487,7 +1487,7 @@
         {
           "id": "italian:7",
           "level": 7,
-          "name": "托斯卡纳长桌",
+          "name": "墨鱼汁意面",
           "baseUnits": 64,
           "mergeTo": "italian:8",
           "sellCoins": 4,
@@ -1499,7 +1499,7 @@
         {
           "id": "italian:8",
           "level": 8,
-          "name": "地中海庆典宴",
+          "name": "提拉米苏",
           "baseUnits": 128,
           "mergeTo": null,
           "sellCoins": 4,
@@ -1525,7 +1525,7 @@
         {
           "id": "mexican:1",
           "level": 1,
-          "name": "甜玉米",
+          "name": "墨西哥烤玉米",
           "baseUnits": 1,
           "mergeTo": "mexican:2",
           "sellCoins": 1,
@@ -1573,7 +1573,7 @@
         {
           "id": "mexican:5",
           "level": 5,
-          "name": "玉米片拼盘",
+          "name": "玉米叶塔玛利",
           "baseUnits": 16,
           "mergeTo": "mexican:6",
           "sellCoins": 3,
@@ -1585,7 +1585,7 @@
         {
           "id": "mexican:6",
           "level": 6,
-          "name": "墨西哥派对餐",
+          "name": "酿馅辣椒",
           "baseUnits": 32,
           "mergeTo": "mexican:7",
           "sellCoins": 3,
@@ -1597,7 +1597,7 @@
         {
           "id": "mexican:7",
           "level": 7,
-          "name": "阳光街头宴",
+          "name": "红酱恩奇拉达",
           "baseUnits": 64,
           "mergeTo": "mexican:8",
           "sellCoins": 4,
@@ -1609,7 +1609,7 @@
         {
           "id": "mexican:8",
           "level": 8,
-          "name": "嘉年华大餐",
+          "name": "亡灵节面包",
           "baseUnits": 128,
           "mergeTo": null,
           "sellCoins": 4,
@@ -1683,7 +1683,7 @@
         {
           "id": "preservation:1",
           "level": 1,
-          "name": "保鲜贴",
+          "name": "保鲜膜卷",
           "baseUnits": 1,
           "mergeTo": "preservation:2",
           "sellCoins": 1,
@@ -1695,7 +1695,7 @@
         {
           "id": "preservation:2",
           "level": 2,
-          "name": "密封袋",
+          "name": "拉链密封袋",
           "baseUnits": 2,
           "mergeTo": "preservation:3",
           "sellCoins": 1,
@@ -1707,7 +1707,7 @@
         {
           "id": "preservation:3",
           "level": 3,
-          "name": "保鲜盒",
+          "name": "扣盖保鲜盒",
           "baseUnits": 4,
           "mergeTo": "preservation:4",
           "sellCoins": 2,
@@ -1719,7 +1719,7 @@
         {
           "id": "preservation:4",
           "level": 4,
-          "name": "冷藏保鲜套装",
+          "name": "台式真空封口机",
           "baseUnits": 8,
           "mergeTo": null,
           "sellCoins": 2,
@@ -1756,7 +1756,7 @@
         {
           "id": "bakeware:2",
           "level": 2,
-          "name": "小蛋糕模",
+          "name": "菊花蛋糕模",
           "baseUnits": 2,
           "mergeTo": "bakeware:3",
           "sellCoins": 1,
@@ -1768,7 +1768,7 @@
         {
           "id": "bakeware:3",
           "level": 3,
-          "name": "圆形烤盘",
+          "name": "圆形蛋糕模",
           "baseUnits": 4,
           "mergeTo": "bakeware:4",
           "sellCoins": 2,
@@ -1792,7 +1792,7 @@
         {
           "id": "bakeware:5",
           "level": 5,
-          "name": "多格烤盘",
+          "name": "六孔玛芬盘",
           "baseUnits": 16,
           "mergeTo": "bakeware:6",
           "sellCoins": 3,
@@ -1816,7 +1816,7 @@
         {
           "id": "bakeware:7",
           "level": 7,
-          "name": "专业烘焙套组",
+          "name": "城堡蛋糕模",
           "baseUnits": 64,
           "mergeTo": null,
           "sellCoins": 4,
@@ -1831,7 +1831,7 @@
     },
     {
       "id": "seedbag",
-      "name": "香草种子袋",
+      "name": "香草种子包装",
       "kind": "hybrid",
       "unlockChapter": 3,
       "reference": "种子袋4级",
@@ -1841,7 +1841,7 @@
         {
           "id": "seedbag:1",
           "level": 1,
-          "name": "小种子包",
+          "name": "扁平种子纸包",
           "baseUnits": 1,
           "mergeTo": "seedbag:2",
           "sellCoins": 1,
@@ -1853,7 +1853,7 @@
         {
           "id": "seedbag:2",
           "level": 2,
-          "name": "加量种子包",
+          "name": "三角种子袋",
           "baseUnits": 2,
           "mergeTo": "seedbag:3",
           "sellCoins": 1,
@@ -1865,7 +1865,7 @@
         {
           "id": "seedbag:3",
           "level": 3,
-          "name": "大种子包",
+          "name": "束口种子袋",
           "baseUnits": 4,
           "mergeTo": "seedbag:4",
           "sellCoins": 2,
@@ -1877,7 +1877,7 @@
         {
           "id": "seedbag:4",
           "level": 4,
-          "name": "香草种子堆",
+          "name": "立底亚麻种子袋",
           "baseUnits": 8,
           "mergeTo": null,
           "sellCoins": 2,
@@ -1892,7 +1892,7 @@
     },
     {
       "id": "emptybag",
-      "name": "空种子袋",
+      "name": "布袋再利用",
       "kind": "commodity",
       "unlockChapter": 3,
       "reference": "空袋4级后跨链合成",
@@ -1902,7 +1902,7 @@
         {
           "id": "emptybag:1",
           "level": 1,
-          "name": "空纸袋",
+          "name": "空亚麻袋",
           "baseUnits": 1,
           "mergeTo": "emptybag:2",
           "sellCoins": 1,
@@ -1914,7 +1914,7 @@
         {
           "id": "emptybag:2",
           "level": 2,
-          "name": "折叠空袋",
+          "name": "拆线布片",
           "baseUnits": 2,
           "mergeTo": "emptybag:3",
           "sellCoins": 1,
@@ -1926,7 +1926,7 @@
         {
           "id": "emptybag:3",
           "level": 3,
-          "name": "空袋束",
+          "name": "缝补方巾",
           "baseUnits": 4,
           "mergeTo": "emptybag:4",
           "sellCoins": 2,
@@ -1938,7 +1938,7 @@
         {
           "id": "emptybag:4",
           "level": 4,
-          "name": "整捆空袋",
+          "name": "熨平布卷",
           "baseUnits": 8,
           "mergeTo": null,
           "sellCoins": 2,
@@ -1953,7 +1953,7 @@
     },
     {
       "id": "doll",
-      "name": "手作布偶",
+      "name": "布艺手作",
       "kind": "commodity",
       "unlockChapter": 3,
       "reference": "布袋玩偶；8级为拟定",
@@ -1963,7 +1963,7 @@
         {
           "id": "doll:1",
           "level": 1,
-          "name": "麻布片",
+          "name": "剪裁布片",
           "baseUnits": 1,
           "mergeTo": "doll:2",
           "sellCoins": 1,
@@ -1975,7 +1975,7 @@
         {
           "id": "doll:2",
           "level": 2,
-          "name": "布偶裁片",
+          "name": "针线包",
           "baseUnits": 2,
           "mergeTo": "doll:3",
           "sellCoins": 1,
@@ -1987,7 +1987,7 @@
         {
           "id": "doll:3",
           "level": 3,
-          "name": "填充布偶",
+          "name": "番茄针插",
           "baseUnits": 4,
           "mergeTo": "doll:4",
           "sellCoins": 2,
@@ -1999,7 +1999,7 @@
         {
           "id": "doll:4",
           "level": 4,
-          "name": "围裙小偶",
+          "name": "布艺胡萝卜",
           "baseUnits": 8,
           "mergeTo": "doll:5",
           "sellCoins": 2,
@@ -2011,7 +2011,7 @@
         {
           "id": "doll:5",
           "level": 5,
-          "name": "主厨布偶",
+          "name": "布艺小鱼",
           "baseUnits": 16,
           "mergeTo": "doll:6",
           "sellCoins": 3,
@@ -2023,7 +2023,7 @@
         {
           "id": "doll:6",
           "level": 6,
-          "name": "餐厅吉祥偶",
+          "name": "条纹袜子猫",
           "baseUnits": 32,
           "mergeTo": "doll:7",
           "sellCoins": 3,
@@ -2035,7 +2035,7 @@
         {
           "id": "doll:7",
           "level": 7,
-          "name": "布偶小剧场",
+          "name": "长耳布兔",
           "baseUnits": 64,
           "mergeTo": "doll:8",
           "sellCoins": 4,
@@ -2047,7 +2047,7 @@
         {
           "id": "doll:8",
           "level": 8,
-          "name": "厨房布偶大家庭",
+          "name": "小白狗厨师布偶",
           "baseUnits": 128,
           "mergeTo": null,
           "sellCoins": 4,
@@ -2062,7 +2062,7 @@
     },
     {
       "id": "snail",
-      "name": "花园蜗牛",
+      "name": "奇趣蜗牛",
       "kind": "commodity",
       "unlockChapter": 3,
       "reference": "蜗牛6级；名称原创",
@@ -2072,7 +2072,7 @@
         {
           "id": "snail:1",
           "level": 1,
-          "name": "小蜗牛壳",
+          "name": "空螺壳",
           "baseUnits": 1,
           "mergeTo": "snail:2",
           "sellCoins": 1,
@@ -2084,7 +2084,7 @@
         {
           "id": "snail:2",
           "level": 2,
-          "name": "初生蜗牛",
+          "name": "圆壳小蜗牛",
           "baseUnits": 2,
           "mergeTo": "snail:3",
           "sellCoins": 1,
@@ -2096,7 +2096,7 @@
         {
           "id": "snail:3",
           "level": 3,
-          "name": "花园蜗牛",
+          "name": "锥壳蜗牛",
           "baseUnits": 4,
           "mergeTo": "snail:4",
           "sellCoins": 2,
@@ -2108,7 +2108,7 @@
         {
           "id": "snail:4",
           "level": 4,
-          "name": "大叶蜗牛",
+          "name": "叶壳蜗牛",
           "baseUnits": 8,
           "mergeTo": "snail:5",
           "sellCoins": 2,
@@ -2120,7 +2120,7 @@
         {
           "id": "snail:5",
           "level": 5,
-          "name": "彩壳蜗牛",
+          "name": "花壳蜗牛",
           "baseUnits": 16,
           "mergeTo": "snail:6",
           "sellCoins": 3,
@@ -2132,7 +2132,7 @@
         {
           "id": "snail:6",
           "level": 6,
-          "name": "星光蜗牛",
+          "name": "星月蜗牛",
           "baseUnits": 32,
           "mergeTo": null,
           "sellCoins": 3,
@@ -2169,7 +2169,7 @@
         {
           "id": "pantry:2",
           "level": 2,
-          "name": "抽屉木板",
+          "name": "扣锁收纳箱",
           "baseUnits": 2,
           "mergeTo": "pantry:3",
           "sellCoins": 0,
@@ -2181,7 +2181,7 @@
         {
           "id": "pantry:3",
           "level": 3,
-          "name": "抽屉框架",
+          "name": "单格抽屉",
           "baseUnits": 4,
           "mergeTo": "pantry:4",
           "sellCoins": 0,
@@ -2193,7 +2193,7 @@
         {
           "id": "pantry:4",
           "level": 4,
-          "name": "旧餐具抽屉",
+          "name": "双层抽屉柜",
           "baseUnits": 8,
           "mergeTo": "pantry:5",
           "sellCoins": 0,
@@ -2205,7 +2205,7 @@
         {
           "id": "pantry:5",
           "level": 5,
-          "name": "餐具收纳抽屉",
+          "name": "百叶矮柜",
           "baseUnits": 16,
           "mergeTo": "pantry:6",
           "sellCoins": 0,
@@ -2217,7 +2217,7 @@
         {
           "id": "pantry:6",
           "level": 6,
-          "name": "双层餐厅柜",
+          "name": "拱顶餐具柜",
           "baseUnits": 32,
           "mergeTo": "pantry:7",
           "sellCoins": 0,
@@ -2229,7 +2229,7 @@
         {
           "id": "pantry:7",
           "level": 7,
-          "name": "双排餐厅柜",
+          "name": "转角橱柜",
           "baseUnits": 64,
           "mergeTo": "pantry:8",
           "sellCoins": 0,
@@ -2241,7 +2241,7 @@
         {
           "id": "pantry:8",
           "level": 8,
-          "name": "橡木储物柜",
+          "name": "圆筒转盘柜",
           "baseUnits": 128,
           "mergeTo": "pantry:9",
           "sellCoins": 0,
@@ -2253,7 +2253,7 @@
         {
           "id": "pantry:9",
           "level": 9,
-          "name": "玻璃餐具柜",
+          "name": "玻璃展柜",
           "baseUnits": 256,
           "mergeTo": "pantry:10",
           "sellCoins": 0,
@@ -2265,7 +2265,7 @@
         {
           "id": "pantry:10",
           "level": 10,
-          "name": "典藏陈列柜",
+          "name": "卷帘高柜",
           "baseUnits": 512,
           "mergeTo": "pantry:11",
           "sellCoins": 0,
@@ -2277,7 +2277,7 @@
         {
           "id": "pantry:11",
           "level": 11,
-          "name": "主厨收藏柜",
+          "name": "穹顶珍藏柜",
           "baseUnits": 1024,
           "mergeTo": null,
           "sellCoins": 0,
@@ -2302,7 +2302,7 @@
         {
           "id": "lost:1",
           "level": 1,
-          "name": "遗落眼镜",
+          "name": "圆框眼镜",
           "baseUnits": 1,
           "mergeTo": "lost:2",
           "sellCoins": 1,
@@ -2314,7 +2314,7 @@
         {
           "id": "lost:2",
           "level": 2,
-          "name": "手写便签",
+          "name": "条纹围巾",
           "baseUnits": 2,
           "mergeTo": "lost:3",
           "sellCoins": 1,
@@ -2326,7 +2326,7 @@
         {
           "id": "lost:3",
           "level": 3,
-          "name": "遗落围巾",
+          "name": "折叠雨伞",
           "baseUnits": 4,
           "mergeTo": "lost:4",
           "sellCoins": 2,
@@ -2338,7 +2338,7 @@
         {
           "id": "lost:4",
           "level": 4,
-          "name": "小失物篮",
+          "name": "胶片相机",
           "baseUnits": 8,
           "mergeTo": "lost:5",
           "sellCoins": 2,
@@ -2350,7 +2350,7 @@
         {
           "id": "lost:5",
           "level": 5,
-          "name": "大失物篮",
+          "name": "旅行手提包",
           "baseUnits": 16,
           "mergeTo": "lost:6",
           "sellCoins": 0,
@@ -2362,7 +2362,7 @@
         {
           "id": "lost:6",
           "level": 6,
-          "name": "邻里失物招领台",
+          "name": "复古旅行箱",
           "baseUnits": 32,
           "mergeTo": null,
           "sellCoins": 0,
@@ -2387,7 +2387,7 @@
         {
           "id": "comfort:1",
           "level": 1,
-          "name": "颈枕",
+          "name": "旅行颈枕",
           "baseUnits": 1,
           "mergeTo": "comfort:2",
           "sellCoins": 1,
@@ -2399,7 +2399,7 @@
         {
           "id": "comfort:2",
           "level": 2,
-          "name": "软靠垫",
+          "name": "豆袋靠垫",
           "baseUnits": 2,
           "mergeTo": "comfort:3",
           "sellCoins": 1,
@@ -2411,7 +2411,7 @@
         {
           "id": "comfort:3",
           "level": 3,
-          "name": "按摩靠枕",
+          "name": "按摩靠垫",
           "baseUnits": 4,
           "mergeTo": "comfort:4",
           "sellCoins": 2,
@@ -2423,7 +2423,7 @@
         {
           "id": "comfort:4",
           "level": 4,
-          "name": "筋膜放松器",
+          "name": "筋膜按摩枪",
           "baseUnits": 8,
           "mergeTo": "comfort:5",
           "sellCoins": 2,
@@ -2435,7 +2435,7 @@
         {
           "id": "comfort:5",
           "level": 5,
-          "name": "随身音乐盒",
+          "name": "手摇音乐盒",
           "baseUnits": 16,
           "mergeTo": "comfort:6",
           "sellCoins": 3,
@@ -2447,7 +2447,7 @@
         {
           "id": "comfort:6",
           "level": 6,
-          "name": "掌上音响",
+          "name": "便携音箱",
           "baseUnits": 32,
           "mergeTo": "comfort:7",
           "sellCoins": 3,
@@ -2471,7 +2471,7 @@
         {
           "id": "comfort:8",
           "level": 8,
-          "name": "复古游戏礼盒",
+          "name": "翻盖游戏匣",
           "baseUnits": 128,
           "mergeTo": null,
           "sellCoins": 4,
@@ -2620,7 +2620,7 @@
     },
     {
       "id": "story",
-      "name": "厨房冒险卡",
+      "name": "厨房冒险信物",
       "kind": "commodity",
       "unlockChapter": 6,
       "reference": "斗恶龙5级产手办材料",
@@ -2630,7 +2630,7 @@
         {
           "id": "story:1",
           "level": 1,
-          "name": "启程卡",
+          "name": "启程地图",
           "baseUnits": 1,
           "mergeTo": "story:2",
           "sellCoins": 1,
@@ -2642,7 +2642,7 @@
         {
           "id": "story:2",
           "level": 2,
-          "name": "伙伴卡",
+          "name": "伙伴口哨",
           "baseUnits": 2,
           "mergeTo": "story:3",
           "sellCoins": 1,
@@ -2654,7 +2654,7 @@
         {
           "id": "story:3",
           "level": 3,
-          "name": "旅途卡",
+          "name": "旅途罗盘",
           "baseUnits": 4,
           "mergeTo": "story:4",
           "sellCoins": 2,
@@ -2666,7 +2666,7 @@
         {
           "id": "story:4",
           "level": 4,
-          "name": "城堡卡",
+          "name": "城堡通行符",
           "baseUnits": 8,
           "mergeTo": "story:5",
           "sellCoins": 2,
@@ -2678,7 +2678,7 @@
         {
           "id": "story:5",
           "level": 5,
-          "name": "大厨守护者",
+          "name": "守护者徽盒",
           "baseUnits": 16,
           "mergeTo": null,
           "sellCoins": 3,
@@ -2693,7 +2693,7 @@
     },
     {
       "id": "mascot",
-      "name": "厨房手办",
+      "name": "小厨手办",
       "kind": "commodity",
       "unlockChapter": 6,
       "reference": "肥鹅手办；7级拟定",
@@ -2703,7 +2703,7 @@
         {
           "id": "mascot:1",
           "level": 1,
-          "name": "小厨精灵",
+          "name": "趴睡小厨",
           "baseUnits": 1,
           "mergeTo": "mascot:2",
           "sellCoins": 1,
@@ -2715,7 +2715,7 @@
         {
           "id": "mascot:2",
           "level": 2,
-          "name": "围裙小厨",
+          "name": "坐姿小厨",
           "baseUnits": 2,
           "mergeTo": "mascot:3",
           "sellCoins": 1,
@@ -2727,7 +2727,7 @@
         {
           "id": "mascot:3",
           "level": 3,
-          "name": "烘焙小厨",
+          "name": "擀面小厨",
           "baseUnits": 4,
           "mergeTo": "mascot:4",
           "sellCoins": 2,
@@ -2739,7 +2739,7 @@
         {
           "id": "mascot:4",
           "level": 4,
-          "name": "咖啡小厨",
+          "name": "抱锅小厨",
           "baseUnits": 8,
           "mergeTo": "mascot:5",
           "sellCoins": 2,
@@ -2751,7 +2751,7 @@
         {
           "id": "mascot:5",
           "level": 5,
-          "name": "花园小厨",
+          "name": "浇花小厨",
           "baseUnits": 16,
           "mergeTo": "mascot:6",
           "sellCoins": 3,
@@ -2763,7 +2763,7 @@
         {
           "id": "mascot:6",
           "level": 6,
-          "name": "庆典主厨",
+          "name": "送餐小厨",
           "baseUnits": 32,
           "mergeTo": "mascot:7",
           "sellCoins": 3,
@@ -2775,7 +2775,7 @@
         {
           "id": "mascot:7",
           "level": 7,
-          "name": "小厨全家福",
+          "name": "挥勺主厨",
           "baseUnits": 64,
           "mergeTo": null,
           "sellCoins": 4,
@@ -2790,7 +2790,7 @@
     },
     {
       "id": "puzzle",
-      "name": "餐厅旧照片",
+      "name": "开店纪念物",
       "kind": "commodity",
       "unlockChapter": 6,
       "reference": "拼图13级",
@@ -2800,7 +2800,7 @@
         {
           "id": "puzzle:1",
           "level": 1,
-          "name": "碎纸堆",
+          "name": "店面草图",
           "baseUnits": 1,
           "mergeTo": "puzzle:2",
           "sellCoins": 1,
@@ -2812,7 +2812,7 @@
         {
           "id": "puzzle:2",
           "level": 2,
-          "name": "照片纸片",
+          "name": "量房卷尺",
           "baseUnits": 2,
           "mergeTo": "puzzle:3",
           "sellCoins": 1,
@@ -2824,7 +2824,7 @@
         {
           "id": "puzzle:3",
           "level": 3,
-          "name": "一块照片",
+          "name": "装修色卡",
           "baseUnits": 4,
           "mergeTo": "puzzle:4",
           "sellCoins": 2,
@@ -2836,7 +2836,7 @@
         {
           "id": "puzzle:4",
           "level": 4,
-          "name": "照片拼接",
+          "name": "开业请柬",
           "baseUnits": 8,
           "mergeTo": "puzzle:5",
           "sellCoins": 2,
@@ -2848,7 +2848,7 @@
         {
           "id": "puzzle:5",
           "level": 5,
-          "name": "小块照片",
+          "name": "首版菜单",
           "baseUnits": 16,
           "mergeTo": "puzzle:6",
           "sellCoins": 3,
@@ -2860,7 +2860,7 @@
         {
           "id": "puzzle:6",
           "level": 6,
-          "name": "大块照片",
+          "name": "首单小票",
           "baseUnits": 32,
           "mergeTo": "puzzle:7",
           "sellCoins": 3,
@@ -2872,7 +2872,7 @@
         {
           "id": "puzzle:7",
           "level": 7,
-          "name": "照片一角",
+          "name": "开店纪念币",
           "baseUnits": 64,
           "mergeTo": "puzzle:8",
           "sellCoins": 4,
@@ -2884,7 +2884,7 @@
         {
           "id": "puzzle:8",
           "level": 8,
-          "name": "模糊合影",
+          "name": "旧店员围裙",
           "baseUnits": 128,
           "mergeTo": "puzzle:9",
           "sellCoins": 4,
@@ -2896,7 +2896,7 @@
         {
           "id": "puzzle:9",
           "level": 9,
-          "name": "清晰合影",
+          "name": "木制旧招牌",
           "baseUnits": 256,
           "mergeTo": "puzzle:10",
           "sellCoins": 5,
@@ -2908,7 +2908,7 @@
         {
           "id": "puzzle:10",
           "level": 10,
-          "name": "旧照片轮廓",
+          "name": "第一张合影",
           "baseUnits": 512,
           "mergeTo": "puzzle:11",
           "sellCoins": 5,
@@ -2920,7 +2920,7 @@
         {
           "id": "puzzle:11",
           "level": 11,
-          "name": "餐厅相框",
+          "name": "开店报纸剪报",
           "baseUnits": 1024,
           "mergeTo": "puzzle:12",
           "sellCoins": 6,
@@ -2932,7 +2932,7 @@
         {
           "id": "puzzle:12",
           "level": 12,
-          "name": "旧日信封",
+          "name": "周年纪念相册",
           "baseUnits": 2048,
           "mergeTo": "puzzle:13",
           "sellCoins": 6,
@@ -2944,7 +2944,7 @@
         {
           "id": "puzzle:13",
           "level": 13,
-          "name": "珍藏开店照",
+          "name": "珍藏开店相框",
           "baseUnits": 4096,
           "mergeTo": null,
           "sellCoins": 7,
@@ -2959,7 +2959,7 @@
     },
     {
       "id": "keys",
-      "name": "储物钥匙",
+      "name": "储物通行物",
       "kind": "commodity",
       "unlockChapter": 6,
       "reference": "钥匙5级",
@@ -2969,7 +2969,7 @@
         {
           "id": "keys:1",
           "level": 1,
-          "name": "小钥匙",
+          "name": "铜制小钥匙",
           "baseUnits": 1,
           "mergeTo": "keys:2",
           "sellCoins": 1,
@@ -2981,7 +2981,7 @@
         {
           "id": "keys:2",
           "level": 2,
-          "name": "钥匙串",
+          "name": "三齿钥匙串",
           "baseUnits": 2,
           "mergeTo": "keys:3",
           "sellCoins": 1,
@@ -2993,7 +2993,7 @@
         {
           "id": "keys:3",
           "level": 3,
-          "name": "感应钥匙",
+          "name": "感应门卡",
           "baseUnits": 4,
           "mergeTo": "keys:4",
           "sellCoins": 2,
@@ -3005,7 +3005,7 @@
         {
           "id": "keys:4",
           "level": 4,
-          "name": "自动感应钥匙",
+          "name": "旋钮钥匙扣",
           "baseUnits": 8,
           "mergeTo": "keys:5",
           "sellCoins": 2,
@@ -3042,7 +3042,7 @@
         {
           "id": "timegate:1",
           "level": 1,
-          "name": "记忆微光",
+          "name": "旧店门牌",
           "baseUnits": 1,
           "mergeTo": "timegate:2",
           "sellCoins": 1,
@@ -3054,7 +3054,7 @@
         {
           "id": "timegate:2",
           "level": 2,
-          "name": "记忆碎片",
+          "name": "黄铜门铃",
           "baseUnits": 2,
           "mergeTo": "timegate:3",
           "sellCoins": 1,
@@ -3066,7 +3066,7 @@
         {
           "id": "timegate:3",
           "level": 3,
-          "name": "记忆窗口",
+          "name": "手摇唱片机",
           "baseUnits": 4,
           "mergeTo": "timegate:4",
           "sellCoins": 2,
@@ -3078,7 +3078,7 @@
         {
           "id": "timegate:4",
           "level": 4,
-          "name": "旧日门扉",
+          "name": "摆锤挂钟",
           "baseUnits": 8,
           "mergeTo": "timegate:5",
           "sellCoins": 2,
@@ -3090,7 +3090,7 @@
         {
           "id": "timegate:5",
           "level": 5,
-          "name": "往日厨房",
+          "name": "旋转走马灯",
           "baseUnits": 16,
           "mergeTo": "timegate:6",
           "sellCoins": 3,
@@ -3102,7 +3102,7 @@
         {
           "id": "timegate:6",
           "level": 6,
-          "name": "开店纪念馆",
+          "name": "喇叭留声机",
           "baseUnits": 32,
           "mergeTo": null,
           "sellCoins": 3,
@@ -3127,7 +3127,7 @@
         {
           "id": "tasting:1",
           "level": 1,
-          "name": "试菜便签",
+          "name": "试味瓷勺",
           "baseUnits": 1,
           "mergeTo": "tasting:2",
           "sellCoins": 1,
@@ -3139,7 +3139,7 @@
         {
           "id": "tasting:2",
           "level": 2,
-          "name": "试吃记录",
+          "name": "口味转盘",
           "baseUnits": 2,
           "mergeTo": "tasting:3",
           "sellCoins": 1,
@@ -3151,7 +3151,7 @@
         {
           "id": "tasting:3",
           "level": 3,
-          "name": "口味报告",
+          "name": "调味评分板",
           "baseUnits": 4,
           "mergeTo": "tasting:4",
           "sellCoins": 2,
@@ -3163,7 +3163,7 @@
         {
           "id": "tasting:4",
           "level": 4,
-          "name": "主厨推荐",
+          "name": "主厨推荐印章",
           "baseUnits": 8,
           "mergeTo": "tasting:5",
           "sellCoins": 2,
@@ -3175,7 +3175,7 @@
         {
           "id": "tasting:5",
           "level": 5,
-          "name": "菜单分析",
+          "name": "菜单诊断卷轴",
           "baseUnits": 16,
           "mergeTo": "tasting:6",
           "sellCoins": 3,
@@ -3187,7 +3187,7 @@
         {
           "id": "tasting:6",
           "level": 6,
-          "name": "宴会评审",
+          "name": "评审结果信筒",
           "baseUnits": 32,
           "mergeTo": null,
           "sellCoins": 3,
@@ -3212,7 +3212,7 @@
         {
           "id": "courses:1",
           "level": 1,
-          "name": "入门笔记",
+          "name": "折页食谱",
           "baseUnits": 1,
           "mergeTo": "courses:2",
           "sellCoins": 1,
@@ -3224,7 +3224,7 @@
         {
           "id": "courses:2",
           "level": 2,
-          "name": "基础课程",
+          "name": "环装操作卡",
           "baseUnits": 2,
           "mergeTo": "courses:3",
           "sellCoins": 1,
@@ -3236,7 +3236,7 @@
         {
           "id": "courses:3",
           "level": 3,
-          "name": "进阶课程",
+          "name": "线装菜谱",
           "baseUnits": 4,
           "mergeTo": "courses:4",
           "sellCoins": 2,
@@ -3248,7 +3248,7 @@
         {
           "id": "courses:4",
           "level": 4,
-          "name": "烘焙课程",
+          "name": "立体示范书",
           "baseUnits": 8,
           "mergeTo": "courses:5",
           "sellCoins": 2,
@@ -3260,7 +3260,7 @@
         {
           "id": "courses:5",
           "level": 5,
-          "name": "主厨课程",
+          "name": "烹饪教学胶片",
           "baseUnits": 16,
           "mergeTo": "courses:6",
           "sellCoins": 3,
@@ -3272,7 +3272,7 @@
         {
           "id": "courses:6",
           "level": 6,
-          "name": "大师课程",
+          "name": "厨师结业证书",
           "baseUnits": 32,
           "mergeTo": null,
           "sellCoins": 3,
@@ -3287,7 +3287,7 @@
     },
     {
       "id": "flowers",
-      "name": "餐桌花艺",
+      "name": "珍稀花卉",
       "kind": "commodity",
       "unlockChapter": 7,
       "reference": "花卉链；9级拟定",
@@ -3297,7 +3297,7 @@
         {
           "id": "flowers:1",
           "level": 1,
-          "name": "小花枝",
+          "name": "雏菊",
           "baseUnits": 1,
           "mergeTo": "flowers:2",
           "sellCoins": 1,
@@ -3309,7 +3309,7 @@
         {
           "id": "flowers:2",
           "level": 2,
-          "name": "一束鲜花",
+          "name": "向日葵",
           "baseUnits": 2,
           "mergeTo": "flowers:3",
           "sellCoins": 1,
@@ -3321,7 +3321,7 @@
         {
           "id": "flowers:3",
           "level": 3,
-          "name": "散装郁金香",
+          "name": "郁金香",
           "baseUnits": 4,
           "mergeTo": "flowers:4",
           "sellCoins": 2,
@@ -3333,7 +3333,7 @@
         {
           "id": "flowers:4",
           "level": 4,
-          "name": "郁金香捧花",
+          "name": "康乃馨",
           "baseUnits": 8,
           "mergeTo": "flowers:5",
           "sellCoins": 2,
@@ -3345,7 +3345,7 @@
         {
           "id": "flowers:5",
           "level": 5,
-          "name": "桌边花瓶",
+          "name": "百合",
           "baseUnits": 16,
           "mergeTo": "flowers:6",
           "sellCoins": 3,
@@ -3357,7 +3357,7 @@
         {
           "id": "flowers:6",
           "level": 6,
-          "name": "餐桌花艺",
+          "name": "玫瑰",
           "baseUnits": 32,
           "mergeTo": "flowers:7",
           "sellCoins": 3,
@@ -3369,7 +3369,7 @@
         {
           "id": "flowers:7",
           "level": 7,
-          "name": "宴会插花",
+          "name": "绣球",
           "baseUnits": 64,
           "mergeTo": "flowers:8",
           "sellCoins": 4,
@@ -3381,7 +3381,7 @@
         {
           "id": "flowers:8",
           "level": 8,
-          "name": "花园花墙",
+          "name": "蝴蝶兰",
           "baseUnits": 128,
           "mergeTo": "flowers:9",
           "sellCoins": 4,
@@ -3393,7 +3393,7 @@
         {
           "id": "flowers:9",
           "level": 9,
-          "name": "盛典花艺",
+          "name": "帝王花",
           "baseUnits": 256,
           "mergeTo": null,
           "sellCoins": 5,
@@ -3418,7 +3418,7 @@
         {
           "id": "scraps:1",
           "level": 1,
-          "name": "果蔬边角",
+          "name": "苹果果核",
           "baseUnits": 1,
           "mergeTo": "scraps:2",
           "sellCoins": 1,
@@ -3430,7 +3430,7 @@
         {
           "id": "scraps:2",
           "level": 2,
-          "name": "咖啡渣",
+          "name": "咖啡粉饼",
           "baseUnits": 2,
           "mergeTo": "scraps:3",
           "sellCoins": 1,
@@ -3442,7 +3442,7 @@
         {
           "id": "scraps:3",
           "level": 3,
-          "name": "落叶堆",
+          "name": "干枯落叶",
           "baseUnits": 4,
           "mergeTo": "scraps:4",
           "sellCoins": 2,
@@ -3454,7 +3454,7 @@
         {
           "id": "scraps:4",
           "level": 4,
-          "name": "混合厨余",
+          "name": "香蕉果皮",
           "baseUnits": 8,
           "mergeTo": "scraps:5",
           "sellCoins": 2,
@@ -3466,7 +3466,7 @@
         {
           "id": "scraps:5",
           "level": 5,
-          "name": "堆肥袋",
+          "name": "堆肥料砖",
           "baseUnits": 16,
           "mergeTo": "scraps:6",
           "sellCoins": 3,
@@ -3478,7 +3478,7 @@
         {
           "id": "scraps:6",
           "level": 6,
-          "name": "发酵堆肥",
+          "name": "发酵菌团",
           "baseUnits": 32,
           "mergeTo": "scraps:7",
           "sellCoins": 3,
@@ -3490,7 +3490,7 @@
         {
           "id": "scraps:7",
           "level": 7,
-          "name": "熟成堆肥",
+          "name": "熟成腐殖土",
           "baseUnits": 64,
           "mergeTo": "scraps:8",
           "sellCoins": 4,
@@ -3502,7 +3502,7 @@
         {
           "id": "scraps:8",
           "level": 8,
-          "name": "花园堆肥箱",
+          "name": "花园生态土丘",
           "baseUnits": 128,
           "mergeTo": null,
           "sellCoins": 0,
@@ -3517,7 +3517,7 @@
     },
     {
       "id": "garden_guest",
-      "name": "花园来客",
+      "name": "猫咪安居",
       "kind": "commodity",
       "unlockChapter": 9,
       "reference": "老鼠—猫窝；6级拟定",
@@ -3527,7 +3527,7 @@
         {
           "id": "garden_guest:1",
           "level": 1,
-          "name": "小田鼠",
+          "name": "旧毛线球",
           "baseUnits": 1,
           "mergeTo": "garden_guest:2",
           "sellCoins": 1,
@@ -3539,7 +3539,7 @@
         {
           "id": "garden_guest:2",
           "level": 2,
-          "name": "灰田鼠",
+          "name": "鱼形逗猫棒",
           "baseUnits": 2,
           "mergeTo": "garden_guest:3",
           "sellCoins": 1,
@@ -3551,7 +3551,7 @@
         {
           "id": "garden_guest:3",
           "level": 3,
-          "name": "田鼠伙伴",
+          "name": "瓦楞猫抓板",
           "baseUnits": 4,
           "mergeTo": "garden_guest:4",
           "sellCoins": 2,
@@ -3563,7 +3563,7 @@
         {
           "id": "garden_guest:4",
           "level": 4,
-          "name": "田鼠小屋",
+          "name": "圆形猫垫",
           "baseUnits": 8,
           "mergeTo": "garden_guest:5",
           "sellCoins": 2,
@@ -3575,7 +3575,7 @@
         {
           "id": "garden_guest:5",
           "level": 5,
-          "name": "花园小窝",
+          "name": "帐篷猫窝",
           "baseUnits": 16,
           "mergeTo": "garden_guest:6",
           "sellCoins": 3,
@@ -3587,7 +3587,7 @@
         {
           "id": "garden_guest:6",
           "level": 6,
-          "name": "温暖猫窝",
+          "name": "南瓜猫屋",
           "baseUnits": 32,
           "mergeTo": null,
           "sellCoins": 0,
@@ -3612,7 +3612,7 @@
         {
           "id": "cats:1",
           "level": 1,
-          "name": "田园小猫",
+          "name": "橘猫",
           "baseUnits": 1,
           "mergeTo": "cats:2",
           "sellCoins": 1,
@@ -3624,7 +3624,7 @@
         {
           "id": "cats:2",
           "level": 2,
-          "name": "奶牛小猫",
+          "name": "奶牛猫",
           "baseUnits": 2,
           "mergeTo": "cats:3",
           "sellCoins": 1,
@@ -3636,7 +3636,7 @@
         {
           "id": "cats:3",
           "level": 3,
-          "name": "橘色小猫",
+          "name": "暹罗猫",
           "baseUnits": 4,
           "mergeTo": "cats:4",
           "sellCoins": 2,
@@ -3648,7 +3648,7 @@
         {
           "id": "cats:4",
           "level": 4,
-          "name": "灰色小猫",
+          "name": "狸花猫",
           "baseUnits": 8,
           "mergeTo": "cats:5",
           "sellCoins": 2,
@@ -3660,7 +3660,7 @@
         {
           "id": "cats:5",
           "level": 5,
-          "name": "白色长毛猫",
+          "name": "银渐层猫",
           "baseUnits": 16,
           "mergeTo": "cats:6",
           "sellCoins": 3,
@@ -3684,7 +3684,7 @@
         {
           "id": "cats:7",
           "level": 7,
-          "name": "围裙店长猫",
+          "name": "缅因猫",
           "baseUnits": 64,
           "mergeTo": "cats:8",
           "sellCoins": 4,
@@ -3696,7 +3696,7 @@
         {
           "id": "cats:8",
           "level": 8,
-          "name": "花园猫咪一家",
+          "name": "围裙店长猫",
           "baseUnits": 128,
           "mergeTo": null,
           "sellCoins": 4,
@@ -3721,7 +3721,7 @@
         {
           "id": "honor:1",
           "level": 1,
-          "name": "参与徽章",
+          "name": "参与绶带",
           "baseUnits": 1,
           "mergeTo": "honor:2",
           "sellCoins": 1,
@@ -3733,7 +3733,7 @@
         {
           "id": "honor:2",
           "level": 2,
-          "name": "铜色徽章",
+          "name": "铜勺奖章",
           "baseUnits": 2,
           "mergeTo": "honor:3",
           "sellCoins": 1,
@@ -3745,7 +3745,7 @@
         {
           "id": "honor:3",
           "level": 3,
-          "name": "银色徽章",
+          "name": "银锅奖章",
           "baseUnits": 4,
           "mergeTo": "honor:4",
           "sellCoins": 2,
@@ -3757,7 +3757,7 @@
         {
           "id": "honor:4",
           "level": 4,
-          "name": "金色徽章",
+          "name": "金帽奖章",
           "baseUnits": 8,
           "mergeTo": "honor:5",
           "sellCoins": 2,
@@ -3769,7 +3769,7 @@
         {
           "id": "honor:5",
           "level": 5,
-          "name": "街区奖杯",
+          "name": "街区星杯",
           "baseUnits": 16,
           "mergeTo": "honor:6",
           "sellCoins": 3,
@@ -3781,7 +3781,7 @@
         {
           "id": "honor:6",
           "level": 6,
-          "name": "城市奖杯",
+          "name": "城市桂冠奖杯",
           "baseUnits": 32,
           "mergeTo": "honor:7",
           "sellCoins": 3,
@@ -3793,7 +3793,7 @@
         {
           "id": "honor:7",
           "level": 7,
-          "name": "年度主厨奖杯",
+          "name": "年度金帽奖杯",
           "baseUnits": 64,
           "mergeTo": null,
           "sellCoins": 4,
@@ -3820,7 +3820,7 @@
         {
           "id": "energy:1",
           "level": 1,
-          "name": "小能量球",
+          "name": "能量火花",
           "baseUnits": 1,
           "mergeTo": "energy:2",
           "sellCoins": 0,
@@ -3838,7 +3838,7 @@
         {
           "id": "energy:2",
           "level": 2,
-          "name": "能量球",
+          "name": "能量晶滴",
           "baseUnits": 2,
           "mergeTo": "energy:3",
           "sellCoins": 0,
@@ -3856,7 +3856,7 @@
         {
           "id": "energy:3",
           "level": 3,
-          "name": "大能量球",
+          "name": "能量晶球",
           "baseUnits": 4,
           "mergeTo": "energy:4",
           "sellCoins": 0,
@@ -3874,7 +3874,7 @@
         {
           "id": "energy:4",
           "level": 4,
-          "name": "充沛能量",
+          "name": "能量电池",
           "baseUnits": 8,
           "mergeTo": "energy:5",
           "sellCoins": 0,
@@ -3892,7 +3892,7 @@
         {
           "id": "energy:5",
           "level": 5,
-          "name": "满满能量",
+          "name": "能量核心",
           "baseUnits": 16,
           "mergeTo": null,
           "sellCoins": 0,
@@ -3925,7 +3925,7 @@
         {
           "id": "coins:1",
           "level": 1,
-          "name": "零散金币",
+          "name": "一枚金币",
           "baseUnits": 1,
           "mergeTo": "coins:2",
           "sellCoins": 0,
@@ -3961,7 +3961,7 @@
         {
           "id": "coins:3",
           "level": 3,
-          "name": "一小袋金币",
+          "name": "金币布袋",
           "baseUnits": 4,
           "mergeTo": "coins:4",
           "sellCoins": 0,
@@ -3979,7 +3979,7 @@
         {
           "id": "coins:4",
           "level": 4,
-          "name": "一袋金币",
+          "name": "金币钱匣",
           "baseUnits": 8,
           "mergeTo": "coins:5",
           "sellCoins": 0,
@@ -4135,7 +4135,7 @@
         {
           "id": "blackbag:1",
           "level": 1,
-          "name": "设备工具包",
+          "name": "卷折工具包",
           "baseUnits": 1,
           "mergeTo": "blackbag:2",
           "sellCoins": 0,
@@ -4153,7 +4153,7 @@
         {
           "id": "blackbag:2",
           "level": 2,
-          "name": "高级设备工具包",
+          "name": "硬壳工具箱",
           "baseUnits": 2,
           "mergeTo": null,
           "sellCoins": 0,
@@ -4186,7 +4186,7 @@
         {
           "id": "pinkbag:1",
           "level": 1,
-          "name": "食材设备包",
+          "name": "束口食材袋",
           "baseUnits": 1,
           "mergeTo": "pinkbag:2",
           "sellCoins": 0,
@@ -4204,7 +4204,7 @@
         {
           "id": "pinkbag:2",
           "level": 2,
-          "name": "高级食材设备包",
+          "name": "拉链保鲜包",
           "baseUnits": 2,
           "mergeTo": null,
           "sellCoins": 0,
@@ -4306,7 +4306,7 @@
         {
           "id": "infinite:1",
           "level": 1,
-          "name": "短时无限体力",
+          "name": "30秒无限体力",
           "baseUnits": 1,
           "mergeTo": "infinite:2",
           "sellCoins": 0,
@@ -4324,7 +4324,7 @@
         {
           "id": "infinite:2",
           "level": 2,
-          "name": "一分钟无限体力",
+          "name": "1分钟无限体力",
           "baseUnits": 2,
           "mergeTo": "infinite:3",
           "sellCoins": 0,
@@ -4342,7 +4342,7 @@
         {
           "id": "infinite:3",
           "level": 3,
-          "name": "两分钟无限体力",
+          "name": "2分钟无限体力",
           "baseUnits": 4,
           "mergeTo": "infinite:4",
           "sellCoins": 0,
@@ -4360,7 +4360,7 @@
         {
           "id": "infinite:4",
           "level": 4,
-          "name": "五分钟无限体力",
+          "name": "5分钟无限体力",
           "baseUnits": 8,
           "mergeTo": null,
           "sellCoins": 0,
@@ -4393,7 +4393,7 @@
         {
           "id": "timeskip:1",
           "level": 1,
-          "name": "一小时沙漏",
+          "name": "1小时沙漏",
           "baseUnits": 1,
           "mergeTo": "timeskip:2",
           "sellCoins": 0,
@@ -4411,7 +4411,7 @@
         {
           "id": "timeskip:2",
           "level": 2,
-          "name": "两小时沙漏",
+          "name": "2小时沙漏",
           "baseUnits": 2,
           "mergeTo": "timeskip:3",
           "sellCoins": 0,
@@ -4429,7 +4429,7 @@
         {
           "id": "timeskip:3",
           "level": 3,
-          "name": "四小时沙漏",
+          "name": "4小时沙漏",
           "baseUnits": 4,
           "mergeTo": "timeskip:4",
           "sellCoins": 0,
@@ -4447,7 +4447,7 @@
         {
           "id": "timeskip:4",
           "level": 4,
-          "name": "八小时沙漏",
+          "name": "8小时沙漏",
           "baseUnits": 8,
           "mergeTo": "timeskip:5",
           "sellCoins": 0,
@@ -4465,7 +4465,7 @@
         {
           "id": "timeskip:5",
           "level": 5,
-          "name": "十六小时沙漏",
+          "name": "16小时沙漏",
           "baseUnits": 16,
           "mergeTo": null,
           "sellCoins": 0,
@@ -4486,7 +4486,7 @@
     },
     {
       "id": "charge",
-      "name": "补货道具",
+      "name": "设备补货",
       "kind": "resource",
       "unlockChapter": 1,
       "reference": "资源档位采用历史记录；使用约束为项目设计",
@@ -4498,7 +4498,7 @@
         {
           "id": "charge:1",
           "level": 1,
-          "name": "小补货箱",
+          "name": "补货手提盒",
           "baseUnits": 1,
           "mergeTo": "charge:2",
           "sellCoins": 0,
@@ -4516,7 +4516,7 @@
         {
           "id": "charge:2",
           "level": 2,
-          "name": "补货箱",
+          "name": "补货保温箱",
           "baseUnits": 2,
           "mergeTo": "charge:3",
           "sellCoins": 0,
@@ -4534,7 +4534,7 @@
         {
           "id": "charge:3",
           "level": 3,
-          "name": "大补货箱",
+          "name": "补货滚轮箱",
           "baseUnits": 4,
           "mergeTo": null,
           "sellCoins": 0,
@@ -4555,7 +4555,7 @@
     },
     {
       "id": "splitter",
-      "name": "剪刀",
+      "name": "合成剪刀",
       "kind": "resource",
       "unlockChapter": 1,
       "reference": "资源档位采用历史记录；使用约束为项目设计",
@@ -4567,7 +4567,7 @@
         {
           "id": "splitter:1",
           "level": 1,
-          "name": "基础剪刀",
+          "name": "折叠剪刀",
           "baseUnits": 1,
           "mergeTo": "splitter:2",
           "sellCoins": 0,
@@ -4585,7 +4585,7 @@
         {
           "id": "splitter:2",
           "level": 2,
-          "name": "精细剪刀",
+          "name": "厨房剪刀",
           "baseUnits": 2,
           "mergeTo": "splitter:3",
           "sellCoins": 0,
@@ -4603,7 +4603,7 @@
         {
           "id": "splitter:3",
           "level": 3,
-          "name": "万能剪刀",
+          "name": "齿轮助力剪",
           "baseUnits": 4,
           "mergeTo": null,
           "sellCoins": 0,
@@ -4635,7 +4635,7 @@
         {
           "id": "chest:1",
           "level": 1,
-          "name": "厨房礼盒",
+          "name": "方形厨房礼盒",
           "baseUnits": 1,
           "mergeTo": "chest:2",
           "sellCoins": 0,
@@ -4651,7 +4651,7 @@
         {
           "id": "chest:2",
           "level": 2,
-          "name": "精致礼盒",
+          "name": "心形精致礼盒",
           "baseUnits": 2,
           "mergeTo": "chest:3",
           "sellCoins": 0,
@@ -4667,7 +4667,7 @@
         {
           "id": "chest:3",
           "level": 3,
-          "name": "豪华礼盒",
+          "name": "拱顶紫金礼箱",
           "baseUnits": 4,
           "mergeTo": null,
           "sellCoins": 0,
@@ -4783,7 +4783,7 @@
     },
     {
       "id": "upgrade",
-      "name": "升级卡",
+      "name": "升级道具",
       "kind": "resource",
       "unlockChapter": 1,
       "reference": "项目拟定",
@@ -4809,7 +4809,7 @@
         {
           "id": "upgrade:2",
           "level": 2,
-          "name": "设备升级卡",
+          "name": "设备升级牌",
           "baseUnits": null,
           "mergeTo": null,
           "sellCoins": 0,
@@ -4839,7 +4839,7 @@
         {
           "id": "legacy_energy:1",
           "level": 1,
-          "name": "小能量球",
+          "name": "能量火花",
           "baseUnits": 1,
           "mergeTo": null,
           "sellCoins": 0,
@@ -4853,7 +4853,7 @@
         {
           "id": "legacy_energy:2",
           "level": 2,
-          "name": "能量球",
+          "name": "能量晶滴",
           "baseUnits": 2,
           "mergeTo": null,
           "sellCoins": 0,
@@ -4867,7 +4867,7 @@
         {
           "id": "legacy_energy:3",
           "level": 3,
-          "name": "大能量球",
+          "name": "能量晶球",
           "baseUnits": 4,
           "mergeTo": null,
           "sellCoins": 0,
@@ -4881,7 +4881,7 @@
         {
           "id": "legacy_energy:4",
           "level": 4,
-          "name": "满满能量",
+          "name": "能量核心",
           "baseUnits": 8,
           "mergeTo": null,
           "sellCoins": 0,
@@ -4909,7 +4909,7 @@
         {
           "id": "legacy_coins:1",
           "level": 1,
-          "name": "零用金币",
+          "name": "一枚金币",
           "baseUnits": 1,
           "mergeTo": null,
           "sellCoins": 0,
@@ -4937,7 +4937,7 @@
         {
           "id": "legacy_coins:3",
           "level": 3,
-          "name": "一袋金币",
+          "name": "金币钱匣",
           "baseUnits": 4,
           "mergeTo": null,
           "sellCoins": 0,
@@ -4979,7 +4979,7 @@
         {
           "id": "legacy_chest:1",
           "level": 1,
-          "name": "厨房礼盒",
+          "name": "方形厨房礼盒",
           "baseUnits": 1,
           "mergeTo": null,
           "sellCoins": 0,
@@ -4991,7 +4991,7 @@
         {
           "id": "legacy_chest:2",
           "level": 2,
-          "name": "精致礼盒",
+          "name": "心形精致礼盒",
           "baseUnits": 2,
           "mergeTo": null,
           "sellCoins": 0,
@@ -5003,7 +5003,7 @@
         {
           "id": "legacy_chest:3",
           "level": 3,
-          "name": "豪华礼盒",
+          "name": "拱顶紫金礼箱",
           "baseUnits": 4,
           "mergeTo": null,
           "sellCoins": 0,
@@ -5018,7 +5018,7 @@
     },
     {
       "id": "gen_tools",
-      "name": "厨具收纳缸",
+      "name": "厨具收纳器",
       "kind": "producer",
       "unlockChapter": 1,
       "reference": "维修工具箱",
@@ -5028,7 +5028,7 @@
         {
           "id": "gen_tools:1",
           "level": 1,
-          "name": "厨具收纳缸零件",
+          "name": "陶土坯",
           "baseUnits": 1,
           "mergeTo": "gen_tools:2",
           "sellCoins": 0,
@@ -5040,7 +5040,7 @@
         {
           "id": "gen_tools:2",
           "level": 2,
-          "name": "厨具收纳缸组件",
+          "name": "圆筒陶坯",
           "baseUnits": 2,
           "mergeTo": "gen_tools:3",
           "sellCoins": 0,
@@ -5052,7 +5052,7 @@
         {
           "id": "gen_tools:3",
           "level": 3,
-          "name": "厨具收纳缸框架",
+          "name": "烧制空缸",
           "baseUnits": 4,
           "mergeTo": "gen_tools:4",
           "sellCoins": 0,
@@ -5064,7 +5064,7 @@
         {
           "id": "gen_tools:4",
           "level": 4,
-          "name": "入门厨具收纳缸",
+          "name": "素陶厨具缸",
           "baseUnits": 8,
           "mergeTo": "gen_tools:5",
           "sellCoins": 0,
@@ -5076,7 +5076,7 @@
         {
           "id": "gen_tools:5",
           "level": 5,
-          "name": "实用厨具收纳缸",
+          "name": "双耳厨具瓮",
           "baseUnits": 16,
           "mergeTo": "gen_tools:6",
           "sellCoins": 0,
@@ -5088,7 +5088,7 @@
         {
           "id": "gen_tools:6",
           "level": 6,
-          "name": "专业厨具收纳缸",
+          "name": "方口分格缸",
           "baseUnits": 32,
           "mergeTo": "gen_tools:7",
           "sellCoins": 0,
@@ -5100,7 +5100,7 @@
         {
           "id": "gen_tools:7",
           "level": 7,
-          "name": "双层厨具收纳缸",
+          "name": "壁挂厨具筒",
           "baseUnits": 64,
           "mergeTo": "gen_tools:8",
           "sellCoins": 0,
@@ -5112,7 +5112,7 @@
         {
           "id": "gen_tools:8",
           "level": 8,
-          "name": "高效厨具收纳缸",
+          "name": "旋转厨具架",
           "baseUnits": 128,
           "mergeTo": "gen_tools:9",
           "sellCoins": 0,
@@ -5124,7 +5124,7 @@
         {
           "id": "gen_tools:9",
           "level": 9,
-          "name": "大师厨具收纳缸",
+          "name": "抽拉刀具座",
           "baseUnits": 256,
           "mergeTo": "gen_tools:10",
           "sellCoins": 0,
@@ -5136,7 +5136,7 @@
         {
           "id": "gen_tools:10",
           "level": 10,
-          "name": "豪华厨具收纳缸",
+          "name": "翻盖厨具箱",
           "baseUnits": 512,
           "mergeTo": "gen_tools:11",
           "sellCoins": 0,
@@ -5148,7 +5148,7 @@
         {
           "id": "gen_tools:11",
           "level": 11,
-          "name": "旗舰厨具收纳缸",
+          "name": "立柱悬挂架",
           "baseUnits": 1024,
           "mergeTo": "gen_tools:12",
           "sellCoins": 0,
@@ -5160,7 +5160,7 @@
         {
           "id": "gen_tools:12",
           "level": 12,
-          "name": "典藏厨具收纳缸",
+          "name": "旋转收纳塔",
           "baseUnits": 2048,
           "mergeTo": null,
           "sellCoins": 0,
@@ -5175,7 +5175,7 @@
     },
     {
       "id": "gen_food",
-      "name": "烘焙原料罐",
+      "name": "烘焙设备",
       "kind": "producer",
       "unlockChapter": 1,
       "reference": "器材采购车长主链+副链",
@@ -5185,7 +5185,7 @@
         {
           "id": "gen_food:1",
           "level": 1,
-          "name": "烘焙原料罐零件",
+          "name": "耐火砖",
           "baseUnits": 1,
           "mergeTo": "gen_food:2",
           "sellCoins": 0,
@@ -5197,7 +5197,7 @@
         {
           "id": "gen_food:2",
           "level": 2,
-          "name": "烘焙原料罐组件",
+          "name": "烤炉门板",
           "baseUnits": 2,
           "mergeTo": "gen_food:3",
           "sellCoins": 0,
@@ -5209,7 +5209,7 @@
         {
           "id": "gen_food:3",
           "level": 3,
-          "name": "烘焙原料罐框架",
+          "name": "烤炉内胆",
           "baseUnits": 4,
           "mergeTo": "gen_food:4",
           "sellCoins": 0,
@@ -5221,7 +5221,7 @@
         {
           "id": "gen_food:4",
           "level": 4,
-          "name": "烘焙原料罐雏形",
+          "name": "未装门烤炉",
           "baseUnits": 8,
           "mergeTo": "gen_food:5",
           "sellCoins": 0,
@@ -5233,7 +5233,7 @@
         {
           "id": "gen_food:5",
           "level": 5,
-          "name": "入门烘焙原料罐",
+          "name": "铁皮小烤炉",
           "baseUnits": 16,
           "mergeTo": "gen_food:6",
           "sellCoins": 0,
@@ -5245,7 +5245,7 @@
         {
           "id": "gen_food:6",
           "level": 6,
-          "name": "实用烘焙原料罐",
+          "name": "铸铁圆炉",
           "baseUnits": 32,
           "mergeTo": "gen_food:7",
           "sellCoins": 0,
@@ -5257,7 +5257,7 @@
         {
           "id": "gen_food:7",
           "level": 7,
-          "name": "专业烘焙原料罐",
+          "name": "窗式电烤箱",
           "baseUnits": 64,
           "mergeTo": "gen_food:8",
           "sellCoins": 0,
@@ -5269,7 +5269,7 @@
         {
           "id": "gen_food:8",
           "level": 8,
-          "name": "双层烘焙原料罐",
+          "name": "拱顶石炉",
           "baseUnits": 128,
           "mergeTo": "gen_food:9",
           "sellCoins": 0,
@@ -5281,7 +5281,7 @@
         {
           "id": "gen_food:9",
           "level": 9,
-          "name": "高效烘焙原料罐",
+          "name": "立式旋转烤炉",
           "baseUnits": 256,
           "mergeTo": "gen_food:10",
           "sellCoins": 0,
@@ -5293,7 +5293,7 @@
         {
           "id": "gen_food:10",
           "level": 10,
-          "name": "大师烘焙原料罐",
+          "name": "圆舱热风炉",
           "baseUnits": 512,
           "mergeTo": "gen_food:11",
           "sellCoins": 0,
@@ -5305,7 +5305,7 @@
         {
           "id": "gen_food:11",
           "level": 11,
-          "name": "豪华烘焙原料罐",
+          "name": "隧道输送烤炉",
           "baseUnits": 1024,
           "mergeTo": null,
           "sellCoins": 0,
@@ -5320,7 +5320,7 @@
     },
     {
       "id": "gen_produce",
-      "name": "生鲜采购筐",
+      "name": "生鲜采购器",
       "kind": "producer",
       "unlockChapter": 1,
       "reference": "冰箱三产物链",
@@ -5330,7 +5330,7 @@
         {
           "id": "gen_produce:1",
           "level": 1,
-          "name": "生鲜采购筐零件",
+          "name": "藤条圈",
           "baseUnits": 1,
           "mergeTo": "gen_produce:2",
           "sellCoins": 0,
@@ -5342,7 +5342,7 @@
         {
           "id": "gen_produce:2",
           "level": 2,
-          "name": "生鲜采购筐组件",
+          "name": "编织篮底",
           "baseUnits": 2,
           "mergeTo": "gen_produce:3",
           "sellCoins": 0,
@@ -5354,7 +5354,7 @@
         {
           "id": "gen_produce:3",
           "level": 3,
-          "name": "入门生鲜采购筐",
+          "name": "单柄菜篮",
           "baseUnits": 4,
           "mergeTo": "gen_produce:4",
           "sellCoins": 0,
@@ -5366,7 +5366,7 @@
         {
           "id": "gen_produce:4",
           "level": 4,
-          "name": "实用生鲜采购筐",
+          "name": "双耳提篮",
           "baseUnits": 8,
           "mergeTo": "gen_produce:5",
           "sellCoins": 0,
@@ -5378,7 +5378,7 @@
         {
           "id": "gen_produce:5",
           "level": 5,
-          "name": "专业生鲜采购筐",
+          "name": "背负菜篓",
           "baseUnits": 16,
           "mergeTo": "gen_produce:6",
           "sellCoins": 0,
@@ -5390,7 +5390,7 @@
         {
           "id": "gen_produce:6",
           "level": 6,
-          "name": "双层生鲜采购筐",
+          "name": "折叠菜筐",
           "baseUnits": 32,
           "mergeTo": "gen_produce:7",
           "sellCoins": 0,
@@ -5402,7 +5402,7 @@
         {
           "id": "gen_produce:7",
           "level": 7,
-          "name": "高效生鲜采购筐",
+          "name": "带盖采购篮",
           "baseUnits": 64,
           "mergeTo": "gen_produce:8",
           "sellCoins": 0,
@@ -5414,7 +5414,7 @@
         {
           "id": "gen_produce:8",
           "level": 8,
-          "name": "大师生鲜采购筐",
+          "name": "保温采购包",
           "baseUnits": 128,
           "mergeTo": "gen_produce:9",
           "sellCoins": 0,
@@ -5426,7 +5426,7 @@
         {
           "id": "gen_produce:9",
           "level": 9,
-          "name": "豪华生鲜采购筐",
+          "name": "双轮买菜车",
           "baseUnits": 256,
           "mergeTo": "gen_produce:10",
           "sellCoins": 0,
@@ -5438,7 +5438,7 @@
         {
           "id": "gen_produce:10",
           "level": 10,
-          "name": "旗舰生鲜采购筐",
+          "name": "四轮货箱车",
           "baseUnits": 512,
           "mergeTo": "gen_produce:11",
           "sellCoins": 0,
@@ -5450,7 +5450,7 @@
         {
           "id": "gen_produce:11",
           "level": 11,
-          "name": "典藏生鲜采购筐",
+          "name": "抽屉保鲜柜",
           "baseUnits": 1024,
           "mergeTo": "gen_produce:12",
           "sellCoins": 0,
@@ -5462,7 +5462,7 @@
         {
           "id": "gen_produce:12",
           "level": 12,
-          "name": "臻选生鲜采购筐",
+          "name": "立式冷藏柜",
           "baseUnits": 2048,
           "mergeTo": null,
           "sellCoins": 0,
@@ -5477,7 +5477,7 @@
     },
     {
       "id": "gen_drink",
-      "name": "咖啡工作台",
+      "name": "饮品制作机",
       "kind": "producer",
       "unlockChapter": 2,
       "reference": "饮品链按项目原来源独立",
@@ -5487,7 +5487,7 @@
         {
           "id": "gen_drink:1",
           "level": 1,
-          "name": "咖啡工作台零件",
+          "name": "饮料出液嘴",
           "baseUnits": 1,
           "mergeTo": "gen_drink:2",
           "sellCoins": 0,
@@ -5499,7 +5499,7 @@
         {
           "id": "gen_drink:2",
           "level": 2,
-          "name": "咖啡工作台组件",
+          "name": "搅拌机电机",
           "baseUnits": 2,
           "mergeTo": "gen_drink:3",
           "sellCoins": 0,
@@ -5511,7 +5511,7 @@
         {
           "id": "gen_drink:3",
           "level": 3,
-          "name": "咖啡工作台框架",
+          "name": "饮品机底座",
           "baseUnits": 4,
           "mergeTo": "gen_drink:4",
           "sellCoins": 0,
@@ -5523,7 +5523,7 @@
         {
           "id": "gen_drink:4",
           "level": 4,
-          "name": "入门咖啡工作台",
+          "name": "手压榨汁机",
           "baseUnits": 8,
           "mergeTo": "gen_drink:5",
           "sellCoins": 0,
@@ -5535,7 +5535,7 @@
         {
           "id": "gen_drink:5",
           "level": 5,
-          "name": "实用咖啡工作台",
+          "name": "玻璃搅拌机",
           "baseUnits": 16,
           "mergeTo": "gen_drink:6",
           "sellCoins": 0,
@@ -5547,7 +5547,7 @@
         {
           "id": "gen_drink:6",
           "level": 6,
-          "name": "专业咖啡工作台",
+          "name": "意式咖啡机",
           "baseUnits": 32,
           "mergeTo": "gen_drink:7",
           "sellCoins": 0,
@@ -5559,7 +5559,7 @@
         {
           "id": "gen_drink:7",
           "level": 7,
-          "name": "双层咖啡工作台",
+          "name": "气泡饮料机",
           "baseUnits": 64,
           "mergeTo": "gen_drink:8",
           "sellCoins": 0,
@@ -5571,7 +5571,7 @@
         {
           "id": "gen_drink:8",
           "level": 8,
-          "name": "高效咖啡工作台",
+          "name": "双缸冷饮机",
           "baseUnits": 128,
           "mergeTo": "gen_drink:9",
           "sellCoins": 0,
@@ -5583,7 +5583,7 @@
         {
           "id": "gen_drink:9",
           "level": 9,
-          "name": "大师咖啡工作台",
+          "name": "立式奶昔机",
           "baseUnits": 256,
           "mergeTo": "gen_drink:10",
           "sellCoins": 0,
@@ -5595,7 +5595,7 @@
         {
           "id": "gen_drink:10",
           "level": 10,
-          "name": "豪华咖啡工作台",
+          "name": "冷热饮一体机",
           "baseUnits": 512,
           "mergeTo": null,
           "sellCoins": 0,
@@ -5610,7 +5610,7 @@
     },
     {
       "id": "gen_herb",
-      "name": "香草花盆",
+      "name": "香草栽培器",
       "kind": "producer",
       "unlockChapter": 3,
       "reference": "花盆—种子袋",
@@ -5620,7 +5620,7 @@
         {
           "id": "gen_herb:1",
           "level": 1,
-          "name": "香草花盆零件",
+          "name": "陶盆碎片",
           "baseUnits": 1,
           "mergeTo": "gen_herb:2",
           "sellCoins": 0,
@@ -5632,7 +5632,7 @@
         {
           "id": "gen_herb:2",
           "level": 2,
-          "name": "香草花盆组件",
+          "name": "黏合花盆",
           "baseUnits": 2,
           "mergeTo": "gen_herb:3",
           "sellCoins": 0,
@@ -5644,7 +5644,7 @@
         {
           "id": "gen_herb:3",
           "level": 3,
-          "name": "香草花盆框架",
+          "name": "带孔育苗盆",
           "baseUnits": 4,
           "mergeTo": "gen_herb:4",
           "sellCoins": 0,
@@ -5656,7 +5656,7 @@
         {
           "id": "gen_herb:4",
           "level": 4,
-          "name": "入门香草花盆",
+          "name": "红陶香草盆",
           "baseUnits": 8,
           "mergeTo": "gen_herb:5",
           "sellCoins": 0,
@@ -5668,7 +5668,7 @@
         {
           "id": "gen_herb:5",
           "level": 5,
-          "name": "实用香草花盆",
+          "name": "长槽育苗箱",
           "baseUnits": 16,
           "mergeTo": "gen_herb:6",
           "sellCoins": 0,
@@ -5680,7 +5680,7 @@
         {
           "id": "gen_herb:6",
           "level": 6,
-          "name": "专业香草花盆",
+          "name": "悬吊栽培篮",
           "baseUnits": 32,
           "mergeTo": "gen_herb:7",
           "sellCoins": 0,
@@ -5692,7 +5692,7 @@
         {
           "id": "gen_herb:7",
           "level": 7,
-          "name": "双层香草花盆",
+          "name": "自吸水花盆",
           "baseUnits": 64,
           "mergeTo": "gen_herb:8",
           "sellCoins": 0,
@@ -5704,7 +5704,7 @@
         {
           "id": "gen_herb:8",
           "level": 8,
-          "name": "高效香草花盆",
+          "name": "壁挂种植板",
           "baseUnits": 128,
           "mergeTo": "gen_herb:9",
           "sellCoins": 0,
@@ -5716,7 +5716,7 @@
         {
           "id": "gen_herb:9",
           "level": 9,
-          "name": "大师香草花盆",
+          "name": "玻璃育苗罩",
           "baseUnits": 256,
           "mergeTo": "gen_herb:10",
           "sellCoins": 0,
@@ -5728,7 +5728,7 @@
         {
           "id": "gen_herb:10",
           "level": 10,
-          "name": "豪华香草花盆",
+          "name": "旋转水培柱",
           "baseUnits": 512,
           "mergeTo": null,
           "sellCoins": 0,
@@ -5743,7 +5743,7 @@
     },
     {
       "id": "gen_asian",
-      "name": "亚洲料理台",
+      "name": "蒸煮料理机",
       "kind": "producer",
       "unlockChapter": 4,
       "reference": "项目已有双产物菜系",
@@ -5753,7 +5753,7 @@
         {
           "id": "gen_asian:1",
           "level": 1,
-          "name": "亚洲料理台零件",
+          "name": "蒸汽阀",
           "baseUnits": 1,
           "mergeTo": "gen_asian:2",
           "sellCoins": 0,
@@ -5765,7 +5765,7 @@
         {
           "id": "gen_asian:2",
           "level": 2,
-          "name": "亚洲料理台组件",
+          "name": "加热炉芯",
           "baseUnits": 2,
           "mergeTo": "gen_asian:3",
           "sellCoins": 0,
@@ -5777,7 +5777,7 @@
         {
           "id": "gen_asian:3",
           "level": 3,
-          "name": "亚洲料理台框架",
+          "name": "蒸汽底座",
           "baseUnits": 4,
           "mergeTo": "gen_asian:4",
           "sellCoins": 0,
@@ -5789,7 +5789,7 @@
         {
           "id": "gen_asian:4",
           "level": 4,
-          "name": "入门亚洲料理台",
+          "name": "竹笼蒸汽炉",
           "baseUnits": 8,
           "mergeTo": "gen_asian:5",
           "sellCoins": 0,
@@ -5801,7 +5801,7 @@
         {
           "id": "gen_asian:5",
           "level": 5,
-          "name": "实用亚洲料理台",
+          "name": "陶胆炖煮机",
           "baseUnits": 16,
           "mergeTo": "gen_asian:6",
           "sellCoins": 0,
@@ -5813,7 +5813,7 @@
         {
           "id": "gen_asian:6",
           "level": 6,
-          "name": "专业亚洲料理台",
+          "name": "立式蒸柜",
           "baseUnits": 32,
           "mergeTo": "gen_asian:7",
           "sellCoins": 0,
@@ -5825,7 +5825,7 @@
         {
           "id": "gen_asian:7",
           "level": 7,
-          "name": "双层亚洲料理台",
+          "name": "抽屉蒸炉",
           "baseUnits": 64,
           "mergeTo": "gen_asian:8",
           "sellCoins": 0,
@@ -5837,7 +5837,7 @@
         {
           "id": "gen_asian:8",
           "level": 8,
-          "name": "高效亚洲料理台",
+          "name": "穹顶蒸烤机",
           "baseUnits": 128,
           "mergeTo": "gen_asian:9",
           "sellCoins": 0,
@@ -5849,7 +5849,7 @@
         {
           "id": "gen_asian:9",
           "level": 9,
-          "name": "大师亚洲料理台",
+          "name": "环形蒸汽机",
           "baseUnits": 256,
           "mergeTo": "gen_asian:10",
           "sellCoins": 0,
@@ -5861,7 +5861,7 @@
         {
           "id": "gen_asian:10",
           "level": 10,
-          "name": "豪华亚洲料理台",
+          "name": "压力蒸煮舱",
           "baseUnits": 512,
           "mergeTo": null,
           "sellCoins": 0,
@@ -5876,7 +5876,7 @@
     },
     {
       "id": "gen_mediterranean",
-      "name": "环球料理台",
+      "name": "环球煎烤机",
       "kind": "producer",
       "unlockChapter": 5,
       "reference": "项目已有双产物菜系",
@@ -5886,7 +5886,7 @@
         {
           "id": "gen_mediterranean:1",
           "level": 1,
-          "name": "环球料理台零件",
+          "name": "煎烤炉脚",
           "baseUnits": 1,
           "mergeTo": "gen_mediterranean:2",
           "sellCoins": 0,
@@ -5898,7 +5898,7 @@
         {
           "id": "gen_mediterranean:2",
           "level": 2,
-          "name": "环球料理台组件",
+          "name": "铸铁热板",
           "baseUnits": 2,
           "mergeTo": "gen_mediterranean:3",
           "sellCoins": 0,
@@ -5910,7 +5910,7 @@
         {
           "id": "gen_mediterranean:3",
           "level": 3,
-          "name": "环球料理台框架",
+          "name": "煎烤机框架",
           "baseUnits": 4,
           "mergeTo": "gen_mediterranean:4",
           "sellCoins": 0,
@@ -5922,7 +5922,7 @@
         {
           "id": "gen_mediterranean:4",
           "level": 4,
-          "name": "入门环球料理台",
+          "name": "铸铁煎烤炉",
           "baseUnits": 8,
           "mergeTo": "gen_mediterranean:5",
           "sellCoins": 0,
@@ -5934,7 +5934,7 @@
         {
           "id": "gen_mediterranean:5",
           "level": 5,
-          "name": "实用环球料理台",
+          "name": "双面压烤机",
           "baseUnits": 16,
           "mergeTo": "gen_mediterranean:6",
           "sellCoins": 0,
@@ -5946,7 +5946,7 @@
         {
           "id": "gen_mediterranean:6",
           "level": 6,
-          "name": "专业环球料理台",
+          "name": "旋转烤肉炉",
           "baseUnits": 32,
           "mergeTo": "gen_mediterranean:7",
           "sellCoins": 0,
@@ -5958,7 +5958,7 @@
         {
           "id": "gen_mediterranean:7",
           "level": 7,
-          "name": "双层环球料理台",
+          "name": "披萨转盘炉",
           "baseUnits": 64,
           "mergeTo": "gen_mediterranean:8",
           "sellCoins": 0,
@@ -5970,7 +5970,7 @@
         {
           "id": "gen_mediterranean:8",
           "level": 8,
-          "name": "高效环球料理台",
+          "name": "斜面石板炉",
           "baseUnits": 128,
           "mergeTo": "gen_mediterranean:9",
           "sellCoins": 0,
@@ -5982,7 +5982,7 @@
         {
           "id": "gen_mediterranean:9",
           "level": 9,
-          "name": "大师环球料理台",
+          "name": "滚筒翻烤机",
           "baseUnits": 256,
           "mergeTo": "gen_mediterranean:10",
           "sellCoins": 0,
@@ -5994,7 +5994,7 @@
         {
           "id": "gen_mediterranean:10",
           "level": 10,
-          "name": "豪华环球料理台",
+          "name": "穹顶慢烤炉",
           "baseUnits": 512,
           "mergeTo": null,
           "sellCoins": 0,
@@ -6009,7 +6009,7 @@
     },
     {
       "id": "gen_supply",
-      "name": "设备采购车",
+      "name": "设备配送器",
       "kind": "producer",
       "unlockChapter": 6,
       "reference": "购物车供零件",
@@ -6019,7 +6019,7 @@
         {
           "id": "gen_supply:1",
           "level": 1,
-          "name": "设备采购车零件",
+          "name": "配送轮胎",
           "baseUnits": 1,
           "mergeTo": "gen_supply:2",
           "sellCoins": 0,
@@ -6031,7 +6031,7 @@
         {
           "id": "gen_supply:2",
           "level": 2,
-          "name": "设备采购车组件",
+          "name": "配送车轴",
           "baseUnits": 2,
           "mergeTo": "gen_supply:3",
           "sellCoins": 0,
@@ -6043,7 +6043,7 @@
         {
           "id": "gen_supply:3",
           "level": 3,
-          "name": "设备采购车框架",
+          "name": "配送车架",
           "baseUnits": 4,
           "mergeTo": "gen_supply:4",
           "sellCoins": 0,
@@ -6055,7 +6055,7 @@
         {
           "id": "gen_supply:4",
           "level": 4,
-          "name": "入门设备采购车",
+          "name": "独轮推车",
           "baseUnits": 8,
           "mergeTo": "gen_supply:5",
           "sellCoins": 0,
@@ -6067,7 +6067,7 @@
         {
           "id": "gen_supply:5",
           "level": 5,
-          "name": "实用设备采购车",
+          "name": "双轮手推车",
           "baseUnits": 16,
           "mergeTo": "gen_supply:6",
           "sellCoins": 0,
@@ -6079,7 +6079,7 @@
         {
           "id": "gen_supply:6",
           "level": 6,
-          "name": "专业设备采购车",
+          "name": "折叠平板车",
           "baseUnits": 32,
           "mergeTo": "gen_supply:7",
           "sellCoins": 0,
@@ -6091,7 +6091,7 @@
         {
           "id": "gen_supply:7",
           "level": 7,
-          "name": "双层设备采购车",
+          "name": "带篷送货车",
           "baseUnits": 64,
           "mergeTo": "gen_supply:8",
           "sellCoins": 0,
@@ -6103,7 +6103,7 @@
         {
           "id": "gen_supply:8",
           "level": 8,
-          "name": "高效设备采购车",
+          "name": "升降搬运车",
           "baseUnits": 128,
           "mergeTo": "gen_supply:9",
           "sellCoins": 0,
@@ -6115,7 +6115,7 @@
         {
           "id": "gen_supply:9",
           "level": 9,
-          "name": "大师设备采购车",
+          "name": "封闭保温推车",
           "baseUnits": 256,
           "mergeTo": "gen_supply:10",
           "sellCoins": 0,
@@ -6127,7 +6127,7 @@
         {
           "id": "gen_supply:10",
           "level": 10,
-          "name": "豪华设备采购车",
+          "name": "电动搬运车",
           "baseUnits": 512,
           "mergeTo": "gen_supply:11",
           "sellCoins": 0,
@@ -6139,7 +6139,7 @@
         {
           "id": "gen_supply:11",
           "level": 11,
-          "name": "旗舰设备采购车",
+          "name": "履带运输车",
           "baseUnits": 1024,
           "mergeTo": "gen_supply:12",
           "sellCoins": 0,
@@ -6151,7 +6151,7 @@
         {
           "id": "gen_supply:12",
           "level": 12,
-          "name": "典藏设备采购车",
+          "name": "圆舱配送机器人",
           "baseUnits": 2048,
           "mergeTo": null,
           "sellCoins": 0,
@@ -6166,7 +6166,7 @@
     },
     {
       "id": "gen_publicity",
-      "name": "食谱研究台",
+      "name": "食谱教学器",
       "kind": "producer",
       "unlockChapter": 8,
       "reference": "宣传方式自生产与体能测试",
@@ -6176,7 +6176,7 @@
         {
           "id": "gen_publicity:1",
           "level": 1,
-          "name": "食谱研究台零件",
+          "name": "食谱夹",
           "baseUnits": 1,
           "mergeTo": "gen_publicity:2",
           "sellCoins": 0,
@@ -6188,7 +6188,7 @@
         {
           "id": "gen_publicity:2",
           "level": 2,
-          "name": "食谱研究台组件",
+          "name": "木质支架",
           "baseUnits": 2,
           "mergeTo": "gen_publicity:3",
           "sellCoins": 0,
@@ -6200,7 +6200,7 @@
         {
           "id": "gen_publicity:3",
           "level": 3,
-          "name": "食谱研究台框架",
+          "name": "折叠翻页架",
           "baseUnits": 4,
           "mergeTo": "gen_publicity:4",
           "sellCoins": 0,
@@ -6212,7 +6212,7 @@
         {
           "id": "gen_publicity:4",
           "level": 4,
-          "name": "入门食谱研究台",
+          "name": "翻页食谱架",
           "baseUnits": 8,
           "mergeTo": "gen_publicity:5",
           "sellCoins": 0,
@@ -6224,7 +6224,7 @@
         {
           "id": "gen_publicity:5",
           "level": 5,
-          "name": "实用食谱研究台",
+          "name": "手摇印谱机",
           "baseUnits": 16,
           "mergeTo": "gen_publicity:6",
           "sellCoins": 0,
@@ -6236,7 +6236,7 @@
         {
           "id": "gen_publicity:6",
           "level": 6,
-          "name": "专业食谱研究台",
+          "name": "圆屏教学终端",
           "baseUnits": 32,
           "mergeTo": null,
           "sellCoins": 0,
@@ -6251,7 +6251,7 @@
     },
     {
       "id": "gen_flower",
-      "name": "花艺工具桶",
+      "name": "花卉培育器",
       "kind": "producer",
       "unlockChapter": 7,
       "reference": "新版花篮",
@@ -6261,7 +6261,7 @@
         {
           "id": "gen_flower:1",
           "level": 1,
-          "name": "花艺工具桶零件",
+          "name": "园艺桶底",
           "baseUnits": 1,
           "mergeTo": "gen_flower:2",
           "sellCoins": 0,
@@ -6273,7 +6273,7 @@
         {
           "id": "gen_flower:2",
           "level": 2,
-          "name": "花艺工具桶组件",
+          "name": "铆接桶壁",
           "baseUnits": 2,
           "mergeTo": "gen_flower:3",
           "sellCoins": 0,
@@ -6285,7 +6285,7 @@
         {
           "id": "gen_flower:3",
           "level": 3,
-          "name": "花艺工具桶框架",
+          "name": "空提手花桶",
           "baseUnits": 4,
           "mergeTo": "gen_flower:4",
           "sellCoins": 0,
@@ -6297,7 +6297,7 @@
         {
           "id": "gen_flower:4",
           "level": 4,
-          "name": "花艺工具桶雏形",
+          "name": "未装嘴浇花桶",
           "baseUnits": 8,
           "mergeTo": "gen_flower:5",
           "sellCoins": 0,
@@ -6309,7 +6309,7 @@
         {
           "id": "gen_flower:5",
           "level": 5,
-          "name": "入门花艺工具桶",
+          "name": "长嘴浇花桶",
           "baseUnits": 16,
           "mergeTo": "gen_flower:6",
           "sellCoins": 0,
@@ -6321,7 +6321,7 @@
         {
           "id": "gen_flower:6",
           "level": 6,
-          "name": "实用花艺工具桶",
+          "name": "旋转育花台",
           "baseUnits": 32,
           "mergeTo": "gen_flower:7",
           "sellCoins": 0,
@@ -6333,7 +6333,7 @@
         {
           "id": "gen_flower:7",
           "level": 7,
-          "name": "专业花艺工具桶",
+          "name": "自动喷雾桶",
           "baseUnits": 64,
           "mergeTo": "gen_flower:8",
           "sellCoins": 0,
@@ -6345,7 +6345,7 @@
         {
           "id": "gen_flower:8",
           "level": 8,
-          "name": "双层花艺工具桶",
+          "name": "拱罩育花箱",
           "baseUnits": 128,
           "mergeTo": "gen_flower:9",
           "sellCoins": 0,
@@ -6357,7 +6357,7 @@
         {
           "id": "gen_flower:9",
           "level": 9,
-          "name": "高效花艺工具桶",
+          "name": "灯塔育花柜",
           "baseUnits": 256,
           "mergeTo": null,
           "sellCoins": 0,
@@ -6372,7 +6372,7 @@
     },
     {
       "id": "gen_recycle",
-      "name": "花园循环桶",
+      "name": "花园循环机",
       "kind": "producer",
       "unlockChapter": 9,
       "reference": "扫地机—垃圾—动物，厨房园艺主题",
@@ -6382,7 +6382,7 @@
         {
           "id": "gen_recycle:1",
           "level": 1,
-          "name": "花园循环桶零件",
+          "name": "堆肥底板",
           "baseUnits": 1,
           "mergeTo": "gen_recycle:2",
           "sellCoins": 0,
@@ -6394,7 +6394,7 @@
         {
           "id": "gen_recycle:2",
           "level": 2,
-          "name": "花园循环桶组件",
+          "name": "堆肥箱壁",
           "baseUnits": 2,
           "mergeTo": "gen_recycle:3",
           "sellCoins": 0,
@@ -6406,7 +6406,7 @@
         {
           "id": "gen_recycle:3",
           "level": 3,
-          "name": "花园循环桶框架",
+          "name": "铰链箱盖",
           "baseUnits": 4,
           "mergeTo": "gen_recycle:4",
           "sellCoins": 0,
@@ -6418,7 +6418,7 @@
         {
           "id": "gen_recycle:4",
           "level": 4,
-          "name": "花园循环桶雏形",
+          "name": "通风桶壳",
           "baseUnits": 8,
           "mergeTo": "gen_recycle:5",
           "sellCoins": 0,
@@ -6430,7 +6430,7 @@
         {
           "id": "gen_recycle:5",
           "level": 5,
-          "name": "入门花园循环桶",
+          "name": "方形堆肥桶",
           "baseUnits": 16,
           "mergeTo": "gen_recycle:6",
           "sellCoins": 0,
@@ -6442,7 +6442,7 @@
         {
           "id": "gen_recycle:6",
           "level": 6,
-          "name": "实用花园循环桶",
+          "name": "圆筒翻滚桶",
           "baseUnits": 32,
           "mergeTo": "gen_recycle:7",
           "sellCoins": 0,
@@ -6454,7 +6454,7 @@
         {
           "id": "gen_recycle:7",
           "level": 7,
-          "name": "专业花园循环桶",
+          "name": "螺旋搅拌桶",
           "baseUnits": 64,
           "mergeTo": "gen_recycle:8",
           "sellCoins": 0,
@@ -6466,7 +6466,7 @@
         {
           "id": "gen_recycle:8",
           "level": 8,
-          "name": "双层花园循环桶",
+          "name": "脚踏密封桶",
           "baseUnits": 128,
           "mergeTo": "gen_recycle:9",
           "sellCoins": 0,
@@ -6478,7 +6478,7 @@
         {
           "id": "gen_recycle:9",
           "level": 9,
-          "name": "高效花园循环桶",
+          "name": "穹顶发酵罐",
           "baseUnits": 256,
           "mergeTo": "gen_recycle:10",
           "sellCoins": 0,
@@ -6490,7 +6490,7 @@
         {
           "id": "gen_recycle:10",
           "level": 10,
-          "name": "大师花园循环桶",
+          "name": "圆舱循环机",
           "baseUnits": 512,
           "mergeTo": null,
           "sellCoins": 0,
@@ -6508,7 +6508,7 @@
     {
       "id": "tools",
       "chain": "gen_tools",
-      "name": "厨具收纳缸",
+      "name": "厨具收纳器",
       "activeLevel": 4,
       "maxLevel": 12,
       "unlockChapter": 1,
@@ -7049,7 +7049,7 @@
     {
       "id": "food",
       "chain": "gen_food",
-      "name": "烘焙原料罐",
+      "name": "烘焙设备",
       "activeLevel": 5,
       "maxLevel": 11,
       "unlockChapter": 1,
@@ -7544,7 +7544,7 @@
     {
       "id": "produce",
       "chain": "gen_produce",
-      "name": "生鲜采购筐",
+      "name": "生鲜采购器",
       "activeLevel": 3,
       "maxLevel": 12,
       "unlockChapter": 1,
@@ -8034,7 +8034,7 @@
     {
       "id": "drink",
       "chain": "gen_drink",
-      "name": "咖啡工作台",
+      "name": "饮品制作机",
       "activeLevel": 4,
       "maxLevel": 10,
       "unlockChapter": 2,
@@ -8435,7 +8435,7 @@
     {
       "id": "herb",
       "chain": "gen_herb",
-      "name": "香草花盆",
+      "name": "香草栽培器",
       "activeLevel": 4,
       "maxLevel": 10,
       "unlockChapter": 3,
@@ -8881,7 +8881,7 @@
     {
       "id": "asian",
       "chain": "gen_asian",
-      "name": "亚洲料理台",
+      "name": "蒸煮料理机",
       "activeLevel": 4,
       "maxLevel": 10,
       "unlockChapter": 4,
@@ -9286,7 +9286,7 @@
     {
       "id": "mediterranean",
       "chain": "gen_mediterranean",
-      "name": "环球料理台",
+      "name": "环球煎烤机",
       "activeLevel": 4,
       "maxLevel": 10,
       "unlockChapter": 5,
@@ -9691,7 +9691,7 @@
     {
       "id": "supply",
       "chain": "gen_supply",
-      "name": "设备采购车",
+      "name": "设备配送器",
       "activeLevel": 4,
       "maxLevel": 12,
       "unlockChapter": 6,
@@ -10222,7 +10222,7 @@
     {
       "id": "publicity",
       "chain": "gen_publicity",
-      "name": "食谱研究台",
+      "name": "食谱教学器",
       "activeLevel": 4,
       "maxLevel": 6,
       "unlockChapter": 8,
@@ -10471,7 +10471,7 @@
     {
       "id": "flower",
       "chain": "gen_flower",
-      "name": "花艺工具桶",
+      "name": "花卉培育器",
       "activeLevel": 5,
       "maxLevel": 9,
       "unlockChapter": 7,
@@ -10830,7 +10830,7 @@
     {
       "id": "recycle",
       "chain": "gen_recycle",
-      "name": "花园循环桶",
+      "name": "花园循环机",
       "activeLevel": 5,
       "maxLevel": 10,
       "unlockChapter": 9,
@@ -11821,7 +11821,7 @@
   "recipes": [
     {
       "id": "fruit-salad",
-      "name": "缤纷果蔬沙拉",
+      "name": "草莓配方",
       "inputs": [
         {
           "family": "fruit",
@@ -11855,7 +11855,7 @@
     },
     {
       "id": "golden-toast",
-      "name": "金黄煎吐司",
+      "name": "黄油可颂配方",
       "inputs": [
         {
           "family": "food",
@@ -11889,7 +11889,7 @@
     },
     {
       "id": "garden-salad",
-      "name": "田园沙拉",
+      "name": "西兰花配方",
       "inputs": [
         {
           "family": "vegetable",
@@ -11928,7 +11928,7 @@
     },
     {
       "id": "silky-latte",
-      "name": "绵密拿铁",
+      "name": "浓缩咖啡配方",
       "inputs": [
         {
           "family": "drink",
@@ -11962,7 +11962,7 @@
     },
     {
       "id": "steamed-buns",
-      "name": "手作小笼包",
+      "name": "小笼包配方",
       "inputs": [
         {
           "family": "food",
@@ -11996,7 +11996,7 @@
     },
     {
       "id": "fresh-sushi",
-      "name": "蔬菜寿司",
+      "name": "三文鱼握寿司配方",
       "inputs": [
         {
           "family": "japanese",
@@ -12030,7 +12030,7 @@
     },
     {
       "id": "homemade-pizza",
-      "name": "手作番茄披萨",
+      "name": "玛格丽特披萨配方",
       "inputs": [
         {
           "family": "italian",
@@ -12064,7 +12064,7 @@
     },
     {
       "id": "crisp-tacos",
-      "name": "香脆芝士夹饼",
+      "name": "芝士夹饼配方",
       "inputs": [
         {
           "family": "mexican",
@@ -12098,7 +12098,7 @@
     },
     {
       "id": "family-hotpot",
-      "name": "围炉暖心锅",
+      "name": "糯米烧卖配方",
       "inputs": [
         {
           "family": "chinese",
@@ -12137,7 +12137,7 @@
     },
     {
       "id": "baked-lasagna",
-      "name": "香草千层面",
+      "name": "千层面配方",
       "inputs": [
         {
           "family": "italian",
@@ -25326,5 +25326,6 @@
       "已用容器合并继承公式",
       "道具边界与叠加细节"
     ]
-  }
+  },
+  "artIdentityVersion": "chain-identities-v6-20261019"
 }

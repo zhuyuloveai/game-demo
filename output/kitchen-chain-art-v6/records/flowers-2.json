@@ -1,0 +1,45 @@
+{
+  "id": "flowers:2",
+  "name": "向日葵",
+  "source": "sources/flowers-2.png",
+  "prompt": "prompts/flowers-2.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-0c7de621-cb99-4290-87cb-642907e1df7d.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/flowers-2.png",
+    "webp": "items/flowers-2.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      38,
+      80,
+      1181,
+      1108
+    ],
+    "box": [
+      40,
+      37.53
+    ],
+    "contact": {
+      "x": 42.89,
+      "width": 19.75,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 877540,
+    "transparentPixels": 618585
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

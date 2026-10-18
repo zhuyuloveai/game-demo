@@ -1,0 +1,49 @@
+{
+  "id": "puzzle:12",
+  "name": "周年纪念相册",
+  "source": "sources/puzzle-12.png",
+  "prompt": "prompts/puzzle-12-revision-2.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-chain-art-v6/references/puzzle-12-v1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-429e97b9-0631-4500-94fd-13b10b990f41.png",
+  "review": "visual-approved",
+  "revision": 2,
+  "processed": {
+    "png": "items/puzzle-12.png",
+    "webp": "items/puzzle-12.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      51,
+      117,
+      1113,
+      1114
+    ],
+    "box": [
+      37.97,
+      38
+    ],
+    "contact": {
+      "x": 73.67,
+      "width": 15.83,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 933924,
+    "transparentPixels": 628082
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

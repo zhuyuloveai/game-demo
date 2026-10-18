@@ -1,0 +1,48 @@
+{
+  "id": "story:3",
+  "name": "旅途罗盘",
+  "source": "sources/story-3.png",
+  "prompt": "prompts/story-3.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-0569b467-0453-4f64-98d2-5366980f9695.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/story-3.png",
+    "webp": "items/story-3.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      165,
+      55,
+      944,
+      1123
+    ],
+    "box": [
+      31.94,
+      38
+    ],
+    "contact": {
+      "x": 50.5,
+      "width": 16.88,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 724081,
+    "transparentPixels": 830358
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

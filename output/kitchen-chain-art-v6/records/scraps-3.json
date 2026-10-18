@@ -1,0 +1,48 @@
+{
+  "id": "scraps:3",
+  "name": "干枯落叶",
+  "source": "sources/scraps-3.png",
+  "prompt": "prompts/scraps-3.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-427a4a63-b6e8-4717-bf3e-b5392513afa5.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/scraps-3.png",
+    "webp": "items/scraps-3.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      57,
+      111,
+      1169,
+      1014
+    ],
+    "box": [
+      40,
+      34.7
+    ],
+    "contact": {
+      "x": 20.99,
+      "width": 16.35,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 594759,
+    "transparentPixels": 959141
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

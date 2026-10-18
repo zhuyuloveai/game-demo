@@ -1,0 +1,45 @@
+{
+  "id": "gen_drink:4",
+  "name": "手压榨汁机",
+  "source": "sources/gen_drink-4.png",
+  "prompt": "prompts/gen_drink-4.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-18aabcb0-8a94-4833-aebc-36bf58655038.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_drink-4.png",
+    "webp": "items/gen_drink-4.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      138,
+      37,
+      1092,
+      1188
+    ],
+    "box": [
+      35.85,
+      39
+    ],
+    "contact": {
+      "x": 45.49,
+      "width": 10.8,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 608805,
+    "transparentPixels": 938771
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px paired sheet inspected for single main structure, distinct adjacent silhouette, alpha margins and scale.",
+    "evidence": [
+      "evidence/gen_drink.png",
+      "evidence/44px/page-07.png"
+    ]
+  }
+}

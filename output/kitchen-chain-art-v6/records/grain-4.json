@@ -1,0 +1,45 @@
+{
+  "id": "grain:4",
+  "name": "燕麦",
+  "source": "sources/grain-4.png",
+  "prompt": "prompts/grain-4.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-85a5c950-ca3a-47fb-b612-95685d422d2c.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/grain-4.png",
+    "webp": "items/grain-4.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      104,
+      106,
+      1073,
+      1045
+    ],
+    "box": [
+      39.02,
+      38
+    ],
+    "contact": {
+      "x": 76.17,
+      "width": 7.82,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 438848,
+    "transparentPixels": 1070908
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

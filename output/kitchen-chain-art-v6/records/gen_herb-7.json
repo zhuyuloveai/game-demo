@@ -1,0 +1,45 @@
+{
+  "id": "gen_herb:7",
+  "name": "自吸水花盆",
+  "source": "sources/gen_herb-7.png",
+  "prompt": "prompts/gen_herb-7.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-806cc528-4a33-49ef-a9da-7715dd82b767.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/gen_herb-7.png",
+    "webp": "items/gen_herb-7.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      164,
+      49,
+      949,
+      1138
+    ],
+    "box": [
+      32.52,
+      39
+    ],
+    "contact": {
+      "x": 52.06,
+      "width": 17.45,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 740110,
+    "transparentPixels": 814977
+  },
+  "visualReview": {
+    "scope": "Full chain and actual 44px pair inspected. Level 2 repaired to empty pot; unfinished components separate clearly from planted equipment.",
+    "evidence": [
+      "evidence/gen_herb.png",
+      "evidence/44px/page-07.png"
+    ]
+  }
+}

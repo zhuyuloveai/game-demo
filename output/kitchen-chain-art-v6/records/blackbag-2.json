@@ -1,0 +1,45 @@
+{
+  "id": "blackbag:2",
+  "name": "硬壳工具箱",
+  "source": "sources/blackbag-2.png",
+  "prompt": "prompts/blackbag-2.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-9e19f4c2-3238-4fdb-9a33-d883bf9e2619.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/blackbag-2.png",
+    "webp": "items/blackbag-2.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      60,
+      115,
+      1140,
+      1041
+    ],
+    "box": [
+      40,
+      36.53
+    ],
+    "contact": {
+      "x": 70.76,
+      "width": 13.21,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 873662,
+    "transparentPixels": 676693
+  },
+  "visualReview": {
+    "scope": "Per-chain full image and paired actual 44px review; single subject, level silhouette, alpha boundary and scale inspected. Pinkbag:2 revised to one bag and rechecked.",
+    "evidence": [
+      "evidence/blackbag.png",
+      "evidence/44px/page-06.png"
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "mexican:2",
+  "name": "塔可",
+  "source": "sources/mexican-2.png",
+  "prompt": "prompts/mexican-2.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-ab16b35f-b7d8-468a-a605-7f5a28af4de9.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/mexican-2.png",
+    "webp": "items/mexican-2.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      92,
+      151,
+      1128,
+      978
+    ],
+    "box": [
+      40,
+      34.68
+    ],
+    "contact": {
+      "x": 21.38,
+      "width": 12.36,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 724498,
+    "transparentPixels": 838937
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

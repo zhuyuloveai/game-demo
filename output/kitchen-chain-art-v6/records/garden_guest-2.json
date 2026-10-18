@@ -1,0 +1,48 @@
+{
+  "id": "garden_guest:2",
+  "name": "鱼形逗猫棒",
+  "source": "sources/garden_guest-2.png",
+  "prompt": "prompts/garden_guest-2.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-a7c1e03c-6eac-4dd9-b73c-daa10b6fc876.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/garden_guest-2.png",
+    "webp": "items/garden_guest-2.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      124,
+      89,
+      1067,
+      1063
+    ],
+    "box": [
+      38.14,
+      38
+    ],
+    "contact": {
+      "x": 92.1,
+      "width": 7,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 268836,
+    "transparentPixels": 1259283
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

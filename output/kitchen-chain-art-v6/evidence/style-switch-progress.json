@@ -1,0 +1,8 @@
+{
+  "url": "http://127.0.0.1:4200/game/?qa=full-art",
+  "boardCount": 63,
+  "boardUnchanged": true,
+  "resourcesUnchanged": true,
+  "method": "Production runtime: visible accessible labels before and after new-style → classic UI button",
+  "classicUsesSeparateSvg": true
+}

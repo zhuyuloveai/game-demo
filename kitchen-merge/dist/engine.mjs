@@ -1354,7 +1354,7 @@ export function useTool(s, selection, index, now = Date.now()) {
         return fail(s, "target", "此物品不能升级");
       if (d.level === 2) {
         if (target.kind !== "producer")
-          return fail(s, "target", "设备升级卡仅用于主生产器与零件");
+          return fail(s, "target", "设备升级牌仅用于主生产器与零件");
         s.board[index] = inherit(
           s,
           p,

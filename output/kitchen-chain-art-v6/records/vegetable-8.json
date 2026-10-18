@@ -1,0 +1,45 @@
+{
+  "id": "vegetable:8",
+  "name": "朝鲜蓟",
+  "source": "sources/vegetable-8.png",
+  "prompt": "prompts/vegetable-8.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-6585bb25-6c06-49a3-92aa-9889b7c8a2dc.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/vegetable-8.png",
+    "webp": "items/vegetable-8.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      135,
+      49,
+      1010,
+      1171
+    ],
+    "box": [
+      32.78,
+      38
+    ],
+    "contact": {
+      "x": 49.12,
+      "width": 7,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 766263,
+    "transparentPixels": 792157
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

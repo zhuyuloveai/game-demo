@@ -1,0 +1,45 @@
+{
+  "id": "vegetable:4",
+  "name": "西兰花",
+  "source": "sources/vegetable-4.png",
+  "prompt": "prompts/vegetable-4.txt",
+  "generation": "built-in image_gen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-8f72a5d6-6c44-4bbb-aa34-f30cdbdbf737.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/vegetable-4.png",
+    "webp": "items/vegetable-4.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      44,
+      92,
+      1168,
+      1094
+    ],
+    "box": [
+      40,
+      37.47
+    ],
+    "contact": {
+      "x": 47.14,
+      "width": 10.77,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 796740,
+    "transparentPixels": 749352
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

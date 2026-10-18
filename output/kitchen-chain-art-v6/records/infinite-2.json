@@ -1,0 +1,45 @@
+{
+  "id": "infinite:2",
+  "name": "1分钟无限体力",
+  "source": "sources/infinite-2.png",
+  "prompt": "prompts/infinite-2.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-c8828def-df98-4b23-83eb-c7ac5674286d.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/infinite-2.png",
+    "webp": "items/infinite-2.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      110,
+      122,
+      1034,
+      1023
+    ],
+    "box": [
+      38.41,
+      38
+    ],
+    "contact": {
+      "x": 49.27,
+      "width": 18.69,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 810206,
+    "transparentPixels": 755621
+  },
+  "visualReview": {
+    "scope": "Per-chain full image and paired actual 44px review; single subject, level silhouette, alpha boundary and scale inspected. Pinkbag:2 revised to one bag and rechecked.",
+    "evidence": [
+      "evidence/infinite.png",
+      "evidence/44px/page-06.png"
+    ]
+  }
+}

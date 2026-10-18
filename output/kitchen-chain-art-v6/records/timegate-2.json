@@ -1,0 +1,48 @@
+{
+  "id": "timegate:2",
+  "name": "黄铜门铃",
+  "source": "sources/timegate-2.png",
+  "prompt": "prompts/timegate-2.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-d339fd3a-0284-425e-b265-7a70e6cb3312.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/timegate-2.png",
+    "webp": "items/timegate-2.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      319,
+      64,
+      678,
+      1129
+    ],
+    "box": [
+      22.82,
+      38
+    ],
+    "contact": {
+      "x": 43.41,
+      "width": 7,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 338686,
+    "transparentPixels": 1221569
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "preservation:4",
+  "name": "台式真空封口机",
+  "source": "sources/preservation-4.png",
+  "prompt": "prompts/preservation-4.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-43bfbc03-c3bc-44e9-9f11-96b497020d0f.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/preservation-4.png",
+    "webp": "items/preservation-4.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      21,
+      320,
+      1221,
+      710
+    ],
+    "box": [
+      40,
+      23.26
+    ],
+    "contact": {
+      "x": 80.23,
+      "width": 8.33,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 512340,
+    "transparentPixels": 1045185
+  },
+  "visualReview": {
+    "scope": "Full chain contact strips and paired actual 44px canvas; silhouette, correspondence, alpha edge, margins and contact scale inspected. Targeted repairs rechecked at 512px and 44px.",
+    "evidence": [
+      "evidence/44px/page-01.png",
+      "evidence/44px/page-02.png",
+      "evidence/44px/page-03.png",
+      "evidence/44px/page-04.png",
+      "evidence/44px/page-05.png"
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "id": "tools:11",
+  "name": "铸铁炖锅",
+  "source": "sources/rejected/tools-11-v1.png",
+  "prompt": "prompts/tools-11.txt",
+  "generation": "built-in image_gen",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/sources/fruit-1.png"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-57bf1333-a40f-45cf-ab8e-66c7e29cda7e.png",
+  "review": "visual-approved",
+  "processed": {
+    "png": "items/tools-11.png",
+    "webp": "items/tools-11.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      0,
+      190,
+      1254,
+      883
+    ],
+    "box": [
+      40,
+      28.17
+    ],
+    "contact": {
+      "x": 49.75,
+      "width": 17.81,
+      "height": 2.8
+    },
+    "alphaPolicy": "Preserve generated RGB and alpha; crop only; no background recoloring or component deletion",
+    "opaquePixels": 724812,
+    "transparentPixels": 824055
+  },
+  "visualReview": {
+    "date": "2026-10-19",
+    "method": "Individual subjects inspected in paired chain evidence; identity, silhouette, transparent edge and small-cell readability checked.",
+    "evidence": "evidence/tools.png"
+  }
+}

@@ -10,7 +10,7 @@ test('every catalog item maps to a packaged WebP with valid cell geometry',()=>{
   assert.deepEqual(Object.keys(artwork).sort(),Object.keys(ITEMS).sort());
   assert.equal(new Set(Object.values(artwork).map(a=>a.src)).size,411);
   for(const [id,a] of Object.entries(artwork)){
-    assert.ok(a.src.startsWith('./assets/cabinet-v5/'),id);
+    assert.match(a.src,/^\.\/assets\/cabinet-v[56]\//,id);
     const bytes=fs.readFileSync(new URL('../dist/'+a.src,import.meta.url));
     assert.equal(bytes.toString('ascii',0,4),'RIFF',id);
     assert.equal(bytes.toString('ascii',8,12),'WEBP',id);
