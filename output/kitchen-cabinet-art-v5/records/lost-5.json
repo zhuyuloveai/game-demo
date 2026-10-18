@@ -1,0 +1,45 @@
+{
+  "id": "lost:5",
+  "key": "lost-5",
+  "source": "sources/lost-5.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-255c8625-6644-47e3-8f84-b832a26d08ac.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/lost-5.txt",
+  "generatedAt": "2026-10-18T12:28:43.231Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.3384,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/lost-5.png",
+    "webp": "items/lost-5.webp",
+    "sourceSize": [
+      1312,
+      1199
+    ],
+    "crop": [
+      20,
+      82,
+      1280,
+      1077
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      33.66
+    ],
+    "contact": {
+      "x": 50.5,
+      "width": 20.6,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-lost.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

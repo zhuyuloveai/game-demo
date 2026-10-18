@@ -1,0 +1,260 @@
+{
+  "method": {
+    "reference": "reference.png: original chosen artwork",
+    "referenceSHA256": "ef70967b48b5ae0b769539b080aee4918e7c3a2cde17b31be2093779918454bf",
+    "referenceSize": [
+      941,
+      1672
+    ],
+    "normalization": "sRGB, Lanczos3, contain 375×667; resulting content 375×666 plus one bottom padding row. No cropping or geometric alignment after global resize.",
+    "actual": "actual Chrome screenshot, 375×667 CSS px, DPR=1",
+    "actualSHA256": "2ba7dba662b925f93e459c6d3d8a7558e195aa3d607b8d3ccc5277086502b86b",
+    "beforeSHA256": "2667df1bfffa2a916ae65565d7dd4373f890d29fe7e440c8195bfd5a8b0cf26e",
+    "beforeDescription": "V4 approved unified grid sample, prior to full catalogue update",
+    "formula": "MAE = sum(abs(referenceRGB - actualRGB)) / (375*667*3). Range 0–255, lower is closer. RMSE uses squared channel differences. >16 / >32: percent of pixels with any RGB channel above the given absolute difference.",
+    "heatmap": "Mean absolute RGB difference; 0 black → 42.67 red → 85.33 yellow → 128+ white. Same scale before/after.",
+    "exclusions": "None. White puppy, sample item identities/positions, live text and added style switch remain included. No similarity score or pass threshold is inferred."
+  },
+  "regions": [
+    {
+      "id": "full",
+      "label": "全画面",
+      "rect": [
+        0,
+        0,
+        375,
+        667
+      ],
+      "before": {
+        "pixels": 250125,
+        "mae": 31.998212893553227,
+        "rmse": 50.58699226191399,
+        "p95MeanAbs": 109,
+        "maxChannelError": 250,
+        "exactEqualPixels": 75,
+        "anyChannelOver16Percent": 60.48815592203898,
+        "anyChannelOver32Percent": 41.953023488255866
+      },
+      "after": {
+        "pixels": 250125,
+        "mae": 35.241551224387806,
+        "rmse": 53.877369842783516,
+        "p95MeanAbs": 114,
+        "maxChannelError": 248,
+        "exactEqualPixels": 71,
+        "anyChannelOver16Percent": 65.53643178410795,
+        "anyChannelOver32Percent": 46.35762118940529
+      }
+    },
+    {
+      "id": "resources",
+      "label": "资源条",
+      "rect": [
+        0,
+        0,
+        375,
+        50
+      ],
+      "before": {
+        "pixels": 18750,
+        "mae": 35.69544888888889,
+        "rmse": 52.925065181296134,
+        "p95MeanAbs": 112,
+        "maxChannelError": 235,
+        "exactEqualPixels": 1,
+        "anyChannelOver16Percent": 74.99733333333334,
+        "anyChannelOver32Percent": 50.437333333333335
+      },
+      "after": {
+        "pixels": 18750,
+        "mae": 35.69544888888889,
+        "rmse": 52.925127323627876,
+        "p95MeanAbs": 112,
+        "maxChannelError": 235,
+        "exactEqualPixels": 1,
+        "anyChannelOver16Percent": 74.99733333333334,
+        "anyChannelOver32Percent": 50.437333333333335
+      }
+    },
+    {
+      "id": "orders",
+      "label": "订单与角色",
+      "rect": [
+        0,
+        50,
+        375,
+        72
+      ],
+      "before": {
+        "pixels": 27000,
+        "mae": 43.39696296296296,
+        "rmse": 63.66247261733624,
+        "p95MeanAbs": 127,
+        "maxChannelError": 243,
+        "exactEqualPixels": 50,
+        "anyChannelOver16Percent": 71.27037037037037,
+        "anyChannelOver32Percent": 55.60740740740741
+      },
+      "after": {
+        "pixels": 27000,
+        "mae": 40.958962962962964,
+        "rmse": 61.47842560455509,
+        "p95MeanAbs": 127,
+        "maxChannelError": 243,
+        "exactEqualPixels": 48,
+        "anyChannelOver16Percent": 69,
+        "anyChannelOver32Percent": 53.05555555555556
+      }
+    },
+    {
+      "id": "detail",
+      "label": "详情牌",
+      "rect": [
+        0,
+        122,
+        375,
+        34
+      ],
+      "before": {
+        "pixels": 12750,
+        "mae": 27.537176470588236,
+        "rmse": 42.211556513210624,
+        "p95MeanAbs": 79.33333333333333,
+        "maxChannelError": 230,
+        "exactEqualPixels": 0,
+        "anyChannelOver16Percent": 56.886274509803926,
+        "anyChannelOver32Percent": 45.294117647058826
+      },
+      "after": {
+        "pixels": 12750,
+        "mae": 27.76925490196078,
+        "rmse": 42.34830922383616,
+        "p95MeanAbs": 79.33333333333333,
+        "maxChannelError": 230,
+        "exactEqualPixels": 0,
+        "anyChannelOver16Percent": 57.44313725490196,
+        "anyChannelOver32Percent": 45.75686274509804
+      }
+    },
+    {
+      "id": "board",
+      "label": "棋盘区域",
+      "rect": [
+        31,
+        156,
+        315,
+        396
+      ],
+      "before": {
+        "pixels": 124740,
+        "mae": 26.11782106782107,
+        "rmse": 46.04343419886934,
+        "p95MeanAbs": 104.33333333333333,
+        "maxChannelError": 250,
+        "exactEqualPixels": 17,
+        "anyChannelOver16Percent": 49.42360109026775,
+        "anyChannelOver32Percent": 31.62658329324996
+      },
+      "after": {
+        "pixels": 124740,
+        "mae": 33.11639142750254,
+        "rmse": 53.53251142319239,
+        "p95MeanAbs": 117,
+        "maxChannelError": 237,
+        "exactEqualPixels": 15,
+        "anyChannelOver16Percent": 59.98075998075998,
+        "anyChannelOver32Percent": 40.95318261984929
+      }
+    },
+    {
+      "id": "sides",
+      "label": "完整棋盘高度（含两侧装饰）",
+      "rect": [
+        0,
+        156,
+        375,
+        396
+      ],
+      "before": {
+        "pixels": 148500,
+        "mae": 26.538893378226714,
+        "rmse": 45.0808402442415,
+        "p95MeanAbs": 100.66666666666667,
+        "maxChannelError": 250,
+        "exactEqualPixels": 20,
+        "anyChannelOver16Percent": 52.655218855218855,
+        "anyChannelOver32Percent": 33.54410774410774
+      },
+      "after": {
+        "pixels": 148500,
+        "mae": 32.41769248035914,
+        "rmse": 51.56255416621309,
+        "p95MeanAbs": 113,
+        "maxChannelError": 237,
+        "exactEqualPixels": 18,
+        "anyChannelOver16Percent": 61.52323232323232,
+        "anyChannelOver32Percent": 41.37845117845118
+      }
+    },
+    {
+      "id": "footer",
+      "label": "底部物件与台面",
+      "rect": [
+        0,
+        552,
+        375,
+        97
+      ],
+      "before": {
+        "pixels": 36375,
+        "mae": 37.913997709049255,
+        "rmse": 54.59275944421796,
+        "p95MeanAbs": 114.33333333333333,
+        "maxChannelError": 248,
+        "exactEqualPixels": 4,
+        "anyChannelOver16Percent": 71.3979381443299,
+        "anyChannelOver32Percent": 51.593127147766324
+      },
+      "after": {
+        "pixels": 36375,
+        "mae": 37.913997709049255,
+        "rmse": 54.59275944421796,
+        "p95MeanAbs": 114.33333333333333,
+        "maxChannelError": 248,
+        "exactEqualPixels": 4,
+        "anyChannelOver16Percent": 71.3979381443299,
+        "anyChannelOver32Percent": 51.593127147766324
+      }
+    },
+    {
+      "id": "switch",
+      "label": "新增切换栏",
+      "rect": [
+        0,
+        649,
+        375,
+        18
+      ],
+      "before": {
+        "pixels": 6750,
+        "mae": 72.78503703703704,
+        "rmse": 81.83935393105112,
+        "p95MeanAbs": 117,
+        "maxChannelError": 187,
+        "exactEqualPixels": 0,
+        "anyChannelOver16Percent": 97.39259259259259,
+        "anyChannelOver32Percent": 90.5037037037037
+      },
+      "after": {
+        "pixels": 6750,
+        "mae": 72.94879012345679,
+        "rmse": 82.00578690811858,
+        "p95MeanAbs": 117.66666666666667,
+        "maxChannelError": 187,
+        "exactEqualPixels": 0,
+        "anyChannelOver16Percent": 97.39259259259259,
+        "anyChannelOver32Percent": 90.6962962962963
+      }
+    }
+  ]
+}

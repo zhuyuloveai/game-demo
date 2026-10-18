@@ -1,0 +1,45 @@
+{
+  "id": "preservation:1",
+  "key": "preservation-1",
+  "source": "sources/preservation-1.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-635e9c09-808c-47b1-845b-3c9c666cbfe6.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/preservation-1.txt",
+  "generatedAt": "2026-10-18T12:14:38.649Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.5709,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/preservation-1.png",
+    "webp": "items/preservation-1.webp",
+    "sourceSize": [
+      1312,
+      1199
+    ],
+    "crop": [
+      33,
+      215,
+      1271,
+      816
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      25.68
+    ],
+    "contact": {
+      "x": 44.18,
+      "width": 7.28,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-preservation.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "splitter:1",
+  "key": "splitter-1",
+  "source": "sources/splitter-1.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-cf44569c-c67a-423e-9063-3832f5b121e6.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/splitter-1.txt",
+  "generatedAt": "2026-10-18T13:24:41.114Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.7086,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/splitter-1.png",
+    "webp": "items/splitter-1.webp",
+    "sourceSize": [
+      1246,
+      1263
+    ],
+    "crop": [
+      33,
+      85,
+      1209,
+      1124
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      37.19
+    ],
+    "contact": {
+      "x": 59.08,
+      "width": 10.11,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-splitter.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

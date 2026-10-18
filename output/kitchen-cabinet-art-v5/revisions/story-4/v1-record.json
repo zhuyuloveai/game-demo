@@ -1,0 +1,39 @@
+{
+  "id": "story:4",
+  "key": "story-4",
+  "source": "sources/story-4.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-07612a15-4536-4968-b687-23fca3c6ece6.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/story-4.txt",
+  "generatedAt": "2026-10-18T12:39:45.094Z",
+  "status": "generated-pending-visual-review",
+  "alphaAudit": {
+    "transparentFraction": 0.387,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/story-4.png",
+    "webp": "items/story-4.webp",
+    "sourceSize": [
+      1230,
+      1278
+    ],
+    "crop": [
+      20,
+      14,
+      1192,
+      1225
+    ],
+    "keptComponents": 1,
+    "box": [
+      36.98,
+      38
+    ],
+    "contact": {
+      "x": 50.18,
+      "width": 28.46,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  }
+}

@@ -1,0 +1,1053 @@
+{
+  "policy": "original RGB + generated alpha; remove detached alpha noise; keep 3px antialias perimeter; 5px transparent gutter. PNG masters and lossless WebP runtime.",
+  "assets": [
+    {
+      "id": "puppy",
+      "source": "sources/puppy-source.png",
+      "sourceSize": [
+        1161,
+        1354
+      ],
+      "manualRegion": [
+        0,
+        0,
+        1161,
+        1354
+      ],
+      "cropInSource": [
+        48,
+        104,
+        1071,
+        1109
+      ],
+      "removedDetachedOrLowAlphaPixels": 13277,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 512,
+      "recommendedBox": [
+        55,
+        56
+      ]
+    },
+    {
+      "id": "book",
+      "source": "sources/book-source.png",
+      "sourceSize": [
+        1190,
+        1322
+      ],
+      "manualRegion": [
+        0,
+        0,
+        1190,
+        1322
+      ],
+      "cropInSource": [
+        61,
+        112,
+        1075,
+        1064
+      ],
+      "removedDetachedOrLowAlphaPixels": 18975,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 512,
+      "recommendedBox": [
+        80,
+        80
+      ],
+      "textSafe": [
+        0.29,
+        0.57,
+        0.38,
+        0.21
+      ]
+    },
+    {
+      "id": "drawer",
+      "source": "sources/drawer-source.png",
+      "sourceSize": [
+        1510,
+        1041
+      ],
+      "manualRegion": [
+        0,
+        0,
+        1510,
+        1041
+      ],
+      "cropInSource": [
+        75,
+        187,
+        1361,
+        687
+      ],
+      "removedDetachedOrLowAlphaPixels": 12306,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 512,
+      "recommendedBox": [
+        112,
+        57
+      ],
+      "textSafe": [
+        0.36,
+        0.45,
+        0.28,
+        0.15
+      ]
+    },
+    {
+      "id": "phone",
+      "source": "sources/phone-source.png",
+      "sourceSize": [
+        1229,
+        1280
+      ],
+      "manualRegion": [
+        0,
+        0,
+        1229,
+        1280
+      ],
+      "cropInSource": [
+        180,
+        106,
+        871,
+        1082
+      ],
+      "removedDetachedOrLowAlphaPixels": 18998,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 512,
+      "recommendedBox": [
+        64,
+        80
+      ],
+      "textSafe": [
+        0.29,
+        0.32,
+        0.42,
+        0.38
+      ]
+    },
+    {
+      "id": "radio",
+      "source": "sources/radio-source.png",
+      "sourceSize": [
+        1586,
+        992
+      ],
+      "manualRegion": [
+        0,
+        0,
+        1586,
+        992
+      ],
+      "cropInSource": [
+        141,
+        99,
+        1304,
+        789
+      ],
+      "removedDetachedOrLowAlphaPixels": 7240,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 512,
+      "recommendedBox": [
+        86,
+        58
+      ],
+      "textSafe": [
+        0.53,
+        0.34,
+        0.36,
+        0.28
+      ]
+    },
+    {
+      "id": "energy",
+      "source": "sources/energy-source.png",
+      "sourceSize": [
+        1051,
+        1497
+      ],
+      "manualRegion": [
+        0,
+        0,
+        1051,
+        1497
+      ],
+      "cropInSource": [
+        163,
+        244,
+        752,
+        1096
+      ],
+      "removedDetachedOrLowAlphaPixels": 9702,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 512,
+      "recommendedBox": [
+        24,
+        33
+      ]
+    },
+    {
+      "id": "pig",
+      "source": "sources/pig-source.png",
+      "sourceSize": [
+        1145,
+        1374
+      ],
+      "manualRegion": [
+        0,
+        0,
+        1145,
+        1374
+      ],
+      "cropInSource": [
+        40,
+        170,
+        1078,
+        1055
+      ],
+      "removedDetachedOrLowAlphaPixels": 8081,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 512,
+      "recommendedBox": [
+        30,
+        33
+      ]
+    },
+    {
+      "id": "stars",
+      "source": "sources/stars-source.png",
+      "sourceSize": [
+        1229,
+        1280
+      ],
+      "manualRegion": [
+        0,
+        0,
+        1229,
+        1280
+      ],
+      "cropInSource": [
+        244,
+        226,
+        741,
+        855
+      ],
+      "removedDetachedOrLowAlphaPixels": 22296,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 512,
+      "recommendedBox": [
+        26,
+        33
+      ]
+    },
+    {
+      "id": "candy",
+      "source": "sources/candy-source.png",
+      "sourceSize": [
+        1150,
+        1368
+      ],
+      "manualRegion": [
+        0,
+        0,
+        1150,
+        1368
+      ],
+      "cropInSource": [
+        229,
+        219,
+        824,
+        960
+      ],
+      "removedDetachedOrLowAlphaPixels": 13123,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 512,
+      "recommendedBox": [
+        26,
+        33
+      ]
+    },
+    {
+      "id": "gift",
+      "source": "sources/gift-source.png",
+      "sourceSize": [
+        1230,
+        1278
+      ],
+      "manualRegion": [
+        0,
+        0,
+        1230,
+        1278
+      ],
+      "cropInSource": [
+        136,
+        218,
+        963,
+        880
+      ],
+      "removedDetachedOrLowAlphaPixels": 14741,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 512,
+      "recommendedBox": [
+        23,
+        24
+      ]
+    },
+    {
+      "id": "customer",
+      "source": "sources/customer-source.png",
+      "sourceSize": [
+        1232,
+        1277
+      ],
+      "manualRegion": [
+        0,
+        0,
+        1232,
+        1277
+      ],
+      "cropInSource": [
+        65,
+        127,
+        1129,
+        1040
+      ],
+      "removedDetachedOrLowAlphaPixels": 23300,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 512,
+      "recommendedBox": [
+        28,
+        30
+      ]
+    },
+    {
+      "id": "wheat",
+      "source": "sources/wheat-source.png",
+      "sourceSize": [
+        1103,
+        1426
+      ],
+      "manualRegion": [
+        0,
+        0,
+        1103,
+        1426
+      ],
+      "cropInSource": [
+        55,
+        104,
+        1020,
+        1216
+      ],
+      "removedDetachedOrLowAlphaPixels": 11647,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 512,
+      "recommendedBox": [
+        38,
+        38
+      ]
+    },
+    {
+      "id": "flour",
+      "source": "sources/flour-source.png",
+      "sourceSize": [
+        1226,
+        1283
+      ],
+      "manualRegion": [
+        0,
+        0,
+        1226,
+        1283
+      ],
+      "cropInSource": [
+        149,
+        230,
+        935,
+        840
+      ],
+      "removedDetachedOrLowAlphaPixels": 6412,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 512,
+      "recommendedBox": [
+        36,
+        35
+      ]
+    },
+    {
+      "id": "tomato",
+      "source": "sources/tomato-source.png",
+      "sourceSize": [
+        1229,
+        1280
+      ],
+      "manualRegion": [
+        0,
+        0,
+        1229,
+        1280
+      ],
+      "cropInSource": [
+        95,
+        145,
+        1061,
+        993
+      ],
+      "removedDetachedOrLowAlphaPixels": 5139,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 512,
+      "recommendedBox": [
+        34,
+        34
+      ]
+    },
+    {
+      "id": "orange",
+      "source": "sources/orange-source.png",
+      "sourceSize": [
+        1230,
+        1278
+      ],
+      "manualRegion": [
+        0,
+        0,
+        1230,
+        1278
+      ],
+      "cropInSource": [
+        117,
+        157,
+        1040,
+        993
+      ],
+      "removedDetachedOrLowAlphaPixels": 16286,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 512,
+      "recommendedBox": [
+        33,
+        33
+      ]
+    },
+    {
+      "id": "strawberry",
+      "source": "sources/strawberry-source.png",
+      "sourceSize": [
+        1234,
+        1275
+      ],
+      "manualRegion": [
+        0,
+        0,
+        1234,
+        1275
+      ],
+      "cropInSource": [
+        108,
+        202,
+        1058,
+        871
+      ],
+      "removedDetachedOrLowAlphaPixels": 4768,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 512,
+      "recommendedBox": [
+        36,
+        33
+      ]
+    },
+    {
+      "id": "bread",
+      "source": "sources/bread-source.png",
+      "sourceSize": [
+        1234,
+        1274
+      ],
+      "manualRegion": [
+        0,
+        0,
+        1234,
+        1274
+      ],
+      "cropInSource": [
+        47,
+        196,
+        1159,
+        904
+      ],
+      "removedDetachedOrLowAlphaPixels": 5648,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 512,
+      "recommendedBox": [
+        39,
+        33
+      ]
+    },
+    {
+      "id": "bowl",
+      "source": "sources/bowl-source.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "manualRegion": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "cropInSource": [
+        217,
+        170,
+        1104,
+        744
+      ],
+      "removedDetachedOrLowAlphaPixels": 840,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 512,
+      "recommendedBox": [
+        35,
+        28
+      ]
+    },
+    {
+      "id": "whisk",
+      "source": "sources/whisk-source.png",
+      "sourceSize": [
+        1145,
+        1374
+      ],
+      "manualRegion": [
+        0,
+        0,
+        1145,
+        1374
+      ],
+      "cropInSource": [
+        135,
+        212,
+        979,
+        1007
+      ],
+      "removedDetachedOrLowAlphaPixels": 19350,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 512,
+      "recommendedBox": [
+        38,
+        38
+      ]
+    },
+    {
+      "id": "saucepan",
+      "source": "sources/saucepan-source.png",
+      "sourceSize": [
+        1230,
+        1278
+      ],
+      "manualRegion": [
+        0,
+        0,
+        1230,
+        1278
+      ],
+      "cropInSource": [
+        205,
+        269,
+        1004,
+        711
+      ],
+      "removedDetachedOrLowAlphaPixels": 10386,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 512,
+      "recommendedBox": [
+        39,
+        32
+      ]
+    },
+    {
+      "id": "producer",
+      "source": "sources/producer-source.png",
+      "sourceSize": [
+        1230,
+        1278
+      ],
+      "manualRegion": [
+        0,
+        0,
+        1230,
+        1278
+      ],
+      "cropInSource": [
+        145,
+        107,
+        943,
+        1054
+      ],
+      "removedDetachedOrLowAlphaPixels": 3958,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 512,
+      "recommendedBox": [
+        35,
+        39
+      ]
+    },
+    {
+      "id": "deer",
+      "source": "sources/deer-source.png",
+      "sourceSize": [
+        1230,
+        1278
+      ],
+      "manualRegion": [
+        0,
+        0,
+        1230,
+        1278
+      ],
+      "cropInSource": [
+        34,
+        260,
+        1164,
+        860
+      ],
+      "removedDetachedOrLowAlphaPixels": 33395,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 512,
+      "recommendedBox": [
+        28,
+        30
+      ]
+    },
+    {
+      "id": "bear",
+      "source": "sources/bear-source.png",
+      "sourceSize": [
+        1230,
+        1278
+      ],
+      "manualRegion": [
+        0,
+        0,
+        1230,
+        1278
+      ],
+      "cropInSource": [
+        82,
+        181,
+        1066,
+        913
+      ],
+      "removedDetachedOrLowAlphaPixels": 35024,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 512,
+      "recommendedBox": [
+        28,
+        30
+      ]
+    },
+    {
+      "id": "panda",
+      "source": "sources/panda-source.png",
+      "sourceSize": [
+        1239,
+        1270
+      ],
+      "manualRegion": [
+        0,
+        0,
+        1239,
+        1270
+      ],
+      "cropInSource": [
+        86,
+        192,
+        1072,
+        927
+      ],
+      "removedDetachedOrLowAlphaPixels": 29537,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 512,
+      "recommendedBox": [
+        28,
+        30
+      ]
+    },
+    {
+      "id": "main-card",
+      "source": "panels-source.png",
+      "sourceSize": [
+        1047,
+        1503
+      ],
+      "manualRegion": [
+        30,
+        55,
+        990,
+        405
+      ],
+      "cropInSource": [
+        40,
+        68,
+        969,
+        372
+      ],
+      "removedDetachedOrLowAlphaPixels": 11486,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 1024,
+      "textSafe": [
+        0.08,
+        0.34,
+        0.84,
+        0.52
+      ],
+      "badgeSafe": [
+        0.13,
+        0.05,
+        0.2,
+        0.18
+      ],
+      "recommendedBox": [
+        116,
+        62
+      ]
+    },
+    {
+      "id": "order-card",
+      "source": "panels-source.png",
+      "sourceSize": [
+        1047,
+        1503
+      ],
+      "manualRegion": [
+        32,
+        520,
+        984,
+        370
+      ],
+      "cropInSource": [
+        45,
+        532,
+        962,
+        343
+      ],
+      "removedDetachedOrLowAlphaPixels": 4816,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 1024,
+      "textSafe": [
+        0.06,
+        0.12,
+        0.88,
+        0.76
+      ],
+      "recommendedBox": [
+        117,
+        55
+      ]
+    },
+    {
+      "id": "detail-plate",
+      "source": "panels-source.png",
+      "sourceSize": [
+        1047,
+        1503
+      ],
+      "manualRegion": [
+        28,
+        955,
+        990,
+        190
+      ],
+      "cropInSource": [
+        40,
+        974,
+        967,
+        156
+      ],
+      "removedDetachedOrLowAlphaPixels": 11458,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 1024,
+      "textSafe": [
+        0.04,
+        0.15,
+        0.92,
+        0.7
+      ],
+      "recommendedBox": [
+        319,
+        30
+      ]
+    },
+    {
+      "id": "resource-plate",
+      "source": "panels-source.png",
+      "sourceSize": [
+        1047,
+        1503
+      ],
+      "manualRegion": [
+        240,
+        1210,
+        565,
+        230
+      ],
+      "cropInSource": [
+        253,
+        1223,
+        541,
+        204
+      ],
+      "removedDetachedOrLowAlphaPixels": 106,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "max": 512,
+      "textSafe": [
+        0.1,
+        0.2,
+        0.8,
+        0.6
+      ],
+      "recommendedBox": [
+        47,
+        20
+      ]
+    },
+    {
+      "id": "cell-original",
+      "source": "cell-source.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "manualRegion": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "cropInSource": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "removedDetachedOrLowAlphaPixels": 0,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "opaque": true,
+      "max": 192,
+      "displaySize": [
+        48,
+        48
+      ],
+      "innerOpening": [
+        0.09,
+        0.09,
+        0.82,
+        0.82
+      ]
+    },
+    {
+      "id": "cell",
+      "source": "sources/cell-v2-source.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "manualRegion": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "cropInSource": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "removedDetachedOrLowAlphaPixels": 0,
+      "pivot": [
+        0.5,
+        0.99
+      ],
+      "opaque": true,
+      "max": 192,
+      "displaySize": [
+        48,
+        48
+      ],
+      "innerOpening": [
+        0.065,
+        0.065,
+        0.87,
+        0.87
+      ],
+      "recommendedBox": [
+        44,
+        44
+      ],
+      "status": "superseded; retained for before/after comparison"
+    },
+    {
+      "id": "environment_top",
+      "source": "environment-source.png",
+      "cropInSource": [
+        0,
+        0,
+        941,
+        302
+      ]
+    },
+    {
+      "id": "environment_detail",
+      "source": "environment-source.png",
+      "cropInSource": [
+        0,
+        302,
+        941,
+        83
+      ]
+    },
+    {
+      "id": "environment_board",
+      "source": "environment-source.png",
+      "cropInSource": [
+        0,
+        385,
+        941,
+        985
+      ]
+    },
+    {
+      "id": "environment_ledge",
+      "source": "environment-source.png",
+      "cropInSource": [
+        0,
+        1370,
+        941,
+        66
+      ]
+    },
+    {
+      "id": "environment_bottom",
+      "source": "environment-source.png",
+      "cropInSource": [
+        0,
+        1436,
+        941,
+        183
+      ]
+    },
+    {
+      "id": "board-unified",
+      "source": "sources/board-unified-v1-source.png",
+      "sourceSize": [
+        1060,
+        1484
+      ],
+      "registration": "board-registration.json",
+      "outputSize": [
+        924,
+        1188
+      ],
+      "recommendedBox": [
+        308,
+        396
+      ],
+      "sharedDividerWidth": 2,
+      "cellPitch": 44,
+      "grid": [
+        7,
+        9
+      ],
+      "usage": "One opaque whole-board background. Interactive cell elements are transparent and have no independent frames."
+    }
+  ],
+  "coordinateNotes": "cropInSource: [left,top,width,height] source pixels. textSafe: normalized [x,y,w,h] in cropped master. recommendedBox: CSS px at 375x667, contain preserves aspect. Slot pivot bottom center at cell y=43; natural object proportions retained."
+}

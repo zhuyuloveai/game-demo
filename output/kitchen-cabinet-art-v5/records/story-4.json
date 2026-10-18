@@ -1,0 +1,46 @@
+{
+  "id": "story:4",
+  "key": "story-4",
+  "source": "sources/story-4.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-71a10e76-54d1-4169-b973-4bb4fa19a75a.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "revisions/story-4/v2-prompt.txt",
+  "previous": "revisions/story-4/v1-record.json",
+  "generatedAt": "2026-10-18T14:07:03.991Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.3654,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/story-4.png",
+    "webp": "items/story-4.webp",
+    "sourceSize": [
+      1230,
+      1278
+    ],
+    "crop": [
+      153,
+      51,
+      928,
+      1186
+    ],
+    "keptComponents": 1,
+    "box": [
+      29.73,
+      38
+    ],
+    "contact": {
+      "x": 54.67,
+      "width": 23.3,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-story.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

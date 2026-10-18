@@ -1,0 +1,45 @@
+{
+  "id": "charge:3",
+  "key": "charge-3",
+  "source": "sources/charge-3.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-2a398b55-3c95-4329-a579-f3a0a54854f2.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/charge-3.txt",
+  "generatedAt": "2026-10-18T13:28:12.255Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.3212,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/charge-3.png",
+    "webp": "items/charge-3.webp",
+    "sourceSize": [
+      1312,
+      1199
+    ],
+    "crop": [
+      35,
+      53,
+      1245,
+      1081
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      34.73
+    ],
+    "contact": {
+      "x": 50.2,
+      "width": 26.99,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-charge.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "tableware:3",
+  "key": "tableware-3",
+  "source": "sources/tableware-3.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-9b738c9d-f695-4899-8310-f142ad1d3d02.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/tableware-3.txt",
+  "generatedAt": "2026-10-18T12:09:17.000Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.3185,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/tableware-3.png",
+    "webp": "items/tableware-3.webp",
+    "sourceSize": [
+      1353,
+      1162
+    ],
+    "crop": [
+      0,
+      20,
+      1353,
+      1112
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      32.88
+    ],
+    "contact": {
+      "x": 49.74,
+      "width": 16.98,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-tableware.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

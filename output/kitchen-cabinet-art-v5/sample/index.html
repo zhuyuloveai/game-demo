@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#f4f1ec">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="description" content="掌心里的世界美食厨房：合成食材、升级厨具、制作食谱，和小狗店长一起完成客人的小心愿。">
+  <title>小厨合合 · 全量厨房素材 v5</title>
+  <link rel="icon" href="./assets/puppy-icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./sample.css">
+  <link rel="stylesheet" href="./full-art.css">
+  <script type="module" src="./sample-layout.mjs"></script>
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+<div id="art-viewport">
+  <main class="game-shell k-design" aria-label="小狗厨房游戏">
+    <div class="cabinet-environment" aria-hidden="true"><i class="env-top"></i><i class="env-detail"></i><i class="env-board"></i><i class="env-ledge"></i><i class="env-bottom"></i></div>
+    <header class="k-hud" aria-label="厨房等级和资源">
+      <div class="k-level"><h1 class="screen-reader">小狗厨房</h1><button class="puppy-profile" data-action="profile" aria-label="小狗店长，等级 1，查看成长进度"><span class="hud-profile-art"><span class="puppy-avatar" aria-hidden="true"></span><small id="kitchen-level-label">Lv. 1</small></span></button><div class="screen-reader"><span id="xp-label">0/100</span><span id="xp-progress"></span></div></div>
+      <button class="v-meter" data-action="energy" aria-label="查看剩余电量和补充电量"><span class="hud-meter-art"><span class="v-meter-mark" aria-hidden="true"><span id="energy-icon"></span><i></i></span><span class="v-meter-screen"><strong id="energy-count">100</strong></span><span class="v-meter-vents" aria-hidden="true"></span></span></button>
+      <button class="v-cash" data-action="cash" aria-label="查看小猪存钱罐里的金币"><span class="v-pig"><span class="v-pig-coin" aria-hidden="true"><i>★</i></span><i class="v-pig-slot" aria-hidden="true"></i><span class="v-pig-head" aria-hidden="true"><i class="v-pig-eye"></i><i class="v-pig-nose"></i></span><strong id="coin-count">120</strong></span></button>
+      <button class="v-stars" data-action="stars" aria-label="打开折纸星星罐，查看心愿星"><span class="v-stars-jar"><i class="v-paper-star" aria-hidden="true"></i><i class="v-paper-star" aria-hidden="true"></i><i class="v-paper-star" aria-hidden="true"></i><i class="v-paper-star" aria-hidden="true"></i><i class="v-paper-star" aria-hidden="true"></i><i class="v-paper-star" aria-hidden="true"></i><strong id="star-count">0</strong></span></button>
+    <button class="gem-wallet v-candy" data-action="energy" aria-label="彩虹糖罐，补充体力"><span class="v-stars-jar v-candy-jar"><span class="v-candy-piece" aria-hidden="true"></span><span class="v-candy-piece" aria-hidden="true"></span><span class="v-candy-piece" aria-hidden="true"></span><strong id="gem-count">20</strong></span></button></header>
+    <section class="k-scene" aria-label="小狗厨房与客人订单">
+      <div class="k-wallpaper" aria-hidden="true"></div>
+      <div class="k-upper-cabinets">
+
+        <div aria-hidden="true"></div><div class="v-right-cabinet" aria-hidden="true"></div>
+      </div>
+      <div class="k-rangehood" aria-hidden="true"><span class="k-hood-stack"></span><span class="k-hood-shell"><i>小狗厨房</i></span><span class="k-hood-trim"></span><span class="k-hood-light"></span></div>
+      <div class="k-order-rail" aria-hidden="true"></div><div class="k-counter" aria-hidden="true"></div>
+      <div class="screen-reader">客人的小心愿 <span id="order-count">3</span>，已送出 <b id="completed-count">0</b> 单。</div>
+      <div id="orders" class="orders-list k-orders"></div>
+    </section>
+    <section class="workbench k-worktop" aria-label="合成料理台">
+      <div class="v-slab"><div class="selection-card" id="selection-card" aria-live="polite"></div><div id="board" class="board" role="group" aria-label="七列九行合成棋盘"></div></div>
+      <span id="save-label" class="screen-reader" role="status">进度已自动保存在当前浏览器</span>
+    </section>
+    <section class="e-foreground" aria-label="厨房桌面上的功能物件">
+      <button class="e-speech" data-action="tasks" aria-label="查看小狗店长的章节任务手账"><b>小狗店长的开店手账</b><span id="quest-copy">一起完成早餐小厨房</span><span class="v-note-progress" id="quest-progress">0/3</span></button>
+      <div class="e-desk-items">
+        <button class="e-book island-object" data-action="recipes" aria-label="打开桌上的食谱和图鉴" aria-expanded="false"><span class="e-book-pages"></span><span class="e-book-cover"><span id="recipe-art" aria-hidden="true"></span><b>食谱</b></span><span class="e-book-ribbon">图鉴</span><b class="object-label">食谱</b></button>
+        <button class="e-cupboard island-object island-storage" data-action="storage" aria-label="打开收纳柜" aria-expanded="false"><span class="e-cupboard-inside" id="cabinet-art" aria-hidden="true"></span><span class="e-door"><em>收纳</em><i></i></span><small class="e-storage-count" id="storage-count">0/6</small><b class="object-label">收纳</b></button>
+        <button class="e-phone island-object" data-action="phone" aria-label="打开手机，采购与设置" aria-expanded="false"><span class="e-phone-screen"><span id="phone-icon" aria-hidden="true"></span><b>手机</b></span><b class="object-label">采购</b></button>
+        <button class="v-radio island-object" id="sound-button" data-action="music" aria-label="打开收音机，调节音乐与音效"><span class="v-radio-speaker"></span><span class="v-radio-face"><i></i>音乐</span><b class="object-label">音乐</b></button>
+        <div class="e-assistant"><div class="k-buddy e-buddy-art" aria-hidden="true"><span class="puppy-sprite"></span></div><button class="e-assistant-face" data-action="tasks" aria-label="小狗店长，打开主线手札"><span id="hint-icon" class="screen-reader"></span></button><button class="e-parcel" data-action="rewards" aria-label="打开小狗店长的礼物与每日开店礼"><span id="parcel-art" aria-hidden="true"></span><span class="e-parcel-count" id="gift-count">领</span></button><span class="e-assistant-name">手札 <small id="story-progress"></small></span></div>
+      </div>
+    </section>
+  </main>
+<nav class="art-switch" aria-label="厨房风格"><span>小厨合合 · 全量版</span><button data-kitchen-style="classic">经典</button><button data-kitchen-style="island">新风格</button><i>共享进度</i></nav>
+</div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="effects" class="effects" aria-hidden="true"></div>
+  <dialog id="modal"><div class="modal-top"><span class="mini-label">PUPPY KITCHEN</span><button class="icon-button" id="modal-close" aria-label="关闭"></button></div><div id="modal-content"></div></dialog>
+</body>
+</html>

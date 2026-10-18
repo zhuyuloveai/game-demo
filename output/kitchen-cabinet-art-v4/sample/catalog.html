@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  /><title>小狗厨房 · 全量视觉目录</title
+  ><link rel="stylesheet" href="./style.css" /><style>
+    body {
+      display: block;
+      padding: 24px;
+      background: #f4efe5;
+      font: 14px system-ui;
+      color: #685443;
+    }
+    header {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+    }
+    h1 {
+      font-size: 24px;
+    }
+    nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 16px 0;
+    }
+    nav a,
+    a {
+      color: #8c6049;
+    }
+    nav a {
+      background: #fff8ec;
+      padding: 8px;
+      border-radius: 8px;
+    }
+    main {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+    }
+    section {
+      margin: 20px 0;
+      padding: 14px;
+      border: 1px solid #dccbb5;
+      background: #fff9ee;
+      border-radius: 12px;
+    }
+    h2 {
+      font-size: 16px;
+      margin: 0 0 10px;
+    }
+    .chain {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+      gap: 8px;
+    }
+    .item {
+      text-align: center;
+      min-width: 0;
+    }
+    .item svg {
+      width: 70px;
+      height: 70px;
+    }
+    .item b {
+      display: block;
+      font-size: 11px;
+      min-height: 28px;
+    }
+    .item small {
+      display: block;
+      overflow-wrap: anywhere;
+      font-size: 10px;
+      color: #967c65;
+    }
+    .item:hover {
+      background: #f5e5cd;
+    }
+    .detail {
+      padding: 10px;
+      background: #eee1cd;
+      white-space: pre-line;
+    }
+    input {
+      padding: 10px;
+      font: inherit;
+      width: min(100%, 500px);
+    }
+  </style>
+  <header>
+    <h1>小狗厨房 · 64系列 / 422项视觉目录</h1>
+    <p>
+      411项新版 +
+      11项旧档保值。点击任意物品查看来源和规则。此目录直接使用默认游戏的物品配置与SVG渲染器。
+    </p>
+    <a href="./index.html">回到厨房</a> ·
+    <a href="./qa.html">本地行为试玩场景</a>
+    <nav id="pages"></nav>
+    <input id="search" placeholder="搜索名称或物品ID" aria-label="搜索物品" />
+    <div id="detail" class="detail" hidden></div>
+  </header>
+  <main></main>
+  <script type="module">
+    import {
+      CHAINS,
+      ITEMS,
+      FAMILY_META,
+      sourceDescription,
+      sourceRules,
+    } from "./catalog.mjs";
+    import { icon } from "./art.mjs";
+    const page = new URLSearchParams(location.search).get("page"),
+      groups = Object.entries(CHAINS);
+    document.querySelector("#pages").innerHTML =
+      '<a href="?">全部422项</a>' +
+      Array.from(
+        { length: 8 },
+        (_, i) =>
+          `<a href="?page=${i}">${i + 1} · ${FAMILY_META[groups[i * 8][0]].name}</a>`,
+      ).join("");
+    function render() {
+      const search = document.querySelector("#search").value.trim();
+      const rows =
+        page === null
+          ? groups
+          : groups.slice(Number(page) * 8, Number(page) * 8 + 8);
+      document.querySelector("main").innerHTML = rows
+        .map(([id, items]) => {
+          const filtered = items.filter(
+            (d) => !search || d.name.includes(search) || d.id.includes(search),
+          );
+          return filtered.length
+            ? `<section data-family="${id}"><h2>${FAMILY_META[id].name} · ${id} · ${items.length}级</h2><div class="chain">${filtered.map((d) => `<button class="item" data-item="${d.id}" aria-label="${d.name} L${d.level}" style="border:0;background:transparent;color:inherit">${icon(d.icon)}<b>${d.name}</b><small>L${d.level} · ${d.id}</small></button>`).join("")}</div></section>`
+            : "";
+        })
+        .join("");
+    }
+    document.querySelector("#search").oninput = render;
+    document.addEventListener("click", (e) => {
+      const d = ITEMS[e.target.closest("[data-item]")?.dataset.item];
+      if (!d) return;
+      const detail = document.querySelector("#detail");
+      detail.hidden = false;
+      detail.textContent = `${d.name} · ${d.id} · ${d.kind}\n来源：${sourceDescription(d.id)}\n合成目标：${d.mergeTo || sourceRules(d).cross?.output || "—"}；售价${d.sellCoins}；标准成本${d.standardCost ?? "—"}\n状态规则：${JSON.stringify(sourceRules(d))}`;
+      detail.scrollIntoView({ block: "nearest" });
+    });
+    render();
+  </script>
+</html>

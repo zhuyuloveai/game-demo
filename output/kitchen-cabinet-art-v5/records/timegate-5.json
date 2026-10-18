@@ -1,0 +1,45 @@
+{
+  "id": "timegate:5",
+  "key": "timegate-5",
+  "source": "sources/timegate-5.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-9202286e-241f-4cbc-b3e9-eef4a5a8b695.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/timegate-5.txt",
+  "generatedAt": "2026-10-18T13:07:54.371Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.2853,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/timegate-5.png",
+    "webp": "items/timegate-5.webp",
+    "sourceSize": [
+      1312,
+      1199
+    ],
+    "crop": [
+      36,
+      9,
+      1235,
+      1168
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      37.83
+    ],
+    "contact": {
+      "x": 50.49,
+      "width": 27.03,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-timegate.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

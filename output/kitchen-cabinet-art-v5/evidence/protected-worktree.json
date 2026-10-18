@@ -1,0 +1,5 @@
+{
+  "worktree": "/Users/zhuyu/.codex/worktrees/4e13/game-demo",
+  "status": " M kitchen-merge/dist/app.mjs\n M kitchen-merge/dist/art.mjs\n M kitchen-merge/dist/index.html\n M kitchen-merge/dist/kitchen-style.mjs\n M kitchen-merge/dist/qa.html\n M kitchen-merge/dist/qa.mjs\n?? kitchen-merge/dist/assets/island-3d/\n?? kitchen-merge/dist/cabinet-3d.css\n?? kitchen-merge/dist/island-3d.css\n?? kitchen-merge/dist/island-art.mjs\n?? kitchen-merge/dist/sample-gallery.html\n?? kitchen-merge/docs/art/island-3d/\n?? kitchen-merge/docs/verification/kitchen-cabinet-preview/\n?? kitchen-merge/docs/verification/kitchen-island-revision-2/\n?? kitchen-merge/scripts/audit-3d-sample.mjs\n?? kitchen-merge/scripts/verify-cabinet.cjs\n?? kitchen-merge/tests/island-art.test.mjs\n",
+  "trackedDiffSHA256": "55b25919acef5a2097706b2cb253ef63c9109381367c353df888e848285f1d9c"
+}

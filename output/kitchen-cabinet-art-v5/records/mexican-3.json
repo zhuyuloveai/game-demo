@@ -1,0 +1,45 @@
+{
+  "id": "mexican:3",
+  "key": "mexican-3",
+  "source": "sources/mexican-3.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-72cde65a-47f9-41e5-a836-cca9de810acf.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/mexican-3.txt",
+  "generatedAt": "2026-10-18T12:09:57.629Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.4538,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/mexican-3.png",
+    "webp": "items/mexican-3.webp",
+    "sourceSize": [
+      1375,
+      1144
+    ],
+    "crop": [
+      31,
+      195,
+      1313,
+      876
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      26.69
+    ],
+    "contact": {
+      "x": 49.57,
+      "width": 20.28,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-mexican.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

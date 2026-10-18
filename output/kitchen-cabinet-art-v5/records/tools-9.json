@@ -1,0 +1,45 @@
+{
+  "id": "tools:9",
+  "key": "tools-9",
+  "source": "sources/tools-9.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-bee233ea-69ec-40c1-ad6c-4b1e490ecba0.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/tools-9.txt",
+  "generatedAt": "2026-10-18T11:52:28.095Z",
+  "status": "visually-reviewed-awaiting-user",
+  "processed": {
+    "png": "items/tools-9.png",
+    "webp": "items/tools-9.webp",
+    "sourceSize": [
+      1305,
+      1205
+    ],
+    "crop": [
+      50,
+      38,
+      1218,
+      1160
+    ],
+    "keptComponents": 1,
+    "box": [
+      39.9,
+      38
+    ],
+    "contact": {
+      "x": 68.59,
+      "width": 18.4,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "alphaAudit": {
+    "transparentFraction": 0.2145,
+    "passes": true
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-tools.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

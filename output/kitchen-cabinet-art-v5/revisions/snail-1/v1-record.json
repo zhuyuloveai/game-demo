@@ -1,0 +1,39 @@
+{
+  "id": "snail:1",
+  "key": "snail-1",
+  "source": "sources/snail-1.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-c7b1d3c8-7a04-49b0-98db-05de72bddba2.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/snail-1.txt",
+  "generatedAt": "2026-10-18T12:25:33.793Z",
+  "status": "generated-pending-visual-review",
+  "alphaAudit": {
+    "transparentFraction": 0.4896,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/snail-1.png",
+    "webp": "items/snail-1.webp",
+    "sourceSize": [
+      1312,
+      1199
+    ],
+    "crop": [
+      67,
+      198,
+      1203,
+      877
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      29.16
+    ],
+    "contact": {
+      "x": 45.47,
+      "width": 26.73,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  }
+}

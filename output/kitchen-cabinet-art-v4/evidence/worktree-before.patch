@@ -1,0 +1,147 @@
+diff --git a/kitchen-merge/dist/app.mjs b/kitchen-merge/dist/app.mjs
+index febfe93..751e7fd 100644
+--- a/kitchen-merge/dist/app.mjs
++++ b/kitchen-merge/dist/app.mjs
+@@ -7,7 +7,7 @@ import { createKitchenAudio } from './audio.mjs';
+ 
+ const $ = s => document.querySelector(s);
+ const LEVEL_NAMES=['见习小厨','烘焙新秀','人气主厨','美味专家','厨房明星'];
+-const qa=new URLSearchParams(location.search).get('qa'),qaEnabled=['127.0.0.1','localhost','::1'].includes(location.hostname)&&['special','resources','chapter','migration','producers','producer-tiers','island','island-long'].includes(qa);
++const qa=new URLSearchParams(location.search).get('qa'),qaEnabled=['127.0.0.1','localhost','::1'].includes(location.hostname)&&['special','resources','chapter','migration','producers','producer-tiers','island','island-long','island-3d','cabinet-3d'].includes(qa);
+ const STORAGE = qaEnabled?`little-kitchen-qa-${qa}`:'little-kitchen-save-v1';
+ const BACKUP_PREFIX=qaEnabled?STORAGE:'little-kitchen';
+ const backupKey=suffix=>`${BACKUP_PREFIX}-${suffix}`;
+@@ -167,7 +167,7 @@ function renderOrders(){
+   let slot=$('.story-assistant-slot');if(!slot){slot=document.createElement('span');slot.className='story-assistant-slot';$('#orders').prepend(slot);}slot.append(storyAssistant);
+   if(state.orders.length<3)$('#orders').insertAdjacentHTML('beforeend',`<article class="order-card order-empty"><strong>邻里订单</strong><p>请把生产器从仓库或待领区取到台面，保留空位后继续接单。</p></article>`);
+ }
+-function render(pop=-1){renderBoard(pop);renderStats();renderSelection();renderOrders();}
++function render(pop=-1){$('#parcel-art').innerHTML=icon('gift');renderBoard(pop);renderStats();renderSelection();renderOrders();}
+ function act(result,{pop=-1,fx=null,showMessage=false}={}){
+   if(!result.ok){toast(result.message);playSound('error');renderStats();renderSelection();return false;}
+   hinted=[];save();render(pop);playSound(fx||result.type,result.item?.level);
+@@ -286,7 +286,7 @@ function renderPanel(){
+     html=panelHeader('小狗厨房的声音','原创轻快循环配乐，搭配点击、生产、合成、交单、烹饪和开店奖励音效。首次操作后开始播放。');
+     html+=`<div class="settings-row"><span>背景音乐<small>轻快铃音、拨弦与温暖低音</small></span>${button(musicEnabled?'已开启':'已关闭','toggle-music')}</div><label class="settings-row">音乐音量 <input class="music-slider" type="range" min="0" max="100" value="${Math.round(musicVolume*100)}" data-volume="music" aria-label="背景音乐音量"></label><div class="settings-row"><span>操作音效<small>每种操作都有不同的声音反馈</small></span>${button(effectsEnabled?'已开启':'已关闭','toggle-effects')}</div><label class="settings-row">音效音量 <input class="music-slider" type="range" min="0" max="100" value="${Math.round(effectsVolume*100)}" data-volume="effects" aria-label="操作音效音量"></label>`;
+   }else if(modalView==='settings'){
+-    html=panelHeader('厨房小设置','按自己的节奏，慢慢收集每一份美味。')+`<fieldset class="kitchen-style-picker"><legend>厨房风格</legend><div>${Object.entries(KITCHEN_STYLES).map(([id,label])=>`<button data-kitchen-style="${id}" aria-pressed="${kitchenStyle===id}"><span>${id==='island'?'☀':'⌂'}</span><b>${label}</b><small>${kitchenStyle===id?'正在使用':id==='island'?'窗光与浅蓝岛台':'熟悉的奶油小厨房'}</small></button>`).join('')}</div></fieldset>`+`<div class="settings-row"><span>存档与调参记录<small>版本4 · ${state.balanceVersion}</small></span>${button('导出备份','export-save')}${button('导出事件','export-events')}</div><div class="settings-row"><span>迁移前备份<small>${backupSummary()}；恢复时保留当前进度副本</small></span>${button('导出原始旧档','export-legacy')}${button('恢复旧备份','restore-backup')}</div><div class="settings-row"><span>玩法说明<small>生产、合成、做菜、交单与章节任务</small></span>${button('查看','help')}</div><div class="settings-row"><span>音乐和音效<small>分别开关与调节音量</small></span>${button('调整','music')}</div><div class="settings-row"><span>自动存档<small>${storageAvailable?'当前浏览器自动保存，旧版进度已兼容':'当前浏览器暂时无法保存'}</small></span>自动</div><div class="settings-row"><span>重新开张<small>清空当前进度，回到新手厨房</small></span>${button('重新开始','reset-confirm')}</div>`;
++    html=panelHeader('厨房小设置','按自己的节奏，慢慢收集每一份美味。')+`<fieldset class="kitchen-style-picker"><legend>厨房风格</legend><div>${Object.entries(KITCHEN_STYLES).map(([id,label])=>`<button data-kitchen-style="${id}" aria-pressed="${kitchenStyle===id}"><span>${id==='island'?'☀':'⌂'}</span><b>${label}</b><small>${kitchenStyle===id?'正在使用':id==='island'?'奶油木柜与立体格槽':'熟悉的奶油小厨房'}</small></button>`).join('')}</div></fieldset>`+`<div class="settings-row"><span>存档与调参记录<small>版本4 · ${state.balanceVersion}</small></span>${button('导出备份','export-save')}${button('导出事件','export-events')}</div><div class="settings-row"><span>迁移前备份<small>${backupSummary()}；恢复时保留当前进度副本</small></span>${button('导出原始旧档','export-legacy')}${button('恢复旧备份','restore-backup')}</div><div class="settings-row"><span>玩法说明<small>生产、合成、做菜、交单与章节任务</small></span>${button('查看','help')}</div><div class="settings-row"><span>音乐和音效<small>分别开关与调节音量</small></span>${button('调整','music')}</div><div class="settings-row"><span>自动存档<small>${storageAvailable?'当前浏览器自动保存，旧版进度已兼容':'当前浏览器暂时无法保存'}</small></span>自动</div><div class="settings-row"><span>重新开张<small>清空当前进度，回到新手厨房</small></span>${button('重新开始','reset-confirm')}</div>`;
+   }else if(modalView==='help'){
+     html=panelHeader('厨房店长小手册','主玩法是两两合成，食谱与开店任务让每一件物品都有用途。');
+     const steps=[['生产与升级','点击篮子、厨具架等生产器消耗1电量获取材料。次数用完会冷却，同种同级生产器可拖动合并升级。'],['合成与解锁','点击物品只切换选中，拖动相同种类和等级的物品合成升级。拖入蒙尘的相同物品可解锁；空的锁定格可通过相邻合成整理，也能花金币清理。'],['订单与章节','订单只计算台面上的已解锁物品。交单可得金币、经验和许愿星；完成小狗店长手账的任务，逐步解锁咖啡、香草、亚洲及环球料理设备。星星用于章节结算布置。'],['食材与厨具','打开食谱，凑齐指定材料和对应等级厨具即可做菜。材料会消耗，厨具可以反复使用；更高级厨具同样有效。'],['仓库与礼物','在物品信息栏收纳物品；仓库可用金币扩容。每5份合格订单有礼盒，每日有开店礼。礼盒、金币和电量道具也能合成升级。'],['辅助道具','剪刀把2级以上材料拆成两份上一级，沙漏推进全棋盘生产时钟，补货箱增加选中生产器库存。点击选中物品后，在“更多”里使用。'],['惊喜与自动产出','高级合成有机会产生限时泡泡，可以购买或变为金币。香草花园会定时自动产出，先给它留出相邻空位。'],['音乐与存档','原创音乐在首次操作后播放；离开页面会暂停。进度自动保存，音效与配乐可以分别关闭。']];
+@@ -330,7 +330,7 @@ document.addEventListener('click',event=>{
+     if(pointer)endPointer({pointerId:pointer.id},true);
+     kitchenStyle=style;document.documentElement.dataset.kitchenStyle=style;
+     try{rememberKitchenStyle(localStorage,style);}catch{}
+-    refreshPanel();$(`button[data-kitchen-style="${style}"]`)?.focus({preventScroll:true});toast(`已换成${KITCHEN_STYLES[style]}`);return;
++    render();refreshPanel();$(`button[data-kitchen-style="${style}"]`)?.focus({preventScroll:true});toast(`已换成${KITCHEN_STYLES[style]}`);return;
+   }
+   const action=target.dataset.action;
+   if(['profile','collection','storage','shop','rewards','tasks','phone','cash','stars','recipes','sources','item','energy','music','settings','help','reset-confirm','sell-confirm','tool-picker'].includes(action)){
+@@ -437,4 +437,4 @@ render();save();
+ 
+ if(state.migrationNotice&&!state.claimed[`migration:notice:v${state.version}`]){toast(state.migrationNotice);state.claimed[`migration:notice:v${state.version}`]=true;save();}
+ 
+-if(qaEnabled&&!qa.startsWith('island')){const controls=document.createElement('aside');controls.className='qa-controls';controls.innerHTML='<b>本地验收 · '+qa+'</b><button data-action=qa-advance>推进1小时</button><button data-action=qa-reset>重置场景</button><a href=qa.html>切换场景</a>';document.body.prepend(controls);}
++if(qaEnabled&&!['island','island-long','island-3d','cabinet-3d'].includes(qa)){const controls=document.createElement('aside');controls.className='qa-controls';controls.innerHTML='<b>本地验收 · '+qa+'</b><button data-action=qa-advance>推进1小时</button><button data-action=qa-reset>重置场景</button><a href=qa.html>切换场景</a>';document.body.prepend(controls);}
+diff --git a/kitchen-merge/dist/art.mjs b/kitchen-merge/dist/art.mjs
+index d3808bb..91e2241 100644
+--- a/kitchen-merge/dist/art.mjs
++++ b/kitchen-merge/dist/art.mjs
+@@ -1,3 +1,4 @@
++import {islandArt} from './island-art.mjs';
+ import {itemMarkup,originalIcon} from './item-art.mjs';
+ // Original SVG artwork for the little kitchen.
+ // Item silhouettes are authored once; a small material engine below gives every
+@@ -425,6 +426,7 @@ function escapeAttribute(value) {
+ }
+ 
+ export function icon(name, className = '') {
++  const raster=islandArt(name,className);if(raster)return raster;
+   const id=name.startsWith('item/')?name.slice(5):null;
+   const original=id&&originalIcon(id);
+   const body = original?artFor(original):id?render(itemMarkup(id, key=>art[key]), 'natural'):artFor(name);
+diff --git a/kitchen-merge/dist/index.html b/kitchen-merge/dist/index.html
+index 052c9b4..23b960c 100644
+--- a/kitchen-merge/dist/index.html
++++ b/kitchen-merge/dist/index.html
+@@ -13,6 +13,8 @@
+   <link rel="stylesheet" href="./island.css">
+   <link rel="stylesheet" href="./classic.css">
+   <link rel="stylesheet" href="./island-v2.css">
++  <link rel="stylesheet" href="./island-3d.css">
++  <link rel="stylesheet" href="./cabinet-3d.css">
+   <script type="module" src="./app.mjs"></script>
+ </head>
+ <body>
+diff --git a/kitchen-merge/dist/kitchen-style.mjs b/kitchen-merge/dist/kitchen-style.mjs
+index c313da0..fafe4f8 100644
+--- a/kitchen-merge/dist/kitchen-style.mjs
++++ b/kitchen-merge/dist/kitchen-style.mjs
+@@ -1,5 +1,5 @@
+ // Appearance lives outside the game save. Applying a style never touches game state.
+-export const KITCHEN_STYLES = Object.freeze({classic:'经典厨房',island:'围坐岛台'});
++export const KITCHEN_STYLES = Object.freeze({classic:'经典厨房',island:'暖木柜架'});
+ export const STYLE_KEY = 'little-kitchen-style';
+ export function readKitchenStyle(storage, hasSave = false) {
+   try { const value=JSON.parse(storage.getItem(STYLE_KEY));if(Object.hasOwn(KITCHEN_STYLES,value))return value; } catch {}
+diff --git a/kitchen-merge/dist/qa.html b/kitchen-merge/dist/qa.html
+index 76b8ed3..6409a85 100644
+--- a/kitchen-merge/dist/qa.html
++++ b/kitchen-merge/dist/qa.html
+@@ -27,6 +27,7 @@
+     只在 localhost / 127.0.0.1
+     生效。场景存档与正式游戏分开。需要重新初始化时点击场景中的“重置场景”。加速按钮推进真实引擎的时间，不跳过转换次数。
+   </p>
++  <a id="island-3d-comparison" href="index.html?qa=cabinet-3d">暖木柜架 · 12种3D物品样板（重置独立QA）</a>
+   <a id="island-long-comparison" href="index.html?qa=island-long">长名称、多需求订单对照（真实目录）</a>
+   <a id="island-comparison" href="index.html?qa=island">重置并打开围坐岛台对照（独立QA存档）</a>
+   <a href="index.html?qa=producers">生产器美术：11类启用形态、零件、最高级与容器</a>
+@@ -76,7 +77,7 @@
+ </script>
+ 
+ <script type="module">
+-  for(const [id,slot]of [['island-comparison','island'],['island-long-comparison','island-long']]){
++  for(const [id,slot]of [['island-comparison','island'],['island-long-comparison','island-long'],['island-3d-comparison','cabinet-3d']]){
+     document.getElementById(id).addEventListener('click',()=>{
+       if(['localhost','127.0.0.1','::1'].includes(location.hostname)){
+         try{localStorage.removeItem(`little-kitchen-qa-${slot}`);}catch{}
+diff --git a/kitchen-merge/dist/qa.mjs b/kitchen-merge/dist/qa.mjs
+index a0ce79b..1fa479d 100644
+--- a/kitchen-merge/dist/qa.mjs
++++ b/kitchen-merge/dist/qa.mjs
+@@ -1,6 +1,7 @@
+ // Explicit localhost-only fixtures, isolated from the player's normal save.
+ import { createGame, makeItem, BALANCE, mainOrder } from "./engine.mjs";
+ export function fixture(kind, now = Date.now()) {
++  if(kind==="cabinet-3d")kind="island-3d";
+   if (kind === "migration") return createGame(null, now);
+   const s = createGame(null, now);
+   s.board.fill(null);
+@@ -11,11 +12,16 @@ export function fixture(kind, now = Date.now()) {
+   s.gems = 100;
+   s.energy = 999;
+   const put = (i, id) => (s.board[i] = makeItem(s, id, now));
+-  if (["island","island-long"].includes(kind)) {
++  if (["island","island-long","island-3d"].includes(kind)) {
+     // Visual comparison only: real, interactive items in an isolated localhost QA save.
+     s.coins=120;s.gems=20;s.energy=100;s.stars=12;
+     const layout={0:'gen_food:5',1:'food:2',4:'food:1',6:'vegetable:2',8:'tableware:1',11:'tools:3',12:'food:4',14:'vegetable:2',16:'fruit:2',18:'tools:2',20:'food:2',21:'gen_produce:3',23:'food:1',25:'food:3',27:'tableware:1',29:'food:4',31:'food:6',33:'fruit:2',35:'tools:2',37:'vegetable:2',39:'food:1',41:'food:2',43:'fruit:2',45:'tableware:1',47:'food:6',49:'food:2',51:'tools:3',53:'gen_tools:4',55:'food:3',57:'vegetable:2',59:'food:4',61:'tools:2'};
+     for(const [index,id]of Object.entries(layout))put(Number(index),id);
++    if(kind==='island-3d'){
++      s.board.fill(null);
++      const samples={0:'gen_food:5',1:'food:2',4:'food:1',6:'vegetable:2',8:'tableware:2',11:'tools:2',12:'food:4',14:'vegetable:2',16:'fruit:3',18:'tools:4',20:'food:2',21:'gen_produce:3',23:'food:1',25:'fruit:2',27:'tableware:2',29:'food:4',31:'food:2',33:'fruit:3',35:'tools:4',37:'vegetable:2',39:'food:1',41:'fruit:2',43:'fruit:3',45:'tableware:2',47:'food:4',49:'food:2',51:'tools:2',53:'gen_tools:4',55:'food:1',57:'vegetable:2',59:'food:4',61:'tools:4'};
++      for(const [index,id]of Object.entries(samples))put(Number(index),id);
++    }
+     if(kind==='island-long'){
+       // Real catalogue names and a normal two-need order, with no rule changes.
+       s.orders[0].needs=[{family:'tools',level:13,count:1},{family:'food',level:11,count:1}];
+@@ -109,7 +115,7 @@ export function fixture(kind, now = Date.now()) {
+       for (let count = 0; count < need.count; count++)
+         put(i++, `${need.family}:${need.level}`);
+   }
+-  if(!["island","island-long"].includes(kind))s.orders = [];
++  if(!["island","island-long","island-3d"].includes(kind))s.orders = [];
+   s.events = [];
+   return s;
+ }

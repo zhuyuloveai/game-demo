@@ -1,0 +1,283 @@
+{
+  "tool": "Built-in image_gen.imagegen",
+  "date": "2026-10-17",
+  "assets": [
+    {
+      "id": "puppy",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated production sprite for a premium cozy 3D kitchen merge game at 375x667. Input image is style reference only: match its restrained, finely shaded, warm cream and blush painted wood look. Front-facing orthographic view with just a hint of visible top, no dramatic tilt. Gentle soft upper-left daylight, warm neutral fill, matte tactile materials, fine tiny bevels, crisp beautiful silhouette, modest highlights, very small soft contact shadow. Genuine transparent background outside the object. No scenery, no table, no pedestal unless specified, no framing card, no lettering or numbers unless specified. One object only, fully visible, centered with generous transparent padding. Must read clearly at 35–60px. Subject: a small seated WHITE puppy shopkeeper. Identity input image 2 must be preserved: pure white body, wide horizontal fluffy cloud-shaped ears, black little oval eyes, black nose and curved black smile, small red tongue, red baseball cap with yellow letter M, four rounded paws. Image 1 only sets rendering quality. Keep original puppy identity; no brown patches, no chef hat, no clothing or props. Friendly original compact proportions, matte soft fur, less inflated plastic shine.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/reference.png",
+        "/Users/zhuyu/.codex/worktrees/4e13/game-demo/kitchen-merge/dist/assets/island-puppy-v2.webp"
+      ],
+      "status": "used in review sample; not user-approved",
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-382fc6d3-8e96-4c77-b21b-f265c0fc3b61.png",
+      "workspaceSource": "sources/puppy-source.png"
+    },
+    {
+      "id": "book",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated production sprite for a premium cozy 3D kitchen merge game at 375x667. Input image is style reference only: match its restrained, finely shaded, warm cream and blush painted wood look. Front-facing orthographic view with just a hint of visible top, no dramatic tilt. Gentle soft upper-left daylight, warm neutral fill, matte tactile materials, fine tiny bevels, crisp beautiful silhouette, modest highlights, very small soft contact shadow. Genuine transparent background outside the object. No scenery, no table, no pedestal unless specified, no framing card, no lettering or numbers unless specified. One object only, fully visible, centered with generous transparent padding. Must read clearly at 35–60px. Subject: a compact recipe journal in a blush pink wooden book holder. One upright cream recipe book with slim brown spine, three small brass binding loops, tiny chef-hat embossed emblem in upper quarter, large blank cream lower cover safe for later Chinese label. A thin sage-green book peeks from behind. Holder is low with U-shaped opening, book visible. Front view. No written text. Aspect silhouette roughly 0.9 width to 1 height. No table or cabinet around it.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/reference.png"
+      ],
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-c09ddfd0-ca44-4a9a-b941-f7dc2f5c2751.png",
+      "status": "used in review sample; not user-approved",
+      "workspaceSource": "sources/book-source.png"
+    },
+    {
+      "id": "drawer",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated production sprite for a premium cozy 3D kitchen merge game at 375x667. Input image is style reference only: match its restrained, finely shaded, warm cream and blush painted wood look. Front-facing orthographic view with just a hint of visible top, no dramatic tilt. Gentle soft upper-left daylight, warm neutral fill, matte tactile materials, fine tiny bevels, crisp beautiful silhouette, modest highlights, very small soft contact shadow. Genuine transparent background outside the object. No scenery, no table, no pedestal unless specified, no framing card, no lettering or numbers unless specified. One object only, fully visible, centered with generous transparent padding. Must read clearly at 35–60px. Subject: ONE compact standalone blush-pink wooden storage drawer box, broad rectangular shape, width to height 1.45. Fine cream bevel, one tiny understated curved antique-brass handle in lower third, a small blank ivory nameplate centered in upper third. Flat top, no stack of drawers, no cabinet surround, no floor, no plinth. Quiet delicate construction, restrained brass.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/reference.png"
+      ],
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-20b383cf-85f6-4e18-b5cc-534c7bcd161e.png",
+      "status": "used in review sample; not user-approved",
+      "workspaceSource": "sources/drawer-source.png"
+    },
+    {
+      "id": "phone",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated production sprite for a premium cozy 3D kitchen merge game at 375x667. Input image is style reference only: match its restrained, finely shaded, warm cream and blush painted wood look. Front-facing orthographic view with just a hint of visible top, no dramatic tilt. Gentle soft upper-left daylight, warm neutral fill, matte tactile materials, fine tiny bevels, crisp beautiful silhouette, modest highlights, very small soft contact shadow. Genuine transparent background outside the object. No scenery, no table, no pedestal unless specified, no framing card, no lettering or numbers unless specified. One object only, fully visible, centered with generous transparent padding. Must read clearly at 35–60px. Subject: a small modern charcoal smartphone resting upright with a gentle backward lean in a low honeywood charging dock. Slim rounded black bezel, blank pale powder-blue screen ready for real UI text; tiny top speaker only. Front view, not sideways. No icons or text on screen. Phone and dock one isolated object. Entire slim silhouette visible, dock just 25 percent of overall height.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/reference.png"
+      ],
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-9d444126-6258-4b22-8ead-07e30aa69d9c.png",
+      "status": "used in review sample; not user-approved",
+      "workspaceSource": "sources/phone-source.png"
+    },
+    {
+      "id": "radio",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated production sprite for a premium cozy 3D kitchen merge game at 375x667. Input image is style reference only: match its restrained, finely shaded, warm cream and blush painted wood look. Front-facing orthographic view with just a hint of visible top, no dramatic tilt. Gentle soft upper-left daylight, warm neutral fill, matte tactile materials, fine tiny bevels, crisp beautiful silhouette, modest highlights, very small soft contact shadow. Genuine transparent background outside the object. No scenery, no table, no pedestal unless specified, no framing card, no lettering or numbers unless specified. One object only, fully visible, centered with generous transparent padding. Must read clearly at 35–60px. Subject: a compact vintage cream and warm walnut tabletop radio with softly rounded corners, tiny brass handle lying down on top, delicate circular speaker grille on LEFT half, blank cream rectangle on RIGHT half for later label, two tiny brass control knobs along bottom. Width to height 1.6, no aerial, no musical notes floating, no crochet cloth, no text. Fine brass accents, modest depth.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/reference.png"
+      ],
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-23c55c69-1725-4a40-bb9d-1ed2e79dda26.png",
+      "status": "used in review sample; not user-approved",
+      "workspaceSource": "sources/radio-source.png"
+    },
+    {
+      "id": "energy",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated production sprite for a premium cozy 3D kitchen merge game at 375x667. Input image is style reference only: match its restrained, finely shaded, warm cream and blush painted wood look. Front-facing orthographic view with just a hint of visible top, no dramatic tilt. Gentle soft upper-left daylight, warm neutral fill, matte tactile materials, fine tiny bevels, crisp beautiful silhouette, modest highlights, very small soft contact shadow. Genuine transparent background outside the object. No scenery, no table, no pedestal unless specified, no framing card, no lettering or numbers unless specified. One object only, fully visible, centered with generous transparent padding. Must read clearly at 35–60px. Subject: a single golden yellow lightning-bolt energy token, gently beveled solid shape with subtle pale warm highlights and quiet orange edge, vertical, restrained satin finish. No electric glow, no floating sparks, no text.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/reference.png"
+      ],
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-51a8390a-0961-46a6-b56b-60b87c0571d0.png",
+      "status": "used in review sample; not user-approved",
+      "workspaceSource": "sources/energy-source.png"
+    },
+    {
+      "id": "pig",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated production sprite for a premium cozy 3D kitchen merge game at 375x667. Input image is style reference only: match its restrained, finely shaded, warm cream and blush painted wood look. Front-facing orthographic view with just a hint of visible top, no dramatic tilt. Gentle soft upper-left daylight, warm neutral fill, matte tactile materials, fine tiny bevels, crisp beautiful silhouette, modest highlights, very small soft contact shadow. Genuine transparent background outside the object. No scenery, no table, no pedestal unless specified, no framing card, no lettering or numbers unless specified. One object only, fully visible, centered with generous transparent padding. Must read clearly at 35–60px. Subject: a tiny pastel dusty-pink ceramic piggy bank, rounded natural pig silhouette, facing slightly left so its round snout and two small black eyes read clearly, short feet at level baseline, small slot on top with ONE small brass coin partially inserted. Matte glaze with modest highlight, no plastic shine, no text.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/reference.png"
+      ],
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-6db439f7-7380-4d61-8b45-447397c4a1b8.png",
+      "status": "used in review sample; not user-approved",
+      "workspaceSource": "sources/pig-source.png"
+    },
+    {
+      "id": "stars",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated production sprite for a premium cozy 3D kitchen merge game at 375x667. Input image is style reference only: match its restrained, finely shaded, warm cream and blush painted wood look. Front-facing orthographic view with just a hint of visible top, no dramatic tilt. Gentle soft upper-left daylight, warm neutral fill, matte tactile materials, fine tiny bevels, crisp beautiful silhouette, modest highlights, very small soft contact shadow. Genuine transparent background outside the object. No scenery, no table, no pedestal unless specified, no framing card, no lettering or numbers unless specified. One object only, fully visible, centered with generous transparent padding. Must read clearly at 35–60px. Subject: a small clear pale blue glass pantry jar with a flat antique-brass lid containing ONE large matte golden five-point star. Squat jar with clean straight vertical sides and gentle shoulder. Refined glass rim, clear star visible, no ribbons, no text.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/reference.png"
+      ],
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-95e49fb6-eca7-43ae-b142-5211ff4a28b4.png",
+      "status": "used in review sample; not user-approved",
+      "workspaceSource": "sources/stars-source.png"
+    },
+    {
+      "id": "candy",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated production sprite for a premium cozy 3D kitchen merge game at 375x667. Input image is style reference only: match its restrained, finely shaded, warm cream and blush painted wood look. Front-facing orthographic view with just a hint of visible top, no dramatic tilt. Gentle soft upper-left daylight, warm neutral fill, matte tactile materials, fine tiny bevels, crisp beautiful silhouette, modest highlights, very small soft contact shadow. Genuine transparent background outside the object. No scenery, no table, no pedestal unless specified, no framing card, no lettering or numbers unless specified. One object only, fully visible, centered with generous transparent padding. Must read clearly at 35–60px. Subject: a small clear pale blue glass pantry jar with a flat antique-brass lid filled halfway with 7 small round pastel candies in pink, blue, yellow, mint and lilac. Same restrained tiny storage jar, straight sides and gentle shoulder. One small blush ribbon tied on neck. No text.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/reference.png"
+      ],
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-ec3e3013-8e3f-4039-bc33-b1e66a3317f4.png",
+      "status": "used in review sample; not user-approved",
+      "workspaceSource": "sources/candy-source.png"
+    },
+    {
+      "id": "gift",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated production sprite for a premium cozy 3D kitchen merge game at 375x667. Input image is style reference only: match its restrained, finely shaded, warm cream and blush painted wood look. Front-facing orthographic view with just a hint of visible top, no dramatic tilt. Gentle soft upper-left daylight, warm neutral fill, matte tactile materials, fine tiny bevels, crisp beautiful silhouette, modest highlights, very small soft contact shadow. Genuine transparent background outside the object. No scenery, no table, no pedestal unless specified, no framing card, no lettering or numbers unless specified. One object only, fully visible, centered with generous transparent padding. Must read clearly at 35–60px. Subject: one small coral red gift box with a cream-and-gold satin ribbon and modest tied bow, slightly visible top, refined matte paper, front orthographic. No symbols, no tag, no text, no stars or confetti.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/reference.png"
+      ],
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-c74880cf-e196-41af-903d-0a727f0f7eae.png",
+      "status": "used in review sample; not user-approved",
+      "workspaceSource": "sources/gift-source.png"
+    },
+    {
+      "id": "customer",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated production sprite for a premium cozy 3D kitchen merge game at 375x667. Input image is style reference only: match its restrained, finely shaded, warm cream and blush painted wood look. Front-facing orthographic view with just a hint of visible top, no dramatic tilt. Gentle soft upper-left daylight, warm neutral fill, matte tactile materials, fine tiny bevels, crisp beautiful silhouette, modest highlights, very small soft contact shadow. Genuine transparent background outside the object. No scenery, no table, no pedestal unless specified, no framing card, no lettering or numbers unless specified. One object only, fully visible, centered with generous transparent padding. Must read clearly at 35–60px. Subject: one friendly young gray-and-white kitten CUSTOMER head portrait, simple soft smile, large kind dark eyes, ivory muzzle, small pink nose, lilac headscarf over the ears. Head only, no chef hat, no body, no frame, no badge, no food, no hands. Soft feltlike fine fur, face forward. This is a customer, separate from the white dog mascot.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/reference.png"
+      ],
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-c8ed9c17-d587-4553-a231-ab29d2a2459a.png",
+      "status": "used in review sample; not user-approved",
+      "workspaceSource": "sources/customer-source.png"
+    },
+    {
+      "id": "wheat",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated production sprite for a premium cozy 3D kitchen merge game at 375x667. Input image is style reference only: match its restrained, finely shaded, warm cream and blush painted wood look. Front-facing orthographic view with just a hint of visible top, no dramatic tilt. Gentle soft upper-left daylight, warm neutral fill, matte tactile materials, fine tiny bevels, crisp beautiful silhouette, modest highlights, very small soft contact shadow. Genuine transparent background outside the object. No scenery, no table, no pedestal unless specified, no framing card, no lettering or numbers unless specified. One object only, fully visible, centered with generous transparent padding. Must read clearly at 35–60px. Subject: one beautiful golden wheat ear with two little leaves and short stalk, gently diagonal from lower-left to upper-right. Plump grains, fine but readable awns, honey gold. Fit entire sprig, no stray loose grains.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/reference.png"
+      ],
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-c767946a-0ec9-48ad-88b9-151b02d104c9.png",
+      "status": "used in review sample; not user-approved",
+      "workspaceSource": "sources/wheat-source.png"
+    },
+    {
+      "id": "flour",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated production sprite for a premium cozy 3D kitchen merge game at 375x667. Input image is style reference only: match its restrained, finely shaded, warm cream and blush painted wood look. Front-facing orthographic view with just a hint of visible top, no dramatic tilt. Gentle soft upper-left daylight, warm neutral fill, matte tactile materials, fine tiny bevels, crisp beautiful silhouette, modest highlights, very small soft contact shadow. Genuine transparent background outside the object. No scenery, no table, no pedestal unless specified, no framing card, no lettering or numbers unless specified. One object only, fully visible, centered with generous transparent padding. Must read clearly at 35–60px. Subject: one small open ivory linen flour bag filled with fine white flour, rolled rim, a tiny golden wheat-ear emblem centered on front (image only), slightly rounded base sitting level. No text, no ribbon, no tools.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/reference.png"
+      ],
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-b4578df5-8616-4978-8d94-e34f86adbaa7.png",
+      "status": "used in review sample; not user-approved",
+      "workspaceSource": "sources/flour-source.png"
+    },
+    {
+      "id": "tomato",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated production sprite for a premium cozy 3D kitchen merge game at 375x667. Input image is style reference only: match its restrained, finely shaded, warm cream and blush painted wood look. Front-facing orthographic view with just a hint of visible top, no dramatic tilt. Gentle soft upper-left daylight, warm neutral fill, matte tactile materials, fine tiny bevels, crisp beautiful silhouette, modest highlights, very small soft contact shadow. Genuine transparent background outside the object. No scenery, no table, no pedestal unless specified, no framing card, no lettering or numbers unless specified. One object only, fully visible, centered with generous transparent padding. Must read clearly at 35–60px. Subject: one ripe round red tomato with a fresh small green five-point leafy calyx, natural soft lobes, fine skin surface, one modest warm highlight upper left. No face, no plate, no droplets.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/reference.png"
+      ],
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-2b48a713-f090-440f-b278-c9b1c1644ffb.png",
+      "status": "used in review sample; not user-approved",
+      "workspaceSource": "sources/tomato-source.png"
+    },
+    {
+      "id": "orange",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated production sprite for a premium cozy 3D kitchen merge game at 375x667. Input image is style reference only: match its restrained, finely shaded, warm cream and blush painted wood look. Front-facing orthographic view with just a hint of visible top, no dramatic tilt. Gentle soft upper-left daylight, warm neutral fill, matte tactile materials, fine tiny bevels, crisp beautiful silhouette, modest highlights, very small soft contact shadow. Genuine transparent background outside the object. No scenery, no table, no pedestal unless specified, no framing card, no lettering or numbers unless specified. One object only, fully visible, centered with generous transparent padding. Must read clearly at 35–60px. Subject: one whole ripe orange with a small stem and one small deep-green leaf. Delicate orange-peel texture, subtly organic shape, warm soft highlight, no slices, no plate.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/reference.png"
+      ],
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-09d29758-cef7-4eaa-a34c-0027f39077f5.png",
+      "status": "used in review sample; not user-approved",
+      "workspaceSource": "sources/orange-source.png"
+    },
+    {
+      "id": "strawberry",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated production sprite for a premium cozy 3D kitchen merge game at 375x667. Input image is style reference only: match its restrained, finely shaded, warm cream and blush painted wood look. Front-facing orthographic view with just a hint of visible top, no dramatic tilt. Gentle soft upper-left daylight, warm neutral fill, matte tactile materials, fine tiny bevels, crisp beautiful silhouette, modest highlights, very small soft contact shadow. Genuine transparent background outside the object. No scenery, no table, no pedestal unless specified, no framing card, no lettering or numbers unless specified. One object only, fully visible, centered with generous transparent padding. Must read clearly at 35–60px. Subject: a close little pair of ripe red strawberries joined in a compact cluster, small fresh green leafy tops, tiny golden seeds naturally inset. A larger berry at left and smaller berry at right, shared bottom baseline. No basket, no plate.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/reference.png"
+      ],
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-4117aa63-a5c5-4229-b999-55dabd6c9a20.png",
+      "status": "used in review sample; not user-approved",
+      "workspaceSource": "sources/strawberry-source.png"
+    },
+    {
+      "id": "bread",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated production sprite for a premium cozy 3D kitchen merge game at 375x667. Input image is style reference only: match its restrained, finely shaded, warm cream and blush painted wood look. Front-facing orthographic view with just a hint of visible top, no dramatic tilt. Gentle soft upper-left daylight, warm neutral fill, matte tactile materials, fine tiny bevels, crisp beautiful silhouette, modest highlights, very small soft contact shadow. Genuine transparent background outside the object. No scenery, no table, no pedestal unless specified, no framing card, no lettering or numbers unless specified. One object only, fully visible, centered with generous transparent padding. Must read clearly at 35–60px. Subject: a small golden baked loaf of sandwich bread with two thick slices at the front, creamy soft airy crumb visible, softly browned crust with three gentle curved score marks. Compact cluster, one loaf only, no butter, no plate, no crumbs floating.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/reference.png"
+      ],
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-bd9f49b8-3263-45a4-a9e7-dc2385e581ff.png",
+      "status": "used in review sample; not user-approved",
+      "workspaceSource": "sources/bread-source.png"
+    },
+    {
+      "id": "bowl",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated production sprite for a premium cozy 3D kitchen merge game at 375x667. Input image is style reference only: match its restrained, finely shaded, warm cream and blush painted wood look. Front-facing orthographic view with just a hint of visible top, no dramatic tilt. Gentle soft upper-left daylight, warm neutral fill, matte tactile materials, fine tiny bevels, crisp beautiful silhouette, modest highlights, very small soft contact shadow. Genuine transparent background outside the object. No scenery, no table, no pedestal unless specified, no framing card, no lettering or numbers unless specified. One object only, fully visible, centered with generous transparent padding. Must read clearly at 35–60px. Subject: one empty small pale blue-gray ceramic mixing bowl, matte ivory interior, rounded lip, slightly visible inside, small circular foot. Clean simple half-round shape, no blue stripe, no liquid, no spoon, no extra objects. This is small tableware, width greater than height.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/reference.png"
+      ],
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-cd9d9c80-fab1-41c0-92fb-3051aeddc740.png",
+      "status": "used in review sample; not user-approved",
+      "workspaceSource": "sources/bowl-source.png"
+    },
+    {
+      "id": "whisk",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated production sprite for a premium cozy 3D kitchen merge game at 375x667. Input image is style reference only: match its restrained, finely shaded, warm cream and blush painted wood look. Front-facing orthographic view with just a hint of visible top, no dramatic tilt. Gentle soft upper-left daylight, warm neutral fill, matte tactile materials, fine tiny bevels, crisp beautiful silhouette, modest highlights, very small soft contact shadow. Genuine transparent background outside the object. No scenery, no table, no pedestal unless specified, no framing card, no lettering or numbers unless specified. One object only, fully visible, centered with generous transparent padding. Must read clearly at 35–60px. Subject: one small stainless steel balloon whisk with fine clear loop wires and a warm honeywood rounded handle, laid diagonally lower-left to upper-right, complete handle and wire tip visible. Natural steel reflections subdued, simple compact proportions, no hanging loop, no extra utensils.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/reference.png"
+      ],
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-f67874f1-4117-43ec-ba1a-9558fdb2f45b.png",
+      "status": "used in review sample; not user-approved",
+      "workspaceSource": "sources/whisk-source.png"
+    },
+    {
+      "id": "saucepan",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated production sprite for a premium cozy 3D kitchen merge game at 375x667. Input image is style reference only: match its restrained, finely shaded, warm cream and blush painted wood look. Front-facing orthographic view with just a hint of visible top, no dramatic tilt. Gentle soft upper-left daylight, warm neutral fill, matte tactile materials, fine tiny bevels, crisp beautiful silhouette, modest highlights, very small soft contact shadow. Genuine transparent background outside the object. No scenery, no table, no pedestal unless specified, no framing card, no lettering or numbers unless specified. One object only, fully visible, centered with generous transparent padding. Must read clearly at 35–60px. Subject: one compact stainless steel saucepan with a short honeywood handle projecting to the upper-right, empty brushed steel interior, slightly visible open top, flat stable bottom, subtle warm soft reflected light. No lid, no steam, no food, no stove.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/reference.png"
+      ],
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-5491e813-3195-4c9a-8b1b-c7b71bfef480.png",
+      "status": "used in review sample; not user-approved",
+      "workspaceSource": "sources/saucepan-source.png"
+    },
+    {
+      "id": "producer",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated production sprite for a premium cozy 3D kitchen merge game at 375x667. Input image is style reference only: match its restrained, finely shaded, warm cream and blush painted wood look. Front-facing orthographic view with just a hint of visible top, no dramatic tilt. Gentle soft upper-left daylight, warm neutral fill, matte tactile materials, fine tiny bevels, crisp beautiful silhouette, modest highlights, very small soft contact shadow. Genuine transparent background outside the object. No scenery, no table, no pedestal unless specified, no framing card, no lettering or numbers unless specified. One object only, fully visible, centered with generous transparent padding. Must read clearly at 35–60px. Subject: one squat cream ceramic baking-ingredient storage jar PRODUCER with a small honeywood lid, tiny brass knob, subtle embossed golden wheat sprig emblem on front, pale powder blue fine line near the base. Front view, slightly visible lid, plump tactile ceramic, no words, no loose food, no pile of ingredients, no other objects.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/reference.png"
+      ],
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-969bf021-ac15-4370-b076-f71096f7ad40.png",
+      "status": "used in review sample; not user-approved",
+      "workspaceSource": "sources/producer-source.png"
+    },
+    {
+      "id": "bowl-v2",
+      "prompt": "Use case: background-extraction. Edit target: the attached blue ceramic bowl sprite. Preserve the exact bowl shape, colors, material and lighting. Remove ALL the large surrounding gray/white glow/haze and ALL background pixels. Cut out ONLY the bowl with precise antialiased edge. Actual transparent alpha outside the bowl, including immediately adjacent to rim, sides and foot. No ground, no ambient cloud, no shadow, no halo, no white fringe. Keep the entire bowl. This will be composited on a cream game slot; background glow is a production defect.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/sources/bowl-source.png"
+      ],
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-35d7aca3-d015-4df8-8d62-95187212003c.png",
+      "status": "retained unused variant",
+      "workspaceSource": "sources/bowl-v2-source.png"
+    },
+    {
+      "id": "cell-v2",
+      "prompt": "Use case: precise-object-edit. Asset type: ONE edge-to-edge square 3D cabinet cubby texture, repeated at exactly 48 by 48 pixels. Edit the provided square tile. Reduce the whole frame plus bevel to ONE HALF its current thickness; make the top inner shadow ONE HALF as dark and ONE HALF as deep. Keep square front view, cream painted wood, soft upper-left daylight. The actual empty usable square face must fill 94 percent of width and height. At 48px the TOTAL rim per edge should read as 1 to 1.5 pixels, not 4px. Very shallow recess, quiet subtle rounded transition, delicate narrow bottom ledge. No thick picture frame, no heavy dark top strip, no yellow shadow, no double bevel, no objects or text. Opaque square fully filled to edges, no transparent background. Image 1 is the edit target. Image 2 is style reference.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/cell-source.png",
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/reference.png"
+      ],
+      "transparent": false,
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-5877ea6f-3599-4f14-9747-a1a846e33a37.png",
+      "status": "superseded by unified board; retained previous tile source",
+      "workspaceSource": "sources/cell-v2-source.png"
+    },
+    {
+      "id": "deer",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated production sprite for a premium cozy 3D kitchen merge game at 375x667. Input image is style reference only: match its restrained, finely shaded, warm cream and blush painted wood look. Front-facing orthographic view with just a hint of visible top, no dramatic tilt. Gentle soft upper-left daylight, warm neutral fill, matte tactile materials, fine tiny bevels, crisp beautiful silhouette, modest highlights, very small soft contact shadow. Genuine transparent background outside the object. No scenery, no table, no pedestal unless specified, no framing card, no lettering or numbers unless specified. One object only, fully visible, centered with generous transparent padding. Must read clearly at 35–60px. Subject: a friendly little tan deer CUSTOMER head portrait with two very short antler buds, big warm dark eyes, cream muzzle and tiny black nose, no chef hat. Head only, no neck, no body, no frame, no badge, no food, no text. Gentle smile, face forward, soft short fine fur, clear at 28px. Do not depict a dog.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/reference.png"
+      ],
+      "transparent": true,
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-3e4a8c9e-d545-4725-aca3-5be661b9b5e1.png",
+      "status": "used in review sample; not user-approved",
+      "workspaceSource": "sources/deer-source.png"
+    },
+    {
+      "id": "bear",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated production sprite for a premium cozy 3D kitchen merge game at 375x667. Input image is style reference only: match its restrained, finely shaded, warm cream and blush painted wood look. Front-facing orthographic view with just a hint of visible top, no dramatic tilt. Gentle soft upper-left daylight, warm neutral fill, matte tactile materials, fine tiny bevels, crisp beautiful silhouette, modest highlights, very small soft contact shadow. Genuine transparent background outside the object. No scenery, no table, no pedestal unless specified, no framing card, no lettering or numbers unless specified. One object only, fully visible, centered with generous transparent padding. Must read clearly at 35–60px. Subject: a friendly round warm brown bear CUSTOMER head portrait, small round ears, cream muzzle, tiny dark nose and warm dark eyes, no chef hat. Head only, no neck, no body, no frame, no badge, no food, no text. Gentle smile, face forward, soft short fine fur, clear at 28px. Do not depict a dog.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/reference.png"
+      ],
+      "transparent": true,
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-8c476ccb-f052-47a6-89c7-f46816f7cdf4.png",
+      "status": "used in review sample; not user-approved",
+      "workspaceSource": "sources/bear-source.png"
+    },
+    {
+      "id": "panda",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated production sprite for a premium cozy 3D kitchen merge game at 375x667. Input image is style reference only: match its restrained, finely shaded, warm cream and blush painted wood look. Front-facing orthographic view with just a hint of visible top, no dramatic tilt. Gentle soft upper-left daylight, warm neutral fill, matte tactile materials, fine tiny bevels, crisp beautiful silhouette, modest highlights, very small soft contact shadow. Genuine transparent background outside the object. No scenery, no table, no pedestal unless specified, no framing card, no lettering or numbers unless specified. One object only, fully visible, centered with generous transparent padding. Must read clearly at 35–60px. Subject: a friendly round black-and-white panda CUSTOMER head portrait, small round black ears, ivory muzzle, large kind dark eyes with soft natural eye patches, no chef hat. Head only, no neck, no body, no frame, no badge, no food, no text. Gentle smile, face forward, soft short fine fur, clear at 28px. Do not depict a dog.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/reference.png"
+      ],
+      "transparent": true,
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-538165cf-02e1-4405-b3bb-3f38b97eeb20.png",
+      "status": "used in review sample; not user-approved",
+      "workspaceSource": "sources/panda-source.png"
+    },
+    {
+      "id": "board-unified-v1",
+      "prompt": "Use case: precise-object-edit. Asset type: an EMPTY integrated 7-column by 9-row cabinet cubby board for a 375x667 cozy kitchen game. Input image 1 is the definitive style and grid reference. Extract/recreate ONLY its cream wooden cubby board, from the first cell to the last, and REMOVE ALL food, bowls, tools, milk bottles, eggs, butter, baskets and all objects from every compartment. No surrounding pink cabinet, no UI, no text, no icons, no decorations. Output a tightly cropped rectangular board in a 7:9 aspect ratio. EXACTLY SEVEN columns and NINE rows =63 equal square openings. All cell pitches and all divider widths must be uniform, perfectly front-facing orthographic. Crucial construction: ONE continuous built-in cabinet lattice, every neighboring compartment shares ONE very thin cream divider, seamless straight continuous horizontal rails and vertical dividers joined at crosses. No gaps, no gutters, no separate picture-frame tiles, no double edges, no seams between independent boxes. Keep reference's subtly recessed cream matte wood interior, soft warm neutral upper-left daylight, fine quiet rounded bevel at the inner lip, restrained contact shadows concentrated at top-left of each recess, delicate lower ledge. Total visible shared divider incl bevel around 3 percent of one cell pitch (reads 1.3 pixels when a cell is44px). Thin outside perimeter same width as shared dividers. Do not make deep drawers, glossy square buttons, thick raised borders, heavy dark bars, or individual rounded card frames. The empty compartments should occupy almost the entire board, uniformly spaced to all edges. Full board perfectly centered, fills image edge-to-edge, opaque warm cream artwork. No ground shadow, no external margins. Preserve reference material and light quality. High resolution clean production bitmap.",
+      "refs": [
+        "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/reference.png"
+      ],
+      "transparent": false,
+      "source": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-daee485d-8066-488c-bef4-6bd24bc554f1.png",
+      "status": "used after measured divider registration; single whole-board background; not user-approved",
+      "workspaceSource": "sources/board-unified-v1-source.png"
+    }
+  ]
+}

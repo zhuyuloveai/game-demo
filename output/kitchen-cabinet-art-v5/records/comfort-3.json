@@ -1,0 +1,45 @@
+{
+  "id": "comfort:3",
+  "key": "comfort-3",
+  "source": "sources/comfort-3.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-7528612f-bf76-4070-b669-fdcf53dac232.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/comfort-3.txt",
+  "generatedAt": "2026-10-18T12:30:48.117Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.3901,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/comfort-3.png",
+    "webp": "items/comfort-3.webp",
+    "sourceSize": [
+      1312,
+      1199
+    ],
+    "crop": [
+      40,
+      91,
+      1222,
+      1020
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      33.39
+    ],
+    "contact": {
+      "x": 74.72,
+      "width": 15.71,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-comfort.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "gen_food:1",
+  "key": "gen_food-1",
+  "source": "sources/gen_food-1.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-8fd45794-5964-48fc-916e-12a0f707f377.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/gen_food-1.txt",
+  "generatedAt": "2026-10-18T13:37:40.852Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.4697,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/gen_food-1.png",
+    "webp": "items/gen_food-1.webp",
+    "sourceSize": [
+      1374,
+      1145
+    ],
+    "crop": [
+      52,
+      152,
+      1293,
+      904
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      27.97
+    ],
+    "contact": {
+      "x": 50.01,
+      "width": 24.8,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-gen_food.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

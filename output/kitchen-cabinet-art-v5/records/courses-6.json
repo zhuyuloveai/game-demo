@@ -1,0 +1,45 @@
+{
+  "id": "courses:6",
+  "key": "courses-6",
+  "source": "sources/courses-6.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-409f5e1a-5ccf-41c5-868b-dbd65db23f5c.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/courses-6.txt",
+  "generatedAt": "2026-10-18T13:10:02.718Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.3518,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/courses-6.png",
+    "webp": "items/courses-6.webp",
+    "sourceSize": [
+      1312,
+      1199
+    ],
+    "crop": [
+      41,
+      58,
+      1245,
+      1115
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      35.82
+    ],
+    "contact": {
+      "x": 59.36,
+      "width": 22,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-courses.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

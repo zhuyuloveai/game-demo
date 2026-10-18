@@ -1,0 +1,39 @@
+{
+  "id": "pantry:2",
+  "key": "pantry-2",
+  "source": "sources/pantry-2.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-bd443fc1-6b2d-4dfa-a193-fe68d0e0a97e.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/pantry-2.txt",
+  "generatedAt": "2026-10-18T12:30:48.111Z",
+  "status": "generated-pending-visual-review",
+  "alphaAudit": {
+    "transparentFraction": 0.5053,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/pantry-2.png",
+    "webp": "items/pantry-2.webp",
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "crop": [
+      103,
+      188,
+      1379,
+      752
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      21.81
+    ],
+    "contact": {
+      "x": 78.1,
+      "width": 12.14,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  }
+}

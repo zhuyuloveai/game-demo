@@ -4,7 +4,7 @@ const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const fs=require('node:fs');const path=require('node:path');const assert=require('node:assert/strict');
 const base=process.env.KITCHEN_TEST_URL||'http://127.0.0.1:4187';
 if(!['127.0.0.1','localhost'].includes(new URL(base).hostname))throw Error('QA must run locally');
-const output=path.resolve(__dirname,'../docs/verification/feige-alignment');fs.mkdirSync(output,{recursive:true});
+const output=process.env.KITCHEN_TEST_OUTPUT?path.resolve(process.env.KITCHEN_TEST_OUTPUT):path.resolve(__dirname,'../docs/verification/feige-alignment');fs.mkdirSync(output,{recursive:true});
 const NOW=1792108800000,checks=[],errors=[];
 (async()=>{
  const browser=await chromium.launch({headless:true,...(process.env.CHROME_EXECUTABLE?{executablePath:process.env.CHROME_EXECUTABLE}:{})});

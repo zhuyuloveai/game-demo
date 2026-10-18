@@ -1,0 +1,45 @@
+{
+  "id": "tipjar:2",
+  "key": "tipjar-2",
+  "source": "sources/tipjar-2.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-98f6a4b7-e6db-4eef-b401-ddd9500a28a3.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/tipjar-2.txt",
+  "generatedAt": "2026-10-18T13:37:40.850Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.4774,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/tipjar-2.png",
+    "webp": "items/tipjar-2.webp",
+    "sourceSize": [
+      1297,
+      1212
+    ],
+    "crop": [
+      118,
+      99,
+      1067,
+      1055
+    ],
+    "keptComponents": 1,
+    "box": [
+      38.43,
+      38
+    ],
+    "contact": {
+      "x": 48.23,
+      "width": 24.09,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-tipjar.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

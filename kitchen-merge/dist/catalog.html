@@ -5,6 +5,7 @@
     content="width=device-width,initial-scale=1"
   /><title>小狗厨房 · 全量视觉目录</title
   ><link rel="stylesheet" href="./style.css" /><style>
+.item>.item-3d{display:flex;width:86px;height:86px;align-items:center;justify-content:center}.item-3d img{display:block;max-width:86px;max-height:86px;object-fit:contain}
     body {
       display: block;
       padding: 24px;
@@ -93,7 +94,7 @@
     <h1>小狗厨房 · 64系列 / 422项视觉目录</h1>
     <p>
       411项新版 +
-      11项旧档保值。点击任意物品查看来源和规则。此目录直接使用默认游戏的物品配置与SVG渲染器。
+      11项旧档保值。点击任意物品查看来源和规则。此目录直接使用默认游戏的物品配置与全量美术渲染器。
     </p>
     <a href="./index.html">回到厨房</a> ·
     <a href="./qa.html">本地行为试玩场景</a>
@@ -111,6 +112,7 @@
       sourceRules,
     } from "./catalog.mjs";
     import { icon } from "./art.mjs";
+    document.documentElement.dataset.kitchenStyle='island';
     const page = new URLSearchParams(location.search).get("page"),
       groups = Object.entries(CHAINS);
     document.querySelector("#pages").innerHTML =

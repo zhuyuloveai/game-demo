@@ -1,0 +1,45 @@
+{
+  "id": "chest:3",
+  "key": "chest-3",
+  "source": "sources/chest-3.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-358d1516-38cb-48ca-8801-64a013b5bd78.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/chest-3.txt",
+  "generatedAt": "2026-10-18T13:33:42.927Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.3262,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/chest-3.png",
+    "webp": "items/chest-3.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      59,
+      0,
+      1171,
+      1198
+    ],
+    "keptComponents": 1,
+    "box": [
+      37.14,
+      38
+    ],
+    "contact": {
+      "x": 55.09,
+      "width": 21.01,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-chest.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

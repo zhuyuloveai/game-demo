@@ -1,0 +1,45 @@
+{
+  "id": "puzzle:13",
+  "key": "puzzle-13",
+  "source": "sources/puzzle-13.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-4c1b4ad2-a1b4-4387-918c-daa09c00ab79.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/puzzle-13.txt",
+  "generatedAt": "2026-10-18T12:44:31.561Z",
+  "status": "visually-reviewed-awaiting-user",
+  "processed": {
+    "png": "items/puzzle-13.png",
+    "webp": "items/puzzle-13.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      13,
+      107,
+      1241,
+      1060
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      34.17
+    ],
+    "contact": {
+      "x": 73.52,
+      "width": 8.77,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "alphaAudit": {
+    "transparentFraction": 0.4604,
+    "passes": true
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-puzzle.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

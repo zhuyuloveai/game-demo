@@ -1,0 +1,50 @@
+小厨合合 · 格槽接缝修正
+2026-10-17
+
+用户指出：原稿是一整块连续柜格，当前逐格拼贴有缝隙、间隔不一致。
+根因：原CSS gap虽然为0，但cell.webp自身包含完整四边框、外沿与高光。
+相邻贴图重复两个外沿，形成视觉上的双边框和粗接缝。
+
+当前实现
+sample/sample.css中，#board只绘制一张board-unified.webp；63个.cell的背景完全透明。
+棋盘仍位于[33.5,156]，308×396，7列9行，每格44×44；物品、格位、交互和进度不变。
+共用隔板的正面宽度约2px（边沿抗锯齿和内侧阴影不计为额外空隙）。
+没有格间空白、逐格外投影、独立圆角外框。所有格子横竖节距相同。
+
+原图与用途
+sources/board-unified-v1-source.png：内置image_gen生成的整块7×9空柜格，1060×1484。
+generated-prompts.json：board-unified-v1条目保存完整提示词、参考图、输出路径。
+slices/board-unified.png：924×1188 PNG母版，3倍设计分辨率。
+slices/board-unified.webp：同尺寸无损WebP，实际浏览器唯一棋盘底板。
+board-registration.json：实测隔板中心线、裁切映射、44px节距与2px隔板数据。
+旧cell.png/WebP以及源图仍保留，标记为停用；不再用于当前棋盘。
+
+为何需要几何校正
+生成原图的列宽不完全一致，直接缩放会重复用户指出的间距问题。
+先逐条检查真实隔板，记录8条纵线和10条横线中心；按这些实际边界切条带，
+将每个中心对齐到44px倍数，再将共用隔板正面校正至同宽。
+这是明确裁区的几何处理，保留生成材质与光照，没有再次均分未经校正的原图。
+最终是单张连续位图，并非63张有外框的图片在浏览器内拼贴。
+初次未校正的尺寸试片放在evidence/grid-candidate-unregistered/，不供运行时使用。
+
+实际检查
+已查看原稿放大、旧单格图、生成整板、实际375×667截图及三方接缝放大对照。
+evidence/grid-seams-comparison.png：原稿 / 修改前 / 现在，统一375×667坐标，3倍最近邻放大。
+evidence/grid-empty-browser-diagnostic.png：浏览器临时隐藏物品后的格板诊断截图，仅供看隔板。
+evidence/grid-checks.json：实际DOM验证63个背景透明格位，位置严格按44px横竖递增。
+原有375×667、430×740、1440×900验证通过：正方形63格、无整页滚动、主要入口与共享进度正常。
+逐像素对照重新生成。棋盘区域MAE相对参考从此次修改前28.20降至26.12，
+但指标受物品位置和材质差异影响，不作为视觉通过标准。
+当前仍有内壁柔光、色温及少量原稿手绘变化差别；本次主要修正双框接缝与格距。
+
+查看与复现
+http://127.0.0.1:4197/grid-comparison.html
+http://127.0.0.1:4197/sample/?art=unified-grid-v1
+node scripts/prepare-unified-board.cjs
+node scripts/verify-sample.cjs
+node scripts/pixel-compare.cjs
+node scripts/verify-grid.cjs
+node scripts/verify-pixel-comparison.cjs
+
+保护
+原worktree未提交修改保持不变；未提交、推送、合并或部署；未扩展物品种类。

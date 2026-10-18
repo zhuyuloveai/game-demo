@@ -1,0 +1,45 @@
+{
+  "id": "cats:3",
+  "key": "cats-3",
+  "source": "sources/cats-3.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-2956fa88-5cd4-43af-a705-83dd5e6f4a27.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/cats-3.txt",
+  "generatedAt": "2026-10-18T13:14:42.331Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.4786,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/cats-3.png",
+    "webp": "items/cats-3.webp",
+    "sourceSize": [
+      1264,
+      1244
+    ],
+    "crop": [
+      61,
+      22,
+      1116,
+      1188
+    ],
+    "keptComponents": 1,
+    "box": [
+      35.7,
+      38
+    ],
+    "contact": {
+      "x": 55.21,
+      "width": 23.29,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-cats.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

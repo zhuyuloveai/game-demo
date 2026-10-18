@@ -1,0 +1,39 @@
+{
+  "id": "gems:1",
+  "key": "gems-1",
+  "source": "sources/gems-1.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-39b97253-4627-48cd-8f96-17970fd13538.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/gems-1.txt",
+  "generatedAt": "2026-10-18T13:30:51.324Z",
+  "status": "generated-pending-visual-review",
+  "alphaAudit": {
+    "transparentFraction": 0.4597,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/gems-1.png",
+    "webp": "items/gems-1.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      170,
+      101,
+      1026,
+      1058
+    ],
+    "keptComponents": 1,
+    "box": [
+      36.85,
+      38
+    ],
+    "contact": {
+      "x": 44.07,
+      "width": 22.21,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  }
+}

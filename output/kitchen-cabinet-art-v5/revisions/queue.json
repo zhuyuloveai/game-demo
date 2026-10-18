@@ -1,0 +1,204 @@
+[
+  {
+    "id": "mascot:2",
+    "key": "mascot-2",
+    "prompt": "Edit input image 1, an existing game item, using input image 2 only for the white puppy identity. Preserve all body, outfit, pose and props. Replace the current hat with the correct red M baseball cap. The cap M must be clearly visible. Maintain the same soft upper-left light, cream/blush cozy 3D art, material finish and perspective. The puppy has a white body, cloud-like white ears, black eyes/nose/mouth, and a red baseball cap with a clearly visible cream-white capital M on its front. Preserve transparent background; no opaque backdrop, floor, floating glow, UI border, level label or text other than the hat M. Keep a compact silhouette readable at 38 pixels. Entire object visible with transparent margin.",
+    "refs": [
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/revisions/mascot-2/v1-source.png",
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/sources/puppy-source.png"
+    ],
+    "revisionPrompt": "revisions/mascot-2/v2-prompt.txt"
+  },
+  {
+    "id": "mascot:5",
+    "key": "mascot-5",
+    "prompt": "Edit input image 1, an existing game item, using input image 2 only for the white puppy identity. Preserve all body, outfit, pose and props. Replace the current hat with the correct red M baseball cap. The cap M must be clearly visible. Maintain the same soft upper-left light, cream/blush cozy 3D art, material finish and perspective. The puppy has a white body, cloud-like white ears, black eyes/nose/mouth, and a red baseball cap with a clearly visible cream-white capital M on its front. Preserve transparent background; no opaque backdrop, floor, floating glow, UI border, level label or text other than the hat M. Keep a compact silhouette readable at 38 pixels. Entire object visible with transparent margin.",
+    "refs": [
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/revisions/mascot-5/v1-source.png",
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/sources/puppy-source.png"
+    ],
+    "revisionPrompt": "revisions/mascot-5/v2-prompt.txt"
+  },
+  {
+    "id": "mascot:6",
+    "key": "mascot-6",
+    "prompt": "Edit input image 1, an existing game item, using input image 2 only for the white puppy identity. Preserve all body, outfit, pose and props. Replace the current hat with the correct red M baseball cap. The cap M must be clearly visible. Maintain the same soft upper-left light, cream/blush cozy 3D art, material finish and perspective. The puppy has a white body, cloud-like white ears, black eyes/nose/mouth, and a red baseball cap with a clearly visible cream-white capital M on its front. Preserve transparent background; no opaque backdrop, floor, floating glow, UI border, level label or text other than the hat M. Keep a compact silhouette readable at 38 pixels. Entire object visible with transparent margin.",
+    "refs": [
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/revisions/mascot-6/v1-source.png",
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/sources/puppy-source.png"
+    ],
+    "revisionPrompt": "revisions/mascot-6/v2-prompt.txt"
+  },
+  {
+    "id": "doll:3",
+    "key": "doll-3",
+    "prompt": "Edit input image 1, an existing game item, using input image 2 only for the white puppy identity. Preserve all body, outfit, pose and props. Replace the current hat with the correct red M baseball cap. The cap M must be clearly visible. Maintain the same soft upper-left light, cream/blush cozy 3D art, material finish and perspective. The puppy has a white body, cloud-like white ears, black eyes/nose/mouth, and a red baseball cap with a clearly visible cream-white capital M on its front. Preserve transparent background; no opaque backdrop, floor, floating glow, UI border, level label or text other than the hat M. Keep a compact silhouette readable at 38 pixels. Entire object visible with transparent margin.",
+    "refs": [
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/revisions/doll-3/v1-source.png",
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/sources/puppy-source.png"
+    ],
+    "revisionPrompt": "revisions/doll-3/v2-prompt.txt"
+  },
+  {
+    "id": "doll:5",
+    "key": "doll-5",
+    "prompt": "Edit input image 1, an existing game item, using input image 2 only for the white puppy identity. Preserve all body, outfit, pose and props. Replace the current hat with the correct red M baseball cap. The cap M must be clearly visible. Maintain the same soft upper-left light, cream/blush cozy 3D art, material finish and perspective. The puppy has a white body, cloud-like white ears, black eyes/nose/mouth, and a red baseball cap with a clearly visible cream-white capital M on its front. Preserve transparent background; no opaque backdrop, floor, floating glow, UI border, level label or text other than the hat M. Keep a compact silhouette readable at 38 pixels. Entire object visible with transparent margin.",
+    "refs": [
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/revisions/doll-5/v1-source.png",
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/sources/puppy-source.png"
+    ],
+    "revisionPrompt": "revisions/doll-5/v2-prompt.txt"
+  },
+  {
+    "id": "doll:8",
+    "key": "doll-8",
+    "prompt": "Edit input image 1, an existing game item, using input image 2 only for the white puppy identity. Preserve all body, outfit, pose and props. Replace the current hat with the correct red M baseball cap. The cap M must be clearly visible. Maintain the same soft upper-left light, cream/blush cozy 3D art, material finish and perspective. The puppy has a white body, cloud-like white ears, black eyes/nose/mouth, and a red baseball cap with a clearly visible cream-white capital M on its front. Preserve transparent background; no opaque backdrop, floor, floating glow, UI border, level label or text other than the hat M. Keep a compact silhouette readable at 38 pixels. Entire object visible with transparent margin.",
+    "refs": [
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/revisions/doll-8/v1-source.png",
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/sources/puppy-source.png"
+    ],
+    "revisionPrompt": "revisions/doll-8/v2-prompt.txt"
+  },
+  {
+    "id": "mascot:7",
+    "key": "mascot-7",
+    "prompt": "Edit input image 1, an existing game item, using input image 2 only for the white puppy identity. Make this a true kitchen family group miniature: central original white puppy in red M cap, one small cat friend and one small rabbit friend side by side behind the little kitchen counter. Three distinct faces, no extra characters. Keep the central puppy dominant. Maintain the same soft upper-left light, cream/blush cozy 3D art, material finish and perspective. The puppy has a white body, cloud-like white ears, black eyes/nose/mouth, and a red baseball cap with a clearly visible cream-white capital M on its front. Preserve transparent background; no opaque backdrop, floor, floating glow, UI border, level label or text other than the hat M. Keep a compact silhouette readable at 38 pixels. Entire object visible with transparent margin.",
+    "refs": [
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/revisions/mascot-7/v1-source.png",
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/sources/puppy-source.png"
+    ],
+    "revisionPrompt": "revisions/mascot-7/v2-prompt.txt"
+  },
+  {
+    "id": "doll:2",
+    "key": "doll-2",
+    "prompt": "Edit input image 1, an existing game item, using input image 2 only for the white puppy identity. Replace the assembled brown-eared doll with a neatly grouped set of UNASSEMBLED sewing pattern cutouts: white body cutout, two white cloud-ear cutouts, small red cap cutout with M, tiny loose black button eyes. Physical cloth pieces with stitched edges. Clearly no assembled animal yet. Maintain the same soft upper-left light, cream/blush cozy 3D art, material finish and perspective. The puppy has a white body, cloud-like white ears, black eyes/nose/mouth, and a red baseball cap with a clearly visible cream-white capital M on its front. Preserve transparent background; no opaque backdrop, floor, floating glow, UI border, level label or text other than the hat M. Keep a compact silhouette readable at 38 pixels. Entire object visible with transparent margin.",
+    "refs": [
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/revisions/doll-2/v1-source.png",
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/sources/puppy-source.png"
+    ],
+    "revisionPrompt": "revisions/doll-2/v2-prompt.txt"
+  },
+  {
+    "id": "puzzle:1",
+    "key": "puzzle-1",
+    "prompt": "One single isolated game item: a compact low pile of about ten tiny torn photograph PAPER SCRAPS, ivory paper backs mostly upward, a few small blush-pink printed flecks. Only torn paper. No animal, no dog, no mascot, no face, no completed photo, no picture frame. Clearly irregular tiny fragments, lying in one compact heap. Premium cozy casual mobile game 3D illustration, creamy paper material, softly beveled edges, upper-left warm soft key light, slight top view with shallow depth. Designed to read clearly as torn scraps at 38 pixels. Entire object visible, transparent background and generous transparent margin, no surface, no broad ground shadow, no glow, no backdrop, no text.",
+    "refs": [],
+    "revisionPrompt": "revisions/puzzle-1/v3-prompt.txt"
+  },
+  {
+    "id": "puzzle:2",
+    "key": "puzzle-2",
+    "prompt": "Edit input image 1, an existing game item, using input image 2 only for the white puppy identity. Replace the item with this exact physical photo restoration stage: Three separate torn photo paper strips with printed fragments of a cream kitchen and only a tiny fragment of red cap. NO complete puppy face and NO intact photograph. Maintain the same soft upper-left light, cream/blush cozy 3D art, material finish and perspective. The puppy has a white body, cloud-like white ears, black eyes/nose/mouth, and a red baseball cap with a clearly visible cream-white capital M on its front. Preserve transparent background; no opaque backdrop, floor, floating glow, UI border, level label or text other than the hat M. Keep a compact silhouette readable at 38 pixels. Entire object visible with transparent margin.",
+    "refs": [
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/revisions/puzzle-2/v1-source.png",
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/sources/puppy-source.png"
+    ],
+    "revisionPrompt": "revisions/puzzle-2/v2-prompt.txt"
+  },
+  {
+    "id": "puzzle:3",
+    "key": "puzzle-3",
+    "prompt": "Edit input image 1, an existing game item, using input image 2 only for the white puppy identity. Replace the item with this exact physical photo restoration stage: One single irregular triangular torn photographic fragment showing just part of the red M cap and one white ear. NO full face or full photograph. Maintain the same soft upper-left light, cream/blush cozy 3D art, material finish and perspective. The puppy has a white body, cloud-like white ears, black eyes/nose/mouth, and a red baseball cap with a clearly visible cream-white capital M on its front. Preserve transparent background; no opaque backdrop, floor, floating glow, UI border, level label or text other than the hat M. Keep a compact silhouette readable at 38 pixels. Entire object visible with transparent margin.",
+    "refs": [
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/revisions/puzzle-3/v1-source.png",
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/sources/puppy-source.png"
+    ],
+    "revisionPrompt": "revisions/puzzle-3/v2-prompt.txt"
+  },
+  {
+    "id": "puzzle:4",
+    "key": "puzzle-4",
+    "prompt": "Edit input image 1, an existing game item, using input image 2 only for the white puppy identity. Replace the item with this exact physical photo restoration stage: Two large photo fragments visibly joined by a short piece of beige tape, forming an incomplete L-shaped half-photo with a large missing corner. Only half of the puppy face is present. Maintain the same soft upper-left light, cream/blush cozy 3D art, material finish and perspective. The puppy has a white body, cloud-like white ears, black eyes/nose/mouth, and a red baseball cap with a clearly visible cream-white capital M on its front. Preserve transparent background; no opaque backdrop, floor, floating glow, UI border, level label or text other than the hat M. Keep a compact silhouette readable at 38 pixels. Entire object visible with transparent margin.",
+    "refs": [
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/revisions/puzzle-4/v1-source.png",
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/sources/puppy-source.png"
+    ],
+    "revisionPrompt": "revisions/puzzle-4/v2-prompt.txt"
+  },
+  {
+    "id": "puzzle:5",
+    "key": "puzzle-5",
+    "prompt": "Edit input image 1, an existing game item, using input image 2 only for the white puppy identity. Replace the item with this exact physical photo restoration stage: A small irregular photo fragment showing the puppy face and cap, with ragged paper contour and NO complete rectangular border. No background scenes outside the fragment. Maintain the same soft upper-left light, cream/blush cozy 3D art, material finish and perspective. The puppy has a white body, cloud-like white ears, black eyes/nose/mouth, and a red baseball cap with a clearly visible cream-white capital M on its front. Preserve transparent background; no opaque backdrop, floor, floating glow, UI border, level label or text other than the hat M. Keep a compact silhouette readable at 38 pixels. Entire object visible with transparent margin.",
+    "refs": [
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/revisions/puzzle-5/v1-source.png",
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/sources/puppy-source.png"
+    ],
+    "revisionPrompt": "revisions/puzzle-5/v2-prompt.txt"
+  },
+  {
+    "id": "puzzle:6",
+    "key": "puzzle-6",
+    "prompt": "Edit input image 1, an existing game item, using input image 2 only for the white puppy identity. Replace the item with this exact physical photo restoration stage: A larger mostly assembled photograph with the lower right quarter missing, one clear tape join, showing puppy in the kitchen. Its missing corner must be obvious in the outer silhouette. Maintain the same soft upper-left light, cream/blush cozy 3D art, material finish and perspective. The puppy has a white body, cloud-like white ears, black eyes/nose/mouth, and a red baseball cap with a clearly visible cream-white capital M on its front. Preserve transparent background; no opaque backdrop, floor, floating glow, UI border, level label or text other than the hat M. Keep a compact silhouette readable at 38 pixels. Entire object visible with transparent margin.",
+    "refs": [
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/revisions/puzzle-6/v1-source.png",
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/sources/puppy-source.png"
+    ],
+    "revisionPrompt": "revisions/puzzle-6/v2-prompt.txt"
+  },
+  {
+    "id": "puzzle:7",
+    "key": "puzzle-7",
+    "prompt": "Edit input image 1, an existing game item, using input image 2 only for the white puppy identity. Replace the item with this exact physical photo restoration stage: A single distinctive corner section of the old photo, large right-angled top and left paper borders, diagonally torn lower edge. Show puppy red M cap and partial face within the crop; NO complete rectangle. Maintain the same soft upper-left light, cream/blush cozy 3D art, material finish and perspective. The puppy has a white body, cloud-like white ears, black eyes/nose/mouth, and a red baseball cap with a clearly visible cream-white capital M on its front. Preserve transparent background; no opaque backdrop, floor, floating glow, UI border, level label or text other than the hat M. Keep a compact silhouette readable at 38 pixels. Entire object visible with transparent margin.",
+    "refs": [
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/revisions/puzzle-7/v1-source.png",
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/sources/puppy-source.png"
+    ],
+    "revisionPrompt": "revisions/puzzle-7/v2-prompt.txt"
+  },
+  {
+    "id": "story:2",
+    "key": "story-2",
+    "prompt": "Edit input image 1, an existing game item, using input image 2 only for the white puppy identity. Keep the existing character scene and pose, but make it a printed illustrated adventure CARD: contain the scene inside one compact cream rectangular card with restrained gold border, slight paper thickness, rounded corners, and a simple blank small ribbon. The card is the physical object, not a freestanding figurine. No words. Maintain the same soft upper-left light, cream/blush cozy 3D art, material finish and perspective. The puppy has a white body, cloud-like white ears, black eyes/nose/mouth, and a red baseball cap with a clearly visible cream-white capital M on its front. Preserve transparent background; no opaque backdrop, floor, floating glow, UI border, level label or text other than the hat M. Keep a compact silhouette readable at 38 pixels. Entire object visible with transparent margin.",
+    "refs": [
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/revisions/story-2/v1-source.png",
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/sources/puppy-source.png"
+    ],
+    "revisionPrompt": "revisions/story-2/v2-prompt.txt"
+  },
+  {
+    "id": "story:3",
+    "key": "story-3",
+    "prompt": "Edit input image 1, an existing game item, using input image 2 only for the white puppy identity. Keep the existing character scene and pose, but make it a printed illustrated adventure CARD: contain the scene inside one compact cream rectangular card with restrained gold border, slight paper thickness, rounded corners, and a simple blank small ribbon. The card is the physical object, not a freestanding figurine. No words. Maintain the same soft upper-left light, cream/blush cozy 3D art, material finish and perspective. The puppy has a white body, cloud-like white ears, black eyes/nose/mouth, and a red baseball cap with a clearly visible cream-white capital M on its front. Preserve transparent background; no opaque backdrop, floor, floating glow, UI border, level label or text other than the hat M. Keep a compact silhouette readable at 38 pixels. Entire object visible with transparent margin.",
+    "refs": [
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/revisions/story-3/v1-source.png",
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/sources/puppy-source.png"
+    ],
+    "revisionPrompt": "revisions/story-3/v2-prompt.txt"
+  },
+  {
+    "id": "story:4",
+    "key": "story-4",
+    "prompt": "Edit input image 1, an existing game item, using input image 2 only for the white puppy identity. Keep the existing character scene and pose, but make it a printed illustrated adventure CARD: contain the scene inside one compact cream rectangular card with restrained gold border, slight paper thickness, rounded corners, and a simple blank small ribbon. The card is the physical object, not a freestanding figurine. No words. Maintain the same soft upper-left light, cream/blush cozy 3D art, material finish and perspective. The puppy has a white body, cloud-like white ears, black eyes/nose/mouth, and a red baseball cap with a clearly visible cream-white capital M on its front. Preserve transparent background; no opaque backdrop, floor, floating glow, UI border, level label or text other than the hat M. Keep a compact silhouette readable at 38 pixels. Entire object visible with transparent margin.",
+    "refs": [
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/revisions/story-4/v1-source.png",
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v4/sources/puppy-source.png"
+    ],
+    "revisionPrompt": "revisions/story-4/v2-prompt.txt"
+  },
+  {
+    "id": "snail:1",
+    "key": "snail-1",
+    "prompt": "Edit the supplied game asset. Show ONLY one small EMPTY caramel striped spiral snail shell with visible dark opening and rounded lip. Remove the entire living snail: no head, eyes, antennae or soft body. This is the shell precursor of a snail merge chain. Preserve the premium soft 3D blush wood/cream kitchen style, upper-left warm soft light, slight top view, isolated centered compact object, clean silhouette readable at 38px. Transparent RGBA background, no floor, no cast shadow, no UI, no text.",
+    "refs": [
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/revisions/snail-1/v1-source.png"
+    ],
+    "revisionPrompt": "revisions/snail-1/v2-prompt.txt"
+  },
+  {
+    "id": "pantry:2",
+    "key": "pantry-2",
+    "prompt": "Edit the supplied game asset. Show only a loose drawer front wood panel, one loose bottom wood plank and one separate brass handle, gathered neatly. No assembled drawer box, no back, no side walls or cabinet. This is a construction-parts precursor, clearly different from the assembled drawer in the next level. Preserve the premium soft 3D blush wood/cream kitchen style, upper-left warm soft light, slight top view, isolated centered compact object, clean silhouette readable at 38px. Transparent RGBA background, no floor, no cast shadow, no UI, no text.",
+    "refs": [
+      "/Users/zhuyu/work/zhuyuloveai/demos/game-demo/output/kitchen-cabinet-art-v5/revisions/pantry-2/v1-source.png"
+    ],
+    "revisionPrompt": "revisions/pantry-2/v2-prompt.txt"
+  },
+  {
+    "id": "gems:1",
+    "key": "gems-1",
+    "prompt": "A single glossy oval rainbow candy, one piece only, jewel-like translucent red with a small orange-yellow highlight, premium cozy casual mobile game 3D item. No wrapper, no container, no jar, no bow, no extra candy. A plump simple bean-shaped candy with softly rounded edges, clear clean silhouette readable at 32 pixels, slightly diagonal resting orientation. Front view with a little top visible, warm soft upper-left key light, gentle highlights, rich material, no broad ground shadow. Whole object centered with generous transparent margin, transparent background, no floor, no glow, no text, no UI.",
+    "refs": [],
+    "revisionPrompt": "revisions/gems-1/v2-prompt.txt"
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "id": "fruit:5",
+  "key": "fruit-5",
+  "source": "sources/fruit-5.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-3d87f83b-56c6-4a98-98ee-b350943c3e9a.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/fruit-5.txt",
+  "generatedAt": "2026-10-18T11:54:26.278Z",
+  "status": "visually-reviewed-awaiting-user",
+  "processed": {
+    "png": "items/fruit-5.png",
+    "webp": "items/fruit-5.webp",
+    "sourceSize": [
+      1312,
+      1199
+    ],
+    "crop": [
+      15,
+      76,
+      1273,
+      1053
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      33.09
+    ],
+    "contact": {
+      "x": 53.36,
+      "width": 28.05,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "alphaAudit": {
+    "transparentFraction": 0.3914,
+    "passes": true
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-fruit.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

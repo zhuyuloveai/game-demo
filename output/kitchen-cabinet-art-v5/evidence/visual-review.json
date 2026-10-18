@@ -1,0 +1,419 @@
+{
+  "reviewed": "2026-10-18T14:48:13.614Z",
+  "scope": "All 64 chains / 422 catalog IDs, 411 unique item assets",
+  "families": [
+    {
+      "family": "food",
+      "count": 11,
+      "evidence": "chain-food.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "tools",
+      "count": 14,
+      "evidence": "chain-tools.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "vegetable",
+      "count": 8,
+      "evidence": "chain-vegetable.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "fruit",
+      "count": 8,
+      "evidence": "chain-fruit.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "drink",
+      "count": 11,
+      "evidence": "chain-drink.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "tableware",
+      "count": 8,
+      "evidence": "chain-tableware.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "herb",
+      "count": 6,
+      "evidence": "chain-herb.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "chinese",
+      "count": 8,
+      "evidence": "chain-chinese.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "japanese",
+      "count": 8,
+      "evidence": "chain-japanese.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "italian",
+      "count": 8,
+      "evidence": "chain-italian.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "mexican",
+      "count": 8,
+      "evidence": "chain-mexican.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "linen",
+      "count": 3,
+      "evidence": "chain-linen.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "preservation",
+      "count": 4,
+      "evidence": "chain-preservation.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "bakeware",
+      "count": 7,
+      "evidence": "chain-bakeware.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "seedbag",
+      "count": 4,
+      "evidence": "chain-seedbag.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "emptybag",
+      "count": 4,
+      "evidence": "chain-emptybag.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "doll",
+      "count": 8,
+      "evidence": "chain-doll.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "snail",
+      "count": 6,
+      "evidence": "chain-snail.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "pantry",
+      "count": 11,
+      "evidence": "chain-pantry.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "lost",
+      "count": 6,
+      "evidence": "chain-lost.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "comfort",
+      "count": 8,
+      "evidence": "chain-comfort.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "console",
+      "count": 4,
+      "evidence": "chain-console.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "adventure_box",
+      "count": 5,
+      "evidence": "chain-adventure_box.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "story",
+      "count": 5,
+      "evidence": "chain-story.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "mascot",
+      "count": 7,
+      "evidence": "chain-mascot.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "puzzle",
+      "count": 13,
+      "evidence": "chain-puzzle.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "keys",
+      "count": 5,
+      "evidence": "chain-keys.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "timegate",
+      "count": 6,
+      "evidence": "chain-timegate.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "tasting",
+      "count": 6,
+      "evidence": "chain-tasting.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "courses",
+      "count": 6,
+      "evidence": "chain-courses.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "flowers",
+      "count": 9,
+      "evidence": "chain-flowers.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "scraps",
+      "count": 8,
+      "evidence": "chain-scraps.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "garden_guest",
+      "count": 6,
+      "evidence": "chain-garden_guest.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "cats",
+      "count": 8,
+      "evidence": "chain-cats.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "honor",
+      "count": 7,
+      "evidence": "chain-honor.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "energy",
+      "count": 5,
+      "evidence": "chain-energy.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "coins",
+      "count": 6,
+      "evidence": "chain-coins.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "gems",
+      "count": 4,
+      "evidence": "chain-gems.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "blackbag",
+      "count": 2,
+      "evidence": "chain-blackbag.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "pinkbag",
+      "count": 2,
+      "evidence": "chain-pinkbag.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "tipjar",
+      "count": 3,
+      "evidence": "chain-tipjar.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "infinite",
+      "count": 4,
+      "evidence": "chain-infinite.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "timeskip",
+      "count": 5,
+      "evidence": "chain-timeskip.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "charge",
+      "count": 3,
+      "evidence": "chain-charge.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "splitter",
+      "count": 3,
+      "evidence": "chain-splitter.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "chest",
+      "count": 3,
+      "evidence": "chain-chest.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "energybox",
+      "count": 1,
+      "evidence": "chain-energybox.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "backpack",
+      "count": 1,
+      "evidence": "chain-backpack.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "stopwatch",
+      "count": 1,
+      "evidence": "chain-stopwatch.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "upgrade",
+      "count": 2,
+      "evidence": "chain-upgrade.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "legacy_energy",
+      "count": 4,
+      "evidence": "chain-legacy_energy.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "legacy_coins",
+      "count": 4,
+      "evidence": "chain-legacy_coins.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "legacy_chest",
+      "count": 3,
+      "evidence": "chain-legacy_chest.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "gen_tools",
+      "count": 12,
+      "evidence": "chain-gen_tools.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "gen_food",
+      "count": 11,
+      "evidence": "chain-gen_food.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "gen_produce",
+      "count": 12,
+      "evidence": "chain-gen_produce.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "gen_drink",
+      "count": 10,
+      "evidence": "chain-gen_drink.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "gen_herb",
+      "count": 10,
+      "evidence": "chain-gen_herb.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "gen_asian",
+      "count": 10,
+      "evidence": "chain-gen_asian.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "gen_mediterranean",
+      "count": 10,
+      "evidence": "chain-gen_mediterranean.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "gen_supply",
+      "count": 12,
+      "evidence": "chain-gen_supply.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "gen_publicity",
+      "count": 6,
+      "evidence": "chain-gen_publicity.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "gen_flower",
+      "count": 9,
+      "evidence": "chain-gen_flower.png",
+      "status": "reviewed"
+    },
+    {
+      "family": "gen_recycle",
+      "count": 10,
+      "evidence": "chain-gen_recycle.png",
+      "status": "reviewed"
+    }
+  ],
+  "revisedIds": [
+    "mascot:2",
+    "mascot:5",
+    "mascot:6",
+    "doll:3",
+    "doll:5",
+    "doll:8",
+    "mascot:7",
+    "doll:2",
+    "puzzle:1",
+    "puzzle:2",
+    "puzzle:3",
+    "puzzle:4",
+    "puzzle:5",
+    "puzzle:6",
+    "puzzle:7",
+    "story:2",
+    "story:3",
+    "story:4",
+    "snail:1",
+    "pantry:2",
+    "gems:1"
+  ],
+  "finding": "No missing image, opaque rectangular backdrop, obvious detached fringe or cropped silhouette found in the final chain contact sheets. All 401 generated originals passed source alpha sanity checks. Functional verification is recorded separately.",
+  "limitations": [
+    "Advanced producer tiers contain small decorative details at 44px; neighboring high levels still benefit from level labels or item detail view.",
+    "Reference has different characters, items and placements. Pixel differences remain; no pixel-identical claim.",
+    "Final user visual approval is pending."
+  ]
+}

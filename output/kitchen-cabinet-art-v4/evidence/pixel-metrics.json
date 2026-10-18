@@ -1,0 +1,401 @@
+{
+  "method": {
+    "reference": "reference.png: original chosen artwork",
+    "referenceSHA256": "ef70967b48b5ae0b769539b080aee4918e7c3a2cde17b31be2093779918454bf",
+    "referenceSize": [
+      941,
+      1672
+    ],
+    "normalization": "sRGB, Lanczos3, contain 375×667; resulting content 375×666 plus one bottom padding row. No cropping or geometric alignment after global resize.",
+    "actual": "actual Chrome screenshot, 375×667 CSS px, DPR=1",
+    "actualSHA256": "2667df1bfffa2a916ae65565d7dd4373f890d29fe7e440c8195bfd5a8b0cf26e",
+    "beforeSHA256": "58fac634f48f7c475c0811baccb5d0145276141c5c107e536da61a3b9ce30b37",
+    "formula": "MAE = sum(abs(referenceRGB - actualRGB)) / (375*667*3). Range 0–255, lower is closer. RMSE uses squared channel differences. >16 / >32: percent of pixels with any RGB channel above the given absolute difference.",
+    "heatmap": "Mean absolute RGB difference; 0 black → 42.67 red → 85.33 yellow → 128+ white. Same scale before/after.",
+    "exclusions": "None. White puppy, sample item identities/positions, live text and added style switch remain included. No similarity score or pass threshold is inferred."
+  },
+  "regions": [
+    {
+      "id": "full",
+      "label": "全画面",
+      "rect": [
+        0,
+        0,
+        375,
+        667
+      ],
+      "before": {
+        "pixels": 250125,
+        "mae": 39.83976678327503,
+        "rmse": 57.429657227214776,
+        "p95MeanAbs": 115.66666666666667,
+        "maxChannelError": 251,
+        "exactEqualPixels": 102,
+        "anyChannelOver16Percent": 74.46676661669164,
+        "anyChannelOver32Percent": 55.68175912043978
+      },
+      "after": {
+        "pixels": 250125,
+        "mae": 31.998212893553227,
+        "rmse": 50.58699226191399,
+        "p95MeanAbs": 109,
+        "maxChannelError": 250,
+        "exactEqualPixels": 75,
+        "anyChannelOver16Percent": 60.48815592203898,
+        "anyChannelOver32Percent": 41.953023488255866
+      }
+    },
+    {
+      "id": "resources",
+      "label": "资源条",
+      "rect": [
+        0,
+        0,
+        375,
+        50
+      ],
+      "before": {
+        "pixels": 18750,
+        "mae": 37.33866666666667,
+        "rmse": 54.600840693568486,
+        "p95MeanAbs": 113.66666666666667,
+        "maxChannelError": 235,
+        "exactEqualPixels": 0,
+        "anyChannelOver16Percent": 76.10133333333333,
+        "anyChannelOver32Percent": 50.928
+      },
+      "after": {
+        "pixels": 18750,
+        "mae": 35.69544888888889,
+        "rmse": 52.925065181296134,
+        "p95MeanAbs": 112,
+        "maxChannelError": 235,
+        "exactEqualPixels": 1,
+        "anyChannelOver16Percent": 74.99733333333334,
+        "anyChannelOver32Percent": 50.437333333333335
+      }
+    },
+    {
+      "id": "orders",
+      "label": "订单与角色",
+      "rect": [
+        0,
+        50,
+        375,
+        72
+      ],
+      "before": {
+        "pixels": 27000,
+        "mae": 47.79708641975309,
+        "rmse": 67.84993590615349,
+        "p95MeanAbs": 128,
+        "maxChannelError": 251,
+        "exactEqualPixels": 34,
+        "anyChannelOver16Percent": 76.07037037037037,
+        "anyChannelOver32Percent": 63.17407407407407
+      },
+      "after": {
+        "pixels": 27000,
+        "mae": 43.39696296296296,
+        "rmse": 63.66247261733624,
+        "p95MeanAbs": 127,
+        "maxChannelError": 243,
+        "exactEqualPixels": 50,
+        "anyChannelOver16Percent": 71.27037037037037,
+        "anyChannelOver32Percent": 55.60740740740741
+      }
+    },
+    {
+      "id": "detail",
+      "label": "详情牌",
+      "rect": [
+        0,
+        122,
+        375,
+        34
+      ],
+      "before": {
+        "pixels": 12750,
+        "mae": 41.82726797385621,
+        "rmse": 57.085942548067884,
+        "p95MeanAbs": 102.66666666666667,
+        "maxChannelError": 225,
+        "exactEqualPixels": 0,
+        "anyChannelOver16Percent": 74.76862745098039,
+        "anyChannelOver32Percent": 60.509803921568626
+      },
+      "after": {
+        "pixels": 12750,
+        "mae": 27.537176470588236,
+        "rmse": 42.211556513210624,
+        "p95MeanAbs": 79.33333333333333,
+        "maxChannelError": 230,
+        "exactEqualPixels": 0,
+        "anyChannelOver16Percent": 56.886274509803926,
+        "anyChannelOver32Percent": 45.294117647058826
+      }
+    },
+    {
+      "id": "board",
+      "label": "棋盘区域",
+      "rect": [
+        31,
+        156,
+        315,
+        396
+      ],
+      "before": {
+        "pixels": 124740,
+        "mae": 33.66953396397841,
+        "rmse": 51.687153561603026,
+        "p95MeanAbs": 109.33333333333333,
+        "maxChannelError": 242,
+        "exactEqualPixels": 67,
+        "anyChannelOver16Percent": 67.86355619688953,
+        "anyChannelOver32Percent": 47.65672599005932
+      },
+      "after": {
+        "pixels": 124740,
+        "mae": 26.11782106782107,
+        "rmse": 46.04343419886934,
+        "p95MeanAbs": 104.33333333333333,
+        "maxChannelError": 250,
+        "exactEqualPixels": 17,
+        "anyChannelOver16Percent": 49.42360109026775,
+        "anyChannelOver32Percent": 31.62658329324996
+      }
+    },
+    {
+      "id": "sides",
+      "label": "完整棋盘高度（含两侧装饰）",
+      "rect": [
+        0,
+        156,
+        375,
+        396
+      ],
+      "before": {
+        "pixels": 148500,
+        "mae": 34.47037261503928,
+        "rmse": 51.687343728261965,
+        "p95MeanAbs": 107.33333333333333,
+        "maxChannelError": 242,
+        "exactEqualPixels": 68,
+        "anyChannelOver16Percent": 69.9952861952862,
+        "anyChannelOver32Percent": 49.556228956228956
+      },
+      "after": {
+        "pixels": 148500,
+        "mae": 26.538893378226714,
+        "rmse": 45.0808402442415,
+        "p95MeanAbs": 100.66666666666667,
+        "maxChannelError": 250,
+        "exactEqualPixels": 20,
+        "anyChannelOver16Percent": 52.655218855218855,
+        "anyChannelOver32Percent": 33.54410774410774
+      }
+    },
+    {
+      "id": "footer",
+      "label": "底部物件与台面",
+      "rect": [
+        0,
+        552,
+        375,
+        97
+      ],
+      "before": {
+        "pixels": 36375,
+        "mae": 50.00447193585338,
+        "rmse": 66.1737693695721,
+        "p95MeanAbs": 131.66666666666666,
+        "maxChannelError": 250,
+        "exactEqualPixels": 0,
+        "anyChannelOver16Percent": 86.12783505154638,
+        "anyChannelOver32Percent": 69.38006872852233
+      },
+      "after": {
+        "pixels": 36375,
+        "mae": 37.913997709049255,
+        "rmse": 54.59275944421796,
+        "p95MeanAbs": 114.33333333333333,
+        "maxChannelError": 248,
+        "exactEqualPixels": 4,
+        "anyChannelOver16Percent": 71.3979381443299,
+        "anyChannelOver32Percent": 51.593127147766324
+      }
+    },
+    {
+      "id": "switch",
+      "label": "新增切换栏",
+      "rect": [
+        0,
+        649,
+        375,
+        18
+      ],
+      "before": {
+        "pixels": 6750,
+        "mae": 74.55402469135802,
+        "rmse": 83.61555971923225,
+        "p95MeanAbs": 118.33333333333333,
+        "maxChannelError": 187,
+        "exactEqualPixels": 0,
+        "anyChannelOver16Percent": 98.47407407407407,
+        "anyChannelOver32Percent": 90.74074074074075
+      },
+      "after": {
+        "pixels": 6750,
+        "mae": 72.78503703703704,
+        "rmse": 81.83935393105112,
+        "p95MeanAbs": 117,
+        "maxChannelError": 187,
+        "exactEqualPixels": 0,
+        "anyChannelOver16Percent": 97.39259259259259,
+        "anyChannelOver32Percent": 90.5037037037037
+      }
+    }
+  ],
+  "landmarks": [
+    {
+      "id": "board",
+      "label": "棋盘外框",
+      "reference": [
+        33,
+        158,
+        311,
+        391
+      ],
+      "before": [
+        19.5,
+        151,
+        336,
+        432
+      ],
+      "after": [
+        33.5,
+        156,
+        308,
+        396
+      ],
+      "note": "参考图手工标注约±2px。原图每格约44.4×43.4；样板按要求保持44×44，不能将9行压成非正方形。",
+      "deltaBefore": [
+        -13.5,
+        -7,
+        25,
+        41
+      ],
+      "deltaAfter": [
+        0.5,
+        -2,
+        -3,
+        5
+      ]
+    },
+    {
+      "id": "main",
+      "label": "主线纸卡",
+      "reference": [
+        81,
+        52,
+        112,
+        59
+      ],
+      "before": [
+        65,
+        46,
+        154,
+        60
+      ],
+      "after": [
+        79,
+        52,
+        116,
+        62
+      ],
+      "note": "边框外包络，非文字内容框；原图手工标注约±2px。",
+      "deltaBefore": [
+        -16,
+        -6,
+        42,
+        1
+      ],
+      "deltaAfter": [
+        -2,
+        0,
+        4,
+        3
+      ]
+    },
+    {
+      "id": "detail",
+      "label": "详情牌",
+      "reference": [
+        29,
+        123,
+        318,
+        31
+      ],
+      "before": [
+        21,
+        117,
+        333,
+        30
+      ],
+      "after": [
+        28,
+        123,
+        319,
+        30
+      ],
+      "note": "包含生成边框，不含横梁。原图手工标注约±2px。",
+      "deltaBefore": [
+        -8,
+        -6,
+        15,
+        -1
+      ],
+      "deltaAfter": [
+        -1,
+        0,
+        1,
+        -1
+      ]
+    },
+    {
+      "id": "book",
+      "label": "食谱物件显示盒",
+      "reference": [
+        9,
+        563,
+        81,
+        77
+      ],
+      "before": [
+        17.5,
+        587,
+        61,
+        61
+      ],
+      "after": [
+        9,
+        560,
+        80,
+        80
+      ],
+      "note": "contain显示盒近似，透明边缘导致可见主体略小；不用于自动判定。",
+      "deltaBefore": [
+        8.5,
+        24,
+        -20,
+        -16
+      ],
+      "deltaAfter": [
+        0,
+        -3,
+        -1,
+        3
+      ]
+    }
+  ]
+}

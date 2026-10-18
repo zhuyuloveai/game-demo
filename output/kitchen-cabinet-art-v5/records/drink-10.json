@@ -1,0 +1,45 @@
+{
+  "id": "drink:10",
+  "key": "drink-10",
+  "source": "sources/drink-10.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-72182ba0-f7d7-4250-a818-83d5b8dea594.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/drink-10.txt",
+  "generatedAt": "2026-10-18T12:02:32.582Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.2618,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/drink-10.png",
+    "webp": "items/drink-10.webp",
+    "sourceSize": [
+      1312,
+      1199
+    ],
+    "crop": [
+      2,
+      0,
+      1309,
+      1197
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      36.58
+    ],
+    "contact": {
+      "x": 53.93,
+      "width": 27.6,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-drink.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

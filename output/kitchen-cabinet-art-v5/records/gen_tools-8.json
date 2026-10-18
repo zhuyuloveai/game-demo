@@ -1,0 +1,45 @@
+{
+  "id": "gen_tools:8",
+  "key": "gen_tools-8",
+  "source": "sources/gen_tools-8.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-4ec10187-33c9-45b5-9f68-1c9ae21f679a.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/gen_tools-8.txt",
+  "generatedAt": "2026-10-18T13:30:50.679Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.3295,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/gen_tools-8.png",
+    "webp": "items/gen_tools-8.webp",
+    "sourceSize": [
+      1230,
+      1278
+    ],
+    "crop": [
+      36,
+      20,
+      1187,
+      1201
+    ],
+    "keptComponents": 1,
+    "box": [
+      38.55,
+      39
+    ],
+    "contact": {
+      "x": 51.41,
+      "width": 26.32,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-gen_tools.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

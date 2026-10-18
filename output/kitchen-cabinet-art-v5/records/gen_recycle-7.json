@@ -1,0 +1,45 @@
+{
+  "id": "gen_recycle:7",
+  "key": "gen_recycle-7",
+  "source": "sources/gen_recycle-7.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-1be7b06b-630c-4041-b031-5ab66af3d207.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/gen_recycle-7.txt",
+  "generatedAt": "2026-10-18T14:10:55.266Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.3153,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/gen_recycle-7.png",
+    "webp": "items/gen_recycle-7.webp",
+    "sourceSize": [
+      1312,
+      1199
+    ],
+    "crop": [
+      31,
+      76,
+      1273,
+      1093
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      34.34
+    ],
+    "contact": {
+      "x": 39.9,
+      "width": 23.6,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-gen_recycle.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

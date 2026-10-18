@@ -1,0 +1,45 @@
+{
+  "id": "coins:1",
+  "key": "coins-1",
+  "source": "sources/coins-1.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-56488ddd-0b83-44fa-b553-4c3795f733e8.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/coins-1.txt",
+  "generatedAt": "2026-10-18T13:30:51.322Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.6124,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/coins-1.png",
+    "webp": "items/coins-1.webp",
+    "sourceSize": [
+      1374,
+      1145
+    ],
+    "crop": [
+      110,
+      199,
+      1179,
+      808
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      27.41
+    ],
+    "contact": {
+      "x": 65,
+      "width": 27.03,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-coins.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

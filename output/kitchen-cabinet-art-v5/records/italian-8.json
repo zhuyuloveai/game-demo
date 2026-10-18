@@ -1,0 +1,45 @@
+{
+  "id": "italian:8",
+  "key": "italian-8",
+  "source": "sources/italian-8.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-de113d5b-0b08-4739-b666-3e5ebb25c412.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/italian-8.txt",
+  "generatedAt": "2026-10-18T12:08:22.050Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.3416,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/italian-8.png",
+    "webp": "items/italian-8.webp",
+    "sourceSize": [
+      1312,
+      1199
+    ],
+    "crop": [
+      0,
+      10,
+      1312,
+      1171
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      35.7
+    ],
+    "contact": {
+      "x": 52.59,
+      "width": 26.46,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-italian.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

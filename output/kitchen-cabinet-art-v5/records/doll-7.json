@@ -1,0 +1,45 @@
+{
+  "id": "doll:7",
+  "key": "doll-7",
+  "source": "sources/doll-7.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-27bff8ab-d439-4d49-9913-04add1054da9.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/doll-7.txt",
+  "generatedAt": "2026-10-18T12:24:02.772Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.1909,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/doll-7.png",
+    "webp": "items/doll-7.webp",
+    "sourceSize": [
+      1312,
+      1199
+    ],
+    "crop": [
+      0,
+      0,
+      1312,
+      1199
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      36.55
+    ],
+    "contact": {
+      "x": 50.59,
+      "width": 28.05,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-doll.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

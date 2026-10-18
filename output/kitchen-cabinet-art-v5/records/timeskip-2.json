@@ -1,0 +1,45 @@
+{
+  "id": "timeskip:2",
+  "key": "timeskip-2",
+  "source": "sources/timeskip-2.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-990a8354-fc76-49ae-9cad-b14eaa957ebe.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/timeskip-2.txt",
+  "generatedAt": "2026-10-18T13:41:04.043Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.6115,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/timeskip-2.png",
+    "webp": "items/timeskip-2.webp",
+    "sourceSize": [
+      1247,
+      1261
+    ],
+    "crop": [
+      265,
+      36,
+      718,
+      1144
+    ],
+    "keptComponents": 1,
+    "box": [
+      23.85,
+      38
+    ],
+    "contact": {
+      "x": 50.44,
+      "width": 17.83,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-timeskip.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

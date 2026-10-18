@@ -1,0 +1,45 @@
+{
+  "id": "gen_flower:1",
+  "key": "gen_flower-1",
+  "source": "sources/gen_flower-1.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-19d300b6-0325-4059-9472-341183abe68b.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/gen_flower-1.txt",
+  "generatedAt": "2026-10-18T14:07:11.504Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.5349,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/gen_flower-1.png",
+    "webp": "items/gen_flower-1.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      30,
+      133,
+      1204,
+      1013
+    ],
+    "keptComponents": 9,
+    "box": [
+      40,
+      33.65
+    ],
+    "contact": {
+      "x": 56.17,
+      "width": 22.03,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-gen_flower.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "seedbag:4",
+  "key": "seedbag-4",
+  "source": "sources/seedbag-4.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-8ed04317-5665-498a-91e2-03ed5294ff4d.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/seedbag-4.txt",
+  "generatedAt": "2026-10-18T12:19:32.724Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.4285,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/seedbag-4.png",
+    "webp": "items/seedbag-4.webp",
+    "sourceSize": [
+      1312,
+      1199
+    ],
+    "crop": [
+      42,
+      66,
+      1237,
+      1086
+    ],
+    "keptComponents": 2,
+    "box": [
+      40,
+      35.12
+    ],
+    "contact": {
+      "x": 55.94,
+      "width": 14.43,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-seedbag.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

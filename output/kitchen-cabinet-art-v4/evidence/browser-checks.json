@@ -1,0 +1,586 @@
+{
+  "browser": "Google Chrome via Playwright, actual DOM and raster screenshots",
+  "checks": [
+    {
+      "check": "initial 375x667",
+      "name": "island",
+      "viewport": [
+        375,
+        667
+      ],
+      "scroll": [
+        375,
+        667
+      ],
+      "board": [
+        33.5,
+        156,
+        308,
+        396
+      ],
+      "cell": [
+        44,
+        44
+      ],
+      "count": 63,
+      "hits": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "footer": [
+        {
+          "label": "打开桌上的食谱和图鉴",
+          "r": {
+            "x": 8,
+            "y": 556,
+            "width": 82,
+            "height": 84,
+            "top": 556,
+            "right": 90,
+            "bottom": 640,
+            "left": 8
+          }
+        },
+        {
+          "label": "打开收纳柜",
+          "r": {
+            "x": 95,
+            "y": 556,
+            "width": 112,
+            "height": 84,
+            "top": 556,
+            "right": 207,
+            "bottom": 640,
+            "left": 95
+          }
+        },
+        {
+          "label": "打开手机，采购与设置",
+          "r": {
+            "x": 212,
+            "y": 556,
+            "width": 64,
+            "height": 84,
+            "top": 556,
+            "right": 276,
+            "bottom": 640,
+            "left": 212
+          }
+        },
+        {
+          "label": "收音机，背景音乐关闭，操作音效关闭",
+          "r": {
+            "x": 281,
+            "y": 556,
+            "width": 86,
+            "height": 84,
+            "top": 556,
+            "right": 367,
+            "bottom": 640,
+            "left": 281
+          }
+        }
+      ]
+    },
+    {
+      "check": "classic 375x667",
+      "name": "classic",
+      "viewport": [
+        375,
+        667
+      ],
+      "scroll": [
+        375,
+        667
+      ],
+      "board": [
+        26.5,
+        166,
+        322,
+        414
+      ],
+      "cell": [
+        46,
+        46
+      ],
+      "count": 63,
+      "hits": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "footer": [
+        {
+          "label": "打开桌上的食谱和图鉴",
+          "r": {
+            "x": 23.844968795776367,
+            "y": 593.7947387695312,
+            "width": 67.59130859375,
+            "height": 49.4105224609375,
+            "top": 593.7947387695312,
+            "right": 91.43627738952637,
+            "bottom": 643.2052612304688,
+            "left": 23.844968795776367
+          }
+        },
+        {
+          "label": "打开收纳柜",
+          "r": {
+            "x": 130.703125,
+            "y": 592.5,
+            "width": 56,
+            "height": 48,
+            "top": 592.5,
+            "right": 186.703125,
+            "bottom": 640.5,
+            "left": 130.703125
+          }
+        },
+        {
+          "label": "打开手机，采购与设置",
+          "r": {
+            "x": 224.01316833496094,
+            "y": 589.3842163085938,
+            "width": 46.66117858886719,
+            "height": 54.2315673828125,
+            "top": 589.3842163085938,
+            "right": 270.6743469238281,
+            "bottom": 643.6157836914062,
+            "left": 224.01316833496094
+          }
+        },
+        {
+          "label": "收音机，背景音乐关闭，操作音效关闭",
+          "r": {
+            "x": 306.9221496582031,
+            "y": 589.7474365234375,
+            "width": 45.71820068359375,
+            "height": 51.505126953125,
+            "top": 589.7474365234375,
+            "right": 352.6403503417969,
+            "bottom": 641.2525634765625,
+            "left": 306.9221496582031
+          }
+        }
+      ]
+    },
+    {
+      "name": "classic uses original vectors and preserves byte-identical shared sample save",
+      "pass": true
+    },
+    {
+      "name": "all ten main entry points open and close their existing game panels",
+      "pass": true
+    },
+    {
+      "name": "real pointer merge survives two-way style switch",
+      "pass": true
+    },
+    {
+      "check": "430x740",
+      "name": "island",
+      "viewport": [
+        430,
+        740
+      ],
+      "scroll": [
+        430,
+        740
+      ],
+      "board": [
+        44.145423889160156,
+        173.0734405517578,
+        341.70916748046875,
+        439.34039306640625
+      ],
+      "cell": [
+        48.815589904785156,
+        48.81559753417969
+      ],
+      "count": 63,
+      "hits": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "footer": [
+        {
+          "label": "打开桌上的食谱和图鉴",
+          "r": {
+            "x": 15.85456657409668,
+            "y": 616.8515625,
+            "width": 90.97451782226562,
+            "height": 93.1934814453125,
+            "top": 616.8515625,
+            "right": 106.8290843963623,
+            "bottom": 710.0450439453125,
+            "left": 15.85456657409668
+          }
+        },
+        {
+          "label": "打开收纳柜",
+          "r": {
+            "x": 112.37631225585938,
+            "y": 616.8515625,
+            "width": 124.25787353515625,
+            "height": 93.1934814453125,
+            "top": 616.8515625,
+            "right": 236.63418579101562,
+            "bottom": 710.0450439453125,
+            "left": 112.37631225585938
+          }
+        },
+        {
+          "label": "打开手机，采购与设置",
+          "r": {
+            "x": 242.18141174316406,
+            "y": 616.8515625,
+            "width": 71.00450134277344,
+            "height": 93.1934814453125,
+            "top": 616.8515625,
+            "right": 313.1859130859375,
+            "bottom": 710.0450439453125,
+            "left": 242.18141174316406
+          }
+        },
+        {
+          "label": "收音机，背景音乐关闭，操作音效关闭",
+          "r": {
+            "x": 318.733154296875,
+            "y": 616.8515625,
+            "width": 95.41229248046875,
+            "height": 93.1934814453125,
+            "top": 616.8515625,
+            "right": 414.14544677734375,
+            "bottom": 710.0450439453125,
+            "left": 318.733154296875
+          }
+        }
+      ]
+    },
+    {
+      "check": "1440x900",
+      "name": "island",
+      "viewport": [
+        1440,
+        900
+      ],
+      "scroll": [
+        1440,
+        900
+      ],
+      "board": [
+        512.2039184570312,
+        210.4947509765625,
+        415.59222412109375,
+        534.3328247070312
+      ],
+      "cell": [
+        59.37030029296875,
+        59.37030029296875
+      ],
+      "count": 63,
+      "hits": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "footer": [
+        {
+          "label": "打开桌上的食谱和图鉴",
+          "r": {
+            "x": 477.796142578125,
+            "y": 750.224853515625,
+            "width": 110.6446533203125,
+            "height": 113.34332275390625,
+            "top": 750.224853515625,
+            "right": 588.4407958984375,
+            "bottom": 863.5681762695312,
+            "left": 477.796142578125
+          }
+        },
+        {
+          "label": "打开收纳柜",
+          "r": {
+            "x": 595.1874389648438,
+            "y": 750.224853515625,
+            "width": 151.12445068359375,
+            "height": 113.34332275390625,
+            "top": 750.224853515625,
+            "right": 746.3118896484375,
+            "bottom": 863.5681762695312,
+            "left": 595.1874389648438
+          }
+        },
+        {
+          "label": "打开手机，采购与设置",
+          "r": {
+            "x": 753.0584716796875,
+            "y": 750.224853515625,
+            "width": 86.3568115234375,
+            "height": 113.34332275390625,
+            "top": 750.224853515625,
+            "right": 839.415283203125,
+            "bottom": 863.5681762695312,
+            "left": 753.0584716796875
+          }
+        },
+        {
+          "label": "收音机，背景音乐关闭，操作音效关闭",
+          "r": {
+            "x": 846.1619262695312,
+            "y": 750.224853515625,
+            "width": 116.0419921875,
+            "height": 113.34332275390625,
+            "top": 750.224853515625,
+            "right": 962.2039184570312,
+            "bottom": 863.5681762695312,
+            "left": 846.1619262695312
+          }
+        }
+      ]
+    }
+  ],
+  "errors": []
+}
