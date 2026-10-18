@@ -1,0 +1,45 @@
+{
+  "id": "gen_mediterranean:7",
+  "key": "gen_mediterranean-7",
+  "source": "sources/gen_mediterranean-7.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-1d955f26-f9f0-49b6-8136-36cef2959708.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/gen_mediterranean-7.txt",
+  "generatedAt": "2026-10-18T14:05:43.016Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.2336,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/gen_mediterranean-7.png",
+    "webp": "items/gen_mediterranean-7.webp",
+    "sourceSize": [
+      1236,
+      1273
+    ],
+    "crop": [
+      2,
+      0,
+      1234,
+      1273
+    ],
+    "keptComponents": 1,
+    "box": [
+      37.81,
+      39
+    ],
+    "contact": {
+      "x": 50.83,
+      "width": 29,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-gen_mediterranean.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

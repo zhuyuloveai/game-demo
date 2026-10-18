@@ -1,0 +1,45 @@
+{
+  "id": "stopwatch:1",
+  "key": "stopwatch-1",
+  "source": "sources/stopwatch-1.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-64e86aad-c882-4700-9589-9cee18b2d566.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/stopwatch-1.txt",
+  "generatedAt": "2026-10-18T13:23:58.555Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.5576,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/stopwatch-1.png",
+    "webp": "items/stopwatch-1.webp",
+    "sourceSize": [
+      1312,
+      1199
+    ],
+    "crop": [
+      216,
+      15,
+      889,
+      1174
+    ],
+    "keptComponents": 1,
+    "box": [
+      28.78,
+      38
+    ],
+    "contact": {
+      "x": 48.97,
+      "width": 15.43,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-stopwatch.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

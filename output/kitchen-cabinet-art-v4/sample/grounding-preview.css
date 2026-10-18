@@ -1,0 +1,31 @@
+/* Local art-review variant: keep the continuous board and add item-to-shelf contact. */
+[data-kitchen-style="island"] .cell:has(.island-3d-art[data-3d-item]){
+  padding-bottom:2.25px;
+  --contact-width:19px;
+  --contact-height:3px;
+  --contact-x:50%;
+}
+[data-kitchen-style="island"] .cell:has(.island-3d-art[data-3d-item])::before{
+  content:"";display:block;position:absolute;left:var(--contact-x);bottom:1.3px;
+  width:var(--contact-width);height:var(--contact-height);transform:translateX(-50%);
+  background:radial-gradient(ellipse at center,rgba(105,69,32,.31) 0%,rgba(111,75,38,.18) 34%,rgba(118,82,43,.06) 56%,transparent 74%);
+  filter:blur(.35px);pointer-events:none;z-index:0;
+}
+[data-kitchen-style="island"] .cell .item-art{position:relative;z-index:1}
+[data-kitchen-style="island"] .cell .island-3d-art[data-3d-item]{flex:none;filter:drop-shadow(.55px .7px .65px rgba(102,67,29,.21))}
+[data-kitchen-style="island"] .cell:has(.island-3d-art[data-art="bowl"]){--contact-width:15px;--contact-height:2.8px}
+[data-kitchen-style="island"] .cell:has(.island-3d-art[data-art="saucepan"]){--contact-width:18px;--contact-x:39%;--contact-height:2.8px}
+[data-kitchen-style="island"] .cell:has(.island-3d-art[data-art="wheat"]){--contact-width:10px;--contact-x:36%;--contact-height:2.5px}
+[data-kitchen-style="island"] .cell:has(.island-3d-art[data-art="whisk"]){--contact-width:9px;--contact-x:28%;--contact-height:2.4px}
+[data-kitchen-style="island"] .cell:has(.island-3d-art[data-art="flour"]){--contact-width:24px}
+[data-kitchen-style="island"] .cell:has(.island-3d-art[data-art="bread"]){--contact-width:25px;--contact-x:48%}
+[data-kitchen-style="island"] .cell:has(.island-3d-art[data-art="strawberry"]){--contact-width:24px;--contact-x:49%}
+[data-kitchen-style="island"] .cell:has(.island-3d-art[data-art="orange"]){--contact-width:17px}
+[data-kitchen-style="island"] .cell:has(.island-3d-art[data-art="producer"]){--contact-width:22px}
+/* Let the round and low objects occupy slightly more of their compartment. */
+[data-kitchen-style="island"] .cell [data-art="bowl"]{width:37px;height:29px}
+[data-kitchen-style="island"] .cell [data-art="tomato"]{width:35px;height:35px}
+[data-kitchen-style="island"] .cell [data-art="orange"]{width:35px;height:35px}
+[data-kitchen-style="island"] .cell [data-art="strawberry"]{width:37px;height:34px}
+[data-kitchen-style="island"] .cell [data-art="saucepan"]{width:40px;height:33px}
+[data-kitchen-style="island"] .cell [data-art="bread"]{width:40px;height:34px}

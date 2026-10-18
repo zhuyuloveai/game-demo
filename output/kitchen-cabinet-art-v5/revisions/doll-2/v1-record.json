@@ -1,0 +1,39 @@
+{
+  "id": "doll:2",
+  "key": "doll-2",
+  "source": "sources/doll-2.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-0605f5c3-8edc-4cac-be83-094ef8fcaba8.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/doll-2.txt",
+  "generatedAt": "2026-10-18T12:24:04.936Z",
+  "status": "generated-pending-visual-review",
+  "alphaAudit": {
+    "transparentFraction": 0.4584,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/doll-2.png",
+    "webp": "items/doll-2.webp",
+    "sourceSize": [
+      1312,
+      1199
+    ],
+    "crop": [
+      81,
+      100,
+      1202,
+      1038
+    ],
+    "keptComponents": 5,
+    "box": [
+      40,
+      34.54
+    ],
+    "contact": {
+      "x": 60.48,
+      "width": 24.84,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "japanese:4",
+  "key": "japanese-4",
+  "source": "sources/japanese-4.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-5e30cb1b-11cf-418d-83b2-1c8acca0d960.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/japanese-4.txt",
+  "generatedAt": "2026-10-18T12:05:50.704Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.5313,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/japanese-4.png",
+    "webp": "items/japanese-4.webp",
+    "sourceSize": [
+      1286,
+      1223
+    ],
+    "crop": [
+      66,
+      32,
+      1182,
+      1154
+    ],
+    "keptComponents": 1,
+    "box": [
+      38.92,
+      38
+    ],
+    "contact": {
+      "x": 12.42,
+      "width": 9.8,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-japanese.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

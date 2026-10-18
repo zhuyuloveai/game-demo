@@ -1,0 +1,45 @@
+{
+  "id": "linen:1",
+  "key": "linen-1",
+  "source": "sources/linen-1.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-4b4ac5e9-f304-4157-8ccf-928fe4a8ae84.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/linen-1.txt",
+  "generatedAt": "2026-10-18T12:13:01.134Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.5203,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/linen-1.png",
+    "webp": "items/linen-1.webp",
+    "sourceSize": [
+      1312,
+      1199
+    ],
+    "crop": [
+      72,
+      42,
+      1167,
+      1116
+    ],
+    "keptComponents": 1,
+    "box": [
+      39.74,
+      38
+    ],
+    "contact": {
+      "x": 49.83,
+      "width": 21.33,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-linen.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

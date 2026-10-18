@@ -1,0 +1,45 @@
+{
+  "id": "gems:3",
+  "key": "gems-3",
+  "source": "sources/gems-3.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-d7e51e83-004b-4ebf-917f-8e1f01cb0d21.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/gems-3.txt",
+  "generatedAt": "2026-10-18T13:38:02.554Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.4203,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/gems-3.png",
+    "webp": "items/gems-3.webp",
+    "sourceSize": [
+      1312,
+      1199
+    ],
+    "crop": [
+      89,
+      9,
+      1135,
+      1176
+    ],
+    "keptComponents": 1,
+    "box": [
+      36.68,
+      38
+    ],
+    "contact": {
+      "x": 54.72,
+      "width": 28.85,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-gems.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

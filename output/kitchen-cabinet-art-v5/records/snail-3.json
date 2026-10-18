@@ -1,0 +1,45 @@
+{
+  "id": "snail:3",
+  "key": "snail-3",
+  "source": "sources/snail-3.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-25b0b8eb-007b-40ef-838b-85b4c4b9650a.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/snail-3.txt",
+  "generatedAt": "2026-10-18T12:29:42.350Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.5493,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/snail-3.png",
+    "webp": "items/snail-3.webp",
+    "sourceSize": [
+      1327,
+      1185
+    ],
+    "crop": [
+      123,
+      134,
+      1134,
+      943
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      33.26
+    ],
+    "contact": {
+      "x": 45.05,
+      "width": 25.68,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-snail.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

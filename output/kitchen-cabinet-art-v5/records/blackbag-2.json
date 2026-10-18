@@ -1,0 +1,45 @@
+{
+  "id": "blackbag:2",
+  "key": "blackbag-2",
+  "source": "sources/blackbag-2.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-39493c55-18ed-4bea-bcb1-524d686ee742.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/blackbag-2.txt",
+  "generatedAt": "2026-10-18T13:33:05.921Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.3347,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/blackbag-2.png",
+    "webp": "items/blackbag-2.webp",
+    "sourceSize": [
+      1312,
+      1199
+    ],
+    "crop": [
+      29,
+      37,
+      1239,
+      1125
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      36.32
+    ],
+    "contact": {
+      "x": 52.72,
+      "width": 24.79,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-blackbag.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

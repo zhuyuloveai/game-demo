@@ -1,0 +1,53 @@
+{
+  "url": "http://127.0.0.1:4199",
+  "checks": [
+    {
+      "name": "normal v4 opening and ten main entries",
+      "locked": 28
+    },
+    {
+      "name": "style switch and refresh retain normal save",
+      "result": true
+    },
+    {
+      "name": "geometry",
+      "viewport": 667,
+      "cells": 63,
+      "width": 44,
+      "height": 44,
+      "gapX": 0,
+      "gapY": 0,
+      "scroll": 667
+    },
+    {
+      "name": "geometry",
+      "viewport": 667,
+      "cells": 63,
+      "width": 44,
+      "height": 44,
+      "gapX": 0,
+      "gapY": 0,
+      "scroll": 667
+    },
+    {
+      "name": "geometry",
+      "viewport": 900,
+      "cells": 63,
+      "width": 59.37030029296875,
+      "height": 59.37030029296875,
+      "gapX": 0,
+      "gapY": 0,
+      "scroll": 900
+    },
+    {
+      "name": "422 catalog raster assets decode",
+      "result": true
+    },
+    {
+      "name": "showcase fixture isolated from normal save",
+      "result": true
+    }
+  ],
+  "errors": [],
+  "passed": true
+}

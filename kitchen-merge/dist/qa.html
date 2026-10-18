@@ -27,6 +27,9 @@
     只在 localhost / 127.0.0.1
     生效。场景存档与正式游戏分开。需要重新初始化时点击场景中的“重置场景”。加速按钮推进真实引擎的时间，不跳过转换次数。
   </p>
+  <a id="island-3d-comparison" href="index.html?qa=cabinet-3d">暖木柜架 · 12种3D物品样板（重置独立QA）</a>
+  <a id="island-long-comparison" href="index.html?qa=island-long">长名称、多需求订单对照（真实目录）</a>
+  <a id="island-comparison" href="index.html?qa=island">重置并打开围坐岛台对照（独立QA存档）</a>
   <a href="index.html?qa=producers">生产器美术：11类启用形态、零件、最高级与容器</a>
   <a href="index.html?qa=producer-tiers">等级辨识：咖啡机和菜筐全级、其他生产器入门与最高级</a>
   <a href="index.html?qa=special"
@@ -71,4 +74,14 @@
     );
     location.href = "./index.html?qa=migration";
   });
+</script>
+
+<script type="module">
+  for(const [id,slot]of [['island-comparison','island'],['island-long-comparison','island-long'],['island-3d-comparison','cabinet-3d']]){
+    document.getElementById(id).addEventListener('click',()=>{
+      if(['localhost','127.0.0.1','::1'].includes(location.hostname)){
+        try{localStorage.removeItem(`little-kitchen-qa-${slot}`);}catch{}
+      }
+    });
+  }
 </script>

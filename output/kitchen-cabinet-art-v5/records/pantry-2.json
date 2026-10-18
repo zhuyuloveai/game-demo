@@ -1,0 +1,46 @@
+{
+  "id": "pantry:2",
+  "key": "pantry-2",
+  "source": "sources/pantry-2.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-db18ea04-f8de-4e79-a841-4b61e7346b8e.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "revisions/pantry-2/v2-prompt.txt",
+  "previous": "revisions/pantry-2/v1-record.json",
+  "generatedAt": "2026-10-18T14:21:36.634Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.507,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/pantry-2.png",
+    "webp": "items/pantry-2.webp",
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "crop": [
+      90,
+      111,
+      1367,
+      855
+    ],
+    "keptComponents": 3,
+    "box": [
+      40,
+      25.02
+    ],
+    "contact": {
+      "x": 62.2,
+      "width": 15.96,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-pantry.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

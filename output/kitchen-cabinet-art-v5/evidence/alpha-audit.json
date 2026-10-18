@@ -1,0 +1,2007 @@
+[
+  {
+    "id": "adventure_box:1",
+    "transparentFraction": 0.2802,
+    "passes": true
+  },
+  {
+    "id": "adventure_box:2",
+    "transparentFraction": 0.3914,
+    "passes": true
+  },
+  {
+    "id": "adventure_box:3",
+    "transparentFraction": 0.3676,
+    "passes": true
+  },
+  {
+    "id": "adventure_box:4",
+    "transparentFraction": 0.3463,
+    "passes": true
+  },
+  {
+    "id": "adventure_box:5",
+    "transparentFraction": 0.3813,
+    "passes": true
+  },
+  {
+    "id": "backpack:1",
+    "transparentFraction": 0.3373,
+    "passes": true
+  },
+  {
+    "id": "bakeware:1",
+    "transparentFraction": 0.4241,
+    "passes": true
+  },
+  {
+    "id": "bakeware:2",
+    "transparentFraction": 0.4989,
+    "passes": true
+  },
+  {
+    "id": "bakeware:3",
+    "transparentFraction": 0.4301,
+    "passes": true
+  },
+  {
+    "id": "bakeware:4",
+    "transparentFraction": 0.5111,
+    "passes": true
+  },
+  {
+    "id": "bakeware:5",
+    "transparentFraction": 0.4174,
+    "passes": true
+  },
+  {
+    "id": "bakeware:6",
+    "transparentFraction": 0.4596,
+    "passes": true
+  },
+  {
+    "id": "bakeware:7",
+    "transparentFraction": 0.3811,
+    "passes": true
+  },
+  {
+    "id": "blackbag:1",
+    "transparentFraction": 0.2713,
+    "passes": true
+  },
+  {
+    "id": "blackbag:2",
+    "transparentFraction": 0.3347,
+    "passes": true
+  },
+  {
+    "id": "cats:1",
+    "transparentFraction": 0.5091,
+    "passes": true
+  },
+  {
+    "id": "cats:2",
+    "transparentFraction": 0.4946,
+    "passes": true
+  },
+  {
+    "id": "cats:3",
+    "transparentFraction": 0.4786,
+    "passes": true
+  },
+  {
+    "id": "cats:4",
+    "transparentFraction": 0.4972,
+    "passes": true
+  },
+  {
+    "id": "cats:5",
+    "transparentFraction": 0.4958,
+    "passes": true
+  },
+  {
+    "id": "cats:6",
+    "transparentFraction": 0.4522,
+    "passes": true
+  },
+  {
+    "id": "cats:7",
+    "transparentFraction": 0.4026,
+    "passes": true
+  },
+  {
+    "id": "cats:8",
+    "transparentFraction": 0.4166,
+    "passes": true
+  },
+  {
+    "id": "charge:1",
+    "transparentFraction": 0.4732,
+    "passes": true
+  },
+  {
+    "id": "charge:2",
+    "transparentFraction": 0.411,
+    "passes": true
+  },
+  {
+    "id": "charge:3",
+    "transparentFraction": 0.3212,
+    "passes": true
+  },
+  {
+    "id": "chest:1",
+    "transparentFraction": 0.3191,
+    "passes": true
+  },
+  {
+    "id": "chest:2",
+    "transparentFraction": 0.4265,
+    "passes": true
+  },
+  {
+    "id": "chest:3",
+    "transparentFraction": 0.3262,
+    "passes": true
+  },
+  {
+    "id": "chinese:1",
+    "transparentFraction": 0.3549,
+    "passes": true
+  },
+  {
+    "id": "chinese:2",
+    "transparentFraction": 0.3835,
+    "passes": true
+  },
+  {
+    "id": "chinese:3",
+    "transparentFraction": 0.3391,
+    "passes": true
+  },
+  {
+    "id": "chinese:4",
+    "transparentFraction": 0.4741,
+    "passes": true
+  },
+  {
+    "id": "chinese:5",
+    "transparentFraction": 0.3981,
+    "passes": true
+  },
+  {
+    "id": "chinese:6",
+    "transparentFraction": 0.325,
+    "passes": true
+  },
+  {
+    "id": "chinese:7",
+    "transparentFraction": 0.4164,
+    "passes": true
+  },
+  {
+    "id": "chinese:8",
+    "transparentFraction": 0.3062,
+    "passes": true
+  },
+  {
+    "id": "coins:1",
+    "transparentFraction": 0.6124,
+    "passes": true
+  },
+  {
+    "id": "coins:2",
+    "transparentFraction": 0.5892,
+    "passes": true
+  },
+  {
+    "id": "coins:3",
+    "transparentFraction": 0.441,
+    "passes": true
+  },
+  {
+    "id": "coins:4",
+    "transparentFraction": 0.4284,
+    "passes": true
+  },
+  {
+    "id": "coins:5",
+    "transparentFraction": 0.4307,
+    "passes": true
+  },
+  {
+    "id": "coins:6",
+    "transparentFraction": 0.388,
+    "passes": true
+  },
+  {
+    "id": "comfort:1",
+    "transparentFraction": 0.4391,
+    "passes": true
+  },
+  {
+    "id": "comfort:2",
+    "transparentFraction": 0.3094,
+    "passes": true
+  },
+  {
+    "id": "comfort:3",
+    "transparentFraction": 0.3901,
+    "passes": true
+  },
+  {
+    "id": "comfort:4",
+    "transparentFraction": 0.5935,
+    "passes": true
+  },
+  {
+    "id": "comfort:5",
+    "transparentFraction": 0.3571,
+    "passes": true
+  },
+  {
+    "id": "comfort:6",
+    "transparentFraction": 0.4386,
+    "passes": true
+  },
+  {
+    "id": "comfort:7",
+    "transparentFraction": 0.3507,
+    "passes": true
+  },
+  {
+    "id": "comfort:8",
+    "transparentFraction": 0.3205,
+    "passes": true
+  },
+  {
+    "id": "console:1",
+    "transparentFraction": 0.3607,
+    "passes": true
+  },
+  {
+    "id": "console:2",
+    "transparentFraction": 0.4797,
+    "passes": true
+  },
+  {
+    "id": "console:3",
+    "transparentFraction": 0.4745,
+    "passes": true
+  },
+  {
+    "id": "console:4",
+    "transparentFraction": 0.4378,
+    "passes": true
+  },
+  {
+    "id": "courses:1",
+    "transparentFraction": 0.3036,
+    "passes": true
+  },
+  {
+    "id": "courses:2",
+    "transparentFraction": 0.389,
+    "passes": true
+  },
+  {
+    "id": "courses:3",
+    "transparentFraction": 0.3564,
+    "passes": true
+  },
+  {
+    "id": "courses:4",
+    "transparentFraction": 0.3494,
+    "passes": true
+  },
+  {
+    "id": "courses:5",
+    "transparentFraction": 0.2311,
+    "passes": true
+  },
+  {
+    "id": "courses:6",
+    "transparentFraction": 0.3518,
+    "passes": true
+  },
+  {
+    "id": "doll:1",
+    "transparentFraction": 0.5414,
+    "passes": true
+  },
+  {
+    "id": "doll:2",
+    "transparentFraction": 0.5076,
+    "passes": true
+  },
+  {
+    "id": "doll:3",
+    "transparentFraction": 0.4355,
+    "passes": true
+  },
+  {
+    "id": "doll:4",
+    "transparentFraction": 0.4939,
+    "passes": true
+  },
+  {
+    "id": "doll:5",
+    "transparentFraction": 0.5038,
+    "passes": true
+  },
+  {
+    "id": "doll:6",
+    "transparentFraction": 0.4501,
+    "passes": true
+  },
+  {
+    "id": "doll:7",
+    "transparentFraction": 0.1909,
+    "passes": true
+  },
+  {
+    "id": "doll:8",
+    "transparentFraction": 0.3638,
+    "passes": true
+  },
+  {
+    "id": "drink:1",
+    "transparentFraction": 0.4385,
+    "passes": true
+  },
+  {
+    "id": "drink:10",
+    "transparentFraction": 0.2618,
+    "passes": true
+  },
+  {
+    "id": "drink:11",
+    "transparentFraction": 0.3123,
+    "passes": true
+  },
+  {
+    "id": "drink:2",
+    "transparentFraction": 0.4948,
+    "passes": true
+  },
+  {
+    "id": "drink:3",
+    "transparentFraction": 0.4488,
+    "passes": true
+  },
+  {
+    "id": "drink:4",
+    "transparentFraction": 0.4367,
+    "passes": true
+  },
+  {
+    "id": "drink:5",
+    "transparentFraction": 0.5524,
+    "passes": true
+  },
+  {
+    "id": "drink:6",
+    "transparentFraction": 0.4665,
+    "passes": true
+  },
+  {
+    "id": "drink:7",
+    "transparentFraction": 0.414,
+    "passes": true
+  },
+  {
+    "id": "drink:8",
+    "transparentFraction": 0.3838,
+    "passes": true
+  },
+  {
+    "id": "drink:9",
+    "transparentFraction": 0.3277,
+    "passes": true
+  },
+  {
+    "id": "emptybag:1",
+    "transparentFraction": 0.4221,
+    "passes": true
+  },
+  {
+    "id": "emptybag:2",
+    "transparentFraction": 0.5565,
+    "passes": true
+  },
+  {
+    "id": "emptybag:3",
+    "transparentFraction": 0.5147,
+    "passes": true
+  },
+  {
+    "id": "emptybag:4",
+    "transparentFraction": 0.4069,
+    "passes": true
+  },
+  {
+    "id": "energy:1",
+    "transparentFraction": 0.514,
+    "passes": true
+  },
+  {
+    "id": "energy:2",
+    "transparentFraction": 0.5278,
+    "passes": true
+  },
+  {
+    "id": "energy:3",
+    "transparentFraction": 0.5153,
+    "passes": true
+  },
+  {
+    "id": "energy:4",
+    "transparentFraction": 0.4947,
+    "passes": true
+  },
+  {
+    "id": "energy:5",
+    "transparentFraction": 0.404,
+    "passes": true
+  },
+  {
+    "id": "energybox:1",
+    "transparentFraction": 0.3497,
+    "passes": true
+  },
+  {
+    "id": "flowers:1",
+    "transparentFraction": 0.5526,
+    "passes": true
+  },
+  {
+    "id": "flowers:2",
+    "transparentFraction": 0.4932,
+    "passes": true
+  },
+  {
+    "id": "flowers:3",
+    "transparentFraction": 0.5199,
+    "passes": true
+  },
+  {
+    "id": "flowers:4",
+    "transparentFraction": 0.4902,
+    "passes": true
+  },
+  {
+    "id": "flowers:5",
+    "transparentFraction": 0.4922,
+    "passes": true
+  },
+  {
+    "id": "flowers:6",
+    "transparentFraction": 0.4673,
+    "passes": true
+  },
+  {
+    "id": "flowers:7",
+    "transparentFraction": 0.4175,
+    "passes": true
+  },
+  {
+    "id": "flowers:8",
+    "transparentFraction": 0.2236,
+    "passes": true
+  },
+  {
+    "id": "flowers:9",
+    "transparentFraction": 0.3859,
+    "passes": true
+  },
+  {
+    "id": "food:10",
+    "transparentFraction": 0.3253,
+    "passes": true
+  },
+  {
+    "id": "food:11",
+    "transparentFraction": 0.3552,
+    "passes": true
+  },
+  {
+    "id": "food:3",
+    "transparentFraction": 0.4337,
+    "passes": true
+  },
+  {
+    "id": "food:5",
+    "transparentFraction": 0.5349,
+    "passes": true
+  },
+  {
+    "id": "food:6",
+    "transparentFraction": 0.373,
+    "passes": true
+  },
+  {
+    "id": "food:7",
+    "transparentFraction": 0.3267,
+    "passes": true
+  },
+  {
+    "id": "food:8",
+    "transparentFraction": 0.5531,
+    "passes": true
+  },
+  {
+    "id": "food:9",
+    "transparentFraction": 0.3102,
+    "passes": true
+  },
+  {
+    "id": "fruit:1",
+    "transparentFraction": 0.4075,
+    "passes": true
+  },
+  {
+    "id": "fruit:4",
+    "transparentFraction": 0.4133,
+    "passes": true
+  },
+  {
+    "id": "fruit:5",
+    "transparentFraction": 0.3914,
+    "passes": true
+  },
+  {
+    "id": "fruit:6",
+    "transparentFraction": 0.4288,
+    "passes": true
+  },
+  {
+    "id": "fruit:7",
+    "transparentFraction": 0.5278,
+    "passes": true
+  },
+  {
+    "id": "fruit:8",
+    "transparentFraction": 0.3826,
+    "passes": true
+  },
+  {
+    "id": "garden_guest:1",
+    "transparentFraction": 0.5739,
+    "passes": true
+  },
+  {
+    "id": "garden_guest:2",
+    "transparentFraction": 0.5367,
+    "passes": true
+  },
+  {
+    "id": "garden_guest:3",
+    "transparentFraction": 0.4513,
+    "passes": true
+  },
+  {
+    "id": "garden_guest:4",
+    "transparentFraction": 0.382,
+    "passes": true
+  },
+  {
+    "id": "garden_guest:5",
+    "transparentFraction": 0.3362,
+    "passes": true
+  },
+  {
+    "id": "garden_guest:6",
+    "transparentFraction": 0.2768,
+    "passes": true
+  },
+  {
+    "id": "gems:1",
+    "transparentFraction": 0.7533,
+    "passes": true
+  },
+  {
+    "id": "gems:2",
+    "transparentFraction": 0.6387,
+    "passes": true
+  },
+  {
+    "id": "gems:3",
+    "transparentFraction": 0.4203,
+    "passes": true
+  },
+  {
+    "id": "gems:4",
+    "transparentFraction": 0.4888,
+    "passes": true
+  },
+  {
+    "id": "gen_asian:1",
+    "transparentFraction": 0.3846,
+    "passes": true
+  },
+  {
+    "id": "gen_asian:10",
+    "transparentFraction": 0.2952,
+    "passes": true
+  },
+  {
+    "id": "gen_asian:2",
+    "transparentFraction": 0.4428,
+    "passes": true
+  },
+  {
+    "id": "gen_asian:3",
+    "transparentFraction": 0.3893,
+    "passes": true
+  },
+  {
+    "id": "gen_asian:4",
+    "transparentFraction": 0.3245,
+    "passes": true
+  },
+  {
+    "id": "gen_asian:5",
+    "transparentFraction": 0.3353,
+    "passes": true
+  },
+  {
+    "id": "gen_asian:6",
+    "transparentFraction": 0.2054,
+    "passes": true
+  },
+  {
+    "id": "gen_asian:7",
+    "transparentFraction": 0.29,
+    "passes": true
+  },
+  {
+    "id": "gen_asian:8",
+    "transparentFraction": 0.2592,
+    "passes": true
+  },
+  {
+    "id": "gen_asian:9",
+    "transparentFraction": 0.3076,
+    "passes": true
+  },
+  {
+    "id": "gen_drink:1",
+    "transparentFraction": 0.4119,
+    "passes": true
+  },
+  {
+    "id": "gen_drink:10",
+    "transparentFraction": 0.1993,
+    "passes": true
+  },
+  {
+    "id": "gen_drink:2",
+    "transparentFraction": 0.3345,
+    "passes": true
+  },
+  {
+    "id": "gen_drink:3",
+    "transparentFraction": 0.3199,
+    "passes": true
+  },
+  {
+    "id": "gen_drink:4",
+    "transparentFraction": 0.2789,
+    "passes": true
+  },
+  {
+    "id": "gen_drink:5",
+    "transparentFraction": 0.3167,
+    "passes": true
+  },
+  {
+    "id": "gen_drink:6",
+    "transparentFraction": 0.2883,
+    "passes": true
+  },
+  {
+    "id": "gen_drink:7",
+    "transparentFraction": 0.2565,
+    "passes": true
+  },
+  {
+    "id": "gen_drink:8",
+    "transparentFraction": 0.2315,
+    "passes": true
+  },
+  {
+    "id": "gen_drink:9",
+    "transparentFraction": 0.2235,
+    "passes": true
+  },
+  {
+    "id": "gen_flower:1",
+    "transparentFraction": 0.5349,
+    "passes": true
+  },
+  {
+    "id": "gen_flower:2",
+    "transparentFraction": 0.3351,
+    "passes": true
+  },
+  {
+    "id": "gen_flower:3",
+    "transparentFraction": 0.4715,
+    "passes": true
+  },
+  {
+    "id": "gen_flower:4",
+    "transparentFraction": 0.5031,
+    "passes": true
+  },
+  {
+    "id": "gen_flower:5",
+    "transparentFraction": 0.4677,
+    "passes": true
+  },
+  {
+    "id": "gen_flower:6",
+    "transparentFraction": 0.4157,
+    "passes": true
+  },
+  {
+    "id": "gen_flower:7",
+    "transparentFraction": 0.3531,
+    "passes": true
+  },
+  {
+    "id": "gen_flower:8",
+    "transparentFraction": 0.295,
+    "passes": true
+  },
+  {
+    "id": "gen_flower:9",
+    "transparentFraction": 0.3204,
+    "passes": true
+  },
+  {
+    "id": "gen_food:1",
+    "transparentFraction": 0.4697,
+    "passes": true
+  },
+  {
+    "id": "gen_food:10",
+    "transparentFraction": 0.2784,
+    "passes": true
+  },
+  {
+    "id": "gen_food:11",
+    "transparentFraction": 0.2998,
+    "passes": true
+  },
+  {
+    "id": "gen_food:2",
+    "transparentFraction": 0.4711,
+    "passes": true
+  },
+  {
+    "id": "gen_food:3",
+    "transparentFraction": 0.4871,
+    "passes": true
+  },
+  {
+    "id": "gen_food:4",
+    "transparentFraction": 0.3966,
+    "passes": true
+  },
+  {
+    "id": "gen_food:6",
+    "transparentFraction": 0.4073,
+    "passes": true
+  },
+  {
+    "id": "gen_food:7",
+    "transparentFraction": 0.3196,
+    "passes": true
+  },
+  {
+    "id": "gen_food:8",
+    "transparentFraction": 0.3264,
+    "passes": true
+  },
+  {
+    "id": "gen_food:9",
+    "transparentFraction": 0.2549,
+    "passes": true
+  },
+  {
+    "id": "gen_herb:1",
+    "transparentFraction": 0.481,
+    "passes": true
+  },
+  {
+    "id": "gen_herb:10",
+    "transparentFraction": 0.2952,
+    "passes": true
+  },
+  {
+    "id": "gen_herb:2",
+    "transparentFraction": 0.3907,
+    "passes": true
+  },
+  {
+    "id": "gen_herb:3",
+    "transparentFraction": 0.4973,
+    "passes": true
+  },
+  {
+    "id": "gen_herb:4",
+    "transparentFraction": 0.4668,
+    "passes": true
+  },
+  {
+    "id": "gen_herb:5",
+    "transparentFraction": 0.4582,
+    "passes": true
+  },
+  {
+    "id": "gen_herb:6",
+    "transparentFraction": 0.3392,
+    "passes": true
+  },
+  {
+    "id": "gen_herb:7",
+    "transparentFraction": 0.3051,
+    "passes": true
+  },
+  {
+    "id": "gen_herb:8",
+    "transparentFraction": 0.3462,
+    "passes": true
+  },
+  {
+    "id": "gen_herb:9",
+    "transparentFraction": 0.2701,
+    "passes": true
+  },
+  {
+    "id": "gen_mediterranean:1",
+    "transparentFraction": 0.412,
+    "passes": true
+  },
+  {
+    "id": "gen_mediterranean:10",
+    "transparentFraction": 0.2026,
+    "passes": true
+  },
+  {
+    "id": "gen_mediterranean:2",
+    "transparentFraction": 0.3782,
+    "passes": true
+  },
+  {
+    "id": "gen_mediterranean:3",
+    "transparentFraction": 0.3893,
+    "passes": true
+  },
+  {
+    "id": "gen_mediterranean:4",
+    "transparentFraction": 0.287,
+    "passes": true
+  },
+  {
+    "id": "gen_mediterranean:5",
+    "transparentFraction": 0.3519,
+    "passes": true
+  },
+  {
+    "id": "gen_mediterranean:6",
+    "transparentFraction": 0.3,
+    "passes": true
+  },
+  {
+    "id": "gen_mediterranean:7",
+    "transparentFraction": 0.2336,
+    "passes": true
+  },
+  {
+    "id": "gen_mediterranean:8",
+    "transparentFraction": 0.3068,
+    "passes": true
+  },
+  {
+    "id": "gen_mediterranean:9",
+    "transparentFraction": 0.2368,
+    "passes": true
+  },
+  {
+    "id": "gen_produce:1",
+    "transparentFraction": 0.5141,
+    "passes": true
+  },
+  {
+    "id": "gen_produce:10",
+    "transparentFraction": 0.2905,
+    "passes": true
+  },
+  {
+    "id": "gen_produce:11",
+    "transparentFraction": 0.374,
+    "passes": true
+  },
+  {
+    "id": "gen_produce:12",
+    "transparentFraction": 0.3147,
+    "passes": true
+  },
+  {
+    "id": "gen_produce:2",
+    "transparentFraction": 0.454,
+    "passes": true
+  },
+  {
+    "id": "gen_produce:3",
+    "transparentFraction": 0.369,
+    "passes": true
+  },
+  {
+    "id": "gen_produce:4",
+    "transparentFraction": 0.3646,
+    "passes": true
+  },
+  {
+    "id": "gen_produce:5",
+    "transparentFraction": 0.3308,
+    "passes": true
+  },
+  {
+    "id": "gen_produce:6",
+    "transparentFraction": 0.3118,
+    "passes": true
+  },
+  {
+    "id": "gen_produce:7",
+    "transparentFraction": 0.3861,
+    "passes": true
+  },
+  {
+    "id": "gen_produce:8",
+    "transparentFraction": 0.3449,
+    "passes": true
+  },
+  {
+    "id": "gen_produce:9",
+    "transparentFraction": 0.2728,
+    "passes": true
+  },
+  {
+    "id": "gen_publicity:1",
+    "transparentFraction": 0.3669,
+    "passes": true
+  },
+  {
+    "id": "gen_publicity:2",
+    "transparentFraction": 0.4277,
+    "passes": true
+  },
+  {
+    "id": "gen_publicity:3",
+    "transparentFraction": 0.3902,
+    "passes": true
+  },
+  {
+    "id": "gen_publicity:4",
+    "transparentFraction": 0.4084,
+    "passes": true
+  },
+  {
+    "id": "gen_publicity:5",
+    "transparentFraction": 0.2823,
+    "passes": true
+  },
+  {
+    "id": "gen_publicity:6",
+    "transparentFraction": 0.229,
+    "passes": true
+  },
+  {
+    "id": "gen_recycle:1",
+    "transparentFraction": 0.4068,
+    "passes": true
+  },
+  {
+    "id": "gen_recycle:10",
+    "transparentFraction": 0.2466,
+    "passes": true
+  },
+  {
+    "id": "gen_recycle:2",
+    "transparentFraction": 0.3842,
+    "passes": true
+  },
+  {
+    "id": "gen_recycle:3",
+    "transparentFraction": 0.4087,
+    "passes": true
+  },
+  {
+    "id": "gen_recycle:4",
+    "transparentFraction": 0.3795,
+    "passes": true
+  },
+  {
+    "id": "gen_recycle:5",
+    "transparentFraction": 0.405,
+    "passes": true
+  },
+  {
+    "id": "gen_recycle:6",
+    "transparentFraction": 0.3841,
+    "passes": true
+  },
+  {
+    "id": "gen_recycle:7",
+    "transparentFraction": 0.3153,
+    "passes": true
+  },
+  {
+    "id": "gen_recycle:8",
+    "transparentFraction": 0.291,
+    "passes": true
+  },
+  {
+    "id": "gen_recycle:9",
+    "transparentFraction": 0.3525,
+    "passes": true
+  },
+  {
+    "id": "gen_supply:1",
+    "transparentFraction": 0.4141,
+    "passes": true
+  },
+  {
+    "id": "gen_supply:10",
+    "transparentFraction": 0.3018,
+    "passes": true
+  },
+  {
+    "id": "gen_supply:11",
+    "transparentFraction": 0.3253,
+    "passes": true
+  },
+  {
+    "id": "gen_supply:12",
+    "transparentFraction": 0.2968,
+    "passes": true
+  },
+  {
+    "id": "gen_supply:2",
+    "transparentFraction": 0.4803,
+    "passes": true
+  },
+  {
+    "id": "gen_supply:3",
+    "transparentFraction": 0.5773,
+    "passes": true
+  },
+  {
+    "id": "gen_supply:4",
+    "transparentFraction": 0.4248,
+    "passes": true
+  },
+  {
+    "id": "gen_supply:5",
+    "transparentFraction": 0.3896,
+    "passes": true
+  },
+  {
+    "id": "gen_supply:6",
+    "transparentFraction": 0.3468,
+    "passes": true
+  },
+  {
+    "id": "gen_supply:7",
+    "transparentFraction": 0.3515,
+    "passes": true
+  },
+  {
+    "id": "gen_supply:8",
+    "transparentFraction": 0.3593,
+    "passes": true
+  },
+  {
+    "id": "gen_supply:9",
+    "transparentFraction": 0.315,
+    "passes": true
+  },
+  {
+    "id": "gen_tools:1",
+    "transparentFraction": 0.5163,
+    "passes": true
+  },
+  {
+    "id": "gen_tools:10",
+    "transparentFraction": 0.3676,
+    "passes": true
+  },
+  {
+    "id": "gen_tools:11",
+    "transparentFraction": 0.322,
+    "passes": true
+  },
+  {
+    "id": "gen_tools:12",
+    "transparentFraction": 0.2577,
+    "passes": true
+  },
+  {
+    "id": "gen_tools:2",
+    "transparentFraction": 0.4677,
+    "passes": true
+  },
+  {
+    "id": "gen_tools:3",
+    "transparentFraction": 0.5507,
+    "passes": true
+  },
+  {
+    "id": "gen_tools:4",
+    "transparentFraction": 0.4635,
+    "passes": true
+  },
+  {
+    "id": "gen_tools:5",
+    "transparentFraction": 0.4213,
+    "passes": true
+  },
+  {
+    "id": "gen_tools:6",
+    "transparentFraction": 0.3669,
+    "passes": true
+  },
+  {
+    "id": "gen_tools:7",
+    "transparentFraction": 0.4168,
+    "passes": true
+  },
+  {
+    "id": "gen_tools:8",
+    "transparentFraction": 0.3295,
+    "passes": true
+  },
+  {
+    "id": "gen_tools:9",
+    "transparentFraction": 0.2787,
+    "passes": true
+  },
+  {
+    "id": "herb:1",
+    "transparentFraction": 0.449,
+    "passes": true
+  },
+  {
+    "id": "herb:2",
+    "transparentFraction": 0.5404,
+    "passes": true
+  },
+  {
+    "id": "herb:3",
+    "transparentFraction": 0.4887,
+    "passes": true
+  },
+  {
+    "id": "herb:4",
+    "transparentFraction": 0.4475,
+    "passes": true
+  },
+  {
+    "id": "herb:5",
+    "transparentFraction": 0.4016,
+    "passes": true
+  },
+  {
+    "id": "herb:6",
+    "transparentFraction": 0.4025,
+    "passes": true
+  },
+  {
+    "id": "honor:1",
+    "transparentFraction": 0.3995,
+    "passes": true
+  },
+  {
+    "id": "honor:2",
+    "transparentFraction": 0.5336,
+    "passes": true
+  },
+  {
+    "id": "honor:3",
+    "transparentFraction": 0.4592,
+    "passes": true
+  },
+  {
+    "id": "honor:4",
+    "transparentFraction": 0.5024,
+    "passes": true
+  },
+  {
+    "id": "honor:5",
+    "transparentFraction": 0.4988,
+    "passes": true
+  },
+  {
+    "id": "honor:6",
+    "transparentFraction": 0.4406,
+    "passes": true
+  },
+  {
+    "id": "honor:7",
+    "transparentFraction": 0.4122,
+    "passes": true
+  },
+  {
+    "id": "infinite:1",
+    "transparentFraction": 0.5451,
+    "passes": true
+  },
+  {
+    "id": "infinite:2",
+    "transparentFraction": 0.4979,
+    "passes": true
+  },
+  {
+    "id": "infinite:3",
+    "transparentFraction": 0.4171,
+    "passes": true
+  },
+  {
+    "id": "infinite:4",
+    "transparentFraction": 0.4578,
+    "passes": true
+  },
+  {
+    "id": "italian:1",
+    "transparentFraction": 0.4191,
+    "passes": true
+  },
+  {
+    "id": "italian:2",
+    "transparentFraction": 0.4633,
+    "passes": true
+  },
+  {
+    "id": "italian:3",
+    "transparentFraction": 0.3634,
+    "passes": true
+  },
+  {
+    "id": "italian:4",
+    "transparentFraction": 0.4438,
+    "passes": true
+  },
+  {
+    "id": "italian:5",
+    "transparentFraction": 0.4529,
+    "passes": true
+  },
+  {
+    "id": "italian:6",
+    "transparentFraction": 0.3705,
+    "passes": true
+  },
+  {
+    "id": "italian:7",
+    "transparentFraction": 0.4016,
+    "passes": true
+  },
+  {
+    "id": "italian:8",
+    "transparentFraction": 0.3416,
+    "passes": true
+  },
+  {
+    "id": "japanese:1",
+    "transparentFraction": 0.505,
+    "passes": true
+  },
+  {
+    "id": "japanese:2",
+    "transparentFraction": 0.5027,
+    "passes": true
+  },
+  {
+    "id": "japanese:3",
+    "transparentFraction": 0.4539,
+    "passes": true
+  },
+  {
+    "id": "japanese:4",
+    "transparentFraction": 0.5313,
+    "passes": true
+  },
+  {
+    "id": "japanese:5",
+    "transparentFraction": 0.3867,
+    "passes": true
+  },
+  {
+    "id": "japanese:6",
+    "transparentFraction": 0.317,
+    "passes": true
+  },
+  {
+    "id": "japanese:7",
+    "transparentFraction": 0.3469,
+    "passes": true
+  },
+  {
+    "id": "japanese:8",
+    "transparentFraction": 0.335,
+    "passes": true
+  },
+  {
+    "id": "keys:1",
+    "transparentFraction": 0.749,
+    "passes": true
+  },
+  {
+    "id": "keys:2",
+    "transparentFraction": 0.6133,
+    "passes": true
+  },
+  {
+    "id": "keys:3",
+    "transparentFraction": 0.6082,
+    "passes": true
+  },
+  {
+    "id": "keys:4",
+    "transparentFraction": 0.5792,
+    "passes": true
+  },
+  {
+    "id": "keys:5",
+    "transparentFraction": 0.5068,
+    "passes": true
+  },
+  {
+    "id": "linen:1",
+    "transparentFraction": 0.5203,
+    "passes": true
+  },
+  {
+    "id": "linen:2",
+    "transparentFraction": 0.4243,
+    "passes": true
+  },
+  {
+    "id": "linen:3",
+    "transparentFraction": 0.4142,
+    "passes": true
+  },
+  {
+    "id": "lost:1",
+    "transparentFraction": 0.686,
+    "passes": true
+  },
+  {
+    "id": "lost:2",
+    "transparentFraction": 0.5547,
+    "passes": true
+  },
+  {
+    "id": "lost:3",
+    "transparentFraction": 0.5157,
+    "passes": true
+  },
+  {
+    "id": "lost:4",
+    "transparentFraction": 0.3931,
+    "passes": true
+  },
+  {
+    "id": "lost:5",
+    "transparentFraction": 0.3384,
+    "passes": true
+  },
+  {
+    "id": "lost:6",
+    "transparentFraction": 0.2377,
+    "passes": true
+  },
+  {
+    "id": "mascot:1",
+    "transparentFraction": 0.4512,
+    "passes": true
+  },
+  {
+    "id": "mascot:2",
+    "transparentFraction": 0.4182,
+    "passes": true
+  },
+  {
+    "id": "mascot:3",
+    "transparentFraction": 0.4739,
+    "passes": true
+  },
+  {
+    "id": "mascot:4",
+    "transparentFraction": 0.3852,
+    "passes": true
+  },
+  {
+    "id": "mascot:5",
+    "transparentFraction": 0.5128,
+    "passes": true
+  },
+  {
+    "id": "mascot:6",
+    "transparentFraction": 0.5184,
+    "passes": true
+  },
+  {
+    "id": "mascot:7",
+    "transparentFraction": 0.319,
+    "passes": true
+  },
+  {
+    "id": "mexican:1",
+    "transparentFraction": 0.5494,
+    "passes": true
+  },
+  {
+    "id": "mexican:2",
+    "transparentFraction": 0.574,
+    "passes": true
+  },
+  {
+    "id": "mexican:3",
+    "transparentFraction": 0.4538,
+    "passes": true
+  },
+  {
+    "id": "mexican:4",
+    "transparentFraction": 0.4647,
+    "passes": true
+  },
+  {
+    "id": "mexican:5",
+    "transparentFraction": 0.4289,
+    "passes": true
+  },
+  {
+    "id": "mexican:6",
+    "transparentFraction": 0.3513,
+    "passes": true
+  },
+  {
+    "id": "mexican:7",
+    "transparentFraction": 0.3164,
+    "passes": true
+  },
+  {
+    "id": "mexican:8",
+    "transparentFraction": 0.4329,
+    "passes": true
+  },
+  {
+    "id": "pantry:1",
+    "transparentFraction": 0.3232,
+    "passes": true
+  },
+  {
+    "id": "pantry:10",
+    "transparentFraction": 0.3265,
+    "passes": true
+  },
+  {
+    "id": "pantry:11",
+    "transparentFraction": 0.2318,
+    "passes": true
+  },
+  {
+    "id": "pantry:2",
+    "transparentFraction": 0.507,
+    "passes": true
+  },
+  {
+    "id": "pantry:3",
+    "transparentFraction": 0.31,
+    "passes": true
+  },
+  {
+    "id": "pantry:4",
+    "transparentFraction": 0.3353,
+    "passes": true
+  },
+  {
+    "id": "pantry:5",
+    "transparentFraction": 0.2456,
+    "passes": true
+  },
+  {
+    "id": "pantry:6",
+    "transparentFraction": 0.3038,
+    "passes": true
+  },
+  {
+    "id": "pantry:7",
+    "transparentFraction": 0.2411,
+    "passes": true
+  },
+  {
+    "id": "pantry:8",
+    "transparentFraction": 0.3703,
+    "passes": true
+  },
+  {
+    "id": "pantry:9",
+    "transparentFraction": 0.1876,
+    "passes": true
+  },
+  {
+    "id": "pinkbag:1",
+    "transparentFraction": 0.3527,
+    "passes": true
+  },
+  {
+    "id": "pinkbag:2",
+    "transparentFraction": 0.2975,
+    "passes": true
+  },
+  {
+    "id": "preservation:1",
+    "transparentFraction": 0.5709,
+    "passes": true
+  },
+  {
+    "id": "preservation:2",
+    "transparentFraction": 0.4613,
+    "passes": true
+  },
+  {
+    "id": "preservation:3",
+    "transparentFraction": 0.3687,
+    "passes": true
+  },
+  {
+    "id": "preservation:4",
+    "transparentFraction": 0.3635,
+    "passes": true
+  },
+  {
+    "id": "puzzle:1",
+    "transparentFraction": 0.7759,
+    "passes": true
+  },
+  {
+    "id": "puzzle:10",
+    "transparentFraction": 0.3586,
+    "passes": true
+  },
+  {
+    "id": "puzzle:11",
+    "transparentFraction": 0.3159,
+    "passes": true
+  },
+  {
+    "id": "puzzle:12",
+    "transparentFraction": 0.266,
+    "passes": true
+  },
+  {
+    "id": "puzzle:13",
+    "transparentFraction": 0.4604,
+    "passes": true
+  },
+  {
+    "id": "puzzle:2",
+    "transparentFraction": 0.4904,
+    "passes": true
+  },
+  {
+    "id": "puzzle:3",
+    "transparentFraction": 0.7128,
+    "passes": true
+  },
+  {
+    "id": "puzzle:4",
+    "transparentFraction": 0.5621,
+    "passes": true
+  },
+  {
+    "id": "puzzle:5",
+    "transparentFraction": 0.5446,
+    "passes": true
+  },
+  {
+    "id": "puzzle:6",
+    "transparentFraction": 0.4211,
+    "passes": true
+  },
+  {
+    "id": "puzzle:7",
+    "transparentFraction": 0.5488,
+    "passes": true
+  },
+  {
+    "id": "puzzle:8",
+    "transparentFraction": 0.3775,
+    "passes": true
+  },
+  {
+    "id": "puzzle:9",
+    "transparentFraction": 0.3639,
+    "passes": true
+  },
+  {
+    "id": "scraps:1",
+    "transparentFraction": 0.4296,
+    "passes": true
+  },
+  {
+    "id": "scraps:2",
+    "transparentFraction": 0.4553,
+    "passes": true
+  },
+  {
+    "id": "scraps:3",
+    "transparentFraction": 0.4377,
+    "passes": true
+  },
+  {
+    "id": "scraps:4",
+    "transparentFraction": 0.3609,
+    "passes": true
+  },
+  {
+    "id": "scraps:5",
+    "transparentFraction": 0.4318,
+    "passes": true
+  },
+  {
+    "id": "scraps:6",
+    "transparentFraction": 0.3337,
+    "passes": true
+  },
+  {
+    "id": "scraps:7",
+    "transparentFraction": 0.3911,
+    "passes": true
+  },
+  {
+    "id": "scraps:8",
+    "transparentFraction": 0.2817,
+    "passes": true
+  },
+  {
+    "id": "seedbag:1",
+    "transparentFraction": 0.4691,
+    "passes": true
+  },
+  {
+    "id": "seedbag:2",
+    "transparentFraction": 0.4811,
+    "passes": true
+  },
+  {
+    "id": "seedbag:3",
+    "transparentFraction": 0.4304,
+    "passes": true
+  },
+  {
+    "id": "seedbag:4",
+    "transparentFraction": 0.4285,
+    "passes": true
+  },
+  {
+    "id": "snail:1",
+    "transparentFraction": 0.6287,
+    "passes": true
+  },
+  {
+    "id": "snail:2",
+    "transparentFraction": 0.5961,
+    "passes": true
+  },
+  {
+    "id": "snail:3",
+    "transparentFraction": 0.5493,
+    "passes": true
+  },
+  {
+    "id": "snail:4",
+    "transparentFraction": 0.4382,
+    "passes": true
+  },
+  {
+    "id": "snail:5",
+    "transparentFraction": 0.4748,
+    "passes": true
+  },
+  {
+    "id": "snail:6",
+    "transparentFraction": 0.4933,
+    "passes": true
+  },
+  {
+    "id": "splitter:1",
+    "transparentFraction": 0.7086,
+    "passes": true
+  },
+  {
+    "id": "splitter:2",
+    "transparentFraction": 0.7191,
+    "passes": true
+  },
+  {
+    "id": "splitter:3",
+    "transparentFraction": 0.6997,
+    "passes": true
+  },
+  {
+    "id": "stopwatch:1",
+    "transparentFraction": 0.5576,
+    "passes": true
+  },
+  {
+    "id": "story:1",
+    "transparentFraction": 0.3797,
+    "passes": true
+  },
+  {
+    "id": "story:2",
+    "transparentFraction": 0.4521,
+    "passes": true
+  },
+  {
+    "id": "story:3",
+    "transparentFraction": 0.3763,
+    "passes": true
+  },
+  {
+    "id": "story:4",
+    "transparentFraction": 0.3654,
+    "passes": true
+  },
+  {
+    "id": "story:5",
+    "transparentFraction": 0.4807,
+    "passes": true
+  },
+  {
+    "id": "tableware:1",
+    "transparentFraction": 0.5707,
+    "passes": true
+  },
+  {
+    "id": "tableware:3",
+    "transparentFraction": 0.3185,
+    "passes": true
+  },
+  {
+    "id": "tableware:4",
+    "transparentFraction": 0.5125,
+    "passes": true
+  },
+  {
+    "id": "tableware:5",
+    "transparentFraction": 0.4218,
+    "passes": true
+  },
+  {
+    "id": "tableware:6",
+    "transparentFraction": 0.4332,
+    "passes": true
+  },
+  {
+    "id": "tableware:7",
+    "transparentFraction": 0.3375,
+    "passes": true
+  },
+  {
+    "id": "tableware:8",
+    "transparentFraction": 0.3942,
+    "passes": true
+  },
+  {
+    "id": "tasting:1",
+    "transparentFraction": 0.3849,
+    "passes": true
+  },
+  {
+    "id": "tasting:2",
+    "transparentFraction": 0.4142,
+    "passes": true
+  },
+  {
+    "id": "tasting:3",
+    "transparentFraction": 0.4109,
+    "passes": true
+  },
+  {
+    "id": "tasting:4",
+    "transparentFraction": 0.3792,
+    "passes": true
+  },
+  {
+    "id": "tasting:5",
+    "transparentFraction": 0.3914,
+    "passes": true
+  },
+  {
+    "id": "tasting:6",
+    "transparentFraction": 0.4113,
+    "passes": true
+  },
+  {
+    "id": "timegate:1",
+    "transparentFraction": 0.4479,
+    "passes": true
+  },
+  {
+    "id": "timegate:2",
+    "transparentFraction": 0.5083,
+    "passes": true
+  },
+  {
+    "id": "timegate:3",
+    "transparentFraction": 0.4194,
+    "passes": true
+  },
+  {
+    "id": "timegate:4",
+    "transparentFraction": 0.3446,
+    "passes": true
+  },
+  {
+    "id": "timegate:5",
+    "transparentFraction": 0.2853,
+    "passes": true
+  },
+  {
+    "id": "timegate:6",
+    "transparentFraction": 0.2332,
+    "passes": true
+  },
+  {
+    "id": "timeskip:1",
+    "transparentFraction": 0.5944,
+    "passes": true
+  },
+  {
+    "id": "timeskip:2",
+    "transparentFraction": 0.6115,
+    "passes": true
+  },
+  {
+    "id": "timeskip:3",
+    "transparentFraction": 0.5284,
+    "passes": true
+  },
+  {
+    "id": "timeskip:4",
+    "transparentFraction": 0.4271,
+    "passes": true
+  },
+  {
+    "id": "timeskip:5",
+    "transparentFraction": 0.5169,
+    "passes": true
+  },
+  {
+    "id": "tipjar:1",
+    "transparentFraction": 0.384,
+    "passes": true
+  },
+  {
+    "id": "tipjar:2",
+    "transparentFraction": 0.4774,
+    "passes": true
+  },
+  {
+    "id": "tipjar:3",
+    "transparentFraction": 0.4046,
+    "passes": true
+  },
+  {
+    "id": "tools:1",
+    "transparentFraction": 0.7607,
+    "passes": true
+  },
+  {
+    "id": "tools:10",
+    "transparentFraction": 0.2573,
+    "passes": true
+  },
+  {
+    "id": "tools:11",
+    "transparentFraction": 0.3736,
+    "passes": true
+  },
+  {
+    "id": "tools:12",
+    "transparentFraction": 0.3644,
+    "passes": true
+  },
+  {
+    "id": "tools:13",
+    "transparentFraction": 0.3604,
+    "passes": true
+  },
+  {
+    "id": "tools:14",
+    "transparentFraction": 0.3151,
+    "passes": true
+  },
+  {
+    "id": "tools:3",
+    "transparentFraction": 0.5563,
+    "passes": true
+  },
+  {
+    "id": "tools:5",
+    "transparentFraction": 0.3381,
+    "passes": true
+  },
+  {
+    "id": "tools:6",
+    "transparentFraction": 0.2419,
+    "passes": true
+  },
+  {
+    "id": "tools:7",
+    "transparentFraction": 0.2712,
+    "passes": true
+  },
+  {
+    "id": "tools:8",
+    "transparentFraction": 0.1985,
+    "passes": true
+  },
+  {
+    "id": "tools:9",
+    "transparentFraction": 0.2145,
+    "passes": true
+  },
+  {
+    "id": "upgrade:1",
+    "transparentFraction": 0.4194,
+    "passes": true
+  },
+  {
+    "id": "upgrade:2",
+    "transparentFraction": 0.4334,
+    "passes": true
+  },
+  {
+    "id": "vegetable:1",
+    "transparentFraction": 0.6403,
+    "passes": true
+  },
+  {
+    "id": "vegetable:3",
+    "transparentFraction": 0.3975,
+    "passes": true
+  },
+  {
+    "id": "vegetable:4",
+    "transparentFraction": 0.4201,
+    "passes": true
+  },
+  {
+    "id": "vegetable:5",
+    "transparentFraction": 0.478,
+    "passes": true
+  },
+  {
+    "id": "vegetable:6",
+    "transparentFraction": 0.543,
+    "passes": true
+  },
+  {
+    "id": "vegetable:7",
+    "transparentFraction": 0.3478,
+    "passes": true
+  },
+  {
+    "id": "vegetable:8",
+    "transparentFraction": 0.3833,
+    "passes": true
+  }
+]

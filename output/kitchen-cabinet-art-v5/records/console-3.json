@@ -1,0 +1,45 @@
+{
+  "id": "console:3",
+  "key": "console-3",
+  "source": "sources/console-3.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-aff90b71-d825-46a2-b7fb-9d0b230b8ace.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/console-3.txt",
+  "generatedAt": "2026-10-18T12:35:32.762Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.4745,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/console-3.png",
+    "webp": "items/console-3.webp",
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "crop": [
+      35,
+      128,
+      1467,
+      782
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      21.32
+    ],
+    "contact": {
+      "x": 67.14,
+      "width": 29,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-console.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

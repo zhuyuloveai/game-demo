@@ -1,0 +1,45 @@
+{
+  "id": "tasting:2",
+  "key": "tasting-2",
+  "source": "sources/tasting-2.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-738d177b-aefe-43b3-8bfa-2a7a98edaeff.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/tasting-2.txt",
+  "generatedAt": "2026-10-18T12:56:33.528Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.4142,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/tasting-2.png",
+    "webp": "items/tasting-2.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      123,
+      44,
+      1025,
+      1175
+    ],
+    "keptComponents": 1,
+    "box": [
+      33.15,
+      38
+    ],
+    "contact": {
+      "x": 37.59,
+      "width": 17.15,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-tasting.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

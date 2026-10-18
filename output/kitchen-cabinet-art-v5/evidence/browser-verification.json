@@ -1,0 +1,118 @@
+{
+  "date": "2026-10-18T14:44:48.105Z",
+  "checks": [
+    {
+      "name": "375x667 layout",
+      "count": 63,
+      "width": 44,
+      "height": 44,
+      "gapX": 0,
+      "gapY": 0,
+      "scrollHeight": 667,
+      "viewport": 667,
+      "board": {
+        "x": 33.5,
+        "y": 156,
+        "width": 308,
+        "height": 396,
+        "top": 156,
+        "right": 341.5,
+        "bottom": 552,
+        "left": 33.5
+      },
+      "itemCount": 38
+    },
+    {
+      "name": "all catalog artwork loads",
+      "catalog": 422,
+      "mapped": 422,
+      "uniqueImages": 411,
+      "missing": [],
+      "failed": []
+    },
+    {
+      "name": "main entries open",
+      "actions": 10
+    },
+    {
+      "name": "collection artwork",
+      "family": "gen_drink",
+      "items": 10
+    },
+    {
+      "name": "shared progress across styles",
+      "boardUnchanged": true,
+      "coins": 120,
+      "energy": 100
+    },
+    {
+      "name": "drag merge uses new art",
+      "from": "food:2 + food:2",
+      "to": "food:3"
+    },
+    {
+      "name": "producer generates new art",
+      "itemsBefore": 37,
+      "itemsAfter": 38
+    },
+    {
+      "name": "responsive 768x667",
+      "count": 63,
+      "width": 44,
+      "height": 44,
+      "gapX": 0,
+      "gapY": 0,
+      "scrollHeight": 667,
+      "viewport": 667,
+      "board": {
+        "x": 230,
+        "y": 156,
+        "width": 308,
+        "height": 396,
+        "top": 156,
+        "right": 538,
+        "bottom": 552,
+        "left": 230
+      },
+      "itemCount": 38
+    },
+    {
+      "name": "responsive 1280x900",
+      "count": 63,
+      "width": 59.37030029296875,
+      "height": 59.37030029296875,
+      "gapX": 0,
+      "gapY": 0,
+      "scrollHeight": 900,
+      "viewport": 900,
+      "board": {
+        "x": 432.20391845703125,
+        "y": 210.4947509765625,
+        "width": 415.59222412109375,
+        "height": 534.3328247070312,
+        "top": 210.4947509765625,
+        "right": 847.796142578125,
+        "bottom": 744.8275756835938,
+        "left": 432.20391845703125
+      },
+      "itemCount": 38
+    },
+    {
+      "name": "producers fixture",
+      "total": 41,
+      "raster": 41
+    },
+    {
+      "name": "resources fixture",
+      "total": 21,
+      "raster": 21
+    },
+    {
+      "name": "gallery",
+      "items": 422,
+      "pending": 0
+    }
+  ],
+  "errors": [],
+  "passed": true
+}

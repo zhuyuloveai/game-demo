@@ -1,0 +1,6 @@
+.item-3d{display:flex;width:100%;height:100%;align-items:flex-end;justify-content:center;position:relative}
+[data-kitchen-style="island"] .cell{padding:0 0 2.25px}
+[data-kitchen-style="island"] .cell .item-art{width:40px;height:39px}
+[data-kitchen-style="island"] .cell .item-3d{width:var(--art-width);height:var(--art-height);flex:none}
+[data-kitchen-style="island"] .cell .item-3d::before{content:"";position:absolute;left:var(--contact-x);bottom:-.95px;width:var(--contact-width);height:var(--contact-height);transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(105,69,32,.31) 0%,rgba(111,75,38,.18) 34%,rgba(118,82,43,.06) 56%,transparent 74%);filter:blur(.35px);pointer-events:none;z-index:0}
+[data-kitchen-style="island"] .cell .item-3d img{position:relative;z-index:1;width:100%;height:100%;flex:none;filter:drop-shadow(.55px .7px .65px rgba(102,67,29,.21))}

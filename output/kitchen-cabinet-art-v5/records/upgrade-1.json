@@ -1,0 +1,45 @@
+{
+  "id": "upgrade:1",
+  "key": "upgrade-1",
+  "source": "sources/upgrade-1.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-cc207d94-9cfc-4c43-a0b7-17594af81226.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/upgrade-1.txt",
+  "generatedAt": "2026-10-18T13:23:59.702Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.4194,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/upgrade-1.png",
+    "webp": "items/upgrade-1.webp",
+    "sourceSize": [
+      1312,
+      1199
+    ],
+    "crop": [
+      111,
+      49,
+      1152,
+      1080
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      37.5
+    ],
+    "contact": {
+      "x": 51.2,
+      "width": 20.25,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-upgrade.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

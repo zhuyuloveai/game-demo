@@ -1,0 +1,45 @@
+{
+  "id": "timegate:2",
+  "key": "timegate-2",
+  "source": "sources/timegate-2.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-0308f093-a0df-4859-ba73-aa6f74c14677.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/timegate-2.txt",
+  "generatedAt": "2026-10-18T12:45:57.636Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.5083,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/timegate-2.png",
+    "webp": "items/timegate-2.webp",
+    "sourceSize": [
+      1314,
+      1197
+    ],
+    "crop": [
+      90,
+      118,
+      1107,
+      980
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      35.41
+    ],
+    "contact": {
+      "x": 57.56,
+      "width": 20.23,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-timegate.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

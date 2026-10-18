@@ -1,0 +1,45 @@
+{
+  "id": "gen_asian:10",
+  "key": "gen_asian-10",
+  "source": "sources/gen_asian-10.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-809424ee-3e5e-40c6-926b-a2e9cdd29b69.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/gen_asian-10.txt",
+  "generatedAt": "2026-10-18T13:49:19.419Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.2952,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/gen_asian-10.png",
+    "webp": "items/gen_asian-10.webp",
+    "sourceSize": [
+      1374,
+      1145
+    ],
+    "crop": [
+      2,
+      18,
+      1369,
+      1104
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      32.26
+    ],
+    "contact": {
+      "x": 50.08,
+      "width": 27.79,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-gen_asian.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

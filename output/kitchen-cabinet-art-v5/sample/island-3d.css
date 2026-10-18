@@ -1,0 +1,112 @@
+/* Revision 2 sample: a fresh 3D room and a genuinely projective 7×9 surface.
+   Classic geometry/assets are untouched. Only the explicit 12-item sample is replaced. */
+.island-3d-art{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none;user-select:none}
+[data-kitchen-style="island"] .game-shell.k-design{
+  --room-height:100dvh;--hud-height:58px;--scene-height:70px;--desk-height:88px;
+  grid-template-rows:58px 70px minmax(0,1fr) 88px;
+  background:#eac994 url('./assets/island-3d/room.webp') center/100% 100% no-repeat;
+}
+[data-kitchen-style="island"] .k-design .k-hud{height:58px;background:none;box-shadow:none;border:0}
+[data-kitchen-style="island"] .k-design .k-hud .puppy-profile,
+[data-kitchen-style="island"] .k-design .k-hud>.v-meter,
+[data-kitchen-style="island"] .k-design .k-hud>.v-cash,
+[data-kitchen-style="island"] .k-design .k-hud>.v-stars,
+[data-kitchen-style="island"] .k-design .k-hud>.v-candy{height:58px}
+[data-kitchen-style="island"] .k-hud>button:before{height:42px;bottom:7px}
+[data-kitchen-style="island"] .k-hud .puppy-avatar{height:42px;width:41px;bottom:7px;background-image:url('./assets/island-puppy-v2.webp')}
+[data-kitchen-style="island"] .k-hud #kitchen-level-label,
+[data-kitchen-style="island"] .k-hud #energy-count,
+[data-kitchen-style="island"] .k-hud .v-pig #coin-count,
+[data-kitchen-style="island"] .k-hud .v-stars #star-count,
+[data-kitchen-style="island"] .k-hud .v-candy #gem-count{bottom:7px;height:24px;font-size:14px}
+[data-kitchen-style="island"] .k-hud #kitchen-level-label{font-size:12px}
+[data-kitchen-style="island"] .k-design .k-scene{height:70px;background:none;box-shadow:none;z-index:4}
+[data-kitchen-style="island"] .k-design .k-orders{height:70px;inset:0 0 0 4px;padding:0 10px 1px 0;gap:5px}
+[data-kitchen-style="island"] .k-design .k-orders .order-card{height:69px;min-height:69px;flex-basis:160px}
+[data-kitchen-style="island"] .k-design .k-orders .order-card.is-main{
+  flex-basis:188px;background:url('./assets/island-3d/story-card.webp') center/100% 100% no-repeat;
+  border:0;border-radius:0;box-shadow:none;
+}
+[data-kitchen-style="island"] .k-orders .order-paper,
+[data-kitchen-style="island"] .k-orders .order-card:not(.is-main) .order-paper{
+  height:69px;align-self:start;padding:2px 8px 8px 16px;
+  border:0;border-radius:0;box-shadow:none;
+  background:url('./assets/island-3d/card.webp') center/100% 100% no-repeat;
+  grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) 19px;
+}
+[data-kitchen-style="island"] .k-orders .is-main .order-paper{height:69px;background:none;padding:11px 7px 8px 3px;grid-template-rows:minmax(0,1fr) 20px}
+[data-kitchen-style="island"] .k-orders .order-paper:after{display:none}
+[data-kitchen-style="island"] .k-orders .is-main .order-paper:before{left:64px;top:0;background:none;box-shadow:none;padding:0 9px;color:#fff9e6;font-size:11px;line-height:16px}
+[data-kitchen-style="island"] .k-orders .order-card:not(.is-main) .order-paper{margin-left:9px}
+[data-kitchen-style="island"] .k-orders .is-main .order-top{width:58px;flex-basis:58px;height:69px}
+[data-kitchen-style="island"] .story-assistant-slot,
+[data-kitchen-style="island"] .story-assistant-slot .e-assistant{height:69px}
+[data-kitchen-style="island"] .story-assistant-slot .k-buddy{left:0;top:0;width:59px;height:64px;filter:drop-shadow(0 2px 1px #8a603655)}
+[data-kitchen-style="island"] .story-assistant-slot .puppy-sprite{width:59px;height:64px;background-image:url('./assets/island-puppy-v2.webp')}
+[data-kitchen-style="island"] .k-design .story-assistant-slot .e-parcel{left:35px;top:40px;width:27px;height:27px;filter:drop-shadow(0 1px 1px #6a472e44)}
+[data-kitchen-style="island"] .story-assistant-slot #parcel-art{width:27px;height:27px}
+[data-kitchen-style="island"] .story-assistant-slot .e-assistant-name{bottom:0;font-size:9px}
+[data-kitchen-style="island"] .k-orders .order-top{top:12px;left:-1px}
+[data-kitchen-style="island"] .k-orders .order-top .avatar{width:34px;height:38px;background:none;box-shadow:none;border-radius:0;filter:drop-shadow(0 1px 1px #87613c55)}
+[data-kitchen-style="island"] .k-orders .order-top h3{font-size:9px;background:#fff1d5d9}
+[data-kitchen-style="island"] .k-orders .need{height:21px;gap:3px}
+[data-kitchen-style="island"] .k-orders .need-visual,
+[data-kitchen-style="island"] .k-orders .need-art{width:24px;height:24px}
+[data-kitchen-style="island"] .k-orders .need-name{font-size:11px;line-height:12px}
+[data-kitchen-style="island"] .k-orders .need-quantity{font-size:11px;line-height:13px}
+[data-kitchen-style="island"] .k-orders .is-main .need{height:33px;gap:2px}
+[data-kitchen-style="island"] .k-orders .is-main .need-visual,
+[data-kitchen-style="island"] .k-orders .is-main .need-art{width:36px;height:36px}
+[data-kitchen-style="island"] .k-orders .is-main .need-name{font-size:12px;line-height:13px}
+[data-kitchen-style="island"] .k-orders .order-bottom{height:19px;gap:2px}
+[data-kitchen-style="island"] .k-orders .order-card .reward{gap:2px;font-size:11px}
+[data-kitchen-style="island"] .k-orders .reward small{font-size:10px}
+[data-kitchen-style="island"] .k-orders .order-card .order-refresh{width:20px;min-width:20px;height:21px;font-size:16px}
+[data-kitchen-style="island"] .k-orders .order-card .order-submit{height:21px;min-width:40px;width:40px;font-size:11px;line-height:19px;border-radius:6px;background:linear-gradient(#91be78,#5c8b45);box-shadow:inset 0 1px #d0e4b2,0 1px #40652e}
+[data-kitchen-style="island"] .k-design .k-worktop{position:relative;padding:0;min-height:0;background:none;z-index:2;overflow:visible}
+[data-kitchen-style="island"] .k-design .v-slab{display:contents}
+[data-kitchen-style="island"] .k-design .selection-card{position:absolute;top:0;left:22px;right:22px;height:38px;min-height:38px;margin:0;padding:0 4px;background:none;border:0;box-shadow:none;border-radius:8px;overflow:hidden}
+[data-kitchen-style="island"] .selection-card .selected-art{width:34px;height:34px;flex-basis:34px}
+[data-kitchen-style="island"] .selection-card .selection-copy strong{font-size:14px;line-height:16px}
+[data-kitchen-style="island"] .selection-card .selection-copy p{font-size:11px;line-height:13px}
+[data-kitchen-style="island"] .selection-card .small-button{height:33px;min-height:33px;font-size:12px;border-radius:10px;background:linear-gradient(#83c6ff,#2f91e7 75%,#277dc9);box-shadow:inset 0 1px #c6e7ff,0 2px #2369a9;border:1px solid #297cbd}
+[data-kitchen-style="island"] .k-design .board{
+  position:absolute;left:50%;top:11px;width:calc(100% - 39px);height:calc(var(--room-height) - 217px);
+  aspect-ratio:auto;padding:0;gap:0;border-radius:8px;overflow:hidden;
+  transform:translateX(-50%) perspective(2000px) rotateX(26deg);transform-origin:50% 50%;
+  --board-base:#f6ead2;--board-checker:#f3e6ca;
+  background:var(--board-base);border:1px solid #d8bc8a;box-shadow:0 2px 2px #bb925633;
+  touch-action:none;
+}
+[data-kitchen-style="island"] .board .cell:before{border-radius:6px;box-shadow:inset 0 0 0 .65px #d9bc8c99,inset 0 1px #fff7e6}
+[data-kitchen-style="island"] .board .cell .item-art{width:100%;height:100%;transform:scaleY(1.11);transform-origin:50% 85%;filter:none}
+[data-kitchen-style="island"] .board .cell.selected .item-art{transform:scaleY(1.11) scale(1.05)}
+[data-kitchen-style="island"] .board .cell .island-3d-art{width:111%;height:111%;max-width:none;margin:-5.5%;object-fit:contain}
+[data-kitchen-style="island"] .board .cell:not(.locked) .item-art>svg{width:100%;height:100%;margin:0}
+[data-kitchen-style="island"] .board .cell.occupied:not(.locked):not(.bubble):after{display:none}
+[data-kitchen-style="island"] .board .cell.selected:before,
+[data-kitchen-style="island"] .board .cell.drop-target:before{inset:2px;border-radius:6px;background:#ffe6ac;box-shadow:inset 0 0 0 2px #e79647}
+[data-kitchen-style="island"] .board .cell.locked:before{background:linear-gradient(135deg,#e8ddc7,#ddd0b5);box-shadow:inset 0 0 0 .7px #c6b89966}
+[data-kitchen-style="island"] .k-design .e-foreground{height:88px;background:#e9c18b url('./assets/island-3d/front-ledge.webp') center/100% 100% no-repeat;box-shadow:none;border:0;z-index:3;overflow:visible}
+[data-kitchen-style="island"] .e-foreground:before{height:15px;bottom:0;background:linear-gradient(#f5d6a0 0 1px,#c89455 2px,#b37a41 4px,#8d592e 6px,transparent 7px);box-shadow:none;z-index:-1}
+[data-kitchen-style="island"] .e-foreground:after{content:'';position:absolute;inset:auto 0 0;height:9px;background:url('./assets/island-3d/cabinet-edge.webp') center/100% 100%;z-index:-1;pointer-events:none}
+[data-kitchen-style="island"] .k-design .e-desk-items{inset:0 5px;height:88px;grid-template-columns:1.1fr 1.2fr .85fr 1fr;gap:1px}
+[data-kitchen-style="island"] .k-design .e-desk-items .island-object{height:88px;min-height:44px}
+[data-kitchen-style="island"] .e-desk-items .island-object:before{bottom:17px;height:64px;filter:drop-shadow(1px 3px 2px #80512d55)}
+[data-kitchen-style="island"] .e-desk-items .e-book:before{height:64px;transform:rotate(-3deg)}
+[data-kitchen-style="island"] .e-desk-items .island-storage:before{height:62px}
+[data-kitchen-style="island"] .e-desk-items .e-phone:before{height:72px;bottom:16px}
+[data-kitchen-style="island"] .e-desk-items .v-radio:before{height:68px;bottom:17px}
+[data-kitchen-style="island"] .island-object .object-label{bottom:12px;padding:1px 8px 2px;font:14px/16px var(--cute-font);border-radius:7px;box-shadow:0 2px #b17b3e66}
+[data-kitchen-style="island"] .island-storage .e-storage-count{bottom:38px;right:7px;font-size:10px;line-height:12px}
+[data-kitchen-style="island"] .inventory-slot>.island-3d-art{height:65px}
+[data-kitchen-style="island"] .collection-item>span>.island-3d-art{width:100%;height:100%}
+[data-kitchen-style="island"] .energy-big>.island-3d-art{width:100%;height:100%;max-height:140px}
+[data-kitchen-style="island"] .avatar>.island-3d-art{width:100%;height:100%}
+[data-kitchen-style="island"] .toast{bottom:97px}
+@media(min-width:600px){[data-kitchen-style="island"] .game-shell.k-design{--room-height:min(100dvh,780px)}}
+@media(max-width:350px){[data-kitchen-style="island"] .k-hud .v-pig #coin-count,[data-kitchen-style="island"] .k-hud #energy-count{font-size:12px}[data-kitchen-style="island"] .k-hud #kitchen-level-label{font-size:11px}[data-kitchen-style="island"] .k-design .selection-card{left:18px;right:18px}[data-kitchen-style="island"] .selection-card .selection-copy p{font-size:10px}}
+[data-kitchen-style="island"] .k-orders .need-name,[data-kitchen-style="island"] .k-orders .need-quantity{font-size:12px}
+[data-kitchen-style="island"] .k-orders .is-main .need-name{font-size:13px}
+[data-kitchen-style="island"] .k-orders .reward small{font-size:11px}
+[data-kitchen-style="island"] .profile-card .puppy-avatar{background:url('./assets/island-puppy-v2.webp') center/contain no-repeat;border-radius:0;box-shadow:none}

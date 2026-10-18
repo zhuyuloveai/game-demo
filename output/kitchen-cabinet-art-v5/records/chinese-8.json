@@ -1,0 +1,45 @@
+{
+  "id": "chinese:8",
+  "key": "chinese-8",
+  "source": "sources/chinese-8.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-7ab36329-db5d-4cb6-b2ed-9070f62f0a89.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/chinese-8.txt",
+  "generatedAt": "2026-10-18T12:05:50.705Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.3062,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/chinese-8.png",
+    "webp": "items/chinese-8.webp",
+    "sourceSize": [
+      1312,
+      1199
+    ],
+    "crop": [
+      4,
+      87,
+      1302,
+      1070
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      32.87
+    ],
+    "contact": {
+      "x": 50.33,
+      "width": 21.31,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-chinese.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

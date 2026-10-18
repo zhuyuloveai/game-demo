@@ -1,0 +1,44 @@
+/* Classic skin preserves the original CSS objects, palette, and puppy artwork.
+   Grid geometry and all gameplay controls are shared with the island layout. */
+[data-kitchen-style="classic"] .game-shell.k-design{background:#faf7ef}
+[data-kitchen-style="classic"] .k-design .k-hud{background:linear-gradient(#faf7ef,#f4eee2);border-bottom:3px solid #e6d3b6;box-shadow:none}
+[data-kitchen-style="classic"] .k-design .k-scene{background:linear-gradient(#f7f2e8,#e9e4dc)}
+[data-kitchen-style="classic"] .k-wallpaper{display:block}
+[data-kitchen-style="classic"] .k-design .k-worktop{background:linear-gradient(100deg,#d9bda0,#e5cdb2 50%,#d9bda0);border-radius:12px 12px 0 0}
+[data-kitchen-style="classic"] .k-worktop:before{display:block}
+[data-kitchen-style="classic"] .k-design .v-slab{background:linear-gradient(#fffaf0,#f5ecd9);border-radius:20px;box-shadow:inset 0 2px #fffdf7,inset 0 -2px #e5d5b8,0 3px #cdb99a,0 5px 5px #76532b36}
+[data-kitchen-style="classic"] .k-design .board{--board-base:#ede4d5;--board-checker:#f3ecdf;background:var(--board-base);border-radius:13px}
+[data-kitchen-style="classic"] .board .cell:before{border-radius:0;box-shadow:none}
+[data-kitchen-style="classic"] .board .cell.empty:after{display:block}
+[data-kitchen-style="classic"] .order-paper{background:#fffbf0;border-color:#dfd1b7;box-shadow:0 2px 3px #543a2929}
+[data-kitchen-style="classic"] .is-main .order-paper{background:linear-gradient(155deg,#d3e8dc,#e6f2e9);border-color:#84ac96}
+[data-kitchen-style="classic"] .is-main .order-paper:before{background:#60866e}
+[data-kitchen-style="classic"] .k-design .e-foreground{background:linear-gradient(110deg,#d9bda0,#e6ceb0 50%,#d9bda0);box-shadow:inset 0 -3px #e9d3b6;border-bottom:3px solid #bb9872}
+[data-kitchen-style="classic"] .e-foreground:before{display:block;top:0}
+[data-kitchen-style="classic"] .island-object:before{display:none}
+[data-kitchen-style="classic"] .island-object>*:not(.object-label){display:block}
+[data-kitchen-style="classic"] .island-object .object-label{display:none}
+[data-kitchen-style="classic"] .k-design .e-desk-items{grid-template-columns:1.15fr 1fr .85fr .85fr;gap:12px;height:54px;bottom:2px}
+[data-kitchen-style="classic"] .k-design .e-desk-items .e-book{width:64px;height:44px;bottom:3px;transform:rotate(-5deg);background:none}
+[data-kitchen-style="classic"] .e-book .e-book-cover{display:flex}
+[data-kitchen-style="classic"] .e-book-cover b{font-size:13px;letter-spacing:1px}
+[data-kitchen-style="classic"] #recipe-art{width:26px;height:26px}
+[data-kitchen-style="classic"] .e-book-ribbon{bottom:-6px;height:26px;font-size:10px;line-height:11px}
+[data-kitchen-style="classic"] .k-design .e-desk-items .e-cupboard{width:56px;height:48px;bottom:3px;background:linear-gradient(110deg,#c7a16e,#dfc194 55%,#ba925f);border-radius:4px;box-shadow:inset 0 1px #f7dfb9,2px 4px 3px #6546292e}
+[data-kitchen-style="classic"] .island-storage .e-door{display:flex;inset:5px 4px 9px;border-radius:3px;background:linear-gradient(110deg,#fff6e2,#ecd9b7);box-shadow:inset 0 0 0 2px #e2c89f,inset 0 0 0 3px #fff8e7;gap:1px}
+[data-kitchen-style="classic"] .island-storage .e-door em{font-size:12px}
+[data-kitchen-style="classic"] .island-storage .e-storage-count{bottom:1px;right:5px;background:#f5e6c9;color:#80674c;font-size:9px;line-height:11px}
+[data-kitchen-style="classic"] .k-design .e-desk-items .e-phone{width:44px;height:52px;padding:3px;bottom:1px;border:3px solid #6c6e66;border-radius:10px;background:#6c6e66;transform:rotate(3deg);box-shadow:3px 5px 4px #543a2933,inset 0 1px #adb0a5}
+[data-kitchen-style="classic"] .e-phone .e-phone-screen{display:flex;gap:2px;padding-top:4px}
+[data-kitchen-style="classic"] .e-phone-screen b{font-size:10px}
+[data-kitchen-style="classic"] #phone-icon{width:20px;height:20px;padding:3px}
+[data-kitchen-style="classic"] .k-design .e-desk-items .v-radio{width:44px;height:50px;padding:4px;gap:3px;bottom:3px;border-radius:10px 10px 7px 7px;background:linear-gradient(#eba984,#d99165);display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-2deg);box-shadow:inset 0 2px #fbd1ae,inset -3px 0 #c4875b5c,0 3px #b27d51,3px 6px 4px #805b3033}
+[data-kitchen-style="classic"] .v-radio .v-radio-face{display:flex;font-size:10px;line-height:10px;gap:2px}
+[data-kitchen-style="classic"] .v-radio-speaker{width:22px;height:22px}
+[data-kitchen-style="classic"] .v-radio-face i{width:7px;height:2px}
+.kitchen-style-picker{border:1px solid #dcc5a2;border-radius:12px;margin:16px 0;padding:12px;background:#f7ebd6}
+.kitchen-style-picker legend{padding:0 6px;font:17px var(--cute-font);color:#795233}
+.kitchen-style-picker>div{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.kitchen-style-picker button{min-height:94px;padding:9px 5px;background:#fff8e9;border:2px solid transparent;border-radius:10px;display:flex;flex-direction:column;align-items:center;gap:5px;color:#745436}
+.kitchen-style-picker button[aria-pressed="true"]{border-color:#7a9b86;background:#e6f0e3}
+.kitchen-style-picker button>span{font-size:21px;color:#ce9560}.kitchen-style-picker button b{font:15px var(--cute-font)}.kitchen-style-picker button small{font:10px/14px var(--font);color:#917457}

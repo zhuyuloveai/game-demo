@@ -1,0 +1,45 @@
+{
+  "id": "infinite:3",
+  "key": "infinite-3",
+  "source": "sources/infinite-3.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-bef6ff10-1725-4c4e-b654-de7d0fea2b6e.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/infinite-3.txt",
+  "generatedAt": "2026-10-18T13:38:02.569Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.4171,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/infinite-3.png",
+    "webp": "items/infinite-3.webp",
+    "sourceSize": [
+      1312,
+      1199
+    ],
+    "crop": [
+      39,
+      46,
+      1235,
+      1100
+    ],
+    "keptComponents": 2,
+    "box": [
+      40,
+      35.63
+    ],
+    "contact": {
+      "x": 51.39,
+      "width": 21.53,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-infinite.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "flowers:6",
+  "key": "flowers-6",
+  "source": "sources/flowers-6.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-973d234a-852f-4173-adca-5acdd5090954.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/flowers-6.txt",
+  "generatedAt": "2026-10-18T12:59:16.020Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.4673,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/flowers-6.png",
+    "webp": "items/flowers-6.webp",
+    "sourceSize": [
+      1338,
+      1175
+    ],
+    "crop": [
+      4,
+      9,
+      1332,
+      1152
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      34.59
+    ],
+    "contact": {
+      "x": 50.65,
+      "width": 13.12,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-flowers.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

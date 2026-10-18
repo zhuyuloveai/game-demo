@@ -1,0 +1,45 @@
+{
+  "id": "garden_guest:1",
+  "key": "garden_guest-1",
+  "source": "sources/garden_guest-1.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-ace38bfc-b466-44ae-829f-74399ae63e24.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/garden_guest-1.txt",
+  "generatedAt": "2026-10-18T13:05:59.653Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.5739,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/garden_guest-1.png",
+    "webp": "items/garden_guest-1.webp",
+    "sourceSize": [
+      1247,
+      1261
+    ],
+    "crop": [
+      88,
+      98,
+      1129,
+      1061
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      37.59
+    ],
+    "contact": {
+      "x": 46.03,
+      "width": 25.14,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-garden_guest.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

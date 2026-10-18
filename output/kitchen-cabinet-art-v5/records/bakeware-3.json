@@ -1,0 +1,45 @@
+{
+  "id": "bakeware:3",
+  "key": "bakeware-3",
+  "source": "sources/bakeware-3.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-9cdb76f5-533f-4d9c-b90a-07e160d060a9.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/bakeware-3.txt",
+  "generatedAt": "2026-10-18T12:13:41.341Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.4301,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/bakeware-3.png",
+    "webp": "items/bakeware-3.webp",
+    "sourceSize": [
+      1351,
+      1164
+    ],
+    "crop": [
+      64,
+      134,
+      1236,
+      925
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      29.94
+    ],
+    "contact": {
+      "x": 50.23,
+      "width": 20.14,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-bakeware.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

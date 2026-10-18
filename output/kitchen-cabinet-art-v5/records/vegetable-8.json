@@ -1,0 +1,45 @@
+{
+  "id": "vegetable:8",
+  "key": "vegetable-8",
+  "source": "sources/vegetable-8.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-5692aca0-b175-4279-8b81-135d5d591603.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/vegetable-8.txt",
+  "generatedAt": "2026-10-18T11:57:16.483Z",
+  "status": "visually-reviewed-awaiting-user",
+  "processed": {
+    "png": "items/vegetable-8.png",
+    "webp": "items/vegetable-8.webp",
+    "sourceSize": [
+      1402,
+      1122
+    ],
+    "crop": [
+      9,
+      4,
+      1385,
+      1112
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      32.12
+    ],
+    "contact": {
+      "x": 50.23,
+      "width": 14.19,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "alphaAudit": {
+    "transparentFraction": 0.3833,
+    "passes": true
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-vegetable.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

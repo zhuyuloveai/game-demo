@@ -1,0 +1,45 @@
+{
+  "id": "gen_herb:10",
+  "key": "gen_herb-10",
+  "source": "sources/gen_herb-10.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-006406b9-5717-4ca5-b4cb-e38aff35bc55.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/gen_herb-10.txt",
+  "generatedAt": "2026-10-18T14:03:47.945Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.2952,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/gen_herb-10.png",
+    "webp": "items/gen_herb-10.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      7,
+      33,
+      1245,
+      1170
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      37.59
+    ],
+    "contact": {
+      "x": 51.81,
+      "width": 28.27,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-gen_herb.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

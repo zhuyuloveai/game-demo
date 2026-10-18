@@ -1,0 +1,45 @@
+{
+  "id": "adventure_box:2",
+  "key": "adventure_box-2",
+  "source": "sources/adventure_box-2.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-5735c18e-03ff-47b3-8b2b-044f81a43da4.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/adventure_box-2.txt",
+  "generatedAt": "2026-10-18T12:37:11.197Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.3914,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/adventure_box-2.png",
+    "webp": "items/adventure_box-2.webp",
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "crop": [
+      70,
+      29,
+      1397,
+      965
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      27.63
+    ],
+    "contact": {
+      "x": 56.89,
+      "width": 24.19,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-adventure_box.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "mascot:6",
+  "key": "mascot-6",
+  "source": "sources/mascot-6.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-94b76fdb-bb8a-4f34-8157-0926734d97dc.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/mascot-6.txt",
+  "generatedAt": "2026-10-18T12:38:01.963Z",
+  "status": "generated-pending-visual-review",
+  "alphaAudit": {
+    "transparentFraction": 0.476,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/mascot-6.png",
+    "webp": "items/mascot-6.webp",
+    "sourceSize": [
+      1230,
+      1278
+    ],
+    "crop": [
+      126,
+      23,
+      1075,
+      1228
+    ],
+    "keptComponents": 1,
+    "box": [
+      33.27,
+      38
+    ],
+    "contact": {
+      "x": 45.12,
+      "width": 15.05,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "energy:5",
+  "key": "energy-5",
+  "source": "sources/energy-5.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-17bf9fa6-52bf-4fc2-9f0b-cdb7dd09d49c.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/energy-5.txt",
+  "generatedAt": "2026-10-18T13:30:51.318Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.404,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/energy-5.png",
+    "webp": "items/energy-5.webp",
+    "sourceSize": [
+      1230,
+      1278
+    ],
+    "crop": [
+      107,
+      55,
+      1017,
+      1166
+    ],
+    "keptComponents": 1,
+    "box": [
+      33.14,
+      38
+    ],
+    "contact": {
+      "x": 49.9,
+      "width": 22.42,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-energy.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

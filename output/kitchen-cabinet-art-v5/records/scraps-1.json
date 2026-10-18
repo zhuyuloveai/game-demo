@@ -1,0 +1,45 @@
+{
+  "id": "scraps:1",
+  "key": "scraps-1",
+  "source": "sources/scraps-1.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-cb46fb9f-e3f0-464b-8e4c-794a50225e6d.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/scraps-1.txt",
+  "generatedAt": "2026-10-18T13:05:59.653Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.4296,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/scraps-1.png",
+    "webp": "items/scraps-1.webp",
+    "sourceSize": [
+      1312,
+      1199
+    ],
+    "crop": [
+      16,
+      113,
+      1279,
+      1032
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      32.28
+    ],
+    "contact": {
+      "x": 49.91,
+      "width": 16.16,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-scraps.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

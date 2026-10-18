@@ -1,0 +1,45 @@
+{
+  "id": "pinkbag:1",
+  "key": "pinkbag-1",
+  "source": "sources/pinkbag-1.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-ab95907e-59bc-42d6-ae35-ba1ddf9172f3.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/pinkbag-1.txt",
+  "generatedAt": "2026-10-18T13:38:51.629Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.3527,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/pinkbag-1.png",
+    "webp": "items/pinkbag-1.webp",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "crop": [
+      25,
+      94,
+      1206,
+      1058
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      35.09
+    ],
+    "contact": {
+      "x": 51.6,
+      "width": 26.22,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-pinkbag.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

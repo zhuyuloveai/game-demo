@@ -1,0 +1,45 @@
+{
+  "id": "emptybag:4",
+  "key": "emptybag-4",
+  "source": "sources/emptybag-4.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-8255783c-bd9f-4fd8-9f12-24ab2da7e52f.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/emptybag-4.txt",
+  "generatedAt": "2026-10-18T12:32:11.481Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.4069,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/emptybag-4.png",
+    "webp": "items/emptybag-4.webp",
+    "sourceSize": [
+      1331,
+      1181
+    ],
+    "crop": [
+      47,
+      50,
+      1258,
+      1103
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      35.07
+    ],
+    "contact": {
+      "x": 58.91,
+      "width": 12.79,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-emptybag.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

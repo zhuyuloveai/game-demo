@@ -1,0 +1,45 @@
+{
+  "id": "honor:2",
+  "key": "honor-2",
+  "source": "sources/honor-2.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-ab50b3db-66ba-4328-874a-bb43900b0853.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/honor-2.txt",
+  "generatedAt": "2026-10-18T13:11:31.472Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.5336,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/honor-2.png",
+    "webp": "items/honor-2.webp",
+    "sourceSize": [
+      1278,
+      1230
+    ],
+    "crop": [
+      107,
+      89,
+      1066,
+      1061
+    ],
+    "keptComponents": 1,
+    "box": [
+      38.18,
+      38
+    ],
+    "contact": {
+      "x": 49.78,
+      "width": 18.25,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-honor.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

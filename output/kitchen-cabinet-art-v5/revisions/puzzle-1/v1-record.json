@@ -1,0 +1,39 @@
+{
+  "id": "puzzle:1",
+  "key": "puzzle-1",
+  "source": "sources/puzzle-1.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-8190c43e-2659-432c-9579-069569142ea4.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/puzzle-1.txt",
+  "generatedAt": "2026-10-18T12:40:51.125Z",
+  "status": "generated-pending-visual-review",
+  "alphaAudit": {
+    "transparentFraction": 0.4568,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/puzzle-1.png",
+    "webp": "items/puzzle-1.webp",
+    "sourceSize": [
+      1312,
+      1199
+    ],
+    "crop": [
+      36,
+      78,
+      1258,
+      1047
+    ],
+    "keptComponents": 1,
+    "box": [
+      40,
+      33.29
+    ],
+    "contact": {
+      "x": 54.37,
+      "width": 20.5,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  }
+}

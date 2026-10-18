@@ -1,3 +1,4 @@
+import {islandArt} from './island-art.mjs';
 import {itemMarkup,originalIcon} from './item-art.mjs';
 // Original SVG artwork for the little kitchen.
 // Item silhouettes are authored once; a small material engine below gives every
@@ -425,6 +426,7 @@ function escapeAttribute(value) {
 }
 
 export function icon(name, className = '') {
+  const raster=islandArt(name,className);if(raster)return raster;
   const id=name.startsWith('item/')?name.slice(5):null;
   const original=id&&originalIcon(id);
   const body = original?artFor(original):id?render(itemMarkup(id, key=>art[key]), 'natural'):artFor(name);

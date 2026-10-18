@@ -1,0 +1,46 @@
+{
+  "id": "mascot:7",
+  "key": "mascot-7",
+  "source": "sources/mascot-7.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-44de7a8d-9c99-4996-a41c-fd450a0e3580.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "revisions/mascot-7/v2-prompt.txt",
+  "previous": "revisions/mascot-7/v1-record.json",
+  "generatedAt": "2026-10-18T14:08:07.034Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.319,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/mascot-7.png",
+    "webp": "items/mascot-7.webp",
+    "sourceSize": [
+      1223,
+      1286
+    ],
+    "crop": [
+      43,
+      75,
+      1172,
+      1161
+    ],
+    "keptComponents": 1,
+    "box": [
+      38.36,
+      38
+    ],
+    "contact": {
+      "x": 49.27,
+      "width": 27.49,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-mascot.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}

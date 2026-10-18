@@ -1,0 +1,45 @@
+{
+  "id": "keys:5",
+  "key": "keys-5",
+  "source": "sources/keys-5.png",
+  "toolSource": "/Users/zhuyu/.codex/generated_images/01a14751-d227-7ae0-8044-217afc35ef91/exec-4725a953-d4b1-432e-a020-0dbdcca455b1.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "prompts/keys-5.txt",
+  "generatedAt": "2026-10-18T12:44:15.797Z",
+  "status": "visually-reviewed-awaiting-user",
+  "alphaAudit": {
+    "transparentFraction": 0.5068,
+    "passes": true
+  },
+  "processed": {
+    "png": "items/keys-5.png",
+    "webp": "items/keys-5.webp",
+    "sourceSize": [
+      1374,
+      1145
+    ],
+    "crop": [
+      209,
+      57,
+      1052,
+      1044
+    ],
+    "keptComponents": 1,
+    "box": [
+      38.29,
+      38
+    ],
+    "contact": {
+      "x": 47.17,
+      "width": 17.03,
+      "height": 2.8
+    },
+    "edgePolicy": "retain significant components; original RGB/alpha with4px perimeter;8px source gutter"
+  },
+  "visualReview": {
+    "date": "2026-10-18T14:48:13.614Z",
+    "evidence": "evidence/chain-keys.png",
+    "scale": "94px overview, 44px cabinet cell, 44px dark edge inspection",
+    "reviewer": "Codex visual inspection; not user approval"
+  }
+}
