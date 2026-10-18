@@ -6,6 +6,11 @@
 .cell.ready-interaction .item-art>svg,.cell.ready-interaction .item-3d>img{
   animation:activeBreathe 3.2s ease-in-out var(--idle-phase,0s) infinite;
 }
+/* Available producers and rewards get a brief invitation to tap, then rest. */
+.cell.ready-interaction:is([data-item-cue="produce"],[data-item-cue="collect"],[data-item-cue="open"]) .item-art>svg,
+.cell.ready-interaction:is([data-item-cue="produce"],[data-item-cue="collect"],[data-item-cue="open"]) .item-3d>img{
+  animation:activeBreathe 3.2s ease-in-out var(--idle-phase,0s) infinite,attentionWiggle 4.8s ease-in-out var(--cue-phase,0s) infinite;
+}
 .cell:is(.pop,.tap-pop,.generate-pop,.merge-pop,.settle-pop,:active,.drag-source) .item-art>svg,
 .cell:is(.pop,.tap-pop,.generate-pop,.merge-pop,.settle-pop,:active,.drag-source) .item-3d>img,
 .board.is-dragging .item-art>svg,.board.is-dragging .item-3d>img,
@@ -37,8 +42,10 @@
 .production-flight{position:fixed;pointer-events:none;z-index:92;filter:drop-shadow(0 2px 2px #72512955);animation:productionFlight .36s cubic-bezier(.2,.65,.35,1) both}
 .production-flight svg,.production-flight img{display:block;width:100%;height:100%;object-fit:contain}
 .production-flight .item-3d{width:100%;height:100%}
-@keyframes shelfBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.018,1.028)}}
-@keyframes activeBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.045,1.065)}}
+@keyframes shelfBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.065,1.09)}}
+@keyframes activeBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.10,1.14)}}
+/* Independent rotation leaves the breathing scale and contact shadow intact. */
+@keyframes attentionWiggle{0%,76%,94%,100%{rotate:0deg}79%{rotate:-7deg}82%{rotate:6deg}85%{rotate:-4deg}88%{rotate:3deg}91%{rotate:-1deg}}
 /* A short accent followed by a long rest keeps a busy board readable. */
 @keyframes actionGlimmer{0%,16%,100%{transform:translateY(0) scale(1)}5%{transform:translateY(-1px) scale(1.12)}10%{transform:translateY(0) scale(.98)}}
 @keyframes productionFlight{
@@ -46,6 +53,66 @@
   48%{transform:translate(calc(-50% + var(--flight-x) * .5),calc(-50% + var(--flight-y) * .5 - 22px)) scale(1.06);opacity:1}
   100%{transform:translate(calc(-50% + var(--flight-x)),calc(-50% + var(--flight-y))) scale(1);opacity:1}
 }
+/* Authored blink and paw poses. Sit still for 21.6s, then play a 2.4s action. */
+[data-kitchen-style="island"] .puppy-sprite{background-image:url('./assets/cabinet-v5/ui/puppy-idle-v1.webp');background-size:220px 112px;background-position:0 0;transform:none;animation:puppyIdleFrames 24s steps(1,end) var(--puppy-idle-phase,0s) infinite}
+[data-kitchen-style="island"] .puppy-sprite.is-waving,[data-kitchen-style="island"] .puppy-sprite.is-cheering{animation:puppyHelloFrames 2.4s steps(1,end) var(--puppy-reaction-phase,0s) 1}
+@keyframes puppyIdleFrames{
+  0%,100%{background-position:0 0}
+  90%{background-position:-55px 0}
+  90.667%{background-position:-110px 0}
+  91.167%{background-position:-55px 0}
+  91.667%{background-position:0 0}
+  92.333%{background-position:0 -56px}
+  93.333%{background-position:-55px -56px}
+  95.667%{background-position:-110px -56px}
+  96.667%{background-position:0 -56px}
+  97.667%{background-position:0 0}
+}
+@keyframes puppyHelloFrames{
+  0%,27%,90%,100%{background-position:0 0}
+  7%,20%{background-position:-55px 0}
+  14%{background-position:-110px 0}
+  35%,82%{background-position:0 -56px}
+  45%{background-position:-55px -56px}
+  68%{background-position:-110px -56px}
+}
+/* Sweep a soft highlight only across the clickable artwork's opaque pixels. */
+[data-kitchen-style="island"] :is(.island-object,.e-parcel)::after{
+  content:'';display:block;position:absolute;left:0;bottom:0;width:100%;height:var(--object-height,100%);
+  pointer-events:none;background:linear-gradient(110deg,transparent 42%,#fff7d94d 47%,#fffdf5bd 50%,#fff7d94d 53%,transparent 58%) 100% 0/300% 100% no-repeat;
+  mask:var(--object-art) center bottom/contain no-repeat;
+  opacity:0;animation:objectShine 6.4s ease-in-out var(--object-shine-phase,0s) infinite;
+}
+[data-kitchen-style="island"] .e-parcel{--object-art:url('./assets/cabinet-v5/ui/gift.webp');--object-shine-phase:-4.6s}
+[data-kitchen-style="island"] .e-parcel::after{width:23px;height:24px;top:0;bottom:auto}
+@media(hover:hover){
+  [data-kitchen-style="island"] .island-object:hover::before{filter:brightness(1.08) drop-shadow(0 0 2px #fff3c180)}
+}
+[data-kitchen-style="island"] .island-object:active::before{transform:translateY(1px);filter:brightness(1.12)}
+[data-kitchen-style="island"] .island-object:active::after{transform:translateY(1px)}
+[data-kitchen-style="island"] .e-phone:active>.phone-screen-ui,[data-kitchen-style="island"] .e-book:active>.recipe-cover-detail{translate:0 1px}
+[data-kitchen-style="island"] .e-cupboard:active>.storage-plaque-detail,[data-kitchen-style="island"] .v-radio:active>.radio-tuning-detail{translate:0 1px}
+[data-kitchen-style="island"] .is-playing .radio-equalizer i{animation:radioEqualizer 1.3s ease-in-out infinite alternate}
+[data-kitchen-style="island"] .radio-equalizer i:nth-child(2){animation-delay:-.4s}
+[data-kitchen-style="island"] .radio-equalizer i:nth-child(3){animation-delay:-.9s}
+[data-kitchen-style="island"] .radio-equalizer i:nth-child(4){animation-delay:-.2s}
+[data-kitchen-style="island"] .radio-equalizer i:nth-child(5){animation-delay:-.65s}
+@keyframes radioEqualizer{0%,100%{transform:scaleY(.3)}35%{transform:scaleY(1)}65%{transform:scaleY(.55)}}
+[data-kitchen-style="island"] .phone-mini-app{animation:phoneAppGlow 6.4s ease-in-out infinite}
+[data-kitchen-style="island"] .mini-settings{animation-delay:-1.6s}
+[data-kitchen-style="island"] .mini-guide{animation-delay:-3.2s}
+[data-kitchen-style="island"] .mini-energy{animation-delay:-4.8s}
+@keyframes phoneAppGlow{0%,20%,100%{filter:brightness(1);box-shadow:0 1px 1px #356d892b}7%{filter:brightness(1.2);box-shadow:0 0 3px #fff9d9e6}}
+@keyframes objectShine{
+  0%{background-position:100% 0;opacity:0}
+  4%{opacity:.8}
+  22%{background-position:0 0;opacity:.8}
+  25%,100%{background-position:0 0;opacity:0}
+}
 @media(prefers-reduced-motion:reduce){
   .cell .item-art>svg,.cell .item-3d>img,.item-cue,.production-flight{animation:none!important}
+  [data-kitchen-style="island"] :is(.island-object,.e-parcel)::after{animation:none;opacity:0}
+  [data-kitchen-style="island"] .puppy-sprite{animation:none!important;transform:none;background-position:0 0!important}
+  [data-kitchen-style="island"] .phone-mini-app{animation:none}
+  [data-kitchen-style="island"] .is-playing .radio-equalizer i{animation:none;transform:scaleY(.7)}
 }

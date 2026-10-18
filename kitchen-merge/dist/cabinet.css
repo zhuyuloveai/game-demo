@@ -30,13 +30,14 @@ body{display:block;background:#2c2422;color:#61412d;font-family:-apple-system,Bl
 [data-kitchen-style="island"] .k-hud .hud-profile-art,[data-kitchen-style="island"] .k-hud .hud-meter-art,[data-kitchen-style="island"] .k-hud .v-meter-screen,[data-kitchen-style="island"] .k-hud .v-pig,[data-kitchen-style="island"] .k-hud .v-stars-jar{display:contents}
 [data-kitchen-style="island"] .v-meter-mark,[data-kitchen-style="island"] .v-meter-vents,[data-kitchen-style="island"] .v-pig>*:not(strong),[data-kitchen-style="island"] .v-stars-jar>*:not(strong){display:none}
 [data-kitchen-style="island"] .k-hud>button::before,[data-kitchen-style="island"] .k-hud .puppy-avatar{content:'';display:block;position:absolute;left:0;bottom:5px;width:28px;height:33px;background:center bottom/contain no-repeat;z-index:2}
-[data-kitchen-style="island"] .k-hud .puppy-avatar{background-image:url('./assets/cabinet-v5/ui/puppy.webp');height:34px;width:33px;left:-3px}
+/* Frame the existing puppy artwork as a head portrait above its level badge. */
+[data-kitchen-style="island"] .k-hud .puppy-avatar{top:2px;bottom:auto;left:18px;width:34px;height:34px;border:2px solid #fff4d9;border-radius:50%;background:#f6dfb8 url('./assets/cabinet-v5/ui/puppy.webp') center -1px/47px auto no-repeat;box-shadow:0 0 0 1px #bb8755,0 2px 3px #78533940}
 [data-kitchen-style="island"] .k-hud>.v-meter::before{background-image:url('./assets/cabinet-v5/ui/energy.webp');width:24px}
 [data-kitchen-style="island"] .k-hud>.v-cash::before{background-image:url('./assets/cabinet-v5/ui/pig.webp');width:30px}
 [data-kitchen-style="island"] .k-hud>.v-stars::before{background-image:url('./assets/cabinet-v5/ui/stars.webp');width:26px}
 [data-kitchen-style="island"] .k-hud>.v-candy::before{background-image:url('./assets/cabinet-v5/ui/candy.webp');width:26px}
 [data-kitchen-style="island"] .k-hud strong,[data-kitchen-style="island"] #kitchen-level-label{position:absolute;left:23px;bottom:6px;width:47px;height:20px;padding:3px 2px 2px 5px;text-align:center;color:#663d25;font:750 12px/15px -apple-system,BlinkMacSystemFont,sans-serif;background:url('./assets/cabinet-v5/ui/resource-plate.webp') center/100% 100% no-repeat;font-variant-numeric:tabular-nums}
-[data-kitchen-style="island"] #kitchen-level-label{font-size:10px;left:23px}
+[data-kitchen-style="island"] #kitchen-level-label{left:14px;bottom:0;z-index:3;width:42px;height:14px;padding:0;border:1px solid #c29661;border-radius:7px;background:linear-gradient(#fff6df,#efd3a1);box-shadow:0 1px 2px #78533930;font-size:9px;line-height:12px;white-space:nowrap}
 [data-kitchen-style="island"] .k-wallpaper,[data-kitchen-style="island"] .k-upper-cabinets,[data-kitchen-style="island"] .k-rangehood,[data-kitchen-style="island"] .k-order-rail,[data-kitchen-style="island"] .k-counter,[data-kitchen-style="island"] .e-speech{display:none}
 [data-kitchen-style="island"] .k-scene{position:absolute;left:0;top:50px;width:375px;height:70px;z-index:3}
 [data-kitchen-style="island"] #orders{position:absolute;left:20px;top:0;width:355px;height:70px;display:flex;gap:4px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;touch-action:pan-x;scroll-snap-type:x proximity}
@@ -47,8 +48,9 @@ body{display:block;background:#2c2422;color:#61412d;font-family:-apple-system,Bl
 [data-kitchen-style="island"] .order-top .avatar img{width:100%;height:100%;object-fit:contain}
 [data-kitchen-style="island"] .order-top h3{display:block;text-align:center;font-size:8px;line-height:12px;color:#744b38;background:#fff1dcd9;border-radius:3px}
 [data-kitchen-style="island"] .order-top p{display:none}
-[data-kitchen-style="island"] .order-paper{position:absolute;left:22px;top:7px;width:117px;height:55px;display:grid;grid-template-columns:1fr 27px;gap:2px;padding:4px 4px 4px 8px;border:6px solid transparent;border-image:url('./assets/cabinet-v5/ui/order-card.webp') 85 fill / 6px / 0 stretch}
-[data-kitchen-style="island"] .is-main .order-paper{left:59px;top:2px;width:116px;height:62px;display:block;padding:0;border:7px solid transparent;border-image:url('./assets/cabinet-v5/ui/main-card.webp') 120 80 80 fill / 18px 5px 8px / 0 stretch}
+/* Match the main card's paper body; its raised title tab occupies the extra 8px. */
+[data-kitchen-style="island"] .order-paper{position:absolute;left:22px;top:10px;width:116px;height:54px;display:grid;grid-template-columns:1fr 27px;gap:2px;padding:4px 4px 4px 8px;border:6px solid transparent;border-image:url('./assets/cabinet-v5/ui/order-card.webp') 85 fill / 6px / 0 stretch}
+[data-kitchen-style="island"] .is-main .order-paper{left:59px;top:2px;height:62px;display:block;padding:0;border:7px solid transparent;border-image:url('./assets/cabinet-v5/ui/main-card.webp') 120 80 80 fill / 18px 5px 8px / 0 stretch}
 [data-kitchen-style="island"] .is-main .order-paper::before{content:'主线';position:absolute;left:0px;top:-5px;width:30px;height:14px;text-align:center;color:#fff5da;font-size:10px;font-weight:750;line-height:14px;text-shadow:0 1px #ad701b}
 [data-kitchen-style="island"] .is-main .order-top{left:0;top:1px;width:56px;height:64px}
 [data-kitchen-style="island"] .is-main .order-top>div{display:none}
@@ -56,8 +58,7 @@ body{display:block;background:#2c2422;color:#61412d;font-family:-apple-system,Bl
 [data-kitchen-style="island"] .k-buddy{position:absolute;left:-2px;top:5px;width:55px;height:56px;display:block}
 [data-kitchen-style="island"] .puppy-sprite{display:block;width:55px;height:56px;background:url('./assets/cabinet-v5/ui/puppy.webp') center bottom/contain no-repeat}
 [data-kitchen-style="island"] .e-assistant-face{position:absolute;left:0;top:0;width:50px;height:57px;display:block}
-[data-kitchen-style="island"] .e-assistant-name{position:absolute;left:1px;bottom:-1px;font-size:8px;line-height:10px;color:#774d37;text-shadow:0 1px #ffe9ce}
-[data-kitchen-style="island"] .e-assistant-name small{display:none}
+[data-kitchen-style="island"] .e-assistant-name{display:none}
 [data-kitchen-style="island"] .e-parcel{position:absolute;left:34px;top:38px;width:24px;height:25px;display:block}
 [data-kitchen-style="island"] #parcel-art{display:block;width:23px;height:24px}
 [data-kitchen-style="island"] .e-parcel-count{position:absolute;right:-1px;top:0px;font-size:7px;line-height:10px;background:#bd5b3e;border:1px solid #fff1cf;color:white;border-radius:8px;width:11px;height:11px;text-align:center}
@@ -113,18 +114,55 @@ body{display:block;background:#2c2422;color:#61412d;font-family:-apple-system,Bl
 [data-kitchen-style="island"] .e-foreground{display:contents}
 [data-kitchen-style="island"] .e-desk-items{position:absolute;left:8px;top:556px;width:359px;height:84px;display:grid;grid-template-columns:82px 112px 64px 86px;gap:5px;align-items:end;z-index:3}
 [data-kitchen-style="island"] .island-object{display:block;position:relative;width:100%;height:84px}
-[data-kitchen-style="island"] .island-object>*:not(.object-label):not(.e-storage-count){display:none}
-[data-kitchen-style="island"] .island-object::before{content:'';position:absolute;top:auto;bottom:0;left:0;width:100%;height:60px;background:center bottom/contain no-repeat;pointer-events:none}
-[data-kitchen-style="island"] .e-book::before{background-image:url('./assets/cabinet-v5/ui/book.webp');height:80px}
-[data-kitchen-style="island"] .e-cupboard::before{background-image:url('./assets/cabinet-v5/ui/drawer.webp');height:57px}
-[data-kitchen-style="island"] .e-phone::before{background-image:url('./assets/cabinet-v5/ui/phone.webp');height:80px}
-[data-kitchen-style="island"] .v-radio::before{background-image:url('./assets/cabinet-v5/ui/radio.webp');height:58px}
-[data-kitchen-style="island"] .object-label{position:absolute;display:block;font-weight:750;font-size:12px;line-height:15px;text-align:center;color:#774c32;text-shadow:0 1px #fff7e3aa;pointer-events:none}
-[data-kitchen-style="island"] .e-book .object-label{left:24px;top:50px;width:32px;font-size:11px}
-[data-kitchen-style="island"] .e-cupboard .object-label{left:40px;top:50px;width:31px;font-size:10px;line-height:12px}
-[data-kitchen-style="island"] .e-storage-count{position:absolute;right:10px;bottom:4px;font:8px/10px -apple-system,sans-serif;color:#7d4b35}
-[data-kitchen-style="island"] .e-phone .object-label{left:18px;top:37px;width:29px;font-size:10px;color:#316d8c;transform:rotate(6deg)}
-[data-kitchen-style="island"] .v-radio .object-label{left:45px;top:52px;width:29px;font-size:11px}
+[data-kitchen-style="island"] .island-object>*:not(.e-storage-count){display:none}
+[data-kitchen-style="island"] .island-object::before{content:'';position:absolute;top:auto;bottom:0;left:0;width:100%;height:var(--object-height);background:var(--object-art) center bottom/contain no-repeat;pointer-events:none}
+[data-kitchen-style="island"] .e-book{--object-art:url('./assets/cabinet-v5/ui/book.webp');--object-height:80px;--object-shine-phase:-.6s}
+.recipe-cover-detail{display:none}
+[data-kitchen-style="island"] .e-book>.recipe-cover-detail{display:block;position:absolute;left:25px;top:43px;width:37px;height:18px;padding:2px 1px;border:.6px solid #c6a16a;border-radius:3px;background:linear-gradient(145deg,#fff9e3b3,#efd9af99);box-shadow:inset 0 0 0 1px #fff5d966,0 .6px 1px #a9753a1a;transform:rotate(-3deg);color:#95603f;pointer-events:none}
+[data-kitchen-style="island"] .recipe-cover-detail b{display:block;text-align:center;font:750 8px/10px "Kaiti SC","STKaiti","Songti SC",serif;letter-spacing:.4px;white-space:nowrap;text-shadow:0 .5px #fff9e3}
+[data-kitchen-style="island"] .recipe-cover-flourish{display:block;width:28px;height:4px;margin:0 auto;color:#b5976c}
+[data-kitchen-style="island"] .recipe-cover-seal{display:flex;position:absolute;right:-3px;bottom:-3px;width:8px;height:8px;align-items:center;justify-content:center;border:.5px solid #a6563b;border-radius:50%;background:linear-gradient(135deg,#d28a65,#b55c40);box-shadow:0 .7px 1px #79503c45,inset 0 0 0 .7px #e4ad80;color:#f7dab0;transform:rotate(12deg)}
+[data-kitchen-style="island"] .recipe-cover-seal svg{display:block;width:6px;height:6px}
+[data-kitchen-style="island"] .e-cupboard{--object-art:url('./assets/cabinet-v5/ui/drawer.webp');--object-height:57px;--object-shine-phase:-2.2s}
+.storage-plaque-detail,.radio-tuning-detail{display:none}
+[data-kitchen-style="island"] .e-cupboard>.storage-plaque-detail{display:block;position:absolute;left:43px;top:53px;width:26px;height:8px;color:#a17b4b;pointer-events:none}
+[data-kitchen-style="island"] .storage-plaque-detail svg{display:block;width:100%;height:100%;filter:drop-shadow(0 .5px #fff8df)}
+[data-kitchen-style="island"] .e-phone{--object-art:url('./assets/cabinet-v5/ui/phone.webp');--object-height:80px;--object-shine-phase:-3.8s}
+/* Keep the miniature home screen on the glass plane, below the existing notch. */
+.phone-screen-ui{display:none}
+[data-kitchen-style="island"] .e-phone>.phone-screen-ui{display:block;position:absolute;left:20.3px;top:7.2px;width:33.5px;height:61.5px;transform:matrix(1,.065,-.155,1,0,0);transform-origin:0 0;border-radius:5px;overflow:hidden;pointer-events:none}
+[data-kitchen-style="island"] .phone-mini-status{display:flex;position:absolute;left:4px;right:4px;top:8px;justify-content:space-between;align-items:center}
+[data-kitchen-style="island"] .phone-mini-status i:first-child{width:5px;height:2px;border-radius:1px;background:#4f819a}
+[data-kitchen-style="island"] .phone-mini-status i:last-child{width:5px;height:3px;border:.6px solid #4f819a;border-radius:1px;background:linear-gradient(90deg,#76b697 70%,transparent 70%)}
+[data-kitchen-style="island"] .phone-mini-card{position:absolute;left:4px;right:4px;top:15px;height:11px;display:flex;align-items:center;gap:2px;padding:2px;border:.5px solid #fffdf5b0;border-radius:3px;background:linear-gradient(135deg,#fffaf1f2,#f1f8ffbd);box-shadow:0 1px 2px #497a9126}
+[data-kitchen-style="island"] .phone-mini-card>[data-phone-glyph]{display:flex;align-items:center;justify-content:center;width:7px;height:7px;border-radius:2px;color:#fff8e7;background:#db9265}
+[data-kitchen-style="island"] .phone-mini-card svg{display:block;width:5px;height:5px}
+[data-kitchen-style="island"] .phone-mini-lines{display:flex;flex:1;flex-direction:column;gap:2px}
+[data-kitchen-style="island"] .phone-mini-lines i{display:block;width:10px;height:1.5px;border-radius:1px;background:#83a4ae}
+[data-kitchen-style="island"] .phone-mini-lines i:last-child{width:7px;background:#b8cbd0}
+[data-kitchen-style="island"] .phone-mini-apps{position:absolute;left:5px;top:30px;display:grid;grid-template-columns:repeat(2,10px);gap:4px}
+[data-kitchen-style="island"] .phone-mini-app{display:flex;width:10px;height:10px;align-items:center;justify-content:center;border:.5px solid #fff9;border-radius:3px;color:#fffdf1;box-shadow:0 1px 1px #356d892b}
+[data-kitchen-style="island"] .phone-mini-app svg{display:block;width:7px;height:7px;stroke-width:2}
+[data-kitchen-style="island"] .mini-shop{background:linear-gradient(145deg,#f4bd83,#d68a59)}
+[data-kitchen-style="island"] .mini-settings{background:linear-gradient(145deg,#b8b8eb,#838ec3)}
+[data-kitchen-style="island"] .mini-guide{background:linear-gradient(145deg,#b0d1a3,#75a48b)}
+[data-kitchen-style="island"] .mini-energy{background:linear-gradient(145deg,#f4d885,#e3b552)}
+[data-kitchen-style="island"] .phone-mini-home{display:block;position:absolute;bottom:3px;left:12px;width:10px;height:1.5px;border-radius:2px;background:#53819980}
+[data-kitchen-style="island"] .v-radio{--object-art:url('./assets/cabinet-v5/ui/radio.webp');--object-height:58px;--object-shine-phase:-5.4s}
+[data-kitchen-style="island"] .v-radio>.radio-tuning-detail{display:block;position:absolute;left:43px;top:44px;width:35px;height:14px;color:#8b7149;pointer-events:none}
+[data-kitchen-style="island"] .radio-band{display:flex;align-items:center;justify-content:space-between;height:4px;gap:2px;font:500 2.7px/4px ui-monospace,monospace;white-space:nowrap}
+[data-kitchen-style="island"] .radio-band b{font-weight:800;font-size:3.2px;color:#926a3d}
+[data-kitchen-style="island"] .radio-tuning-led{display:block;width:2px;height:2px;border-radius:50%;background:#aaa08c;box-shadow:inset 0 .3px #fff9}
+[data-kitchen-style="island"] .is-playing .radio-tuning-led{background:#85a765;box-shadow:0 0 2px #aec678,inset 0 .3px #efffc9}
+[data-kitchen-style="island"] .radio-dial{display:block;position:relative;height:4px;margin-top:1px;border-bottom:.5px solid #c5a873;background:repeating-linear-gradient(90deg,#a98b5e 0 .5px,transparent .5px 3px) left bottom/100% 2px no-repeat}
+[data-kitchen-style="island"] .radio-dial i{position:absolute;left:19px;top:0;width:1px;height:4px;background:#c1714d;box-shadow:0 0 .5px #fff5d9}
+[data-kitchen-style="island"] .radio-equalizer{display:flex;position:absolute;left:1px;bottom:0;height:3.5px;align-items:flex-end;gap:1px;opacity:.4}
+[data-kitchen-style="island"] .radio-equalizer i{display:block;width:1.3px;height:3px;border-radius:.5px;background:#9aaf82;transform-origin:center bottom;transform:scaleY(.35)}
+[data-kitchen-style="island"] .is-playing .radio-equalizer{opacity:1}
+[data-kitchen-style="island"] .radio-sound-wave{display:block;position:absolute;right:1px;bottom:-.5px;width:7px;height:4px;color:#afa38c}
+[data-kitchen-style="island"] .radio-sound-wave svg{display:block;width:100%;height:100%}
+[data-kitchen-style="island"] .is-playing .radio-sound-wave{color:#8b9f70}
+[data-kitchen-style="island"] .e-storage-count{display:none}
 [data-kitchen-style="island"] .toast{bottom:82px;font-size:12px}
 #modal{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif}
 #modal .island-3d-art{width:100%;height:100%;object-fit:contain}

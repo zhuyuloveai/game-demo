@@ -37,6 +37,9 @@ python3 -m http.server 4173 --bind 127.0.0.1 --directory dist
 - 原图、独立PNG切片、提示词、返修记录与逐像素对照保存在仓库的`output/kitchen-cabinet-art-v5/`。这些制作资料不随网站发布。
 - [柜架版本验收](docs/verification/cabinet-v5/README.md)记录实际浏览器截图、功能与旧档验证。原图稿对照仍有木纹、物品摆放和底部轮廓差异。
 - 自托管站酷快乐体及OFL许可见[字体来源](docs/fonts/ZCOOLKuaiLe-SOURCE.txt)。原创Web Audio配乐与音效保留。
+- 新风格左上角使用圆形小狗头像；手札、底部功能标签与收纳容量数字隐藏，以错峰扫光提示入口。食谱封面、收纳铭牌、手机应用屏幕和收音机调频面板增加细节。
+- 物品呼吸幅度增强，可生产、可领取和可开启物品间歇轻晃。小狗使用真正的眨眼、抬爪动作帧，每24秒播放一次，交互回应至少间隔12秒；弹窗、后台和减少动态效果偏好均有对应处理。
+- 本轮验收见[界面与动画更新记录](docs/verification/2026-10-19-ui/README.md)，小狗动作源图和生成提示词见[制作记录](../output/puppy-animation-v1/README.md)。
 
 ## 机制参考与实现范围
 

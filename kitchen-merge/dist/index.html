@@ -8,11 +8,11 @@
   <meta name="description" content="掌心里的世界美食厨房：合成食材、升级厨具、制作食谱，和小狗店长一起完成客人的小心愿。">
   <title>小厨合合 · 暖木厨房</title>
   <link rel="icon" href="./assets/puppy-icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./cabinet.css">
+  <link rel="stylesheet" href="./cabinet.css?v=20261019-storage">
   <link rel="stylesheet" href="./full-art.css">
-  <link rel="stylesheet" href="./item-motion.css">
+  <link rel="stylesheet" href="./item-motion.css?v=20261019-puppy-frames2">
   <script type="module" src="./cabinet-layout.mjs"></script>
-  <script type="module" src="./app.mjs"></script>
+  <script type="module" src="./app.mjs?v=20261019-puppy-frames2"></script>
 </head>
 <body>
 <div id="art-viewport">
@@ -42,10 +42,10 @@
     <section class="e-foreground" aria-label="厨房桌面上的功能物件">
       <button class="e-speech" data-action="tasks" aria-label="查看小狗店长的章节任务手账"><b>小狗店长的开店手账</b><span id="quest-copy">一起完成早餐小厨房</span><span class="v-note-progress" id="quest-progress">0/3</span></button>
       <div class="e-desk-items">
-        <button class="e-book island-object" data-action="recipes" aria-label="打开桌上的食谱和图鉴" aria-expanded="false"><span class="e-book-pages"></span><span class="e-book-cover"><span id="recipe-art" aria-hidden="true"></span><b>食谱</b></span><span class="e-book-ribbon">图鉴</span><b class="object-label">食谱</b></button>
-        <button class="e-cupboard island-object island-storage" data-action="storage" aria-label="打开收纳柜" aria-expanded="false"><span class="e-cupboard-inside" id="cabinet-art" aria-hidden="true"></span><span class="e-door"><em>收纳</em><i></i></span><small class="e-storage-count" id="storage-count">0/6</small><b class="object-label">收纳</b></button>
-        <button class="e-phone island-object" data-action="phone" aria-label="打开手机，采购与设置" aria-expanded="false"><span class="e-phone-screen"><span id="phone-icon" aria-hidden="true"></span><b>手机</b></span><b class="object-label">采购</b></button>
-        <button class="v-radio island-object" id="sound-button" data-action="music" aria-label="打开收音机，调节音乐与音效"><span class="v-radio-speaker"></span><span class="v-radio-face"><i></i>音乐</span><b class="object-label">音乐</b></button>
+        <button class="e-book island-object" data-action="recipes" aria-label="打开桌上的食谱和图鉴" aria-expanded="false"><span class="e-book-pages"></span><span class="e-book-cover"><span id="recipe-art" aria-hidden="true"></span><b>食谱</b></span><span class="e-book-ribbon">图鉴</span><span class="recipe-cover-detail" aria-hidden="true"><b>独家秘方</b><svg class="recipe-cover-flourish" viewBox="0 0 40 6" fill="none"><path d="M2 4c5-5 9 3 15-1s9 3 15-1m-21 3c4-2 8 1 14 0" stroke="currentColor" stroke-width=".8" stroke-linecap="round"/></svg><span class="recipe-cover-seal"><svg viewBox="0 0 16 16" fill="currentColor"><ellipse cx="8" cy="10.2" rx="3.2" ry="2.7"/><ellipse cx="3.8" cy="6.4" rx="1.4" ry="1.8" transform="rotate(-25 3.8 6.4)"/><ellipse cx="7" cy="4.6" rx="1.3" ry="1.8"/><ellipse cx="10.2" cy="4.8" rx="1.3" ry="1.8"/><ellipse cx="12.8" cy="7.1" rx="1.3" ry="1.7" transform="rotate(25 12.8 7.1)"/></svg></span></span><b class="object-label">食谱</b></button>
+        <button class="e-cupboard island-object island-storage" data-action="storage" aria-label="打开收纳柜" aria-expanded="false"><span class="e-cupboard-inside" id="cabinet-art" aria-hidden="true"></span><span class="e-door"><em>收纳</em><i></i></span><span class="storage-plaque-detail" aria-hidden="true"><svg viewBox="0 0 36 12" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h10v6H2zM1 3h12v2H1zM5 3V1h4v2M5 8h4M16 4h8v7h-8zM16 3h8M17 1h6v2M18 7h4M28 5h5v6h-5zM30 5V1m0 3c-4 0-4-3-4-3 4 0 4 3 4 3Zm0-1c0-3 4-3 4-3s0 3-4 3Z"/></svg></span><small class="e-storage-count" id="storage-count">0/6</small><b class="object-label">收纳</b></button>
+        <button class="e-phone island-object" data-action="phone" aria-label="打开手机，采购与设置" aria-expanded="false"><span class="e-phone-screen"><span id="phone-icon" aria-hidden="true"></span><b>手机</b></span><span class="phone-screen-ui" aria-hidden="true"><span class="phone-mini-status"><i></i><i></i></span><span class="phone-mini-card"><span data-phone-glyph="bag"></span><span class="phone-mini-lines"><i></i><i></i></span></span><span class="phone-mini-apps"><span class="phone-mini-app mini-shop" data-phone-glyph="bag"></span><span class="phone-mini-app mini-settings" data-phone-glyph="sliders"></span><span class="phone-mini-app mini-guide" data-phone-glyph="book"></span><span class="phone-mini-app mini-energy" data-phone-glyph="energy"></span></span><span class="phone-mini-home"></span></span><b class="object-label">采购</b></button>
+        <button class="v-radio island-object" id="sound-button" data-action="music" aria-label="打开收音机，调节音乐与音效"><span class="v-radio-speaker"></span><span class="v-radio-face"><i></i>音乐</span><span class="radio-tuning-detail" aria-hidden="true"><span class="radio-band"><b>FM</b><span>88 · 96 · 108</span><i class="radio-tuning-led"></i></span><span class="radio-dial"><i></i></span><span class="radio-equalizer"><i></i><i></i><i></i><i></i><i></i></span><span class="radio-sound-wave"><svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width=".9" stroke-linecap="round"><path d="M1 4h2l2-3v6L3 4m5-2a3 3 0 0 1 0 4m2-5a4.5 4.5 0 0 1 0 6"/></svg></span></span><b class="object-label">音乐</b></button>
         <div class="e-assistant"><div class="k-buddy e-buddy-art" aria-hidden="true"><span class="puppy-sprite"></span></div><button class="e-assistant-face" data-action="tasks" aria-label="小狗店长，打开主线手札"><span id="hint-icon" class="screen-reader"></span></button><button class="e-parcel" data-action="rewards" aria-label="打开小狗店长的礼物与每日开店礼"><span id="parcel-art" aria-hidden="true"></span><span class="e-parcel-count" id="gift-count">领</span></button><span class="e-assistant-name">手札 <small id="story-progress"></small></span></div>
       </div>
     </section>

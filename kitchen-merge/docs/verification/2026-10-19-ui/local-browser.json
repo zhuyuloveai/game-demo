@@ -1,0 +1,132 @@
+[
+  {
+    "check": "production",
+    "energy": "99"
+  },
+  {
+    "check": "merge/move/swap",
+    "labels": [
+      "第1行第3格，空格",
+      "第1行第4格，吐司，4级",
+      "第1行第5格，面团，3级"
+    ]
+  },
+  {
+    "entry": ".puppy-profile",
+    "open": true,
+    "heading": [
+      "小狗店长"
+    ]
+  },
+  {
+    "entry": ".v-meter",
+    "open": true,
+    "heading": [
+      "体力与彩虹糖"
+    ]
+  },
+  {
+    "entry": ".v-cash",
+    "open": true,
+    "heading": [
+      "小猪存钱罐"
+    ]
+  },
+  {
+    "entry": ".v-stars",
+    "open": true,
+    "heading": [
+      "许愿星星罐"
+    ]
+  },
+  {
+    "entry": ".e-assistant-face",
+    "open": true,
+    "heading": [
+      "小狗店长的开店手账"
+    ]
+  },
+  {
+    "entry": ".e-parcel",
+    "open": true,
+    "heading": [
+      "小狗店长的礼物与道具"
+    ]
+  },
+  {
+    "entry": ".e-book",
+    "open": true,
+    "heading": [
+      "世界料理手账"
+    ]
+  },
+  {
+    "entry": ".e-cupboard",
+    "open": true,
+    "heading": [
+      "厨房收纳柜"
+    ]
+  },
+  {
+    "entry": ".e-phone",
+    "open": true,
+    "heading": [
+      "店长的手机"
+    ]
+  },
+  {
+    "entry": ".v-radio",
+    "open": true,
+    "heading": [
+      "小狗厨房的声音"
+    ]
+  },
+  {
+    "check": "classic style",
+    "rasterItems": 0
+  },
+  {
+    "check": "style switch and reload preserve board",
+    "equal": true,
+    "energy": "99"
+  },
+  {
+    "cell": [
+      44,
+      44
+    ],
+    "cells": 63,
+    "check": "geometry",
+    "overflow": false,
+    "viewport": [
+      375,
+      667
+    ]
+  },
+  {
+    "cell": [
+      44,
+      44
+    ],
+    "cells": 63,
+    "check": "geometry",
+    "overflow": false,
+    "viewport": [
+      768,
+      667
+    ]
+  },
+  {
+    "cell": [
+      59.37030029296875,
+      59.37030029296875
+    ],
+    "cells": 63,
+    "check": "geometry",
+    "overflow": false,
+    "viewport": [
+      1280,
+      900
+    ]
+  }
+]
