@@ -4,6 +4,7 @@ import { BALANCE, ITEMS, definition, sourceRules, isSource, isPermanent, sourceD
 import { icon, glyph, avatar } from './art.mjs';
 import { backupBeforeMigration } from './save-store.mjs';
 import { createKitchenAudio } from './audio.mjs';
+import { itemPresentation, itemCueMarkup } from './item-presentation.mjs';
 
 const $ = s => document.querySelector(s);
 const LEVEL_NAMES=['见习小厨','烘焙新秀','人气主厨','美味专家','厨房明星'];
@@ -40,18 +41,24 @@ let selected=null, hinted=[], toastTimer, hintTimer, pointer=null, ghost=null, d
 let modalView='', catalogFamily='food';
 const board=$('#board'), modal=$('#modal'), storyAssistant=$('.e-assistant');
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
+let motionPausedAt=null,motionPauseDuration=0;
 // Keep each item's idle phase stable when a render replaces the board DOM.
 function motionPhase(id){
   const hash=[...String(id)].reduce((n,c)=>(n*31+c.charCodeAt(0))%997,0);
   const seed=(hash*211%997)/997*4.8;
-  const time=performance.now()/1000+seed;
+  const time=((motionPausedAt??performance.now())-motionPauseDuration)/1000+seed;
   return `--idle-phase:-${(time%3.2).toFixed(3)}s;--cue-phase:-${(time%4.8).toFixed(3)}s`;
 }
 function animateItem(index,kind){
   if(!reducedMotion.matches)board.querySelector(`[data-cell="${index}"]`)?.classList.add(`${kind}-pop`);
 }
-function syncMotion(){document.body.classList.toggle('motion-paused',document.hidden||modal.open);}
-reducedMotion.addEventListener('change',()=>{if(reducedMotion.matches){$('#effects').replaceChildren();$('.puppy-sprite').classList.remove('is-waving','is-cheering');}});
+function syncMotion(){
+  const paused=document.hidden||modal.open;
+  if(paused&&motionPausedAt===null)motionPausedAt=performance.now();
+  else if(!paused&&motionPausedAt!==null){motionPauseDuration+=performance.now()-motionPausedAt;motionPausedAt=null;}
+  document.body.classList.toggle('motion-paused',paused);
+}
+reducedMotion.addEventListener('change',()=>{if(reducedMotion.matches){$('#effects').replaceChildren();board.querySelectorAll('.receiving-output').forEach(cell=>cell.classList.remove('receiving-output'));$('.puppy-sprite').classList.remove('is-waving','is-cheering');}});
 function puppyMood(mood){
   if(reducedMotion.matches)return;const sprite=$('.puppy-sprite');
   sprite.classList.remove('is-waving','is-cheering');void sprite.offsetWidth;sprite.classList.add(`is-${mood}`);
@@ -115,8 +122,9 @@ function renderBoard(popIndex=-1){
   board.innerHTML=state.board.map((item,i)=>{
     const locked=isLocked(i),producer=!!item&&isSource(item),bubble=item?.family==='bubble';
     const status=producer?producerStatus(state,item):null;
-    const label=locked?`锁定，${item?itemName(item):'待整理台面'}`:item?`${itemName(item)}${producer?'，点击生产':`，${item.level||1}级`}`:'空格';
-    return `<button class="cell ${item?'occupied':'empty'} ${producer?'producer':''} ${producer&&status.ready&&!locked&&state.energy>0?'ready-producer':''} ${locked?'locked':''} ${bubble?'bubble':''} ${status&&!status.ready?'cooling':''} ${['energy','coins','chest'].includes(item?.family)?'resource-item':''} ${selected===i?'selected':''} ${hinted.includes(i)?'hint':''} ${popIndex===i?'pop':''}" data-cell="${i}" style="${motionPhase(item?.id||i)}" aria-label="第${Math.floor(i/7)+1}行第${i%7+1}格，${esc(label)}" title="${esc(label)}" aria-pressed="${selected===i}">${item?`<span class="item-art">${itemArt(item)}</span>`:''}${locked?`<span class="lock-badge">${glyph('lock')}</span>`:''}${producer&&!locked&&!status.ready?`<span class="cooldown-label" data-cooldown="${i}">${formatTime(status.cooldownRemaining)}</span>`:''}${item&&item.family!=='bubble'&&!producer&&sourceRules(item).auto?`<span class="cooldown-label">${formatTime(item.autoRemaining)}</span>`:''}${item?.openedAt!==null&&item?.timerRemaining>0?`<span class="cooldown-label">${formatTime(item.timerRemaining)}</span>`:''}</button>`;
+    const view=itemPresentation(state,item,i);
+    const label=locked?`锁定，${item?itemName(item):'待整理台面'}`:item?`${itemName(item)}，${item.level||1}级${view.label?'，'+view.label:''}`:'空格';
+    return `<button class="cell ${item?'occupied':'empty'} ${producer?'producer':''} ${view.ready&&producer?'ready-producer':''} ${view.idle?'idle-item':''} ${view.ready?'ready-interaction':''} ${locked?'locked':''} ${bubble?'bubble':''} ${status&&!status.ready?'cooling':''} ${selected===i?'selected':''} ${hinted.includes(i)?'hint':''} ${popIndex===i?'pop':''}" data-cell="${i}" data-item-cue="${view.cue}" style="${motionPhase(item?.id||i)}" aria-label="第${Math.floor(i/7)+1}行第${i%7+1}格，${esc(label)}" title="${esc(label)}" aria-pressed="${selected===i}">${item?`<span class="item-art">${itemArt(item)}</span>`:''}${itemCueMarkup(view)}${locked?`<span class="lock-badge">${glyph('lock')}</span>`:''}${producer&&!locked&&!status.ready?`<span class="cooldown-label" data-cooldown="${i}">${formatTime(status.cooldownRemaining)}</span>`:''}${item&&item.family!=='bubble'&&!producer&&sourceRules(item).auto?`<span class="cooldown-label">${formatTime(item.autoRemaining)}</span>`:''}${item?.openedAt!==null&&item?.timerRemaining>0?`<span class="cooldown-label">${formatTime(item.timerRemaining)}</span>`:''}</button>`;
   }).join('');
   if(focused!==undefined)board.querySelector(`[data-cell="${focused}"]`)?.focus({preventScroll:true});
 }
@@ -179,10 +187,24 @@ function doGenerate(index){
   selected=Number(index);const result=generate(state,selected);
   if(!result.ok&&result.type==='energy'){openPanel('energy');return;}
   if(act(result,{pop:result.index,fx:'generate'})){
-    const cell=board.querySelector(`[data-cell="${result.index}"]`);cell?.classList.add('producer-burst');
+    flyProducedItem(Number(index),result.index,result.item);
     animateItem(index,'generate');
     if(result.item?.level>1)toast(`新鲜惊喜：${itemName(result.item)}`);
   }
+}
+function flyProducedItem(from,to,item){
+  if(reducedMotion.matches)return;
+  const source=board.querySelector(`[data-cell="${from}"]`),target=board.querySelector(`[data-cell="${to}"]`);
+  if(!source||!target)return;
+  const a=source.getBoundingClientRect(),b=target.getBoundingClientRect(),flight=document.createElement('span');
+  flight.className='production-flight';flight.innerHTML=itemArt(item);
+  Object.assign(flight.style,{left:`${a.x+a.width/2}px`,top:`${a.y+a.height/2}px`,width:`${b.width*.8}px`,height:`${b.height*.8}px`});
+  flight.style.setProperty('--flight-x',`${b.x-a.x}px`);flight.style.setProperty('--flight-y',`${b.y-a.y}px`);
+  target.classList.remove('pop');target.classList.add('receiving-output');$('#effects').append(flight);
+  let landed=false;
+  const land=()=>{if(landed)return;landed=true;flight.remove();target.classList.remove('receiving-output');
+    if(state.board[to]?.id===item.id)animateItem(to,'settle');};
+  flight.addEventListener('animationend',land,{once:true});setTimeout(land,450);
 }
 function doMove(from,to){
   const before=state.locked.length,result=move(state,from,to);if(result.ok)selected=to;

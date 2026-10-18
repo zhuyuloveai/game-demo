@@ -1,0 +1,12 @@
+{
+  "url": "http://127.0.0.1:4199",
+  "checks": [
+    "WebP producers and ordinary items breathe; three starter producers carry lightning cues",
+    "Real production and rapid taps animate output, consume correct energy and leave no hidden items",
+    "Modal pauses, both skins, shared progress and reduced motion preserve static interaction cues",
+    "Finite producers, resources, tools, bag opening/cooldown expiry, drag merge and QA isolation",
+    "63 square, gapless cells and no page scroll at three viewport sizes"
+  ],
+  "errors": [],
+  "passed": true
+}
