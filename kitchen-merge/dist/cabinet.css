@@ -149,17 +149,18 @@ body{display:block;background:#2c2422;color:#61412d;font-family:-apple-system,Bl
 [data-kitchen-style="island"] .mini-energy{background:linear-gradient(145deg,#f4d885,#e3b552)}
 [data-kitchen-style="island"] .phone-mini-home{display:block;position:absolute;bottom:3px;left:12px;width:10px;height:1.5px;border-radius:2px;background:#53819980}
 [data-kitchen-style="island"] .v-radio{--object-art:url('./assets/cabinet-v5/ui/radio.webp');--object-height:58px;--object-shine-phase:-5.4s}
-[data-kitchen-style="island"] .v-radio>.radio-tuning-detail{display:block;position:absolute;left:43px;top:44px;width:35px;height:14px;color:#8b7149;pointer-events:none}
+/* The 512x310 artwork fits the 86px width, placing its display below the handle. */
+[data-kitchen-style="island"] .v-radio>.radio-tuning-detail{display:block;position:absolute;left:44px;top:51px;width:33px;height:12px;overflow:hidden;color:#8b7149;pointer-events:none}
 [data-kitchen-style="island"] .radio-band{display:flex;align-items:center;justify-content:space-between;height:4px;gap:2px;font:500 2.7px/4px ui-monospace,monospace;white-space:nowrap}
 [data-kitchen-style="island"] .radio-band b{font-weight:800;font-size:3.2px;color:#926a3d}
 [data-kitchen-style="island"] .radio-tuning-led{display:block;width:2px;height:2px;border-radius:50%;background:#aaa08c;box-shadow:inset 0 .3px #fff9}
 [data-kitchen-style="island"] .is-playing .radio-tuning-led{background:#85a765;box-shadow:0 0 2px #aec678,inset 0 .3px #efffc9}
-[data-kitchen-style="island"] .radio-dial{display:block;position:relative;height:4px;margin-top:1px;border-bottom:.5px solid #c5a873;background:repeating-linear-gradient(90deg,#a98b5e 0 .5px,transparent .5px 3px) left bottom/100% 2px no-repeat}
-[data-kitchen-style="island"] .radio-dial i{position:absolute;left:19px;top:0;width:1px;height:4px;background:#c1714d;box-shadow:0 0 .5px #fff5d9}
+[data-kitchen-style="island"] .radio-dial{display:block;position:relative;height:3px;margin-top:1px;border-bottom:.5px solid #c5a873;background:repeating-linear-gradient(90deg,#a98b5e 0 .5px,transparent .5px 3px) left bottom/100% 2px no-repeat}
+[data-kitchen-style="island"] .radio-dial i{position:absolute;left:19px;top:0;width:1px;height:3px;background:#c1714d;box-shadow:0 0 .5px #fff5d9}
 [data-kitchen-style="island"] .radio-equalizer{display:flex;position:absolute;left:1px;bottom:0;height:3.5px;align-items:flex-end;gap:1px;opacity:.4}
 [data-kitchen-style="island"] .radio-equalizer i{display:block;width:1.3px;height:3px;border-radius:.5px;background:#9aaf82;transform-origin:center bottom;transform:scaleY(.35)}
 [data-kitchen-style="island"] .is-playing .radio-equalizer{opacity:1}
-[data-kitchen-style="island"] .radio-sound-wave{display:block;position:absolute;right:1px;bottom:-.5px;width:7px;height:4px;color:#afa38c}
+[data-kitchen-style="island"] .radio-sound-wave{display:block;position:absolute;right:1px;bottom:0;width:7px;height:3px;color:#afa38c}
 [data-kitchen-style="island"] .radio-sound-wave svg{display:block;width:100%;height:100%}
 [data-kitchen-style="island"] .is-playing .radio-sound-wave{color:#8b9f70}
 [data-kitchen-style="island"] .e-storage-count{display:none}
