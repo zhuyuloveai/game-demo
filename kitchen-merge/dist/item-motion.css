@@ -1,0 +1,51 @@
+/* Animate the picture above its stationary contact shadow. Both skins share cues. */
+.cell .item-art>svg,.cell .item-3d>img{animation:none;transform-origin:50% 100%}
+.cell.idle-item .item-art>svg,.cell.idle-item .item-3d>img{
+  animation:shelfBreathe 3.2s ease-in-out var(--idle-phase,0s) infinite;
+}
+.cell.ready-interaction .item-art>svg,.cell.ready-interaction .item-3d>img{
+  animation:activeBreathe 3.2s ease-in-out var(--idle-phase,0s) infinite;
+}
+.cell:is(.pop,.tap-pop,.generate-pop,.merge-pop,.settle-pop,:active,.drag-source) .item-art>svg,
+.cell:is(.pop,.tap-pop,.generate-pop,.merge-pop,.settle-pop,:active,.drag-source) .item-3d>img,
+.board.is-dragging .item-art>svg,.board.is-dragging .item-3d>img,
+.board.is-dragging .item-cue{animation-play-state:paused!important}
+.cell .item-art{transform-origin:50% 100%}
+.cell[data-item-cue="wait"] .item-art{opacity:.68}
+/* The cabinet's unlayered reset also clears the legacy one-shot animations. */
+.cell.pop .item-art{animation:pop .45s var(--spring)}
+.cell.tap-pop .item-art{animation:itemTap .38s var(--ease)}
+.cell.generate-pop .item-art{animation:producerSquish .44s var(--ease)}
+.cell.merge-pop .item-art{animation:mergePop .58s var(--ease)}
+.cell.settle-pop .item-art{animation:itemSettle .3s var(--ease)}
+.item-cue{position:absolute;top:1px;right:1px;width:16px;height:17px;z-index:4;pointer-events:none;filter:drop-shadow(0 .8px .6px #5a3e3270);line-height:0}
+.item-cue svg{display:block;width:100%;height:100%;overflow:visible;stroke-linejoin:round;stroke-linecap:round}
+.item-cue circle{fill:#72aa69;stroke:#fff9dc;stroke-width:1.8}
+.item-cue path{fill:none;stroke:#fffef0;stroke-width:2}
+.cue-produce{width:20px;height:22px;top:0;right:0}
+.cue-produce.cue-ready:before{content:'';position:absolute;inset:2px -1px;z-index:-1;border-radius:50%;background:radial-gradient(ellipse,#fff3a8b0,transparent 70%)}
+.cue-produce .cue-bolt-rim{fill:#ffdb52;stroke:#fff9d7;stroke-width:4}
+.cue-produce .cue-bolt{fill:#ffca2c;stroke:#b57120;stroke-width:1.15}
+.cue-produce .cue-bolt-light{stroke:#fff6ba;stroke-width:1.5}
+.cue-open circle{fill:#cda14e}
+.cue-use circle,.cue-inspect circle{fill:#7ba8b5}
+.cue-wait circle{fill:#a89982}
+.cue-quiet{filter:grayscale(.65) drop-shadow(0 .5px .5px #5a3e3250);opacity:.6}
+.cue-ready{animation:actionGlimmer 4.8s ease-in-out var(--cue-phase,0s) infinite;transform-origin:50% 70%}
+.cell.drag-source .item-cue{opacity:0}
+.cell.receiving-output .item-art{visibility:hidden}
+.production-flight{position:fixed;pointer-events:none;z-index:92;filter:drop-shadow(0 2px 2px #72512955);animation:productionFlight .36s cubic-bezier(.2,.65,.35,1) both}
+.production-flight svg,.production-flight img{display:block;width:100%;height:100%;object-fit:contain}
+.production-flight .item-3d{width:100%;height:100%}
+@keyframes shelfBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.018,1.028)}}
+@keyframes activeBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.045,1.065)}}
+/* A short accent followed by a long rest keeps a busy board readable. */
+@keyframes actionGlimmer{0%,16%,100%{transform:translateY(0) scale(1)}5%{transform:translateY(-1px) scale(1.12)}10%{transform:translateY(0) scale(.98)}}
+@keyframes productionFlight{
+  0%{transform:translate(-50%,-50%) scale(.55);opacity:.5}
+  48%{transform:translate(calc(-50% + var(--flight-x) * .5),calc(-50% + var(--flight-y) * .5 - 22px)) scale(1.06);opacity:1}
+  100%{transform:translate(calc(-50% + var(--flight-x)),calc(-50% + var(--flight-y))) scale(1);opacity:1}
+}
+@media(prefers-reduced-motion:reduce){
+  .cell .item-art>svg,.cell .item-3d>img,.item-cue,.production-flight{animation:none!important}
+}

@@ -1,0 +1,85 @@
+{
+  "browser": "local Google Chrome via Playwright",
+  "checks": [
+    {
+      "name": "mobile 390px board and all bottom cells",
+      "result": {
+        "cells": 63,
+        "width": 308,
+        "height": 396,
+        "rows": 9,
+        "cols": 7,
+        "scrollWidth": 390,
+        "viewport": 390
+      }
+    },
+    {
+      "name": "actual first main-order delivery",
+      "coins": 131,
+      "stars": 1
+    },
+    {
+      "name": "historical food basket capacity 12 and paid production",
+      "stock": 11,
+      "energy": 99
+    },
+    {
+      "name": "real pointer merge and inventory round trip",
+      "merges": 1
+    },
+    {
+      "name": "daily reward enters pending exactly once",
+      "pending": 3
+    },
+    {
+      "name": "special hints, cross-chain pointer merge and finite nest",
+      "remaining": 11
+    },
+    {
+      "name": "bottom-row pointer merge and production, resource claim, scissor stacking",
+      "energy": 109,
+      "uses": 2
+    },
+    {
+      "name": "real v3 browser backup + migration",
+      "cells": 63,
+      "coins": 8765,
+      "lastOldCell": "item-30",
+      "oldNest": true
+    },
+    {
+      "name": "QA save and backups isolated from normal player slot",
+      "result": true
+    },
+    {
+      "name": "desktop last cell visible and usable",
+      "rect": {
+        "x": 868.5,
+        "y": 735.574951171875,
+        "width": 59.4000244140625,
+        "height": 59.4000244140625
+      }
+    },
+    {
+      "name": "responsive 320px",
+      "result": {
+        "width": 308,
+        "rows": 63,
+        "overflow": false
+      }
+    },
+    {
+      "name": "responsive 430px",
+      "result": {
+        "width": 308,
+        "rows": 63,
+        "overflow": false
+      }
+    },
+    {
+      "name": "new recycle L10 rendered in full catalogue",
+      "result": true
+    }
+  ],
+  "errors": []
+}
