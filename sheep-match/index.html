@@ -21,6 +21,12 @@
       <h1>把烦恼放下，<br>来<span class="highlight">消消羊。</span><svg viewBox="0 0 180 14" aria-hidden="true"><path d="M3 9Q83-2 175 8M15 12Q90 5 160 11" fill="none" stroke="#d9a459" stroke-width="3" stroke-linecap="round"/></svg></h1>
       <p class="intro-copy">三张一样的，凑在一起。<br>草地没有终点，每一关都新鲜。</p>
 
+      <section class="music-player" id="music-player" aria-label="背景音乐">
+        <button class="music-toggle" id="music-toggle" aria-label="播放普通DISCO背景音乐" aria-pressed="false"><span id="music-symbol" aria-hidden="true">▶</span></button>
+        <div class="music-info"><strong>普通 DISCO</strong><a href="https://www.bilibili.com/video/BV1Qs411S7KK/" target="_blank" rel="noopener noreferrer" title="三无 Marblue 演唱 · ilem 词曲，查看原作">三无 Marblue · ilem ↗</a><span id="music-status" role="status">选牌即播放 · 单曲循环</span></div>
+        <label class="music-volume"><span>音量 <output id="music-volume-value">35%</output></span><input id="music-volume" type="range" min="0" max="100" value="35" aria-label="背景音乐音量"></label>
+      </section>
+
       <div class="level-heading"><span>无限牧场之旅</span><span>下一关，永远在前方 ∞</span></div>
       <nav class="levels" id="levels" aria-label="闯关路线"></nav>
       <div class="journey-record" id="journey-record">从第一片草地出发</div>
@@ -55,6 +61,7 @@
   </main>
   <footer class="page-footer"><span>一小片牧场，一小段自己的时间。</span><span>已通关 <b id="win-count">0</b> 次 <i>✳</i> 放轻松，慢慢来</span></footer>
   <div id="toast" role="status" aria-live="polite"></div>
+  <audio id="background-music" src="./media/putong-disco-marblue.m4a" preload="none" loop hidden></audio>
 
   <dialog id="modal" aria-labelledby="modal-title"><div class="modal-inner"><button class="modal-close" id="modal-close" aria-label="关闭弹窗">×</button><div class="modal-art" id="modal-art"></div><span class="modal-eyebrow" id="modal-eyebrow"></span><h2 id="modal-title"></h2><div id="modal-content"></div><div class="modal-actions" id="modal-actions"></div></div></dialog>
   <script type="module" src="./app.mjs"></script>

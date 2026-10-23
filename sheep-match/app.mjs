@@ -1,6 +1,7 @@
 import { getLevelConfig, getGameConfig, createGame, freeTiles, pick, undo, stash, shuffle, restore } from './engine.mjs';
 import { restoreProgress, recordWin, levelWindow, resumeLevel } from './progression.mjs';
 import { sheep, FACES, UI } from './icons.mjs';
+import { createBackgroundMusic } from './music.mjs';
 
 const $ = id => document.getElementById(id);
 const STORAGE = 'sheep-pasture-v1';
@@ -29,6 +30,28 @@ let generating = false;
 let soundOn = read(`${STORAGE}-sound`) === true;
 let audio, toastTimer, feedbackTimer, lastTick = performance.now();
 const modal = $('modal');
+const savedMusicVolume = read(`${STORAGE}-music-volume`);
+const music = createBackgroundMusic($('background-music'), {
+  enabled: read(`${STORAGE}-music`) !== false,
+  volume: typeof savedMusicVolume === 'number' ? savedMusicVolume : .35,
+  hidden: document.hidden,
+  onChange: renderMusic,
+});
+
+function renderMusic(state) {
+  const active = state.playing || state.status === 'loading';
+  $('music-player').classList.toggle('is-playing', state.playing);
+  $('music-toggle').setAttribute('aria-pressed', String(active));
+  $('music-toggle').setAttribute('aria-label', active ? '暂停普通DISCO背景音乐' : '播放普通DISCO背景音乐');
+  $('music-symbol').textContent = active ? 'Ⅱ' : '▶';
+  $('music-status').textContent = {
+    ready:'选牌即播放 · 单曲循环', loading:'音乐加载中…', playing:'正在播放 · 单曲循环',
+    paused:'音乐已暂停', background:'后台暂停', blocked:'点击播放，继续音乐', error:'音乐加载失败，点击重试',
+  }[state.status];
+  const percent = Math.round(state.volume * 100);
+  $('music-volume').value = percent;
+  $('music-volume-value').textContent = `${percent}%`;
+}
 
 $('brand-sheep').innerHTML = sheep;
 $('garden-sheep').innerHTML = sheep.replace(/^<svg[^>]*>/, '').replace(/<\/svg>$/, '');
@@ -265,6 +288,19 @@ $('daily').addEventListener('click', () => {
 });
 $('restart').addEventListener('click', () => confirmSwitch(game.level, game.mode === 'daily' ? game.seed : undefined, game.mode, true));
 $('sound').addEventListener('click', () => { soundOn = !soundOn; write(`${STORAGE}-sound`, soundOn); renderSound(); tone(); });
+$('music-toggle').addEventListener('click', () => {
+  music.toggle(); write(`${STORAGE}-music`, music.state.enabled);
+});
+$('music-volume').addEventListener('input', event => {
+  music.setVolume(Number(event.target.value) / 100);
+  write(`${STORAGE}-music-volume`, music.state.volume);
+});
+document.addEventListener('click', event => {
+  if (!event.target.closest('#music-player')) music.unlock();
+}, {capture:true});
+document.addEventListener('keydown', event => {
+  if (['Enter', ' '].includes(event.key) && !event.target.closest('#music-player')) music.unlock();
+});
 $('modal-close').addEventListener('click', closeDialog);
 modal.addEventListener('cancel', () => { lastTick = performance.now(); });
 $('help').addEventListener('click', () => showDialog({ title:'三个一组，快乐发生', eyebrow:'HOW TO PLAY',
@@ -277,8 +313,9 @@ setInterval(() => {
     game.elapsed += Math.min(delta, 1500); $('timer').textContent = formatTime(game.elapsed);
   }
 }, 1000);
-document.addEventListener('visibilitychange', () => { save(); lastTick = performance.now(); });
-window.addEventListener('pagehide', save);
+document.addEventListener('visibilitychange', () => { music.setHidden(document.hidden); save(); lastTick = performance.now(); });
+window.addEventListener('pagehide', () => { music.setHidden(true); save(); });
+window.addEventListener('pageshow', () => { music.setHidden(document.hidden); });
 write(`${STORAGE}-stats`,stats);
 renderSound(); render(); save();
 if (game.status !== 'playing') resultDialog();

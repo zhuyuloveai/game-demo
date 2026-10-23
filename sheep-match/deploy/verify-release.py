@@ -17,6 +17,8 @@ expected_files = {
     "icons.mjs": "application/javascript",
     "progression.mjs": "application/javascript",
     "generator.worker.mjs": "application/javascript",
+    "music.mjs": "application/javascript",
+    "media/putong-disco-marblue.m4a": ("audio/mp4", "audio/x-m4a"),
 }
 actual_files = {str(p.relative_to(release / "site")) for p in (release / "site").rglob("*") if p.is_file()}
 assert actual_files == set(expected_files), f"Unexpected runtime files: {actual_files}"
@@ -29,11 +31,17 @@ for filename, mime in expected_files.items():
         expected = hashlib.sha256((release / "site" / filename).read_bytes()).hexdigest()
         assert response.status == 200, filename
         assert digest == expected, f"Content mismatch: {filename}"
-        assert response.headers.get_content_type() == mime, f"Wrong MIME: {filename}"
+        actual_mime = response.headers.get_content_type()
+        assert actual_mime in (mime if isinstance(mime, tuple) else (mime,)), f"Wrong MIME: {filename} ({actual_mime})"
         assert "no-cache" in response.headers.get("Cache-Control", ""), f"Stale cache policy: {filename}"
         assert response.headers.get("X-Content-Type-Options") == "nosniff", filename
-        report["files"].append({"path": path or "/", "sha256": digest, "bytes": len(body), "mime": mime})
-for path in ["README.md", "tests/engine.test.mjs", "deploy/activate.sh", "launch.command", ".git/config", "SHA256SUMS", "DEPLOYMENT.md", "balance-data.mjs"]:
+        report["files"].append({"path": path or "/", "sha256": digest, "bytes": len(body), "mime": actual_mime})
+audio_path = "media/putong-disco-marblue.m4a"
+with urlopen(Request(origin + audio_path, headers={"Range": "bytes=0-1023"}), timeout=20) as response:
+    assert response.status == 206, "Audio must support byte-range requests"
+    assert response.read() == (release / "site" / audio_path).read_bytes()[:1024], "Incorrect audio range"
+    report["audio_range_status"] = response.status
+for path in ["README.md", "media/README.md", "media/source-verification.json", "tests/engine.test.mjs", "deploy/activate.sh", "launch.command", ".git/config", "SHA256SUMS", "DEPLOYMENT.md", "balance-data.mjs"]:
     try:
         with urlopen(origin + path, timeout=20) as response:
             raise AssertionError(f"Private or old runtime path exposed: {path} ({response.status})")

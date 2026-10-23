@@ -108,6 +108,40 @@ svg {
 .icon-button:hover {
   background:#e8edda;
 }
+.music-player {
+  display:grid;
+  grid-template-columns:38px minmax(0,1fr) 65px;
+  align-items:center;
+  gap:10px;
+  padding:13px 12px;
+  margin:0 0 22px;
+  border:1px solid #dce1cc;
+  border-radius:14px;
+  background:#faf9f0;
+}
+.music-toggle {
+  width:38px;
+  height:38px;
+  border:1px solid #d2dabc;
+  border-radius:50%;
+  background:#e9edda;
+  color:#607c43;
+  display:grid;
+  place-items:center;
+  font-size:13px;
+}
+.music-toggle:hover { background:#dce5c8; }
+.music-info { min-width:0; }
+.music-info strong { display:block; font-size:13px; letter-spacing:.6px; }
+.music-info a { display:block; font-size:9px; color:#7c8968; margin-top:4px; }
+.music-info a:hover { text-decoration:underline; }
+.music-info>span { display:block; font-size:9px; color:#929b80; margin-top:4px; }
+.music-volume { display:block; min-width:0; font-size:8px; color:#84916e; }
+.music-volume>span { display:flex; justify-content:space-between; margin-bottom:5px; }
+.music-volume input { width:100%; margin:0; accent-color:#758f53; cursor:pointer; }
+.music-player.is-playing { border-color:#b9c99a; background:#f0f4e5; }
+.music-player.is-playing .music-toggle { background:#dce7c8; }
+.music-player.is-playing #music-status { color:#6f8750; }
 .help-button {
   font-family:Georgia,serif;
   font-size:20px;
@@ -1026,6 +1060,12 @@ dialog::backdrop {
     grid-template-columns:repeat(3,1fr);
     gap:6px;
   }
+  .music-player {
+    margin:0 0 13px;
+    padding:10px 12px;
+    grid-template-columns:34px minmax(0,1fr) 75px;
+  }
+  .music-toggle { width:34px; height:34px; }
   .level {
     padding:10px 8px;
     gap:7px;
