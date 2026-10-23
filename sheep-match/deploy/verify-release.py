@@ -24,8 +24,10 @@ expected_files = {
     "farm-home.mjs": "application/javascript",
     "farm-progress.mjs": "application/javascript",
     "farm-home.css": "text/css",
-    "assets/farm/sticker-meadow.png": "image/png",
-    "assets/farm/farm-stickers-spaced.png": "image/png",
+    "farm-designs.mjs": "application/javascript",
+    **{f"assets/farm/{season}-{kind}-v2.png": "image/png"
+       for season in ("spring", "summer", "autumn", "winter")
+       for kind in ("scene", "stickers")},
     "fonts/ZCOOLKuaiLe-Regular.woff2": ("font/woff2", "application/font-woff2"),
     "assets/seasons/spring.svg": "image/svg+xml",
     "assets/seasons/summer.svg": "image/svg+xml",

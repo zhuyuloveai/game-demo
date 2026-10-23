@@ -6,7 +6,7 @@ import { createTileEffects } from './effects.mjs';
 import { seasonForLevel } from './seasons.mjs';
 import { createPickMotion } from './pick-motion.mjs';
 import { createFarmHome } from './farm-home.mjs';
-import { farmProgress, farmReward } from './farm-progress.mjs';
+import { farmProgress, farmReward, farmPage, farmTheme } from './farm-progress.mjs';
 
 const $ = id => document.getElementById(id);
 const STORAGE = 'sheep-pasture-v1';
@@ -33,6 +33,7 @@ let stats = restoreProgress(read(`${STORAGE}-stats`), campaign);
 let game = activeSave || campaign || await generateGame(stats.unlocked).catch(() => createGame(stats.unlocked));
 let generating = false;
 let view = 'home', farmHome;
+let homeScene=farmPage(farmProgress(stats),read(`${STORAGE}-home-scene`)).index;
 const savedFarmSeen=read(`${STORAGE}-farm-seen`);
 let farmSeen=Number.isSafeInteger(savedFarmSeen)&&savedFarmSeen>=0?savedFarmSeen:farmProgress(stats).rewards;
 write(`${STORAGE}-farm-seen`,farmSeen);
@@ -46,7 +47,7 @@ const music = createBackgroundMusic($('background-music'), {
   enabled: read(`${STORAGE}-music`) !== false,
   volume: typeof savedMusicVolume === 'number' ? savedMusicVolume : .35,
   hidden: document.hidden,
-  track: SEASON_TRACKS[seasonForLevel(game.level).key],
+  track: SEASON_TRACKS[farmTheme(homeScene).key],
   onChange: renderMusic,
 });
 
@@ -144,10 +145,11 @@ function fitBoard() {
 }
 function renderSeason() {
   const season = seasonForLevel(game.level);
-  document.body.dataset.season = season.key;
-  music.setTrack(SEASON_TRACKS[view==='home'&&game.status==='won'?seasonForLevel(stats.unlocked).key:season.key]);
+  const activeSeason=view==='home'?farmTheme(homeScene):season;
+  document.body.dataset.season = activeSeason.key;
+  music.setTrack(SEASON_TRACKS[activeSeason.key]);
   $('season-name').textContent = season.name;
-  document.querySelector('meta[name="theme-color"]').content = season.color;
+  document.querySelector('meta[name="theme-color"]').content = activeSeason.color;
   const path = `./assets/seasons/${season.key}.svg`;
   document.querySelectorAll('.farm-scenery image').forEach(image => {
     if (image.getAttribute('href') !== path) image.setAttribute('href', path);
@@ -438,7 +440,17 @@ function enterGame(){
   document.querySelector('.game-card').hidden=false;lastTick=performance.now();render();$('home-open').focus({preventScroll:true});
   if(game.status==='won')resumeCampaign();else if(game.status==='lost')resultDialog();
 }
-farmHome=createFarmHome($('farm-home'),{onContinue:enterGame,onMusic:()=>openDrawer('music'),onSeen:value=>{farmSeen=value;write(`${STORAGE}-farm-seen`,value);}});
+farmHome=createFarmHome($('farm-home'),{
+  initialPage:homeScene,onContinue:enterGame,onMusic:()=>openDrawer('music'),onGesture:()=>music.unlock(),
+  onSeen:value=>{farmSeen=value;write(`${STORAGE}-farm-seen`,value);},
+  onScene:(index,theme)=>{
+    homeScene=index;write(`${STORAGE}-home-scene`,index);
+    if(view==='home'){
+      music.setTrack(SEASON_TRACKS[theme.key]);document.body.dataset.season=theme.key;
+      document.querySelector('meta[name="theme-color"]').content=theme.color;
+    }
+  },
+});
 if(game.status==='won')recordWin(stats,game);
 write(`${STORAGE}-stats`,stats);
 renderSound(); render(); save();
