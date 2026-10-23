@@ -3,6 +3,7 @@ import { restoreProgress, recordWin, levelWindow, resumeLevel } from './progress
 import { sheep, FACES, UI } from './icons.mjs';
 import { createBackgroundMusic } from './music.mjs';
 import { createTileEffects } from './effects.mjs';
+import { seasonForLevel } from './seasons.mjs';
 
 const $ = id => document.getElementById(id);
 const STORAGE = 'sheep-pasture-v1';
@@ -31,6 +32,7 @@ let generating = false;
 let soundOn = read(`${STORAGE}-sound`) !== false;
 let toastTimer, lastTick = performance.now();
 const modal = $('modal');
+const drawer = $('drawer');
 const effects = createTileEffects({enabled:soundOn, hidden:document.hidden});
 const savedMusicVolume = read(`${STORAGE}-music-volume`);
 const music = createBackgroundMusic($('background-music'), {
@@ -50,13 +52,13 @@ function renderMusic(state) {
     ready:'选牌即播放 · 单曲循环', loading:'音乐加载中…', playing:'正在播放 · 单曲循环',
     paused:'音乐已暂停', background:'后台暂停', blocked:'点击播放，继续音乐', error:'音乐加载失败，点击重试',
   }[state.status];
+  $('music-open').setAttribute('aria-label', `打开音乐设置，${state.playing ? '正在播放' : '音乐未播放'}`);
   const percent = Math.round(state.volume * 100);
   $('music-volume').value = percent;
   $('music-volume-value').textContent = `${percent}%`;
 }
 
 $('brand-sheep').innerHTML = sheep;
-$('garden-sheep').innerHTML = sheep.replace(/^<svg[^>]*>/, '').replace(/<\/svg>$/, '');
 for (const key of ['undo', 'shuffle', 'stash']) $(key).querySelector('.tool-icon').innerHTML = UI[key];
 
 function formatTime(milliseconds) {
@@ -86,7 +88,33 @@ function card(tile, className = '') {
   button.setAttribute('aria-label', `${FACES[tile.type].name}，${className.includes('tile') ? '选择卡牌' : '放回暂存槽'}`);
   return button;
 }
+function fitBoard() {
+  const field = document.querySelector('.play-field');
+  const width = Math.max(0, Math.min(field.clientWidth - 8, (field.clientHeight - 8) * 7 / 6.5));
+  $('board').style.width = `${width}px`;
+  $('board').style.height = `${width * 6.5 / 7}px`;
+}
+function renderSeason() {
+  const season = seasonForLevel(game.level);
+  document.body.dataset.season = season.key;
+  $('season-name').textContent = season.name;
+  document.querySelector('meta[name="theme-color"]').content = season.color;
+  const path = `./assets/seasons/${season.key}.svg`;
+  document.querySelectorAll('.farm-scenery image').forEach(image => {
+    if (image.getAttribute('href') !== path) image.setAttribute('href', path);
+  });
+}
+function closeDrawer() { drawer.close(); lastTick = performance.now(); }
+function openDrawer(panel) {
+  const titles = {journey:'小羊的闯关路', music:'小羊收音机', menu:'歇一小会儿'};
+  $('drawer-title').textContent = titles[panel];
+  for (const name of Object.keys(titles)) $(`${name}-panel`).hidden = name !== panel;
+  if (!drawer.open) drawer.showModal();
+  lastTick = performance.now();
+}
 function render() {
+  renderSeason();
+  document.querySelector('.game-card').classList.toggle('has-reserve', game.reserve.length > 0);
   $('board').dataset.gameLevel = game.level;
   document.querySelector('.game-card').setAttribute('aria-busy', String(generating));
   $('generation-note').hidden = !generating;
@@ -127,10 +155,10 @@ function render() {
   }));
   $('remaining').textContent = game.total - game.matched;
   $('timer').textContent = formatTime(game.elapsed);
-  $('progress').style.width = `${game.matched / game.total * 100}%`;
   const config = getGameConfig(game);
-  $('level-name').textContent = game.mode === 'daily' ? '今日牧场' : `第 ${game.level + 1} 关 · ${config.name}`;
-  $('restart').innerHTML = `<span>↻</span> ${game.mode === 'daily' ? '重玩今日' : '换张地图'}`;
+  $('level-name').textContent = game.mode === 'daily' ? '今日牧场' : `第 ${game.level + 1} 关`;
+  $('level-open').setAttribute('aria-label', `${$('level-name').textContent}，${seasonForLevel(game.level).name}，查看闯关路线`);
+  $('restart').textContent = '↻';
   $('restart').setAttribute('aria-label', game.mode === 'daily' ? '重新挑战今日地图' : '随机生成新地图');
   $('restart').disabled = generating;
   $('level-label').textContent = game.mode === 'daily' ? `DAILY FARM · ${String(game.seed).replace('daily-', '')}` : `${config.count} 张牌 · ${config.layers.length} 层 · ${config.kinds} 种图案`;
@@ -148,6 +176,7 @@ function render() {
     $(key).setAttribute('aria-label', `${{undo:'撤回上一步',shuffle:'洗牌',stash:'移出最前面的三张牌'}[key]}，剩余 ${game.tools[key]} 次`);
   }
   $('win-count').textContent = stats.wins;
+  fitBoard();
 }
 function renderJourney() {
   const anchor = game.mode === 'classic' ? game.level : resumeLevel(stats, campaign);
@@ -158,7 +187,7 @@ function renderJourney() {
     button.dataset.level = level; button.disabled = locked || generating;
     button.setAttribute('aria-pressed', String(active));
     button.title = `第 ${level + 1} 关 · ${config.count} 张 · ${config.layers.length} 层 · ${config.kinds} 种图案${locked ? '，通关前一关后解锁' : ''}`;
-    button.innerHTML = `<span class="level-number">${String(level + 1).padStart(2,'0')}</span><span><strong>第 ${level + 1} 关</strong><small>${config.count} 张 · ${config.layers.length} 层草地</small></span><span class="level-status">${locked ? '待解锁' : active ? '当前关卡' : level <= stats.highestCleared ? '已通过 ✓' : '去挑战 →'}</span>`;
+    button.innerHTML = `<span class="level-number">${String(level + 1).padStart(2,'0')}</span><span><strong>第 ${level + 1} 关</strong><small>${seasonForLevel(level).name} · ${config.count} 张</small></span><span class="level-status">${locked ? '待解锁' : active ? '当前关卡' : level <= stats.highestCleared ? '已通过 ✓' : '去挑战 →'}</span>`;
     return button;
   });
   $('levels').replaceChildren(...buttons);
@@ -169,6 +198,7 @@ function renderJourney() {
 }
 function closeDialog() { modal.close(); lastTick = performance.now(); }
 function showDialog({ title, eyebrow = '', content, actions }) {
+  closeDrawer();
   $('modal-art').innerHTML = sheep; $('modal-title').textContent = title;
   $('modal-eyebrow').textContent = eyebrow; $('modal-content').innerHTML = content;
   $('modal-actions').replaceChildren();
@@ -183,7 +213,7 @@ function showDialog({ title, eyebrow = '', content, actions }) {
 }
 async function start(level, seed, mode = 'classic') {
   if (generating || (mode === 'classic' && level > stats.unlocked)) return;
-  save(); closeDialog(); generating = true; render();
+  save(); closeDrawer(); closeDialog(); generating = true; render();
   try { game = await generateGame(level, seed, mode); }
   catch { generating = false; render(); toast('这片草地还没准备好，请再试一次。'); return; }
   finally { generating = false; }
@@ -244,7 +274,7 @@ for (const key of ['undo','shuffle','stash']) $(key).addEventListener('click', (
 $('levels').addEventListener('click', event => {
   const button = event.target.closest('button[data-level]');
   if (!button || button.disabled || generating) return;
-  if (game.mode === 'classic' && game.level === Number(button.dataset.level) && game.status === 'playing') return;
+  if (game.mode === 'classic' && game.level === Number(button.dataset.level) && game.status === 'playing') { closeDrawer(); return; }
   confirmSwitch(Number(button.dataset.level));
 });
 function resumeCampaign() {
@@ -252,6 +282,7 @@ function resumeCampaign() {
   const saved = restore(read(CAMPAIGN_STORAGE)) || campaign;
   const level = resumeLevel(stats, saved);
   const resume = () => {
+    closeDrawer();
     if (saved && saved.level === level && saved.status !== 'won') {
       game = saved; lastTick = performance.now(); render(); save();
       if (game.status === 'lost') resultDialog();
@@ -267,7 +298,7 @@ $('continue-campaign').addEventListener('click', resumeCampaign);
 $('daily').addEventListener('click', () => {
   const today = new Intl.DateTimeFormat('en-CA', { year:'numeric', month:'2-digit', day:'2-digit', timeZone:'Asia/Shanghai' }).format(new Date());
   const seed = `daily-${today}`;
-  if (game.mode === 'daily' && game.seed === seed && game.status === 'playing') return;
+  if (game.mode === 'daily' && game.seed === seed && game.status === 'playing') { closeDrawer(); return; }
   confirmSwitch(DAILY_LEVEL, seed, 'daily');
 });
 $('restart').addEventListener('click', () => confirmSwitch(game.level, game.mode === 'daily' ? game.seed : undefined, game.mode, true));
@@ -291,6 +322,12 @@ document.addEventListener('click', event => {
 document.addEventListener('keydown', event => {
   if (['Enter', ' '].includes(event.key) && !event.target.closest('#music-player')) music.unlock();
 });
+$('music-open').addEventListener('click', () => openDrawer('music'));
+$('menu-open').addEventListener('click', () => openDrawer('menu'));
+$('level-open').addEventListener('click', () => openDrawer('journey'));
+$('drawer-close').addEventListener('click', closeDrawer);
+drawer.addEventListener('cancel', () => { lastTick = performance.now(); });
+drawer.addEventListener('close', () => { lastTick = performance.now(); });
 $('modal-close').addEventListener('click', closeDialog);
 modal.addEventListener('cancel', () => { lastTick = performance.now(); });
 $('help').addEventListener('click', () => showDialog({ title:'三个一组，快乐发生', eyebrow:'HOW TO PLAY',
@@ -299,13 +336,15 @@ $('help').addEventListener('click', () => showDialog({ title:'三个一组，快
 
 setInterval(() => {
   const now = performance.now(), delta = now - lastTick; lastTick = now;
-  if (game.started && game.status === 'playing' && !generating && !document.hidden && !modal.open) {
+  if (game.started && game.status === 'playing' && !generating && !document.hidden && !modal.open && !drawer.open) {
     game.elapsed += Math.min(delta, 1500); $('timer').textContent = formatTime(game.elapsed);
   }
 }, 1000);
 document.addEventListener('visibilitychange', () => { music.setHidden(document.hidden); effects.setHidden(document.hidden); save(); lastTick = performance.now(); });
 window.addEventListener('pagehide', () => { music.setHidden(true); effects.setHidden(true); save(); });
 window.addEventListener('pageshow', () => { music.setHidden(document.hidden); effects.setHidden(document.hidden); });
+if (window.ResizeObserver) new ResizeObserver(fitBoard).observe(document.querySelector('.play-field'));
+else window.addEventListener('resize', fitBoard);
 write(`${STORAGE}-stats`,stats);
 renderSound(); render(); save();
 if (game.status !== 'playing') resultDialog();

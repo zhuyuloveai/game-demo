@@ -1,0 +1,23 @@
+ZCOOL KuaiLe / 站酷快乐体
+
+Copyright 2018 The ZCOOL KuaiLe Project Authors
+License: SIL Open Font License 1.1 (see ZCOOLKuaiLe-OFL.txt).
+Upstream: https://github.com/googlefonts/zcool-kuaile
+Google Fonts distribution: https://github.com/google/fonts/tree/main/ofl/zcoolkuaile
+Downloaded: 2026-10-16
+
+Original TTF:
+https://raw.githubusercontent.com/google/fonts/main/ofl/zcoolkuaile/ZCOOLKuaiLe-Regular.ttf
+Git blob: 3cf6cd927ee910d46875de173efdaac4330e84ac
+SHA-256: 812a6fc1fe54b6d73a419245c32dfeba8aa33104d5be90d1cf6af082007cb71d
+
+Runtime font: dist/fonts/ZCOOLKuaiLe-Regular.woff2
+SHA-256: f3d497b5a845592bb3a2ed6b64e0dc86e74df715231bf2fcfe4ff78be46a31c3
+Converted with fontTools TTFont and Brotli to WOFF2. All 7,055 glyphs and
+7,053 character mappings were preserved, including embedded license metadata.
+No glyph subsetting or artwork modifications were made.
+
+License source:
+https://raw.githubusercontent.com/google/fonts/main/ofl/zcoolkuaile/OFL.txt
+Git blob: fe1432fe7e56b24842d855a8ddbde0911a844d7f
+SHA-256: 538078469839b4a2e7ad22bef4ebe41681a4e53749bb2a072144024f1d6d703d

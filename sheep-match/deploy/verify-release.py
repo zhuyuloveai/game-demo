@@ -19,6 +19,13 @@ expected_files = {
     "generator.worker.mjs": "application/javascript",
     "music.mjs": "application/javascript",
     "effects.mjs": "application/javascript",
+    "seasons.mjs": "application/javascript",
+    "fonts/ZCOOLKuaiLe-Regular.woff2": ("font/woff2", "application/font-woff2"),
+    "assets/seasons/spring.svg": "image/svg+xml",
+    "assets/seasons/summer.svg": "image/svg+xml",
+    "assets/seasons/autumn.svg": "image/svg+xml",
+    "assets/seasons/winter.svg": "image/svg+xml",
+
     "media/putong-disco-marblue.m4a": ("audio/mp4", "audio/x-m4a"),
 }
 actual_files = {str(p.relative_to(release / "site")) for p in (release / "site").rglob("*") if p.is_file()}
@@ -42,7 +49,7 @@ with urlopen(Request(origin + audio_path, headers={"Range": "bytes=0-1023"}), ti
     assert response.status == 206, "Audio must support byte-range requests"
     assert response.read() == (release / "site" / audio_path).read_bytes()[:1024], "Incorrect audio range"
     report["audio_range_status"] = response.status
-for path in ["README.md", "media/README.md", "media/source-verification.json", "tests/engine.test.mjs", "deploy/activate.sh", "launch.command", ".git/config", "SHA256SUMS", "DEPLOYMENT.md", "balance-data.mjs"]:
+for path in ["README.md", "media/README.md", "media/source-verification.json", "tests/engine.test.mjs", "deploy/activate.sh", "launch.command", ".git/config", "SHA256SUMS", "DEPLOYMENT.md", "balance-data.mjs", "docs/fonts/ZCOOLKuaiLe-SOURCE.txt"]:
     try:
         with urlopen(origin + path, timeout=20) as response:
             raise AssertionError(f"Private or old runtime path exposed: {path} ({response.status})")
