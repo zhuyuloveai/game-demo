@@ -7,6 +7,8 @@ import { seasonForLevel } from './seasons.mjs';
 import { createPickMotion } from './pick-motion.mjs';
 import { createFarmHome } from './farm-home.mjs';
 import { farmProgress, farmReward, farmPage, farmTheme } from './farm-progress.mjs';
+import {createStoryNotebook} from './story-notebook.mjs';
+import {restoreStoryProgress,acknowledgeStory,acknowledgeCompletion,arrivalStory,completionStory} from './story-progress.mjs';
 
 const $ = id => document.getElementById(id);
 const STORAGE = 'sheep-pasture-v1';
@@ -28,11 +30,12 @@ function generateGame(level, seed = `${Date.now()}-${Math.random()}`, mode = 'cl
   });
 }
 const activeSave = restore(read(STORAGE));
+const existingPlayer=Boolean(activeSave||read(CAMPAIGN_STORAGE)||read(`${STORAGE}-stats`));
 let campaign = activeSave?.mode === 'classic' ? activeSave : restore(read(CAMPAIGN_STORAGE));
 let stats = restoreProgress(read(`${STORAGE}-stats`), campaign);
 let game = activeSave || campaign || await generateGame(stats.unlocked).catch(() => createGame(stats.unlocked));
 let generating = false;
-let view = 'home', farmHome;
+let view = 'home', farmHome, notebook, storyState, storySeason=null, homeStoryTimer=null;
 let homeScene=farmPage(farmProgress(stats),read(`${STORAGE}-home-scene`)).index;
 const savedFarmSeen=read(`${STORAGE}-farm-seen`);
 let farmSeen=Number.isSafeInteger(savedFarmSeen)&&savedFarmSeen>=0?savedFarmSeen:farmProgress(stats).rewards;
@@ -89,6 +92,7 @@ function finishPickMotion() {
 
 function renderMusic(state) {
   farmHome?.setMusic(state);
+  notebook?.setMusic(state);
   const active = state.playing || state.status === 'loading';
   $('music-player').classList.toggle('is-playing', state.playing);
   $('music-toggle').setAttribute('aria-pressed', String(active));
@@ -147,7 +151,7 @@ function renderSeason() {
   const season = seasonForLevel(game.level);
   const activeSeason=view==='home'?farmTheme(homeScene):season;
   document.body.dataset.season = activeSeason.key;
-  music.setTrack(SEASON_TRACKS[activeSeason.key]);
+  music.setTrack(SEASON_TRACKS[storySeason||activeSeason.key]);
   $('season-name').textContent = season.name;
   document.querySelector('meta[name="theme-color"]').content = activeSeason.color;
   const path = `./assets/seasons/${season.key}.svg`;
@@ -166,6 +170,7 @@ function openDrawer(panel) {
 function render() {
   renderSeason();
   if(view==='home')farmHome?.update(stats,game,farmSeen);
+  notebook?.update();
   document.querySelector('.game-card').classList.toggle('has-reserve', game.reserve.length > 0);
   $('board').dataset.gameLevel = game.level;
   document.querySelector('.game-card').setAttribute('aria-busy', String(generating));
@@ -420,7 +425,7 @@ setInterval(() => {
     game.elapsed += Math.min(delta, 1500); $('timer').textContent = formatTime(game.elapsed);
   }
 }, 1000);
-document.addEventListener('visibilitychange', () => { if (document.hidden) finishPickMotion(); music.setHidden(document.hidden); effects.setHidden(document.hidden); save(); lastTick = performance.now(); });
+document.addEventListener('visibilitychange', () => { if (document.hidden) finishPickMotion(); else if(view==='home')scheduleHomeStory(true); music.setHidden(document.hidden); effects.setHidden(document.hidden); save(); lastTick = performance.now(); });
 window.addEventListener('pagehide', () => { finishPickMotion(); music.setHidden(true); effects.setHidden(true); save(); });
 window.addEventListener('pageshow', () => { music.setHidden(document.hidden); effects.setHidden(document.hidden); });
 window.addEventListener('resize', finishPickMotion);
@@ -433,25 +438,51 @@ function returnHome(){
   if(game.status==='won'&&recordWin(stats,game))write(`${STORAGE}-stats`,stats);
   view='home';pickMotion.reset(game.rack);save();closeDrawer();closeDialog();
   document.body.dataset.view='home';document.querySelector('.game-card').hidden=true;$('farm-home').hidden=false;
-  lastTick=performance.now();render();farmHome.focus();farmHome.openReward();
+  lastTick=performance.now();render();farmHome.focus();
+  if(!farmHome.openReward())scheduleHomeStory(true);
 }
 function enterGame(){
+  clearTimeout(homeStoryTimer);
   farmHome.closePanels();view='game';document.body.dataset.view='game';$('farm-home').hidden=true;
   document.querySelector('.game-card').hidden=false;lastTick=performance.now();render();$('home-open').focus({preventScroll:true});
   if(game.status==='won')resumeCampaign();else if(game.status==='lost')resultDialog();
 }
+function scheduleHomeStory(includeCompletion=false,delay=550){
+  clearTimeout(homeStoryTimer);
+  homeStoryTimer=setTimeout(()=>{
+    if(view!=='home'||!notebook||document.hidden||document.querySelector('dialog[open]'))return;
+    const story=(includeCompletion&&completionStory(storyState,stats,farmSeen))||arrivalStory(storyState,stats,homeScene);
+    if(story)notebook.play(story);
+  },delay);
+}
 farmHome=createFarmHome($('farm-home'),{
   initialPage:homeScene,onContinue:enterGame,onMusic:()=>openDrawer('music'),onGesture:()=>music.unlock(),
   onSeen:value=>{farmSeen=value;write(`${STORAGE}-farm-seen`,value);},
+  onReward:()=>scheduleHomeStory(true,1300),
+  onJournal:tab=>{clearTimeout(homeStoryTimer);notebook.open(tab);},
   onScene:(index,theme)=>{
     homeScene=index;write(`${STORAGE}-home-scene`,index);
     if(view==='home'){
-      music.setTrack(SEASON_TRACKS[theme.key]);document.body.dataset.season=theme.key;
+      music.setTrack(SEASON_TRACKS[storySeason||theme.key]);document.body.dataset.season=theme.key;
       document.querySelector('meta[name="theme-color"]').content=theme.color;
+      scheduleHomeStory();
     }
   },
 });
 if(game.status==='won')recordWin(stats,game);
+storyState=restoreStoryProgress(read(`${STORAGE}-stories`),stats,{legacy:existingPlayer});
+write(`${STORAGE}-stories`,storyState);
+notebook=createStoryNotebook({
+  getStats:()=>stats,getHomePage:()=>homeScene,
+  onStart:story=>{
+    storyState=story.kind==='complete'?acknowledgeCompletion(storyState,story.id,stats):acknowledgeStory(storyState,story.id,stats);
+    write(`${STORAGE}-stories`,storyState);
+  },
+  onSeason:season=>{storySeason=season;music.setTrack(SEASON_TRACKS[season||farmTheme(homeScene).key]);},
+  onMusicToggle:()=>{music.setEnabled(!music.state.enabled);write(`${STORAGE}-music`,music.state.enabled);},
+  onMessage:toast,
+});
 write(`${STORAGE}-stats`,stats);
 renderSound(); render(); save();
-farmHome.setMusic(music.state);farmHome.openReward();
+farmHome.setMusic(music.state);notebook.setMusic(music.state);
+if(!farmHome.openReward())scheduleHomeStory(true);

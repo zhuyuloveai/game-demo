@@ -25,6 +25,16 @@ expected_files = {
     "farm-progress.mjs": "application/javascript",
     "farm-home.css": "text/css",
     "farm-designs.mjs": "application/javascript",
+    "story-data.mjs": "application/javascript",
+    "story-progress.mjs": "application/javascript",
+    "story-notebook.mjs": "application/javascript",
+    "story-notebook.css": "text/css",
+    **{f"assets/story/{index:02d}-{season}-{phase}.webp": "image/webp"
+       for index, season, phase in [
+           (1, "spring", "arrival"), (2, "spring", "home"),
+           (3, "summer", "arrival"), (4, "summer", "home"),
+           (5, "autumn", "arrival"), (6, "autumn", "home"),
+           (7, "winter", "arrival"), (8, "winter", "home")]},
     **{f"assets/farm/{season}-{kind}-v2.png": "image/png"
        for season in ("spring", "summer", "autumn", "winter")
        for kind in ("scene", "stickers")},
@@ -60,7 +70,7 @@ for season in ("spring", "summer", "autumn", "winter"):
         assert response.status == 206, "Audio must support byte-range requests"
         assert response.read() == (release / "site" / audio_path).read_bytes()[:1024], "Incorrect audio range"
         report["audio_ranges"].append({"path": audio_path, "status": response.status})
-for path in ["README.md", "media/README.md", "media/source-verification.json", "media/composition-report.json", "media/putong-disco-marblue.m4a", "tools/compose-seasons.py", "previews/farm-home/index.html", "tests/engine.test.mjs", "deploy/activate.sh", "launch.command", ".git/config", "SHA256SUMS", "DEPLOYMENT.md", "balance-data.mjs", "docs/fonts/ZCOOLKuaiLe-SOURCE.txt"]:
+for path in ["README.md", "media/README.md", "media/source-verification.json", "media/composition-report.json", "media/putong-disco-marblue.m4a", "tools/compose-seasons.py", "previews/farm-home/index.html", "previews/story-notebook-v1/stories.json", "docs/story-notebook/sources.json", "tests/engine.test.mjs", "deploy/activate.sh", "launch.command", ".git/config", "SHA256SUMS", "DEPLOYMENT.md", "balance-data.mjs", "docs/fonts/ZCOOLKuaiLe-SOURCE.txt"]:
     try:
         with urlopen(origin + path, timeout=20) as response:
             raise AssertionError(f"Private or old runtime path exposed: {path} ({response.status})")

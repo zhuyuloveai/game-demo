@@ -1,7 +1,7 @@
-import {FARM_REWARDS,FARM_SEASONS,farmProgress,farmReward,farmPage,farmTheme} from './farm-progress.mjs';
+import {FARM_SEASONS,farmProgress,farmReward,farmPage,farmTheme} from './farm-progress.mjs';
 const HOME_MARKUP = `
       <div class="farm-scenes" id="farm-scenes" tabindex="0" role="region" aria-roledescription="轮播" aria-label="四季牧场，左右滑动或使用方向键切换"></div>
-      <header class="home-top"><span class="home-name">我的四季小世界 <span id="farm-year"></span></span><span class="year-controls" id="year-controls"><button id="year-prev" aria-label="查看上一年的牧场">‹</button><button id="year-next" aria-label="查看下一年的牧场">›</button></span><button class="round-button" id="journal-open" aria-label="打开牧场手账" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4.5h12a2 2 0 0 1 2 2V20H7a3 3 0 0 1-3-3V5.5a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.5"/><path d="M7 5v15M11 9h5M11 13h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button></header>
+      <header class="home-top"><span class="home-name">我的四季小世界 <span id="farm-year"></span></span><span class="year-controls" id="year-controls"><button id="year-prev" aria-label="查看上一年的牧场">‹</button><button id="year-next" aria-label="查看下一年的牧场">›</button></span><button class="round-button" id="journal-open" aria-label="打开牧场笔记" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4.5h12a2 2 0 0 1 2 2V20H7a3 3 0 0 1-3-3V5.5a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.5"/><path d="M7 5v15M11 9h5M11 13h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button></header>
       <div class="home-title"><span class="tiny-stars">✦ &nbsp; 一关一季，一点一滴 &nbsp; ✦</span><h2>羊羊牧场</h2><p id="home-subtitle">这里的一切，都会因你而来。</p></div>
       <div class="chapter"><button id="farm-prev" aria-label="查看上一个季节">‹</button><span id="chapter-label" aria-live="polite"></span><button id="farm-next" aria-label="查看下一个季节">›</button></div>
       <nav class="season-pager" id="season-pager" aria-label="四季场景"></nav>
@@ -25,17 +25,13 @@ const HOME_MARKUP = `
         <p class="reward-description" id="reward-description">空空的草地上，终于有了第一抹花色。</p>
         <button class="play-button" id="claim">把花园带回家 <span>♡</span></button>
         <p class="reward-footnote">每过 4 关，牧场就多一点幸福</p>
-      </dialog>
-
-      <dialog id="journal-dialog" aria-labelledby="journal-heading">
-        <button class="dialog-close" data-close aria-label="关闭牧场手账">×</button><p class="reward-kicker">一点一滴，都是你的故事</p><h2 id="journal-heading">牧场成长手账</h2><p class="journal-intro">春夏秋冬走一圈，就给家添一点喜欢。</p><ol id="journal-list"></ol><button class="paper-button" data-close>回家看看</button>
       </dialog>`;
 const spriteNames = ['tree','grass','star','cloud','sun','pond','sheep','duck','house','fence','flowers','chick'];
 const spriteStyle = name => {
   const i = spriteNames.indexOf(name);
   return `--sprite-x:${(i % 4) * 100 / 3}%;--sprite-y:${Math.floor(i / 4) * 50}%;`;
 };
-function stickerArtwork(name,theme,preview=false) {
+export function stickerArtwork(name,theme,preview=false) {
   const atlas=preview?(theme.previewAtlas||theme.atlas):theme.atlas;
   const box=atlas?.frames?.[name];
   if(!box)return '<span class="sticker"></span>';
@@ -48,7 +44,7 @@ function sprite(parts, theme, extra='') {
   return `<span class="layer ${motion} ${extra}" style="--x:${x}%;--y:${y}%;--w:${w}%;--z:${z};--delay:${delay}s;${spriteStyle(name)}">${stickerArtwork(name,theme)}${atmosphere}</span>`;
 }
 
-export function createFarmHome(root,{onContinue,onMusic,onSeen=()=>{},onScene=()=>{},onGesture=()=>{},initialPage}) {
+export function createFarmHome(root,{onContinue,onMusic,onSeen=()=>{},onReward=()=>{},onJournal=()=>{},onScene=()=>{},onGesture=()=>{},initialPage}) {
   root.innerHTML=HOME_MARKUP;
   const $=selector=>root.querySelector(selector);
   const track=$('#farm-scenes'), reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -118,12 +114,6 @@ export function createFarmHome(root,{onContinue,onMusic,onSeen=()=>{},onScene=()
     const nextLevel=game?.status==='won'?unlocked:(game?.level||0);
     $('#play').innerHTML=(game?.started&&game.status!=='won'?'继续闯关':progress.cleared?'继续闯关':'开始闯关')+` <small>${game?.mode==='daily'&&game.status!=='won'?'今日挑战':`第 ${nextLevel+1} 关`}</small> <span>→</span>`;
     $('#cleared-label').textContent=progress.cleared?`已走过 ${progress.cleared} 关 · 收获 ${progress.rewards} 份惊喜`:'还没有足迹 · 从第 1 关开始';
-    $('#journal-heading').textContent=`${theme.name}手账`;
-    $('#journal-list').innerHTML=FARM_REWARDS.map((_,i)=>{
-      const reward=farmReward(page*6+i+1),earned=reward.number<=progress.rewards;
-      return `<li class="${earned?'earned':''}"><span class="journal-thumb" style="${spriteStyle(reward.icon)}">${stickerArtwork(reward.icon,theme,true)}</span><span class="journal-copy">${reward.name}<small>第 ${reward.level} 关 · ${earned?'已经在家里啦':'等待相遇'}</small></span><span class="journal-check">${earned?'✓':'·'}</span></li>`;
-    }).join('');
-    $('.journal-intro').textContent=`六份礼物集齐，${farmTheme(page+1).name}就会开启。`;
     if(reported!==page){reported=page;onScene(page,theme);}
   }
   function goTo(next,smooth=true) {
@@ -143,7 +133,8 @@ export function createFarmHome(root,{onContinue,onMusic,onSeen=()=>{},onScene=()
     paint();
   }
   function openReward() {
-    if(progress.rewards<=seen||$('#reward-dialog').open)return;
+    if($('#reward-dialog').open)return true;
+    if(progress.rewards<=seen)return false;
     pending=farmReward(progress.rewards);goTo(pending.farm,false);
     $('#reward-kicker').textContent=`${farmTheme(page).name} · 第 ${pending.level} 关的礼物`;
     $('#reward-heading').textContent=pending.heading;$('#reward-name').textContent=pending.name;
@@ -152,6 +143,7 @@ export function createFarmHome(root,{onContinue,onMusic,onSeen=()=>{},onScene=()
     $('#reward-art').innerHTML=`<span class="layer sway" style="--x:11%;--y:0%;--w:78%;${spriteStyle(pending.icon)}">${stickerArtwork(pending.icon,theme,true)}</span>`;
     $('.reward-footnote').textContent=pending.step===6?`${farmTheme(page+1).name}已解锁，左滑去看看吧`:'每过 4 关，牧场就多一点幸福';
     $('#reward-dialog').showModal();
+    return true;
   }
   function showToast(text){
     clearTimeout(toastTimer);$('#home-toast').textContent=text;$('#home-toast').classList.add('visible');
@@ -162,6 +154,7 @@ export function createFarmHome(root,{onContinue,onMusic,onSeen=()=>{},onScene=()
     const reward=pending;pending=null;seen=reward.number;onSeen(seen);page=reward.farm;
     buildScenes(reward.step-1);paint();
     showToast(reward.step===6?`${farmTheme(page+1).name}开启啦，左滑去看看。`:reward.toast);
+    onReward(reward);
   });
   $('#claim').addEventListener('click',()=>$('#reward-dialog').close());
   $('#play').addEventListener('click',onContinue);
@@ -172,13 +165,13 @@ export function createFarmHome(root,{onContinue,onMusic,onSeen=()=>{},onScene=()
   $('#season-pager').addEventListener('click',event=>{
     const button=event.target.closest('[data-page]');if(button)goTo(Number(button.dataset.page));
   });
-  $('#journal-open').addEventListener('click',()=>$('#journal-dialog').showModal());
+  $('#journal-open').addEventListener('click',()=>onJournal('stories'));
   $('#gift-open').addEventListener('click',()=>{
     if(progress.rewards>seen){openReward();return;}
     const selected=farmPage(progress,page);
     if(!selected.unlocked)goTo(progress.latest);
     else if(selected.filled===6)goTo(page+1);
-    else $('#journal-dialog').showModal();
+    else onJournal('decorations');
   });
   root.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>b.closest('dialog').close()));
   track.addEventListener('animationend',event=>{if(event.animationName==='farm-arrive')event.target.classList.remove('new-arrival');});
