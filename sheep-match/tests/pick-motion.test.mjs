@@ -79,3 +79,23 @@ test('reset while showing a triple prevents delayed clear from overwriting a new
   assert.equal(h.cues.length, 0);
   assert.equal(h.idle, 0);
 });
+
+test('triple effect stays available across repaints and clears before the next arrival', () => {
+  const h = harness([{id:1,type:0},{id:2,type:0},{id:8,type:1}]);
+  h.motion.enqueue({before:h.motion.rack, after:[{id:8,type:1}], tile:{id:3,type:0}, matched:true});
+  h.advance(100);
+  h.motion.enqueue({before:[{id:8,type:1}], after:[{id:8,type:1},{id:9,type:1}], tile:{id:9,type:1}, matched:false});
+  h.advance(560);
+  assert.deepEqual(h.motion.clearing, {ids:[1,2,3],startedAt:560,duration:320});
+  h.advance(750);
+  assert.equal(h.motion.rack.length, 4);
+  assert.equal(h.motion.clearing.startedAt, 560); // New renders cannot restart the effect.
+  assert.equal(h.flights.size, 1); // Next pick can already be flying.
+  assert.equal(h.cues.length, 0);
+  h.advance(880);
+  assert.equal(h.motion.clearing, null);
+  assert.deepEqual(h.motion.rack, [{id:8,type:1}]);
+  h.advance(915);
+  assert.deepEqual(h.motion.rack, [{id:8,type:1},{id:9,type:1}]);
+  assert.equal(h.idle, 1);
+});

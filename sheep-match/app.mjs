@@ -48,8 +48,9 @@ const pickMotion = createPickMotion({
   rack:game.rack,
   paint:renderRack,
   fly:flyToRack,
+  onMatch:() => effects.play('match'),
   settled:({tile, matched, cue}) => {
-    if (cue) effects.play(cue);
+    if (cue && cue !== 'match') effects.play(cue);
     if (matched) $('match-announcement').textContent = `三张${FACES[tile.type].name}已消除。`;
   },
   idle:() => { if (game.status !== 'playing') resultDialog(); },
@@ -169,7 +170,7 @@ function render() {
     fragment.append(button);
   }
   $('board').replaceChildren(fragment);
-  renderRack(pickMotion.rack);
+  renderRack(pickMotion.rack, pickMotion.clearing);
   $('reserve-area').hidden = game.reserve.length === 0;
   $('reserve').replaceChildren(...game.reserve.map(tile => {
     const button = card(tile, 'rack-tile'); button.setAttribute('aria-label', `从草篮取回${FACES[tile.type].name}`);
@@ -200,7 +201,7 @@ function render() {
   $('win-count').textContent = stats.wins;
   fitBoard();
 }
-function renderRack(rack) {
+function renderRack(rack, clearing = null) {
   $('rack').replaceChildren();
   for (let i = 0; i < 7; i++) {
     const slot = document.createElement('div'); slot.className = 'slot';
@@ -210,6 +211,12 @@ function renderRack(rack) {
       item.innerHTML = FACES[tile.type].icon; item.dataset.id = tile.id;
       item.setAttribute('role', 'img'); item.setAttribute('aria-label', FACES[tile.type].name);
       item.classList.toggle('same', rack.filter(t => t.type === tile.type).length === 2);
+      if (clearing?.ids.includes(tile.id)) {
+        item.classList.add('clearing');
+        item.style.setProperty('--clear-duration', `${clearing.duration}ms`);
+        // A new pick may repaint the rack: resume this effect at its current time.
+        item.style.setProperty('--clear-delay', `${-Math.max(0, performance.now() - clearing.startedAt)}ms`);
+      }
       slot.append(item);
     } else slot.classList.add('empty');
     $('rack').append(slot);

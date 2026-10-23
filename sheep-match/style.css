@@ -358,6 +358,35 @@ button svg {
   border-color:#b89359;
   box-shadow:inset 0 0 0 1px #e4cea0,0 2px 0 #b3a38d
 }
+.rack-tile.clearing {
+  position:relative;
+  z-index:1;
+  pointer-events:none;
+  transform-origin:center;
+  animation:rack-clear var(--clear-duration) cubic-bezier(.2,.7,.3,1) var(--clear-delay) both;
+}
+.rack-tile.clearing::after {
+  content:'✦';
+  position:absolute;
+  top:-5px;
+  right:-5px;
+  color:#d6a43b;
+  font:17px/1 sans-serif;
+  text-shadow:0 0 5px #fff4b6;
+  pointer-events:none;
+}
+@keyframes rack-clear {
+  0% { transform:scale(1); opacity:1; }
+  28% {
+    transform:scale(1.07);
+    opacity:1;
+    background:#fff3bc;
+    border-color:#d9ad52;
+    box-shadow:0 0 0 2px #ffe6a4,0 0 9px #edc66b80;
+  }
+  50% { opacity:1; }
+  100% { transform:scale(.18); opacity:0; }
+}
 .rack.warning {
   border-color:#b9836a
 }
