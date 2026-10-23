@@ -2,6 +2,7 @@ import { getLevelConfig, getGameConfig, createGame, freeTiles, pick, undo, stash
 import { restoreProgress, recordWin, levelWindow, resumeLevel } from './progression.mjs';
 import { sheep, FACES, UI } from './icons.mjs';
 import { createBackgroundMusic } from './music.mjs';
+import { createTileEffects } from './effects.mjs';
 
 const $ = id => document.getElementById(id);
 const STORAGE = 'sheep-pasture-v1';
@@ -27,9 +28,10 @@ let campaign = activeSave?.mode === 'classic' ? activeSave : restore(read(CAMPAI
 let stats = restoreProgress(read(`${STORAGE}-stats`), campaign);
 let game = activeSave || campaign || await generateGame(stats.unlocked).catch(() => createGame(stats.unlocked));
 let generating = false;
-let soundOn = read(`${STORAGE}-sound`) === true;
-let audio, toastTimer, feedbackTimer, lastTick = performance.now();
+let soundOn = read(`${STORAGE}-sound`) !== false;
+let toastTimer, lastTick = performance.now();
 const modal = $('modal');
+const effects = createTileEffects({enabled:soundOn, hidden:document.hidden});
 const savedMusicVolume = read(`${STORAGE}-music-volume`);
 const music = createBackgroundMusic($('background-music'), {
   enabled: read(`${STORAGE}-music`) !== false,
@@ -70,25 +72,11 @@ function toast(message) {
   $('toast').textContent = message; $('toast').classList.add('show');
   clearTimeout(toastTimer); toastTimer = setTimeout(() => $('toast').classList.remove('show'), 2600);
 }
-function tone(matched = false) {
-  if (!soundOn) return;
-  try {
-    audio ||= new (window.AudioContext || window.webkitAudioContext)();
-    audio.resume().catch(() => {});
-    const notes = matched ? [523.25, 659.25, 783.99] : [440];
-    notes.forEach((hz, index) => {
-      const oscillator = audio.createOscillator(), gain = audio.createGain(), when = audio.currentTime + index * .08;
-      oscillator.type = 'sine'; oscillator.frequency.value = hz;
-      gain.gain.setValueAtTime(.0001, when); gain.gain.exponentialRampToValueAtTime(.075, when + .015);
-      gain.gain.exponentialRampToValueAtTime(.0001, when + .2);
-      oscillator.connect(gain); gain.connect(audio.destination); oscillator.start(when); oscillator.stop(when + .22);
-    });
-  } catch { /* Audio is optional on browsers without Web Audio. */ }
-}
 function renderSound() {
   $('sound').innerHTML = soundOn ? UI.sound : UI.muted;
   $('sound').setAttribute('aria-label', soundOn ? '关闭音效' : '开启音效');
   $('sound').setAttribute('aria-pressed', String(soundOn));
+  $('sound').title = soundOn ? '操作与消除音效已开启' : '操作与消除音效已关闭';
 }
 function card(tile, className = '') {
   const button = document.createElement('button');
@@ -200,7 +188,7 @@ async function start(level, seed, mode = 'classic') {
   catch { generating = false; render(); toast('这片草地还没准备好，请再试一次。'); return; }
   finally { generating = false; }
   lastTick = performance.now();
-  clearTimeout(feedbackTimer); $('match-feedback').classList.remove('pop');
+  $('match-announcement').textContent = '';
   closeDialog(); render(); save(); toast(game.mode === 'daily' ? '今日牧场已就绪。每天一局相同的挑战！' : getLevelConfig(game.level).subtitle);
 }
 function confirmSwitch(level, seed, mode = 'classic', restarting = false) {
@@ -231,13 +219,9 @@ function select(id, reserve, keyboard = false) {
   if (generating) return;
   const result = pick(game, id, reserve);
   if (!result.ok) return;
-  tone(result.matched); render(); save();
-  if (result.matched) {
-    $('match-feedback').classList.remove('pop'); void $('match-feedback').offsetWidth;
-    $('match-feedback').classList.add('pop');
-    clearTimeout(feedbackTimer); feedbackTimer = setTimeout(() => $('match-feedback').classList.remove('pop'), 1000);
-    toast(`三张${FACES[result.tile.type].name}，消除成功！`);
-  }
+  effects.play(game.status === 'won' ? 'win' : game.status === 'lost' ? 'lost' : result.matched ? 'match' : reserve ? 'return' : 'tap');
+  render(); save();
+  if (result.matched) $('match-announcement').textContent = `三张${FACES[result.tile.type].name}已消除，还剩${game.total - game.matched}张。`;
   if (keyboard && game.status === 'playing') $('board').querySelector('button:not(:disabled)')?.focus({ preventScroll: true });
   if (game.status !== 'playing') resultDialog();
 }
@@ -245,7 +229,7 @@ function useTool(key) {
   if (generating) return;
   const ok = { undo, shuffle, stash }[key](game);
   if (!ok) return;
-  render(); save(); tone();
+  render(); save(); effects.play(key);
   toast({ undo:'已经退回上一步，再想一想。', shuffle:'牌面重新排列了，看看有没有新机会。', stash:'已移入临时草篮，点击卡牌可以取回。' }[key]);
 }
 $('board').addEventListener('click', event => {
@@ -287,7 +271,11 @@ $('daily').addEventListener('click', () => {
   confirmSwitch(DAILY_LEVEL, seed, 'daily');
 });
 $('restart').addEventListener('click', () => confirmSwitch(game.level, game.mode === 'daily' ? game.seed : undefined, game.mode, true));
-$('sound').addEventListener('click', () => { soundOn = !soundOn; write(`${STORAGE}-sound`, soundOn); renderSound(); tone(); });
+$('sound').addEventListener('click', () => {
+  soundOn = !soundOn; effects.setEnabled(soundOn);
+  write(`${STORAGE}-sound`, soundOn); renderSound();
+  if (soundOn) effects.play('tap');
+});
 $('music-toggle').addEventListener('click', () => {
   music.toggle(); write(`${STORAGE}-music`, music.state.enabled);
 });
@@ -297,6 +285,8 @@ $('music-volume').addEventListener('input', event => {
 });
 document.addEventListener('click', event => {
   if (!event.target.closest('#music-player')) music.unlock();
+  const button = event.target.closest('button');
+  if (button && !button.disabled && !button.closest('#board, #reserve, .tools, #music-player') && button.id !== 'sound') effects.play('button');
 }, {capture:true});
 document.addEventListener('keydown', event => {
   if (['Enter', ' '].includes(event.key) && !event.target.closest('#music-player')) music.unlock();
@@ -313,9 +303,9 @@ setInterval(() => {
     game.elapsed += Math.min(delta, 1500); $('timer').textContent = formatTime(game.elapsed);
   }
 }, 1000);
-document.addEventListener('visibilitychange', () => { music.setHidden(document.hidden); save(); lastTick = performance.now(); });
-window.addEventListener('pagehide', () => { music.setHidden(true); save(); });
-window.addEventListener('pageshow', () => { music.setHidden(document.hidden); });
+document.addEventListener('visibilitychange', () => { music.setHidden(document.hidden); effects.setHidden(document.hidden); save(); lastTick = performance.now(); });
+window.addEventListener('pagehide', () => { music.setHidden(true); effects.setHidden(true); save(); });
+window.addEventListener('pageshow', () => { music.setHidden(document.hidden); effects.setHidden(document.hidden); });
 write(`${STORAGE}-stats`,stats);
 renderSound(); render(); save();
 if (game.status !== 'playing') resultDialog();

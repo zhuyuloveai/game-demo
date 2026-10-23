@@ -18,6 +18,7 @@ expected_files = {
     "progression.mjs": "application/javascript",
     "generator.worker.mjs": "application/javascript",
     "music.mjs": "application/javascript",
+    "effects.mjs": "application/javascript",
     "media/putong-disco-marblue.m4a": ("audio/mp4", "audio/x-m4a"),
 }
 actual_files = {str(p.relative_to(release / "site")) for p in (release / "site").rglob("*") if p.is_file()}

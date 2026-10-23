@@ -46,7 +46,6 @@
       <div class="play-field">
         <div class="field-sprig sprig-one">✳</div><div class="field-sprig sprig-two">✳</div><div class="field-sprig sprig-three">✧</div>
         <div class="board" id="board" role="group" aria-label="叠层牌区"></div>
-        <div class="match-feedback" id="match-feedback" aria-hidden="true">三个一组，好事发生！</div>
         <div class="field-caption"><span></span><span id="field-caption">只有没被压住的牌，才可以选哦</span><span></span></div>
       </div>
       <div class="rack-area">
@@ -61,6 +60,7 @@
   </main>
   <footer class="page-footer"><span>一小片牧场，一小段自己的时间。</span><span>已通关 <b id="win-count">0</b> 次 <i>✳</i> 放轻松，慢慢来</span></footer>
   <div id="toast" role="status" aria-live="polite"></div>
+  <div id="match-announcement" class="visually-hidden" role="status" aria-live="polite"></div>
   <audio id="background-music" src="./media/putong-disco-marblue.m4a" preload="none" loop hidden></audio>
 
   <dialog id="modal" aria-labelledby="modal-title"><div class="modal-inner"><button class="modal-close" id="modal-close" aria-label="关闭弹窗">×</button><div class="modal-art" id="modal-art"></div><span class="modal-eyebrow" id="modal-eyebrow"></span><h2 id="modal-title"></h2><div id="modal-content"></div><div class="modal-actions" id="modal-actions"></div></div></dialog>
