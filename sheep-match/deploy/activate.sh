@@ -44,7 +44,21 @@ ln -s "releases/$release_name/site" "$service_root/.next-$release_name"
 mv -Tf "$service_root/.next-$release_name" "$service_root/current"
 docker exec overtime-arena-web nginx -s reload
 mkdir validation
-python3 verify-release.py http://127.0.0.1/ "$release_root" > validation/loopback.json
+# Reload returns after signalling the master; old workers can briefly serve requests.
+# Keep all checks strict, but allow the replacement workers time to take over.
+verified=false
+for attempt in {1..10}; do
+    if python3 verify-release.py http://127.0.0.1/ "$release_root" > validation/loopback.json.tmp 2> validation/loopback.stderr; then
+        mv validation/loopback.json.tmp validation/loopback.json
+        verified=true
+        break
+    fi
+    sleep 1
+done
+if [ "$verified" != true ]; then
+    cat validation/loopback.stderr >&2
+    false
+fi
 container_health=$(docker inspect overtime-arena-web --format '{{.State.Status}} {{.State.Health.Status}}')
 printf '%s\n' "$container_health"
 test "$container_health" = 'running healthy'
