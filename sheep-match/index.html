@@ -9,15 +9,18 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E🐑%3C/text%3E%3C/svg%3E">
   <link rel="preload" href="./fonts/ZCOOLKuaiLe-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./farm-home.css">
 </head>
-<body data-season="spring">
-  <main class="game-card" aria-label="羊羊牧场三消游戏">
+<body data-season="spring" data-view="home">
+  <main id="farm-home" class="farm-home" aria-label="我的牧场首页"></main>
+  <main class="game-card" aria-label="羊羊牧场三消游戏" hidden>
     <div class="farm-scenery" aria-hidden="true">
       <svg class="scene-top" viewBox="0 0 375 101" preserveAspectRatio="none"><image width="375" height="555" href="./assets/seasons/spring.svg"/></svg>
       <svg class="scene-field" viewBox="0 101 375 299" preserveAspectRatio="none"><image width="375" height="555" href="./assets/seasons/spring.svg"/></svg>
       <svg class="scene-bottom" viewBox="0 400 375 155" preserveAspectRatio="none"><image width="375" height="555" href="./assets/seasons/spring.svg"/></svg>
     </div>
     <header class="site-header">
+      <button class="icon-button home-return" id="home-open" aria-label="返回牧场首页，保留当前牌局" title="回到牧场"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 9-8 9 8M5 10v11h14V10M9 21v-7h6v7"/></svg></button>
       <div class="brand"><span id="brand-sheep"></span><h1>羊羊牧场<small id="season-name">春日牧场</small></h1></div>
       <button class="icon-button" id="music-open" aria-label="打开音乐设置" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V6l11-3v12M9 9l11-3"/><ellipse cx="6" cy="18" rx="3" ry="2.5" fill="currentColor"/><ellipse cx="17" cy="15" rx="3" ry="2.5" fill="currentColor"/></svg></button>
       <button class="icon-button menu-button" id="menu-open" aria-label="打开更多功能" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="4" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="20" cy="12" r="2"/></svg></button>

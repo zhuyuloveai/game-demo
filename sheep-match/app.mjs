@@ -5,6 +5,8 @@ import { createBackgroundMusic, SEASON_TRACKS } from './music.mjs';
 import { createTileEffects } from './effects.mjs';
 import { seasonForLevel } from './seasons.mjs';
 import { createPickMotion } from './pick-motion.mjs';
+import { createFarmHome } from './farm-home.mjs';
+import { farmProgress, farmReward } from './farm-progress.mjs';
 
 const $ = id => document.getElementById(id);
 const STORAGE = 'sheep-pasture-v1';
@@ -30,6 +32,10 @@ let campaign = activeSave?.mode === 'classic' ? activeSave : restore(read(CAMPAI
 let stats = restoreProgress(read(`${STORAGE}-stats`), campaign);
 let game = activeSave || campaign || await generateGame(stats.unlocked).catch(() => createGame(stats.unlocked));
 let generating = false;
+let view = 'home', farmHome;
+const savedFarmSeen=read(`${STORAGE}-farm-seen`);
+let farmSeen=Number.isSafeInteger(savedFarmSeen)&&savedFarmSeen>=0?savedFarmSeen:farmProgress(stats).rewards;
+write(`${STORAGE}-farm-seen`,farmSeen);
 let soundOn = read(`${STORAGE}-sound`) !== false;
 let toastTimer, lastTick = performance.now();
 const modal = $('modal');
@@ -81,6 +87,7 @@ function finishPickMotion() {
 }
 
 function renderMusic(state) {
+  farmHome?.setMusic(state);
   const active = state.playing || state.status === 'loading';
   $('music-player').classList.toggle('is-playing', state.playing);
   $('music-toggle').setAttribute('aria-pressed', String(active));
@@ -138,7 +145,7 @@ function fitBoard() {
 function renderSeason() {
   const season = seasonForLevel(game.level);
   document.body.dataset.season = season.key;
-  music.setTrack(SEASON_TRACKS[season.key]);
+  music.setTrack(SEASON_TRACKS[view==='home'&&game.status==='won'?seasonForLevel(stats.unlocked).key:season.key]);
   $('season-name').textContent = season.name;
   document.querySelector('meta[name="theme-color"]').content = season.color;
   const path = `./assets/seasons/${season.key}.svg`;
@@ -156,10 +163,12 @@ function openDrawer(panel) {
 }
 function render() {
   renderSeason();
+  if(view==='home')farmHome?.update(stats,game,farmSeen);
   document.querySelector('.game-card').classList.toggle('has-reserve', game.reserve.length > 0);
   $('board').dataset.gameLevel = game.level;
   document.querySelector('.game-card').setAttribute('aria-busy', String(generating));
   $('generation-note').hidden = !generating;
+  $('home-open').disabled = generating;
   const free = new Set(freeTiles(game.board).map(t => t.id));
   const fragment = document.createDocumentFragment();
   for (const tile of game.board) {
@@ -282,14 +291,17 @@ function confirmSwitch(level, seed, mode = 'classic', restarting = false) {
   } else start(level, seed, mode);
 }
 function resultDialog() {
+  if(view!=='game')return;
   if (game.status === 'won') {
     if (recordWin(stats, game)) {
       write(`${STORAGE}-stats`, stats); save(); render();
     }
     const next = game.mode === 'classic';
+    const progress=farmProgress(stats);
+    const reward=next&&progress.rewards>farmSeen&&game.level+1===progress.rewards*4?farmReward(progress.rewards):null;
     showDialog({ title: next ? `第 ${game.level + 1} 关，过关啦！` : '今日牧场，挑战成功！', eyebrow: 'A LOVELY LITTLE VICTORY',
-      content: `<p>所有小伙伴都找到了自己的队伍。<br>这一刻的好心情，送给你。</p><div class="result-stats"><div><strong>${game.total}</strong><span>张牌全部消除</span></div><div><strong>${formatTime(game.elapsed)}</strong><span>本局用时</span></div></div>`,
-      actions: [[next ? `继续闯关 · 第 ${game.level + 2} 关 →` : '回到无限闯关 →', () => next ? start(game.level + 1) : resumeCampaign(), true], ['留在这里歇一会', () => {}]] });
+      content: `<p>所有小伙伴都找到了自己的队伍。<br>这一刻的好心情，送给你。</p>${reward?`<div class="farm-prize"><span>✿</span><div><b>${reward.name}</b><small>新的四季礼物，已经为你准备好了</small></div></div>`:''}<div class="result-stats"><div><strong>${game.total}</strong><span>张牌全部消除</span></div><div><strong>${formatTime(game.elapsed)}</strong><span>本局用时</span></div></div>`,
+      actions: reward?[[reward.claim, returnHome, true],[`继续闯关 · 第 ${game.level+2} 关 →`,()=>start(game.level+1)]]:[[next ? `继续闯关 · 第 ${game.level + 2} 关 →` : '回到无限闯关 →', () => next ? start(game.level + 1) : resumeCampaign(), true], ['回牧场看看', returnHome]] });
   } else if (game.status === 'lost') {
     const actions = [];
     if (game.tools.undo && game.history.length) actions.push(['撤回一步，继续挑战', () => useTool('undo'), true]);
@@ -299,7 +311,7 @@ function resultDialog() {
   }
 }
 function select(id, reserve, keyboard = false) {
-  if (generating) return;
+  if (generating||view!=='game') return;
   const source = $(reserve ? 'reserve' : 'board').querySelector(`[data-id="${id}"]`);
   const from = source?.getBoundingClientRect();
   const before = [...game.rack];
@@ -388,6 +400,7 @@ document.addEventListener('keydown', event => {
   if (['Enter', ' '].includes(event.key) && !event.target.closest('#music-player')) music.unlock();
 });
 $('music-open').addEventListener('click', () => openDrawer('music'));
+$('home-open').addEventListener('click', returnHome);
 $('menu-open').addEventListener('click', () => openDrawer('menu'));
 $('level-open').addEventListener('click', () => openDrawer('journey'));
 $('drawer-close').addEventListener('click', closeDrawer);
@@ -401,7 +414,7 @@ $('help').addEventListener('click', () => showDialog({ title:'三个一组，快
 
 setInterval(() => {
   const now = performance.now(), delta = now - lastTick; lastTick = now;
-  if (game.started && game.status === 'playing' && !generating && !document.hidden && !modal.open && !drawer.open) {
+  if (view==='game' && game.started && game.status === 'playing' && !generating && !document.hidden && !modal.open && !drawer.open) {
     game.elapsed += Math.min(delta, 1500); $('timer').textContent = formatTime(game.elapsed);
   }
 }, 1000);
@@ -412,6 +425,21 @@ window.addEventListener('resize', finishPickMotion);
 reducedMotion.addEventListener('change', finishPickMotion);
 if (window.ResizeObserver) new ResizeObserver(fitBoard).observe(document.querySelector('.play-field'));
 else window.addEventListener('resize', fitBoard);
+function returnHome(){
+  if(generating)return;
+  // A final pick may still be flying when the player returns home.
+  if(game.status==='won'&&recordWin(stats,game))write(`${STORAGE}-stats`,stats);
+  view='home';pickMotion.reset(game.rack);save();closeDrawer();closeDialog();
+  document.body.dataset.view='home';document.querySelector('.game-card').hidden=true;$('farm-home').hidden=false;
+  lastTick=performance.now();render();farmHome.focus();farmHome.openReward();
+}
+function enterGame(){
+  farmHome.closePanels();view='game';document.body.dataset.view='game';$('farm-home').hidden=true;
+  document.querySelector('.game-card').hidden=false;lastTick=performance.now();render();$('home-open').focus({preventScroll:true});
+  if(game.status==='won')resumeCampaign();else if(game.status==='lost')resultDialog();
+}
+farmHome=createFarmHome($('farm-home'),{onContinue:enterGame,onMusic:()=>openDrawer('music'),onSeen:value=>{farmSeen=value;write(`${STORAGE}-farm-seen`,value);}});
+if(game.status==='won')recordWin(stats,game);
 write(`${STORAGE}-stats`,stats);
 renderSound(); render(); save();
-if (game.status !== 'playing') resultDialog();
+farmHome.setMusic(music.state);farmHome.openReward();
