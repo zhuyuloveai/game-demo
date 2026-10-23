@@ -29,10 +29,17 @@ rollback() {
     trap - ERR
     ln -s "$previous_target" "$service_root/.rollback-$release_name"
     mv -Tf "$service_root/.rollback-$release_name" "$service_root/current"
+    cat previous/nginx.conf > "$service_root/nginx.conf"
+    docker exec overtime-arena-web nginx -t
     docker exec overtime-arena-web nginx -s reload
     printf 'Activation failed; restored %s\n' "$previous_target" >&2
 }
 trap rollback ERR
+# Preserve the inode of the Docker-bound configuration file.
+if [ -f nginx.conf ]; then
+    cat nginx.conf > "$service_root/nginx.conf"
+    docker exec overtime-arena-web nginx -t
+fi
 ln -s "releases/$release_name/site" "$service_root/.next-$release_name"
 mv -Tf "$service_root/.next-$release_name" "$service_root/current"
 docker exec overtime-arena-web nginx -s reload
