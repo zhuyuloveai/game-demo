@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f3e8">
+  <meta name="description" content="来到羊羊牧场，随机可解地图、无限递进闯关、叠层选牌与三张消除。给生活留一小块轻松的草地。">
+  <title>羊羊牧场 · 三个一组，快乐一整天</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E🐑%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="羊羊牧场首页"><span id="brand-sheep"></span><span>羊羊牧场<small>SHEEP & A LITTLE PEACE</small></span></a>
+    <div class="header-right"><span class="offline"><i></i> 随时来，慢慢玩</span><button class="icon-button" id="sound" aria-label="开启音效" aria-pressed="false"></button><button class="icon-button help-button" id="help" aria-label="游戏玩法">?</button></div>
+  </header>
+
+  <main class="layout">
+    <aside class="intro">
+      <div class="eyebrow"><span></span> A LITTLE FARM, A LITTLE FUN</div>
+      <h1>把烦恼放下，<br>来<span class="highlight">消消羊。</span><svg viewBox="0 0 180 14" aria-hidden="true"><path d="M3 9Q83-2 175 8M15 12Q90 5 160 11" fill="none" stroke="#d9a459" stroke-width="3" stroke-linecap="round"/></svg></h1>
+      <p class="intro-copy">三张一样的，凑在一起。<br>草地没有终点，每一关都新鲜。</p>
+
+      <div class="level-heading"><span>无限牧场之旅</span><span>下一关，永远在前方 ∞</span></div>
+      <nav class="levels" id="levels" aria-label="闯关路线"></nav>
+      <div class="journey-record" id="journey-record">从第一片草地出发</div>
+      <button id="continue-campaign" class="continue-campaign">继续闯关 →</button>
+      <button class="daily-button" id="daily"><span class="sun">☀</span><span><strong>今日牧场</strong><small>同一天，同一片新草地</small></span><span>↗</span></button>
+
+      <div class="pasture-art" aria-hidden="true">
+        <svg viewBox="0 0 340 190" fill="none"><path d="M11 146Q84 111 173 138T330 134v48H11Z" fill="#DCE4C9"/><path d="M5 168Q146 125 335 160v25H5Z" fill="#C8D7AC"/><path d="M225 47c-10-12-30-5-29 8-14-4-20 7-16 13h76c4-10-7-19-17-14 0-8-6-11-14-7Z" fill="#FFFEF5" stroke="#DDE2CE" stroke-width="2"/><circle cx="67" cy="49" r="20" fill="#E9C775"/><path d="M67 17V9m0 80v-8m32-32h8m-80 0h8m9-23-6-6m52 52 6 6m-6-52 6-6M44 72l-6 6" stroke="#DAB76B" stroke-width="2" stroke-linecap="round"/><path d="M248 159v-32m22 32v-32m22 32v-32m-52 13h61m-61 11h61" stroke="#ACB78A" stroke-width="5" stroke-linecap="round"/><path d="m39 167-4-12m4 12 5-17m244 23 2-11m0 0 8-8" stroke="#86A269" stroke-width="3" stroke-linecap="round"/><g id="garden-sheep" transform="translate(110 73) scale(1.4)"></g><path d="M79 153v20m-5-6 5 3 5-5" stroke="#86A269" stroke-width="2"/><circle cx="79" cy="151" r="6" fill="#E7BAA2"/><circle cx="79" cy="151" r="2" fill="#F9E6A3"/></svg>
+        <span>生活有点忙，牧场一直在。</span>
+      </div>
+    </aside>
+
+    <section class="game-card" aria-label="三消游戏">
+      <div class="game-header"><div class="game-title"><span class="round-leaf">❧</span><div><div class="game-overline" id="level-label">LEVEL 01 · 新手小试</div><h2 id="level-name">初到牧场</h2></div></div><button class="restart" id="restart" aria-label="重新开始本关"><span>↻</span> 重来</button></div>
+      <div class="game-stats"><span><i class="status-dot"></i><span id="game-hint">先选最上面的牌试试看</span></span><span class="remaining">剩余 <strong id="remaining">18</strong> 张 <b>·</b> <span id="timer">00:00</span></span></div>
+      <div class="progress-track"><div id="progress"></div></div>
+      <div class="play-field">
+        <div class="field-sprig sprig-one">✳</div><div class="field-sprig sprig-two">✳</div><div class="field-sprig sprig-three">✧</div>
+        <div class="board" id="board" role="group" aria-label="叠层牌区"></div>
+        <div class="match-feedback" id="match-feedback" aria-hidden="true">三个一组，好事发生！</div>
+        <div class="field-caption"><span></span><span id="field-caption">只有没被压住的牌，才可以选哦</span><span></span></div>
+      </div>
+      <div class="rack-area">
+        <div class="rack-heading"><span>我的暂存槽 <small>集齐 3 张，自动消除</small></span><span id="rack-count">0 <em>/ 7</em></span></div>
+        <div class="rack" id="rack" role="group" aria-label="七格暂存槽"></div>
+        <div class="reserve-area" id="reserve-area" hidden><span>临时草篮<small>点击放回暂存槽</small></span><div id="reserve"></div></div>
+        <div class="tools"><button id="undo" class="tool"><span class="tool-icon"></span><span>撤回<small>退回上一步</small></span><b class="tool-count">3</b></button><button id="shuffle" class="tool"><span class="tool-icon"></span><span>洗牌<small>换个新思路</small></span><b class="tool-count">2</b></button><button id="stash" class="tool"><span class="tool-icon"></span><span>移出<small>腾出三个位置</small></span><b class="tool-count">1</b></button></div>
+      </div>
+      <div class="game-footer"><span>✦ 道具免费，每局重置</span><span id="save-label">进度自动保存</span></div>
+      <div id="generation-note" class="generation-note" role="status" hidden><span>✳</span>正在准备下一片牧场…</div>
+    </section>
+  </main>
+  <footer class="page-footer"><span>一小片牧场，一小段自己的时间。</span><span>已通关 <b id="win-count">0</b> 次 <i>✳</i> 放轻松，慢慢来</span></footer>
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <dialog id="modal" aria-labelledby="modal-title"><div class="modal-inner"><button class="modal-close" id="modal-close" aria-label="关闭弹窗">×</button><div class="modal-art" id="modal-art"></div><span class="modal-eyebrow" id="modal-eyebrow"></span><h2 id="modal-title"></h2><div id="modal-content"></div><div class="modal-actions" id="modal-actions"></div></div></dialog>
+  <script type="module" src="./app.mjs"></script>
+</body>
+</html>

@@ -1,5 +1,7 @@
 # 小狗厨房 — hw-gw-1 部署
 
+> 历史部署说明：2026-10-23 起，下述公开入口改为[羊羊牧场](../../sheep-match/deploy/README.md)。厨房发布目录与回滚快照保留，当前活动版本以服务器 `DEPLOYMENT.md` 为准。
+
 公开地址：http://1.92.214.23/ （TCP 80）。
 源仓库：https://github.com/zhuyuloveai/game-demo ，发布分支为 `main`。
 当前发布名称、源码提交与历史目标以服务器 `/srv/overtime-arena/DEPLOYMENT.md` 为准。

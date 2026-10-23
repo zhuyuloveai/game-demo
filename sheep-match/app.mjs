@@ -1,0 +1,284 @@
+import { getLevelConfig, getGameConfig, createGame, freeTiles, pick, undo, stash, shuffle, restore } from './engine.mjs';
+import { restoreProgress, recordWin, levelWindow, resumeLevel } from './progression.mjs';
+import { sheep, FACES, UI } from './icons.mjs';
+
+const $ = id => document.getElementById(id);
+const STORAGE = 'sheep-pasture-v1';
+const CAMPAIGN_STORAGE = `${STORAGE}-campaign`;
+const DAILY_LEVEL = 14;
+let storageAvailable = true;
+function read(key) { try { return JSON.parse(localStorage.getItem(key)); } catch { return null; } }
+function write(key, value) {
+  try { localStorage.setItem(key, JSON.stringify(value)); }
+  catch { storageAvailable = false; $('save-label').textContent = '此浏览器无法保存进度'; }
+}
+function generateGame(level, seed = `${Date.now()}-${Math.random()}`, mode = 'classic') {
+  if (!window.Worker) return Promise.resolve(createGame(level, seed, mode));
+  return new Promise((resolve, reject) => {
+    const worker = new Worker(new URL('./generator.worker.mjs', import.meta.url), { type: 'module' });
+    worker.onmessage = ({data}) => { worker.terminate(); data.game ? resolve(data.game) : reject(new Error(data.error)); };
+    worker.onerror = () => { worker.terminate(); reject(new Error('地图生成失败')); };
+    worker.postMessage({level, seed, mode});
+  });
+}
+const activeSave = restore(read(STORAGE));
+let campaign = activeSave?.mode === 'classic' ? activeSave : restore(read(CAMPAIGN_STORAGE));
+let stats = restoreProgress(read(`${STORAGE}-stats`), campaign);
+let game = activeSave || campaign || await generateGame(stats.unlocked).catch(() => createGame(stats.unlocked));
+let generating = false;
+let soundOn = read(`${STORAGE}-sound`) === true;
+let audio, toastTimer, feedbackTimer, lastTick = performance.now();
+const modal = $('modal');
+
+$('brand-sheep').innerHTML = sheep;
+$('garden-sheep').innerHTML = sheep.replace(/^<svg[^>]*>/, '').replace(/<\/svg>$/, '');
+for (const key of ['undo', 'shuffle', 'stash']) $(key).querySelector('.tool-icon').innerHTML = UI[key];
+
+function formatTime(milliseconds) {
+  const seconds = Math.floor(milliseconds / 1000);
+  return `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
+}
+function save() {
+  write(STORAGE, game);
+  if (game.mode === 'classic') { campaign = game; write(CAMPAIGN_STORAGE, game); }
+  if (storageAvailable) $('save-label').textContent = '进度自动保存';
+}
+function toast(message) {
+  $('toast').textContent = message; $('toast').classList.add('show');
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => $('toast').classList.remove('show'), 2600);
+}
+function tone(matched = false) {
+  if (!soundOn) return;
+  try {
+    audio ||= new (window.AudioContext || window.webkitAudioContext)();
+    audio.resume().catch(() => {});
+    const notes = matched ? [523.25, 659.25, 783.99] : [440];
+    notes.forEach((hz, index) => {
+      const oscillator = audio.createOscillator(), gain = audio.createGain(), when = audio.currentTime + index * .08;
+      oscillator.type = 'sine'; oscillator.frequency.value = hz;
+      gain.gain.setValueAtTime(.0001, when); gain.gain.exponentialRampToValueAtTime(.075, when + .015);
+      gain.gain.exponentialRampToValueAtTime(.0001, when + .2);
+      oscillator.connect(gain); gain.connect(audio.destination); oscillator.start(when); oscillator.stop(when + .22);
+    });
+  } catch { /* Audio is optional on browsers without Web Audio. */ }
+}
+function renderSound() {
+  $('sound').innerHTML = soundOn ? UI.sound : UI.muted;
+  $('sound').setAttribute('aria-label', soundOn ? '关闭音效' : '开启音效');
+  $('sound').setAttribute('aria-pressed', String(soundOn));
+}
+function card(tile, className = '') {
+  const button = document.createElement('button');
+  button.className = className;
+  button.dataset.id = tile.id;
+  button.innerHTML = FACES[tile.type].icon;
+  button.setAttribute('aria-label', `${FACES[tile.type].name}，${className.includes('tile') ? '选择卡牌' : '放回暂存槽'}`);
+  return button;
+}
+function render() {
+  $('board').dataset.gameLevel = game.level;
+  document.querySelector('.game-card').setAttribute('aria-busy', String(generating));
+  $('generation-note').hidden = !generating;
+  const free = new Set(freeTiles(game.board).map(t => t.id));
+  const fragment = document.createDocumentFragment();
+  for (const tile of game.board) {
+    const button = card(tile, 'tile');
+    button.style.left = `${tile.x / 7 * 100}%`;
+    button.style.top = `${tile.y / 6.5 * 100}%`;
+    button.style.zIndex = tile.z + 1;
+    button.dataset.type = tile.type;
+    const blocked = !free.has(tile.id);
+    button.classList.toggle('covered', blocked);
+    button.disabled = blocked || game.status !== 'playing' || generating;
+    button.setAttribute('aria-label', `${FACES[tile.type].name}，第 ${tile.z + 1} 层${blocked ? '，被遮挡' : ''}`);
+    fragment.append(button);
+  }
+  $('board').replaceChildren(fragment);
+  $('rack').replaceChildren();
+  for (let i = 0; i < 7; i++) {
+    const slot = document.createElement('div'); slot.className = 'slot';
+    const tile = game.rack[i];
+    if (tile) {
+      const item = document.createElement('div'); item.className = 'rack-tile';
+      item.innerHTML = FACES[tile.type].icon;
+      item.setAttribute('role', 'img'); item.setAttribute('aria-label', FACES[tile.type].name);
+      item.classList.toggle('same', game.rack.filter(t => t.type === tile.type).length === 2);
+      slot.append(item);
+    } else slot.classList.add('empty');
+    $('rack').append(slot);
+  }
+  $('rack').classList.toggle('warning', game.rack.length >= 5);
+  $('rack-count').innerHTML = `${game.rack.length} <em>/ 7</em>`;
+  $('reserve-area').hidden = game.reserve.length === 0;
+  $('reserve').replaceChildren(...game.reserve.map(tile => {
+    const button = card(tile, 'rack-tile'); button.setAttribute('aria-label', `从草篮取回${FACES[tile.type].name}`);
+    button.disabled = game.status !== 'playing' || generating; return button;
+  }));
+  $('remaining').textContent = game.total - game.matched;
+  $('timer').textContent = formatTime(game.elapsed);
+  $('progress').style.width = `${game.matched / game.total * 100}%`;
+  const config = getGameConfig(game);
+  $('level-name').textContent = game.mode === 'daily' ? '今日牧场' : `第 ${game.level + 1} 关 · ${config.name}`;
+  $('restart').innerHTML = `<span>↻</span> ${game.mode === 'daily' ? '重玩今日' : '换张地图'}`;
+  $('restart').setAttribute('aria-label', game.mode === 'daily' ? '重新挑战今日地图' : '随机生成新地图');
+  $('restart').disabled = generating;
+  $('level-label').textContent = game.mode === 'daily' ? `DAILY FARM · ${String(game.seed).replace('daily-', '')}` : `${config.count} 张牌 · ${config.layers.length} 层 · ${config.kinds} 种图案`;
+  $('game-hint').textContent = game.status === 'won' ? '牧场清空，今日份快乐达成！' : game.status === 'lost' ? '暂存槽满了，试试撤回或移出' : game.rack.length >= 5 ? '位置不多了，优先凑齐一组' : !game.started ? '先选最上面的牌试试看' : '慢慢来，好事总会凑成三个';
+  $('field-caption').textContent = game.board.length === 0 && game.reserve.length ? '草篮里还有牌，记得取回来哦' : game.status === 'won' ? '每一片草地，都值得再来一次' : '只有没被压住的牌，才可以选哦';
+  renderJourney();
+  $('daily').classList.toggle('active', game.mode === 'daily');
+  $('daily').setAttribute('aria-pressed', String(game.mode === 'daily'));
+  $('daily').disabled = generating;
+  $('undo').disabled = generating || !game.tools.undo || !game.history.length || game.status === 'won';
+  $('shuffle').disabled = generating || !game.tools.shuffle || game.board.length < 2 || game.status !== 'playing';
+  $('stash').disabled = generating || !game.tools.stash || !game.rack.length || !!game.reserve.length || game.status === 'won';
+  for (const key of ['undo', 'shuffle', 'stash']) {
+    $(key).querySelector('.tool-count').textContent = game.tools[key];
+    $(key).setAttribute('aria-label', `${{undo:'撤回上一步',shuffle:'洗牌',stash:'移出最前面的三张牌'}[key]}，剩余 ${game.tools[key]} 次`);
+  }
+  $('win-count').textContent = stats.wins;
+}
+function renderJourney() {
+  const anchor = game.mode === 'classic' ? game.level : resumeLevel(stats, campaign);
+  const buttons = levelWindow(anchor).map(level => {
+    const active = game.mode === 'classic' && level === game.level, locked = level > stats.unlocked;
+    const config = active ? getGameConfig(game) : getLevelConfig(level), button = document.createElement('button');
+    button.className = `level${active ? ' active' : ''}`;
+    button.dataset.level = level; button.disabled = locked || generating;
+    button.setAttribute('aria-pressed', String(active));
+    button.title = `第 ${level + 1} 关 · ${config.count} 张 · ${config.layers.length} 层 · ${config.kinds} 种图案${locked ? '，通关前一关后解锁' : ''}`;
+    button.innerHTML = `<span class="level-number">${String(level + 1).padStart(2,'0')}</span><span><strong>第 ${level + 1} 关</strong><small>${config.count} 张 · ${config.layers.length} 层草地</small></span><span class="level-status">${locked ? '待解锁' : active ? '当前关卡' : level <= stats.highestCleared ? '已通过 ✓' : '去挑战 →'}</span>`;
+    return button;
+  });
+  $('levels').replaceChildren(...buttons);
+  $('journey-record').textContent = stats.highestCleared >= 0 ? `最远通过第 ${stats.highestCleared + 1} 关` : '从第一片草地出发';
+  const target = resumeLevel(stats, campaign);
+  $('continue-campaign').textContent = `继续闯关 · 第 ${target + 1} 关 →`;
+  $('continue-campaign').disabled = generating || (game.mode === 'classic' && game.level === target && game.status === 'playing');
+}
+function closeDialog() { modal.close(); lastTick = performance.now(); }
+function showDialog({ title, eyebrow = '', content, actions }) {
+  $('modal-art').innerHTML = sheep; $('modal-title').textContent = title;
+  $('modal-eyebrow').textContent = eyebrow; $('modal-content').innerHTML = content;
+  $('modal-actions').replaceChildren();
+  for (const [label, callback, primary] of actions) {
+    const button = document.createElement('button');
+    button.className = `action-button${primary ? ' primary' : ''}`; button.textContent = label;
+    button.addEventListener('click', () => { closeDialog(); callback(); });
+    $('modal-actions').append(button);
+  }
+  if (!modal.open) modal.showModal();
+  $('modal-actions').querySelector('button')?.focus();
+}
+async function start(level, seed, mode = 'classic') {
+  if (generating || (mode === 'classic' && level > stats.unlocked)) return;
+  save(); closeDialog(); generating = true; render();
+  try { game = await generateGame(level, seed, mode); }
+  catch { generating = false; render(); toast('这片草地还没准备好，请再试一次。'); return; }
+  finally { generating = false; }
+  lastTick = performance.now();
+  clearTimeout(feedbackTimer); $('match-feedback').classList.remove('pop');
+  closeDialog(); render(); save(); toast(game.mode === 'daily' ? '今日牧场已就绪。每天一局相同的挑战！' : getLevelConfig(game.level).subtitle);
+}
+function confirmSwitch(level, seed, mode = 'classic', restarting = false) {
+  if (game.started && game.status === 'playing') {
+    showDialog({ title: restarting ? (mode === 'daily' ? '重新挑战今日地图？' : '换一片新草地？') : '出发去另一片牧场？', eyebrow: 'TAKE YOUR TIME',
+      content: `<p>${mode === 'daily' ? (restarting ? '今日地图保持相同，挑战进度和道具会重置。' : '主线牌局会保存，进入今天的固定地图挑战。') : '本关会随机生成一张新地图，本局进度和道具会重置。'}</p>`,
+      actions: [[restarting ? (mode === 'daily' ? '重新挑战' : '换张新地图') : '出发吧', () => start(level, seed, mode), true], ['继续这一局', () => {}]] });
+  } else start(level, seed, mode);
+}
+function resultDialog() {
+  if (game.status === 'won') {
+    if (recordWin(stats, game)) {
+      write(`${STORAGE}-stats`, stats); save(); render();
+    }
+    const next = game.mode === 'classic';
+    showDialog({ title: next ? `第 ${game.level + 1} 关，过关啦！` : '今日牧场，挑战成功！', eyebrow: 'A LOVELY LITTLE VICTORY',
+      content: `<p>所有小伙伴都找到了自己的队伍。<br>这一刻的好心情，送给你。</p><div class="result-stats"><div><strong>${game.total}</strong><span>张牌全部消除</span></div><div><strong>${formatTime(game.elapsed)}</strong><span>本局用时</span></div></div>`,
+      actions: [[next ? `继续闯关 · 第 ${game.level + 2} 关 →` : '回到无限闯关 →', () => next ? start(game.level + 1) : resumeCampaign(), true], ['留在这里歇一会', () => {}]] });
+  } else if (game.status === 'lost') {
+    const actions = [];
+    if (game.tools.undo && game.history.length) actions.push(['撤回一步，继续挑战', () => useTool('undo'), true]);
+    if (game.tools.stash && !game.reserve.length) actions.push(['移出三张，腾出空间', () => useTool('stash'), actions.length === 0]);
+    actions.push([game.mode === 'daily' ? '再试一次' : '换张地图，再试一次', () => start(game.level, game.mode === 'daily' ? game.seed : undefined, game.mode), actions.length === 0]);
+    showDialog({ title: '哎呀，草篮装满了', eyebrow: 'IT’S OKAY, LITTLE SHEEP', content: '<p>就差一点点。先观察下层的牌，<br>给成对的小伙伴留个位置。</p>', actions });
+  }
+}
+function select(id, reserve, keyboard = false) {
+  if (generating) return;
+  const result = pick(game, id, reserve);
+  if (!result.ok) return;
+  tone(result.matched); render(); save();
+  if (result.matched) {
+    $('match-feedback').classList.remove('pop'); void $('match-feedback').offsetWidth;
+    $('match-feedback').classList.add('pop');
+    clearTimeout(feedbackTimer); feedbackTimer = setTimeout(() => $('match-feedback').classList.remove('pop'), 1000);
+    toast(`三张${FACES[result.tile.type].name}，消除成功！`);
+  }
+  if (keyboard && game.status === 'playing') $('board').querySelector('button:not(:disabled)')?.focus({ preventScroll: true });
+  if (game.status !== 'playing') resultDialog();
+}
+function useTool(key) {
+  if (generating) return;
+  const ok = { undo, shuffle, stash }[key](game);
+  if (!ok) return;
+  render(); save(); tone();
+  toast({ undo:'已经退回上一步，再想一想。', shuffle:'牌面重新排列了，看看有没有新机会。', stash:'已移入临时草篮，点击卡牌可以取回。' }[key]);
+}
+$('board').addEventListener('click', event => {
+  const button = event.target.closest('button[data-id]');
+  if (button && !button.disabled) select(Number(button.dataset.id), false, event.detail === 0);
+});
+$('reserve').addEventListener('click', event => {
+  const button = event.target.closest('button[data-id]');
+  if (button && !button.disabled) select(Number(button.dataset.id), true, event.detail === 0);
+});
+for (const key of ['undo','shuffle','stash']) $(key).addEventListener('click', () => useTool(key));
+$('levels').addEventListener('click', event => {
+  const button = event.target.closest('button[data-level]');
+  if (!button || button.disabled || generating) return;
+  if (game.mode === 'classic' && game.level === Number(button.dataset.level) && game.status === 'playing') return;
+  confirmSwitch(Number(button.dataset.level));
+});
+function resumeCampaign() {
+  if (generating) return;
+  const saved = restore(read(CAMPAIGN_STORAGE)) || campaign;
+  const level = resumeLevel(stats, saved);
+  const resume = () => {
+    if (saved && saved.level === level && saved.status !== 'won') {
+      game = saved; lastTick = performance.now(); render(); save();
+      if (game.status === 'lost') resultDialog();
+    } else start(level);
+  };
+  if (game.started && game.status === 'playing') {
+    showDialog({title: `回到第 ${level + 1} 关？`, eyebrow:'YOUR JOURNEY CONTINUES',
+      content:'<p>当前牌局会结束，继续你的牧场闯关之旅。</p>',
+      actions:[['继续闯关',resume,true],['留在这一局',()=>{}]]});
+  } else resume();
+}
+$('continue-campaign').addEventListener('click', resumeCampaign);
+$('daily').addEventListener('click', () => {
+  const today = new Intl.DateTimeFormat('en-CA', { year:'numeric', month:'2-digit', day:'2-digit', timeZone:'Asia/Shanghai' }).format(new Date());
+  const seed = `daily-${today}`;
+  if (game.mode === 'daily' && game.seed === seed && game.status === 'playing') return;
+  confirmSwitch(DAILY_LEVEL, seed, 'daily');
+});
+$('restart').addEventListener('click', () => confirmSwitch(game.level, game.mode === 'daily' ? game.seed : undefined, game.mode, true));
+$('sound').addEventListener('click', () => { soundOn = !soundOn; write(`${STORAGE}-sound`, soundOn); renderSound(); tone(); });
+$('modal-close').addEventListener('click', closeDialog);
+modal.addEventListener('cancel', () => { lastTick = performance.now(); });
+$('help').addEventListener('click', () => showDialog({ title:'三个一组，快乐发生', eyebrow:'HOW TO PLAY',
+  content:`<div class="mini-triple">${[1,2,3].map(() => `<span>${FACES[0].icon}</span>`).join('')}</div><div class="rules"><div><b>1</b><span>点击<strong>没有被遮挡</strong>的卡牌，放入下方暂存槽。深色的牌需要先移开上层。</span></div><div><b>2</b><span>集齐<strong>三张相同图案</strong>就会自动消除。清空牌区、草篮和暂存槽即可通关。</span></div><div><b>3</b><span>暂存槽只有<strong>七个位置</strong>。第七张能凑成三张时仍会消除，否则本局结束。</span></div><div><b>✦</b><span>撤回可还原一次选牌（包括消除）；洗牌打乱剩余牌面；移出把最前面最多三张放入草篮，可随时点回。每局道具免费重置。</span></div></div>`,
+  actions:[['知道啦，去消消羊', () => {}, true]] }));
+
+setInterval(() => {
+  const now = performance.now(), delta = now - lastTick; lastTick = now;
+  if (game.started && game.status === 'playing' && !generating && !document.hidden && !modal.open) {
+    game.elapsed += Math.min(delta, 1500); $('timer').textContent = formatTime(game.elapsed);
+  }
+}, 1000);
+document.addEventListener('visibilitychange', () => { save(); lastTick = performance.now(); });
+window.addEventListener('pagehide', save);
+write(`${STORAGE}-stats`,stats);
+renderSound(); render(); save();
+if (game.status !== 'playing') resultDialog();

@@ -4,7 +4,8 @@
 
 | 项目 | 内容 | 入口与说明 |
 | --- | --- | --- |
-| 小厨合合 | 粉色竖屏厨房合成经营，世界料理、食谱、装修与音乐 | [kitchen-merge](kitchen-merge/) · [在线试玩](http://1.92.214.23/) |
+| 羊羊牧场 | 随机可解地图、无限递进闯关、七格暂存槽与每日挑战 | [sheep-match](sheep-match/) · [在线试玩](http://1.92.214.23/) |
+| 小厨合合 | 粉色竖屏厨房合成经营，世界料理、食谱、装修与音乐 | [kitchen-merge](kitchen-merge/) |
 | 下班突围 | 职场主题动作生存，六臂武器、升级、商店与 Boss | [overtime-arena](overtime-arena/) |
 | With You | 都市生活、经营与角色相处的 30 天原型 | [with-you](with-you/) |
 | 青屿航记 | Godot 航行、港口贸易与船只成长 | [sailing-trade](extraction-demo/prototypes/sailing-trade/) |
@@ -22,6 +23,7 @@ python3 -m http.server 8000 --bind 127.0.0.1
 
 打开对应地址：
 
+- 羊羊牧场：http://127.0.0.1:8000/sheep-match/
 - 小厨合合：http://127.0.0.1:8000/kitchen-merge/dist/
 - With You：http://127.0.0.1:8000/with-you/
 - 农场：http://127.0.0.1:8000/farm/
@@ -47,6 +49,7 @@ npm run dev
 ## 验证
 
 ```sh
+node --test sheep-match/tests/*.test.mjs
 node --test kitchen-merge/tests/engine.test.mjs
 npm --prefix overtime-arena test
 npm --prefix overtime-arena run build
