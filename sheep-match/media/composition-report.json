@@ -1,0 +1,58 @@
+[
+  {
+    "season": "spring",
+    "title": "春日蹦蹦芽",
+    "bpm": 112,
+    "meter": "4/4",
+    "bars": 32,
+    "duration": 68.5714,
+    "sample_rate": 44100,
+    "channels": 2,
+    "events": 806,
+    "peak_dbfs": -6.4,
+    "rms_dbfs": -18.42,
+    "boundary_step": 0.00012435764074325562
+  },
+  {
+    "season": "summer",
+    "title": "夏日汽水湾",
+    "bpm": 124,
+    "meter": "4/4",
+    "bars": 32,
+    "duration": 61.9355,
+    "sample_rate": 44100,
+    "channels": 2,
+    "events": 1000,
+    "peak_dbfs": -6.23,
+    "rms_dbfs": -18.42,
+    "boundary_step": 0.0007445625960826874
+  },
+  {
+    "season": "autumn",
+    "title": "秋日栗子舞",
+    "bpm": 108,
+    "meter": "3/4",
+    "bars": 32,
+    "duration": 53.3333,
+    "sample_rate": 44100,
+    "channels": 2,
+    "events": 608,
+    "peak_dbfs": -6.19,
+    "rms_dbfs": -18.42,
+    "boundary_step": 0.0012945291819050908
+  },
+  {
+    "season": "winter",
+    "title": "冬日雪花铃",
+    "bpm": 110,
+    "meter": "4/4",
+    "bars": 32,
+    "duration": 69.8182,
+    "sample_rate": 44100,
+    "channels": 2,
+    "events": 880,
+    "peak_dbfs": -5.92,
+    "rms_dbfs": -18.42,
+    "boundary_step": 0.0017567146569490433
+  }
+]

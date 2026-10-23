@@ -1,7 +1,7 @@
 import { getLevelConfig, getGameConfig, createGame, freeTiles, pick, undo, stash, shuffle, restore } from './engine.mjs';
 import { restoreProgress, recordWin, levelWindow, resumeLevel } from './progression.mjs';
 import { sheep, FACES, UI } from './icons.mjs';
-import { createBackgroundMusic } from './music.mjs';
+import { createBackgroundMusic, SEASON_TRACKS } from './music.mjs';
 import { createTileEffects } from './effects.mjs';
 import { seasonForLevel } from './seasons.mjs';
 import { createPickMotion } from './pick-motion.mjs';
@@ -40,6 +40,7 @@ const music = createBackgroundMusic($('background-music'), {
   enabled: read(`${STORAGE}-music`) !== false,
   volume: typeof savedMusicVolume === 'number' ? savedMusicVolume : .35,
   hidden: document.hidden,
+  track: SEASON_TRACKS[seasonForLevel(game.level).key],
   onChange: renderMusic,
 });
 
@@ -83,10 +84,13 @@ function renderMusic(state) {
   const active = state.playing || state.status === 'loading';
   $('music-player').classList.toggle('is-playing', state.playing);
   $('music-toggle').setAttribute('aria-pressed', String(active));
-  $('music-toggle').setAttribute('aria-label', active ? '暂停普通DISCO背景音乐' : '播放普通DISCO背景音乐');
+  const title = state.track?.title || '四季牧场配乐';
+  $('music-title').textContent = title;
+  $('music-description').textContent = state.track?.description || '原创游戏配乐 · 随四季变换';
+  $('music-toggle').setAttribute('aria-label', `${active ? '暂停' : '播放'}${title}`);
   $('music-symbol').textContent = active ? 'Ⅱ' : '▶';
   $('music-status').textContent = {
-    ready:'选牌即播放 · 单曲循环', loading:'音乐加载中…', playing:'正在播放 · 单曲循环',
+    ready:'选牌即播放 · 随季节换曲', loading:'音乐加载中…', playing:'原创配乐 · 循环播放',
     paused:'音乐已暂停', background:'后台暂停', blocked:'点击播放，继续音乐', error:'音乐加载失败，点击重试',
   }[state.status];
   $('music-open').setAttribute('aria-label', `打开音乐设置，${state.playing ? '正在播放' : '音乐未播放'}`);
@@ -134,6 +138,7 @@ function fitBoard() {
 function renderSeason() {
   const season = seasonForLevel(game.level);
   document.body.dataset.season = season.key;
+  music.setTrack(SEASON_TRACKS[season.key]);
   $('season-name').textContent = season.name;
   document.querySelector('meta[name="theme-color"]').content = season.color;
   const path = `./assets/seasons/${season.key}.svg`;

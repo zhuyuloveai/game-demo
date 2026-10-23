@@ -43,8 +43,8 @@
     </section>
     <section id="music-panel" class="drawer-panel" aria-label="音乐与音效" hidden>
       <div class="music-player" id="music-player">
-        <button class="music-toggle" id="music-toggle" aria-label="播放普通DISCO背景音乐" aria-pressed="false"><span id="music-symbol" aria-hidden="true">▶</span></button>
-        <div class="music-info"><strong>普通 DISCO</strong><a href="https://www.bilibili.com/video/BV1Qs411S7KK/" target="_blank" rel="noopener noreferrer" title="三无 Marblue 演唱 · ilem 词曲，查看原作">三无 Marblue · ilem ↗</a><span id="music-status" role="status">选牌即播放 · 单曲循环</span></div>
+        <button class="music-toggle" id="music-toggle" aria-label="播放春日蹦蹦芽" aria-pressed="false"><span id="music-symbol" aria-hidden="true">▶</span></button>
+        <div class="music-info"><strong id="music-title">春日蹦蹦芽</strong><span id="music-description">木琴 · 轻笛 · 春芽轻跳</span><span id="music-status" role="status">选牌即播放 · 随季节换曲</span></div>
         <label class="music-volume" for="music-volume"><span>背景音乐音量 <output id="music-volume-value">35%</output></span><input id="music-volume" type="range" min="0" max="100" value="35" aria-label="背景音乐音量"></label>
       </div>
       <div class="sound-row"><span>操作与消除音效<small>和背景音乐分别开关</small></span><button class="sound-toggle" id="sound" aria-label="关闭音效" aria-pressed="true"></button></div>
@@ -56,7 +56,7 @@
     </section>
   </dialog>
   <div id="toast" role="status" aria-live="polite"></div><div id="match-announcement" class="visually-hidden" role="status" aria-live="polite"></div>
-  <audio id="background-music" src="./media/putong-disco-marblue.m4a" preload="none" loop hidden></audio>
+  <audio id="background-music" preload="none" loop hidden></audio>
   <dialog id="modal" aria-labelledby="modal-title"><div class="modal-inner"><button class="close-button modal-close" id="modal-close" aria-label="关闭弹窗">×</button><div class="modal-art" id="modal-art"></div><span class="modal-eyebrow" id="modal-eyebrow"></span><h2 id="modal-title"></h2><div id="modal-content"></div><div class="modal-actions" id="modal-actions"></div></div></dialog>
   <script type="module" src="./app.mjs"></script>
 </body></html>

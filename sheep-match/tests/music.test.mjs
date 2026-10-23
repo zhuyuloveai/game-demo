@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createBackgroundMusic } from '../music.mjs';
+import { createBackgroundMusic, SEASON_TRACKS } from '../music.mjs';
+import { seasonForLevel } from '../seasons.mjs';
 
 class FakeMedia extends EventTarget {
   paused = true;
@@ -104,4 +105,61 @@ test('load errors require an explicit retry; saved mute and disposal stay silent
   music.destroy(); music.unlock(); music.setHidden(false);
   assert.equal(media.paused, true);
   assert.equal(media.calls, 2);
+});
+
+test('seasonal tracks follow levels, including wraparound, and rendering does not restart a song', async () => {
+  const media = new FakeMedia();
+  const music = createBackgroundMusic(media, {track:SEASON_TRACKS.spring, volume:.19});
+  assert.equal(media.calls, 0);
+  assert.match(media.src, /spring-pasture\.m4a$/);
+  music.unlock(); await settle();
+  for (let level=0;level<9;level++) {
+    const next=SEASON_TRACKS[seasonForLevel(level).key];
+    music.setTrack(next); await settle();
+    const loads=media.loads, calls=media.calls;
+    for (let frame=0;frame<25;frame++) music.setTrack(next);
+    assert.equal(media.loads,loads);
+    assert.equal(media.calls,calls);
+    assert.equal(music.state.track,next);
+    assert.equal(music.state.playing,true);
+    assert.equal(media.volume,.19);
+    assert.equal(media.loop,true);
+  }
+});
+
+test('season changes preserve muted and background states and resume the current song', async () => {
+  const media = new FakeMedia();
+  const music = createBackgroundMusic(media, {enabled:false,track:SEASON_TRACKS.autumn});
+  music.setTrack(SEASON_TRACKS.winter);
+  assert.equal(media.calls,0);
+  assert.equal(music.state.enabled,false);
+  assert.equal(media.paused,true);
+  music.toggle(); await settle();
+  music.setHidden(true);
+  music.setTrack(SEASON_TRACKS.spring);
+  assert.equal(media.calls,1);
+  assert.equal(music.state.status,'background');
+  music.setHidden(false); await settle();
+  assert.equal(media.calls,2);
+  assert.match(media.src,/spring-pasture\.m4a$/);
+  assert.equal(music.state.playing,true);
+});
+
+test('rapid season changes ignore interrupted playback and never revive an old request', async () => {
+  const media = new FakeMedia();
+  const rejects=[];
+  media.behavior=()=>new Promise((resolve,reject)=>rejects.push(reject));
+  const music = createBackgroundMusic(media,{track:SEASON_TRACKS.spring});
+  music.unlock();
+  music.setTrack(SEASON_TRACKS.summer);
+  media.behavior=null;
+  music.setTrack(SEASON_TRACKS.autumn);await settle();
+  rejects.forEach(reject=>reject(new DOMException('Source changed','AbortError')));
+  await settle();
+  assert.equal(music.state.track.key,'autumn');
+  assert.equal(music.state.playing,true);
+  music.destroy();
+  music.setTrack(SEASON_TRACKS.winter);
+  assert.equal(media.paused,true);
+  assert.equal(music.state.track.key,'autumn');
 });

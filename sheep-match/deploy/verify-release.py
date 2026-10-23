@@ -27,7 +27,8 @@ expected_files = {
     "assets/seasons/autumn.svg": "image/svg+xml",
     "assets/seasons/winter.svg": "image/svg+xml",
 
-    "media/putong-disco-marblue.m4a": ("audio/mp4", "audio/x-m4a"),
+    **{f"media/{season}-pasture.m4a": ("audio/mp4", "audio/x-m4a")
+       for season in ("spring", "summer", "autumn", "winter")},
 }
 actual_files = {str(p.relative_to(release / "site")) for p in (release / "site").rglob("*") if p.is_file()}
 assert actual_files == set(expected_files), f"Unexpected runtime files: {actual_files}"
@@ -45,12 +46,14 @@ for filename, mime in expected_files.items():
         assert "no-cache" in response.headers.get("Cache-Control", ""), f"Stale cache policy: {filename}"
         assert response.headers.get("X-Content-Type-Options") == "nosniff", filename
         report["files"].append({"path": path or "/", "sha256": digest, "bytes": len(body), "mime": actual_mime})
-audio_path = "media/putong-disco-marblue.m4a"
-with urlopen(Request(origin + audio_path, headers={"Range": "bytes=0-1023"}), timeout=20) as response:
-    assert response.status == 206, "Audio must support byte-range requests"
-    assert response.read() == (release / "site" / audio_path).read_bytes()[:1024], "Incorrect audio range"
-    report["audio_range_status"] = response.status
-for path in ["README.md", "media/README.md", "media/source-verification.json", "tests/engine.test.mjs", "deploy/activate.sh", "launch.command", ".git/config", "SHA256SUMS", "DEPLOYMENT.md", "balance-data.mjs", "docs/fonts/ZCOOLKuaiLe-SOURCE.txt"]:
+report["audio_ranges"] = []
+for season in ("spring", "summer", "autumn", "winter"):
+    audio_path = f"media/{season}-pasture.m4a"
+    with urlopen(Request(origin + audio_path, headers={"Range": "bytes=0-1023"}), timeout=20) as response:
+        assert response.status == 206, "Audio must support byte-range requests"
+        assert response.read() == (release / "site" / audio_path).read_bytes()[:1024], "Incorrect audio range"
+        report["audio_ranges"].append({"path": audio_path, "status": response.status})
+for path in ["README.md", "media/README.md", "media/source-verification.json", "media/composition-report.json", "media/putong-disco-marblue.m4a", "tools/compose-seasons.py", "previews/farm-home/index.html", "tests/engine.test.mjs", "deploy/activate.sh", "launch.command", ".git/config", "SHA256SUMS", "DEPLOYMENT.md", "balance-data.mjs", "docs/fonts/ZCOOLKuaiLe-SOURCE.txt"]:
     try:
         with urlopen(origin + path, timeout=20) as response:
             raise AssertionError(f"Private or old runtime path exposed: {path} ({response.status})")
