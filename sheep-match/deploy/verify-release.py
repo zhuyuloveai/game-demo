@@ -19,6 +19,7 @@ expected_files = {
     "generator.worker.mjs": "application/javascript",
     "music.mjs": "application/javascript",
     "effects.mjs": "application/javascript",
+    "pick-motion.mjs": "application/javascript",
     "seasons.mjs": "application/javascript",
     "fonts/ZCOOLKuaiLe-Regular.woff2": ("font/woff2", "application/font-woff2"),
     "assets/seasons/spring.svg": "image/svg+xml",

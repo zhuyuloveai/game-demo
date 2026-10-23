@@ -4,6 +4,7 @@ import { sheep, FACES, UI } from './icons.mjs';
 import { createBackgroundMusic } from './music.mjs';
 import { createTileEffects } from './effects.mjs';
 import { seasonForLevel } from './seasons.mjs';
+import { createPickMotion } from './pick-motion.mjs';
 
 const $ = id => document.getElementById(id);
 const STORAGE = 'sheep-pasture-v1';
@@ -41,6 +42,41 @@ const music = createBackgroundMusic($('background-music'), {
   hidden: document.hidden,
   onChange: renderMusic,
 });
+
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const pickMotion = createPickMotion({
+  rack:game.rack,
+  paint:renderRack,
+  fly:flyToRack,
+  settled:({tile, matched, cue}) => {
+    if (cue) effects.play(cue);
+    if (matched) $('match-announcement').textContent = `三张${FACES[tile.type].name}已消除。`;
+  },
+  idle:() => { if (game.status !== 'playing') resultDialog(); },
+});
+function flyToRack({tile, from, index, duration}) {
+  const target = $('rack').children[index].getBoundingClientRect();
+  const flyer = document.createElement('div');
+  flyer.className = 'flying-tile';
+  flyer.dataset.id = tile.id;
+  flyer.setAttribute('aria-hidden', 'true');
+  flyer.innerHTML = FACES[tile.type].icon;
+  flyer.style.width = `${from.width}px`; flyer.style.height = `${from.height}px`;
+  document.body.append(flyer);
+  const dx = target.left - from.left, dy = target.top - from.top;
+  const sx = target.width / from.width, sy = target.height / from.height;
+  const animation = flyer.animate([
+    {transform:`translate(${from.left}px, ${from.top}px) scale(1, 1)`},
+    {offset:.5, transform:`translate(${from.left + dx * .5}px, ${from.top + dy * .5 - 18}px) scale(${(1 + sx) / 2}, ${(1 + sy) / 2})`},
+    {transform:`translate(${target.left}px, ${target.top}px) scale(${sx}, ${sy})`},
+  ], {duration, easing:'cubic-bezier(.3, 0, .25, 1)', fill:'forwards'});
+  return () => { animation.cancel(); flyer.remove(); };
+}
+function finishPickMotion() {
+  if (!pickMotion.pending) return;
+  pickMotion.reset(game.rack); render();
+  if (game.status !== 'playing' && !modal.open) resultDialog();
+}
 
 function renderMusic(state) {
   const active = state.playing || state.status === 'loading';
@@ -133,21 +169,7 @@ function render() {
     fragment.append(button);
   }
   $('board').replaceChildren(fragment);
-  $('rack').replaceChildren();
-  for (let i = 0; i < 7; i++) {
-    const slot = document.createElement('div'); slot.className = 'slot';
-    const tile = game.rack[i];
-    if (tile) {
-      const item = document.createElement('div'); item.className = 'rack-tile';
-      item.innerHTML = FACES[tile.type].icon;
-      item.setAttribute('role', 'img'); item.setAttribute('aria-label', FACES[tile.type].name);
-      item.classList.toggle('same', game.rack.filter(t => t.type === tile.type).length === 2);
-      slot.append(item);
-    } else slot.classList.add('empty');
-    $('rack').append(slot);
-  }
-  $('rack').classList.toggle('warning', game.rack.length >= 5);
-  $('rack-count').innerHTML = `${game.rack.length} <em>/ 7</em>`;
+  renderRack(pickMotion.rack);
   $('reserve-area').hidden = game.reserve.length === 0;
   $('reserve').replaceChildren(...game.reserve.map(tile => {
     const button = card(tile, 'rack-tile'); button.setAttribute('aria-label', `从草篮取回${FACES[tile.type].name}`);
@@ -178,6 +200,24 @@ function render() {
   $('win-count').textContent = stats.wins;
   fitBoard();
 }
+function renderRack(rack) {
+  $('rack').replaceChildren();
+  for (let i = 0; i < 7; i++) {
+    const slot = document.createElement('div'); slot.className = 'slot';
+    const tile = rack[i];
+    if (tile) {
+      const item = document.createElement('div'); item.className = 'rack-tile';
+      item.innerHTML = FACES[tile.type].icon; item.dataset.id = tile.id;
+      item.setAttribute('role', 'img'); item.setAttribute('aria-label', FACES[tile.type].name);
+      item.classList.toggle('same', rack.filter(t => t.type === tile.type).length === 2);
+      slot.append(item);
+    } else slot.classList.add('empty');
+    $('rack').append(slot);
+  }
+  $('rack').classList.toggle('warning', rack.length >= 5);
+  $('rack-count').innerHTML = `${rack.length} <em>/ 7</em>`;
+}
+
 function renderJourney() {
   const anchor = game.mode === 'classic' ? game.level : resumeLevel(stats, campaign);
   const buttons = levelWindow(anchor).map(level => {
@@ -213,11 +253,12 @@ function showDialog({ title, eyebrow = '', content, actions }) {
 }
 async function start(level, seed, mode = 'classic') {
   if (generating || (mode === 'classic' && level > stats.unlocked)) return;
-  save(); closeDrawer(); closeDialog(); generating = true; render();
+  pickMotion.reset(game.rack); save(); closeDrawer(); closeDialog(); generating = true; render();
   try { game = await generateGame(level, seed, mode); }
   catch { generating = false; render(); toast('这片草地还没准备好，请再试一次。'); return; }
   finally { generating = false; }
   lastTick = performance.now();
+  pickMotion.reset(game.rack);
   $('match-announcement').textContent = '';
   closeDialog(); render(); save(); toast(game.mode === 'daily' ? '今日牧场已就绪。每天一局相同的挑战！' : getLevelConfig(game.level).subtitle);
 }
@@ -247,19 +288,31 @@ function resultDialog() {
 }
 function select(id, reserve, keyboard = false) {
   if (generating) return;
+  const source = $(reserve ? 'reserve' : 'board').querySelector(`[data-id="${id}"]`);
+  const from = source?.getBoundingClientRect();
+  const before = [...game.rack];
   const result = pick(game, id, reserve);
   if (!result.ok) return;
-  effects.play(game.status === 'won' ? 'win' : game.status === 'lost' ? 'lost' : result.matched ? 'match' : reserve ? 'return' : 'tap');
+  const cue = game.status === 'won' ? 'win' : game.status === 'lost' ? 'lost' : result.matched ? 'match' : null;
+  const animate = from?.width && from?.height && !reducedMotion.matches && !document.hidden && typeof Element.prototype.animate === 'function';
+  effects.play(reserve ? 'return' : 'tap');
+  if (!animate) pickMotion.reset(game.rack);
   render(); save();
-  if (result.matched) $('match-announcement').textContent = `三张${FACES[result.tile.type].name}已消除，还剩${game.total - game.matched}张。`;
+  if (animate) {
+    pickMotion.enqueue({before, after:[...game.rack], tile:result.tile, matched:result.matched, from, cue});
+  } else {
+    if (cue) effects.play(cue);
+    if (result.matched) $('match-announcement').textContent = `三张${FACES[result.tile.type].name}已消除。`;
+    if (game.status !== 'playing') resultDialog();
+  }
   if (keyboard && game.status === 'playing') $('board').querySelector('button:not(:disabled)')?.focus({ preventScroll: true });
-  if (game.status !== 'playing') resultDialog();
 }
+
 function useTool(key) {
   if (generating) return;
   const ok = { undo, shuffle, stash }[key](game);
   if (!ok) return;
-  render(); save(); effects.play(key);
+  pickMotion.reset(game.rack); render(); save(); effects.play(key);
   toast({ undo:'已经退回上一步，再想一想。', shuffle:'牌面重新排列了，看看有没有新机会。', stash:'已移入临时草篮，点击卡牌可以取回。' }[key]);
 }
 $('board').addEventListener('click', event => {
@@ -284,7 +337,7 @@ function resumeCampaign() {
   const resume = () => {
     closeDrawer();
     if (saved && saved.level === level && saved.status !== 'won') {
-      game = saved; lastTick = performance.now(); render(); save();
+      game = saved; pickMotion.reset(game.rack); lastTick = performance.now(); render(); save();
       if (game.status === 'lost') resultDialog();
     } else start(level);
   };
@@ -340,9 +393,11 @@ setInterval(() => {
     game.elapsed += Math.min(delta, 1500); $('timer').textContent = formatTime(game.elapsed);
   }
 }, 1000);
-document.addEventListener('visibilitychange', () => { music.setHidden(document.hidden); effects.setHidden(document.hidden); save(); lastTick = performance.now(); });
-window.addEventListener('pagehide', () => { music.setHidden(true); effects.setHidden(true); save(); });
+document.addEventListener('visibilitychange', () => { if (document.hidden) finishPickMotion(); music.setHidden(document.hidden); effects.setHidden(document.hidden); save(); lastTick = performance.now(); });
+window.addEventListener('pagehide', () => { finishPickMotion(); music.setHidden(true); effects.setHidden(true); save(); });
 window.addEventListener('pageshow', () => { music.setHidden(document.hidden); effects.setHidden(document.hidden); });
+window.addEventListener('resize', finishPickMotion);
+reducedMotion.addEventListener('change', finishPickMotion);
 if (window.ResizeObserver) new ResizeObserver(fitBoard).observe(document.querySelector('.play-field'));
 else window.addEventListener('resize', fitBoard);
 write(`${STORAGE}-stats`,stats);
