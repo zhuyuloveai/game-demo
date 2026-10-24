@@ -1,0 +1,8 @@
+{
+  "status": "PROJECT_RESCUE_RULE",
+  "cycles": 15,
+  "normal_net_units": 15,
+  "borrow_repay_rescue_net_units": 15,
+  "unsafe_free_reseed_net_units": 30,
+  "rule": "rescue sow1, harvest2, atomically repay borrowed1, deliver ordinary1"
+}

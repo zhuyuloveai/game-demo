@@ -1,0 +1,6 @@
+id,shelter,levels,capacity_each,shelter_cost,animal_price_tiers,notes,source_url,shelter_source_url,evidence
+Chicken,Chicken_Coop,"[1, 12, 23]",6,5,"[null, 140, 270]",First chicken20 in Chicken page versus10 in Egg page; current null.,https://hayday.fandom.com/wiki/Chicken,https://hayday.fandom.com/wiki/Chicken_Coop,B-community; current client prices not independently verified
+Cow,Cow_Pasture,"[6, 15, 27]",5,20,"[50, 600, null]","Cow page states third price1150 at32, shelter table third unlock27; last tier unresolved.",https://hayday.fandom.com/wiki/Cow,https://hayday.fandom.com/wiki/Cow_Pasture,B-community; current client prices not independently verified
+Pig,Pig_Pen,"[10, 18]",5,150,"[500, 1400]",Third pen32 outside current scope.,https://hayday.fandom.com/wiki/Pig,https://hayday.fandom.com/wiki/Pig_Pen,B-community; current client prices not independently verified
+Sheep,Sheep_Pasture,"[16, 26]",5,300,"[800, 2300]",Third pen42 outside scope.,https://hayday.fandom.com/wiki/Sheep,https://hayday.fandom.com/wiki/Sheep_Pasture,B-community; current client prices not independently verified
+Lamb,Lamb_Pasture,"[25, 30]",5,500,"[800, 2300]",May2026 addition. Not growing into wool sheep; separate production species.,https://hayday.fandom.com/wiki/Lamb,https://hayday.fandom.com/wiki/Lamb_Pasture,B-community; current client prices not independently verified

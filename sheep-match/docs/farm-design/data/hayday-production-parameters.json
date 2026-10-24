@@ -1,0 +1,1553 @@
+{
+  "status": "REFERENCE_CORE_SCOPE_ONLY_CURRENT_VALUES_UNKNOWN",
+  "as_of": "2026-10-24",
+  "official_production": "https://support.supercell.com/hay-day/en/articles/production-building.html",
+  "update_source": "https://apps.apple.com/us/app/hay-day/id506627515",
+  "items": [
+    {
+      "id": "Egg",
+      "machine": "Chicken",
+      "level": 1,
+      "community_base_minutes": 20,
+      "derived_three_star_minutes": null,
+      "output_qty": 1,
+      "xp_per_batch": 2,
+      "displayed_single_max_price": 18,
+      "max_price_10": 180,
+      "default_unit_price": 5,
+      "ingredients": {
+        "Chicken_Feed": 1
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Chicken",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Egg",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Milk",
+      "machine": "Cow",
+      "level": 6,
+      "community_base_minutes": 60,
+      "derived_three_star_minutes": null,
+      "output_qty": 1,
+      "xp_per_batch": 3,
+      "displayed_single_max_price": 32,
+      "max_price_10": 324,
+      "default_unit_price": 9,
+      "ingredients": {
+        "Cow_Feed": 1
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Cow",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Milk",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Bacon",
+      "machine": "Pig",
+      "level": 10,
+      "community_base_minutes": 240,
+      "derived_three_star_minutes": null,
+      "output_qty": 1,
+      "xp_per_batch": 5,
+      "displayed_single_max_price": 50,
+      "max_price_10": 504,
+      "default_unit_price": 14,
+      "ingredients": {
+        "Pig_Feed": 1
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Pig",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Bacon",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Wool",
+      "machine": "Sheep",
+      "level": 16,
+      "community_base_minutes": 360,
+      "derived_three_star_minutes": null,
+      "output_qty": 1,
+      "xp_per_batch": 5,
+      "displayed_single_max_price": 54,
+      "max_price_10": 540,
+      "default_unit_price": 15,
+      "ingredients": {
+        "Sheep_Feed": 1
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Sheep",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Wool",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Lamb_Chop",
+      "machine": "Lamb",
+      "level": 25,
+      "community_base_minutes": 30,
+      "derived_three_star_minutes": null,
+      "output_qty": 1,
+      "xp_per_batch": 4,
+      "displayed_single_max_price": 36,
+      "max_price_10": null,
+      "default_unit_price": null,
+      "ingredients": {
+        "Lamb_Feed": 1
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Lamb",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "May2026 addition. Price10 not independently checked.",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Chicken_Feed",
+      "machine": "Feed_Mill",
+      "level": 3,
+      "community_base_minutes": null,
+      "derived_three_star_minutes": null,
+      "output_qty": 3,
+      "xp_per_batch": 1,
+      "displayed_single_max_price": 7,
+      "max_price_10": 72,
+      "default_unit_price": 2,
+      "ingredients": {
+        "Wheat": 2,
+        "Corn": 1
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Chicken_Feed",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Chicken_Feed",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "5min item/GoodsList versus4min FeedMill; base and mastered normalized null.",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Cow_Feed",
+      "machine": "Feed_Mill",
+      "level": 6,
+      "community_base_minutes": 10,
+      "derived_three_star_minutes": 8.5,
+      "output_qty": 3,
+      "xp_per_batch": 2,
+      "displayed_single_max_price": 14,
+      "max_price_10": 144,
+      "default_unit_price": 4,
+      "ingredients": {
+        "Soybean": 2,
+        "Corn": 1
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Cow_Feed",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Cow_Feed",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Pig_Feed",
+      "machine": "Feed_Mill",
+      "level": 10,
+      "community_base_minutes": 20,
+      "derived_three_star_minutes": 17.0,
+      "output_qty": 3,
+      "xp_per_batch": 2,
+      "displayed_single_max_price": 14,
+      "max_price_10": 144,
+      "default_unit_price": 4,
+      "ingredients": {
+        "Carrot": 2,
+        "Soybean": 1
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Pig_Feed",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Pig_Feed",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Sheep_Feed",
+      "machine": "Feed_Mill",
+      "level": 16,
+      "community_base_minutes": 30,
+      "derived_three_star_minutes": 25.5,
+      "output_qty": 3,
+      "xp_per_batch": 3,
+      "displayed_single_max_price": 14,
+      "max_price_10": 144,
+      "default_unit_price": 4,
+      "ingredients": {
+        "Wheat": 3,
+        "Soybean": 1
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Sheep_Feed",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Sheep_Feed",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Lamb_Feed",
+      "machine": "Feed_Mill",
+      "level": 25,
+      "community_base_minutes": 10,
+      "derived_three_star_minutes": 8.5,
+      "output_qty": 3,
+      "xp_per_batch": 4,
+      "displayed_single_max_price": 18,
+      "max_price_10": 180,
+      "default_unit_price": 5,
+      "ingredients": null,
+      "source_url": "https://hayday.fandom.com/wiki/Lamb_Feed",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Lamb_Feed",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "Item/animal page4BlackBean+2Soybean versus GoodsList2+2. Inputs null; no chain calculation.",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Bread",
+      "machine": "Bakery",
+      "level": 2,
+      "community_base_minutes": 5,
+      "derived_three_star_minutes": 4.25,
+      "output_qty": 1,
+      "xp_per_batch": 3,
+      "displayed_single_max_price": 21,
+      "max_price_10": 216,
+      "default_unit_price": 6,
+      "ingredients": {
+        "Wheat": 3
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Bakery",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Bread",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Corn_Bread",
+      "machine": "Bakery",
+      "level": 7,
+      "community_base_minutes": 30,
+      "derived_three_star_minutes": 25.5,
+      "output_qty": 1,
+      "xp_per_batch": 8,
+      "displayed_single_max_price": 72,
+      "max_price_10": 720,
+      "default_unit_price": 20,
+      "ingredients": {
+        "Corn": 2,
+        "Egg": 2
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Bakery",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Corn_Bread",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Cookie",
+      "machine": "Bakery",
+      "level": 10,
+      "community_base_minutes": 60,
+      "derived_three_star_minutes": 51.0,
+      "output_qty": 1,
+      "xp_per_batch": 13,
+      "displayed_single_max_price": 104,
+      "max_price_10": 1044,
+      "default_unit_price": 29,
+      "ingredients": {
+        "Wheat": 2,
+        "Egg": 2,
+        "Brown_Sugar": 1
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Bakery",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Cookie",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Raspberry_Muffin",
+      "machine": "Bakery",
+      "level": 19,
+      "community_base_minutes": 45,
+      "derived_three_star_minutes": 38.25,
+      "output_qty": 1,
+      "xp_per_batch": 17,
+      "displayed_single_max_price": 140,
+      "max_price_10": null,
+      "default_unit_price": null,
+      "ingredients": {
+        "Wheat": 2,
+        "Egg": 1,
+        "Raspberry": 2
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Bakery",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Blackberry_Muffin",
+      "machine": "Bakery",
+      "level": 26,
+      "community_base_minutes": 45,
+      "derived_three_star_minutes": 38.25,
+      "output_qty": 1,
+      "xp_per_batch": 27,
+      "displayed_single_max_price": 226,
+      "max_price_10": null,
+      "default_unit_price": null,
+      "ingredients": {
+        "Wheat": 1,
+        "Egg": 2,
+        "Blackberry": 2
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Bakery",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Cream",
+      "machine": "Dairy",
+      "level": 6,
+      "community_base_minutes": 20,
+      "derived_three_star_minutes": 17.0,
+      "output_qty": 1,
+      "xp_per_batch": 6,
+      "displayed_single_max_price": 50,
+      "max_price_10": 504,
+      "default_unit_price": 14,
+      "ingredients": {
+        "Milk": 1
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Dairy",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Cream",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Butter",
+      "machine": "Dairy",
+      "level": 9,
+      "community_base_minutes": 30,
+      "derived_three_star_minutes": 25.5,
+      "output_qty": 1,
+      "xp_per_batch": 10,
+      "displayed_single_max_price": 82,
+      "max_price_10": 828,
+      "default_unit_price": 23,
+      "ingredients": {
+        "Milk": 2
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Dairy",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Butter",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Cheese",
+      "machine": "Dairy",
+      "level": 12,
+      "community_base_minutes": 60,
+      "derived_three_star_minutes": 51.0,
+      "output_qty": 1,
+      "xp_per_batch": 15,
+      "displayed_single_max_price": 122,
+      "max_price_10": 1224,
+      "default_unit_price": 34,
+      "ingredients": {
+        "Milk": 3
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Dairy",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Cheese",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Brown_Sugar",
+      "machine": "Sugar_Mill",
+      "level": 7,
+      "community_base_minutes": 20,
+      "derived_three_star_minutes": 17.0,
+      "output_qty": 1,
+      "xp_per_batch": 4,
+      "displayed_single_max_price": 32,
+      "max_price_10": 324,
+      "default_unit_price": 9,
+      "ingredients": {
+        "Sugarcane": 1
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Sugar_Mill",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Brown_Sugar",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "White_Sugar",
+      "machine": "Sugar_Mill",
+      "level": 13,
+      "community_base_minutes": 40,
+      "derived_three_star_minutes": 34.0,
+      "output_qty": 1,
+      "xp_per_batch": 6,
+      "displayed_single_max_price": 50,
+      "max_price_10": 504,
+      "default_unit_price": 14,
+      "ingredients": {
+        "Sugarcane": 2
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Sugar_Mill",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/White_Sugar",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Syrup",
+      "machine": "Sugar_Mill",
+      "level": 18,
+      "community_base_minutes": 90,
+      "derived_three_star_minutes": 76.5,
+      "output_qty": 1,
+      "xp_per_batch": 11,
+      "displayed_single_max_price": 90,
+      "max_price_10": null,
+      "default_unit_price": null,
+      "ingredients": {
+        "Sugarcane": 4
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Sugar_Mill",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Popcorn",
+      "machine": "Popcorn_Pot",
+      "level": 8,
+      "community_base_minutes": 30,
+      "derived_three_star_minutes": 25.5,
+      "output_qty": 1,
+      "xp_per_batch": 4,
+      "displayed_single_max_price": 32,
+      "max_price_10": null,
+      "default_unit_price": null,
+      "ingredients": {
+        "Corn": 2
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Popcorn_Pot",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Buttered_Popcorn",
+      "machine": "Popcorn_Pot",
+      "level": 16,
+      "community_base_minutes": 60,
+      "derived_three_star_minutes": 51.0,
+      "output_qty": 1,
+      "xp_per_batch": 15,
+      "displayed_single_max_price": 126,
+      "max_price_10": null,
+      "default_unit_price": null,
+      "ingredients": {
+        "Corn": 2,
+        "Butter": 1
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Popcorn_Pot",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Chili_Popcorn",
+      "machine": "Popcorn_Pot",
+      "level": 25,
+      "community_base_minutes": 120,
+      "derived_three_star_minutes": 102.0,
+      "output_qty": 1,
+      "xp_per_batch": 15,
+      "displayed_single_max_price": 122,
+      "max_price_10": null,
+      "default_unit_price": null,
+      "ingredients": {
+        "Corn": 2,
+        "Chili_Pepper": 2
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Popcorn_Pot",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Pancake",
+      "machine": "BBQ_Grill",
+      "level": 9,
+      "community_base_minutes": 30,
+      "derived_three_star_minutes": 25.5,
+      "output_qty": 1,
+      "xp_per_batch": 13,
+      "displayed_single_max_price": 108,
+      "max_price_10": null,
+      "default_unit_price": null,
+      "ingredients": {
+        "Egg": 3,
+        "Brown_Sugar": 1
+      },
+      "source_url": "https://hayday.fandom.com/wiki/BBQ_Grill",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Bacon_and_Eggs",
+      "machine": "BBQ_Grill",
+      "level": 11,
+      "community_base_minutes": 60,
+      "derived_three_star_minutes": 51.0,
+      "output_qty": 1,
+      "xp_per_batch": 24,
+      "displayed_single_max_price": 201,
+      "max_price_10": null,
+      "default_unit_price": null,
+      "ingredients": {
+        "Bacon": 2,
+        "Egg": 4
+      },
+      "source_url": "https://hayday.fandom.com/wiki/BBQ_Grill",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Hamburger",
+      "machine": "BBQ_Grill",
+      "level": 18,
+      "community_base_minutes": 120,
+      "derived_three_star_minutes": 102.0,
+      "output_qty": 1,
+      "xp_per_batch": 22,
+      "displayed_single_max_price": 180,
+      "max_price_10": null,
+      "default_unit_price": null,
+      "ingredients": {
+        "Bacon": 2,
+        "Bread": 2
+      },
+      "source_url": "https://hayday.fandom.com/wiki/BBQ_Grill",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Grilled_Lamb_Skewer",
+      "machine": "BBQ_Grill",
+      "level": 25,
+      "community_base_minutes": 20,
+      "derived_three_star_minutes": 17.0,
+      "output_qty": 1,
+      "xp_per_batch": 11,
+      "displayed_single_max_price": 90,
+      "max_price_10": null,
+      "default_unit_price": null,
+      "ingredients": {
+        "Lamb_Chop": 2
+      },
+      "source_url": "https://hayday.fandom.com/wiki/BBQ_Grill",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Roasted_Tomatoes",
+      "machine": "BBQ_Grill",
+      "level": 30,
+      "community_base_minutes": 90,
+      "derived_three_star_minutes": 76.5,
+      "output_qty": 1,
+      "xp_per_batch": 14,
+      "displayed_single_max_price": 118,
+      "max_price_10": null,
+      "default_unit_price": null,
+      "ingredients": {
+        "Tomato": 2
+      },
+      "source_url": "https://hayday.fandom.com/wiki/BBQ_Grill",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Carrot_Pie",
+      "machine": "Pie_Oven",
+      "level": 14,
+      "community_base_minutes": 60,
+      "derived_three_star_minutes": 51.0,
+      "output_qty": 1,
+      "xp_per_batch": 10,
+      "displayed_single_max_price": 82,
+      "max_price_10": null,
+      "default_unit_price": null,
+      "ingredients": {
+        "Carrot": 3,
+        "Wheat": 2,
+        "Egg": 1
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Pie_Oven",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Pumpkin_Pie",
+      "machine": "Pie_Oven",
+      "level": 15,
+      "community_base_minutes": 120,
+      "derived_three_star_minutes": 102.0,
+      "output_qty": 1,
+      "xp_per_batch": 19,
+      "displayed_single_max_price": 158,
+      "max_price_10": null,
+      "default_unit_price": null,
+      "ingredients": {
+        "Pumpkin": 3,
+        "Wheat": 2,
+        "Egg": 1
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Pie_Oven",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Bacon_Pie",
+      "machine": "Pie_Oven",
+      "level": 18,
+      "community_base_minutes": 180,
+      "derived_three_star_minutes": 153.0,
+      "output_qty": 1,
+      "xp_per_batch": 26,
+      "displayed_single_max_price": 219,
+      "max_price_10": null,
+      "default_unit_price": null,
+      "ingredients": {
+        "Bacon": 3,
+        "Wheat": 2,
+        "Egg": 1
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Pie_Oven",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Apple_Pie",
+      "machine": "Pie_Oven",
+      "level": 28,
+      "community_base_minutes": 150,
+      "derived_three_star_minutes": 127.5,
+      "output_qty": 1,
+      "xp_per_batch": 32,
+      "displayed_single_max_price": 270,
+      "max_price_10": null,
+      "default_unit_price": null,
+      "ingredients": {
+        "Apple": 3,
+        "Wheat": 2,
+        "Egg": 1,
+        "Syrup": 1
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Pie_Oven",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Sweater",
+      "machine": "Loom",
+      "level": 17,
+      "community_base_minutes": 120,
+      "derived_three_star_minutes": 102.0,
+      "output_qty": 1,
+      "xp_per_batch": 18,
+      "displayed_single_max_price": 151,
+      "max_price_10": null,
+      "default_unit_price": null,
+      "ingredients": {
+        "Wool": 2
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Loom",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Cotton_Fabric",
+      "machine": "Loom",
+      "level": 18,
+      "community_base_minutes": 30,
+      "derived_three_star_minutes": 25.5,
+      "output_qty": 1,
+      "xp_per_batch": 13,
+      "displayed_single_max_price": 108,
+      "max_price_10": null,
+      "default_unit_price": null,
+      "ingredients": {
+        "Cotton": 3
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Loom",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Blue_Woolly_Hat",
+      "machine": "Loom",
+      "level": 19,
+      "community_base_minutes": 60,
+      "derived_three_star_minutes": 51.0,
+      "output_qty": 1,
+      "xp_per_batch": 13,
+      "displayed_single_max_price": 111,
+      "max_price_10": null,
+      "default_unit_price": null,
+      "ingredients": {
+        "Wool": 1,
+        "Indigo": 1
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Loom",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Blue_Sweater",
+      "machine": "Loom",
+      "level": 20,
+      "community_base_minutes": 180,
+      "derived_three_star_minutes": 153.0,
+      "output_qty": 1,
+      "xp_per_batch": 25,
+      "displayed_single_max_price": 208,
+      "max_price_10": null,
+      "default_unit_price": null,
+      "ingredients": {
+        "Wool": 2,
+        "Indigo": 2
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Loom",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Cotton_Shirt",
+      "machine": "Sewing_Machine",
+      "level": 19,
+      "community_base_minutes": 45,
+      "derived_three_star_minutes": 38.25,
+      "output_qty": 1,
+      "xp_per_batch": 29,
+      "displayed_single_max_price": 241,
+      "max_price_10": null,
+      "default_unit_price": null,
+      "ingredients": {
+        "Cotton_Fabric": 2
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Sewing_Machine",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Wooly_Chaps",
+      "machine": "Sewing_Machine",
+      "level": 21,
+      "community_base_minutes": 90,
+      "derived_three_star_minutes": 76.5,
+      "output_qty": 1,
+      "xp_per_batch": 37,
+      "displayed_single_max_price": 309,
+      "max_price_10": null,
+      "default_unit_price": null,
+      "ingredients": {
+        "Cotton_Fabric": 1,
+        "Wool": 3
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Sewing_Machine",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Violet_Dress",
+      "machine": "Sewing_Machine",
+      "level": 25,
+      "community_base_minutes": 135,
+      "derived_three_star_minutes": 114.75,
+      "output_qty": 1,
+      "xp_per_batch": 39,
+      "displayed_single_max_price": 327,
+      "max_price_10": null,
+      "default_unit_price": null,
+      "ingredients": {
+        "Cotton_Fabric": 2,
+        "Indigo": 1,
+        "Raspberry": 1
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Sewing_Machine",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Carrot_Cake",
+      "machine": "Cake_Oven",
+      "level": 21,
+      "community_base_minutes": 90,
+      "derived_three_star_minutes": 76.5,
+      "output_qty": 1,
+      "xp_per_batch": 20,
+      "displayed_single_max_price": 165,
+      "max_price_10": 1656,
+      "default_unit_price": 46,
+      "ingredients": {
+        "Carrot": 2,
+        "Butter": 1,
+        "Brown_Sugar": 1
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Cake_Oven",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Carrot_Cake",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Cream_Cake",
+      "machine": "Cake_Oven",
+      "level": 23,
+      "community_base_minutes": 180,
+      "derived_three_star_minutes": 153.0,
+      "output_qty": 1,
+      "xp_per_batch": 26,
+      "displayed_single_max_price": 219,
+      "max_price_10": 2196,
+      "default_unit_price": 61,
+      "ingredients": {
+        "Wheat": 5,
+        "Cream": 1,
+        "White_Sugar": 1
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Cake_Oven",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/zh/wiki/Cream_Cake",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Red_Berry_Cake",
+      "machine": "Cake_Oven",
+      "level": 23,
+      "community_base_minutes": 60,
+      "derived_three_star_minutes": 51.0,
+      "output_qty": 1,
+      "xp_per_batch": 31,
+      "displayed_single_max_price": 255,
+      "max_price_10": 2556,
+      "default_unit_price": 71,
+      "ingredients": {
+        "Cherry": 2,
+        "Raspberry": 1,
+        "Milk": 1,
+        "Egg": 1
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Cake_Oven",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Red_Berry_Cake",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Cheesecake",
+      "machine": "Cake_Oven",
+      "level": 24,
+      "community_base_minutes": 240,
+      "derived_three_star_minutes": 204.0,
+      "output_qty": 1,
+      "xp_per_batch": 34,
+      "displayed_single_max_price": 284,
+      "max_price_10": 2844,
+      "default_unit_price": 79,
+      "ingredients": {
+        "Cheese": 1,
+        "Cookie": 1
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Cake_Oven",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Cheesecake",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Carrot_Juice",
+      "machine": "Juice_Press",
+      "level": 26,
+      "community_base_minutes": 30,
+      "derived_three_star_minutes": 25.5,
+      "output_qty": 1,
+      "xp_per_batch": 6,
+      "displayed_single_max_price": 46,
+      "max_price_10": null,
+      "default_unit_price": null,
+      "ingredients": {
+        "Carrot": 3
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Juice_Press",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Apple_Juice",
+      "machine": "Juice_Press",
+      "level": 28,
+      "community_base_minutes": 120,
+      "derived_three_star_minutes": 102.0,
+      "output_qty": 1,
+      "xp_per_batch": 15,
+      "displayed_single_max_price": 129,
+      "max_price_10": null,
+      "default_unit_price": null,
+      "ingredients": {
+        "Apple": 2
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Juice_Press",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Cherry_Juice",
+      "machine": "Juice_Press",
+      "level": 30,
+      "community_base_minutes": 150,
+      "derived_three_star_minutes": 127.5,
+      "output_qty": 1,
+      "xp_per_batch": 26,
+      "displayed_single_max_price": 216,
+      "max_price_10": null,
+      "default_unit_price": null,
+      "ingredients": {
+        "Cherry": 2
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Juice_Press",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    },
+    {
+      "id": "Vanilla_Ice_Cream",
+      "machine": "Ice_Cream_Maker",
+      "level": 29,
+      "community_base_minutes": 120,
+      "derived_three_star_minutes": 102.0,
+      "output_qty": 1,
+      "xp_per_batch": 20,
+      "displayed_single_max_price": 172,
+      "max_price_10": 1728,
+      "default_unit_price": 48,
+      "ingredients": {
+        "Milk": 1,
+        "Cream": 1,
+        "White_Sugar": 1
+      },
+      "source_url": "https://hayday.fandom.com/wiki/Ice_Cream_Maker",
+      "recipe_source_url": "https://hayday.fandom.com/wiki/Goods_List",
+      "price_source_url": "https://hayday.fandom.com/wiki/Vanilla_Ice_Cream",
+      "evidence": "B-community; version unknown; not live-client verified",
+      "as_of": "2026-10-24",
+      "notes": "",
+      "three_star_time_status": "Calculated base x0.85, NOT independently verified client timer or display rounding; old three-star baseline only"
+    }
+  ],
+  "buildings": [
+    {
+      "id": "Bakery",
+      "level": 2,
+      "community_build_coins": 20,
+      "community_build_minutes": null,
+      "completion_xp": 3,
+      "community_initial_slots": 2,
+      "mastery_stage_hours": [
+        35,
+        140,
+        560
+      ],
+      "mastery_cumulative_hours": [
+        35,
+        175,
+        735
+      ],
+      "current_build_coins": null,
+      "current_build_minutes": null,
+      "current_client_version": null,
+      "source_url": "https://hayday.fandom.com/wiki/Production_Buildings_List",
+      "details_source_url": "https://hayday.fandom.com/wiki/Bakery",
+      "mastery_source_url": "https://hayday.fandom.com/wiki/Masteries",
+      "status": "B historical/community reference; community Update page reports early machine rebalance in spring2026; exact current values unverified"
+    },
+    {
+      "id": "Feed_Mill_1",
+      "level": 3,
+      "community_build_coins": 5,
+      "community_build_minutes": 0.6666666666666666,
+      "completion_xp": 4,
+      "community_initial_slots": 3,
+      "mastery_stage_hours": [
+        120,
+        840,
+        5880
+      ],
+      "mastery_cumulative_hours": [
+        120,
+        960,
+        6840
+      ],
+      "current_build_coins": null,
+      "current_build_minutes": null,
+      "current_client_version": null,
+      "source_url": "https://hayday.fandom.com/wiki/Production_Buildings_List",
+      "details_source_url": "https://hayday.fandom.com/wiki/Feed_Mill",
+      "mastery_source_url": "https://hayday.fandom.com/wiki/Masteries",
+      "status": "B historical/community reference; community Update page reports early machine rebalance in spring2026; exact current values unverified"
+    },
+    {
+      "id": "Feed_Mill_2",
+      "level": 12,
+      "community_build_coins": 3200,
+      "community_build_minutes": 0.6666666666666666,
+      "completion_xp": 4,
+      "community_initial_slots": 3,
+      "mastery_stage_hours": [
+        120,
+        840,
+        5880
+      ],
+      "mastery_cumulative_hours": [
+        120,
+        960,
+        6840
+      ],
+      "current_build_coins": null,
+      "current_build_minutes": null,
+      "current_client_version": null,
+      "source_url": "https://hayday.fandom.com/wiki/Production_Buildings_List",
+      "details_source_url": "https://hayday.fandom.com/wiki/Feed_Mill",
+      "mastery_source_url": "https://hayday.fandom.com/wiki/Masteries",
+      "status": "B historical/community reference; community Update page reports early machine rebalance in spring2026; exact current values unverified"
+    },
+    {
+      "id": "Dairy",
+      "level": 6,
+      "community_build_coins": 50,
+      "community_build_minutes": 120,
+      "completion_xp": 8,
+      "community_initial_slots": 2,
+      "mastery_stage_hours": [
+        40,
+        120,
+        360
+      ],
+      "mastery_cumulative_hours": [
+        40,
+        160,
+        520
+      ],
+      "current_build_coins": null,
+      "current_build_minutes": null,
+      "current_client_version": null,
+      "source_url": "https://hayday.fandom.com/wiki/Production_Buildings_List",
+      "details_source_url": "https://hayday.fandom.com/wiki/Dairy",
+      "mastery_source_url": "https://hayday.fandom.com/wiki/Masteries",
+      "status": "B historical/community reference; community Update page reports early machine rebalance in spring2026; exact current values unverified"
+    },
+    {
+      "id": "Sugar_Mill",
+      "level": 7,
+      "community_build_coins": 350,
+      "community_build_minutes": 360,
+      "completion_xp": 13,
+      "community_initial_slots": 2,
+      "mastery_stage_hours": [
+        25,
+        100,
+        400
+      ],
+      "mastery_cumulative_hours": [
+        25,
+        125,
+        525
+      ],
+      "current_build_coins": null,
+      "current_build_minutes": null,
+      "current_client_version": null,
+      "source_url": "https://hayday.fandom.com/wiki/Production_Buildings_List",
+      "details_source_url": "https://hayday.fandom.com/wiki/Sugar_Mill",
+      "mastery_source_url": "https://hayday.fandom.com/wiki/Masteries",
+      "status": "B historical/community reference; community Update page reports early machine rebalance in spring2026; exact current values unverified"
+    },
+    {
+      "id": "Popcorn_Pot",
+      "level": 8,
+      "community_build_coins": 650,
+      "community_build_minutes": 480,
+      "completion_xp": 14,
+      "community_initial_slots": 2,
+      "mastery_stage_hours": [
+        50,
+        150,
+        450
+      ],
+      "mastery_cumulative_hours": [
+        50,
+        200,
+        650
+      ],
+      "current_build_coins": null,
+      "current_build_minutes": null,
+      "current_client_version": null,
+      "source_url": "https://hayday.fandom.com/wiki/Production_Buildings_List",
+      "details_source_url": "https://hayday.fandom.com/wiki/Popcorn_Pot",
+      "mastery_source_url": "https://hayday.fandom.com/wiki/Masteries",
+      "status": "B historical/community reference; community Update page reports early machine rebalance in spring2026; exact current values unverified"
+    },
+    {
+      "id": "BBQ_Grill",
+      "level": 9,
+      "community_build_coins": 730,
+      "community_build_minutes": 480,
+      "completion_xp": 14,
+      "community_initial_slots": 2,
+      "mastery_stage_hours": [
+        30,
+        120,
+        480
+      ],
+      "mastery_cumulative_hours": [
+        30,
+        150,
+        630
+      ],
+      "current_build_coins": null,
+      "current_build_minutes": null,
+      "current_client_version": null,
+      "source_url": "https://hayday.fandom.com/wiki/Production_Buildings_List",
+      "details_source_url": "https://hayday.fandom.com/wiki/BBQ_Grill",
+      "mastery_source_url": "https://hayday.fandom.com/wiki/Masteries",
+      "status": "B historical/community reference; community Update page reports early machine rebalance in spring2026; exact current values unverified"
+    },
+    {
+      "id": "Pie_Oven",
+      "level": 14,
+      "community_build_coins": 2200,
+      "community_build_minutes": 720,
+      "completion_xp": 17,
+      "community_initial_slots": 2,
+      "mastery_stage_hours": [
+        40,
+        160,
+        640
+      ],
+      "mastery_cumulative_hours": [
+        40,
+        200,
+        840
+      ],
+      "current_build_coins": null,
+      "current_build_minutes": null,
+      "current_client_version": null,
+      "source_url": "https://hayday.fandom.com/wiki/Production_Buildings_List",
+      "details_source_url": "https://hayday.fandom.com/wiki/Pie_Oven",
+      "mastery_source_url": "https://hayday.fandom.com/wiki/Masteries",
+      "status": "B historical/community reference; community Update page reports early machine rebalance in spring2026; exact current values unverified"
+    },
+    {
+      "id": "Loom",
+      "level": 17,
+      "community_build_coins": 3200,
+      "community_build_minutes": 1440,
+      "completion_xp": 19,
+      "community_initial_slots": 2,
+      "mastery_stage_hours": [
+        36,
+        180,
+        900
+      ],
+      "mastery_cumulative_hours": [
+        36,
+        216,
+        1116
+      ],
+      "current_build_coins": null,
+      "current_build_minutes": null,
+      "current_client_version": null,
+      "source_url": "https://hayday.fandom.com/wiki/Production_Buildings_List",
+      "details_source_url": "https://hayday.fandom.com/wiki/Loom",
+      "mastery_source_url": "https://hayday.fandom.com/wiki/Masteries",
+      "status": "B historical/community reference; community Update page reports early machine rebalance in spring2026; exact current values unverified"
+    },
+    {
+      "id": "Sewing_Machine",
+      "level": 19,
+      "community_build_coins": 4500,
+      "community_build_minutes": 1200,
+      "completion_xp": 19,
+      "community_initial_slots": 2,
+      "mastery_stage_hours": [
+        72,
+        288,
+        1152
+      ],
+      "mastery_cumulative_hours": [
+        72,
+        360,
+        1512
+      ],
+      "current_build_coins": null,
+      "current_build_minutes": null,
+      "current_client_version": null,
+      "source_url": "https://hayday.fandom.com/wiki/Production_Buildings_List",
+      "details_source_url": "https://hayday.fandom.com/wiki/Sewing_Machine",
+      "mastery_source_url": "https://hayday.fandom.com/wiki/Masteries",
+      "status": "B historical/community reference; community Update page reports early machine rebalance in spring2026; exact current values unverified"
+    },
+    {
+      "id": "Cake_Oven",
+      "level": 21,
+      "community_build_coins": 12100,
+      "community_build_minutes": 1440,
+      "completion_xp": 24,
+      "community_initial_slots": 2,
+      "mastery_stage_hours": [
+        65,
+        260,
+        1040
+      ],
+      "mastery_cumulative_hours": [
+        65,
+        325,
+        1365
+      ],
+      "current_build_coins": null,
+      "current_build_minutes": null,
+      "current_client_version": null,
+      "source_url": "https://hayday.fandom.com/wiki/Production_Buildings_List",
+      "details_source_url": "https://hayday.fandom.com/wiki/Cake_Oven",
+      "mastery_source_url": "https://hayday.fandom.com/wiki/Masteries",
+      "status": "B historical/community reference; community Update page reports early machine rebalance in spring2026; exact current values unverified"
+    },
+    {
+      "id": "Juice_Press",
+      "level": 26,
+      "community_build_coins": 31000,
+      "community_build_minutes": 1920,
+      "completion_xp": 27,
+      "community_initial_slots": 2,
+      "mastery_stage_hours": [
+        50,
+        250,
+        1250
+      ],
+      "mastery_cumulative_hours": [
+        50,
+        300,
+        1550
+      ],
+      "current_build_coins": null,
+      "current_build_minutes": null,
+      "current_client_version": null,
+      "source_url": "https://hayday.fandom.com/wiki/Production_Buildings_List",
+      "details_source_url": "https://hayday.fandom.com/wiki/Juice_Press",
+      "mastery_source_url": "https://hayday.fandom.com/wiki/Masteries",
+      "status": "B historical/community reference; community Update page reports early machine rebalance in spring2026; exact current values unverified"
+    },
+    {
+      "id": "Ice_Cream_Maker",
+      "level": 29,
+      "community_build_coins": 38000,
+      "community_build_minutes": null,
+      "completion_xp": 27,
+      "community_initial_slots": 2,
+      "mastery_stage_hours": [
+        60,
+        240,
+        360
+      ],
+      "mastery_cumulative_hours": [
+        60,
+        300,
+        660
+      ],
+      "current_build_coins": null,
+      "current_build_minutes": null,
+      "current_client_version": null,
+      "source_url": "https://hayday.fandom.com/wiki/Production_Buildings_List",
+      "details_source_url": "https://hayday.fandom.com/wiki/Ice_Cream_Maker",
+      "mastery_source_url": "https://hayday.fandom.com/wiki/Masteries",
+      "status": "B historical/community reference; community Update page reports early machine rebalance in spring2026; exact current values unverified"
+    }
+  ],
+  "animals": [
+    {
+      "id": "Chicken",
+      "shelter": "Chicken_Coop",
+      "levels": [
+        1,
+        12,
+        23
+      ],
+      "capacity_each": 6,
+      "shelter_cost": 5,
+      "animal_price_tiers": [
+        null,
+        140,
+        270
+      ],
+      "notes": "First chicken20 in Chicken page versus10 in Egg page; current null.",
+      "source_url": "https://hayday.fandom.com/wiki/Chicken",
+      "shelter_source_url": "https://hayday.fandom.com/wiki/Chicken_Coop",
+      "evidence": "B-community; current client prices not independently verified"
+    },
+    {
+      "id": "Cow",
+      "shelter": "Cow_Pasture",
+      "levels": [
+        6,
+        15,
+        27
+      ],
+      "capacity_each": 5,
+      "shelter_cost": 20,
+      "animal_price_tiers": [
+        50,
+        600,
+        null
+      ],
+      "notes": "Cow page states third price1150 at32, shelter table third unlock27; last tier unresolved.",
+      "source_url": "https://hayday.fandom.com/wiki/Cow",
+      "shelter_source_url": "https://hayday.fandom.com/wiki/Cow_Pasture",
+      "evidence": "B-community; current client prices not independently verified"
+    },
+    {
+      "id": "Pig",
+      "shelter": "Pig_Pen",
+      "levels": [
+        10,
+        18
+      ],
+      "capacity_each": 5,
+      "shelter_cost": 150,
+      "animal_price_tiers": [
+        500,
+        1400
+      ],
+      "notes": "Third pen32 outside current scope.",
+      "source_url": "https://hayday.fandom.com/wiki/Pig",
+      "shelter_source_url": "https://hayday.fandom.com/wiki/Pig_Pen",
+      "evidence": "B-community; current client prices not independently verified"
+    },
+    {
+      "id": "Sheep",
+      "shelter": "Sheep_Pasture",
+      "levels": [
+        16,
+        26
+      ],
+      "capacity_each": 5,
+      "shelter_cost": 300,
+      "animal_price_tiers": [
+        800,
+        2300
+      ],
+      "notes": "Third pen42 outside scope.",
+      "source_url": "https://hayday.fandom.com/wiki/Sheep",
+      "shelter_source_url": "https://hayday.fandom.com/wiki/Sheep_Pasture",
+      "evidence": "B-community; current client prices not independently verified"
+    },
+    {
+      "id": "Lamb",
+      "shelter": "Lamb_Pasture",
+      "levels": [
+        25,
+        30
+      ],
+      "capacity_each": 5,
+      "shelter_cost": 500,
+      "animal_price_tiers": [
+        800,
+        2300
+      ],
+      "notes": "May2026 addition. Not growing into wool sheep; separate production species.",
+      "source_url": "https://hayday.fandom.com/wiki/Lamb",
+      "shelter_source_url": "https://hayday.fandom.com/wiki/Lamb_Pasture",
+      "evidence": "B-community; current client prices not independently verified"
+    }
+  ],
+  "queue": {
+    "official_max_slots": 9,
+    "official_start_range": [
+      1,
+      3
+    ],
+    "ordinary_added_slot_diamonds": [
+      6,
+      9,
+      12,
+      15,
+      18,
+      21,
+      24,
+      27
+    ],
+    "fishing_added_slot_diamonds": [
+      10,
+      20,
+      45,
+      90,
+      130,
+      260,
+      415
+    ],
+    "queue_cancellation": "Official winter2025 update permits not-yet-started cancellation with diamonds/ad and ingredient return; old wiki never-cancel rule superseded"
+  },
+  "legacy_models_used": false
+}

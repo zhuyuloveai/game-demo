@@ -1,0 +1,12 @@
+﻿crop_en,crop_zh,unlock_level,base_minutes,max_sale_10_coins,max_sale_1_coin_derived,harvest_xp_per_field,sow_inventory_units,harvest_units,extra_sow_coins,seed_repurchase_price,evidence,sources,access_date
+Wheat,小麦,1,2,36,3,1,1,2,0,未知：随等级/版本待核,社区；单件价为推导,HD-C-CROPS;HD-C-RULE;HD-O-APP,2026-10-24
+Corn,玉米,2,5,72,7,1,1,2,0,未知：随等级/版本待核,社区；单件价为推导,HD-C-CROPS;HD-C-RULE;HD-O-APP,2026-10-24
+Soybean,大豆,5,20,108,10,2,1,2,0,未知：随等级/版本待核,社区；单件价为推导,HD-C-CROPS;HD-C-RULE;HD-O-APP,2026-10-24
+Sugarcane,甘蔗,7,30,144,14,3,1,2,0,未知：随等级/版本待核,社区；单件价为推导,HD-C-CROPS;HD-C-RULE;HD-O-APP,2026-10-24
+Carrot,胡萝卜,9,10,72,7,2,1,2,0,未知：随等级/版本待核,社区；单件价为推导,HD-C-CROPS;HD-C-RULE;HD-O-APP,2026-10-24
+Indigo,靛蓝,13,120,252,25,5,1,2,0,未知：随等级/版本待核,社区；单件价为推导,HD-C-CROPS;HD-C-RULE;HD-O-APP,2026-10-24
+Pumpkin,南瓜,15,180,324,32,6,1,2,0,未知：随等级/版本待核,社区；单件价为推导,HD-C-CROPS;HD-C-RULE;HD-O-APP,2026-10-24
+Cotton,棉花,18,150,288,28,6,1,2,0,未知：随等级/版本待核,社区；单件价为推导,HD-C-CROPS;HD-C-RULE;HD-O-APP,2026-10-24
+Chili pepper,辣椒,25,240,360,36,7,1,2,0,未知：随等级/版本待核,社区；单件价为推导,HD-C-CROPS;HD-C-RULE;HD-O-APP,2026-10-24
+Black Bean,黑豆,25,10,72,7,2,1,2,0,未知：随等级/版本待核,社区；单件价为推导,HD-C-CROPS;HD-C-RULE;HD-O-APP,2026-10-24
+Tomato,番茄,30,360,432,43,8,1,2,0,未知：随等级/版本待核,社区；单件价为推导,HD-C-CROPS;HD-C-RULE;HD-O-APP,2026-10-24

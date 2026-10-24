@@ -10,7 +10,9 @@ macOS 可以双击 `launch.command` 启动本地服务；默认端口 8017，命
 
 ## 后续设计
 
-[四季小世界设计方案](docs/seasonal-world-design.md)：春季农场、夏季海湾、秋季采山、冬季暖屋与共享厨房的设计基线，尚未实现。
+[完整农场设计方案 v0.4](docs/farm-design/README.md)：核心农场经营、三消联动、参数来源与离线复算资料，尚未实现。
+
+[四季小世界历史概览](docs/seasonal-world-design.md)保留备查；核心农场以 v0.4 为准。
 
 ## 我的牧场首页
 

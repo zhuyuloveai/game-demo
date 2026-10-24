@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "scope": "core proposal static checks, not player validation",
+  "productionItems": 48,
+  "fieldCrops": 11,
+  "fruits": 5,
+  "buildings": 13,
+  "landPatches": 48,
+  "totalMapCells": 4096,
+  "eachLandMaterialTotal": 624,
+  "firstClearRewardValueUpperBound": 5140,
+  "tradeComparisonsWithMasteryAndFruits": 38400,
+  "notValidated": [
+    "full progression economy",
+    "random order distribution",
+    "field interaction runtime",
+    "storage crash recovery runtime",
+    "fertilizer/mastery combined long-run balance"
+  ]
+}

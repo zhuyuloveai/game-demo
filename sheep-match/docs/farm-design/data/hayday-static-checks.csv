@@ -1,0 +1,16 @@
+id,batch_qty,input_opportunity_value,output_max_sale_value,processing_added_value,base_machine_minutes,added_value_per_machine_minute,baseline
+Bread,1,10.8,21.6,10.8,5,2.16,community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast
+Corn_Bread,1,50.4,72.0,21.6,30,0.72,community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast
+Cream,1,32.4,50.4,18.0,20,0.9,community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast
+Butter,1,64.8,82.8,18.0,30,0.6,community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast
+Cheese,1,97.2,122.4,25.2,60,0.42,community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast
+Brown_Sugar,1,14.4,32.4,18.0,20,0.9,community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast
+White_Sugar,1,28.8,50.4,21.6,40,0.54,community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast
+Cookie,1,75.6,104.4,28.8,60,0.48,community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast
+Carrot_Cake,1,129.6,165.6,36.0,90,0.4,community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast
+Cream_Cake,1,118.8,219.6,100.8,180,0.56,community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast
+Cheesecake,1,226.8,284.4,57.6,240,0.24,community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast
+Vanilla_Ice_Cream,1,133.2,172.8,39.6,120,0.33,community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast
+Cow_Feed,3,28.8,43.2,14.4,10,1.44,community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast
+Pig_Feed,3,25.2,43.2,18.0,20,0.9,community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast
+Sheep_Feed,3,21.6,43.2,21.6,30,0.72,community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast

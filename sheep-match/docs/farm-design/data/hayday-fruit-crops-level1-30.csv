@@ -1,0 +1,6 @@
+﻿crop_en,crop_zh,type,unlock_level,base_minutes,max_sale_10_coins,xp_per_fruit,plant_purchase_coins,harvest_sequence,lifetime_total_with_revival,evidence,sources,notes
+Apple,苹果,Tree,15,960,396,7,160,2;3;4;4,13,社区,HD-C-CROPS;HD-C-FRUIT,第4次需要其他玩家复活；终末需树锯/灌木斧
+Raspberry,树莓,Bush,19,1080,468,9,220,2;3;4;4,13,社区,HD-C-CROPS;HD-C-FRUIT,第4次需要其他玩家复活；终末需树锯/灌木斧
+Cherry,樱桃,Tree,22,1620,684,13,410,2;3;4;4,13,社区,HD-C-CROPS;HD-C-FRUIT,第4次需要其他玩家复活；终末需树锯/灌木斧
+Blackberry,黑莓,Bush,26,1920,828,16,530,2;3;4;4,13,社区,HD-C-CROPS;HD-C-FRUIT,第4次需要其他玩家复活；终末需树锯/灌木斧
+Blueberries,蓝莓,Bush,30,,828,16,550,2;3;4;4,13,社区,HD-C-CROPS;HD-C-FRUIT;HD-C-BLUE,第4次需要其他玩家复活；终末需树锯/灌木斧；时间冲突总表34h/单品35h

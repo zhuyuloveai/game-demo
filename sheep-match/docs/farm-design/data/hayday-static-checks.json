@@ -1,0 +1,163 @@
+{
+  "checks": [
+    {
+      "id": "Bread",
+      "batch_qty": 1,
+      "input_opportunity_value": 10.8,
+      "output_max_sale_value": 21.6,
+      "processing_added_value": 10.8,
+      "base_machine_minutes": 5,
+      "added_value_per_machine_minute": 2.16,
+      "baseline": "community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast"
+    },
+    {
+      "id": "Corn_Bread",
+      "batch_qty": 1,
+      "input_opportunity_value": 50.4,
+      "output_max_sale_value": 72.0,
+      "processing_added_value": 21.6,
+      "base_machine_minutes": 30,
+      "added_value_per_machine_minute": 0.72,
+      "baseline": "community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast"
+    },
+    {
+      "id": "Cream",
+      "batch_qty": 1,
+      "input_opportunity_value": 32.4,
+      "output_max_sale_value": 50.4,
+      "processing_added_value": 18.0,
+      "base_machine_minutes": 20,
+      "added_value_per_machine_minute": 0.9,
+      "baseline": "community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast"
+    },
+    {
+      "id": "Butter",
+      "batch_qty": 1,
+      "input_opportunity_value": 64.8,
+      "output_max_sale_value": 82.8,
+      "processing_added_value": 18.0,
+      "base_machine_minutes": 30,
+      "added_value_per_machine_minute": 0.6,
+      "baseline": "community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast"
+    },
+    {
+      "id": "Cheese",
+      "batch_qty": 1,
+      "input_opportunity_value": 97.2,
+      "output_max_sale_value": 122.4,
+      "processing_added_value": 25.2,
+      "base_machine_minutes": 60,
+      "added_value_per_machine_minute": 0.42,
+      "baseline": "community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast"
+    },
+    {
+      "id": "Brown_Sugar",
+      "batch_qty": 1,
+      "input_opportunity_value": 14.4,
+      "output_max_sale_value": 32.4,
+      "processing_added_value": 18.0,
+      "base_machine_minutes": 20,
+      "added_value_per_machine_minute": 0.9,
+      "baseline": "community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast"
+    },
+    {
+      "id": "White_Sugar",
+      "batch_qty": 1,
+      "input_opportunity_value": 28.8,
+      "output_max_sale_value": 50.4,
+      "processing_added_value": 21.6,
+      "base_machine_minutes": 40,
+      "added_value_per_machine_minute": 0.54,
+      "baseline": "community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast"
+    },
+    {
+      "id": "Cookie",
+      "batch_qty": 1,
+      "input_opportunity_value": 75.6,
+      "output_max_sale_value": 104.4,
+      "processing_added_value": 28.8,
+      "base_machine_minutes": 60,
+      "added_value_per_machine_minute": 0.48,
+      "baseline": "community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast"
+    },
+    {
+      "id": "Carrot_Cake",
+      "batch_qty": 1,
+      "input_opportunity_value": 129.6,
+      "output_max_sale_value": 165.6,
+      "processing_added_value": 36.0,
+      "base_machine_minutes": 90,
+      "added_value_per_machine_minute": 0.4,
+      "baseline": "community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast"
+    },
+    {
+      "id": "Cream_Cake",
+      "batch_qty": 1,
+      "input_opportunity_value": 118.8,
+      "output_max_sale_value": 219.6,
+      "processing_added_value": 100.8,
+      "base_machine_minutes": 180,
+      "added_value_per_machine_minute": 0.56,
+      "baseline": "community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast"
+    },
+    {
+      "id": "Cheesecake",
+      "batch_qty": 1,
+      "input_opportunity_value": 226.8,
+      "output_max_sale_value": 284.4,
+      "processing_added_value": 57.6,
+      "base_machine_minutes": 240,
+      "added_value_per_machine_minute": 0.24,
+      "baseline": "community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast"
+    },
+    {
+      "id": "Vanilla_Ice_Cream",
+      "batch_qty": 1,
+      "input_opportunity_value": 133.2,
+      "output_max_sale_value": 172.8,
+      "processing_added_value": 39.6,
+      "base_machine_minutes": 120,
+      "added_value_per_machine_minute": 0.33,
+      "baseline": "community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast"
+    },
+    {
+      "id": "Cow_Feed",
+      "batch_qty": 3,
+      "input_opportunity_value": 28.8,
+      "output_max_sale_value": 43.2,
+      "processing_added_value": 14.4,
+      "base_machine_minutes": 10,
+      "added_value_per_machine_minute": 1.44,
+      "baseline": "community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast"
+    },
+    {
+      "id": "Pig_Feed",
+      "batch_qty": 3,
+      "input_opportunity_value": 25.2,
+      "output_max_sale_value": 43.2,
+      "processing_added_value": 18.0,
+      "base_machine_minutes": 20,
+      "added_value_per_machine_minute": 0.9,
+      "baseline": "community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast"
+    },
+    {
+      "id": "Sheep_Feed",
+      "batch_qty": 3,
+      "input_opportunity_value": 21.6,
+      "output_max_sale_value": 43.2,
+      "processing_added_value": 21.6,
+      "base_machine_minutes": 30,
+      "added_value_per_machine_minute": 0.72,
+      "baseline": "community_recipe/base-time and 10-stack max-price; assumes all stock can sell at cap; not cashflow forecast"
+    }
+  ],
+  "crop_reserve_rule": "1 planted -> 2 harvested -> reserve1 -> only1 net available; current NPC rescue crop prices separate and unknown",
+  "rounding_examples": {
+    "wheat_single_max": 3,
+    "wheat_ten_max": 36,
+    "bread_single_max": 21,
+    "bread_ten_max": 216
+  },
+  "current_player_economy_simulated": false,
+  "random_drops_assumed": false
+}

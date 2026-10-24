@@ -1,0 +1,36 @@
+{
+  "status": "LOCAL_ADAPTATION_NOT_ORIGINAL_GAME",
+  "version": "local-audit-v1",
+  "horizon_minutes": 30,
+  "initial_coins": 100,
+  "fields": 6,
+  "wheat": 6,
+  "chickens": 3,
+  "chicken_feed": 3,
+  "barn": 50,
+  "silo": 50,
+  "unlock_gift": 5,
+  "field_cost": 1,
+  "bakery_coins": 20,
+  "bakery_build_seconds": 10,
+  "feedmill_coins": 5,
+  "feedmill_build_seconds": 40,
+  "chicken_feed_seconds": 300,
+  "npc_recycle_ratio": 0.5,
+  "strategies": {
+    "casual": 300,
+    "active": 120,
+    "mixed_processing": 120
+  },
+  "rescue": {
+    "status": "PROJECT_DEFAULT_ADAPTATION",
+    "cooldown_seconds": 0,
+    "max_active": 1,
+    "borrowed_seed": 1,
+    "harvest_units": 2,
+    "automatic_repayment_units": 1,
+    "net_inventory_units": 1,
+    "harvest_xp": 1,
+    "strict_no_seed_or_liquid_assets_gate": true
+  }
+}
