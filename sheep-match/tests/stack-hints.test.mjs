@@ -1,16 +1,16 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {stackHints, boardSize, appendStackHint, MAX_STACK_EDGES, STACK_GUTTER} from '../stack-hints.mjs';
+import {stackHints, boardSize, appendStackHint, STACK_MAX_SPREAD, STACK_GUTTER} from '../stack-hints.mjs';
 import {createGame, freeTiles, pick, undo, verifySolution} from '../engine.mjs';
 
 const pile = (n, x=0, y=0) => Array.from({length:n},(_,z)=>({id:z,x,y,z,type:z%4}));
 
-test('exact piles show one top hint, bounded edges and an exact deep count',()=>{
+test('exact piles show one top hint, one edge per hidden card and an exact deep count',()=>{
   for(const depth of [2,3,8,16,100]) {
     const board=pile(depth), before=structuredClone(board), hints=stackHints(board);
     assert.equal(hints.size,1);
-    assert.deepEqual(hints.get(depth-1),{count:depth-1,edges:Math.min(depth-1,MAX_STACK_EDGES)});
+    assert.deepEqual(hints.get(depth-1),{count:depth-1,edges:depth-1});
     assert.deepEqual(board,before);
   }
 });
@@ -72,15 +72,19 @@ test('generated high-level layouts keep their geometry, free tiles and verified 
 
 function element() { return {dataset:{},children:[],attributes:{},style:{setProperty(k,v){this[k]=v;}},
   setAttribute(k,v){this.attributes[k]=v;},append(child){this.children.push(child);}}; }
-test('rendered decoration has no face, button or independent interactive control',()=>{
-  const button=element();appendStackHint(button,{count:9,edges:4},{createElement:element});
+test('rendered decoration contains only neutral edges, no visible text or count badge',()=>{
+  const button=element();appendStackHint(button,{count:9,edges:9},{createElement:element});
   assert.equal(button.dataset.stackCount,'9');
   const hint=button.children[0];assert.equal(hint.attributes['aria-hidden'],'true');
-  assert.equal(hint.children.length,5);
-  assert.equal(hint.children.at(-1).textContent,'下9');
-  assert.ok(hint.children.slice(0,-1).every(e=>e.className==='stack-edge'&&!e.textContent));
+  assert.equal(hint.children.length,9);
+  assert.ok(hint.children.every(e=>e.className==='stack-edge'&&!e.textContent));
+  assert.ok(hint.children.every(e=>parseFloat(e.style['--stack-offset'])<=STACK_MAX_SPREAD));
+  assert.equal(new Set(hint.children.map(e=>e.style['--stack-offset'])).size,9);
+  assert.ok(!JSON.stringify(hint).includes('下9'));
+  assert.ok(!JSON.stringify(hint).includes('stack-count'));
   const css=readFileSync(new URL('../style.css',import.meta.url),'utf8');
   assert.match(css,/\.stack-hint, \.stack-hint \* \{ pointer-events:none;/);
+  assert.doesNotMatch(css,/\.stack-count/);
   const app=readFileSync(new URL('../app.mjs',import.meta.url),'utf8');
   assert.match(app,/button\.style\.left = `\$\{tile\.x \/ 7 \* 100\}%`/);
   assert.match(app,/button\.disabled = blocked \|\| game\.status !== 'playing' \|\| generating/);
@@ -88,7 +92,7 @@ test('rendered decoration has no face, button or independent interactive control
 });
 
 
-test('only engine-selectable anchors display counts, and newly revealed piles gain them',()=>{
+test('only engine-selectable anchors display edges, and newly revealed piles gain them',()=>{
   const board=[...pile(3,1,1),{id:3,x:1.5,y:1.5,z:3,type:1}];
   let free=new Set(freeTiles(board).map(t=>t.id));
   assert.equal(stackHints(board,free).size,0);
