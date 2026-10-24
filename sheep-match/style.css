@@ -266,6 +266,33 @@ button svg {
   opacity:.67;
   filter:saturate(.62)
 }
+/* Left edges are neutral card backs, not displaced tiles or extra hit targets. */
+.stack-hint, .stack-hint * { pointer-events:none; user-select:none; }
+.stack-edge {
+  position:absolute;
+  left:calc(var(--stack-step) * -3px);
+  top:calc(var(--stack-step) * 1px);
+  width:4px;
+  height:calc(100% - var(--stack-step) * 2px);
+  border:1px solid #8f8170;
+  border-radius:3px 0 0 3px;
+  background:#ded3c2;
+  box-shadow:0 1px 0 #aa9a84;
+}
+.stack-count {
+  position:absolute;
+  top:-5px;
+  right:1px;
+  min-width:21px;
+  padding:1px 3px;
+  border:1px solid #9a886d;
+  border-radius:5px;
+  background:#fff5df;
+  color:#65533e;
+  font:600 9px/12px system-ui,sans-serif;
+  white-space:nowrap;
+  box-shadow:0 1px 1px #66523720;
+}
 .tile:not(:disabled):hover {
   filter:brightness(1.04)
 }

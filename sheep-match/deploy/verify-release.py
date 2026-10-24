@@ -20,6 +20,7 @@ expected_files = {
     "music.mjs": "application/javascript",
     "effects.mjs": "application/javascript",
     "pick-motion.mjs": "application/javascript",
+    "stack-hints.mjs": "application/javascript",
     "seasons.mjs": "application/javascript",
     "farm-home.mjs": "application/javascript",
     "farm-progress.mjs": "application/javascript",

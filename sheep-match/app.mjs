@@ -5,6 +5,7 @@ import { createBackgroundMusic, SEASON_TRACKS } from './music.mjs';
 import { createTileEffects } from './effects.mjs';
 import { seasonForLevel } from './seasons.mjs';
 import { createPickMotion } from './pick-motion.mjs';
+import { stackHints, boardSize, appendStackHint } from './stack-hints.mjs';
 import { createFarmHome } from './farm-home.mjs';
 import { farmProgress, farmReward, farmPage, farmTheme } from './farm-progress.mjs';
 import {createStoryNotebook} from './story-notebook.mjs';
@@ -143,9 +144,9 @@ function card(tile, className = '') {
 }
 function fitBoard() {
   const field = document.querySelector('.play-field');
-  const width = Math.max(0, Math.min(field.clientWidth - 8, (field.clientHeight - 8) * 7 / 6.5));
+  const {width, height} = boardSize(field.clientWidth, field.clientHeight);
   $('board').style.width = `${width}px`;
-  $('board').style.height = `${width * 6.5 / 7}px`;
+  $('board').style.height = `${height}px`;
 }
 function renderSeason() {
   const season = seasonForLevel(game.level);
@@ -177,6 +178,7 @@ function render() {
   $('generation-note').hidden = !generating;
   $('home-open').disabled = generating;
   const free = new Set(freeTiles(game.board).map(t => t.id));
+  const hints = stackHints(game.board, free);
   const fragment = document.createDocumentFragment();
   for (const tile of game.board) {
     const button = card(tile, 'tile');
@@ -187,7 +189,9 @@ function render() {
     const blocked = !free.has(tile.id);
     button.classList.toggle('covered', blocked);
     button.disabled = blocked || game.status !== 'playing' || generating;
-    button.setAttribute('aria-label', `${FACES[tile.type].name}，第 ${tile.z + 1} 层${blocked ? '，被遮挡' : ''}`);
+    const hint = hints.get(tile.id);
+    appendStackHint(button, hint);
+    button.setAttribute('aria-label', `${FACES[tile.type].name}，第 ${tile.z + 1} 层${blocked ? '，被遮挡' : ''}${hint ? `，下方近位叠牌 ${hint.count} 张` : ''}`);
     fragment.append(button);
   }
   $('board').replaceChildren(fragment);
