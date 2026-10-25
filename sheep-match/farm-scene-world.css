@@ -47,3 +47,10 @@ html.fw-document,html.fw-document>body{overflow:clip;overscroll-behavior:none}
 .fw-tray{color:#675039}
 
 .fw-animal-transfer{display:grid;grid-template-columns:46px 1fr;gap:6px;border-bottom:1px solid #b89a6d;padding:8px 0}.fw-animal-transfer>img{width:44px;height:44px}.fw-animal-transfer>div{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px}
+.fw-layout-world:before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background-image:linear-gradient(to right,#836b4930 1px,transparent 1px),linear-gradient(to bottom,#836b4930 1px,transparent 1px);background-size:48px 48px}
+.fw-entity.editing{cursor:grab}.fw-entity.editing:active{cursor:grabbing}.fw-entity.editing.fw-layout-fixed{cursor:not-allowed;opacity:.65}
+.fw-entity.editing.selected:after{border-color:#fff4c7;border-style:dashed;box-shadow:0 0 0 3px #9769a8}
+.fw-entity.editing.fw-invalid-position:after{border-color:#b64a40;box-shadow:0 0 0 3px #ffddc7}
+.fw-drag-handle{position:absolute;top:-27px;left:50%;transform:translateX(-50%);white-space:nowrap;pointer-events:none;background:#fff3d3;color:#64496c;border:2px solid #9769a8;border-radius:8px;padding:3px 7px;font:600 12px/1.2 system-ui;box-shadow:0 2px 0 #6d506833}
+.fw-edit-panel .fw-layout-instruction{font-size:12px;line-height:1.45;padding:5px 0;color:#64496c}
+.fw-move-object{border:2px dashed #9769a8!important;background:#fff4d8!important;color:#64496c!important;min-height:44px}

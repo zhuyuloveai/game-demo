@@ -112,7 +112,7 @@ export function mountWorldScene(ctx) {
     function selectedEntity(){return entity(selected);}
     function image(path,alt='',cls=''){return `<img class="${esc(cls)}" src="${ctx.asset(path)}" alt="${esc(alt)}" draggable="false">`;}
     function item(id,cls=''){return ctx.item(id,cls);}
-    function name(id){return ctx.name(id);}
+    function name(id){return ({house:'农场小屋',barn:'货仓',silo:'粮仓',road:'道路',natural_tree:'自然树',natural_bush:'灌木',rock:'石堆'})[id]||ctx.name(id);}
     function button(action,label,body='',extra=''){return `<button data-action="${esc(action)}" ${extra}>${body}${esc(label)}</button>`;}
     function remaining(t){const s=Math.max(0,Math.ceil((t-ctx.state.now)/1000));return s>60?`${Math.ceil(s/60)}分`:`${s}秒`;}
     function title(e){return e.kind==='shelter'?`${config.ANIMALS[e.configId]?.name||e.configId}舍`:e.kind==='field'?(e.crop?name(e.crop.itemId):'空田'):name(e.configId);}
@@ -139,12 +139,13 @@ export function mountWorldScene(ctx) {
     }
     function renderMap(){
       const focused=doc.activeElement?.dataset?.entity;
-      const entities=effectiveEntities().filter(e=>!e.stored);
+      const entities=effectiveEntities().filter(e=>!e.stored),layoutCheck=draft?draftCheck():null;
+      world.classList.toggle('fw-layout-world',!!draft);
       let html=`<div class="fw-owned" style="left:768px;top:768px;width:1536px;height:1536px"></div>`;
       if(id==='P12')for(const p of ctx.layout.LAND_PATCHES){const open=ctx.state.openedLand.includes(p.id),check=ctx.layout.canExpandLand(ctx.state,p.id);html+=`<button class="fw-land ${open?'opened':check.ok?'available':'locked'} ${selected===p.id?'selected':''}" data-land="${p.id}" style="left:${p.x*TILE}px;top:${p.y*TILE}px;width:${p.w*TILE}px;height:${p.h*TILE}px" aria-label="${p.id} ${open?'已开放':check.ok?'可以开垦':'暂不能开垦'}">${open?'已开垦':check.ok?'点选这块土地':'未开放'}</button>`;}
       for(const e of entities){
         const presentation=worldScenePresentation(id,selectedEntity(),e),badge=presentation.showBadge?stateBadge(e):'',marked=gesture?.stroke?.seen.has(e.id)||clearPreview?.ids.includes(e.id);
-        html+=`<button class="fw-entity fw-${e.kind} ${selected===e.id?'selected':''} ${marked?'marked':''} ${draft?'editing':''} ${presentation.focused?'fw-focused-entity':''} ${presentation.muted?'fw-muted-neighbor':''}" data-entity="${e.id}" style="${rectStyle(e)}${presentation.focused?';z-index:800':''}" aria-label="${esc(title(e))}${badge?'，'+esc(badge):''}">${art(e,'fw-entity-art')}${badge?`<span class="fw-badge">${esc(badge)}</span>`:''}${e.kind==='machine'&&!e.built?image('terrain/construction-scaffold.svg','','fw-scaffold'):''}</button>`;
+        html+=`<button class="fw-entity fw-${e.kind} ${selected===e.id?'selected':''} ${marked?'marked':''} ${draft?'editing':''} ${draft&&ctx.layout.isFixedEntity(e)?'fw-layout-fixed':''} ${draft&&selected===e.id&&!layoutCheck.ok?'fw-invalid-position':''} ${presentation.focused?'fw-focused-entity':''} ${presentation.muted?'fw-muted-neighbor':''}" data-entity="${e.id}" style="${rectStyle(e)}${presentation.focused?';z-index:800':''}" aria-label="${esc(title(e))}${draft?ctx.layout.isFixedEntity(e)?'，固定建筑，不能移动':'，拖动布置，完成后保存':badge?'，'+esc(badge):''}">${art(e,'fw-entity-art')}${draft&&selected===e.id?`<span class="fw-drag-handle" aria-hidden="true">${ctx.layout.isFixedEntity(e)?'固定':'✥ 拖动'}</span>`:''}${badge?`<span class="fw-badge">${esc(badge)}</span>`:''}${e.kind==='machine'&&!e.built?image('terrain/construction-scaffold.svg','','fw-scaffold'):''}</button>`;
         if(e.kind==='shelter'){
           const f=ctx.layout.getFootprint(e),cols=3,space=f.w*TILE/cols;
           (e.animals||[]).forEach((a,i)=>{const ax=e.x*TILE+(i%cols)*space,ay=e.y*TILE+f.h*TILE*.48+Math.floor(i/cols)*space*.75;html+=`<button class="fw-animal ${presentation.muted?'fw-muted-neighbor':''} ${selectedAnimal===a.id?'selected':''} ${gesture?.stroke?.seen.has(a.id)?'marked':''}" data-animal="${a.id}" data-shelter="${e.id}" style="left:${ax}px;top:${ay}px;width:${space}px;height:${space*.9}px;z-index:${Math.round((e.y+f.h)*10)+2}" aria-label="${esc(name(a.configId))}，${a.status==='hungry'?'饿了':a.status==='ready'?'产物待收':remaining(a.readyAt)}">${animalArt(a)}<span class="fw-animal-state ${a.status==='ready'?'fw-ready-output':''}">${a.status==='ready'?item(config.ANIMALS[a.configId].product):a.status==='hungry'?item(config.ANIMALS[a.configId].feedItem):'◷'}</span></button>`;});
@@ -189,7 +190,8 @@ export function mountWorldScene(ctx) {
       }else if(e.kind==='machine'){body=machineBoard(e);sub='点击配方直接加入队列；原料和用时见卡片，详情可选。';}
       else if(e.kind==='obstacle'){const t=e.configId==='natural_tree'?'saw':e.configId==='natural_bush'?'axe':'shovel';body=button(`obstacle:${t}`,`${name(t)} ×1`,item(t));if(e.configId==='rock')body+=button('obstacle:dynamite','炸药 ×1',item('dynamite'))+button('obstacle:tnt','TNT ×1',item('tnt'));sub='选工具先看实际清理目标，确认前不消耗。';}
       else if(e.kind==='barn'||e.kind==='silo'){body=button('chapter:P08','打开仓库',art(e))+button(`upgrade-storage:${e.kind}`,'查看扩容');sub=`${ctx.core.storageUsed(ctx.state,e.kind)} / ${ctx.state.storage[e.kind].capacity}`;}
-      else body=button('edit','布置这个物件');
+      else if(ctx.layout.isFixedEntity(e)){body=button('edit','布置其他物件');sub='小屋是固定建筑，不能移动或旋转。田地、仓库和工坊可自由布置。';}
+      if(!ctx.layout.isFixedEntity(e))body+=button('edit',`移动${title(e)}`,'','class="fw-move-object"');
       context.innerHTML=`<div class="fw-object-panel ${e.kind==='machine'?'fw-machine-panel':''}"><header><strong>${esc(title(e))}</strong>${button('close-tool','×','','aria-label="收起对象工具"')}</header><div class="fw-tool-row">${body}</div><p>${esc(sub)}</p></div>`;
     }
     function machineBoard(e){
@@ -246,7 +248,7 @@ export function mountWorldScene(ctx) {
     function draftCheck(){return draft?ctx.layout.validateLayout(ctx.state,draft):{ok:false};}
     function renderTransaction(){
       if(placement){const check=placementCheck();transaction.innerHTML=`<div class="fw-placement-panel"><strong>${esc(title(placement))} · ${placement.coins} 金币</strong><small>${check.ok?'拖动建筑或点空地选位置':esc(check.message)}</small><div>${button('rotate-placement','旋转')}${button('cancel-placement','取消')}${button('confirm-placement',`支付 ${placement.coins} 金币并放置`,'',check.ok?'':'disabled')}</div></div>`;return;}
-      if(draft){const check=draftCheck(),e=selectedEntity();transaction.innerHTML=`<div class="fw-edit-panel"><strong>布置草稿 · ${check.ok?'✓ 位置有效':'× '+esc(check.errors[0]?.message)}</strong><div>${button('rotate-draft','旋转','',e&&!ctx.layout.isFixedEntity(e)?'':'disabled')}${button('undo','撤销','',undo.length?'':'disabled')}${button('redo','重做','',redo.length?'':'disabled')}${button('layouts','方案')}${button('cancel-edit','取消')}${button('save-edit','完成布置','',check.ok?'':'disabled')}</div>${e&&ctx.layout.canStoreEntity(e)?button('store-object','收起此装饰'):''}<small>先点选物件再拖动。箭头键可移动选中物件，空白拖图。</small></div>`;return;}
+      if(draft){const check=draftCheck(),e=selectedEntity();transaction.innerHTML=`<div class="fw-edit-panel"><strong>布置模式${e?' · '+esc(title(e)):''} · ${check.ok?'✓ 位置有效':'× '+esc(check.errors[0]?.message)}</strong><small class="fw-layout-instruction">${e&&ctx.layout.isFixedEntity(e)?'这个物件固定，不能移动。请拖动田地、仓库、工坊等其他物件。':'抓住物件直接拖动，拖空白移动地图。完成布置后保存，取消则恢复原位。'}</small><div>${button('rotate-draft','旋转','',e&&!ctx.layout.isFixedEntity(e)?'':'disabled')}${button('undo','撤销','',undo.length?'':'disabled')}${button('redo','重做','',redo.length?'':'disabled')}${button('layouts','方案')}${button('cancel-edit','取消')}${button('save-edit','完成布置','',check.ok?'':'disabled')}</div>${e&&ctx.layout.canStoreEntity(e)?button('store-object','收起此装饰'):''}<small>也可用方向键微调选中的可移动物件。</small></div>`;return;}
       if(clearPreview){transaction.innerHTML=`<div class="fw-placement-panel"><strong>${esc(name(clearPreview.tool))} ×1 → 清理 ${clearPreview.ids.length} 处</strong><small>消耗工具后，轮廓高亮的障碍将永久消失，不可撤销，不赠送材料。</small><div>${button('cancel-clear','取消')}${button('confirm-clear',`消耗 ${name(clearPreview.tool)} ×1 并清理 ${clearPreview.ids.length}处`)}</div></div>`;return;}
       if(selected?.startsWith('land_')){const p=ctx.layout.LAND_PATCHES.find(p=>p.id===selected),check=ctx.layout.canExpandLand(ctx.state,selected),owned=ctx.state.openedLand.includes(selected);transaction.innerHTML=`<div class="fw-land-panel"><header><strong>${owned?'已开放土地':'开垦 8 × 8 格'}</strong>${button('close-tool','×')}</header>${!owned?`<div class="fw-materials">${['land_deed','mallet','marker_stake'].map(key=>`<div>${item(key)}<strong class="${(ctx.state.inventory[key]||0)<p[key]?'short':''}">${ctx.state.inventory[key]||0} / ${p[key]}</strong></div>`).join('')}</div><small>${check.ok?'材料足够后可开垦，不自动清障':esc(check.message)}</small>${button('expand-land','消耗所示材料并开垦','',check.ok?'':'disabled')}`:'<p>边界已经开放。自然障碍需要另选工具清理。</p>'}</div>`;return;}
       transaction.innerHTML='';
@@ -389,7 +391,12 @@ export function mountWorldScene(ctx) {
       if(!target.closest('.fw-map'))return;
       const p=point(event),animal=target.closest('[data-animal]'),ent=target.closest('[data-entity]'),land=target.closest('[data-land]');
       if(placement){gesture={type:'place',id:event.pointerId,start:p};const w=worldPoint(p);placement.x=Math.floor(w.x-placement.w/2);placement.y=Math.floor(w.y-placement.h/2);render();}
-      else if(draft&&ent&&selected===ent.dataset.entity&&!ctx.layout.isFixedEntity(entity(selected))){const w=worldPoint(p),pos=draft.positions.find(x=>x.id===selected);gesture={type:'edit',id:event.pointerId,start:p,last:p,entityId:selected,offset:{x:w.x-pos.x,y:w.y-pos.y},original:clone(draft.positions)};}
+      else if(draft&&ent){
+        selected=ent.dataset.entity;selectedAnimal=null;
+        if(ctx.layout.isFixedEntity(entity(selected)))gesture={type:'fixed',id:event.pointerId,start:p,last:p,entityId:selected};
+        else {const w=worldPoint(p),pos=draft.positions.find(x=>x.id===selected);gesture={type:'edit',id:event.pointerId,start:p,last:p,entityId:selected,offset:{x:w.x-pos.x,y:w.y-pos.y},original:clone(draft.positions)};}
+        renderMap();renderTransaction();
+      }
       else{gesture={type:'pan-pending',id:event.pointerId,start:p,last:p,camera:{...camera},entityId:animal?.dataset.shelter||ent?.dataset.entity,animalId:animal?.dataset.animal,landId:land?.dataset.land,time:Date.now()};}
       if(gesture?.type==='pan-pending'&&gesture.entityId&&!gesture.animalId&&!draft&&!placement&&!ctx.layout.isFixedEntity(entity(gesture.entityId))){const g=gesture;longPressTimer=win.setTimeout(()=>{if(gesture!==g||g.type!=='pan-pending')return;selected=g.entityId;chosenSeed=null;if(enterEdit()===false)return;const w=worldPoint(g.last),pos=draft.positions.find(x=>x.id===selected);gesture={type:'edit',id:g.id,start:g.start,last:g.last,entityId:selected,offset:{x:w.x-pos.x,y:w.y-pos.y},original:clone(draft.positions)};ctx.say('已拿起物件，拖动后点完成布置；取消不改位置');},500);}
       event.preventDefault();game.setPointerCapture?.(event.pointerId);
@@ -405,7 +412,7 @@ export function mountWorldScene(ctx) {
         if(actualUI(p)){cancelGesture('已划入工具区域，这一笔未执行');return;}
         previewGesture(g,p);return;
       }
-      if(g.type==='product-pending')return;
+      if(g.type==='fixed'||g.type==='product-pending')return;
       if(g.type==='job-pending'){if(distance>=8&&Date.now()-g.time>=350){g.type='job-drag';note.hidden=false;note.textContent='拖到另一等待槽，抬手调整顺序';}return;}
       if(g.type==='job-drag')return;
       if(actualUI(p)){cancelGesture('已进入操作区域，预览已取消');return;}
@@ -435,8 +442,9 @@ export function mountWorldScene(ctx) {
       }else if(g.type==='job-drag'){
         const drop=doc.elementFromPoint(p.x,p.y)?.closest('[data-job]'),e=entity(g.entityId),target=e.queue.find(j=>j.id===drop?.dataset.job);
         if(target?.startAt===null){const ids=e.queue.filter(j=>j.startAt===null).map(j=>j.id),from=ids.indexOf(g.jobId),to=ids.indexOf(target.id);if(from>=0&&to>=0){ids.splice(from,1);ids.splice(to,0,g.jobId);doAct({type:'reorderQueue',entityId:e.id,jobIds:ids},'队列已排序');}}render();
+      }else if(g.type==='fixed'){ctx.say('这个物件固定，不能移动。请拖动其他物件。');render();
       }else if(g.type==='edit'){
-        const next=clone(draft.positions);draft.positions=g.original;pushDraft(next);
+        const next=clone(draft.positions);draft.positions=g.original;if(!pushDraft(next))render();
       }else if(g.type==='pan-pending'&&distance<8&&Date.now()-g.time<=500){
         if(g.landId){selected=g.landId;more=false;render();}
         else if(g.entityId){if(draft){selected=g.entityId;render();}else openObject(g.entityId,g.animalId);}

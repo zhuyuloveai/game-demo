@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>交易控件隔离回归</title>
+<link rel="stylesheet" href="../farm-scene-trade.css">
+<style>
+body{margin:0;background:#ece9d8;font:14px system-ui;color:#4b4533}header{padding:10px}header p{margin:5px 0}header button{min-height:44px}#report{white-space:pre-wrap;max-height:140px;overflow:auto}#fixture{height:640px;max-width:390px;margin:auto}#fixture .trade-root{height:100%}
+</style>
+<header><strong>交易控件隔离回归</strong><p>仅使用标明的 30 级 QA 数据，不读写玩家存档。</p><button id="run">运行交易回归</button><pre id="report" role="status">准备就绪</pre></header>
+<div id="fixture"><div id="trade"></div></div>
+<script type="module">
+import {mountTradeScene,patchTradeChildren} from '../farm-scene-trade.mjs';
+import * as core from '../farm-core.mjs';
+import * as config from '../farm-config.mjs';
+import {farmAssetUrl} from '../farm-assets.mjs';
+const fixture=(await (await fetch('./fixtures/farm-level30-ready.json')).json()).payload;
+const root=document.querySelector('#trade'),report=document.querySelector('#report');
+let cleanup,subscribers,state,sequence,timer;
+function mount(id='P08'){
+ cleanup?.();clearInterval(timer);subscribers=new Set();state=structuredClone(fixture);state.inventory.wheat=201;sequence=0;core.assertFarm(state);
+ const ctx={id,root,config,core,focusItem:id==='P08'?'wheat':null,get state(){return state;},
+  name:id=>config.ITEMS[id]?.name||config.BUILDINGS[id]?.name||id,
+  item:(id,cls='')=>`<img src="${farmAssetUrl(id)}" alt="${id}" class="${cls}">`,
+  img:(path,alt='',cls='')=>`<img src="../assets/farm/${path}" alt="${alt}" class="${cls}">`,
+  subscribe:fn=>{subscribers.add(fn);return()=>subscribers.delete(fn);},onExit(){},
+  act(command){try{const r=core.executeFarm(state,{...command,commandId:`farmcmd:browser:${++sequence}`},state.now);state=r.state;emit();return r;}catch(error){return {ok:false,error};}},
+  confirm(){throw Error('Unexpected confirmation in the protected seed test');}
+ };
+ cleanup=mountTradeScene(ctx);timer=setInterval(tick,1000);
+}
+const emit=()=>{for(const fn of subscribers)fn();};
+function tick(){state=core.advanceFarm(state,state.now+1000).state;emit();}
+const click=action=>{const node=[...root.querySelectorAll('[data-action]')].find(e=>e.dataset.action===action);if(!node)throw Error('Missing action '+action);node.click();};
+const assert=(value,message)=>{if(!value)throw Error(message);};
+document.querySelector('#run').onclick=()=>{
+ const checks=[];
+ try{
+  mount('P07');const frame=root.firstElementChild,product=root.querySelector('[data-action="product:field"]'),art=product.querySelector('img');
+  for(let i=0;i<4;i++)tick();
+  assert(frame===root.firstElementChild&&art.isConnected,'Shop clock tick replaced image nodes');checks.push('商店计时更新保留商品与图片节点');
+  click('tab:vouchers');const wallet=root.querySelector('.trade-wallet img'),plus=root.querySelector('[data-action="qty:1"]');plus.focus();
+  click('qty:1');assert(wallet.isConnected&&plus.isConnected&&document.activeElement===plus,'Shop quantity rebuilt controls or lost focus');checks.push('购买加减保留图片、按钮和焦点');
+  mount();const range=root.querySelector('[data-quantity-range]'),drawer=root.querySelector('.trade-drawer'),image=drawer.querySelector('img'),scroll=root.querySelector('.trade-scroll');
+  scroll.scrollTop=scroll.scrollHeight;const offset=scroll.scrollTop;
+  range.focus({preventScroll:true});range.value='137';range.dispatchEvent(new Event('input',{bubbles:true}));
+  assert(root.querySelector('output').textContent==='137'&&state.inventory.wheat===201,'Slider changed economy or failed to change draft');
+  assert(range.isConnected&&image.isConnected&&drawer.isConnected&&scroll.scrollTop===offset,`Slider retention: range=${range.isConnected}, image=${image.isConnected}, drawer=${drawer.isConnected}, scroll=${scroll.scrollTop}/${offset}`);
+  tick();range.value='138';range.dispatchEvent(new Event('input',{bubbles:true}));
+  assert(range===root.querySelector('[data-quantity-range]')&&document.activeElement===range,'Clock tick interrupted focused slider');checks.push('滑条跨计时更新保留节点、焦点和滚动位置');
+  click('quantity:half');assert(range.value==='100','Half must use the 200 freely sellable units');
+  click('quantity:all');assert(range.value==='200','All must preserve last seed');checks.push('半数100份、全部200份，始终保留种子');
+  const coins=state.coins;click('sellItem');assert(state.inventory.wheat===1&&state.coins===coins+core.recoveryPrice('wheat',200),'Bulk sale amount mismatch');
+  const after=state.coins;click('sellItem');assert(state.coins===after,'Disabled repeat sale changed balance');checks.push('批量出售200份到账准确，重复提交不出售最后种子');
+  const parent=document.createElement('div'),desired=document.createElement('template');
+  parent.innerHTML='<button data-action="a"><img src="a.svg"></button><button data-action="b">B</button>';
+  const first=parent.firstChild,picture=first.firstChild,second=parent.lastChild;
+  desired.innerHTML='<button data-action="b" disabled>B2</button><button data-action="a"><img src="a.svg"></button>';
+  patchTradeChildren(parent,desired.content);assert(parent.firstChild===second&&parent.lastChild===first&&picture.isConnected===false&&first.firstChild===picture&&second.disabled,'Keyed reorder or disabled sync failed');checks.push('列表排序复用原节点并同步禁用状态');
+  report.textContent='全部通过（'+checks.length+'项）\n'+checks.join('\n');
+  mount();click('quantity:50');
+ }catch(error){report.textContent='失败：'+error.message+'\n'+checks.join('\n');throw error;}
+};
+mount();
+</script>
+</html>

@@ -13,12 +13,12 @@ const fixture=JSON.parse(fs.readFileSync(path.join(repo,'tests/fixtures/farm-lev
 const esc=s=>String(s??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;');
 function mount(id,options={}){
  let state=structuredClone(options.initialState||fixture),confirmation=null,seq=0,exits=[],subs=new Set();
- const listeners={},missing=new Set();
- const root={innerHTML:'',dataset:{},classList:{add(){}},ownerDocument:{activeElement:null},contains:()=>true,querySelector:()=>null,querySelectorAll:()=>[],addEventListener:(k,fn)=>listeners[k]=fn,removeEventListener:(k)=>delete listeners[k]};
+ const listeners={},missing=new Set();let markup='',htmlWrites=0;
+ const root={get innerHTML(){return markup;},set innerHTML(value){markup=value;htmlWrites++;},dataset:{},classList:{add(){}},ownerDocument:{activeElement:null},contains:()=>true,querySelector:()=>null,querySelectorAll:()=>[],addEventListener:(k,fn)=>listeners[k]=fn,removeEventListener:(k)=>delete listeners[k]};
  const emit=()=>{for(const f of subs)f();};
  const ctx={...options,id,root,config,core,layout,get state(){return state;},esc,name:id=>config.ITEMS[id]?.name||config.BUILDINGS[id]?.name||id,img:(p,a='',c='')=>{if(!fs.existsSync(path.join(repo,'assets/farm',p)))missing.add(p);return `<img src="${p}" alt="${a}" class="${c}">`;},item:(id,c='')=>`<img src="items/${id}.svg" alt="${id}" class="${c}">`,asset:p=>p,subscribe:f=>{subs.add(f);return()=>subs.delete(f);},onExit:f=>exits.push(f),say(){},confirm:o=>confirmation=o,act:command=>{try{const r=core.executeFarm(state,{...command,commandId:`farmcmd:test${id}:${++seq}`},state.now);state=r.state;emit();return r;}catch(error){return{ok:false,error};}},advance:ms=>{state=core.advanceFarm(state,state.now+ms).state;emit();},reset:()=>{state=structuredClone(fixture);seq=0;emit();},setScenario:(f)=>{const n=structuredClone(state);f(n);core.assertFarm(n);state=n;emit();}};
  const cleanup=mountTradeScene(ctx);
- return {ctx,root,missing,get state(){return state;},get confirmation(){return confirmation;},fire(type,event){listeners[type](event);},click(action){listeners.click({target:{closest:()=>({dataset:{action},disabled:false})}});},check(value){listeners.change({target:{dataset:{check:'allowSeed'},checked:value}});},confirm(){assert.ok(confirmation,'confirmation should exist');const c=confirmation;confirmation=null;return c.onConfirm();},cancel(){confirmation=null;},cleanup,html:()=>root.innerHTML};
+ return {ctx,root,missing,get htmlWrites(){return htmlWrites;},get state(){return state;},get confirmation(){return confirmation;},fire(type,event){listeners[type](event);},click(action){listeners.click({target:{closest:()=>({dataset:{action},disabled:false})}});},check(value){listeners.change({target:{dataset:{check:'allowSeed'},checked:value}});},confirm(){assert.ok(confirmation,'confirmation should exist');const c=confirmation;confirmation=null;return c.onConfirm();},cancel(){confirmation=null;},cleanup,html:()=>root.innerHTML};
 }
 
 for(const id of ['P07','P08','P09','P10','P11']) test(`${id} renders actual fresh progression without mutating it`,()=>{
@@ -45,3 +45,55 @@ test('final cost confirmation survives real clock ticks but rejects changed quot
 
 for(const id of ['P09','P10'])test(`${id} explicitly blocks disabled NPC market with zero economic effects`,()=>{const initialState=structuredClone(fixture);initialState.features.npcMarketEnabled=false;const a=mount(id,{initialState});assert.match(a.html(),/NPC集市功能关闭/);assert.doesNotMatch(a.html(),/class="trade-shelf-slot|class="trade-crate /);const before=structuredClone(a.state);a.click('box:'+a.state.npc.boxes[0].id);a.click('buyOffer');a.click('expandStall');assert.deepEqual(a.state,before);a.cleanup();});
 test('construction voucher disabled prevents conversion and removes stall upgrade option',()=>{const initialState=structuredClone(fixture);initialState.features.constructionVouchersEnabled=false;const shop=mount('P07',{initialState});shop.click('tab:vouchers');assert.match(shop.html(),/建设券功能关闭/);const before=structuredClone(shop.state);shop.click('shopBuy');assert.equal(shop.confirmation,null);assert.deepEqual(shop.state,before);shop.cleanup();const stall=mount('P10',{initialState});assert.doesNotMatch(stall.html(),/data-action="expandStall"/);stall.click('expandStall');assert.equal(stall.confirmation,null);assert.deepEqual(stall.state,initialState);stall.cleanup();});
+
+test('bulk quantities are drafts; a single explicit sale reclaims hundreds and keeps the last seed',()=>{
+ const initialState=structuredClone(fixture);initialState.inventory.wheat=201;
+ const a=mount('P08',{initialState});a.click('inventory:wheat');const before=structuredClone(a.state);
+ a.click('quantity:50');assert.match(a.html(),/回收 50份/);
+ a.click('quantity:half');assert.match(a.html(),/回收 100份/);
+ a.click('quantity:all');assert.match(a.html(),/回收 200份/);
+ assert.match(a.html(),/aria-label="出售数量"[^>]*aria-valuetext="200份，可选最多200份"/);
+ assert.deepEqual(a.state,before,'quantity controls cannot sell or mutate inventory');
+ a.click('sellItem');assert.equal(a.state.inventory.wheat,1);
+ assert.equal(a.state.coins,before.coins+core.recoveryPrice('wheat',200));
+ const after=structuredClone(a.state);a.click('sellItem');assert.deepEqual(a.state,after);
+ assert.match(a.html(),/暂无可出售数量/);assert.match(a.html(),/回收 <b>0 金币/);a.cleanup();
+});
+
+test('slider clamps to current inventory and live inventory changes clamp both quote and submit',()=>{
+ const initialState=structuredClone(fixture);initialState.inventory.wheat=201;
+ const a=mount('P08',{initialState});a.click('inventory:wheat');
+ const slide=value=>a.fire('input',{target:{hasAttribute:name=>name==='data-quantity-range',value:String(value)}});
+ slide(137);assert.match(a.html(),/回收 137份/);
+ slide(999);assert.match(a.html(),/回收 200份/);
+ a.ctx.setScenario(s=>s.inventory.wheat=4);
+ assert.match(a.html(),/回收 3份/);assert.match(a.html(),/剩 1份/);
+ a.click('sellItem');assert.equal(a.state.inventory.wheat,1);a.cleanup();
+});
+
+test('all-sale requires an explicit reserve override and unchanged final confirmation',()=>{
+ const initialState=structuredClone(fixture);initialState.inventory.wheat=6;
+ const a=mount('P08',{initialState});a.click('inventory:wheat');a.click('quantity:all');
+ assert.match(a.html(),/回收 5份/);a.check(true);a.click('quantity:all');
+ const before=structuredClone(a.state);a.click('sellItem');assert.ok(a.confirmation);
+ assert.deepEqual(a.state,before);a.cancel();assert.deepEqual(a.state,before);
+ a.click('sellItem');a.ctx.advance(1000);assert.equal(a.confirm().ok,true);
+ assert.equal(a.state.inventory.wheat,0);a.cleanup();
+});
+
+test('listing picker respects ten-item boxes and seed reserve even with bulk stock',()=>{
+ const initialState=structuredClone(fixture);initialState.inventory.wheat=201;
+ const a=mount('P10',{initialState});a.click('box:'+a.state.npc.boxes[0].id);a.click('listItem:wheat');
+ a.click('quantity:all');assert.match(a.html(),/上架立即移出10份库存/);
+ const before=structuredClone(a.state);a.click('listConfirm');
+ assert.equal(a.state.inventory.wheat,before.inventory.wheat-10);
+ assert.equal(a.state.npc.boxes[0].listing.quantity,10);a.cleanup();
+});
+
+test('unchanged clock ticks do not rewrite the shop or storage markup',()=>{
+ for(const id of ['P07','P08']) {
+  const a=mount(id);if(id==='P08')a.click('inventory:wheat');
+  const count=a.htmlWrites;for(let n=0;n<5;n++)a.ctx.advance(1000);
+  assert.equal(a.htmlWrites,count);a.cleanup();
+ }
+});
