@@ -1,0 +1,15 @@
+{
+  "key": "pumpkin",
+  "group": "crops",
+  "label": "南瓜",
+  "projectId": "pumpkin",
+  "prompt": "A single clean flat 2D farm-game sprite: a low compact pumpkin vine with TWO ripe round orange pumpkins and five simple scalloped green leaves, suitable for the mature crop on one farm tile. Cute Sumikko Gurashi Farm art direction from the attached reference screenshots. Light warm-tan thin outline, simple squat rounded shapes, solid opaque pastel color fills, only two flat tones per shape. Elevated three-quarter farm-grid view. Clean solid silhouette and crisp closed shapes. All background and all gaps between leaves must be fully transparent alpha 0. Exactly one connected clump centered with a comfortable empty margin. No soil tile. No shadows anywhere, no glow, no haze, no gradients, no blur, no ambient occlusion, no lighting effects. The subject is fully opaque. No text. Make a plain flat game asset, no presentation effects.",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+    "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-fcfdbce0-e80c-436c-be6f-e35ebb128464.png",
+  "path": "assets/crops/pumpkin.png",
+  "status": "generated",
+  "mode": "builtin-imagegen"
+}

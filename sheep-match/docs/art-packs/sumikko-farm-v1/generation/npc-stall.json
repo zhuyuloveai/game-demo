@@ -1,0 +1,15 @@
+{
+  "key": "npc-stall",
+  "group": "buildings",
+  "label": "集市摊位",
+  "projectId": "NPC_Stall",
+  "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One compact wooden farm market stall with soft peach-and-cream striped awning, tidy 3 baskets holding apples, carrots and bread, low front counter and tiny hanging leaf pictogram. No vendor, people, signs with text or floor base.",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+    "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-81e7a1ea-0409-4209-8c0d-05b66c907f6a.png",
+  "path": "assets/buildings/npc-stall.png",
+  "status": "generated",
+  "mode": "builtin-imagegen"
+}

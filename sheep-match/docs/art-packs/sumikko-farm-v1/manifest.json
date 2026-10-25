@@ -1,0 +1,1025 @@
+{
+  "title": "羊羊牧场 · 角落生物农场风格 · 首批63种静态素材",
+  "mode": "builtin-imagegen",
+  "scope": "22 buildings, 11 crops, 5 fruit plants, 5 animals, 20 decorations. Static base forms only.",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+    "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+  ],
+  "stylePrompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: ",
+  "assets": [
+    {
+      "key": "bakery",
+      "group": "buildings",
+      "label": "面包房",
+      "projectId": "Bakery",
+      "description": "Small cream bakery workshop, peach scalloped gable roof, broad rounded blue shop window, short striped apricot awning, simple loaf-shaped sign and a tiny attached bread shelf. One compact building, no separate cart.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: Small cream bakery workshop, peach scalloped gable roof, broad rounded blue shop window, short striped apricot awning, simple loaf-shaped sign and a tiny attached bread shelf. One compact building, no separate cart.",
+      "path": "assets/buildings/bakery.png",
+      "status": "generated",
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-232c3561-b358-4a20-9f6a-fd7ffbdba2f8.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ],
+      "exists": true
+    },
+    {
+      "key": "feed-mill",
+      "group": "buildings",
+      "label": "饲料机",
+      "projectId": "Feed_Mill",
+      "description": "Compact honey-wood grain-feed mill, small pastel mint shelter canopy, simple round side wheel, hopper, short chute into an attached feed trough and one tidy grain sack. Rounded functional machinery, low clutter.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: Compact honey-wood grain-feed mill, small pastel mint shelter canopy, simple round side wheel, hopper, short chute into an attached feed trough and one tidy grain sack. Rounded functional machinery, low clutter.",
+      "path": "assets/buildings/feed-mill.png",
+      "status": "generated",
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-e2cb67fb-388b-45f5-9a46-fd5ef33b6ce9.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ],
+      "exists": true
+    },
+    {
+      "key": "dairy",
+      "group": "buildings",
+      "label": "乳品坊",
+      "projectId": "Dairy",
+      "description": "Small cream dairy workshop with soft powder-blue curved roof, milk-bottle pictogram above the round doorway, one attached wooden butter churn and two small milk cans. Simple friendly low-rise building.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: Small cream dairy workshop with soft powder-blue curved roof, milk-bottle pictogram above the round doorway, one attached wooden butter churn and two small milk cans. Simple friendly low-rise building.",
+      "path": "assets/buildings/dairy.png",
+      "status": "generated",
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-e322f589-4578-48fe-9dcc-b146e8b96a85.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ],
+      "exists": true
+    },
+    {
+      "key": "sugar-mill",
+      "group": "buildings",
+      "label": "糖坊",
+      "projectId": "Sugar_Mill",
+      "description": "Small cream sugar-making workshop with warm pale yellow rounded roof, squat chimney, a simple sugar-cube emblem and an attached shallow syrup vat with short pipe. One tidy unit.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: Small cream sugar-making workshop with warm pale yellow rounded roof, squat chimney, a simple sugar-cube emblem and an attached shallow syrup vat with short pipe. One tidy unit.",
+      "path": "assets/buildings/sugar-mill.png",
+      "status": "generated",
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-0840dcb1-52ac-4a02-bf1a-57e315406f7d.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ],
+      "exists": true
+    },
+    {
+      "key": "popcorn-pot",
+      "group": "buildings",
+      "label": "爆米花锅",
+      "projectId": "Popcorn_Pot",
+      "description": "A charming compact popcorn cooker station: round butter-yellow pot on a short cream stove, a few plump popcorn kernels visible, one tiny coral canopy and attached wooden side shelf. No building walls or vendor.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: A charming compact popcorn cooker station: round butter-yellow pot on a short cream stove, a few plump popcorn kernels visible, one tiny coral canopy and attached wooden side shelf. No building walls or vendor.",
+      "path": "assets/buildings/popcorn-pot.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-c3232d29-11f2-4ddc-8b45-6f744af42bea.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "bbq-grill",
+      "group": "buildings",
+      "label": "烤架",
+      "projectId": "BBQ_Grill",
+      "description": "Small rounded charcoal barbecue grill station on short honey-wood legs, simple oval cooking grate with three vegetable skewers, a low sage fabric sunshade and tiny attached utensil hook. No flames or smoke plume.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: Small rounded charcoal barbecue grill station on short honey-wood legs, simple oval cooking grate with three vegetable skewers, a low sage fabric sunshade and tiny attached utensil hook. No flames or smoke plume.",
+      "path": "assets/buildings/bbq-grill.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-2d8e9e25-12a3-4c03-8d14-eb0015483b9c.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "pie-oven",
+      "group": "buildings",
+      "label": "派炉",
+      "projectId": "Pie_Oven",
+      "description": "Small rounded cream brick pie oven with peach arched hood, dark round oven mouth, short chimney and one apple pie on a small attached wooden shelf. Single compact cooking station.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: Small rounded cream brick pie oven with peach arched hood, dark round oven mouth, short chimney and one apple pie on a small attached wooden shelf. Single compact cooking station.",
+      "path": "assets/buildings/pie-oven.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-59bb223e-7117-4795-89c0-9c9c2c87d52e.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "loom",
+      "group": "buildings",
+      "label": "织布机",
+      "projectId": "Loom",
+      "description": "A small honey-wood weaving loom, softened rounded beams, simple vertical cream warp threads, pastel sky-blue woven cloth draped over front roller, two muted wool spools attached at side. No building around it.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: A small honey-wood weaving loom, softened rounded beams, simple vertical cream warp threads, pastel sky-blue woven cloth draped over front roller, two muted wool spools attached at side. No building around it.",
+      "path": "assets/buildings/loom.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-d50e80e1-76fd-4fcb-8900-a55446d20d6c.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "sewing-machine",
+      "group": "buildings",
+      "label": "缝纫机",
+      "projectId": "Sewing_Machine",
+      "description": "Cute small vintage mint sewing machine with rounded body on a short warm wooden worktable, small hand wheel, peach thread spool and a folded cream fabric strip under needle. Unified compact workstation.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: Cute small vintage mint sewing machine with rounded body on a short warm wooden worktable, small hand wheel, peach thread spool and a folded cream fabric strip under needle. Unified compact workstation.",
+      "path": "assets/buildings/sewing-machine.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-22e65313-1920-4d00-8821-3c25bdf3d007.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "cake-oven",
+      "group": "buildings",
+      "label": "蛋糕炉",
+      "projectId": "Cake_Oven",
+      "description": "Small cream cake bakery oven station, rounded blush-pink roof/hood, round front oven window, a strawberry layer-cake pictogram and one simple cake on attached side shelf. Distinct from the plain pie oven.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: Small cream cake bakery oven station, rounded blush-pink roof/hood, round front oven window, a strawberry layer-cake pictogram and one simple cake on attached side shelf. Distinct from the plain pie oven.",
+      "path": "assets/buildings/cake-oven.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-8ee29d16-9cbc-479d-abfa-d1136ae1f66d.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "juice-press",
+      "group": "buildings",
+      "label": "榨汁机",
+      "projectId": "Juice_Press",
+      "description": "Small rustic honey-wood apple press, rounded upright screw and crossbar, a compact barrel basket with two apples visible, short spout into an attached simple jug. Tiny soft sage canopy optional. One coherent machine.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: Small rustic honey-wood apple press, rounded upright screw and crossbar, a compact barrel basket with two apples visible, short spout into an attached simple jug. Tiny soft sage canopy optional. One coherent machine.",
+      "path": "assets/buildings/juice-press.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-430bf37a-7922-4a73-97f8-2d27867b0abf.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "ice-cream-maker",
+      "group": "buildings",
+      "label": "冰淇淋机",
+      "projectId": "Ice_Cream_Maker",
+      "description": "Compact adorable cream-and-mint ice cream making station, rounded churning barrel under a peach striped canopy, small hand crank, a single ice cream cone pictogram and tiny attached serving shelf. No words.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: Compact adorable cream-and-mint ice cream making station, rounded churning barrel under a peach striped canopy, small hand crank, a single ice cream cone pictogram and tiny attached serving shelf. No words.",
+      "path": "assets/buildings/ice-cream-maker.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-78d15395-67d6-4784-9299-1eee1cfa18fb.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "chicken-shelter",
+      "group": "buildings",
+      "label": "鸡舍",
+      "projectId": "Chicken_Shelter",
+      "description": "Compact raised cream chicken coop with apricot roof, oval egg sign, open round doorway and short ramp.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: Compact raised cream chicken coop with apricot roof, oval egg sign, open round doorway and short ramp.",
+      "path": "assets/buildings/chicken-shelter.png",
+      "status": "reused",
+      "reuseSource": "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-basic-assets-v1/assets/coop.png",
+      "exists": true
+    },
+    {
+      "key": "cow-shelter",
+      "group": "buildings",
+      "label": "牛棚",
+      "projectId": "Cow_Shelter",
+      "description": "Small open-front cream cow barn with rounded dusty-blue roof, broad doorway, milk-bottle sign, attached simple hay rack. One low side fence forming a modest open yard, no ground tile and NO animals.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: Small open-front cream cow barn with rounded dusty-blue roof, broad doorway, milk-bottle sign, attached simple hay rack. One low side fence forming a modest open yard, no ground tile and NO animals.",
+      "path": "assets/buildings/cow-shelter.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-c60c1ca1-469c-4dcf-afc2-fa8e0b54caa3.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "pig-shelter",
+      "group": "buildings",
+      "label": "猪舍",
+      "projectId": "Pig_Shelter",
+      "description": "Small low cream pig shelter with rounded pale peach roof, wide low arched doorway, tiny snout pictogram, attached trough and short side rail. Friendly tidy shed, NO pig and no muddy ground base.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: Small low cream pig shelter with rounded pale peach roof, wide low arched doorway, tiny snout pictogram, attached trough and short side rail. Friendly tidy shed, NO pig and no muddy ground base.",
+      "path": "assets/buildings/pig-shelter.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-48415ce9-a313-4c5f-b5ad-82ec1c2aa24d.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "sheep-shelter",
+      "group": "buildings",
+      "label": "羊圈",
+      "projectId": "Sheep_Shelter",
+      "description": "Small open cream sheep shelter with rounded sage roof, soft cloud/wool emblem, simple wooden support posts and attached hay rack, low side rails. No sheep, no lawn base.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: Small open cream sheep shelter with rounded sage roof, soft cloud/wool emblem, simple wooden support posts and attached hay rack, low side rails. No sheep, no lawn base.",
+      "path": "assets/buildings/sheep-shelter.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-c16e3c0d-45eb-454b-b561-1eb396d47a67.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "lamb-shelter",
+      "group": "buildings",
+      "label": "羔羊小屋",
+      "projectId": "Lamb_Shelter",
+      "description": "Small extra-cozy lamb nursery shed, creamy walls, short butter-yellow roof, scalloped opening, a tiny leaf-and-wool symbol, one little attached feeding bowl and short side rail. Smaller rounder than adult sheep barn, NO animals.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: Small extra-cozy lamb nursery shed, creamy walls, short butter-yellow roof, scalloped opening, a tiny leaf-and-wool symbol, one little attached feeding bowl and short side rail. Smaller rounder than adult sheep barn, NO animals.",
+      "path": "assets/buildings/lamb-shelter.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-0800e4b1-f29a-4842-afc1-44de17247e2f.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "farmhouse",
+      "group": "buildings",
+      "label": "农舍",
+      "projectId": "Farmhouse",
+      "description": "Cream farmhouse with rounded peach gable roof, blue arched windows, wooden door and flowerbox.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: Cream farmhouse with rounded peach gable roof, blue arched windows, wooden door and flowerbox.",
+      "path": "assets/buildings/farmhouse.png",
+      "status": "reused",
+      "reuseSource": "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-basic-assets-v1/assets/farmhouse.png",
+      "exists": true
+    },
+    {
+      "key": "barn",
+      "group": "buildings",
+      "label": "仓库",
+      "projectId": "Barn",
+      "description": "Compact cream storage barn, rounded coral-peach gambrel roof, wide double honey-wood doors with a simple diagonal brace, small blue attic window, tiny attached crate shelf. No loose surrounding crates.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: Compact cream storage barn, rounded coral-peach gambrel roof, wide double honey-wood doors with a simple diagonal brace, small blue attic window, tiny attached crate shelf. No loose surrounding crates.",
+      "path": "assets/buildings/barn.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-2530387f-22a4-4234-9557-626ad4c440b4.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "silo",
+      "group": "buildings",
+      "label": "粮仓",
+      "projectId": "Silo",
+      "description": "One short squat cylindrical grain silo, butter-cream wall, softly domed muted blue roof, small wooden hatch at base, one short side ladder and a wheat-shaped emblem. Cute low proportions.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One short squat cylindrical grain silo, butter-cream wall, softly domed muted blue roof, small wooden hatch at base, one short side ladder and a wheat-shaped emblem. Cute low proportions.",
+      "path": "assets/buildings/silo.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-78e130da-8834-47ed-8f83-54221898b0d0.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "order-board",
+      "group": "buildings",
+      "label": "订单板",
+      "projectId": "Order_Board",
+      "description": "One wooden order noticeboard standing on two short posts, rounded peach mini-roof, 3 pinned cream paper notes bearing simple tiny carrot, milk and wheat pictograms only. Absolutely no letters, numbers or legible writing.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One wooden order noticeboard standing on two short posts, rounded peach mini-roof, 3 pinned cream paper notes bearing simple tiny carrot, milk and wheat pictograms only. Absolutely no letters, numbers or legible writing.",
+      "path": "assets/buildings/order-board.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-b8bfbb27-198a-4b39-87c0-9915324cab70.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "npc-stall",
+      "group": "buildings",
+      "label": "集市摊位",
+      "projectId": "NPC_Stall",
+      "description": "One compact wooden farm market stall with soft peach-and-cream striped awning, tidy 3 baskets holding apples, carrots and bread, low front counter and tiny hanging leaf pictogram. No vendor, people, signs with text or floor base.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One compact wooden farm market stall with soft peach-and-cream striped awning, tidy 3 baskets holding apples, carrots and bread, low front counter and tiny hanging leaf pictogram. No vendor, people, signs with text or floor base.",
+      "path": "assets/buildings/npc-stall.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-81e7a1ea-0409-4209-8c0d-05b66c907f6a.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "wheat",
+      "group": "crops",
+      "label": "小麦",
+      "projectId": "wheat",
+      "description": "A clump of ripe wheat.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: A compact ripe wheat clump of 6 short golden stalks with rounded plump wheat ears and two simple muted-green leaves at the bottom. Farm crop growing naturally in a small bunch, no binding ribbon or cut stalk pile. Light honey-tan fine outlines, pale golden ears with only one flat shadow tone; plain small oval grains, absolutely no glossy bright white highlights. Flatter and lighter than a storybook hero illustration. Keep it simple and soft like the tiny farming crops in the references. No soil patch.",
+      "path": "assets/crops/wheat.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-22f42f80-4482-43ca-9af2-a9babaaef8aa.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ],
+      "previousReuseSource": "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-basic-assets-v1/assets/wheat.png"
+    },
+    {
+      "key": "corn",
+      "group": "crops",
+      "label": "玉米",
+      "projectId": "corn",
+      "description": "One compact mature corn crop clump for a single planting tile: three short upright stalks, broad soft green leaves and 2 clearly visible plump golden cobs in partly open husks. Base ends at stems; no soil, no detached harvested cobs.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One compact mature corn crop clump for a single planting tile: three short upright stalks, broad soft green leaves and 2 clearly visible plump golden cobs in partly open husks. Base ends at stems; no soil, no detached harvested cobs.",
+      "path": "assets/crops/corn.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-e00d274c-4acc-4c14-b40d-129735a78750.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "soybean",
+      "group": "crops",
+      "label": "大豆",
+      "projectId": "soybean",
+      "description": "One squat mature soybean plant clump with 3 short branching stems, broad rounded trifoliate light-green leaves and several pale green plump bean pods. Clear pods and low silhouette, no soil or detached beans.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One squat mature soybean plant clump with 3 short branching stems, broad rounded trifoliate light-green leaves and several pale green plump bean pods. Clear pods and low silhouette, no soil or detached beans.",
+      "path": "assets/crops/soybean.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-9713a111-6033-4026-a019-e40b489764ea.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "sugarcane",
+      "group": "crops",
+      "label": "甘蔗",
+      "projectId": "sugarcane",
+      "description": "One compact group of 4 mature sugarcane stalks, soft pale yellow-green segmented stems and a small fan of simple long green leaves at top. Rounded segments, low detail, no soil.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One compact group of 4 mature sugarcane stalks, soft pale yellow-green segmented stems and a small fan of simple long green leaves at top. Rounded segments, low detail, no soil.",
+      "path": "assets/crops/sugarcane.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-ed20db5c-a915-4110-9c75-2906935ae998.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "carrot",
+      "group": "crops",
+      "label": "胡萝卜",
+      "projectId": "carrot",
+      "description": "One harvest-ready planted carrot clump: three broad leafy green tops above three short visible rounded orange carrot shoulders and tapered root tips, base aligned. Readable planted crop, no basket, no tie or soil tile.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One harvest-ready planted carrot clump: three broad leafy green tops above three short visible rounded orange carrot shoulders and tapered root tips, base aligned. Readable planted crop, no basket, no tie or soil tile.",
+      "path": "assets/crops/carrot.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-4d67b78c-e982-4036-a368-4c0fdd7e3658.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "indigo",
+      "group": "crops",
+      "label": "靛蓝",
+      "projectId": "indigo",
+      "description": "One small mature indigo plant clump with several neat green stems, small rounded paired leaflets and a few restrained pale lilac-pink flower spikes. Botanically suggestive simple farming crop, no large ornamental bouquet or pot.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One small mature indigo plant clump with several neat green stems, small rounded paired leaflets and a few restrained pale lilac-pink flower spikes. Botanically suggestive simple farming crop, no large ornamental bouquet or pot.",
+      "path": "assets/crops/indigo.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-dacfb7b6-59a3-4928-9898-5566d2af1e67.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "pumpkin",
+      "group": "crops",
+      "label": "南瓜",
+      "projectId": "pumpkin",
+      "description": "One small mature pumpkin vine with 2 round soft-orange pumpkins, broad simple green leaves, one short curling tendril. Low compact footprint for a crop tile, no soil or Halloween faces.",
+      "prompt": "A single clean flat 2D farm-game sprite: a low compact pumpkin vine with TWO ripe round orange pumpkins and five simple scalloped green leaves, suitable for the mature crop on one farm tile. Cute Sumikko Gurashi Farm art direction from the attached reference screenshots. Light warm-tan thin outline, simple squat rounded shapes, solid opaque pastel color fills, only two flat tones per shape. Elevated three-quarter farm-grid view. Clean solid silhouette and crisp closed shapes. All background and all gaps between leaves must be fully transparent alpha 0. Exactly one connected clump centered with a comfortable empty margin. No soil tile. No shadows anywhere, no glow, no haze, no gradients, no blur, no ambient occlusion, no lighting effects. The subject is fully opaque. No text. Make a plain flat game asset, no presentation effects.",
+      "path": "assets/crops/pumpkin.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-fcfdbce0-e80c-436c-be6f-e35ebb128464.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "cotton",
+      "group": "crops",
+      "label": "棉花",
+      "projectId": "cotton",
+      "description": "One small mature cotton plant clump with 3-4 short warm tan branches, 4 plump milky-white cotton bolls and a few soft sage leaves. Large simple bolls, no fluffy glow, no soil.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One small mature cotton plant clump with 3-4 short warm tan branches, 4 plump milky-white cotton bolls and a few soft sage leaves. Large simple bolls, no fluffy glow, no soil.",
+      "path": "assets/crops/cotton.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-43d1b4e4-d75c-428a-8925-24cf8c6995f1.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "chili-pepper",
+      "group": "crops",
+      "label": "辣椒",
+      "projectId": "chili_pepper",
+      "description": "One compact mature chili plant with rounded soft-green leaves and 5 clearly visible small curved coral-red chili peppers hanging from thin branches. No pot, soil or detached peppers.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One compact mature chili plant with rounded soft-green leaves and 5 clearly visible small curved coral-red chili peppers hanging from thin branches. No pot, soil or detached peppers.",
+      "path": "assets/crops/chili-pepper.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-7a55103b-776c-4d2c-8afc-ae7d80c622ae.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "black-bean",
+      "group": "crops",
+      "label": "黑豆",
+      "projectId": "black_bean",
+      "description": "One low mature black-bean crop plant with broad rounded slightly blue-green trifoliate leaves and 4 mature warm buff-purple bean pods, one naturally open pod showing 3 dark charcoal beans. Distinct from soybean; no soil or container.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One low mature black-bean crop plant with broad rounded slightly blue-green trifoliate leaves and 4 mature warm buff-purple bean pods, one naturally open pod showing 3 dark charcoal beans. Distinct from soybean; no soil or container.",
+      "path": "assets/crops/black-bean.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-ee479798-7f30-487b-ae3e-5d667ae79f61.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "tomato",
+      "group": "crops",
+      "label": "番茄",
+      "projectId": "tomato",
+      "description": "One short mature tomato plant, a single simple tan support stake, round leaves and 5 plump coral-red tomatoes at varied heights. Compact rooted silhouette, no pot, no soil tile.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One short mature tomato plant, a single simple tan support stake, round leaves and 5 plump coral-red tomatoes at varied heights. Compact rooted silhouette, no pot, no soil tile.",
+      "path": "assets/crops/tomato.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-8450e53d-a38a-4158-ab63-e68eff59c1b6.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "apple",
+      "group": "fruit-plants",
+      "label": "苹果树",
+      "projectId": "apple",
+      "description": "Small rounded apple tree with 5 coral apples, fine warm-tan outline and pale green canopy.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: A small mature apple tree with a short light honey-brown forked trunk and a low rounded three-lobed pale sage-green canopy. 5 simple clearly visible coral-red apples with tiny green leaves. Match the light linework of the plants in the original farm screenshots: fine light tan contour, flat two-tone pale-green canopy, few drawn leaves, no dark green shadow layers, no shiny fruit, no high contrast rim. Elevated orthographic view. No grass ring or soil patch around the trunk.",
+      "path": "assets/fruit-plants/apple.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-c162f045-4fd2-4589-8d7d-1fa34ba2ac74.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ],
+      "previousReuseSource": "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-basic-assets-v1/assets/tree.png"
+    },
+    {
+      "key": "raspberry",
+      "group": "fruit-plants",
+      "label": "树莓",
+      "projectId": "raspberry",
+      "description": "One low compact raspberry bush, softly lobed light-green foliage on 3 short stems with 6 ripe pink-red raspberry clusters, each berry just a few rounded lobes. Fruits hanging on the bush, no soil, pot or detached berries.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One low compact raspberry bush, softly lobed light-green foliage on 3 short stems with 6 ripe pink-red raspberry clusters, each berry just a few rounded lobes. Fruits hanging on the bush, no soil, pot or detached berries.",
+      "path": "assets/fruit-plants/raspberry.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-1576c6a7-d675-4ae4-9293-1e0bd3345d00.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "cherry",
+      "group": "fruit-plants",
+      "label": "樱桃树",
+      "projectId": "cherry",
+      "description": "One small rounded cherry orchard tree, short honey trunk and 3-4 simple crown masses with several pairs of small coral-red cherries on fine short stems. Light green crown, restrained shading. No grass or ground patch.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One small rounded cherry orchard tree, short honey trunk and 3-4 simple crown masses with several pairs of small coral-red cherries on fine short stems. Light green crown, restrained shading. No grass or ground patch.",
+      "path": "assets/fruit-plants/cherry.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-51bc76e0-56be-452e-a918-ca2b592f1aa7.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "blackberry",
+      "group": "fruit-plants",
+      "label": "黑莓",
+      "projectId": "blackberry",
+      "description": "One compact low blackberry bush with rounded sage-green leaf masses and 6 dark muted purple blackberry clusters, each berry a few clearly drawn lobes. Short visible stems at base, no ground tile or pot.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One compact low blackberry bush with rounded sage-green leaf masses and 6 dark muted purple blackberry clusters, each berry a few clearly drawn lobes. Short visible stems at base, no ground tile or pot.",
+      "path": "assets/fruit-plants/blackberry.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-48d64a6f-6980-4bda-bea4-3301f62c9096.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "blueberries",
+      "group": "fruit-plants",
+      "label": "蓝莓",
+      "projectId": "blueberries",
+      "description": "One compact rounded blueberry bush, fresh softly blue-green foliage with 8 small muted periwinkle-blue berries, a few tiny crown marks on berries, short tan branches visible at base. Clean simple foliage, no soil or pot.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One compact rounded blueberry bush, fresh softly blue-green foliage with 8 small muted periwinkle-blue berries, a few tiny crown marks on berries, short tan branches visible at base. Clean simple foliage, no soil or pot.",
+      "path": "assets/fruit-plants/blueberries.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-95812983-20b4-4862-8ccc-c30a05ad1809.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "chicken",
+      "group": "animals",
+      "label": "小鸡",
+      "projectId": "Chicken",
+      "description": "One original cute plump cream laying hen, tiny warm-yellow beak and feet, tiny coral comb, simple round dot eye, short fan tail and small folded wing. Standing idle in three-quarter view facing lower-left. No clothing, eggs, ground shadow, props or speech bubble.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One original cute plump cream laying hen, tiny warm-yellow beak and feet, tiny coral comb, simple round dot eye, short fan tail and small folded wing. Standing idle in three-quarter view facing lower-left. No clothing, eggs, ground shadow, props or speech bubble.",
+      "path": "assets/animals/chicken.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-234216e3-6488-4bc3-a7b8-df2bed50f72c.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "cow",
+      "group": "animals",
+      "label": "奶牛",
+      "projectId": "Cow",
+      "description": "One original adorable squat cream dairy cow, small warm taupe patches, round peach muzzle, two tiny ears and very short horns, short stubby feet and a small tail. Tiny dot eyes, restrained calm expression, soft simple bean body. Three-quarter view facing lower-left. No bell, clothes, grass, shadow or glow.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One original adorable squat cream dairy cow, small warm taupe patches, round peach muzzle, two tiny ears and very short horns, short stubby feet and a small tail. Tiny dot eyes, restrained calm expression, soft simple bean body. Three-quarter view facing lower-left. No bell, clothes, grass, shadow or glow.",
+      "path": "assets/animals/cow.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-c2c8a508-cb29-414d-96b3-7ad430a5c2b5.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "pig",
+      "group": "animals",
+      "label": "小猪",
+      "projectId": "Pig",
+      "description": "One original adorable round pale-peach pig, bean-shaped body, short stubby feet, tiny floppy ears, round pink snout with two little nostrils, tiny dot eyes and a short curly tail. Relaxed three-quarter idle pose facing lower-left. No mud, props, clothing, halo or shadow.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One original adorable round pale-peach pig, bean-shaped body, short stubby feet, tiny floppy ears, round pink snout with two little nostrils, tiny dot eyes and a short curly tail. Relaxed three-quarter idle pose facing lower-left. No mud, props, clothing, halo or shadow.",
+      "path": "assets/animals/pig.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-c1d8a36c-67dc-4724-ae34-f72287170a2a.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "sheep",
+      "group": "animals",
+      "label": "绵羊",
+      "projectId": "Sheep",
+      "description": "Small cream fluffy sheep with dot eyes.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: Small cream fluffy sheep with dot eyes.",
+      "path": "assets/animals/sheep.png",
+      "status": "reused",
+      "reuseSource": "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-basic-assets-v1/assets/sheep.png",
+      "exists": true
+    },
+    {
+      "key": "lamb",
+      "group": "animals",
+      "label": "羔羊",
+      "projectId": "Lamb",
+      "description": "One ORIGINAL baby lamb, visibly younger and smaller in proportions than an adult sheep: tiny rounded milky-white cloud body, disproportionately small peach face, two little floppy ears, tiny dot eyes, 4 very short tan feet, a single little forehead curl. Slightly shy calm expression, three-quarter view facing lower-left. No clothing, horns, accessories, glow or ground shadow. SIMPLE FLAT opaque fills.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One ORIGINAL baby lamb, visibly younger and smaller in proportions than an adult sheep: tiny rounded milky-white cloud body, disproportionately small peach face, two little floppy ears, tiny dot eyes, 4 very short tan feet, a single little forehead curl. Slightly shy calm expression, three-quarter view facing lower-left. No clothing, horns, accessories, glow or ground shadow. SIMPLE FLAT opaque fills.",
+      "path": "assets/animals/lamb.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-94a69942-1cce-43bf-9922-dd5d190b8892.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "wood-sign",
+      "group": "decor",
+      "label": "木路牌",
+      "projectId": "decor.wood-sign",
+      "description": "One short honey-wood directional signpost, rounded rectangular arrow-shaped plank pointing right, a small green leaf emblem only, two short sturdy legs or a single centered post. No text or ground patch.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One short honey-wood directional signpost, rounded rectangular arrow-shaped plank pointing right, a small green leaf emblem only, two short sturdy legs or a single centered post. No text or ground patch.",
+      "path": "assets/decor/wood-sign.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-37bd5390-b6e2-438b-a8c1-3ed5e6c37a84.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "flower-pot",
+      "group": "decor",
+      "label": "花盆",
+      "projectId": "decor.flower-pot",
+      "description": "One small rounded pastel peach flowerpot holding a compact green plant and 5 simple butter-yellow and cream daisy flowers. Big simple petals, no intricate foliage, no ground shadow.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One small rounded pastel peach flowerpot holding a compact green plant and 5 simple butter-yellow and cream daisy flowers. Big simple petals, no intricate foliage, no ground shadow.",
+      "path": "assets/decor/flower-pot.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-c27ebe1f-9c2e-42d6-8e2c-ee18af37c2ee.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "hay-bales",
+      "group": "decor",
+      "label": "草垛",
+      "projectId": "decor.hay-bales",
+      "description": "One tidy stack of 3 small rounded rectangular golden hay bales, two below and one above, each with 2 simple soft tan binding bands and only a few straw marks. One unified stack, no loose scattered hay or ground tile.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One tidy stack of 3 small rounded rectangular golden hay bales, two below and one above, each with 2 simple soft tan binding bands and only a few straw marks. One unified stack, no loose scattered hay or ground tile.",
+      "path": "assets/decor/hay-bales.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-7632c631-9d9e-4865-bdc0-fd8dbe66d533.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "windmill",
+      "group": "decor",
+      "label": "小风车",
+      "projectId": "decor.windmill",
+      "description": "One small decorative garden windmill, short cream tapered body, soft sage conical cap and 4 simple honey-wood paddle blades arranged in a readable X, tiny rounded door. A decoration, not a large factory. No flowers or ground base.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One small decorative garden windmill, short cream tapered body, soft sage conical cap and 4 simple honey-wood paddle blades arranged in a readable X, tiny rounded door. A decoration, not a large factory. No flowers or ground base.",
+      "path": "assets/decor/windmill.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-528c1c1d-d370-40ce-9646-87c7a77de8bc.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "lamp",
+      "group": "decor",
+      "label": "路灯",
+      "projectId": "decor.lamp",
+      "description": "One short charming pastel blue garden lamppost with a cream-yellow lantern, simple rounded lantern frame and small domed cap. Short sturdy post with a neat foot. Daytime unlit appearance, no glow or light beam.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One short charming pastel blue garden lamppost with a cream-yellow lantern, simple rounded lantern frame and small domed cap. Short sturdy post with a neat foot. Daytime unlit appearance, no glow or light beam.",
+      "path": "assets/decor/lamp.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-76a1b620-d604-4bba-9468-2deeadf86c42.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "stone-seat",
+      "group": "decor",
+      "label": "石凳",
+      "projectId": "decor.stone-seat",
+      "description": "One small pale warm-gray stone garden seat, a thick rounded rectangular slab resting on 2 short rounded block legs, faint simple flat underside shade. Isometric view, no elaborate carving, no ground base.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One small pale warm-gray stone garden seat, a thick rounded rectangular slab resting on 2 short rounded block legs, faint simple flat underside shade. Isometric view, no elaborate carving, no ground base.",
+      "path": "assets/decor/stone-seat.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-12945739-eaf5-48ce-b574-b615f98f03fb.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "bench",
+      "group": "decor",
+      "label": "木长椅",
+      "projectId": "decor.bench",
+      "description": "One simple cute honey-wood park bench with 3 rounded seat slats, 2 backrest slats, short softly curved sage supports and small armrests. Isometric three-quarter view, coherent readable geometry, no plants.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One simple cute honey-wood park bench with 3 rounded seat slats, 2 backrest slats, short softly curved sage supports and small armrests. Isometric three-quarter view, coherent readable geometry, no plants.",
+      "path": "assets/decor/bench.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-1f2b317d-3ef5-46b2-87d2-072118423f9e.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "flag",
+      "group": "decor",
+      "label": "小旗",
+      "projectId": "decor.flag",
+      "description": "One short honey-wood flagpole with a soft coral triangular pennant, tiny cream leaf emblem and a simple rounded finial. Cloth hangs gently to the right, no motion trail or ground patch.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One short honey-wood flagpole with a soft coral triangular pennant, tiny cream leaf emblem and a simple rounded finial. Cloth hangs gently to the right, no motion trail or ground patch.",
+      "path": "assets/decor/flag.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-a68c05bf-5829-4abb-8263-6aa9c4558d77.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "flower-fence",
+      "group": "decor",
+      "label": "花篱",
+      "projectId": "decor.flower-fence",
+      "description": "One short straight module of pale honey wooden picket fence with 2 end posts and 3 intermediate rounded pickets, a restrained vine bearing 4 simple cream and peach flowers attached to the front. Isometric edge diagonal, no ground or grass.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One short straight module of pale honey wooden picket fence with 2 end posts and 3 intermediate rounded pickets, a restrained vine bearing 4 simple cream and peach flowers attached to the front. Isometric edge diagonal, no ground or grass.",
+      "path": "assets/decor/flower-fence.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-063fda71-e335-43a8-aae1-88025350d44f.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "wood-fence",
+      "group": "decor",
+      "label": "木栅栏",
+      "projectId": "decor.wood-fence",
+      "description": "One short straight honey-wood fence module, 2 rounded square end posts and 2 horizontal rails between them, clean consistent spacing and no diagonal brace. Isometric view along one ground axis, no lawn or decor.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One short straight honey-wood fence module, 2 rounded square end posts and 2 horizontal rails between them, clean consistent spacing and no diagonal brace. Isometric view along one ground axis, no lawn or decor.",
+      "path": "assets/decor/wood-fence.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-498584e1-82e6-4aad-8f08-790250c01ed6.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "arch",
+      "group": "decor",
+      "label": "花园拱门",
+      "projectId": "decor.arch",
+      "description": "One small rounded cream wooden garden arch with 2 upright posts and a gently curved top trellis, sparse soft-green vine and 4 small peach flowers near the top corners. Clear empty opening and clean bottom feet, no ground tile.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One small rounded cream wooden garden arch with 2 upright posts and a gently curved top trellis, sparse soft-green vine and 4 small peach flowers near the top corners. Clear empty opening and clean bottom feet, no ground tile.",
+      "path": "assets/decor/arch.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-e6cc3439-0c6a-47c0-a9f0-744465eb317f.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "bridge",
+      "group": "decor",
+      "label": "小木桥",
+      "projectId": "decor.bridge",
+      "description": "One short wooden footbridge module, honey planks, a gentle arch, two low simple matching railings. Full bridge seen in isometric view oriented lower-left to upper-right; both ends unobstructed. No water, riverbank or ground base.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One short wooden footbridge module, honey planks, a gentle arch, two low simple matching railings. Full bridge seen in isometric view oriented lower-left to upper-right; both ends unobstructed. No water, riverbank or ground base.",
+      "path": "assets/decor/bridge.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-d2df29af-5d9c-4f1d-bdb0-d6a8e5823d27.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "trough",
+      "group": "decor",
+      "label": "饮水槽",
+      "projectId": "decor.trough",
+      "description": "One short rounded rectangular honey-wood animal water trough with clear flat pale-blue water inside, 2 short supports and simple darker inner rim. No animals, splashes or ground.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One short rounded rectangular honey-wood animal water trough with clear flat pale-blue water inside, 2 short supports and simple darker inner rim. No animals, splashes or ground.",
+      "path": "assets/decor/trough.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-4c906a96-ce29-4f47-90de-3924e0c9e0f3.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "flower-bed",
+      "group": "decor",
+      "label": "小花坛",
+      "projectId": "decor.flower-bed",
+      "description": "One compact rectangular flowerbed with a low cream rounded wooden edging, dark tan soil contained entirely inside, a tidy group of 7 small simple peach, butter-yellow and cream flowers. Isometric plan, no surrounding lawn.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One compact rectangular flowerbed with a low cream rounded wooden edging, dark tan soil contained entirely inside, a tidy group of 7 small simple peach, butter-yellow and cream flowers. Isometric plan, no surrounding lawn.",
+      "path": "assets/decor/flower-bed.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-0d3c170c-d66c-4190-83a6-7e63d7dd1883.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "stone-statue",
+      "group": "decor",
+      "label": "小羊石像",
+      "projectId": "decor.stone-statue",
+      "description": "One tiny pale warm-gray stone statue of a simple sitting round sheep on a squat square pedestal, carved only with two dot eyes and minimal wool scallops. Entire statue monochrome pale stone with one shade, friendly garden decoration. No plaque text.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One tiny pale warm-gray stone statue of a simple sitting round sheep on a squat square pedestal, carved only with two dot eyes and minimal wool scallops. Entire statue monochrome pale stone with one shade, friendly garden decoration. No plaque text.",
+      "path": "assets/decor/stone-statue.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-c27cd32e-2d0b-4600-b67c-2038b3438767.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "picnic",
+      "group": "decor",
+      "label": "野餐垫",
+      "projectId": "decor.picnic",
+      "description": "One compact picnic arrangement: small cream-and-peach checked rectangular blanket in isometric view, one rounded wicker basket and two tiny simple cups grouped in a corner. No people, animals, surrounding grass or excessive foods.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One compact picnic arrangement: small cream-and-peach checked rectangular blanket in isometric view, one rounded wicker basket and two tiny simple cups grouped in a corner. No people, animals, surrounding grass or excessive foods.",
+      "path": "assets/decor/picnic.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-3cb92520-c8dc-4eeb-b50e-bd25b9e52fb8.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "meadow-banner",
+      "group": "decor",
+      "label": "牧场旗帜",
+      "projectId": "decor.meadow-banner",
+      "description": "One small freestanding celebration banner between 2 short honey-wood poles: a soft sage rectangular cloth with a scalloped lower edge and a simple cream sheep-and-leaf emblem. Tiny peach ribbons, no writing. Distinct from a single triangular flag.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One small freestanding celebration banner between 2 short honey-wood poles: a soft sage rectangular cloth with a scalloped lower edge and a simple cream sheep-and-leaf emblem. Tiny peach ribbons, no writing. Distinct from a single triangular flag.",
+      "path": "assets/decor/meadow-banner.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-82d9798c-0168-4bb9-9ef9-616a25d9df62.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "festival-windmill",
+      "group": "decor",
+      "label": "花朵风车",
+      "projectId": "decor.festival-windmill",
+      "description": "One small festive decorative garden windmill, short cream tapered body, pastel mint cap, 4 honey-wood paddle blades, a simple peach daisy at the central hub and two tiny peach ribbons. Clearly same family as plain garden windmill, modest cute special edition, no ground.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One small festive decorative garden windmill, short cream tapered body, pastel mint cap, 4 honey-wood paddle blades, a simple peach daisy at the central hub and two tiny peach ribbons. Clearly same family as plain garden windmill, modest cute special edition, no ground.",
+      "path": "assets/decor/festival-windmill.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-525d31dd-9400-44af-8d4d-ccda0663a69d.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "land-memorial",
+      "group": "decor",
+      "label": "开垦纪念牌",
+      "projectId": "decor.land-memorial",
+      "description": "One small freestanding wooden commemorative plaque on a short stout post: rounded cream inset panel framed in honey wood, a simple golden wheat medallion in the center and 2 small green leaves below. No writing or numbers, no ground.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One small freestanding wooden commemorative plaque on a short stout post: rounded cream inset panel framed in honey wood, a simple golden wheat medallion in the center and 2 small green leaves below. No writing or numbers, no ground.",
+      "path": "assets/decor/land-memorial.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-9b474e3e-8fdc-4304-af42-ad3b16eaba2b.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    },
+    {
+      "key": "reward-bridge",
+      "group": "decor",
+      "label": "花饰小桥",
+      "projectId": "decor.reward-bridge",
+      "description": "One short special garden footbridge, pale cream planks and honey-wood low curved railings, sparse green vines with 4 small peach daisies at the railing corners. Full bridge oriented lower-left to upper-right, both ends clear, no water, riverbank or ground.",
+      "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One short special garden footbridge, pale cream planks and honey-wood low curved railings, sparse green vines with 4 small peach daisies at the railing corners. Full bridge oriented lower-left to upper-right, both ends clear, no water, riverbank or ground.",
+      "path": "assets/decor/reward-bridge.png",
+      "status": "generated",
+      "exists": true,
+      "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-880ec85b-7d65-44df-b650-77231b5b77a8.png",
+      "references": [
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+        "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+      ]
+    }
+  ],
+  "counts": {
+    "total": 63,
+    "ready": 63,
+    "reused": 3,
+    "generated": 60
+  },
+  "delivery": {
+    "type": "base-static-transparent-png-pack",
+    "assetCount": 63,
+    "reusedCount": 3,
+    "generatedCount": 60,
+    "qaReport": "qa/report.json",
+    "qaNotes": "qa/review-notes.md",
+    "integratedIntoGame": false
+  }
+}

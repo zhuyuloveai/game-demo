@@ -1,0 +1,15 @@
+{
+  "key": "flower-bed",
+  "group": "decor",
+  "label": "小花坛",
+  "projectId": "decor.flower-bed",
+  "prompt": "Use case: stylized-concept. Create ONE standalone transparent PNG sprite for a 2D farming game, one object only.\nART DIRECTION: closely study the attached ORIGINAL SUMIKKO GURASHI FARM screenshots, not a generic glossy cute farm illustration. Match their light warm-tan outlines, simple squat rounded proportions, restrained flat pastel fills, minimal soft cel shading, small delicate details and calm cozy feel. Keep the artwork flatter and simpler than a rendered toy. NO realistic materials, NO beveled 3D edges, NO glossy shine, NO dramatic lighting, NO painterly texture. Use cream, peach, soft honey wood, light green and occasional muted powder-blue/mint accents. Clear gentle contour; no heavy dark-brown border. Limit highlights severely.\nCAMERA: consistent orthographic three-quarter elevated view suitable for an isometric farm grid, parallel ground axes roughly +/-26.6 degrees, front faces lower-left, right side visible; vertical walls stay vertical. Camera and scale should feel consistent across the set. No perspective vanishing point.\nREFERENCE ROLES: both attached images are STYLE REFERENCES ONLY. Do not copy their interface, text, logos, mascots, surrounding environment or composition. Design the specified original farm object.\nCUTOUT: one centered fully visible object, fill about 75-82% of canvas, generous transparent margin. Actual alpha transparency with CRISP edges. Opaque solid subject fills. Absolutely NO cast shadow, glow, halo, blur, haze, vignette, white sticker outline, ground disk or colored backdrop. Nothing outside the silhouette. No text, numbers or labels. No contact sheet, no alternatives, no other objects except inseparable functional parts named below.\nSUBJECT: One compact rectangular flowerbed with a low cream rounded wooden edging, dark tan soil contained entirely inside, a tidy group of 7 small simple peach, butter-yellow and cream flowers. Isometric plan, no surrounding lawn.",
+  "references": [
+    "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-044.png",
+    "/Users/zhuyu/work/zhuyuloveai/art-previews/sumikko-farm-v1/references/SF-092.jpg"
+  ],
+  "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-0d3c170c-d66c-4190-83a6-7e63d7dd1883.png",
+  "path": "assets/decor/flower-bed.png",
+  "status": "generated",
+  "mode": "builtin-imagegen"
+}

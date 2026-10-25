@@ -1,0 +1,1602 @@
+{
+  "scope": "Base static transparent PNGs. Source images are not modified by this script.",
+  "expected": 63,
+  "actual": 63,
+  "groupCounts": {
+    "buildings": 22,
+    "crops": 11,
+    "fruit-plants": 5,
+    "animals": 5,
+    "decor": 20
+  },
+  "allRGBA": true,
+  "allPNG": true,
+  "allTransparentBackgrounds": true,
+  "allHaveSolidFills": true,
+  "uniqueFiles": 63,
+  "allSourceCopiesMatch": true,
+  "totalBytes": 63694227,
+  "alphaReviewCandidates": [
+    "dairy",
+    "sugar-mill",
+    "loom",
+    "wood-fence"
+  ],
+  "assets": [
+    {
+      "key": "bakery",
+      "group": "buildings",
+      "path": "assets/buildings/bakery.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        93,
+        45,
+        1295,
+        1159
+      ],
+      "lowAlphaFraction": 0.01003,
+      "bytes": 1483149,
+      "sha256": "f877ec444482a55ce6b95e8e8b400cf14c5b5958bafbcc230f5f42d03e539afd",
+      "matchesSource": true
+    },
+    {
+      "key": "feed-mill",
+      "group": "buildings",
+      "path": "assets/buildings/feed-mill.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        187,
+        40,
+        1187,
+        1162
+      ],
+      "lowAlphaFraction": 0.0117,
+      "bytes": 1086634,
+      "sha256": "d4a8ee9dfa7e0c81d57f12c548f71de856ca98e9a0be4ba6df4428ff825f8544",
+      "matchesSource": true
+    },
+    {
+      "key": "dairy",
+      "group": "buildings",
+      "path": "assets/buildings/dairy.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        63,
+        83,
+        1262,
+        1129
+      ],
+      "lowAlphaFraction": 0.05328,
+      "bytes": 1425870,
+      "sha256": "298fa91e80efa32d8419595af936450b7d695627d71c7775a2191ed96022f0c6",
+      "matchesSource": true
+    },
+    {
+      "key": "sugar-mill",
+      "group": "buildings",
+      "path": "assets/buildings/sugar-mill.png",
+      "size": [
+        1381,
+        1139
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        101,
+        66,
+        1345,
+        1052
+      ],
+      "lowAlphaFraction": 0.05253,
+      "bytes": 1162038,
+      "sha256": "b0b17db3d14985c441de4d41c009762f55ea7b46f02b244bfb7f5abe1ac8aeaa",
+      "matchesSource": true
+    },
+    {
+      "key": "popcorn-pot",
+      "group": "buildings",
+      "path": "assets/buildings/popcorn-pot.png",
+      "size": [
+        1332,
+        1181
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        168,
+        49,
+        1225,
+        1152
+      ],
+      "lowAlphaFraction": 0.02617,
+      "bytes": 1016297,
+      "sha256": "2eb302cc567d094d926ba3136e0faac945e73b242c468f4fe4421607dbae8a77",
+      "matchesSource": true
+    },
+    {
+      "key": "bbq-grill",
+      "group": "buildings",
+      "path": "assets/buildings/bbq-grill.png",
+      "size": [
+        1313,
+        1198
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        223,
+        35,
+        1233,
+        1147
+      ],
+      "lowAlphaFraction": 0.02156,
+      "bytes": 1049744,
+      "sha256": "fe3c8751f18cc056dd40fb7470356fe934b7ad80c54783068ac0ff10ac23b559",
+      "matchesSource": true
+    },
+    {
+      "key": "pie-oven",
+      "group": "buildings",
+      "path": "assets/buildings/pie-oven.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        130,
+        37,
+        1197,
+        1152
+      ],
+      "lowAlphaFraction": 0.00854,
+      "bytes": 1132996,
+      "sha256": "9e82084dfaefd3a181da5840eac47b1cde7ba031016b648a612b030fc19c2273",
+      "matchesSource": true
+    },
+    {
+      "key": "loom",
+      "group": "buildings",
+      "path": "assets/buildings/loom.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        116,
+        75,
+        1223,
+        1158
+      ],
+      "lowAlphaFraction": 0.05705,
+      "bytes": 1168791,
+      "sha256": "585ceac252283ecaab358459146997006f14bd5d3eea6687c9fad4fc4ada6733",
+      "matchesSource": true
+    },
+    {
+      "key": "sewing-machine",
+      "group": "buildings",
+      "path": "assets/buildings/sewing-machine.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        149,
+        89,
+        1224,
+        1127
+      ],
+      "lowAlphaFraction": 0.0181,
+      "bytes": 958730,
+      "sha256": "ed3b20248236118432d0ec8ece98a28c683a8a0f964dcb503b76ab54dd55fe66",
+      "matchesSource": true
+    },
+    {
+      "key": "cake-oven",
+      "group": "buildings",
+      "path": "assets/buildings/cake-oven.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        134,
+        54,
+        1234,
+        1143
+      ],
+      "lowAlphaFraction": 0.01479,
+      "bytes": 1093431,
+      "sha256": "7192db80cdbf7dd09f81779f203d198ebd8f5b3fad2d614349563962b0cbd409",
+      "matchesSource": true
+    },
+    {
+      "key": "juice-press",
+      "group": "buildings",
+      "path": "assets/buildings/juice-press.png",
+      "size": [
+        1316,
+        1195
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        299,
+        25,
+        1229,
+        1151
+      ],
+      "lowAlphaFraction": 0.02151,
+      "bytes": 969606,
+      "sha256": "83358823b7e702d861ac7706cf351d113b462a3bd4a2e1e6871cb3411394eb72",
+      "matchesSource": true
+    },
+    {
+      "key": "ice-cream-maker",
+      "group": "buildings",
+      "path": "assets/buildings/ice-cream-maker.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        134,
+        60,
+        1180,
+        1169
+      ],
+      "lowAlphaFraction": 0.01839,
+      "bytes": 1116758,
+      "sha256": "3db45cfdf95886bec421e5b61d945007c8200d6eacd932f780b9cc8d08d52025",
+      "matchesSource": true
+    },
+    {
+      "key": "chicken-shelter",
+      "group": "buildings",
+      "path": "assets/buildings/chicken-shelter.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        161,
+        85,
+        1173,
+        1091
+      ],
+      "lowAlphaFraction": 0.01896,
+      "bytes": 905166,
+      "sha256": "1a99ce5c0cb8f009a16e1583ac3a4e5609fa5b309874def9a94bcc9f4b5bebb3",
+      "matchesSource": true
+    },
+    {
+      "key": "cow-shelter",
+      "group": "buildings",
+      "path": "assets/buildings/cow-shelter.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        57,
+        73,
+        1264,
+        1131
+      ],
+      "lowAlphaFraction": 0.03184,
+      "bytes": 1277482,
+      "sha256": "d6f33cb4b7cb92cba48815b81f391d8f3bf2a721978f91e77c9622f62f6f7142",
+      "matchesSource": true
+    },
+    {
+      "key": "pig-shelter",
+      "group": "buildings",
+      "path": "assets/buildings/pig-shelter.png",
+      "size": [
+        1489,
+        1056
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        120,
+        61,
+        1388,
+        978
+      ],
+      "lowAlphaFraction": 0.00875,
+      "bytes": 924270,
+      "sha256": "3e33560e3f92cba884fc404576dfd1ffd75057e2b4beab0cbedf5d46bf7e9f86",
+      "matchesSource": true
+    },
+    {
+      "key": "sheep-shelter",
+      "group": "buildings",
+      "path": "assets/buildings/sheep-shelter.png",
+      "size": [
+        1374,
+        1145
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        120,
+        90,
+        1310,
+        1096
+      ],
+      "lowAlphaFraction": 0.02151,
+      "bytes": 1192524,
+      "sha256": "401a3fd69068142e4071c117ec4e0e124d1a2375730a9aa5370688313c3426eb",
+      "matchesSource": true
+    },
+    {
+      "key": "lamb-shelter",
+      "group": "buildings",
+      "path": "assets/buildings/lamb-shelter.png",
+      "size": [
+        1390,
+        1132
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        98,
+        46,
+        1330,
+        1074
+      ],
+      "lowAlphaFraction": 0.02039,
+      "bytes": 1098026,
+      "sha256": "4dde51ae44ee61e147ba1f422eb72112cc722447d1e518322f36d8f3d2bc69fe",
+      "matchesSource": true
+    },
+    {
+      "key": "farmhouse",
+      "group": "buildings",
+      "path": "assets/buildings/farmhouse.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        138,
+        55,
+        1231,
+        1148
+      ],
+      "lowAlphaFraction": 0.00631,
+      "bytes": 1098370,
+      "sha256": "f54a46f52a75b59fa5c875d4989f79e4b2e53a7c970c0594d0b3ac9970ce27eb",
+      "matchesSource": true
+    },
+    {
+      "key": "barn",
+      "group": "buildings",
+      "path": "assets/buildings/barn.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        53,
+        56,
+        1269,
+        1126
+      ],
+      "lowAlphaFraction": 0.01333,
+      "bytes": 1307188,
+      "sha256": "601988ed06d6560278cd7c7dca24f09aae8304fd9246e6f5cc7210c051e1b518",
+      "matchesSource": true
+    },
+    {
+      "key": "silo",
+      "group": "buildings",
+      "path": "assets/buildings/silo.png",
+      "size": [
+        1374,
+        1145
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        314,
+        71,
+        1061,
+        1064
+      ],
+      "lowAlphaFraction": 0.00565,
+      "bytes": 779947,
+      "sha256": "633c47342a1c5d88bbc20b91ca3190d679c3a52ffb94ff16bb15ff993ba312fa",
+      "matchesSource": true
+    },
+    {
+      "key": "order-board",
+      "group": "buildings",
+      "path": "assets/buildings/order-board.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        154,
+        66,
+        1206,
+        1148
+      ],
+      "lowAlphaFraction": 0.01888,
+      "bytes": 907135,
+      "sha256": "5550c637d5ccac077e585a9a4796a9b269825769cbee1d7afe70c41b3ebc2557",
+      "matchesSource": true
+    },
+    {
+      "key": "npc-stall",
+      "group": "buildings",
+      "path": "assets/buildings/npc-stall.png",
+      "size": [
+        1379,
+        1141
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        178,
+        31,
+        1282,
+        1131
+      ],
+      "lowAlphaFraction": 0.01605,
+      "bytes": 1092157,
+      "sha256": "857a6d170ab189a1eacaad35f58eaca4d3c3eebe73beeb0aa74059d4c2e27b41",
+      "matchesSource": true
+    },
+    {
+      "key": "wheat",
+      "group": "crops",
+      "path": "assets/crops/wheat.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        178,
+        85,
+        1180,
+        1120
+      ],
+      "lowAlphaFraction": 0.02503,
+      "bytes": 923315,
+      "sha256": "2489a4fa3b5860476c4cfbf7a8ec2da20a6ac93e958667a5316ea0d6f07bb832",
+      "matchesSource": true
+    },
+    {
+      "key": "corn",
+      "group": "crops",
+      "path": "assets/crops/corn.png",
+      "size": [
+        1350,
+        1165
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        72,
+        51,
+        1279,
+        1111
+      ],
+      "lowAlphaFraction": 0.02399,
+      "bytes": 1024502,
+      "sha256": "ab43c1f5d7511b3d2a648ca5b676e5d8060181b81a6dd32aadb786a6dcfb77e0",
+      "matchesSource": true
+    },
+    {
+      "key": "soybean",
+      "group": "crops",
+      "path": "assets/crops/soybean.png",
+      "size": [
+        1374,
+        1145
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        127,
+        107,
+        1307,
+        1045
+      ],
+      "lowAlphaFraction": 0.0202,
+      "bytes": 1087642,
+      "sha256": "1d55bb3b5921b8eb82aa0c8af1f1b01ddcac3f6e819bb7c5224ebfd8d8797aa7",
+      "matchesSource": true
+    },
+    {
+      "key": "sugarcane",
+      "group": "crops",
+      "path": "assets/crops/sugarcane.png",
+      "size": [
+        1356,
+        1159
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        175,
+        33,
+        1218,
+        1111
+      ],
+      "lowAlphaFraction": 0.01583,
+      "bytes": 860764,
+      "sha256": "35bf2cbf661052ea3e9bdb3e87ea2b4df73bc0a94978c44fec8d9ee90787d684",
+      "matchesSource": true
+    },
+    {
+      "key": "carrot",
+      "group": "crops",
+      "path": "assets/crops/carrot.png",
+      "size": [
+        1316,
+        1195
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        60,
+        137,
+        1260,
+        1085
+      ],
+      "lowAlphaFraction": 0.01393,
+      "bytes": 940822,
+      "sha256": "080382bc3d3a9806c2a69019a1766d6074ccf30e932317f275d644649f07bbb6",
+      "matchesSource": true
+    },
+    {
+      "key": "indigo",
+      "group": "crops",
+      "path": "assets/crops/indigo.png",
+      "size": [
+        1419,
+        1108
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        240,
+        73,
+        1184,
+        1045
+      ],
+      "lowAlphaFraction": 0.01516,
+      "bytes": 856908,
+      "sha256": "c9623942f147a7def69215f29cbac097bdb4989a744cb983ff8a428bb5e845d6",
+      "matchesSource": true
+    },
+    {
+      "key": "pumpkin",
+      "group": "crops",
+      "path": "assets/crops/pumpkin.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "opaqueBounds": [
+        171,
+        101,
+        1390,
+        916
+      ],
+      "lowAlphaFraction": 0.01919,
+      "bytes": 1323549,
+      "sha256": "f998553d6f168cfed4f24eeaca3c501f15a85e00966ff8624dd461526089ff2b",
+      "matchesSource": true
+    },
+    {
+      "key": "cotton",
+      "group": "crops",
+      "path": "assets/crops/cotton.png",
+      "size": [
+        1303,
+        1207
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        84,
+        113,
+        1236,
+        1107
+      ],
+      "lowAlphaFraction": 0.01504,
+      "bytes": 869518,
+      "sha256": "038c384bb9f8bb052255800f0879b833b68ab556b9f2baf7ec3292b1521523df",
+      "matchesSource": true
+    },
+    {
+      "key": "chili-pepper",
+      "group": "crops",
+      "path": "assets/crops/chili-pepper.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        111,
+        79,
+        1224,
+        1114
+      ],
+      "lowAlphaFraction": 0.02728,
+      "bytes": 895611,
+      "sha256": "dca3941264f2ec622b5ca9306f8b57b156e21af48ba4ad83d9eba67045a75f76",
+      "matchesSource": true
+    },
+    {
+      "key": "black-bean",
+      "group": "crops",
+      "path": "assets/crops/black-bean.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        39,
+        27,
+        1280,
+        1149
+      ],
+      "lowAlphaFraction": 0.01981,
+      "bytes": 1116916,
+      "sha256": "3ce501491866a2574985c2b23ea3841890702339f0a3e2c3e3738fb18b2dd969",
+      "matchesSource": true
+    },
+    {
+      "key": "tomato",
+      "group": "crops",
+      "path": "assets/crops/tomato.png",
+      "size": [
+        1295,
+        1214
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        220,
+        86,
+        1139,
+        1133
+      ],
+      "lowAlphaFraction": 0.0178,
+      "bytes": 856927,
+      "sha256": "df43b0496ed0111c0487ed1262ce279236d67e8350cb769eb67621637fc1f5e3",
+      "matchesSource": true
+    },
+    {
+      "key": "apple",
+      "group": "fruit-plants",
+      "path": "assets/fruit-plants/apple.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        100,
+        91,
+        1228,
+        1126
+      ],
+      "lowAlphaFraction": 0.01365,
+      "bytes": 918490,
+      "sha256": "35ecb152c70003c5e41ca5229e042f16a2a99ca5d1e15d94d94cf7e8a24670dd",
+      "matchesSource": true
+    },
+    {
+      "key": "raspberry",
+      "group": "fruit-plants",
+      "path": "assets/fruit-plants/raspberry.png",
+      "size": [
+        1374,
+        1145
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        57,
+        124,
+        1319,
+        1014
+      ],
+      "lowAlphaFraction": 0.00881,
+      "bytes": 989951,
+      "sha256": "5ab42e7b77268b036cbee2706af49141f126d1e9e8afc10b1ad5508f3cd784ca",
+      "matchesSource": true
+    },
+    {
+      "key": "cherry",
+      "group": "fruit-plants",
+      "path": "assets/fruit-plants/cherry.png",
+      "size": [
+        1239,
+        1269
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        81,
+        156,
+        1165,
+        1134
+      ],
+      "lowAlphaFraction": 0.00815,
+      "bytes": 895951,
+      "sha256": "5dfb2f8c9d36ddef2d1534f75a4f73e8f45e3afed67c4521615bd1f5a92f03e3",
+      "matchesSource": true
+    },
+    {
+      "key": "blackberry",
+      "group": "fruit-plants",
+      "path": "assets/fruit-plants/blackberry.png",
+      "size": [
+        1374,
+        1145
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        86,
+        119,
+        1295,
+        1021
+      ],
+      "lowAlphaFraction": 0.01173,
+      "bytes": 1015660,
+      "sha256": "1e9455da2fcebb86b7f1e85d17e21d3b2bcb151f850741e88b16882f6ce9804d",
+      "matchesSource": true
+    },
+    {
+      "key": "blueberries",
+      "group": "fruit-plants",
+      "path": "assets/fruit-plants/blueberries.png",
+      "size": [
+        1295,
+        1214
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        40,
+        71,
+        1255,
+        1136
+      ],
+      "lowAlphaFraction": 0.01585,
+      "bytes": 1219233,
+      "sha256": "2fd04910b9cbb744fe642a752b3a8dfb250e90da7a6a1737f431772db2091929",
+      "matchesSource": true
+    },
+    {
+      "key": "chicken",
+      "group": "animals",
+      "path": "assets/animals/chicken.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        264,
+        229,
+        1165,
+        1074
+      ],
+      "lowAlphaFraction": 0.01786,
+      "bytes": 598316,
+      "sha256": "c71f7a10fa8b9d37010ff0cf1fa24e5924a3179f6b7a524a851a48c19e7d46aa",
+      "matchesSource": true
+    },
+    {
+      "key": "cow",
+      "group": "animals",
+      "path": "assets/animals/cow.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        95,
+        253,
+        1248,
+        1021
+      ],
+      "lowAlphaFraction": 0.00813,
+      "bytes": 748500,
+      "sha256": "78954bc26a410657ded1685da8c3e269aafc0ef11d035db70495c681f5c0320f",
+      "matchesSource": true
+    },
+    {
+      "key": "pig",
+      "group": "animals",
+      "path": "assets/animals/pig.png",
+      "size": [
+        1374,
+        1145
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        203,
+        205,
+        1266,
+        1005
+      ],
+      "lowAlphaFraction": 0.02054,
+      "bytes": 722759,
+      "sha256": "fb1ed2ce7feac63d021072844bec999a6e2d8b16e5ab83c3a3183b235542b867",
+      "matchesSource": true
+    },
+    {
+      "key": "sheep",
+      "group": "animals",
+      "path": "assets/animals/sheep.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        173,
+        263,
+        1081,
+        1045
+      ],
+      "lowAlphaFraction": 0.01576,
+      "bytes": 595975,
+      "sha256": "239d6c2a2aaa33b63ea8f73e9edfe53227e66d0ae731aee569622ba92fe0356b",
+      "matchesSource": true
+    },
+    {
+      "key": "lamb",
+      "group": "animals",
+      "path": "assets/animals/lamb.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        199,
+        329,
+        1080,
+        996
+      ],
+      "lowAlphaFraction": 0.00647,
+      "bytes": 507622,
+      "sha256": "8ec02e350eceef541f38d297510d3d75313a47f23ad6c785481497d0a88e9fcc",
+      "matchesSource": true
+    },
+    {
+      "key": "wood-sign",
+      "group": "decor",
+      "path": "assets/decor/wood-sign.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "opaqueBounds": [
+        376,
+        143,
+        1270,
+        894
+      ],
+      "lowAlphaFraction": 0.0081,
+      "bytes": 1060855,
+      "sha256": "386aac115db02b81d91fcd89a7da985511655a93049638d74398c077a8baf3c9",
+      "matchesSource": true
+    },
+    {
+      "key": "flower-pot",
+      "group": "decor",
+      "path": "assets/decor/flower-pot.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        223,
+        112,
+        1125,
+        1097
+      ],
+      "lowAlphaFraction": 0.01533,
+      "bytes": 823400,
+      "sha256": "76d02cdade62651674172b74fea1bd76df5c8fed1a9ddd84c58845c929757f68",
+      "matchesSource": true
+    },
+    {
+      "key": "hay-bales",
+      "group": "decor",
+      "path": "assets/decor/hay-bales.png",
+      "size": [
+        1363,
+        1154
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        100,
+        75,
+        1287,
+        1103
+      ],
+      "lowAlphaFraction": 0.00849,
+      "bytes": 998854,
+      "sha256": "423de5f2d4e0fa4a86d0d55f85dc9c5e4c518aaa3b0ecea587bbcf983a419e94",
+      "matchesSource": true
+    },
+    {
+      "key": "windmill",
+      "group": "decor",
+      "path": "assets/decor/windmill.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        225,
+        54,
+        1030,
+        1144
+      ],
+      "lowAlphaFraction": 0.00857,
+      "bytes": 875146,
+      "sha256": "f8dacca228a0fcbf5ea668c26074771e48fc0a92be5ed8d1fde8522da3d0bf41",
+      "matchesSource": true
+    },
+    {
+      "key": "lamp",
+      "group": "decor",
+      "path": "assets/decor/lamp.png",
+      "size": [
+        1202,
+        1309
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        444,
+        80,
+        758,
+        1226
+      ],
+      "lowAlphaFraction": 0.01023,
+      "bytes": 326900,
+      "sha256": "8de4cdcae4b1916a79ebd42e0af39c13818fdc4564d737ce21d0ff76362758e5",
+      "matchesSource": true
+    },
+    {
+      "key": "stone-seat",
+      "group": "decor",
+      "path": "assets/decor/stone-seat.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "opaqueBounds": [
+        240,
+        154,
+        1342,
+        948
+      ],
+      "lowAlphaFraction": 0.00578,
+      "bytes": 1120020,
+      "sha256": "2c1b8916cc4d85e103f5314af422e611a9cf2aa1b1fc2f04d08ad2fa6fbb724a",
+      "matchesSource": true
+    },
+    {
+      "key": "bench",
+      "group": "decor",
+      "path": "assets/decor/bench.png",
+      "size": [
+        1402,
+        1122
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        158,
+        71,
+        1244,
+        1074
+      ],
+      "lowAlphaFraction": 0.01472,
+      "bytes": 922503,
+      "sha256": "f5fb7c854c603570dcb93efc6b8558221544e1c6114d3e4c52c1268b66a4413e",
+      "matchesSource": true
+    },
+    {
+      "key": "flag",
+      "group": "decor",
+      "path": "assets/decor/flag.png",
+      "size": [
+        1261,
+        1247
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        296,
+        94,
+        1065,
+        1151
+      ],
+      "lowAlphaFraction": 0.00938,
+      "bytes": 467704,
+      "sha256": "bb3f4ff7d760839ed70bf8eee5423fa0fbcfd51282f4f50983eabc33918c161f",
+      "matchesSource": true
+    },
+    {
+      "key": "flower-fence",
+      "group": "decor",
+      "path": "assets/decor/flower-fence.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "opaqueBounds": [
+        200,
+        107,
+        1331,
+        956
+      ],
+      "lowAlphaFraction": 0.01673,
+      "bytes": 1306368,
+      "sha256": "a90f932194654522de460acd09420584ece56d550ae2c10202c9bf754f53e2b9",
+      "matchesSource": true
+    },
+    {
+      "key": "wood-fence",
+      "group": "decor",
+      "path": "assets/decor/wood-fence.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "opaqueBounds": [
+        216,
+        86,
+        1326,
+        968
+      ],
+      "lowAlphaFraction": 0.0401,
+      "bytes": 1242255,
+      "sha256": "e7bcb9ef229002a800624f68dd2ffe513d470218e41bf78ad9a7b1af72652157",
+      "matchesSource": true
+    },
+    {
+      "key": "arch",
+      "group": "decor",
+      "path": "assets/decor/arch.png",
+      "size": [
+        1327,
+        1185
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        233,
+        67,
+        1117,
+        1137
+      ],
+      "lowAlphaFraction": 0.01502,
+      "bytes": 771002,
+      "sha256": "3b251c12416e54e98967582db8d34a4e6e4003cc7b2a8d0712c0282799d2e730",
+      "matchesSource": true
+    },
+    {
+      "key": "bridge",
+      "group": "decor",
+      "path": "assets/decor/bridge.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "opaqueBounds": [
+        134,
+        57,
+        1467,
+        969
+      ],
+      "lowAlphaFraction": 0.01489,
+      "bytes": 1438833,
+      "sha256": "458d990043f1677c3f05164cc03731c527d66d4b26c54ba4d65a7ac8ea16e374",
+      "matchesSource": true
+    },
+    {
+      "key": "trough",
+      "group": "decor",
+      "path": "assets/decor/trough.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "opaqueBounds": [
+        187,
+        138,
+        1373,
+        939
+      ],
+      "lowAlphaFraction": 0.01302,
+      "bytes": 1268705,
+      "sha256": "9ab19fce80bc157f44330ceba2976f97ce162c07e192333f9bf3a3df14c82659",
+      "matchesSource": true
+    },
+    {
+      "key": "flower-bed",
+      "group": "decor",
+      "path": "assets/decor/flower-bed.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "opaqueBounds": [
+        164,
+        71,
+        1384,
+        964
+      ],
+      "lowAlphaFraction": 0.01051,
+      "bytes": 1403254,
+      "sha256": "45595c1bf598143925f15b0effe85919a06484194db986e078e25f780a884e9f",
+      "matchesSource": true
+    },
+    {
+      "key": "stone-statue",
+      "group": "decor",
+      "path": "assets/decor/stone-statue.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        258,
+        174,
+        1054,
+        1115
+      ],
+      "lowAlphaFraction": 0.0079,
+      "bytes": 730542,
+      "sha256": "9710f76f1f18287e3b352a6fa93cbb015aaa134c9f6bcb0201714040453037a9",
+      "matchesSource": true
+    },
+    {
+      "key": "picnic",
+      "group": "decor",
+      "path": "assets/decor/picnic.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "opaqueBounds": [
+        98,
+        132,
+        1454,
+        953
+      ],
+      "lowAlphaFraction": 0.01118,
+      "bytes": 1349869,
+      "sha256": "0195407f45de3d8dc59101146ed45f9d89c4cf322f2f143f0cfaa96956e8af3a",
+      "matchesSource": true
+    },
+    {
+      "key": "meadow-banner",
+      "group": "decor",
+      "path": "assets/decor/meadow-banner.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "opaqueBounds": [
+        232,
+        102,
+        1311,
+        951
+      ],
+      "lowAlphaFraction": 0.01472,
+      "bytes": 1297804,
+      "sha256": "aac8279fbd779e1c4fabc0860cd751a3f56676efddc34caf8b6c84941bc55d09",
+      "matchesSource": true
+    },
+    {
+      "key": "festival-windmill",
+      "group": "decor",
+      "path": "assets/decor/festival-windmill.png",
+      "size": [
+        1317,
+        1194
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        275,
+        21,
+        1040,
+        1168
+      ],
+      "lowAlphaFraction": 0.00793,
+      "bytes": 870759,
+      "sha256": "177c9fd6144e18b4a4745f74420563137d47113bfca43b66ecdd08065a49ae95",
+      "matchesSource": true
+    },
+    {
+      "key": "land-memorial",
+      "group": "decor",
+      "path": "assets/decor/land-memorial.png",
+      "size": [
+        1306,
+        1205
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "opaqueBounds": [
+        239,
+        121,
+        1078,
+        1085
+      ],
+      "lowAlphaFraction": 0.01744,
+      "bytes": 772747,
+      "sha256": "d4a0fe510ed3ea9de241896d1b63bb07b9aed7037581d1baf3a5beba85349e82",
+      "matchesSource": true
+    },
+    {
+      "key": "reward-bridge",
+      "group": "decor",
+      "path": "assets/decor/reward-bridge.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "opaqueBounds": [
+        204,
+        70,
+        1387,
+        949
+      ],
+      "lowAlphaFraction": 0.01081,
+      "bytes": 1431467,
+      "sha256": "53baa25622a1e5aedaeb4269a2c4450a47668f99c3ad33c83af3dec1893ac886",
+      "matchesSource": true
+    }
+  ]
+}
