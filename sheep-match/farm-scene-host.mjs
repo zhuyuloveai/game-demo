@@ -63,8 +63,8 @@ export function mountFarm({root,store,onExit=()=>{},onStartStage=()=>{},getMusic
    openScene(next,opts={}){
     if(!titles[next]){say('此入口暂不可用');return false;}
     for(const fn of localDeactivators)fn();
-    const layer=doc.createElement('section'),header=doc.createElement('header'),back=doc.createElement('button'),title=doc.createElement('span'),content=doc.createElement('div'),owned=new Set(),previous=doc.activeElement;
-    layer.className='farm-scene-layer';header.className='farm-scene-layer-header';content.className='farm-scene-layer-content';back.textContent='← 返回原操作';back.type='button';title.textContent=titles[next];header.append(back,title);layer.append(header,content);target.inert=true;root.append(layer);let closed=false;
+    const layer=doc.createElement('section'),header=doc.createElement('header'),back=doc.createElement('button'),title=doc.createElement('span'),home=doc.createElement('button'),content=doc.createElement('div'),owned=new Set(),previous=doc.activeElement;
+    layer.className='farm-scene-layer';header.className='farm-scene-layer-header';content.className='farm-scene-layer-content';back.textContent='← 返回原操作';back.type='button';title.textContent=titles[next];home.type='button';home.className='farm-scene-home';home.textContent='⌂ 回首页';home.setAttribute('aria-label','返回小院首页');home.onclick=()=>ctx.exitFarm();header.append(back,title,home);layer.append(header,content);target.inert=true;root.append(layer);let closed=false;
     const close=()=>{if(closed)return;closed=true;for(const fn of [...owned])fn();owned.clear();layer.remove();target.inert=false;ownerCleanups.delete(close);if(previous?.isConnected)previous.focus({preventScroll:true});opts.onReturn?.();for(const render of refreshers)render();};
     back.onclick=close;ownerCleanups.add(close);const child=context(next,content,{...opts,returnToOrigin:close},owned);
     try{const dispose=mount(child);if(typeof dispose==='function')owned.add(dispose);back.focus({preventScroll:true});return true;}catch(e){close();say('未能打开：'+e.message);return false;}

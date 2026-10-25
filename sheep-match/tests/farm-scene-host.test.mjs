@@ -10,7 +10,7 @@ const source=readFileSync(new URL('../farm-scene-host.mjs',import.meta.url),'utf
 // Host-only inert DOM: real host lifecycle and commands, scene renderers stubbed.
 // Browser geometry, native inert and focus behavior are covered by browser QA, not this fixture.
 function harness(){
- const contexts=[],sounds=[],commands=[],callbacks=new Set();let state=core.createFarm(0),readOnly=false;
+ const contexts=[],sounds=[],commands=[],exits=[],callbacks=new Set();let state=core.createFarm(0),readOnly=false;
  const doc={activeElement:null,defaultView:{}};
  class Element{
   constructor(){this.children=[];this.className='';this.dataset={};this.inert=false;this.isConnected=true;this.classList={add(){}};this.ownerDocument=doc;}
@@ -20,6 +20,7 @@ function harness(){
   replaceChildren(...els){this.children=[];this.append(...els);}
   querySelector(s){if(s==='[data-no]')return this.no;if(s==='[data-yes]')return this.yes;return this.querySelectorAll(s)[0];}
   querySelectorAll(s){if(s==='button')return[this.no,this.yes].filter(Boolean);const classes=s.split(',').map(x=>x.slice(1));return this.children.flatMap(e=>[...(classes.includes(e.className)?[e]:[]),...e.querySelectorAll(s)]);}
+  setAttribute(name,value){(this.attributes??={})[name]=value;}
   focus(){doc.activeElement=this;}
   remove(){this.isConnected=false;if(this.parent)this.parent.children=this.parent.children.filter(x=>x!==this);}
  }
@@ -29,8 +30,8 @@ function harness(){
  const mount=ctx=>{contexts.push(ctx);return()=>{};};
  const code=source.replace(/^import .*;\n/gm,'').replaceAll('export ','').replaceAll('import.meta.url',JSON.stringify(new URL('../farm-scene-host.mjs',import.meta.url).href))+'\nmountFarm';
  const fn=vm.runInNewContext(code,{config,core,layout,save:{},stages:{},FARM_ASSETS:[],farmAsset(){},farmAssetUrl:id=>id,mountFarmDelight:()=>effect,mountWorldScene:mount,mountTradeScene:mount,mountManagementScene:mount,URL,queueMicrotask});
- const api=fn({root,store,onSound:c=>sounds.push(c)});
- return{api,root,contexts,commands,sounds,callbacks,doc,setReadOnly(v){readOnly=v},get state(){return state;}};
+ const api=fn({root,store,onSound:c=>sounds.push(c),onExit:()=>exits.push(true)});
+ return{api,root,contexts,commands,sounds,exits,callbacks,doc,setReadOnly(v){readOnly=v},get state(){return state;}};
 }
 test('source routing targets exact product owners without changing fresh progression',()=>{
  const s=core.createFarm(0),before=structuredClone(s);
@@ -53,3 +54,7 @@ test('escaping labels and production adapter have no demo state initialization',
 test('repeated confirmation activation commits once while busy',async()=>{const h=harness(),ctx=h.contexts[0];ctx.confirm({onConfirm:()=>ctx.act({type:'plant',entityIds:['field_1'],itemId:'wheat'})});const overlay=h.root.querySelector('.farm-scene-confirm-backdrop'),yes=overlay.querySelector('[data-yes]');await Promise.all([yes.onclick(),yes.onclick()]);assert.equal(h.commands.length,1);assert.equal(h.state.inventory.wheat,5);h.api.destroy();});
 test('readonly camera persistence is skipped and equal saved camera does not write',async()=>{const h=harness(),ctx=h.contexts[0];ctx.saveCamera(h.state.camera);await new Promise(queueMicrotask);assert.equal(h.commands.length,0);h.setReadOnly(true);ctx.saveCamera({centerX:20,centerY:20,zoom:1});await new Promise(queueMicrotask);assert.equal(h.commands.length,0);h.api.destroy();});
 test('a fully skipped collection produces no success sound',()=>{const h=harness(),before=structuredClone(h.state);const r=h.contexts[0].act({type:'harvest',entityIds:['field_1']});assert.equal(r.ok,true);assert.deepEqual(h.state.inventory,before.inventory);assert.deepEqual(h.sounds,[]);h.api.destroy();});
+
+test('nested shop and warehouse expose direct return-home without resetting resources',()=>{
+ for(const id of ['P07','P08','P17']){const h=harness(),before=structuredClone(h.state);h.contexts[0].openScene(id);const home=h.root.querySelector('.farm-scene-home');assert(home);assert.match(home.textContent,/回首页/);assert.equal(home.attributes['aria-label'],'返回小院首页');home.onclick();assert.equal(h.exits.length,1);assert.equal(h.commands.length,0);assert.deepEqual(h.state,before);h.api.destroy();}
+});

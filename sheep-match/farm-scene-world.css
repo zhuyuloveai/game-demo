@@ -60,3 +60,6 @@ html.fw-document,html.fw-document>body{overflow:clip;overscroll-behavior:none}
 
 .fw-object-panel.fw-machine-panel{max-height:48%}.fw-machine-panel .fw-tray{margin:3px 0 7px}.fw-machine-panel .fw-tray:before{content:"完成品 · 划过收取";font:10px system-ui;color:#795d3d;margin-right:3px}
 @media(max-height:460px){.fw-object-panel.fw-machine-panel{max-height:65%}}
+
+/* Return home is always visible alongside level, with no extra page header. */
+.fw-top-actions{display:flex;align-items:center;flex-wrap:wrap;gap:4px}.fw-tl .fw-home-button{font-size:12px}.fw-tl .fw-home-button>span{font-size:16px;color:#7b7955}
