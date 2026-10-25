@@ -151,15 +151,15 @@ test('scene economic previews use the original core but never mutate current cha
   assert.deepEqual(state, before);
 });
 
-test('direct world swipe intent follows the initial object and never changes action midway',async()=>{
- const C=await import('../farm-config.mjs');let state=createFarm(0);const f=state.entities.find(e=>e.kind==='field'),s=state.entities.find(e=>e.kind==='shelter'),a=s.animals[0];
- assert.equal(H.directWorldTool(f,null,null,state,C),null);
- assert.deepEqual(H.directWorldTool(f,null,'wheat',state,C),{action:'plant',entityId:f.id,itemId:'wheat'});
- f.crop={itemId:'wheat',readyAt:0};assert.equal(H.directWorldTool(f,null,'wheat',state,C).action,'harvest');
- assert.equal(H.directWorldTool(f,null,'wheat',state,C,true),null);f.crop.readyAt=1;assert.equal(H.directWorldTool(f,null,'wheat',state,C),null);
- assert.equal(H.directWorldTool(s,a.id,null,state,C).action,'feed');state.inventory.chicken_feed=0;assert.equal(H.directWorldTool(s,a.id,null,state,C),null);
- a.status='ready';assert.equal(H.directWorldTool(s,a.id,null,state,C).action,'collectAnimal');
- assert.equal(H.directWorldTool({id:'tree',kind:'fruit',configId:'apple',status:'ready'},null,null,state,C).action,'harvest');
+test('world objects never infer an economic tool from a bare drag',async()=>{
+ const C=await import('../farm-config.mjs'),state=createFarm(0),field=state.entities.find(e=>e.kind==='field'),shelter=state.entities.find(e=>e.kind==='shelter');
+ for(const e of [field,{...field,crop:{itemId:'wheat',readyAt:0}},shelter,{id:'tree',kind:'fruit',configId:'apple',status:'ready'}])for(const editing of [false,true])assert.equal(H.directWorldTool(e,shelter.animals[0].id,'wheat',state,C,editing),null);
+});
+test('crop quick harvest requires the same mature field within the double-tap interval',()=>{
+ const e={id:'field_1',kind:'field',crop:{itemId:'wheat',readyAt:100}};
+ assert.equal(H.cropDoubleTapCommand(e,null,200,100),null);assert.equal(H.cropDoubleTapCommand(null,null,200,100),null);
+ for(const [last,at,now,editing] of [[{id:'other',at:100},200,100,false],[{id:e.id,at:100},451,100,false],[{id:e.id,at:100},99,100,false],[{id:e.id,at:100},200,99,false],[{id:e.id,at:100},200,100,true]])assert.equal(H.cropDoubleTapCommand(e,last,at,now,editing),null);
+ assert.deepEqual(H.cropDoubleTapCommand(e,{id:e.id,at:100},450,100),{type:'harvest',entityIds:[e.id]});
 });
 
 test('factory product sweep collects exact job IDs once from its own machine',()=>{

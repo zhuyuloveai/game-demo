@@ -13,10 +13,10 @@ const open=source.slice(source.indexOf('    function openObject('),source.indexO
 const tap=source.slice(source.indexOf('    function tapTool('),source.indexOf('    function startToolDrag('));
 function scene(state=core.createFarm(0)){
  const commands=[],says=[],storage=[];const ctx={get state(){return state},say:s=>says.push(s)};
- const h=vm.runInNewContext(`(()=>{let selected=null,selectedAnimal=null,more=false,localPage=null,clearPreview=null,seedPage=0,recipePage=0,chosenSeed=null,pendingRecipe=null,draft=null,placement=null,lastCollectedAnimal=null;
+ const h=vm.runInNewContext(`(()=>{let selected=null,selectedAnimal=null,more=false,localPage=null,clearPreview=null,seedPage=0,recipePage=0,chosenSeed=null,pendingRecipe=null,draft=null,placement=null,lastFieldTap=null;
  const entity=id=>ctx.state.entities.find(e=>e.id===id),render=()=>{},cancelGesture=()=>{},focus=()=>{},remaining=t=>String(t-ctx.state.now),name=id=>id;
  ${open}\n${tap}
- return {open:openObject,tap:tapTool,edit:v=>draft=v,snapshot:()=>({selected,chosenSeed,localPage,pendingRecipe})};})()`,{ctx,config,Date,directCropHarvestCommand:H.directCropHarvestCommand,openStorage:k=>storage.push(k),doAct:c=>{commands.push(clone(c));const result=core.executeFarm(state,clone(c),state.now);state=result.state;return {ok:true,...result};}});
+ return {open:openObject,tap:tapTool,edit:v=>draft=v,snapshot:()=>({selected,chosenSeed,localPage,pendingRecipe})};})()`,{ctx,config,Date,directCropHarvestCommand:H.directCropHarvestCommand,cropDoubleTapCommand:H.cropDoubleTapCommand,openStorage:k=>storage.push(k),doAct:c=>{commands.push(clone(c));const result=core.executeFarm(state,clone(c),state.now);state=result.state;return {ok:true,...result};}});
  return {...h,commands,says,storage,get state(){return state}};
 }
 const run=(s,c,t=s.now)=>core.executeFarm(s,c,t).state;
@@ -24,25 +24,23 @@ test('production module exposes no fixture loader, global registration or simula
  for(const forbidden of ['prepareWorldScenario','setScenario','ctx.reset','ctx.advance','applyScenario','fw-demo-bar','demo_field','demo_flowerpot','FarmWorldTest','preserveState'])assert(!source.includes(forbidden),forbidden);
  assert.equal(typeof H.mountWorldScene,'function');assert(!css.includes('.fw-demo-bar'));
 });
-test('fresh level-one farm first empty tap opens explicit seed choice; selection plants continuously at real costs',()=>{
- const t=scene(),initial=clone(t.state);t.open('field_1');assert.equal(t.commands.length,0);assert.deepEqual(t.state,initial);
- t.tap({action:'plant',itemId:'wheat',entityId:'field_1'});t.open('field_2');
- assert.equal(t.state.inventory.wheat,4);assert.equal(t.snapshot().chosenSeed,'wheat');assert.equal(t.state.level,1);assert.equal(t.state.coins,100);
- assert.deepEqual(t.commands.map(c=>c.type),['plant','plant']);
+test('empty field and seed taps only select a tool and never spend seeds',()=>{
+ const t=scene(),initial=clone(t.state);t.open('field_1');t.tap({action:'plant',itemId:'wheat',entityId:'field_1'});t.open('field_2');
+ assert.equal(t.commands.length,0);assert.deepEqual(t.state,initial);assert.equal(t.snapshot().chosenSeed,'wheat');
 });
-test('mature crop tap collects once and never silently replants; edit tap never collects',()=>{
- let s=run(core.createFarm(0),{type:'plant',entityIds:['field_1'],itemId:'wheat'});s=core.advanceFarm(s,120000).state;
- const t=scene(s);t.edit({});t.open('field_1');assert.equal(t.commands.length,0);t.edit(null);t.open('field_1');t.open('field_1');
- assert.deepEqual(t.commands,[{type:'harvest',entityIds:['field_1']}]);assert.equal(t.state.inventory.wheat,7);assert.equal(t.state.entities.find(e=>e.id==='field_1').crop,null);
+test('mature crop first tap selects, second tap harvests exactly one; edit activation never collects',()=>{
+ let s=run(core.createFarm(0),{type:'plant',entityIds:['field_1','field_2'],itemId:'wheat'});s=core.advanceFarm(s,120000).state;
+ const t=scene(s);t.edit({});t.open('field_1');assert.equal(t.commands.length,0);t.edit(null);t.open('field_1');assert.equal(t.commands.length,0);t.open('field_1');
+ assert.deepEqual(t.commands,[{type:'harvest',entityIds:['field_1']}]);assert.equal(t.state.entities.find(e=>e.id==='field_1').crop,null);assert(t.state.entities.find(e=>e.id==='field_2').crop);
 });
-test('hungry exact animal feeds once; collecting a ready animal never immediately refeeds on double activation',()=>{
- const s=core.createFarm(0),shelter=s.entities.find(e=>e.kind==='shelter'),animal=shelter.animals[0];const t=scene(s);
- t.open(shelter.id,animal.id);t.open(shelter.id,animal.id);assert.equal(t.commands.length,1);assert.deepEqual(t.commands[0].animalIds,[animal.id]);assert.equal(t.state.inventory.chicken_feed,2);
- const ready=core.advanceFarm(t.state,config.ANIMALS.chicken.durationMs).state,u=scene(ready);u.open(shelter.id,animal.id);u.open(shelter.id,animal.id);
- assert.deepEqual(u.commands.map(c=>c.type),['collectAnimal']);assert.equal(u.state.inventory.chicken_feed,2);
+test('hungry and ready animal activation only selects, including repeated taps and tool taps',()=>{
+ const s=core.createFarm(0),shelter=s.entities.find(e=>e.kind==='shelter'),animal=shelter.animals[0];const t=scene(s),before=clone(s);
+ t.open(shelter.id,animal.id);t.open(shelter.id,animal.id);t.tap({action:'feed',entityId:shelter.id,itemId:'chicken_feed'});assert.equal(t.commands.length,0);assert.deepEqual(t.state,before);
+ const ready=core.advanceFarm(run(s,{type:'feed',entityId:shelter.id}),config.ANIMALS.chicken.durationMs).state,u=scene(ready);u.open(shelter.id,animal.id);u.open(shelter.id,animal.id);u.tap({action:'collectAnimal',entityId:shelter.id,itemId:'egg'});
+ assert.equal(u.commands.length,0);assert.deepEqual(u.state,ready);
 });
-test('missing animal feed never purchases or performs invalid economic transaction',()=>{
- const s=core.createFarm(0);s.inventory.chicken_feed=0;const e=s.entities.find(e=>e.kind==='shelter'),t=scene(s);t.open(e.id,e.animals[0].id);assert.equal(t.commands.length,0);assert.match(t.says.at(-1),/缺少/);assert(source.includes("button('source:'+c.feedItem,'去制作饲料')"));
+test('missing feed still leaves selection resource-neutral with a production source affordance',()=>{
+ const s=core.createFarm(0);s.inventory.chicken_feed=0;const e=s.entities.find(e=>e.kind==='shelter'),t=scene(s);t.open(e.id,e.animals[0].id);assert.equal(t.commands.length,0);assert(source.includes("button('source:'+c.feedItem,'去制作饲料')"));
 });
 test('storage target directly carries actual category and does not change balances',()=>{const t=scene();for(const k of ['barn','silo'])t.open(t.state.entities.find(e=>e.kind===k).id);assert.deepEqual(t.storage,['barn','silo']);assert.equal(t.commands.length,0);});
 test('all physical shop categories quote real core costs without changing state',()=>{
@@ -54,10 +52,10 @@ test('every machine tray hitbox is contained, compact, and reserves >=44px machi
  for(const c of Object.values(config.BUILDINGS))for(const rotation of [0,90])for(const n of [1,2,9]){const e={x:26,y:27,w:c.footprint[0],h:c.footprint[1],rotation,completed:Array(n).fill({})},f=layout.getFootprint(e),t=H.machineTrayPlacement(e,f);assert(t.x>=e.x*48);assert(t.x+t.width<=(e.x+f.w)*48);assert(t.y-e.y*48>=44);assert(t.y+t.height<=(e.y+f.h)*48);if(n===1)assert.equal(t.width,52);}
  assert.match(css,/\.fw-products,\.fw-tray\{background:transparent/);assert.match(css,/prefers-reduced-motion:reduce/);assert.match(css,/data-paused=true/);
 });
-test('ready fruit object harvests exactly once then retains actual regrowth timer',()=>{
+test('ready fruit selection and basket tap preserve fruit until an explicit stroke',()=>{
  let s=core.createFarm(0);s.level=config.FRUITS.apple.level;s.xp=config.LEVELS[s.level-1].totalXp;s.coins=10000;
  s=run(s,{type:'buy',category:'fruit',itemId:'apple',x:18,y:28});const tree=s.entities.at(-1);s=core.advanceFarm(s,tree.readyAt).state;
- const t=scene(s);t.open(tree.id);t.open(tree.id);assert.deepEqual(t.commands.map(c=>c.type),['harvest']);const after=t.state.entities.find(e=>e.id===tree.id);assert.equal(after.status,'growing');assert(after.readyAt>t.state.now);
+ const t=scene(s);t.open(tree.id);t.open(tree.id);t.tap({action:'harvest',entityId:tree.id,itemId:'apple'});assert.equal(t.commands.length,0);assert.deepEqual(t.state,s);
 });
 test('recipe card queues directly at original recipe cost and missing materials only show acquisition detail',()=>{
  let s=core.createFarm(0);s.level=config.BUILDINGS.bakery.level;s.xp=config.LEVELS[s.level-1].totalXp;s.coins=10000;

@@ -63,3 +63,5 @@ html.fw-document,html.fw-document>body{overflow:clip;overscroll-behavior:none}
 
 /* Return home is always visible alongside level, with no extra page header. */
 .fw-top-actions{display:flex;align-items:center;flex-wrap:wrap;gap:4px}.fw-tl .fw-home-button{font-size:12px}.fw-tl .fw-home-button>span{font-size:16px;color:#7b7955}
+
+.fw-tool-art{width:44px;height:44px;flex-shrink:0;pointer-events:none}.fw-cursor .fw-tool-art{width:48px;height:48px}

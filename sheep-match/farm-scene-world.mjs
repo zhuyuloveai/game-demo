@@ -69,19 +69,10 @@
   function directCropHarvestCommand(e,now,editing=false){
     return !editing&&e?.kind==='field'&&e.crop&&e.crop.readyAt<=now?{type:'harvest',entityIds:[e.id]}:null;
   }
-  function directWorldTool(e,animalId,seed,state,config,editing=false) {
-    if(editing||!e)return null;
-    if(e.kind==='field') {
-      if(e.crop?.readyAt<=state.now)return {action:'harvest',entityId:e.id};
-      if(!e.crop&&seed&&config.CROPS[seed]?.level<=state.level&&(state.inventory[seed]||0)>0)return {action:'plant',entityId:e.id,itemId:seed};
-    }
-    if(e.kind==='fruit'&&e.status==='ready')return {action:'harvest',entityId:e.id,itemId:e.configId};
-    if(e.kind==='shelter'&&animalId) {
-      const a=e.animals.find(a=>a.id===animalId),c=config.ANIMALS[e.configId];
-      if(a?.status==='ready')return {action:'collectAnimal',entityId:e.id,itemId:c.product};
-      if(a?.status==='hungry'&&(state.inventory[c.feedItem]||0)>0)return {action:'feed',entityId:e.id,itemId:c.feedItem};
-    }
-    return null;
+  // World objects select or pan. Product shelves alone support a direct collection stroke.
+  function directWorldTool() {return null;}
+  function cropDoubleTapCommand(e,lastTap,at,now,editing=false){
+    return e&&lastTap&&lastTap.id===e.id&&at-lastTap.at>=0&&at-lastTap.at<=350?directCropHarvestCommand(e,now,editing):null;
   }
   function resizeHasPendingAction(g){return !!g&&['tool-pending','stroke','job-drag','product-pending','edit','place'].includes(g.type);}
   function resizeWorldCamera(camera,previous,next,anchor){
@@ -113,12 +104,12 @@ export function mountWorldScene(ctx) {
     const esc=ctx.esc||((s)=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])));
     const config=ctx.config;let destroyed=false,selected=null,selectedAnimal=null,more=false,localPage=null,seedPage=0,recipePage=0;
     let camera={x:0,y:0,zoom:1},cameraReady=false,viewSize={w:0,h:0},focusAnchor=null,resizeRaf=0,gesture=null,pointers=new Map(),pinch=null,edgeRaf=0,edgeStamp=0,draft=null,undo=[],redo=[],placement=null,clearPreview=null,activeJob=null;
-    let preserveStoredDraft=false,pendingRecipe=null,chosenSeed=null,lastCollectedAnimal=null,longPressTimer=0;
+    let preserveStoredDraft=false,pendingRecipe=null,chosenSeed=null,lastFieldTap=null;
     const listeners=[];
     root.classList.add('fw-root');
     const ownsDocument=root.parentElement===doc.body;
     if(ownsDocument)doc.documentElement?.classList.add('fw-document');
-    root.innerHTML=`<section class="fw-game" aria-label="${esc(CHAPTERS[id])}"><div class="fw-map" tabindex="0" aria-label="农场地图。空白拖图；从成熟作物、果实、动物或成品上划过连续操作；空田选种后划种；长按物件布置"><div class="fw-world"></div></div><div class="fw-corners"></div><div class="fw-context"></div><div class="fw-local"></div><div class="fw-transaction"></div><div class="fw-stroke-note" role="status" aria-live="polite" hidden></div><div class="fw-cursor" aria-hidden="true" hidden></div></section>`;
+    root.innerHTML=`<section class="fw-game" aria-label="${esc(CHAPTERS[id])}"><div class="fw-map" tabindex="0" aria-label="农场地图。拖动地图；点对象选工具，再拖工具连续操作；双击成熟田收一格；更多菜单进入布置"><div class="fw-world"></div></div><div class="fw-corners"></div><div class="fw-context"></div><div class="fw-local"></div><div class="fw-transaction"></div><div class="fw-stroke-note" role="status" aria-live="polite" hidden></div><div class="fw-cursor" aria-hidden="true" hidden></div></section>`;
     const game=root.querySelector('.fw-game'),view=root.querySelector('.fw-map'),world=root.querySelector('.fw-world'),corners=root.querySelector('.fw-corners'),context=root.querySelector('.fw-context'),local=root.querySelector('.fw-local'),transaction=root.querySelector('.fw-transaction'),note=root.querySelector('.fw-stroke-note'),cursor=root.querySelector('.fw-cursor');
     world.style.backgroundImage=`url("${ctx.asset('terrain/grass-0.svg')}")`;
     function on(el,event,fn,options){el.addEventListener(event,fn,options);listeners.push(()=>el.removeEventListener(event,fn,options));}
@@ -186,27 +177,32 @@ export function mountWorldScene(ctx) {
 
     function defaultFocus(){const all=ctx.state.entities;const target=id==='P03'?all.find(e=>e.kind==='fruit'):id==='P04'?all.find(e=>e.kind==='shelter'&&e.configId==='chicken'):id==='P05'?all.find(e=>e.kind==='machine'&&e.configId==='bakery'):id==='P12'?ctx.layout.LAND_PATCHES.find(p=>ctx.layout.canExpandLand(ctx.state,p.id).ok):id==='P16'?all.find(e=>!ctx.layout.isFixedEntity(e)&&!e.stored):all.find(e=>e.kind==='field');focus(target||all.find(e=>e.kind==='field')||all[0],id==='P04'?1.5:id==='P05'?1.6:id==='P03'?1.4:id==='P12'?.75:1);}
     function renderCorners(){corners.innerHTML=`<div class="fw-corner fw-tl"><div class="fw-top-actions">${button('exit-farm','回首页','<span aria-hidden="true">⌂</span>','class="fw-home-button" aria-label="返回小院首页"')}${button('chapter:P13',`${ctx.state.level}级`,'<span>★</span>','aria-label="等级与任务"')}</div><small>${ctx.state.xp} XP</small></div><div class="fw-corner fw-tr">${button('shop',String(ctx.state.coins),'<span>●</span>','aria-label="金币与商店"')}${button('chapter:P07',vouchersEnabled()?`${ctx.state.vouchers}券`:'建设券功能关闭','',vouchersEnabled()?'aria-label="建设券"':'disabled aria-label="建设券功能关闭"')}</div><div class="fw-corner fw-bl">${button('shop','商店',image('ui/shop.svg','','fw-icon'))}</div><div class="fw-corner fw-br">${button('more','更多','<span>•••</span>',`aria-expanded="${more}"`)}</div>${more?`<nav class="fw-more" aria-label="农场更多入口">${[['chapter:P08','粮仓 / 货仓'],['chapter:P11','订单板'],['chapter:P09','乡间集市'],['chapter:P13','任务册'],['chapter:P14','牧场故事'],['chapter:P12','开垦土地'],['chapter:P19','外观与收纳'],['edit','布置农场'],['chapter:P17','设置与帮助'],['home-camera','回到农场中心'],['zoom-in','放大地图'],['zoom-out','缩小地图']].map(([a,n])=>button(a,n)).join('')}<button type="button" data-display-open aria-haspopup="dialog">屏幕与方向</button>${button('more','收起')}</nav>`:''}`;}
-    function tool(action,label,itemId,entityId,recipeId){return `<button class="fw-tool" ${action==='feed'&&!(ctx.state.inventory[itemId]>0)?'disabled':''} data-tool="${action}" data-owner="${entityId||''}" data-item="${itemId||''}" data-recipe="${recipeId||''}" aria-label="${esc(label)}，拖向目标；点击可操作所选对象">${itemId?item(itemId):image('ui/harvest.svg')}<span>${esc(label)}</span>${action==='enqueue'?`<small class="fw-recipe-cost">${Object.entries(config.RECIPES[recipeId].inputs).map(([key,n])=>`${esc(name(key))}×${n}${(ctx.state.inventory[key]||0)<n?'（缺）':''}`).join(' · ')}</small>`:''}</button>`;}
+    function toolArt(action,itemId,entityId){
+      const e=entity(entityId),shape=action==='harvest'&&e?.kind==='field'?'scythe':action==='collectAnimal'&&e?.configId==='cow'?'bucket':action==='collectAnimal'&&e?.configId==='sheep'?'shears':null;
+      if(shape){const paths={scythe:'<path d="M19 55 37 17" stroke="#94663d" stroke-width="6"/><path d="M34 18Q53 8 57 29Q43 18 23 32Z" fill="#d9e5df"/>',bucket:'<path d="M17 25h31l-4 29H21Z" fill="#d9e5df"/><path d="M21 25V16q11-16 23 0v9"/>',shears:'<circle cx="20" cy="45" r="9" fill="#e7c879"/><circle cx="43" cy="45" r="9" fill="#e7c879"/><path d="m25 38 20-28-8 30M38 38 18 10l8 30" fill="#d9e5df"/>'};return `<svg class="fw-tool-art" viewBox="0 0 64 64" fill="none" stroke="#355441" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[shape]}</svg>`;}
+      return action==='harvest'||action==='collectAnimal'?image('ui/harvest.svg'):itemId?item(itemId):image('ui/harvest.svg');
+    }
+    function tool(action,label,itemId,entityId,recipeId){return `<button class="fw-tool" ${action==='feed'&&!(ctx.state.inventory[itemId]>0)?'disabled':''} data-tool="${action}" data-owner="${entityId||''}" data-item="${itemId||''}" data-recipe="${recipeId||''}" aria-label="${esc(label)}，按住拖向目标">${toolArt(action,itemId,entityId)}<span>${esc(label)}</span>${action==='enqueue'?`<small class="fw-recipe-cost">${Object.entries(config.RECIPES[recipeId].inputs).map(([key,n])=>`${esc(name(key))}×${n}${(ctx.state.inventory[key]||0)<n?'（缺）':''}`).join(' · ')}</small>`:''}</button>`;}
     function renderContext(){
-      if(chosenSeed&&!selected&&!gesture&&!draft&&!placement&&!more&&!localPage){context.innerHTML=`<div class="fw-seed-mode">${tool('plant',name(chosenSeed),chosenSeed,'__seedmode')}<span>${esc(name(chosenSeed))} · 余 ${ctx.state.inventory[chosenSeed]||0}份<br>从空田起手划过，或拖种子连续播种</span>${button('stop-seeding','结束播种')}</div>`;return;}
+      if(chosenSeed&&!selected&&!gesture&&!draft&&!placement&&!more&&!localPage){context.innerHTML=`<div class="fw-seed-mode">${tool('plant',name(chosenSeed),chosenSeed,'__seedmode')}<span>${esc(name(chosenSeed))} · 余 ${ctx.state.inventory[chosenSeed]||0}份<br>按住种子拖过空田，连续播种</span>${button('stop-seeding','结束播种')}</div>`;return;}
       if(gesture||draft||placement||more||localPage){context.innerHTML='';return;}
       const e=selectedEntity();if(!e){context.innerHTML='';return;}
       let body='',sub='';
       if(e.kind==='field'){
-        if(!e.crop){const crops=Object.values(config.CROPS).filter(c=>c.level<=ctx.state.level),group=crops.slice(seedPage*4,seedPage*4+4);body=group.map(c=>tool('plant',`${c.name} ${ctx.state.inventory[c.id]||0}`,c.id,e.id)).join('')+button('seeds-next','更多种子');sub='点种子选定并播下这一格；接着从空田起手划过其他空田，连续播种。也可直接拖种子划种。';}
-        else if(e.crop.readyAt<=ctx.state.now){context.innerHTML='';return;}
+        if(!e.crop){const crops=Object.values(config.CROPS).filter(c=>c.level<=ctx.state.level),group=crops.slice(seedPage*4,seedPage*4+4);body=group.map(c=>tool('plant',`${c.name} ${ctx.state.inventory[c.id]||0}`,c.id,e.id)).join('')+button('seeds-next','更多种子');sub='按住种子拖过空田连续播种，抬手完成这一笔。点击种子只选种，不消耗库存。';}
+        else if(e.crop.readyAt<=ctx.state.now){body=tool('harvest','镰刀 · 连续收获',null,e.id);sub='按住镰刀拖过成熟田连续收获；双击成熟田也可快捷收一格。';}
         else{sub=`${name(e.crop.itemId)}还需 ${remaining(e.crop.readyAt)}`;body=image(entityArt(e),'正在生长','fw-growing');}
       }else if(e.kind==='fruit'){
-        const c=config.FRUITS[e.configId];sub=e.status==='ready'?`这次 ${c.sequence[e.harvestStage]}个 · 第${e.harvestStage+1}次果实`:e.status==='growing'?`再等 ${remaining(e.readyAt)}`:e.status==='revive'?`园丁免费次数：${Math.max(0,3-(ctx.state.npc.freeRevives||0))}`:'已完成最后一轮结果';
-        body=e.status==='ready'?'<span>点树冠采果，按住划过其他成熟果树连续采摘</span>':e.status==='revive'?button('revive','请园丁复苏',item(e.configId))+button('revive-voucher',vouchersEnabled()?'使用 1 建设券':'建设券功能关闭','',vouchersEnabled()?'':'disabled'):e.status==='withered'?button('clear-tree',`清理 · ${name(c.clearTool)}×1`,item(c.clearTool)):image(entityArt(e),'生长中','fw-growing');
+        const c=config.FRUITS[e.configId];sub=e.status==='ready'?`按住果篮拖过成熟果树采摘 · 这次 ${c.sequence[e.harvestStage]}个 · 第${e.harvestStage+1}次果实`:e.status==='growing'?`再等 ${remaining(e.readyAt)}`:e.status==='revive'?`园丁免费次数：${Math.max(0,3-(ctx.state.npc.freeRevives||0))}`:'已完成最后一轮结果';
+        body=e.status==='ready'?tool('harvest','果篮 · 连续采摘',e.configId,e.id):e.status==='revive'?button('revive','请园丁复苏',item(e.configId))+button('revive-voucher',vouchersEnabled()?'使用 1 建设券':'建设券功能关闭','',vouchersEnabled()?'':'disabled'):e.status==='withered'?button('clear-tree',`清理 · ${name(c.clearTool)}×1`,item(c.clearTool)):image(entityArt(e),'生长中','fw-growing');
       }else if(e.kind==='shelter'){
         const c=config.ANIMALS[e.configId],a=e.animals.find(a=>a.id===selectedAnimal);sub=`${e.animals.length}/${c.capacity}只 · 饲料 ${ctx.state.inventory[c.feedItem]||0}${a?' · '+(a.status==='producing'?remaining(a.readyAt):a.status==='ready'?'这一只待收':'这一只饿了'):''}`;
-        body=(e.animals.some(a=>a.status==='hungry')?tool('feed','连续喂养',c.feedItem,e.id):'')+(e.animals.some(a=>a.status==='ready')?tool('collectAnimal','连续收取',c.product,e.id):'')+button('adopt','领养',item(c.product),e.animals.length>=c.capacity?'disabled':'');if(e.animals.length)body+=button('move-animal-panel','迁移伙伴');sub+=' · 从饲料或产物上划过，可连续喂养或收取；同一笔不会自动改做另一种操作';if(!(ctx.state.inventory[c.feedItem]>0)&&e.animals.some(a=>a.status==='hungry'))body+=button('source:'+c.feedItem,'去制作饲料');
-      }else if(e.kind==='machine'){body=machineBoard(e);sub='点配方或拖到上方生产槽排产；划过完成品连续收取。等待中的任务长按拖动排序。';}
+        body=(e.animals.some(a=>a.status==='hungry')?tool('feed','饲料袋 · 连续喂养',c.feedItem,e.id):'')+(e.animals.some(a=>a.status==='ready')?tool('collectAnimal',({chicken:'收蛋篮',cow:'奶桶',sheep:'剪毛工具'})[e.configId]||'收取篮',c.product,e.id):'')+button('adopt','领养',item(c.product),e.animals.length>=c.capacity?'disabled':'');if(e.animals.length)body+=button('move-animal-panel','迁移伙伴');sub+=' · 拖饲料袋喂同栏饥饿动物，拖收取工具收同栏产物；抬手后再换另一种工具';if(!(ctx.state.inventory[c.feedItem]>0)&&e.animals.some(a=>a.status==='hungry'))body+=button('source:'+c.feedItem,'去制作饲料');
+      }else if(e.kind==='machine'){body=machineBoard(e);sub='拖配方到本机器或上方空生产槽排产；点或划过完成品连续收取。等待中的任务长按拖动排序。';}
       else if(e.kind==='obstacle'){const t=e.configId==='natural_tree'?'saw':e.configId==='natural_bush'?'axe':'shovel';body=button(`obstacle:${t}`,`${name(t)} ×1`,item(t));if(e.configId==='rock')body+=button('obstacle:dynamite','炸药 ×1',item('dynamite'))+button('obstacle:tnt','TNT ×1',item('tnt'));sub='选工具先看实际清理目标，确认前不消耗。';}
       else if(e.kind==='barn'||e.kind==='silo'){body=button('chapter:P08','打开仓库',art(e))+button(`upgrade-storage:${e.kind}`,'查看扩容');sub=`${ctx.core.storageUsed(ctx.state,e.kind)} / ${ctx.state.storage[e.kind].capacity}`;}
       else if(ctx.layout.isFixedEntity(e)){body=button('edit','布置其他物件');sub='小屋是固定建筑，不能移动或旋转。田地、仓库和工坊可自由布置。';}
-      if(!ctx.layout.isFixedEntity(e))body+=button('edit',`移动${title(e)}`,'','class="fw-move-object"');
+      if(!ctx.layout.isFixedEntity(e))body+=button('edit',`布置 · 移动${title(e)}`,'','class="fw-move-object"');
       context.innerHTML=`<div class="fw-object-panel ${e.kind==='machine'?'fw-machine-panel':''}"><header><strong>${esc(title(e))}</strong>${button('close-tool','×','','aria-label="收起对象工具"')}</header><div class="fw-tool-row">${body}</div><p>${esc(sub)}</p></div>`;
     }
     function machineBoard(e){
@@ -274,16 +270,11 @@ export function mountWorldScene(ctx) {
     function goToSource(itemId){if(ctx.openSource)ctx.openSource(itemId);else ctx.say('请前往'+name(itemId)+'对应的田地或生产设施');}
     function openObject(id,animal){
       cancelGesture();more=false;localPage=null;clearPreview=null;selected=id;selectedAnimal=animal||null;seedPage=0;recipePage=0;
-      const e=entity(id),harvest=directCropHarvestCommand(e,ctx.state.now,!!draft||!!placement);
+      const e=entity(id),at=Date.now(),harvest=cropDoubleTapCommand(e,lastFieldTap,at,ctx.state.now,!!draft||!!placement);
+      lastFieldTap=!draft&&!placement&&directCropHarvestCommand(e,ctx.state.now)?{id:e.id,at}:null;
       if(draft||placement){render();return;}
-      if(harvest){chosenSeed=null;selected=null;selectedAnimal=null;doAct(harvest,'作物已入仓');render();return;}
-      if(e?.kind==='field'&&!e.crop&&chosenSeed){doAct({type:'plant',entityIds:[e.id],itemId:chosenSeed},'已播种');selected=null;render();return;}
-      if(e?.kind==='fruit'&&e.status==='ready'){selected=null;doAct({type:'harvest',entityIds:[e.id]},'果实已入仓');render();return;}
-      if(e?.kind==='shelter'&&animal){const a=e.animals.find(a=>a.id===animal),c=config.ANIMALS[e.configId];
-        if(a?.status==='ready'){doAct({type:'collectAnimal',entityId:e.id,animalIds:[a.id]},'产物已入仓');lastCollectedAnimal={id:a.id,at:Date.now()};selectedAnimal=null;render();return;}
-        if(a?.status==='hungry'){if(lastCollectedAnimal?.id===a.id&&Date.now()-lastCollectedAnimal.at<500){render();return;}if((ctx.state.inventory[c.feedItem]||0)>0){doAct({type:'feed',entityId:e.id,animalIds:[a.id]},'这一只已喂养');render();return;}ctx.say('缺少'+name(c.feedItem)+'，可点去制作饲料');}
-        else if(a?.status==='producing'){ctx.say('生产中，还需 '+remaining(a.readyAt));}
-      }
+      if(harvest){lastFieldTap=null;chosenSeed=null;doAct(harvest,'作物已入仓');render();return;}
+      if(e?.kind!=='field'||e.crop)chosenSeed=null;
       if(e?.kind==='machine'&&!e.built&&e.buildReadyAt<=ctx.state.now){doAct({type:'completeBuilding',entityId:e.id},'新建筑已揭幕');render();return;}
       if(e?.kind==='barn'||e?.kind==='silo'){openStorage(e.kind);return;}
       if(e?.kind==='shelter')focus(e,1.5);else if(e?.kind==='machine')focus(e,id==='P05'?1.6:1.4);else if(e?.kind==='fruit')focus(e,1.35);
@@ -312,6 +303,7 @@ export function mountWorldScene(ctx) {
     function cancelEdit(){if(!draft)return;const changed=undo.length||JSON.stringify(draft.positions)!==JSON.stringify(ctx.layout.beginLayout(ctx.state).positions);if(!changed){if(!preserveStoredDraft)clearLayoutDraft();draft=null;render();return;}ctx.confirm({title:'放弃这次布置？',body:'<p>只丢弃未保存位置，生产与库存不回退。</p>',onConfirm:()=>{clearLayoutDraft();draft=null;undo=[];redo=[];render();}});}
     function reorderJob(direction){const e=selectedEntity(),ids=e.queue.filter(j=>j.startAt===null).map(j=>j.id),index=ids.indexOf(activeJob),to=index+direction;if(index<0||to<0||to>=ids.length)return;[ids[index],ids[to]]=[ids[to],ids[index]];doAct({type:'reorderQueue',entityId:e.id,jobIds:ids},'等待顺序已调整');}
     function action(action,el){
+      lastFieldTap=null;
       if(action==='exit-farm'){cancelGesture();if(persistLayoutDraft()?.ok===false)return;more=false;ctx.exitFarm?.();return;}
       if(action.startsWith('chapter:')){if(draft){ctx.say('请先保存或取消布置');return;}closeTemporary();ctx.openScene?.(action.slice(8));return;}
       const e=selectedEntity();
@@ -378,7 +370,7 @@ export function mountWorldScene(ctx) {
     }
     function rectData(r){return {left:r.left,top:r.top,right:r.right,bottom:r.bottom};}
     function actualUI(p,except){const el=doc.elementFromPoint(p.x,p.y);return !!el?.closest('.fw-corner,.fw-more,.fw-local-sheet,.fw-transaction>div,.fw-object-panel,.fw-seed-mode')&&!except?.contains(el);}
-    function cancelGesture(reason){win.clearTimeout?.(longPressTimer);longPressTimer=0;pinch=null;const wasEdit=gesture?.type==='edit'&&draft;if(wasEdit)draft.positions=gesture.original;if(gesture?.stroke)cancelStroke(gesture.stroke,reason);gesture=null;note.hidden=true;cursor.hidden=true;root.querySelectorAll('.marked').forEach(el=>el.classList.remove('marked'));if(wasEdit){renderMap();renderTransaction();}root.querySelectorAll('.fw-drop-target').forEach(el=>el.classList.remove('fw-drop-target'));if(reason)ctx.say(reason);}
+    function cancelGesture(reason){pinch=null;const wasEdit=gesture?.type==='edit'&&draft;if(wasEdit)draft.positions=gesture.original;if(gesture?.stroke)cancelStroke(gesture.stroke,reason);gesture=null;note.hidden=true;cursor.hidden=true;root.querySelectorAll('.marked').forEach(el=>el.classList.remove('marked'));if(wasEdit){renderMap();renderTransaction();}root.querySelectorAll('.fw-drop-target').forEach(el=>el.classList.remove('fw-drop-target'));if(reason)ctx.say(reason);}
     function previewGesture(g,p){
       if(!g.stroke)return;
       extendStroke(g.stroke,p,targetsFor(g.tool));
@@ -394,15 +386,12 @@ export function mountWorldScene(ctx) {
       const e=entity(tool.entityId);if(!e){if(tool.action==='plant'){chosenSeed=tool.itemId;render();}return;}
       if(tool.action==='enqueue'){pendingRecipe=tool.recipeId;const r=config.RECIPES[tool.recipeId],missing=Object.keys(r.inputs).some(k=>(ctx.state.inventory[k]||0)<r.inputs[k]);if(missing){localPage='recipe';ctx.say('原料不足，点缺少的原料去获取');render();return;}doAct({type:'enqueue',entityId:e.id,recipeId:tool.recipeId},'配方已加入队列');render();return;}
       if(tool.action==='plant')chosenSeed=tool.itemId;
-      let cmd;
-      if(['feed','collectAnimal'].includes(tool.action)){const wanted=tool.action==='feed'?'hungry':'ready',chosen=e.animals.find(a=>a.id===selectedAnimal&&a.status===wanted)||e.animals.find(a=>a.status===wanted);if(!chosen){ctx.say(tool.action==='feed'?'没有待喂的小伙伴':'还没有待收产物');return;}cmd={type:tool.action,entityId:e.id,animalIds:[chosen.id]};}
-      else cmd={type:tool.action,entityIds:[e.id],...(tool.action==='plant'?{itemId:tool.itemId}:{})};
-      doAct(cmd,'这一处已完成');if(tool.action==='plant')selected=null;render();
+      lastFieldTap=null;ctx.say(tool.action==='plant'?'已选种子，按住拖过空田播种':'按住工具拖向目标，抬手完成这一笔');render();
     }
     function startToolDrag(g,p){
       if(g.tool.action==='plant')chosenSeed=g.tool.itemId;
       g.type='stroke';edgeStamp=0;win.cancelAnimationFrame?.(edgeRaf);edgeRaf=win.requestAnimationFrame?.(edgeFrame)||0;g.stroke=createStroke(g.tool,g.start);g.sourceRect=rectData(g.source.getBoundingClientRect());g.exited=false;
-      cursor.innerHTML=g.tool.itemId?item(g.tool.itemId):image('ui/harvest.svg');
+      cursor.innerHTML=toolArt(g.tool.action,g.tool.itemId,g.tool.entityId);
       // Ignore the tool tray itself. The stroke begins where the pointer leaves its source tray.
       const r=g.source.closest(g.tool.action==='enqueue'?'.fw-recipe-row':'.fw-object-panel,.fw-seed-mode').getBoundingClientRect();g.trayRect=rectData(r);
       if(!within(p,r)){
@@ -412,13 +401,13 @@ export function mountWorldScene(ctx) {
     }
     function gestureUI(g,p){
       const el=doc.elementFromPoint(p.x,p.y);
-      const allowed=g.tool?.action==='enqueue'?el?.closest('.fw-production'):g.tool?.action==='collectMachine'?el?.closest('.fw-tray'):null;
+      const allowed=g.tool?.action==='enqueue'?el?.closest('.fw-machine-panel'):g.tool?.action==='collectMachine'?el?.closest('.fw-tray'):null;
       return actualUI(p,allowed&&selectedEntity()?.id===g.tool.entityId?allowed:null);
     }
     function startDirectDrag(g,p){
       g.type='stroke';g.tool=g.directTool;g.stroke=createStroke(g.tool,g.start);g.exited=true;
       if(g.tool.action!=='collectMachine'){selected=null;selectedAnimal=null;if(g.tool.action!=='plant')chosenSeed=null;renderContext();}
-      cursor.innerHTML=g.tool.itemId?item(g.tool.itemId):image('ui/harvest.svg');
+      cursor.innerHTML=toolArt(g.tool.action,g.tool.itemId,g.tool.entityId);
       edgeStamp=0;win.cancelAnimationFrame?.(edgeRaf);edgeRaf=win.requestAnimationFrame?.(edgeFrame)||0;
       previewGesture(g,p);
     }
@@ -426,30 +415,28 @@ export function mountWorldScene(ctx) {
       if(event.button!==undefined&&event.button!==0)return;
       if(pointers.size>1)return;
       const target=event.target,toolEl=target.closest('[data-tool]'),jobEl=target.closest('[data-job]'),productEl=target.closest('[data-product]');
-      if(toolEl){if(toolEl.disabled)return;cancelGesture();gesture={type:'tool-pending',id:event.pointerId,start:point(event),last:point(event),tool:toolFrom(toolEl),source:toolEl,time:Date.now()};event.preventDefault();game.setPointerCapture?.(event.pointerId);return;}
-      if(jobEl){const e=selectedEntity(),j=e?.queue.find(j=>j.id===jobEl.dataset.job);gesture={type:'job-pending',id:event.pointerId,start:point(event),last:point(event),jobId:j?.id,entityId:e?.id,time:Date.now()};event.preventDefault();game.setPointerCapture?.(event.pointerId);return;}
-      if(productEl&&!draft&&!placement){gesture={type:'product-pending',id:event.pointerId,start:point(event),jobId:productEl.dataset.product,entityId:productEl.dataset.machine,rect:rectData(productEl.getBoundingClientRect()),directTool:!draft&&!placement?{action:'collectMachine',entityId:productEl.dataset.machine,itemId:entity(productEl.dataset.machine)?.completed.find(j=>j.id===productEl.dataset.product)?.recipeId}:null,time:Date.now()};event.preventDefault();game.setPointerCapture?.(event.pointerId);return;}
+      if(toolEl){if(toolEl.disabled)return;cancelGesture();lastFieldTap=null;gesture={type:'tool-pending',id:event.pointerId,start:point(event),last:point(event),tool:toolFrom(toolEl),source:toolEl,time:Date.now()};event.preventDefault();game.setPointerCapture?.(event.pointerId);return;}
+      if(jobEl){lastFieldTap=null;const e=selectedEntity(),j=e?.queue.find(j=>j.id===jobEl.dataset.job);gesture={type:'job-pending',id:event.pointerId,start:point(event),last:point(event),jobId:j?.id,entityId:e?.id,time:Date.now()};event.preventDefault();game.setPointerCapture?.(event.pointerId);return;}
+      if(productEl&&!draft&&!placement){lastFieldTap=null;gesture={type:'product-pending',id:event.pointerId,start:point(event),jobId:productEl.dataset.product,entityId:productEl.dataset.machine,rect:rectData(productEl.getBoundingClientRect()),directTool:!draft&&!placement?{action:'collectMachine',entityId:productEl.dataset.machine,itemId:entity(productEl.dataset.machine)?.completed.find(j=>j.id===productEl.dataset.product)?.recipeId}:null,time:Date.now()};event.preventDefault();game.setPointerCapture?.(event.pointerId);return;}
       if(target.closest('button')&&!target.closest('.fw-world'))return;
       if(!target.closest('.fw-map'))return;
       const p=point(event),animal=target.closest('[data-animal]'),ent=target.closest('[data-entity]'),land=target.closest('[data-land]');
       if(placement){gesture={type:'place',id:event.pointerId,start:p};const w=worldPoint(p);placement.x=Math.floor(w.x-placement.w/2);placement.y=Math.floor(w.y-placement.h/2);render();}
-      else if(draft&&ent){
-        selected=ent.dataset.entity;selectedAnimal=null;
+      else if(draft&&(ent||animal)){
+        selected=animal?.dataset.shelter||ent.dataset.entity;selectedAnimal=null;
         if(ctx.layout.isFixedEntity(entity(selected)))gesture={type:'fixed',id:event.pointerId,start:p,last:p,entityId:selected};
         else {const w=worldPoint(p),pos=draft.positions.find(x=>x.id===selected);gesture={type:'edit',id:event.pointerId,start:p,last:p,entityId:selected,offset:{x:w.x-pos.x,y:w.y-pos.y},original:clone(draft.positions)};}
         renderMap();renderTransaction();
       }
       else{gesture={type:'pan-pending',id:event.pointerId,start:p,last:p,camera:{...camera},entityId:animal?.dataset.shelter||ent?.dataset.entity,animalId:animal?.dataset.animal,landId:land?.dataset.land,directTool:directWorldTool(entity(animal?.dataset.shelter||ent?.dataset.entity),animal?.dataset.animal,chosenSeed,ctx.state,config,!!draft||!!placement),time:Date.now()};}
-      if(gesture?.type==='pan-pending'&&gesture.entityId&&!gesture.animalId&&!draft&&!placement&&!ctx.layout.isFixedEntity(entity(gesture.entityId))){const g=gesture;longPressTimer=win.setTimeout(()=>{if(gesture!==g||g.type!=='pan-pending')return;selected=g.entityId;chosenSeed=null;if(enterEdit()===false)return;const w=worldPoint(g.last),pos=draft.positions.find(x=>x.id===selected);gesture={type:'edit',id:g.id,start:g.start,last:g.last,entityId:selected,offset:{x:w.x-pos.x,y:w.y-pos.y},original:clone(draft.positions)};ctx.say('已拿起物件，拖动后点完成布置；取消不改位置');},500);}
       event.preventDefault();game.setPointerCapture?.(event.pointerId);
     }
     function handleMove(event){
       const g=gesture;if(!g||event.pointerId!==g.id)return;const p=point(event);g.last=p;
       if(!within(p,game.getBoundingClientRect())){cancelGesture('已移出地图，这一笔未执行');return;}
       const distance=Math.hypot(p.x-g.start.x,p.y-g.start.y);
-      if(distance>=8){win.clearTimeout?.(longPressTimer);longPressTimer=0;}
       if(g.type==='tool-pending'){if(distance>=8)startToolDrag(g,p);return;}
-      if(['pan-pending','product-pending'].includes(g.type)&&g.directTool&&distance>=8){startDirectDrag(g,p);if(gestureUI(g,p))cancelGesture('已划入工具区域，这一笔未执行');return;}
+      if(g.type==='product-pending'&&g.directTool&&distance>=8){startDirectDrag(g,p);if(gestureUI(g,p))cancelGesture('已划入工具区域，这一笔未执行');return;}
       if(g.type==='stroke'){
         if(!g.exited){if(within(p,g.trayRect))return;g.exited=true;g.stroke.last={...p};}
         if(gestureUI(g,p)){cancelGesture('已划入工具区域，这一笔未执行');return;}
@@ -461,14 +448,14 @@ export function mountWorldScene(ctx) {
       if(actualUI(p)){cancelGesture('已进入操作区域，预览已取消');return;}
       if(g.type==='place'){const w=worldPoint(p);placement.x=Math.floor(w.x-placement.w/2);placement.y=Math.floor(w.y-placement.h/2);renderGhost();renderTransaction();return;}
       if(g.type==='edit'){const w=worldPoint(p);draft.positions=draft.positions.map(x=>x.id===g.entityId?{...x,x:Math.floor(w.x-g.offset.x),y:Math.floor(w.y-g.offset.y)}:x);renderMap();renderTransaction();return;}
-      if(distance>=8)g.type='pan';
+      if(distance>=8){g.type='pan';lastFieldTap=null;}
       if(g.type==='pan'){focusAnchor=null;camera.x=g.camera.x+p.x-g.start.x;camera.y=g.camera.y+p.y-g.start.y;transform();}
     }
     function handleUp(event){
-      const g=gesture;if(!g||event.pointerId!==g.id)return;win.clearTimeout?.(longPressTimer);longPressTimer=0;
+      const g=gesture;if(!g||event.pointerId!==g.id)return;
       const p=point(event),inside=within(p,game.getBoundingClientRect()),distance=Math.hypot(p.x-g.start.x,p.y-g.start.y);
       if(g.type==='tool-pending'&&distance>=8&&inside)startToolDrag(g,p);
-      if(['pan-pending','product-pending'].includes(g.type)&&g.directTool&&distance>=8&&inside)startDirectDrag(g,p);
+      if(g.type==='product-pending'&&g.directTool&&distance>=8&&inside)startDirectDrag(g,p);
       // Consume before state/render callbacks. A finished gesture cannot clear a newer one.
       gesture=null;note.hidden=true;cursor.hidden=true;
       if(!inside){if(g.stroke)cancelStroke(g.stroke,'outside');if(g.type==='edit'&&draft)draft.positions=g.original;render();ctx.say('移出地图未执行');return;}
@@ -489,10 +476,10 @@ export function mountWorldScene(ctx) {
       }else if(g.type==='fixed'){ctx.say('这个物件固定，不能移动。请拖动其他物件。');render();
       }else if(g.type==='edit'){
         const next=clone(draft.positions);draft.positions=g.original;if(!pushDraft(next))render();
-      }else if(g.type==='pan-pending'&&distance<8&&Date.now()-g.time<=500){
-        if(g.landId){selected=g.landId;more=false;render();}
+      }else if(g.type==='pan-pending'&&distance<8){
+        if(g.landId){lastFieldTap=null;selected=g.landId;more=false;render();}
         else if(g.entityId){if(draft){selected=g.entityId;render();}else openObject(g.entityId,g.animalId);}
-        else{selected=null;selectedAnimal=null;more=false;localPage=null;render();}
+        else{lastFieldTap=null;selected=null;selectedAnimal=null;more=false;localPage=null;render();}
       }
     }
     function edgeFrame(time){
@@ -556,4 +543,4 @@ export function mountWorldScene(ctx) {
     ctx.onExit?.(cleanup);return cleanup;
   }
 
-export {segmentHits,createStroke,extendStroke,cancelStroke,finishStroke,obstacleTargets,commandPreview,layoutThumbnail,worldScenePresentation,machineTrayPlacement,directCropHarvestCommand,directWorldTool,resizeHasPendingAction,resizeWorldCamera};
+export {segmentHits,createStroke,extendStroke,cancelStroke,finishStroke,obstacleTargets,commandPreview,layoutThumbnail,worldScenePresentation,machineTrayPlacement,directCropHarvestCommand,cropDoubleTapCommand,directWorldTool,resizeHasPendingAction,resizeWorldCamera};
