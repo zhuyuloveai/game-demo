@@ -1,0 +1,52 @@
+[
+  {
+    "id": "project-original",
+    "name": "New project vector artwork",
+    "author": "Produced for 羊羊牧场",
+    "url": null,
+    "license": "Project-created; no third-party paths unless separately listed",
+    "notice": "Do not represent this record as a blanket license for third-party source material."
+  },
+  {
+    "id": "project-existing",
+    "name": "Existing sheep-match SVG code artwork",
+    "author": "Existing project",
+    "url": null,
+    "license": "Existing project asset; preserve repository provenance",
+    "notice": "Not a new open-source licence grant."
+  },
+  {
+    "id": "kenney-rpg-base",
+    "name": "RPG Base",
+    "author": "Kenney Vleugels",
+    "url": "https://kenney.nl/assets/rpg-base",
+    "license": "CC0-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "olga-animals",
+    "name": "Animals pack",
+    "author": "Olga Bikmullina / AhNinniah",
+    "url": "https://opengameart.org/content/animals-pack",
+    "license": "CC-BY-3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "notice": "Reference retained from the accepted style preview. Final cow/pig SVGs are newly constructed paths; no original Olga path extraction in this pack. Original source remains CC BY 3.0; reference notice is not a relicensing of unrelated original work.",
+    "usage": "visual-reference-only-in-final-pack"
+  },
+  {
+    "id": "shmector-vegetables",
+    "name": "Set of vegetables",
+    "author": "SHMECTOR.COM",
+    "url": "https://shmector.com/free-vector/nature/set_of_vegetables/9-0-1686",
+    "license": "CC0-1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "notice": "Author page CC0 declaration; original EPS converted to vector SVG, cropped/recoloured when used."
+  },
+  {
+    "id": "zcool-font",
+    "name": "ZCOOL KuaiLe",
+    "author": "ZCOOL",
+    "license": "SIL-OFL-1.1",
+    "notice": "Original font licence to be included if font shipped."
+  }
+]

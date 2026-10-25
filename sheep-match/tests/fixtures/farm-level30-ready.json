@@ -1,0 +1,1342 @@
+{
+  "saveFormatVersion": 1,
+  "schemaVersion": 1,
+  "contentVersion": "sheep-core-v04.1",
+  "referenceVersion": "hay-day-community-2026-10-24",
+  "saveId": "qa-only-level30",
+  "revision": 61,
+  "layoutRevision": 0,
+  "commitId": "qa-fixture",
+  "savedAtWallMs": 1792888441523,
+  "payload": {
+    "features": {
+      "farmLinkageEnabled": true,
+      "npcMarketEnabled": true,
+      "materialRewardsEnabled": true,
+      "constructionVouchersEnabled": true
+    },
+    "schemaVersion": 1,
+    "contentVersion": "sheep-core-v04.1",
+    "referenceVersion": "hay-day-community-2026-10-24",
+    "revision": 61,
+    "layoutRevision": 0,
+    "now": 1792888441519,
+    "coins": 896855,
+    "xp": 168701,
+    "level": 30,
+    "vouchers": 1000,
+    "materialChoices": 0,
+    "nextId": 155,
+    "inventory": {
+      "wheat": 15,
+      "chicken_feed": 7,
+      "corn": 26,
+      "soybean": 30,
+      "sugarcane": 29,
+      "carrot": 22,
+      "indigo": 30,
+      "pumpkin": 30,
+      "cotton": 30,
+      "chili_pepper": 30,
+      "black_bean": 30,
+      "tomato": 30,
+      "apple": 10,
+      "raspberry": 10,
+      "cherry": 10,
+      "blackberry": 10,
+      "blueberries": 10,
+      "egg": 6,
+      "milk": 8,
+      "truffle_slice": 10,
+      "wool": 8,
+      "herb_bundle": 10,
+      "cow_feed": 8,
+      "pig_feed": 8,
+      "sheep_feed": 8,
+      "lamb_feed": 8,
+      "bread": 10,
+      "corn_bread": 10,
+      "cookie": 10,
+      "raspberry_muffin": 10,
+      "blackberry_muffin": 10,
+      "cream": 9,
+      "butter": 9,
+      "cheese": 10,
+      "brown_sugar": 8,
+      "white_sugar": 9,
+      "syrup": 10,
+      "popcorn": 10,
+      "buttered_popcorn": 10,
+      "chili_popcorn": 10,
+      "pancake": 10,
+      "bacon_and_eggs": 10,
+      "hamburger": 10,
+      "grilled_lamb_skewer": 10,
+      "roasted_tomatoes": 10,
+      "carrot_pie": 10,
+      "pumpkin_pie": 10,
+      "bacon_pie": 10,
+      "apple_pie": 10,
+      "sweater": 10,
+      "cotton_fabric": 8,
+      "blue_woolly_hat": 10,
+      "blue_sweater": 10,
+      "cotton_shirt": 10,
+      "wooly_chaps": 10,
+      "violet_dress": 10,
+      "carrot_cake": 10,
+      "cream_cake": 10,
+      "red_berry_cake": 10,
+      "cheesecake": 10,
+      "carrot_juice": 10,
+      "apple_juice": 10,
+      "cherry_juice": 10,
+      "vanilla_ice_cream": 10,
+      "bolt": 10,
+      "duct_tape": 10,
+      "plank": 10,
+      "nail": 10,
+      "screw": 10,
+      "wood_panel": 10,
+      "land_deed": 10,
+      "mallet": 10,
+      "marker_stake": 10,
+      "axe": 10,
+      "saw": 10,
+      "shovel": 10,
+      "dynamite": 10,
+      "tnt": 10,
+      "fertilizer": 10
+    },
+    "storage": {
+      "silo": {
+        "upgrades": 100,
+        "capacity": 4100
+      },
+      "barn": {
+        "upgrades": 100,
+        "capacity": 4100
+      }
+    },
+    "entities": [
+      {
+        "id": "house",
+        "kind": "house",
+        "configId": "house",
+        "x": 20,
+        "y": 20,
+        "w": 4,
+        "h": 4,
+        "rotation": 0,
+        "fixed": true,
+        "door": {
+          "x": 22,
+          "y": 24
+        }
+      },
+      {
+        "id": "barn",
+        "kind": "barn",
+        "configId": "barn",
+        "x": 24,
+        "y": 20,
+        "w": 3,
+        "h": 3,
+        "rotation": 0
+      },
+      {
+        "id": "silo",
+        "kind": "silo",
+        "configId": "silo",
+        "x": 28,
+        "y": 20,
+        "w": 3,
+        "h": 3,
+        "rotation": 0
+      },
+      {
+        "id": "field_1",
+        "kind": "field",
+        "configId": "field",
+        "x": 28,
+        "y": 28,
+        "w": 1,
+        "h": 1,
+        "rotation": 0,
+        "crop": {
+          "itemId": "wheat",
+          "plantedAt": 1792629241519,
+          "readyAt": 1792629361519,
+          "yieldCount": 2,
+          "xp": 1,
+          "rescue": false
+        }
+      },
+      {
+        "id": "field_2",
+        "kind": "field",
+        "configId": "field",
+        "x": 29,
+        "y": 28,
+        "w": 1,
+        "h": 1,
+        "rotation": 0,
+        "crop": {
+          "itemId": "wheat",
+          "plantedAt": 1792629241519,
+          "readyAt": 1792629361519,
+          "yieldCount": 2,
+          "xp": 1,
+          "rescue": false
+        }
+      },
+      {
+        "id": "field_3",
+        "kind": "field",
+        "configId": "field",
+        "x": 30,
+        "y": 28,
+        "w": 1,
+        "h": 1,
+        "rotation": 0,
+        "crop": {
+          "itemId": "wheat",
+          "plantedAt": 1792629241519,
+          "readyAt": 1792629361519,
+          "yieldCount": 2,
+          "xp": 1,
+          "rescue": false
+        }
+      },
+      {
+        "id": "field_4",
+        "kind": "field",
+        "configId": "field",
+        "x": 28,
+        "y": 29,
+        "w": 1,
+        "h": 1,
+        "rotation": 0,
+        "crop": {
+          "itemId": "wheat",
+          "plantedAt": 1792629241519,
+          "readyAt": 1792629361519,
+          "yieldCount": 2,
+          "xp": 1,
+          "rescue": false
+        }
+      },
+      {
+        "id": "field_5",
+        "kind": "field",
+        "configId": "field",
+        "x": 29,
+        "y": 29,
+        "w": 1,
+        "h": 1,
+        "rotation": 0,
+        "crop": {
+          "itemId": "wheat",
+          "plantedAt": 1792629241519,
+          "readyAt": 1792629361519,
+          "yieldCount": 2,
+          "xp": 1,
+          "rescue": false
+        }
+      },
+      {
+        "id": "field_6",
+        "kind": "field",
+        "configId": "field",
+        "x": 30,
+        "y": 29,
+        "w": 1,
+        "h": 1,
+        "rotation": 0,
+        "crop": {
+          "itemId": "wheat",
+          "plantedAt": 1792629241519,
+          "readyAt": 1792629361519,
+          "yieldCount": 2,
+          "xp": 1,
+          "rescue": false
+        }
+      },
+      {
+        "id": "shelter_chicken_1",
+        "kind": "shelter",
+        "configId": "chicken",
+        "x": 34,
+        "y": 24,
+        "w": 4,
+        "h": 4,
+        "rotation": 0,
+        "tier": 0,
+        "animals": [
+          {
+            "id": "animal_100",
+            "configId": "chicken",
+            "status": "ready",
+            "readyAt": 1792630441519
+          },
+          {
+            "id": "animal_101",
+            "configId": "chicken",
+            "status": "ready",
+            "readyAt": 1792630441519
+          },
+          {
+            "id": "animal_102",
+            "configId": "chicken",
+            "status": "ready",
+            "readyAt": 1792630441519
+          }
+        ]
+      },
+      {
+        "id": "natural_tree_1",
+        "kind": "obstacle",
+        "configId": "natural_tree",
+        "x": 18,
+        "y": 36,
+        "w": 1,
+        "h": 1,
+        "rotation": 0,
+        "fixed": true
+      },
+      {
+        "id": "natural_bush_1",
+        "kind": "obstacle",
+        "configId": "natural_bush",
+        "x": 20,
+        "y": 36,
+        "w": 1,
+        "h": 1,
+        "rotation": 0,
+        "fixed": true
+      },
+      {
+        "id": "rock_1",
+        "kind": "obstacle",
+        "configId": "rock",
+        "x": 40,
+        "y": 40,
+        "w": 1,
+        "h": 1,
+        "rotation": 0,
+        "fixed": true
+      },
+      {
+        "id": "rock_2",
+        "kind": "obstacle",
+        "configId": "rock",
+        "x": 41,
+        "y": 40,
+        "w": 1,
+        "h": 1,
+        "rotation": 0,
+        "fixed": true
+      },
+      {
+        "id": "rock_3",
+        "kind": "obstacle",
+        "configId": "rock",
+        "x": 40,
+        "y": 41,
+        "w": 1,
+        "h": 1,
+        "rotation": 0,
+        "fixed": true
+      },
+      {
+        "id": "bakery_112",
+        "kind": "machine",
+        "configId": "bakery",
+        "x": 28,
+        "y": 30,
+        "w": 2,
+        "h": 2,
+        "rotation": 0,
+        "machineType": "bakery",
+        "built": true,
+        "buildReadyAt": 1792024361519,
+        "queue": [],
+        "completed": [
+          {
+            "id": "job_142",
+            "recipeId": "bread",
+            "inputs": {
+              "wheat": 3
+            },
+            "outputs": {
+              "bread": 1
+            },
+            "baseDurationMs": 300000,
+            "durationMs": 300000,
+            "xp": 3,
+            "createdAt": 1792629241519,
+            "startAt": 1792629241519,
+            "readyAt": 1792629541519,
+            "accountedMs": 300000
+          }
+        ],
+        "slots": 2,
+        "slotUpgrades": 0,
+        "blockedAt": null,
+        "lastCompletionAt": 1792629541519
+      },
+      {
+        "id": "feed_mill_1_113",
+        "kind": "machine",
+        "configId": "feed_mill_1",
+        "x": 30,
+        "y": 30,
+        "w": 3,
+        "h": 2,
+        "rotation": 0,
+        "machineType": "feed_mill",
+        "built": true,
+        "buildReadyAt": 1792024401519,
+        "queue": [],
+        "completed": [
+          {
+            "id": "job_143",
+            "recipeId": "chicken_feed",
+            "inputs": {
+              "wheat": 2,
+              "corn": 1
+            },
+            "outputs": {
+              "chicken_feed": 3
+            },
+            "baseDurationMs": 300000,
+            "durationMs": 300000,
+            "xp": 1,
+            "createdAt": 1792629241519,
+            "startAt": 1792629241519,
+            "readyAt": 1792629541519,
+            "accountedMs": 300000
+          }
+        ],
+        "slots": 3,
+        "slotUpgrades": 0,
+        "blockedAt": null,
+        "lastCompletionAt": 1792629541519
+      },
+      {
+        "id": "feed_mill_2_114",
+        "kind": "machine",
+        "configId": "feed_mill_2",
+        "x": 25,
+        "y": 30,
+        "w": 3,
+        "h": 2,
+        "rotation": 0,
+        "machineType": "feed_mill",
+        "built": true,
+        "buildReadyAt": 1792024441519,
+        "queue": [],
+        "completed": [
+          {
+            "id": "job_144",
+            "recipeId": "chicken_feed",
+            "inputs": {
+              "wheat": 2,
+              "corn": 1
+            },
+            "outputs": {
+              "chicken_feed": 3
+            },
+            "baseDurationMs": 300000,
+            "durationMs": 300000,
+            "xp": 1,
+            "createdAt": 1792629241519,
+            "startAt": 1792629241519,
+            "readyAt": 1792629541519,
+            "accountedMs": 300000
+          }
+        ],
+        "slots": 3,
+        "slotUpgrades": 0,
+        "blockedAt": null,
+        "lastCompletionAt": 1792629541519
+      },
+      {
+        "id": "dairy_115",
+        "kind": "machine",
+        "configId": "dairy",
+        "x": 27,
+        "y": 32,
+        "w": 2,
+        "h": 2,
+        "rotation": 0,
+        "machineType": "dairy",
+        "built": true,
+        "buildReadyAt": 1792031641519,
+        "queue": [],
+        "completed": [
+          {
+            "id": "job_145",
+            "recipeId": "cream",
+            "inputs": {
+              "milk": 1
+            },
+            "outputs": {
+              "cream": 1
+            },
+            "baseDurationMs": 1200000,
+            "durationMs": 1200000,
+            "xp": 6,
+            "createdAt": 1792629241519,
+            "startAt": 1792629241519,
+            "readyAt": 1792630441519,
+            "accountedMs": 1200000
+          }
+        ],
+        "slots": 2,
+        "slotUpgrades": 0,
+        "blockedAt": null,
+        "lastCompletionAt": 1792630441519
+      },
+      {
+        "id": "sugar_mill_116",
+        "kind": "machine",
+        "configId": "sugar_mill",
+        "x": 29,
+        "y": 33,
+        "w": 2,
+        "h": 2,
+        "rotation": 0,
+        "machineType": "sugar_mill",
+        "built": true,
+        "buildReadyAt": 1792053241519,
+        "queue": [],
+        "completed": [
+          {
+            "id": "job_146",
+            "recipeId": "brown_sugar",
+            "inputs": {
+              "sugarcane": 1
+            },
+            "outputs": {
+              "brown_sugar": 1
+            },
+            "baseDurationMs": 1200000,
+            "durationMs": 1200000,
+            "xp": 4,
+            "createdAt": 1792629241519,
+            "startAt": 1792629241519,
+            "readyAt": 1792630441519,
+            "accountedMs": 1200000
+          }
+        ],
+        "slots": 2,
+        "slotUpgrades": 0,
+        "blockedAt": null,
+        "lastCompletionAt": 1792630441519
+      },
+      {
+        "id": "popcorn_pot_117",
+        "kind": "machine",
+        "configId": "popcorn_pot",
+        "x": 28,
+        "y": 25,
+        "w": 2,
+        "h": 2,
+        "rotation": 0,
+        "machineType": "popcorn_pot",
+        "built": true,
+        "buildReadyAt": 1792082041519,
+        "queue": [],
+        "completed": [
+          {
+            "id": "job_147",
+            "recipeId": "popcorn",
+            "inputs": {
+              "corn": 2
+            },
+            "outputs": {
+              "popcorn": 1
+            },
+            "baseDurationMs": 1800000,
+            "durationMs": 1800000,
+            "xp": 4,
+            "createdAt": 1792629241519,
+            "startAt": 1792629241519,
+            "readyAt": 1792631041519,
+            "accountedMs": 1800000
+          }
+        ],
+        "slots": 2,
+        "slotUpgrades": 0,
+        "blockedAt": null,
+        "lastCompletionAt": 1792631041519
+      },
+      {
+        "id": "bbq_grill_118",
+        "kind": "machine",
+        "configId": "bbq_grill",
+        "x": 26,
+        "y": 27,
+        "w": 2,
+        "h": 2,
+        "rotation": 0,
+        "machineType": "bbq_grill",
+        "built": true,
+        "buildReadyAt": 1792110841519,
+        "queue": [],
+        "completed": [
+          {
+            "id": "job_148",
+            "recipeId": "pancake",
+            "inputs": {
+              "egg": 3,
+              "brown_sugar": 1
+            },
+            "outputs": {
+              "pancake": 1
+            },
+            "baseDurationMs": 1800000,
+            "durationMs": 1800000,
+            "xp": 13,
+            "createdAt": 1792629241519,
+            "startAt": 1792629241519,
+            "readyAt": 1792631041519,
+            "accountedMs": 1800000
+          }
+        ],
+        "slots": 2,
+        "slotUpgrades": 0,
+        "blockedAt": null,
+        "lastCompletionAt": 1792631041519
+      },
+      {
+        "id": "pie_oven_119",
+        "kind": "machine",
+        "configId": "pie_oven",
+        "x": 23,
+        "y": 30,
+        "w": 2,
+        "h": 2,
+        "rotation": 0,
+        "machineType": "pie_oven",
+        "built": true,
+        "buildReadyAt": 1792154041519,
+        "queue": [],
+        "completed": [
+          {
+            "id": "job_149",
+            "recipeId": "carrot_pie",
+            "inputs": {
+              "carrot": 3,
+              "wheat": 2,
+              "egg": 1
+            },
+            "outputs": {
+              "carrot_pie": 1
+            },
+            "baseDurationMs": 3600000,
+            "durationMs": 3600000,
+            "xp": 10,
+            "createdAt": 1792629241519,
+            "startAt": 1792629241519,
+            "readyAt": 1792632841519,
+            "accountedMs": 3600000
+          }
+        ],
+        "slots": 2,
+        "slotUpgrades": 0,
+        "blockedAt": null,
+        "lastCompletionAt": 1792632841519
+      },
+      {
+        "id": "loom_120",
+        "kind": "machine",
+        "configId": "loom",
+        "x": 33,
+        "y": 30,
+        "w": 2,
+        "h": 2,
+        "rotation": 0,
+        "machineType": "loom",
+        "built": true,
+        "buildReadyAt": 1792240441519,
+        "queue": [],
+        "completed": [
+          {
+            "id": "job_150",
+            "recipeId": "sweater",
+            "inputs": {
+              "wool": 2
+            },
+            "outputs": {
+              "sweater": 1
+            },
+            "baseDurationMs": 7200000,
+            "durationMs": 7200000,
+            "xp": 18,
+            "createdAt": 1792629241519,
+            "startAt": 1792629241519,
+            "readyAt": 1792636441519,
+            "accountedMs": 7200000
+          }
+        ],
+        "slots": 2,
+        "slotUpgrades": 0,
+        "blockedAt": null,
+        "lastCompletionAt": 1792636441519
+      },
+      {
+        "id": "sewing_machine_121",
+        "kind": "machine",
+        "configId": "sewing_machine",
+        "x": 28,
+        "y": 35,
+        "w": 2,
+        "h": 2,
+        "rotation": 0,
+        "machineType": "sewing_machine",
+        "built": true,
+        "buildReadyAt": 1792312441519,
+        "queue": [],
+        "completed": [
+          {
+            "id": "job_151",
+            "recipeId": "cotton_shirt",
+            "inputs": {
+              "cotton_fabric": 2
+            },
+            "outputs": {
+              "cotton_shirt": 1
+            },
+            "baseDurationMs": 2700000,
+            "durationMs": 2700000,
+            "xp": 29,
+            "createdAt": 1792629241519,
+            "startAt": 1792629241519,
+            "readyAt": 1792631941519,
+            "accountedMs": 2700000
+          }
+        ],
+        "slots": 2,
+        "slotUpgrades": 0,
+        "blockedAt": null,
+        "lastCompletionAt": 1792631941519
+      },
+      {
+        "id": "cake_oven_122",
+        "kind": "machine",
+        "configId": "cake_oven",
+        "x": 31,
+        "y": 27,
+        "w": 3,
+        "h": 2,
+        "rotation": 0,
+        "machineType": "cake_oven",
+        "built": true,
+        "buildReadyAt": 1792398841519,
+        "queue": [],
+        "completed": [
+          {
+            "id": "job_152",
+            "recipeId": "carrot_cake",
+            "inputs": {
+              "carrot": 2,
+              "butter": 1,
+              "brown_sugar": 1
+            },
+            "outputs": {
+              "carrot_cake": 1
+            },
+            "baseDurationMs": 5400000,
+            "durationMs": 5400000,
+            "xp": 20,
+            "createdAt": 1792629241519,
+            "startAt": 1792629241519,
+            "readyAt": 1792634641519,
+            "accountedMs": 5400000
+          }
+        ],
+        "slots": 2,
+        "slotUpgrades": 0,
+        "blockedAt": null,
+        "lastCompletionAt": 1792634641519
+      },
+      {
+        "id": "juice_press_123",
+        "kind": "machine",
+        "configId": "juice_press",
+        "x": 32,
+        "y": 32,
+        "w": 2,
+        "h": 2,
+        "rotation": 0,
+        "machineType": "juice_press",
+        "built": true,
+        "buildReadyAt": 1792514041519,
+        "queue": [],
+        "completed": [
+          {
+            "id": "job_153",
+            "recipeId": "carrot_juice",
+            "inputs": {
+              "carrot": 3
+            },
+            "outputs": {
+              "carrot_juice": 1
+            },
+            "baseDurationMs": 1800000,
+            "durationMs": 1800000,
+            "xp": 6,
+            "createdAt": 1792629241519,
+            "startAt": 1792629241519,
+            "readyAt": 1792631041519,
+            "accountedMs": 1800000
+          }
+        ],
+        "slots": 2,
+        "slotUpgrades": 0,
+        "blockedAt": null,
+        "lastCompletionAt": 1792631041519
+      },
+      {
+        "id": "ice_cream_maker_124",
+        "kind": "machine",
+        "configId": "ice_cream_maker",
+        "x": 35,
+        "y": 30,
+        "w": 3,
+        "h": 2,
+        "rotation": 0,
+        "machineType": "ice_cream_maker",
+        "built": true,
+        "buildReadyAt": 1792629241519,
+        "queue": [],
+        "completed": [
+          {
+            "id": "job_154",
+            "recipeId": "vanilla_ice_cream",
+            "inputs": {
+              "milk": 1,
+              "cream": 1,
+              "white_sugar": 1
+            },
+            "outputs": {
+              "vanilla_ice_cream": 1
+            },
+            "baseDurationMs": 7200000,
+            "durationMs": 7200000,
+            "xp": 20,
+            "createdAt": 1792629241519,
+            "startAt": 1792629241519,
+            "readyAt": 1792636441519,
+            "accountedMs": 7200000
+          }
+        ],
+        "slots": 2,
+        "slotUpgrades": 0,
+        "blockedAt": null,
+        "lastCompletionAt": 1792636441519
+      },
+      {
+        "id": "shelter_cow_125",
+        "kind": "shelter",
+        "configId": "cow",
+        "x": 23,
+        "y": 33,
+        "w": 4,
+        "h": 4,
+        "rotation": 0,
+        "tier": 0,
+        "animals": [
+          {
+            "id": "animal_126",
+            "configId": "cow",
+            "status": "ready",
+            "readyAt": 1792632841519
+          },
+          {
+            "id": "animal_127",
+            "configId": "cow",
+            "status": "ready",
+            "readyAt": 1792632841519
+          }
+        ]
+      },
+      {
+        "id": "shelter_pig_128",
+        "kind": "shelter",
+        "configId": "pig",
+        "x": 31,
+        "y": 35,
+        "w": 4,
+        "h": 4,
+        "rotation": 0,
+        "tier": 0,
+        "animals": [
+          {
+            "id": "animal_129",
+            "configId": "pig",
+            "status": "ready",
+            "readyAt": 1792643641519
+          },
+          {
+            "id": "animal_130",
+            "configId": "pig",
+            "status": "ready",
+            "readyAt": 1792643641519
+          }
+        ]
+      },
+      {
+        "id": "shelter_sheep_131",
+        "kind": "shelter",
+        "configId": "sheep",
+        "x": 27,
+        "y": 38,
+        "w": 4,
+        "h": 4,
+        "rotation": 0,
+        "tier": 0,
+        "animals": [
+          {
+            "id": "animal_132",
+            "configId": "sheep",
+            "status": "ready",
+            "readyAt": 1792650841519
+          },
+          {
+            "id": "animal_133",
+            "configId": "sheep",
+            "status": "ready",
+            "readyAt": 1792650841519
+          }
+        ]
+      },
+      {
+        "id": "shelter_lamb_134",
+        "kind": "shelter",
+        "configId": "lamb",
+        "x": 18,
+        "y": 30,
+        "w": 4,
+        "h": 4,
+        "rotation": 0,
+        "tier": 0,
+        "animals": [
+          {
+            "id": "animal_135",
+            "configId": "lamb",
+            "status": "ready",
+            "readyAt": 1792631041519
+          },
+          {
+            "id": "animal_136",
+            "configId": "lamb",
+            "status": "ready",
+            "readyAt": 1792631041519
+          }
+        ]
+      },
+      {
+        "id": "apple_137",
+        "kind": "fruit",
+        "configId": "apple",
+        "x": 26,
+        "y": 25,
+        "w": 2,
+        "h": 2,
+        "rotation": 0,
+        "harvestStage": 0,
+        "status": "ready",
+        "readyAt": 1792686841519,
+        "revived": false
+      },
+      {
+        "id": "raspberry_138",
+        "kind": "fruit",
+        "configId": "raspberry",
+        "x": 28,
+        "y": 27,
+        "w": 1,
+        "h": 1,
+        "rotation": 0,
+        "harvestStage": 0,
+        "status": "ready",
+        "readyAt": 1792694041519,
+        "revived": false
+      },
+      {
+        "id": "cherry_139",
+        "kind": "fruit",
+        "configId": "cherry",
+        "x": 24,
+        "y": 27,
+        "w": 2,
+        "h": 2,
+        "rotation": 0,
+        "harvestStage": 0,
+        "status": "ready",
+        "readyAt": 1792726441519,
+        "revived": false
+      },
+      {
+        "id": "blackberry_140",
+        "kind": "fruit",
+        "configId": "blackberry",
+        "x": 31,
+        "y": 29,
+        "w": 1,
+        "h": 1,
+        "rotation": 0,
+        "harvestStage": 0,
+        "status": "ready",
+        "readyAt": 1792744441519,
+        "revived": false
+      },
+      {
+        "id": "blueberries_141",
+        "kind": "fruit",
+        "configId": "blueberries",
+        "x": 28,
+        "y": 24,
+        "w": 1,
+        "h": 1,
+        "rotation": 0,
+        "harvestStage": 0,
+        "status": "ready",
+        "readyAt": 1792751641519,
+        "revived": false
+      }
+    ],
+    "openedLand": [],
+    "rewards": {},
+    "ledger": {},
+    "mastery": {
+      "bakery": 300000,
+      "feed_mill": 600000,
+      "dairy": 1200000,
+      "sugar_mill": 1200000,
+      "popcorn_pot": 1800000,
+      "bbq_grill": 1800000,
+      "pie_oven": 3600000,
+      "loom": 7200000,
+      "sewing_machine": 2700000,
+      "cake_oven": 5400000,
+      "juice_press": 1800000,
+      "ice_cream_maker": 7200000
+    },
+    "rng": 3676449495,
+    "day": 20751,
+    "fertilizerUntil": 0,
+    "materials": {
+      "harvestCount": 1,
+      "pending": null,
+      "choiceReceipt": null
+    },
+    "stats": {
+      "plants": 7,
+      "fieldHarvests": 1,
+      "buildings": 13,
+      "feeds": 11
+    },
+    "tutorial": {
+      "entered": true,
+      "completed": {
+        "T01": true,
+        "T05": true,
+        "T17": true,
+        "T10": true,
+        "T11": true,
+        "T12": true,
+        "T04": true,
+        "T03": true,
+        "T06": true
+      },
+      "firstHarvest": true,
+      "enqueuedBread": true,
+      "startedFeedMill": true,
+      "initialFed": {
+        "animal_100": true,
+        "animal_101": true,
+        "animal_102": true
+      },
+      "replanted": true,
+      "plantStroke": true
+    },
+    "commandLog": {},
+    "commandWatermarks": {},
+    "commandSeen": {},
+    "settings": {
+      "sound": true,
+      "music": true,
+      "reducedMotion": false
+    },
+    "camera": {
+      "centerX": 29.5,
+      "centerY": 28.5,
+      "zoom": 1
+    },
+    "layoutSlots": [
+      null,
+      null
+    ],
+    "decorations": {
+      "badge_machineTypes_1": 1,
+      "badge_machineTypes_2": 1,
+      "badge_machineTypes_3": 1
+    },
+    "cosmetics": {
+      "background": "default"
+    },
+    "animalCredits": {
+      "chicken": 0,
+      "cow": 0,
+      "pig": 0,
+      "sheep": 0,
+      "lamb": 0
+    },
+    "branch": {
+      "unlocked": true,
+      "stages": {},
+      "active": null
+    },
+    "npc": {
+      "boxes": [
+        {
+          "id": "box_1",
+          "listing": null
+        },
+        {
+          "id": "box_2",
+          "listing": null
+        },
+        {
+          "id": "box_3",
+          "listing": null
+        },
+        {
+          "id": "box_4",
+          "listing": null
+        },
+        {
+          "id": "box_5",
+          "listing": null
+        }
+      ],
+      "budgetDay": 20751,
+      "budgetFieldAllowance": null,
+      "budgetUsed": {},
+      "supplyBatch": 83004,
+      "shelf": [
+        {
+          "id": "shelf_83044_0",
+          "itemId": "soybean",
+          "quantity": 1,
+          "coins": 12
+        },
+        {
+          "id": "shelf_83044_1",
+          "itemId": "sugarcane",
+          "quantity": 1,
+          "coins": 16
+        },
+        {
+          "id": "shelf_83044_2",
+          "itemId": "indigo",
+          "quantity": 3,
+          "coins": 84
+        },
+        {
+          "id": "shelf_83044_3",
+          "itemId": "cookie",
+          "quantity": 2,
+          "coins": 230
+        },
+        {
+          "id": "shelf_83044_4",
+          "itemId": "raspberry",
+          "quantity": 4,
+          "coins": 206
+        },
+        {
+          "id": "shelf_83044_5",
+          "itemId": "herb_bundle",
+          "quantity": 5,
+          "coins": 199
+        }
+      ],
+      "materialOffers": [
+        {
+          "id": "material_83044_0",
+          "itemId": "bolt",
+          "quantity": 1,
+          "coins": 375
+        },
+        {
+          "id": "material_83044_1",
+          "itemId": "duct_tape",
+          "quantity": 1,
+          "coins": 375
+        }
+      ],
+      "materialBought": 0,
+      "toolBought": {},
+      "freeRevives": 0
+    },
+    "orders": [
+      {
+        "id": "order_103",
+        "slot": 0,
+        "requirements": {
+          "tomato": 4,
+          "wheat": 8
+        },
+        "kind": "normal",
+        "coins": 151,
+        "xp": 30,
+        "referenceValue": 201.60000000000002,
+        "productionXp": 20,
+        "createdAt": 1792024351519,
+        "readyAt": 1792024351519,
+        "state": "active"
+      },
+      {
+        "id": "order_104",
+        "slot": 1,
+        "requirements": {
+          "sugarcane": 8,
+          "soybean": 3,
+          "corn": 10
+        },
+        "kind": "experience",
+        "coins": 109,
+        "xp": 60,
+        "referenceValue": 219.6,
+        "productionXp": 20,
+        "createdAt": 1792024351519,
+        "readyAt": 1792024351519,
+        "state": "active"
+      },
+      {
+        "id": "order_105",
+        "slot": 2,
+        "requirements": {
+          "tomato": 8,
+          "corn": 1
+        },
+        "kind": "experience",
+        "coins": 176,
+        "xp": 99,
+        "referenceValue": 352.8,
+        "productionXp": 33,
+        "createdAt": 1792024351519,
+        "readyAt": 1792024351519,
+        "state": "active"
+      },
+      {
+        "id": "order_106",
+        "slot": 3,
+        "requirements": {
+          "soybean": 6,
+          "cotton": 9,
+          "pumpkin": 4
+        },
+        "kind": "coin",
+        "coins": 476,
+        "xp": 23,
+        "referenceValue": 453.6,
+        "productionXp": 45,
+        "createdAt": 1792024351519,
+        "readyAt": 1792024351519,
+        "state": "active"
+      },
+      {
+        "id": "order_107",
+        "slot": 4,
+        "requirements": {
+          "carrot": 7,
+          "soybean": 2,
+          "tomato": 1
+        },
+        "kind": "normal",
+        "coins": 86,
+        "xp": 20,
+        "referenceValue": 115.2,
+        "productionXp": 13,
+        "createdAt": 1792024351519,
+        "readyAt": 1792024351519,
+        "state": "active"
+      },
+      {
+        "id": "order_108",
+        "slot": 5,
+        "requirements": {
+          "carrot": 7,
+          "pumpkin": 1
+        },
+        "kind": "normal",
+        "coins": 62,
+        "xp": 15,
+        "referenceValue": 82.8,
+        "productionXp": 10,
+        "createdAt": 1792024351519,
+        "readyAt": 1792024351519,
+        "state": "active"
+      },
+      {
+        "id": "order_109",
+        "slot": 6,
+        "requirements": {
+          "corn": 2,
+          "pumpkin": 4
+        },
+        "kind": "normal",
+        "coins": 108,
+        "xp": 20,
+        "referenceValue": 144,
+        "productionXp": 13,
+        "createdAt": 1792024351519,
+        "readyAt": 1792024351519,
+        "state": "active"
+      },
+      {
+        "id": "order_110",
+        "slot": 7,
+        "requirements": {
+          "indigo": 6,
+          "pumpkin": 8
+        },
+        "kind": "normal",
+        "coins": 307,
+        "xp": 59,
+        "referenceValue": 410.4,
+        "productionXp": 39,
+        "createdAt": 1792024351519,
+        "readyAt": 1792024351519,
+        "state": "active"
+      },
+      {
+        "id": "order_111",
+        "slot": 8,
+        "requirements": {
+          "tomato": 9,
+          "black_bean": 2
+        },
+        "kind": "normal",
+        "coins": 302,
+        "xp": 57,
+        "referenceValue": 403.2,
+        "productionXp": 38,
+        "createdAt": 1792024351519,
+        "readyAt": 1792024351519,
+        "state": "active"
+      }
+    ],
+    "daily": {
+      "trucks": 0,
+      "choiceClaimed": []
+    }
+  },
+  "checksum": "fnv1a32:719d8f60"
+}

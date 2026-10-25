@@ -1,0 +1,10 @@
+// Original synthesized recipes, no recordings or third-party audio.
+export const recipes = {
+ S01:{name:'播种',key:'sow',duration:.16,notes:[[0,370,230,.12,.11]]},
+ S02:{name:'收获',key:'harvest',duration:.30,notes:[[0,523,659,.12,.09],[.10,784,880,.15,.08]]},
+ S03:{name:'喂养',key:'feed',duration:.27,notes:[[0,440,440,.14,.08],[.09,554,554,.15,.07]]},
+ S04:{name:'加工完成',key:'processing',duration:.37,notes:[[0,660,660,.13,.08],[.10,830,830,.13,.07],[.20,990,990,.14,.06]]},
+ S05:{name:'成交',key:'sale',duration:.39,notes:[[0,880,880,.13,.07],[.10,1175,1175,.13,.06],[.20,1320,1320,.16,.05]]}
+};
+export function synthesize(id,sampleRate=44100){const q=recipes[id];if(!q)throw new Error('Unknown sound '+id);let a=new Float32Array(Math.ceil(q.duration*sampleRate));for(const [start,f0,f1,d,amp] of q.notes){for(let i=0;i<Math.ceil(d*sampleRate);i++){let t=i/sampleRate,j=Math.round(start*sampleRate)+i;if(j>=a.length)break;let env=Math.min(1,t/.008)*Math.pow(Math.max(0,1-t/d),2),phase=2*Math.PI*(f0*t+(f1-f0)*t*t/(2*d));a[j]+=amp*env*(Math.sin(phase)+.15*Math.sin(phase*2))/1.15;}}return a;}
+export function createFarmSounds(){let ctx,enabled=true,seen=new Map();const now=()=>performance.now();return {setEnabled(v){enabled=!!v;},async unlock(){ctx??=new (window.AudioContext||window.webkitAudioContext)();if(ctx.state==='suspended')await ctx.resume();},async play(id,{batchId='single',volume=1}={}){if(!enabled||document.hidden||!ctx||ctx.state!=='running')return false;const key=id+':'+batchId,t=now();if(seen.has(key)&&t-seen.get(key)<450)return false;seen.set(key,t);for(const[k,v]of seen)if(t-v>1000)seen.delete(k);const data=synthesize(id,ctx.sampleRate),buffer=ctx.createBuffer(1,data.length,ctx.sampleRate);buffer.copyToChannel(data,0);const source=ctx.createBufferSource(),gain=ctx.createGain();source.buffer=buffer;gain.gain.value=Math.min(1,Math.max(0,volume));source.connect(gain).connect(ctx.destination);source.start();source.onended=()=>{source.disconnect();gain.disconnect();};return true;},suspend(){return ctx?.suspend();},resume(){return ctx?.resume();}};}

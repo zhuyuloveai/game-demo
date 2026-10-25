@@ -1,0 +1,281 @@
+{
+  "animal": "sheep",
+  "viewBox": [
+    0,
+    0,
+    128,
+    128
+  ],
+  "anchor": [
+    64,
+    110
+  ],
+  "directions": {
+    "front": "front",
+    "back": "back",
+    "left": "side",
+    "right": "side mirrored"
+  },
+  "productOverlay": "wool",
+  "overlayAnchor": [
+    64,
+    18
+  ],
+  "overlayExternal": true,
+  "shadowExternal": true,
+  "reducedMotion": "front/idle_00.svg plus semantic UI label/product overlay",
+  "animations": {
+    "front.idle": {
+      "frames": [
+        "front/idle_00.svg",
+        "front/idle_01.svg"
+      ],
+      "fps": 4,
+      "loop": true,
+      "durationMs": null,
+      "mirrorX": false
+    },
+    "front.walk": {
+      "frames": [
+        "front/walk_00.svg",
+        "front/walk_01.svg",
+        "front/walk_02.svg",
+        "front/walk_03.svg"
+      ],
+      "fps": 6,
+      "loop": true,
+      "durationMs": null,
+      "mirrorX": false
+    },
+    "front.eat": {
+      "frames": [
+        "front/eat_00.svg",
+        "front/eat_01.svg",
+        "front/eat_02.svg"
+      ],
+      "fps": 4,
+      "loop": true,
+      "durationMs": null,
+      "mirrorX": false
+    },
+    "front.producing": {
+      "frames": [
+        "front/producing_00.svg",
+        "front/producing_01.svg"
+      ],
+      "fps": 4,
+      "loop": true,
+      "durationMs": null,
+      "mirrorX": false
+    },
+    "front.ready": {
+      "frames": [
+        "front/ready_00.svg",
+        "front/ready_01.svg"
+      ],
+      "fps": 4,
+      "loop": true,
+      "durationMs": null,
+      "mirrorX": false
+    },
+    "front.collect": {
+      "frames": [
+        "front/collect_00.svg",
+        "front/collect_01.svg"
+      ],
+      "fps": 4,
+      "loop": false,
+      "durationMs": 500,
+      "mirrorX": false
+    },
+    "back.idle": {
+      "frames": [
+        "back/idle_00.svg",
+        "back/idle_01.svg"
+      ],
+      "fps": 4,
+      "loop": true,
+      "durationMs": null,
+      "mirrorX": false
+    },
+    "back.walk": {
+      "frames": [
+        "back/walk_00.svg",
+        "back/walk_01.svg",
+        "back/walk_02.svg",
+        "back/walk_03.svg"
+      ],
+      "fps": 6,
+      "loop": true,
+      "durationMs": null,
+      "mirrorX": false
+    },
+    "back.eat": {
+      "frames": [
+        "back/eat_00.svg",
+        "back/eat_01.svg",
+        "back/eat_02.svg"
+      ],
+      "fps": 4,
+      "loop": true,
+      "durationMs": null,
+      "mirrorX": false
+    },
+    "back.producing": {
+      "frames": [
+        "back/producing_00.svg",
+        "back/producing_01.svg"
+      ],
+      "fps": 4,
+      "loop": true,
+      "durationMs": null,
+      "mirrorX": false
+    },
+    "back.ready": {
+      "frames": [
+        "back/ready_00.svg",
+        "back/ready_01.svg"
+      ],
+      "fps": 4,
+      "loop": true,
+      "durationMs": null,
+      "mirrorX": false
+    },
+    "back.collect": {
+      "frames": [
+        "back/collect_00.svg",
+        "back/collect_01.svg"
+      ],
+      "fps": 4,
+      "loop": false,
+      "durationMs": 500,
+      "mirrorX": false
+    },
+    "side.idle": {
+      "frames": [
+        "side/idle_00.svg",
+        "side/idle_01.svg"
+      ],
+      "fps": 4,
+      "loop": true,
+      "durationMs": null,
+      "mirrorX": false
+    },
+    "side.walk": {
+      "frames": [
+        "side/walk_00.svg",
+        "side/walk_01.svg",
+        "side/walk_02.svg",
+        "side/walk_03.svg"
+      ],
+      "fps": 6,
+      "loop": true,
+      "durationMs": null,
+      "mirrorX": false
+    },
+    "side.eat": {
+      "frames": [
+        "side/eat_00.svg",
+        "side/eat_01.svg",
+        "side/eat_02.svg"
+      ],
+      "fps": 4,
+      "loop": true,
+      "durationMs": null,
+      "mirrorX": false
+    },
+    "side.producing": {
+      "frames": [
+        "side/producing_00.svg",
+        "side/producing_01.svg"
+      ],
+      "fps": 4,
+      "loop": true,
+      "durationMs": null,
+      "mirrorX": false
+    },
+    "side.ready": {
+      "frames": [
+        "side/ready_00.svg",
+        "side/ready_01.svg"
+      ],
+      "fps": 4,
+      "loop": true,
+      "durationMs": null,
+      "mirrorX": false
+    },
+    "side.collect": {
+      "frames": [
+        "side/collect_00.svg",
+        "side/collect_01.svg"
+      ],
+      "fps": 4,
+      "loop": false,
+      "durationMs": 500,
+      "mirrorX": false
+    },
+    "right.idle": {
+      "frames": [
+        "side/idle_00.svg",
+        "side/idle_01.svg"
+      ],
+      "fps": 4,
+      "loop": true,
+      "durationMs": null,
+      "mirrorX": true
+    },
+    "right.walk": {
+      "frames": [
+        "side/walk_00.svg",
+        "side/walk_01.svg",
+        "side/walk_02.svg",
+        "side/walk_03.svg"
+      ],
+      "fps": 6,
+      "loop": true,
+      "durationMs": null,
+      "mirrorX": true
+    },
+    "right.eat": {
+      "frames": [
+        "side/eat_00.svg",
+        "side/eat_01.svg",
+        "side/eat_02.svg"
+      ],
+      "fps": 4,
+      "loop": true,
+      "durationMs": null,
+      "mirrorX": true
+    },
+    "right.producing": {
+      "frames": [
+        "side/producing_00.svg",
+        "side/producing_01.svg"
+      ],
+      "fps": 4,
+      "loop": true,
+      "durationMs": null,
+      "mirrorX": true
+    },
+    "right.ready": {
+      "frames": [
+        "side/ready_00.svg",
+        "side/ready_01.svg"
+      ],
+      "fps": 4,
+      "loop": true,
+      "durationMs": null,
+      "mirrorX": true
+    },
+    "right.collect": {
+      "frames": [
+        "side/collect_00.svg",
+        "side/collect_01.svg"
+      ],
+      "fps": 4,
+      "loop": false,
+      "durationMs": 500,
+      "mirrorX": true
+    }
+  }
+}

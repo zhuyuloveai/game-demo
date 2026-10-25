@@ -1,0 +1,11 @@
+/* Optional appearance only. Economy, timers and gestures belong to the host game. */
+:root{--farm-ink:#355441;--farm-brown:#806c4d;--farm-cream:#fff7df;--farm-grass:#cadca0;--farm-radius:14px}
+.farm-asset{display:block;object-fit:contain;transform-origin:50% 86%;user-select:none;-webkit-user-drag:none}
+.farm-badge{color:var(--farm-ink);background:var(--farm-cream);border:2px solid var(--farm-brown);border-radius:999px;padding:.2em .45em}
+.farm-button{min-height:44px;border:2px solid var(--farm-brown);border-radius:var(--farm-radius);background:var(--farm-cream);color:var(--farm-ink)}
+.farm-selected{filter:drop-shadow(0 0 2px #fff7df)}
+.farm-bob{animation:farm-asset-bob 1.8s ease-in-out infinite}
+.farm-sway{animation:farm-asset-sway 2.6s ease-in-out infinite}
+@keyframes farm-asset-bob{50%{transform:translateY(-2px)}}
+@keyframes farm-asset-sway{0%,100%{transform:rotate(-1deg)}50%{transform:rotate(1deg)}}
+@media(prefers-reduced-motion:reduce){.farm-bob,.farm-sway{animation:none}}

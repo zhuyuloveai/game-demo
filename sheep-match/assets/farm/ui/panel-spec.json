@@ -1,0 +1,1037 @@
+{
+  "schemaVersion": "1.0",
+  "kind": "responsive-presentation-contract",
+  "implementationStatus": "skin-and-field-mapping-only; no gameplay implementation",
+  "configSource": "common/project-parameters-v04.json",
+  "runtimeBindingNotice": "runtime paths are proposed view-model interface names, not assertions that these fields already exist. Integrator must adapt validated game state. Never derive economy from SVG/CSS.",
+  "css": "ui/panel-skins.css",
+  "sharedSkin": "ui/panel-skin.svg",
+  "nineSlice": {
+    "inset": 18,
+    "sourceSize": [
+      64,
+      64
+    ],
+    "center": "stretch",
+    "edges": "stretch"
+  },
+  "accessibility": {
+    "minimumTargetCssPx": 44,
+    "minimumViewportCssPx": 360,
+    "textZoom": 1.5,
+    "focusReturn": "restore triggering control on close",
+    "modal": "use dialog semantics, focus trap and Escape close except in atomic settlement",
+    "announcements": "aria-live polite for outcomes; assertive for actionable errors; no per-item spam",
+    "numbers": "DOM text, tabular numerals, no text in SVG",
+    "mapIsolation": "overscroll-behavior contain; do not hijack keyboard arrows inside inputs"
+  },
+  "panels": [
+    {
+      "contractId": "ui.P01",
+      "taskId": "P01",
+      "name": "农场HUD与模式条",
+      "skin": "ui/panel-skin.svg",
+      "cssClass": "farm-ui farm-panel",
+      "layout": {
+        "mobile": "full width within 8px safe margins; scrollable body; wrapping footer",
+        "desktop": "max-width 42rem; scrollable body; fixed header/footer"
+      },
+      "configPaths": [
+        "initial",
+        "levelXpToNext",
+        "constructionVoucher"
+      ],
+      "fields": [
+        {
+          "label": "金币",
+          "source": "runtime",
+          "path": "wallet.coins"
+        },
+        {
+          "label": "建设券",
+          "source": "runtime",
+          "path": "wallet.constructionVouchers"
+        },
+        {
+          "label": "等级经验",
+          "source": "runtime",
+          "path": "progress.levelXp"
+        },
+        {
+          "label": "双仓占用",
+          "source": "runtime",
+          "path": "inventory.storageUsage"
+        },
+        {
+          "label": "当前模式",
+          "source": "runtime",
+          "path": "interaction.mode"
+        }
+      ],
+      "iconAssetIds": [
+        "ui.home",
+        "ui.inventory",
+        "ui.orders",
+        "ui.shop",
+        "ui.tasks",
+        "ui.save"
+      ],
+      "states": {
+        "normal": {
+          "icon": null,
+          "message": "",
+          "controls": "enable only actions permitted by validated state"
+        },
+        "empty": {
+          "icon": "ui.info",
+          "message": "尚无可显示内容。",
+          "controls": "keep back/close and appropriate discovery action"
+        },
+        "locked": {
+          "icon": "ui.lock",
+          "message": "尚未满足条件，请查看所需等级或前置内容。",
+          "controls": "disable blocked primary action, explain exact requirement in DOM"
+        },
+        "error": {
+          "icon": "ui.warning",
+          "message": "保存失败，请重试或导出备份。",
+          "controls": "retain recovery/back actions; do not lose current data"
+        }
+      },
+      "nonGoals": [
+        "No hard-coded economy values",
+        "No invented water/pest/online player mechanics",
+        "No world overlays duplicated here"
+      ]
+    },
+    {
+      "contractId": "ui.P02",
+      "taskId": "P02",
+      "name": "作物选盘与施肥开关",
+      "skin": "ui/panel-skin.svg",
+      "cssClass": "farm-ui farm-panel",
+      "layout": {
+        "mobile": "full width within 8px safe margins; scrollable body; wrapping footer",
+        "desktop": "max-width 42rem; scrollable body; fixed header/footer"
+      },
+      "configPaths": [
+        "crops",
+        "fieldAllowance",
+        "cropUnlockGift"
+      ],
+      "fields": [
+        {
+          "label": "作物列表",
+          "source": "config",
+          "path": "crops"
+        },
+        {
+          "label": "作物库存",
+          "source": "runtime",
+          "path": "inventory.counts"
+        },
+        {
+          "label": "留种数量",
+          "source": "runtime",
+          "path": "seedReserve"
+        },
+        {
+          "label": "肥料持有",
+          "source": "runtime",
+          "path": "inventory.counts.fertilizer"
+        },
+        {
+          "label": "当前田数",
+          "source": "runtime",
+          "path": "fields.count"
+        },
+        {
+          "label": "时间产量经验",
+          "source": "config",
+          "path": "crops"
+        }
+      ],
+      "iconAssetIds": [
+        "ui.sow",
+        "ui.seed_protect",
+        "ui.info"
+      ],
+      "states": {
+        "normal": {
+          "icon": null,
+          "message": "",
+          "controls": "enable only actions permitted by validated state"
+        },
+        "empty": {
+          "icon": "ui.info",
+          "message": "暂无可播种作物。",
+          "controls": "keep back/close and appropriate discovery action"
+        },
+        "locked": {
+          "icon": "ui.lock",
+          "message": "尚未满足条件，请查看所需等级或前置内容。",
+          "controls": "disable blocked primary action, explain exact requirement in DOM"
+        },
+        "error": {
+          "icon": "ui.warning",
+          "message": "种子不足，不会自动扣金币。",
+          "controls": "retain recovery/back actions; do not lose current data"
+        }
+      },
+      "nonGoals": [
+        "No hard-coded economy values",
+        "No invented water/pest/online player mechanics",
+        "No world overlays duplicated here"
+      ]
+    },
+    {
+      "contractId": "ui.P03",
+      "taskId": "P03",
+      "name": "建筑购买放置确认",
+      "skin": "ui/panel-skin.svg",
+      "cssClass": "farm-ui farm-panel",
+      "layout": {
+        "mobile": "full width within 8px safe margins; scrollable body; wrapping footer",
+        "desktop": "max-width 42rem; scrollable body; fixed header/footer"
+      },
+      "configPaths": [
+        "buildings",
+        "map"
+      ],
+      "fields": [
+        {
+          "label": "建筑配置",
+          "source": "config",
+          "path": "buildings"
+        },
+        {
+          "label": "购买实例",
+          "source": "runtime",
+          "path": "placement.buildingId"
+        },
+        {
+          "label": "金币差额",
+          "source": "runtime",
+          "path": "placement.costGap"
+        },
+        {
+          "label": "占地",
+          "source": "runtime",
+          "path": "placement.footprint"
+        },
+        {
+          "label": "门口通路",
+          "source": "runtime",
+          "path": "placement.entranceValid"
+        },
+        {
+          "label": "冲突原因",
+          "source": "runtime",
+          "path": "placement.conflicts"
+        }
+      ],
+      "iconAssetIds": [
+        "ui.build",
+        "ui.rotate",
+        "ui.confirm",
+        "ui.cancel"
+      ],
+      "states": {
+        "normal": {
+          "icon": null,
+          "message": "",
+          "controls": "enable only actions permitted by validated state"
+        },
+        "empty": {
+          "icon": "ui.info",
+          "message": "请选择可购买的建筑。",
+          "controls": "keep back/close and appropriate discovery action"
+        },
+        "locked": {
+          "icon": "ui.lock",
+          "message": "尚未满足条件，请查看所需等级或前置内容。",
+          "controls": "disable blocked primary action, explain exact requirement in DOM"
+        },
+        "error": {
+          "icon": "ui.warning",
+          "message": "位置冲突，请调整占地或门口。",
+          "controls": "retain recovery/back actions; do not lose current data"
+        }
+      },
+      "nonGoals": [
+        "No hard-coded economy values",
+        "No invented water/pest/online player mechanics",
+        "No world overlays duplicated here"
+      ]
+    },
+    {
+      "contractId": "ui.P04",
+      "taskId": "P04",
+      "name": "动物与饲料面板",
+      "skin": "ui/panel-skin.svg",
+      "cssClass": "farm-ui farm-panel",
+      "layout": {
+        "mobile": "full width within 8px safe margins; scrollable body; wrapping footer",
+        "desktop": "max-width 42rem; scrollable body; fixed header/footer"
+      },
+      "configPaths": [
+        "animals",
+        "items"
+      ],
+      "fields": [
+        {
+          "label": "动物配置",
+          "source": "config",
+          "path": "animals"
+        },
+        {
+          "label": "栏位用量",
+          "source": "runtime",
+          "path": "pens.capacityUsage"
+        },
+        {
+          "label": "逐只状态",
+          "source": "runtime",
+          "path": "animals.states"
+        },
+        {
+          "label": "饲料持有",
+          "source": "runtime",
+          "path": "inventory.counts"
+        },
+        {
+          "label": "产物保留",
+          "source": "runtime",
+          "path": "animals.readyProducts"
+        }
+      ],
+      "iconAssetIds": [
+        "ui.feed",
+        "ui.harvest",
+        "ui.info"
+      ],
+      "states": {
+        "normal": {
+          "icon": null,
+          "message": "",
+          "controls": "enable only actions permitted by validated state"
+        },
+        "empty": {
+          "icon": "ui.info",
+          "message": "这个栏舍还没有动物。",
+          "controls": "keep back/close and appropriate discovery action"
+        },
+        "locked": {
+          "icon": "ui.lock",
+          "message": "尚未满足条件，请查看所需等级或前置内容。",
+          "controls": "disable blocked primary action, explain exact requirement in DOM"
+        },
+        "error": {
+          "icon": "ui.warning",
+          "message": "仓库已满，产物会保留。",
+          "controls": "retain recovery/back actions; do not lose current data"
+        }
+      },
+      "nonGoals": [
+        "No hard-coded economy values",
+        "No invented water/pest/online player mechanics",
+        "No world overlays duplicated here"
+      ]
+    },
+    {
+      "contractId": "ui.P05",
+      "taskId": "P05",
+      "name": "生产配方与队列",
+      "skin": "ui/panel-skin.svg",
+      "cssClass": "farm-ui farm-panel",
+      "layout": {
+        "mobile": "full width within 8px safe margins; scrollable body; wrapping footer",
+        "desktop": "max-width 42rem; scrollable body; fixed header/footer"
+      },
+      "configPaths": [
+        "items",
+        "queue",
+        "buildings"
+      ],
+      "fields": [
+        {
+          "label": "配方",
+          "source": "config",
+          "path": "items"
+        },
+        {
+          "label": "当前任务与剩余时间",
+          "source": "runtime",
+          "path": "machines.activeJob"
+        },
+        {
+          "label": "未开工队列",
+          "source": "runtime",
+          "path": "machines.queue"
+        },
+        {
+          "label": "完成区",
+          "source": "runtime",
+          "path": "machines.outputBuffer"
+        },
+        {
+          "label": "熟练度",
+          "source": "runtime",
+          "path": "machines.mastery"
+        },
+        {
+          "label": "原料差额",
+          "source": "runtime",
+          "path": "machines.ingredientGaps"
+        }
+      ],
+      "iconAssetIds": [
+        "ui.clock",
+        "ui.harvest",
+        "ui.cancel",
+        "ui.lock"
+      ],
+      "states": {
+        "normal": {
+          "icon": null,
+          "message": "",
+          "controls": "enable only actions permitted by validated state"
+        },
+        "empty": {
+          "icon": "ui.info",
+          "message": "尚未安排生产。",
+          "controls": "keep back/close and appropriate discovery action"
+        },
+        "locked": {
+          "icon": "ui.lock",
+          "message": "尚未满足条件，请查看所需等级或前置内容。",
+          "controls": "disable blocked primary action, explain exact requirement in DOM"
+        },
+        "error": {
+          "icon": "ui.warning",
+          "message": "无法退回原料，请先腾出仓库。",
+          "controls": "retain recovery/back actions; do not lose current data"
+        }
+      },
+      "nonGoals": [
+        "No hard-coded economy values",
+        "No invented water/pest/online player mechanics",
+        "No world overlays duplicated here"
+      ]
+    },
+    {
+      "contractId": "ui.P06",
+      "taskId": "P06",
+      "name": "双仓与升级确认",
+      "skin": "ui/panel-skin.svg",
+      "cssClass": "farm-ui farm-panel",
+      "layout": {
+        "mobile": "full width within 8px safe margins; scrollable body; wrapping footer",
+        "desktop": "max-width 42rem; scrollable body; fixed header/footer"
+      },
+      "configPaths": [
+        "materials",
+        "initial"
+      ],
+      "fields": [
+        {
+          "label": "库存分类",
+          "source": "runtime",
+          "path": "inventory.categories"
+        },
+        {
+          "label": "数量容量",
+          "source": "runtime",
+          "path": "inventory.storageUsage"
+        },
+        {
+          "label": "材料缺口",
+          "source": "runtime",
+          "path": "storage.upgradeGaps"
+        },
+        {
+          "label": "升级前后容量",
+          "source": "runtime",
+          "path": "storage.upgradePreview"
+        },
+        {
+          "label": "留种",
+          "source": "runtime",
+          "path": "seedReserve"
+        }
+      ],
+      "iconAssetIds": [
+        "ui.inventory",
+        "ui.seed_protect",
+        "ui.confirm",
+        "ui.cancel"
+      ],
+      "states": {
+        "normal": {
+          "icon": null,
+          "message": "",
+          "controls": "enable only actions permitted by validated state"
+        },
+        "empty": {
+          "icon": "ui.info",
+          "message": "仓库里还没有物品。",
+          "controls": "keep back/close and appropriate discovery action"
+        },
+        "locked": {
+          "icon": "ui.lock",
+          "message": "尚未满足条件，请查看所需等级或前置内容。",
+          "controls": "disable blocked primary action, explain exact requirement in DOM"
+        },
+        "error": {
+          "icon": "ui.warning",
+          "message": "升级材料不足，请检查缺口。",
+          "controls": "retain recovery/back actions; do not lose current data"
+        }
+      },
+      "nonGoals": [
+        "No hard-coded economy values",
+        "No invented water/pest/online player mechanics",
+        "No world overlays duplicated here"
+      ]
+    },
+    {
+      "contractId": "ui.P07",
+      "taskId": "P07",
+      "name": "NPC货箱与补货",
+      "skin": "ui/panel-skin.svg",
+      "cssClass": "farm-ui farm-panel",
+      "layout": {
+        "mobile": "full width within 8px safe margins; scrollable body; wrapping footer",
+        "desktop": "max-width 42rem; scrollable body; fixed header/footer"
+      },
+      "configPaths": [
+        "npc"
+      ],
+      "fields": [
+        {
+          "label": "货箱配置",
+          "source": "config",
+          "path": "npc"
+        },
+        {
+          "label": "上架商品",
+          "source": "runtime",
+          "path": "npc.listings"
+        },
+        {
+          "label": "成交估计与预算",
+          "source": "runtime",
+          "path": "npc.settlementPreview"
+        },
+        {
+          "label": "补货批次时间",
+          "source": "runtime",
+          "path": "npc.nextRestockAt"
+        },
+        {
+          "label": "买入总价和容量",
+          "source": "runtime",
+          "path": "npc.purchasePreview"
+        }
+      ],
+      "iconAssetIds": [
+        "ui.shop",
+        "ui.clock",
+        "ui.confirm",
+        "ui.cancel"
+      ],
+      "states": {
+        "normal": {
+          "icon": null,
+          "message": "",
+          "controls": "enable only actions permitted by validated state"
+        },
+        "empty": {
+          "icon": "ui.info",
+          "message": "当前没有上架商品。",
+          "controls": "keep back/close and appropriate discovery action"
+        },
+        "locked": {
+          "icon": "ui.lock",
+          "message": "尚未满足条件，请查看所需等级或前置内容。",
+          "controls": "disable blocked primary action, explain exact requirement in DOM"
+        },
+        "error": {
+          "icon": "ui.warning",
+          "message": "预算已用完，可使用保底回收。",
+          "controls": "retain recovery/back actions; do not lose current data"
+        }
+      },
+      "nonGoals": [
+        "No hard-coded economy values",
+        "No invented water/pest/online player mechanics",
+        "No world overlays duplicated here"
+      ]
+    },
+    {
+      "contractId": "ui.P08",
+      "taskId": "P08",
+      "name": "订单板与运输奖励",
+      "skin": "ui/panel-skin.svg",
+      "cssClass": "farm-ui farm-panel",
+      "layout": {
+        "mobile": "full width within 8px safe margins; scrollable body; wrapping footer",
+        "desktop": "max-width 42rem; scrollable body; fixed header/footer"
+      },
+      "configPaths": [
+        "orders"
+      ],
+      "fields": [
+        {
+          "label": "订单配置",
+          "source": "config",
+          "path": "orders"
+        },
+        {
+          "label": "九个订单",
+          "source": "runtime",
+          "path": "orders.slots"
+        },
+        {
+          "label": "需求持有和留种",
+          "source": "runtime",
+          "path": "orders.requirements"
+        },
+        {
+          "label": "币与XP奖励",
+          "source": "runtime",
+          "path": "orders.rewards"
+        },
+        {
+          "label": "奖励进度",
+          "source": "runtime",
+          "path": "orders.rewardTrack"
+        },
+        {
+          "label": "补单时间",
+          "source": "runtime",
+          "path": "orders.refreshAt"
+        }
+      ],
+      "iconAssetIds": [
+        "ui.orders",
+        "ui.seed_protect",
+        "ui.clock",
+        "ui.confirm"
+      ],
+      "states": {
+        "normal": {
+          "icon": null,
+          "message": "",
+          "controls": "enable only actions permitted by validated state"
+        },
+        "empty": {
+          "icon": "ui.info",
+          "message": "订单正在补充。",
+          "controls": "keep back/close and appropriate discovery action"
+        },
+        "locked": {
+          "icon": "ui.lock",
+          "message": "尚未满足条件，请查看所需等级或前置内容。",
+          "controls": "disable blocked primary action, explain exact requirement in DOM"
+        },
+        "error": {
+          "icon": "ui.warning",
+          "message": "交付材料不足，请检查留种保护。",
+          "controls": "retain recovery/back actions; do not lose current data"
+        }
+      },
+      "nonGoals": [
+        "No hard-coded economy values",
+        "No invented water/pest/online player mechanics",
+        "No world overlays duplicated here"
+      ]
+    },
+    {
+      "contractId": "ui.P09",
+      "taskId": "P09",
+      "name": "土地扩建详情",
+      "skin": "ui/panel-skin.svg",
+      "cssClass": "farm-ui farm-panel",
+      "layout": {
+        "mobile": "full width within 8px safe margins; scrollable body; wrapping footer",
+        "desktop": "max-width 42rem; scrollable body; fixed header/footer"
+      },
+      "configPaths": [
+        "map",
+        "materials"
+      ],
+      "fields": [
+        {
+          "label": "区域轮廓",
+          "source": "runtime",
+          "path": "expansion.region"
+        },
+        {
+          "label": "邻接状态",
+          "source": "runtime",
+          "path": "expansion.adjacent"
+        },
+        {
+          "label": "等级资格",
+          "source": "runtime",
+          "path": "expansion.eligible"
+        },
+        {
+          "label": "三材料缺口",
+          "source": "runtime",
+          "path": "expansion.materialGaps"
+        },
+        {
+          "label": "扩建面积",
+          "source": "runtime",
+          "path": "expansion.area"
+        }
+      ],
+      "iconAssetIds": [
+        "ui.layout",
+        "ui.confirm",
+        "ui.cancel",
+        "ui.lock"
+      ],
+      "states": {
+        "normal": {
+          "icon": null,
+          "message": "",
+          "controls": "enable only actions permitted by validated state"
+        },
+        "empty": {
+          "icon": "ui.info",
+          "message": "请选择相邻的扩建区域。",
+          "controls": "keep back/close and appropriate discovery action"
+        },
+        "locked": {
+          "icon": "ui.lock",
+          "message": "尚未满足条件，请查看所需等级或前置内容。",
+          "controls": "disable blocked primary action, explain exact requirement in DOM"
+        },
+        "error": {
+          "icon": "ui.warning",
+          "message": "扩地材料不足，不会扣除已有材料。",
+          "controls": "retain recovery/back actions; do not lose current data"
+        }
+      },
+      "nonGoals": [
+        "No hard-coded economy values",
+        "No invented water/pest/online player mechanics",
+        "No world overlays duplicated here"
+      ]
+    },
+    {
+      "contractId": "ui.P10",
+      "taskId": "P10",
+      "name": "任务成就",
+      "skin": "ui/panel-skin.svg",
+      "cssClass": "farm-ui farm-panel",
+      "layout": {
+        "mobile": "full width within 8px safe margins; scrollable body; wrapping footer",
+        "desktop": "max-width 42rem; scrollable body; fixed header/footer"
+      },
+      "configPaths": [
+        "achievementsMachineTypes"
+      ],
+      "fields": [
+        {
+          "label": "条件",
+          "source": "runtime",
+          "path": "achievements.conditions"
+        },
+        {
+          "label": "累计计数",
+          "source": "runtime",
+          "path": "achievements.counters"
+        },
+        {
+          "label": "一次性奖励",
+          "source": "runtime",
+          "path": "achievements.rewards"
+        },
+        {
+          "label": "已领奖状态",
+          "source": "runtime",
+          "path": "achievements.claimed"
+        },
+        {
+          "label": "机器收藏类型",
+          "source": "config",
+          "path": "achievementsMachineTypes"
+        }
+      ],
+      "iconAssetIds": [
+        "ui.tasks",
+        "ui.achievements",
+        "ui.confirm"
+      ],
+      "states": {
+        "normal": {
+          "icon": null,
+          "message": "",
+          "controls": "enable only actions permitted by validated state"
+        },
+        "empty": {
+          "icon": "ui.info",
+          "message": "尚未获得成就。",
+          "controls": "keep back/close and appropriate discovery action"
+        },
+        "locked": {
+          "icon": "ui.lock",
+          "message": "尚未满足条件，请查看所需等级或前置内容。",
+          "controls": "disable blocked primary action, explain exact requirement in DOM"
+        },
+        "error": {
+          "icon": "ui.warning",
+          "message": "奖励已领取，不会重复发放。",
+          "controls": "retain recovery/back actions; do not lose current data"
+        }
+      },
+      "nonGoals": [
+        "No hard-coded economy values",
+        "No invented water/pest/online player mechanics",
+        "No world overlays duplicated here"
+      ]
+    },
+    {
+      "contractId": "ui.P11",
+      "taskId": "P11",
+      "name": "24关地图与奖励详情",
+      "skin": "ui/panel-skin.svg",
+      "cssClass": "farm-ui farm-panel",
+      "layout": {
+        "mobile": "full width within 8px safe margins; scrollable body; wrapping footer",
+        "desktop": "max-width 42rem; scrollable body; fixed header/footer"
+      },
+      "configPaths": [
+        "linkage"
+      ],
+      "fields": [
+        {
+          "label": "关卡配置",
+          "source": "config",
+          "path": "linkage"
+        },
+        {
+          "label": "前关解锁",
+          "source": "runtime",
+          "path": "linkage.unlocked"
+        },
+        {
+          "label": "首次通关",
+          "source": "runtime",
+          "path": "linkage.firstClear"
+        },
+        {
+          "label": "永久奖领取",
+          "source": "runtime",
+          "path": "linkage.claimed"
+        },
+        {
+          "label": "奖励托管",
+          "source": "runtime",
+          "path": "linkage.escrow"
+        },
+        {
+          "label": "重玩提示",
+          "source": "runtime",
+          "path": "linkage.replay"
+        }
+      ],
+      "iconAssetIds": [
+        "ui.farm_branch",
+        "ui.lock",
+        "ui.confirm",
+        "ui.home"
+      ],
+      "states": {
+        "normal": {
+          "icon": null,
+          "message": "",
+          "controls": "enable only actions permitted by validated state"
+        },
+        "empty": {
+          "icon": "ui.info",
+          "message": "暂无可领取奖励。",
+          "controls": "keep back/close and appropriate discovery action"
+        },
+        "locked": {
+          "icon": "ui.lock",
+          "message": "尚未满足条件，请查看所需等级或前置内容。",
+          "controls": "disable blocked primary action, explain exact requirement in DOM"
+        },
+        "error": {
+          "icon": "ui.warning",
+          "message": "奖励暂存中，请先满足领取条件。",
+          "controls": "retain recovery/back actions; do not lose current data"
+        }
+      },
+      "nonGoals": [
+        "No hard-coded economy values",
+        "No invented water/pest/online player mechanics",
+        "No world overlays duplicated here"
+      ]
+    },
+    {
+      "contractId": "ui.P12",
+      "taskId": "P12",
+      "name": "布局方案保存切换",
+      "skin": "ui/panel-skin.svg",
+      "cssClass": "farm-ui farm-panel",
+      "layout": {
+        "mobile": "full width within 8px safe margins; scrollable body; wrapping footer",
+        "desktop": "max-width 42rem; scrollable body; fixed header/footer"
+      },
+      "configPaths": [
+        "map"
+      ],
+      "fields": [
+        {
+          "label": "草稿对象",
+          "source": "runtime",
+          "path": "layout.draft"
+        },
+        {
+          "label": "占地和门口",
+          "source": "runtime",
+          "path": "layout.footprints"
+        },
+        {
+          "label": "冲突列表",
+          "source": "runtime",
+          "path": "layout.conflicts"
+        },
+        {
+          "label": "方案槽",
+          "source": "runtime",
+          "path": "layout.slots"
+        },
+        {
+          "label": "未保存变更",
+          "source": "runtime",
+          "path": "layout.dirty"
+        }
+      ],
+      "iconAssetIds": [
+        "ui.layout",
+        "ui.rotate",
+        "ui.store_decor",
+        "ui.undo",
+        "ui.redo",
+        "ui.save",
+        "ui.cancel"
+      ],
+      "states": {
+        "normal": {
+          "icon": null,
+          "message": "",
+          "controls": "enable only actions permitted by validated state"
+        },
+        "empty": {
+          "icon": "ui.info",
+          "message": "暂无已保存布局。",
+          "controls": "keep back/close and appropriate discovery action"
+        },
+        "locked": {
+          "icon": "ui.lock",
+          "message": "尚未满足条件，请查看所需等级或前置内容。",
+          "controls": "disable blocked primary action, explain exact requirement in DOM"
+        },
+        "error": {
+          "icon": "ui.warning",
+          "message": "布局不合法，原布局保持不变。",
+          "controls": "retain recovery/back actions; do not lose current data"
+        }
+      },
+      "nonGoals": [
+        "No hard-coded economy values",
+        "No invented water/pest/online player mechanics",
+        "No world overlays duplicated here"
+      ]
+    },
+    {
+      "contractId": "ui.P13",
+      "taskId": "P13",
+      "name": "设置与存档恢复",
+      "skin": "ui/panel-skin.svg",
+      "cssClass": "farm-ui farm-panel",
+      "layout": {
+        "mobile": "full width within 8px safe margins; scrollable body; wrapping footer",
+        "desktop": "max-width 42rem; scrollable body; fixed header/footer"
+      },
+      "configPaths": [
+        "version"
+      ],
+      "fields": [
+        {
+          "label": "存档版本",
+          "source": "runtime",
+          "path": "save.version"
+        },
+        {
+          "label": "最近保存成功",
+          "source": "runtime",
+          "path": "save.lastSuccessAt"
+        },
+        {
+          "label": "保存错误",
+          "source": "runtime",
+          "path": "save.error"
+        },
+        {
+          "label": "音量和音效",
+          "source": "runtime",
+          "path": "settings.audio"
+        },
+        {
+          "label": "减少动态",
+          "source": "runtime",
+          "path": "settings.reducedMotion"
+        },
+        {
+          "label": "导入校验",
+          "source": "runtime",
+          "path": "save.importValidation"
+        }
+      ],
+      "iconAssetIds": [
+        "ui.sound",
+        "ui.muted",
+        "ui.save",
+        "ui.import",
+        "ui.export",
+        "ui.recover",
+        "ui.info"
+      ],
+      "states": {
+        "normal": {
+          "icon": null,
+          "message": "",
+          "controls": "enable only actions permitted by validated state"
+        },
+        "empty": {
+          "icon": "ui.info",
+          "message": "还没有可恢复的备份。",
+          "controls": "keep back/close and appropriate discovery action"
+        },
+        "locked": {
+          "icon": "ui.lock",
+          "message": "尚未满足条件，请查看所需等级或前置内容。",
+          "controls": "disable blocked primary action, explain exact requirement in DOM"
+        },
+        "error": {
+          "icon": "ui.warning",
+          "message": "存档格式不兼容，当前存档未更改。",
+          "controls": "retain recovery/back actions; do not lose current data"
+        }
+      },
+      "nonGoals": [
+        "No hard-coded economy values",
+        "No invented water/pest/online player mechanics",
+        "No world overlays duplicated here"
+      ]
+    }
+  ]
+}

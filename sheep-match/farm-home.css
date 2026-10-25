@@ -64,3 +64,7 @@ body[data-view=home]{background:#f4f0e7}.farm-home{position:relative;isolation:i
 
 #farm-home .swipe-hint{width:fit-content;margin-left:auto;margin-right:auto;padding:2px 8px;border-radius:20px;background:#fff9e8aa}
 @media(max-height:600px){#farm-home .farm-layers{position:absolute;inset:8% 0 auto;height:84%;transform:scale(.94);transform-origin:50% 40%}}
+
+/* Only an entrance hit area is added to the existing spring illustration. */
+#farm-home .farm-house-entry{position:absolute;left:var(--entry-x);top:var(--entry-y);width:var(--entry-w);aspect-ratio:1;min-height:44px;min-width:44px;border:0;background:transparent;padding:0;z-index:12;cursor:pointer;color:#5b6546;touch-action:pan-x}
+#farm-home .farm-house-entry .sticker{pointer-events:none}#farm-home .farm-house-entry span:not(.sticker){position:absolute;left:10%;right:10%;bottom:-6px;padding:5px 3px;background:#fff8e5e8;border:1px solid #b8ba8c;border-radius:12px;font-size:12px;white-space:nowrap;box-shadow:0 2px 4px #53634820}#farm-home .farm-house-entry:focus-visible{outline:3px solid #586f48;outline-offset:4px}

@@ -1,0 +1,485 @@
+/* Independent farm screen. All selectors are scoped to preserve the illustrated home. */
+.farm-app{--farm-ink:#405440;--farm-paper:#fffbed;--farm-green:#608d57;--farm-dark:#426a40;--farm-gold:#e8b85a;position:fixed;inset:0;z-index:90;display:flex;flex-direction:column;overflow:hidden;background:#b9d4a2;color:var(--farm-ink);font-family:Happy,'PingFang SC','Microsoft YaHei',sans-serif;font-size:14px;isolation:isolate}
+.farm-app *{box-sizing:border-box}.farm-app button,.farm-app input,.farm-app select{font:inherit}.farm-app button{min-width:44px;min-height:44px;border:1px solid #d6d3bb;border-radius:13px;background:var(--farm-paper);color:var(--farm-ink);padding:8px 12px;cursor:pointer;touch-action:manipulation;line-height:1.35;white-space:normal}.farm-app button:hover:not(:disabled){background:#edf3db}.farm-app button:focus-visible,.farm-app input:focus-visible,.farm-app select:focus-visible{outline:3px solid #c68136;outline-offset:3px}.farm-app button:disabled{cursor:not-allowed;opacity:.5}.farm-app button.is-active,.farm-app button[aria-pressed=true],.farm-app .farm-primary{background:var(--farm-green);color:white;border-color:var(--farm-dark)}.farm-app .farm-danger{color:#a04c40;border-color:#dfb8a1;background:#fff1e6}.farm-app .farm-muted{color:#7b836b;font-size:.9em}.farm-app h1,.farm-app h2,.farm-app h3,.farm-app p{margin:0}.farm-app h2{font-size:1.25em}.farm-app h3{font-size:1.05em}.farm-app a{color:#426a40}.farm-app .farm-icon{width:27px;height:27px;object-fit:contain;vertical-align:middle;flex:none}.farm-app .farm-icon.large{width:54px;height:54px}.farm-app .farm-icon-button{display:inline-flex;align-items:center;justify-content:center;gap:6px}.farm-app .farm-icon-only{padding:7px}.farm-app .farm-header{position:relative;z-index:5;background:#fffbeff5;box-shadow:0 2px 12px #45613a20;padding:calc(9px + env(safe-area-inset-top)) 14px 9px;display:grid;grid-template-columns:auto 1fr auto;gap:8px 14px;align-items:center}.farm-app .farm-brand{font-size:17px;letter-spacing:2px;font-weight:750}.farm-app .farm-subtitle{font-size:10px;color:#7b9167;letter-spacing:2px;margin-top:2px}.farm-app .farm-wallet{display:flex;justify-content:center;gap:12px;align-items:center;flex-wrap:wrap;font-variant-numeric:tabular-nums}.farm-app .farm-wallet span{display:flex;align-items:center;gap:4px;font-weight:700}.farm-app .farm-level{font-size:12px;display:grid;gap:3px;min-width:110px}.farm-app .farm-level progress{width:100%;height:6px;accent-color:var(--farm-green)}.farm-app .farm-storage-row{grid-column:1/-1;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.farm-app .farm-storage-row button{min-height:44px;padding:4px 10px;font-size:12px;border-radius:9px}.farm-app .farm-save-note{margin-left:auto;font-size:11px;color:#7b836b}.farm-app .farm-warning{background:#fff1c8;border:1px solid #e6c77d;padding:10px 12px;border-radius:12px;line-height:1.6}.farm-app .farm-error-bar{position:relative;z-index:8;padding:8px 12px;background:#ffe8db;color:#8c493a;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.farm-app .farm-error-bar[hidden]{display:none}.farm-app .farm-viewport{position:relative;overflow:hidden;flex:1;min-height:100px;touch-action:none;user-select:none;cursor:grab;outline-offset:-4px;background:#b2c59a}.farm-app .farm-viewport[data-mode=plant],.farm-app .farm-viewport[data-mode=harvest]{cursor:crosshair}.farm-app .farm-world{position:absolute;left:0;top:0;width:3072px;height:3072px;transform-origin:0 0;will-change:transform;background:#9eb58d url('./assets/farm/terrain/grass-0.svg') repeat;background-size:48px 48px}.farm-app .farm-land{position:absolute;background:#c7dea9 url('./assets/farm/terrain/grass-1.svg') repeat;background-size:48px 48px;pointer-events:none;border:1px solid #b5cb99}.farm-app .farm-land.locked{background:#91a48566;border:2px dashed #d2debf66}.farm-app .farm-land.locked:after{content:'未开垦';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:17px;letter-spacing:3px;color:#edf1ddbd}.farm-app .farm-path{position:absolute;pointer-events:none;background:#ddcea5 url('./assets/farm/terrain/road-f.svg') repeat;background-size:48px}.farm-app .farm-entity{position:absolute;display:block;min-height:0;min-width:0;padding:0;margin:0;border:0;border-radius:0;background:transparent!important;touch-action:none;overflow:visible;transform-origin:center;cursor:pointer;z-index:2}.farm-app .farm-entity:focus-visible{outline-offset:0}.farm-app .farm-entity .farm-sprite{width:100%;height:100%;display:block;object-fit:contain;pointer-events:none;filter:drop-shadow(0 3px 0 #425d3020)}.farm-app .farm-entity.kind-field{background:url('./assets/farm/terrain/field-empty.svg') center/100% 100%!important}.farm-app .farm-entity.kind-field .farm-sprite{width:100%;height:100%;filter:none}.farm-app .farm-entity .farm-entity-label{position:absolute;left:50%;bottom:0;transform:translate(-50%,65%);font-size:11px;line-height:1.35;white-space:nowrap;background:#fffbeded;border:1px solid #e7e0c7;padding:2px 7px;border-radius:7px;pointer-events:none;color:#4a6043;z-index:5;box-shadow:0 2px 3px #4f6e3a10}.farm-app .farm-entity.kind-field .farm-entity-label{display:none}.farm-app .farm-ready-badge{position:absolute;right:-1px;top:-9px;min-width:22px;height:22px;border-radius:50%;background:#fff6b7;border:2px solid white;display:grid;place-items:center;font-size:13px;color:#54773e;box-shadow:0 2px 4px #6f8b4c30;z-index:4;pointer-events:none}.farm-app .farm-animal-preview{position:absolute;bottom:9%;left:5%;width:90%;display:flex;justify-content:center;pointer-events:none}.farm-app .farm-animal-preview img{width:27%;height:48px;object-fit:contain}.farm-app .farm-entity.is-selected{outline:3px solid #ebbb56;outline-offset:1px;background:#f5df9d55!important}.farm-app .farm-entity.stroke-valid{outline:3px solid #fdfbe3;background-color:#91bf7377!important}.farm-app .farm-entity.stroke-skip{outline:3px dashed #d9a23a;background-color:#e9c17d88!important}.farm-app .farm-entity.layout-conflict{outline:3px dashed #cf6653;background-color:#e6a18a77!important}.farm-app .farm-entity.is-ghost{opacity:.76;outline:3px dashed #fff5be;pointer-events:none;z-index:30}.farm-app .farm-camera-tools{position:absolute;bottom:14px;right:12px;z-index:4;display:grid;gap:7px}.farm-app .farm-camera-tools button{box-shadow:0 2px 7px #526e3925;background:#fffbedf2}.farm-app .farm-map-label{position:absolute;left:14px;top:12px;z-index:4;background:#fffbeded;border-radius:14px;padding:9px 12px;box-shadow:0 2px 8px #5b703622;max-width:calc(100% - 84px);pointer-events:none;font-size:12px;line-height:1.5}.farm-app .farm-map-label strong{display:block;letter-spacing:1px}.farm-app .farm-rail{position:absolute;right:12px;top:12px;display:grid;gap:7px;z-index:5}.farm-app .farm-rail button{width:54px;min-height:55px;display:grid;place-items:center;padding:5px 2px;font-size:10px;gap:2px;box-shadow:0 2px 7px #526e3925}.farm-app .farm-toolbar{position:relative;z-index:6;display:flex;gap:6px;background:#fffbeff7;border-top:1px solid #cfccad;padding:8px 10px calc(8px + env(safe-area-inset-bottom));justify-content:center;flex-wrap:wrap}.farm-app .farm-toolbar button{flex:1;max-width:155px;min-width:64px;display:flex;align-items:center;justify-content:center;gap:7px}.farm-app .farm-status{position:relative;z-index:6;min-height:34px;padding:7px 12px;background:#f7f4de;font-size:12px;line-height:1.4;text-align:center;border-top:1px solid #d5d8b9;overflow-wrap:anywhere}.farm-app .farm-status.is-error{background:#ffe6d8;color:#8a4635}.farm-app .farm-placement-toolbar{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;align-items:center;width:100%}.farm-app .farm-placement-toolbar span{flex:1;min-width:140px;font-size:12px;line-height:1.5}.farm-app .farm-placement-toolbar button{flex:0 1 auto;min-width:44px;max-width:none}.farm-app .farm-overlay{position:absolute;inset:0;z-index:20;background:#35492c4f;display:flex;align-items:stretch;justify-content:flex-end;touch-action:auto}.farm-app .farm-overlay[hidden]{display:none}.farm-app .farm-panel{width:min(440px,100%);max-height:100%;display:flex;flex-direction:column;background:var(--farm-paper);border-left:2px solid #e5d7b7;box-shadow:-8px 0 30px #253a2630;overscroll-behavior:contain}.farm-app .farm-panel-head{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid #e6dec5;flex:none}.farm-app .farm-panel-head h2{flex:1}.farm-app .farm-panel-head button{flex:none}.farm-app .farm-panel-content{overflow:auto;overscroll-behavior:contain;touch-action:pan-y;padding:16px;display:flex;flex-direction:column;gap:14px;line-height:1.5}.farm-app .farm-tabs{display:flex;gap:6px;flex-wrap:wrap}.farm-app .farm-tabs button{font-size:12px;padding:7px 10px;flex:1;min-width:65px}.farm-app .farm-cards{display:grid;gap:10px}.farm-app .farm-card{border:1px solid #e4dec6;border-radius:16px;background:#fffef6;padding:12px;display:flex;gap:11px;align-items:center;min-width:0}.farm-app .farm-card-body{flex:1;min-width:0}.farm-app .farm-card-body h3{margin-bottom:3px}.farm-app .farm-card p{font-size:12px;line-height:1.55;color:#79816a;overflow-wrap:anywhere}.farm-app .farm-card .farm-card-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.farm-app .farm-card-actions button{font-size:12px;padding:7px 10px}.farm-app .farm-card.stack{display:block}.farm-app .farm-card .farm-large-art{width:70px;height:70px;object-fit:contain;flex:none}.farm-app .farm-empty{padding:25px 12px;text-align:center;border:1px dashed #d5d5b9;border-radius:16px;color:#7c846a;font-size:13px;line-height:1.8}.farm-app .farm-chip{display:inline-flex;border-radius:8px;background:#eef1df;padding:3px 7px;font-size:11px;color:#6a7a59}.farm-app .farm-ingredients{display:flex;gap:6px;flex-wrap:wrap;margin:7px 0}.farm-app .farm-ingredient{display:flex;align-items:center;gap:3px;background:#f3f2e4;border-radius:8px;padding:3px 6px;font-size:12px}.farm-app .farm-ingredient.missing{background:#fff0df;color:#9b6041}.farm-app .farm-ingredient img{width:22px;height:22px}.farm-app .farm-form{display:flex;flex-direction:column;gap:12px}.farm-app .farm-form label{display:flex;flex-direction:column;gap:5px;font-size:13px}.farm-app input[type=number],.farm-app input[type=text],.farm-app select{min-height:44px;max-width:100%;width:100%;border:1px solid #d6d3bb;border-radius:10px;padding:8px 10px;background:white;color:var(--farm-ink)}.farm-app .farm-check{flex-direction:row!important;align-items:flex-start;gap:8px!important}.farm-app input[type=checkbox]{width:20px;height:20px;flex:none;accent-color:var(--farm-green)}.farm-app .farm-summary{background:#edf1dd;border:1px solid #dce3c4;border-radius:13px;padding:12px;font-size:13px;line-height:1.8}.farm-app .farm-divider{border-top:1px solid #e4dec6;margin:3px 0}.farm-app .farm-field-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px}.farm-app .farm-field-list button{display:grid;justify-items:center;gap:4px;font-size:12px}.farm-app .farm-field-list img{width:47px;height:47px}.farm-app .farm-stage-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.farm-app .farm-stage-grid button{min-height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:11px}.farm-app .farm-stage-grid strong{font-size:20px}.farm-app .farm-stage-grid .complete{background:#e5edcf}.farm-app .farm-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.farm-app .farm-row>*{flex:1;min-width:0}.farm-app .farm-toast{position:absolute;z-index:30;left:50%;top:calc(150px + env(safe-area-inset-top));transform:translateX(-50%);max-width:calc(100% - 30px);width:max-content;background:#354b35f2;border:1px solid #d7dfb7;color:#fffbed;padding:12px 16px;border-radius:15px;font-size:13px;pointer-events:none;box-shadow:0 4px 15px #243b2930;line-height:1.5}.farm-app .farm-toast:empty{display:none}.farm-app .farm-visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.farm-app .farm-coordinate{font-variant-numeric:tabular-nums;font-size:11px;color:#839173}.farm-app .farm-keypad{display:grid;grid-template-columns:repeat(3,44px);gap:5px;justify-content:center}.farm-app .farm-settings-group{display:flex;flex-direction:column;gap:12px}.farm-app .farm-progress-row{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:13px}.farm-app .farm-notice-link{font-size:12px;text-align:center}.farm-app .farm-conflict-list{color:#9b4e3b;background:#fff0e4;border-radius:12px;padding:12px 12px 12px 30px;font-size:12px}.farm-app .farm-selection-count{font-weight:700}.farm-app .farm-balance{font-size:13px;color:#507145}.farm-app .farm-ready-text{color:#64843e!important;font-weight:700}
+@media(min-width:850px){.farm-app .farm-header{grid-template-columns:auto 1fr auto;max-height:108px;padding-left:24px;padding-right:24px}.farm-app .farm-storage-row{justify-content:flex-end}.farm-app .farm-wallet{gap:25px}.farm-app .farm-toolbar{padding-top:12px;padding-bottom:12px}.farm-app .farm-map-label{left:24px;top:22px}.farm-app .farm-rail{right:24px;top:22px}.farm-app .farm-camera-tools{right:24px;bottom:24px}.farm-app .farm-panel{width:470px}.farm-app .farm-panel-content{padding:20px}.farm-app .farm-toolbar button{max-width:180px}}
+@media(max-width:480px){.farm-app .farm-header{padding-left:8px;padding-right:8px;gap:6px}.farm-app .farm-brand{font-size:14px;letter-spacing:1px}.farm-app .farm-subtitle{font-size:9px;letter-spacing:1px}.farm-app .farm-wallet{gap:4px 8px;font-size:12px}.farm-app .farm-wallet .farm-icon{width:21px;height:21px}.farm-app .farm-level{min-width:75px;max-width:100px;font-size:10px}.farm-app .farm-header>button{padding:7px;min-width:44px}.farm-app .farm-save-note{display:none}.farm-app .farm-storage-row{gap:5px}.farm-app .farm-storage-row button{font-size:11px;flex:1;padding:5px}.farm-app .farm-toolbar{gap:5px;padding-left:6px;padding-right:6px}.farm-app .farm-toolbar button{min-width:55px;padding:7px 5px;font-size:12px;gap:3px}.farm-app .farm-toolbar .farm-icon{width:23px;height:23px}.farm-app .farm-panel{width:100%;border-left:0}.farm-app .farm-panel-head{padding:10px 12px}.farm-app .farm-panel-content{padding:12px}.farm-app .farm-card{padding:10px;gap:8px}.farm-app .farm-card .farm-large-art{width:54px;height:54px}.farm-app .farm-overlay{padding-top:max(12px,env(safe-area-inset-top));align-items:stretch}.farm-app .farm-panel{border-radius:21px 21px 0 0}.farm-app .farm-map-label{font-size:11px;max-width:calc(100% - 85px)}.farm-app .farm-card-actions button{flex:1}.farm-app .farm-stage-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){.farm-app *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+.farm-app[data-reduced-motion=true] *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+/* Keep every navigation entry reachable even in a 360×507 CSS viewport. */
+.farm-app>.farm-rail{position:relative;inset:auto;display:flex;flex:none;justify-content:center;gap:7px;padding:5px 10px;background:#f7f5e5f5;border-bottom:1px solid #d6d8bc;z-index:6;overflow-x:auto;touch-action:pan-x}
+.farm-app>.farm-rail button{width:auto;min-width:52px;max-width:120px;flex:1;min-height:44px;display:flex;flex-direction:row;justify-content:center;gap:5px;font-size:12px;box-shadow:none}
+.farm-app>.farm-rail .farm-icon{width:24px;height:24px}
+.farm-app .farm-camera-tools{left:12px;right:auto;bottom:10px;display:flex;gap:6px}
+.farm-app .farm-error-bar{max-height:110px;overflow-y:auto;overscroll-behavior:contain;flex:none}
+@media(max-width:480px){.farm-app>.farm-rail{gap:5px;padding:5px 7px}.farm-app>.farm-rail button{padding:5px;font-size:11px;min-width:48px;gap:3px}.farm-app>.farm-rail .farm-icon{width:21px;height:21px}.farm-app .farm-map-label{max-width:calc(100% - 28px)}}
+@media(max-height:600px){.farm-app .farm-header{padding-top:5px;padding-bottom:5px}.farm-app .farm-subtitle{display:none}.farm-app .farm-storage-row button{min-height:44px}.farm-app>.farm-rail button{min-height:44px}.farm-app .farm-map-label{top:7px;padding:5px 9px}.farm-app .farm-camera-tools{bottom:7px;left:9px}.farm-app .farm-status{min-height:28px;padding:5px 8px}.farm-app .farm-toolbar{padding-top:5px;padding-bottom:calc(5px + env(safe-area-inset-bottom))}.farm-app .farm-error-bar{max-height:85px}}
+/* Preview text must not resize the map and silently cancel its own pointer stroke. */
+.farm-app .farm-status{height:calc(2.8em + 14px);min-height:calc(2.8em + 14px);max-height:calc(2.8em + 14px);flex:none;overflow-y:auto;overscroll-behavior:contain;padding:7px 12px}
+/* Licensed overlays are presentation-only and never change production state. */
+.farm-app .farm-machine-overlay{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none;z-index:3}
+.farm-app .farm-machine-mastery{z-index:4}
+.farm-app .farm-animal-frame[data-mirror=true]{transform:scaleX(-1)}
+/* Unlike hidden, clip cannot become a second scroll camera through keyboard focus. */
+.farm-app .farm-viewport{overflow:clip;overflow-anchor:none;overscroll-behavior:none}
+
+
+/* Farm stationery: wooden signs, seed pockets and a little cream-paper notebook.
+   Everything stays scoped to the operating farm; the illustrated home is untouched. */
+.farm-app {
+  --farm-ink: #6c513b;
+  --farm-paper: #fff7df;
+  --farm-green: #83a860;
+  --farm-dark: #567544;
+  --farm-gold: #eaba67;
+  --farm-line: #ae8255;
+  --farm-soft-line: #ddc59a;
+  --farm-readable: 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+  background: #b9d4a2;
+  font-size: 15px;
+  line-height: 1.45;
+}
+.farm-app button {
+  position: relative;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 2px solid var(--farm-line);
+  border-radius: 16px 14px 16px 13px;
+  background: linear-gradient(#fffcef, #f5e5bb);
+  color: var(--farm-ink);
+  box-shadow: 0 3px 0 #b68f5b, inset 0 2px 0 #fffdf3;
+  text-shadow: 0 1px #fff8e7;
+  font-weight: 400;
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.farm-app button:hover:not(:disabled) { background: linear-gradient(#fffef8, #f5e8c5); }
+.farm-app button:active:not(:disabled) { transform: translateY(2px) scale(.98); box-shadow: 0 1px 0 #b68f5b; }
+.farm-app button:focus-visible, .farm-app summary:focus-visible,
+.farm-app input:focus-visible, .farm-app select:focus-visible {
+  outline: 3px solid #426b49; outline-offset: 3px;
+}
+.farm-app button:disabled { opacity: .58; box-shadow: 0 2px 0 #baa88a; cursor: not-allowed; }
+.farm-app button.is-active, .farm-app button[aria-pressed=true], .farm-app .farm-primary {
+  background: linear-gradient(#a2bf77, #7c9e55);
+  color: #fffcee;
+  border-color: #648046;
+  box-shadow: 0 3px 0 #526d3e, inset 0 2px 0 #c7d998;
+  text-shadow: 0 1px #5c7c42;
+}
+.farm-app .farm-primary:hover:not(:disabled), .farm-app button[aria-pressed=true]:hover:not(:disabled) { background: linear-gradient(#b2cc88, #8aac66); }
+.farm-app .farm-danger { background: linear-gradient(#fff1da, #f2cfac); color: #994d3e; border-color: #bd8868; }
+.farm-app .farm-reading, .farm-app .farm-confirm-copy,
+.farm-app input[type=number], .farm-app input[type=text], .farm-app select,
+.farm-app .farm-wallet b, .farm-app .farm-storage-row b,
+.farm-app .farm-ingredient b, .farm-app .farm-coordinate {
+  font-family: var(--farm-readable); font-variant-numeric: tabular-nums;
+}
+.farm-app .farm-reading { font-size: 13px; line-height: 1.75; }
+.farm-app h2 { font-size: 22px; font-weight: 400; }
+.farm-app h3 { font-size: 17px; font-weight: 400; }
+.farm-app .farm-muted { color: #897354; font-size: 13px; }
+.farm-app .farm-doodle { width: 32px; height: 32px; flex: none; vertical-align: middle; pointer-events: none; }
+.farm-app .farm-icon { width: 28px; height: 28px; pointer-events: none; }
+.farm-app .farm-icon-only { display: inline-flex; align-items: center; justify-content: center; padding: 7px; }
+.farm-app .farm-effect-layer { position: absolute; inset: 0; overflow: clip; z-index: 28; pointer-events: none; }
+.farm-app .farm-header {
+  display: grid; grid-template-columns: minmax(180px, 1fr) auto; gap: 7px 20px;
+  padding: calc(8px + env(safe-area-inset-top)) 18px 10px;
+  max-height: none; border-bottom: 2px solid #c7a478;
+  background: repeating-linear-gradient(91deg, #fff9e700 0 15px, #bca1700b 16px 17px), linear-gradient(#fff9e7, #f7eac9);
+  box-shadow: 0 3px 0 #9b805627;
+}
+.farm-app .farm-header-top { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.farm-app .farm-brand-sign { position: relative; padding: 3px 14px 4px; min-width: 130px; text-align: center; }
+.farm-app .farm-brand-sign::before, .farm-app .farm-brand-sign::after { content: ''; position: absolute; width: 13px; height: 7px; background: #91ad6b; border: 1px solid #6e8b52; border-radius: 0 80% 0 80%; top: 16px; }
+.farm-app .farm-brand-sign::before { left: -2px; transform: rotate(25deg); }
+.farm-app .farm-brand-sign::after { right: -2px; transform: rotate(-65deg); }
+.farm-app .farm-brand { color: #795334; font-size: 24px; line-height: 1.1; letter-spacing: 2px; font-weight: 400; text-shadow: 0 2px #fffbed; }
+.farm-app .farm-subtitle { color: #8b7857; font-size: 10px; letter-spacing: 2px; margin-top: 4px; }
+.farm-app .farm-header .farm-settings-button { margin-left: auto; }
+.farm-app .farm-wallet { gap: 8px; justify-content: flex-end; align-content: center; }
+.farm-app .farm-wallet > span { border: 1px solid #d6b67f; border-radius: 20px; background: #fffdf0; padding: 3px 9px 3px 4px; gap: 4px; min-height: 34px; font-size: 14px; box-shadow: inset 0 2px 3px #b9915d10; }
+.farm-app .farm-wallet b { font-weight: 700; }
+.farm-app .farm-level { min-width: 105px; font-size: 13px; color: #725438; gap: 4px; }
+.farm-app .farm-level > span { display: flex; justify-content: space-between; gap: 6px; font-weight: 400; }
+.farm-app .farm-level small { font-family: var(--farm-readable); font-size: 10px; }
+.farm-app .farm-level progress { appearance: none; border: 1px solid #b49d70; border-radius: 8px; background: #e9dfbb; overflow: hidden; height: 9px; }
+.farm-app .farm-level progress::-webkit-progress-bar { background: #e9dfbb; }
+.farm-app .farm-level progress::-webkit-progress-value { background: linear-gradient(#b8cc82, #89a95c); border-radius: 8px; }
+.farm-app .farm-level progress::-moz-progress-bar { background: #96b36b; }
+.farm-app .farm-storage-row { gap: 7px; justify-content: flex-start; }
+.farm-app .farm-storage-row button { min-height: 44px; flex: 0 1 auto; display: flex; align-items: center; gap: 5px; padding: 4px 10px; font-size: 13px; border-radius: 12px; }
+.farm-app .farm-storage-row button > span { display: flex; gap: 6px; align-items: center; }
+.farm-app .farm-storage-row .farm-icon { width: 29px; height: 29px; }
+.farm-app .farm-storage-row b { font-size: 11px; font-weight: 600; }
+.farm-app .farm-save-note { display: flex; align-items: center; margin-left: auto; font-size: 12px; color: #85724f; }
+.farm-app .farm-save-note .farm-icon { width: 18px; height: 18px; }
+.farm-app > .farm-rail { gap: 8px; padding: 7px 14px 9px; background: #ebd8af; border-bottom: 2px solid #ba9568; scrollbar-width: none; }
+.farm-app > .farm-rail button { max-width: 140px; min-width: 50px; min-height: 44px; padding: 5px 9px; gap: 5px; font-size: 14px; box-shadow: 0 2px 0 #b38c59, inset 0 2px #fffcf0; border-radius: 11px; }
+.farm-app > .farm-rail .farm-icon { width: 28px; height: 28px; }
+.farm-app .farm-camera-tools { bottom: 10px; left: 12px; gap: 7px; }
+.farm-app .farm-camera-tools button { box-shadow: 0 3px 0 #947854; background: #fff6dc; }
+.farm-app .farm-map-label { border: 1px solid #c6aa79; border-bottom: 3px solid #c1a475; background: #fff8dfe8; border-radius: 10px 14px 12px 8px; padding: 7px 12px; font-size: 12px; color: #7a6245; box-shadow: 0 4px 8px #57713c18; }
+.farm-app .farm-map-label strong { font-size: 15px; color: #6c513b; font-weight: 400; }
+.farm-app .farm-toolbar { gap: 10px; padding: 8px 12px calc(9px + env(safe-area-inset-bottom)); background: repeating-linear-gradient(0deg, #e2c79c 0 3px, #e8d1a7 3px 5px, #e2c79c 5px 30px); border-top: 2px solid #ad8557; }
+.farm-app .farm-toolbar button { max-width: 150px; min-height: 56px; min-width: 50px; padding: 4px 9px; gap: 7px; font-size: 16px; }
+.farm-app .farm-toolbar .farm-doodle { width: 36px; height: 36px; }
+.farm-app .farm-toolbar button[aria-pressed=true]::after { content: ''; position: absolute; width: 6px; height: 6px; border-radius: 50%; background: #fff7bb; right: 5px; top: 5px; }
+.farm-app .farm-placement-toolbar { gap: 6px; }
+.farm-app .farm-placement-toolbar button { min-height: 44px; font-size: 13px; }
+.farm-app .farm-status { color: #7b6548; font-size: 12px; background: #fff6db; border-top: 1px solid #c4aa7c; }
+.farm-app .farm-status.is-error { color: #8c4938; background: #fce2c7; }
+.farm-app .farm-error-bar { color: #874d36; background: #fbe0bc; border-bottom: 2px dashed #c99c70; font-family: var(--farm-readable); font-size: 12px; max-height: 88px; }
+.farm-app .farm-overlay { padding: 14px; background: #3f4e2c66; align-items: center; justify-content: center; backdrop-filter: blur(2px); }
+.farm-app .farm-panel { width: min(540px, 100%); max-height: min(900px, 100%); border: 3px solid #9b754f; border-radius: 25px 22px 26px 23px; background: #fff7df; box-shadow: 0 7px 0 #70583966, 0 16px 40px #2f3d3240; overflow: hidden; }
+.farm-app .farm-panel-head { position: relative; padding: 11px 14px; gap: 9px; background: repeating-linear-gradient(0deg, #d8b27d 0 2px, #dfbf8b 2px 5px, #e2c292 5px 26px); border-bottom: 3px solid #a77e50; box-shadow: inset 0 2px 0 #f8dfb0; }
+.farm-app .farm-panel-head > .farm-doodle { width: 42px; height: 42px; padding: 3px; background: #fff3d1; border: 1px solid #b28d5d; border-radius: 50%; transform: rotate(-7deg); }
+.farm-app .farm-panel-head h2 { font-size: 24px; font-weight: 400; color: #6c4b30; text-shadow: 0 2px #f7dfb2; line-height: 1.25; }
+.farm-app .farm-panel-head button { min-width: 44px; min-height: 44px; font-size: 27px; padding: 0; border-radius: 50%; }
+.farm-app .farm-panel-content { padding: 16px; gap: 12px; background: radial-gradient(#b69a6012 .75px, transparent .75px) 0 0 / 7px 7px, #fff7df; scrollbar-color: #c6a777 #f5e7c6; scrollbar-width: thin; }
+.farm-app .farm-panel-content > h3 { margin-top: 5px; padding-left: 12px; border-left: 4px solid #9cba72; line-height: 1.1; }
+.farm-app .farm-panel-intro { display: flex; gap: 10px; align-items: center; padding: 3px 3px 6px; }
+.farm-app .farm-panel-intro > .farm-doodle { width: 50px; height: 50px; transform: rotate(-5deg); }
+.farm-app .farm-panel-intro strong { font-size: 18px; font-weight: 400; color: #77583b; }
+.farm-app .farm-panel-intro p { margin-top: 3px; font-size: 13px; color: #8a7455; line-height: 1.5; }
+.farm-app .farm-tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: -2px -2px 1px; padding: 2px 2px 5px; flex-shrink: 0; gap: 6px; }
+.farm-app .farm-tabs button { flex: 0 0 auto; min-width: 65px; min-height: 44px; font-size: 14px; padding: 7px 12px; border-radius: 14px 14px 8px 8px; }
+.farm-app .farm-cards { gap: 10px; }
+.farm-app .farm-card { position: relative; background: #fffdf0; border: 1.5px solid #d5b98b; border-bottom-width: 3px; border-radius: 17px 15px 18px 14px; padding: 11px; gap: 11px; align-items: flex-start; box-shadow: 0 2px 2px #a4895610; }
+.farm-app .farm-card-body h3 { font-size: 18px; line-height: 1.3; margin-bottom: 4px; color: #735239; }
+.farm-app .farm-card p { font-size: 13px; color: #8b7354; line-height: 1.55; }
+.farm-app .farm-art-medallion { flex: none; display: grid; place-items: center; width: 64px; height: 68px; margin-top: 1px; border-radius: 45% 45% 40% 45%; background: radial-gradient(ellipse at center, #f3e4b4 0 63%, #f7eccb 64% 100%); border: 1px dashed #dac08d; }
+.farm-app .farm-card .farm-large-art { width: 58px; height: 58px; filter: drop-shadow(0 2px 0 #92704415); }
+.farm-app .farm-card .farm-card-actions { gap: 7px; margin-top: 8px; }
+.farm-app .farm-card-actions button { min-height: 44px; padding: 6px 10px; font-size: 13px; flex: 0 1 auto; }
+.farm-app .farm-card.stack { padding: 13px; border-style: dashed; border-width: 2px; background: #f5ecd1; }
+.farm-app .farm-summary { border: 1px solid #cdb388; border-left: 5px solid #9db576; border-radius: 12px 16px 13px 10px; background: #f6edcc; padding: 10px 12px; color: #785f41; font-size: 14px; line-height: 1.65; box-shadow: inset 0 1px #fff8e7; }
+.farm-app .farm-chip { background: #f0e7c6; color: #7e6847; border: 1px solid #d5c095; border-radius: 9px; font-size: 12px; }
+.farm-app .farm-ingredients { gap: 5px; margin: 7px 0; }
+.farm-app .farm-ingredient { border: 1px solid #d4c491; background: #f2f0d6; border-radius: 9px; padding: 3px 6px; font-size: 12px; color: #6d744b; }
+.farm-app .farm-ingredient b { font-size: 12px; font-weight: 600; }
+.farm-app .farm-ingredient small { margin-left: 4px; font-size: 11px; }
+.farm-app .farm-ingredient.missing { background: #f9e4cc; border-color: #d8aa80; color: #9a5b3e; }
+.farm-app .farm-ingredient .farm-icon { width: 24px; height: 24px; }
+.farm-app .farm-guide-note { border: 1px dashed #cbb07c; border-radius: 12px; background: #f8efd5; color: #826a4b; }
+.farm-app .farm-guide-note summary { min-height: 44px; padding: 10px 12px; cursor: pointer; font-size: 14px; line-height: 1.5; list-style-position: inside; }
+.farm-app .farm-guide-note summary::marker { color: #9d7d50; font-size: 12px; }
+.farm-app .farm-guide-note[open] summary { border-bottom: 1px dashed #d4bb8b; }
+.farm-app .farm-guide-note > .farm-reading { padding: 11px 12px; display: flex; flex-direction: column; gap: 10px; }
+.farm-app .farm-guide-note .farm-card { font-family: Happy, 'PingFang SC', sans-serif; }
+.farm-app .farm-form { gap: 12px; }
+.farm-app .farm-form label, .farm-app .farm-panel-content > label { gap: 5px; font-size: 15px; display: flex; flex-direction: column; color: #76583c; }
+.farm-app input[type=number], .farm-app input[type=text], .farm-app select { min-height: 44px; border: 2px solid #c4a777; border-radius: 12px; background: #fffdf1; padding: 8px 10px; font-size: 14px; box-shadow: inset 0 2px 2px #ac855718; }
+.farm-app input[type=checkbox] { width: 23px; height: 23px; accent-color: #85a463; margin: 1px 0 0; }
+.farm-app .farm-check { min-height: 44px; align-items: center; gap: 10px!important; }
+.farm-app .farm-settings-group { gap: 7px; }
+.farm-app .farm-radio { padding: 14px; background: linear-gradient(135deg, #e6d4ab, #f7e8c4); border: 2px solid #bb9866; border-radius: 22px; box-shadow: inset 0 3px #fff5d9, 0 3px #d6ba89; }
+.farm-app .farm-radio h3 { border-bottom: 1px dashed #bd9e6d; padding-bottom: 10px; margin-bottom: 8px; display: flex; gap: 7px; align-items: center; }
+.farm-app .farm-volume-label { display: flex; align-items: center; justify-content: space-between; font-size: 14px; }
+.farm-app input[type=range] { min-height: 44px; width: 100%; margin: 0; accent-color: #7d9b58; cursor: pointer; }
+.farm-app .farm-warning { border: 1px solid #d5ac73; border-left: 4px solid #dfa961; border-radius: 12px; background: #f9e9c7; padding: 10px 12px; color: #8b633d; font-size: 13px; line-height: 1.6; }
+.farm-app .farm-empty { padding: 17px 14px; border: 2px dashed #d4bd8d; background: #f8efd6; color: #8c7654; border-radius: 18px; }
+.farm-app .farm-empty .farm-doodle { display: block; width: 62px; height: 62px; margin: 0 auto 5px; }
+.farm-app .farm-empty p { font-size: 14px; line-height: 1.65; }
+.farm-app .farm-field-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.farm-app .farm-field-list button { padding: 8px 4px; font-size: 12px; }
+.farm-app .farm-field-list button strong { font-size: 15px; font-weight: 400; }
+.farm-app .farm-stage-grid { gap: 9px; }
+.farm-app .farm-stage-grid button { border: 2px solid #c3a06e; min-height: 126px; border-radius: 17px; background: #fff9e5; font-size: 12px; line-height: 1.4; padding: 10px 5px; }
+.farm-app .farm-stage-grid strong { font-size: 19px; font-weight: 400; }
+.farm-app .farm-stage-grid .complete { background: #e5ecc8; border-color: #a4b277; }
+.farm-app .farm-stage-grid button:disabled { background: #eee4ca; }
+.farm-app .farm-ready-text { color: #658344!important; font-weight: 400; }
+.farm-app .farm-confirm-copy { padding: 16px; border: 1px dashed #c4a172; border-radius: 15px; background: #fffdf0; color: #715239; overflow-wrap: anywhere; }
+.farm-app .farm-toast { top: 155px; padding: 11px 16px; background: #fff6dbf7; color: #71573a; border: 2px solid #a88654; border-radius: 17px 15px 16px 12px; box-shadow: 0 4px 0 #7f704b55; font-size: 14px; }
+.farm-app .farm-conflict-list { background: #f8e1c9; color: #984f3d; border: 1px dashed #c7956a; }
+.farm-app .farm-notice-link { font-size: 12px; }
+.farm-app a { color: #6d8950; text-underline-offset: 3px; }
+.farm-app .farm-entity { min-height: 0; min-width: 0; border: 0; border-radius: 0; padding: 0; box-shadow: none; text-shadow: none; transition: none; }
+.farm-app .farm-entity:active:not(:disabled) { transform: none; box-shadow: none; }
+.farm-app .farm-entity .farm-entity-label { font-family: Happy, 'PingFang SC', sans-serif; background: #fff3d9ed; color: #785a39; border-color: #c6ab7e; }
+@media (min-width: 850px) {
+  .farm-app .farm-header { grid-template-columns: auto 1fr; padding-left: 24px; padding-right: 24px; }
+  .farm-app .farm-header-top { min-width: 270px; }
+  .farm-app .farm-wallet { gap: 16px; }
+  .farm-app .farm-storage-row { grid-column: 1 / -1; }
+  .farm-app .farm-panel { width: 550px; }
+}
+@media (max-width: 600px) {
+  .farm-app .farm-header { grid-template-columns: 1fr; padding: calc(6px + env(safe-area-inset-top)) 9px 8px; gap: 5px; }
+  .farm-app .farm-header-top { justify-content: space-between; }
+  .farm-app .farm-brand-sign { flex: 0 1 auto; padding: 3px 12px; }
+  .farm-app .farm-brand { font-size: 23px; }
+  .farm-app .farm-header .farm-settings-button { margin-left: 0; }
+  .farm-app .farm-subtitle { font-size: 9px; letter-spacing: 1px; margin-top: 3px; }
+  .farm-app .farm-wallet { justify-content: center; flex-wrap: nowrap; gap: 7px; }
+  .farm-app .farm-wallet > span { min-width: 62px; padding: 1px 8px 1px 4px; min-height: 30px; font-size: 13px; }
+  .farm-app .farm-wallet .farm-icon { width: 24px; height: 24px; }
+  .farm-app .farm-level { min-width: 95px; max-width: 145px; flex: 1; font-size: 12px; }
+  .farm-app .farm-storage-row { gap: 5px; }
+  .farm-app .farm-storage-row button { flex: 1; min-height: 44px; padding: 3px 6px; gap: 3px; font-size: 12px; }
+  .farm-app .farm-storage-row button > span { gap: 3px; flex-wrap: wrap; justify-content: center; }
+  .farm-app .farm-storage-row .farm-icon { width: 25px; height: 25px; }
+  .farm-app .farm-storage-row b { font-size: 11px; }
+  .farm-app .farm-save-note { display: none; }
+  .farm-app > .farm-rail { padding: 6px 7px 8px; gap: 5px; }
+  .farm-app > .farm-rail button { min-height: 44px; padding: 4px 5px; font-size: 12px; gap: 3px; }
+  .farm-app > .farm-rail .farm-icon { width: 24px; height: 24px; }
+  .farm-app .farm-map-label { top: 8px; left: 10px; padding: 5px 9px; font-size: 11px; }
+  .farm-app .farm-map-label strong { font-size: 14px; }
+  .farm-app .farm-toolbar { gap: 7px; padding: 7px 8px calc(8px + env(safe-area-inset-bottom)); }
+  .farm-app .farm-toolbar button { flex-direction: column; min-height: 65px; gap: 1px; font-size: 14px; padding: 3px; }
+  .farm-app .farm-toolbar .farm-doodle { width: 33px; height: 33px; }
+  .farm-app .farm-placement-toolbar button { flex-direction: row; min-height: 44px; padding: 6px 9px; font-size: 13px; }
+  .farm-app .farm-overlay { padding: max(7px, env(safe-area-inset-top)) 7px max(7px, env(safe-area-inset-bottom)); align-items: stretch; }
+  .farm-app .farm-panel { width: 100%; max-height: 100%; border-width: 2px; border-radius: 22px; }
+  .farm-app .farm-panel-head { padding: 9px 10px; gap: 7px; }
+  .farm-app .farm-panel-head h2 { font-size: 22px; }
+  .farm-app .farm-panel-head > .farm-doodle { width: 39px; height: 39px; }
+  .farm-app .farm-panel-content { padding: 11px; gap: 10px; }
+  .farm-app .farm-card { padding: 9px; gap: 9px; }
+  .farm-app .farm-card-body h3 { font-size: 17px; }
+  .farm-app .farm-card p { font-size: 12px; }
+  .farm-app .farm-art-medallion { width: 52px; height: 57px; }
+  .farm-app .farm-card .farm-large-art { width: 49px; height: 49px; }
+  .farm-app .farm-card-actions button { flex: 0 1 auto; font-size: 12px; min-height: 44px; padding: 5px 9px; }
+  .farm-app .farm-summary { font-size: 13px; padding: 9px 10px; }
+  .farm-app .farm-panel-intro > .farm-doodle { width: 44px; height: 44px; }
+  .farm-app .farm-panel-intro strong { font-size: 17px; }
+  .farm-app .farm-stage-grid { gap: 7px; }
+  .farm-app .farm-stage-grid button { min-height: 120px; font-size: 11px; padding: 8px 4px; }
+  .farm-app .farm-stage-grid strong { font-size: 17px; }
+  .farm-app .farm-toast { top: 180px; }
+}
+@media (max-height: 600px) {
+  .farm-app .farm-header { padding-top: max(4px, env(safe-area-inset-top)); padding-bottom: 5px; gap: 4px; }
+  .farm-app .farm-header-top { position: relative; }
+  .farm-app .farm-brand { font-size: 20px; }
+  .farm-app .farm-subtitle { display: none; }
+  .farm-app .farm-storage-row button { min-height: 44px; }
+  .farm-app > .farm-rail { padding-top: 4px; padding-bottom: 6px; }
+  .farm-app .farm-toolbar { padding-top: 5px; padding-bottom: calc(6px + env(safe-area-inset-bottom)); }
+  .farm-app .farm-toolbar button { min-height: 44px; flex-direction: row; font-size: 12px; gap: 3px; }
+  .farm-app .farm-toolbar .farm-doodle { width: 25px; height: 25px; }
+  .farm-app .farm-camera-tools { bottom: 7px; left: 9px; }
+  .farm-app .farm-error-bar { max-height: 66px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .farm-app *, .farm-app *::before, .farm-app *::after { animation: none!important; transition: none!important; scroll-behavior: auto!important; }
+}
+.farm-app[data-reduced-motion=true] *, .farm-app[data-reduced-motion=true] *::before, .farm-app[data-reduced-motion=true] *::after { animation: none!important; transition: none!important; }
+
+/* Keep playful pale colors, with ink dark enough for small mobile text. */
+.farm-app button.is-active, .farm-app button[aria-pressed=true], .farm-app .farm-primary { color: #1c2e18; text-shadow: 0 1px #d4e3ac; }
+.farm-app .farm-muted, .farm-app .farm-card p, .farm-app .farm-guide-note, .farm-app .farm-empty, .farm-app .farm-panel-intro p { color: #755d42; }
+
+.farm-app .farm-production-overview { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 10px; background: #f4e8c5; border: 1px solid #d0b481; border-radius: 12px; font-size: 13px; }
+.farm-app .farm-mastery-stars { font-size: 22px; color: #9b6d2c; letter-spacing: 1px; }
+.farm-app .farm-production-collect { display: flex; align-items: center; justify-content: center; gap: 6px; }
+.farm-app .farm-section-title { display: flex; align-items: center; gap: 8px; justify-content: space-between; }
+.farm-app .farm-section-title h3 { margin: 0; padding-left: 9px; border-left: 4px solid #9cb775; }
+.farm-app .farm-section-title button { min-height: 44px; padding: 5px 8px; font-size: 12px; }
+.farm-app .farm-recipe-cards .farm-card { align-items: center; }
+.farm-app .farm-object-tools { position: absolute; z-index: 9; width: max-content; max-width: calc(100% - 14px); min-width: 210px; padding: 6px 8px 7px; border: 2px solid #a58054; border-radius: 17px; background: #fff5dcef; box-shadow: 0 4px 0 #7d6b4055, 0 6px 15px #3f54232b; touch-action: none; }
+.farm-app .farm-object-tools[hidden], .farm-app .farm-drag-tool[hidden] { display: none; }
+.farm-app .farm-quick-head { display: flex; gap: 5px; align-items: center; border-bottom: 1px dashed #c6ad7c; margin-bottom: 6px; }
+.farm-app .farm-quick-head strong { flex: 1; font-size: 15px; font-weight: 400; padding-left: 4px; }
+.farm-app .farm-quick-head button { min-width: 44px; min-height: 44px; padding: 4px 7px; font-size: 12px; border: 0; background: transparent; box-shadow: none; }
+.farm-app .farm-quick-head button:last-child { font-size: 24px; }
+.farm-app .farm-quick-tools-row { display: flex; gap: 7px; align-items: stretch; max-width: 100%; }
+.farm-app .farm-quick-tools-row button { min-width: 44px; min-height: 70px; flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2px; padding: 5px 7px; font-size: 13px; touch-action: none; }
+.farm-app .farm-quick-tools-row button .farm-icon, .farm-app .farm-quick-tools-row button .farm-doodle { width: 34px; height: 34px; }
+.farm-app .farm-quick-tools-row button small { font: 10px/1.4 'PingFang SC', 'Microsoft YaHei', sans-serif; color: #745b3c; max-width: 108px; }
+.farm-app .farm-object-tools > p { font-size: 11px; color: #765e40; line-height: 1.4; margin-top: 7px; max-width: 320px; }
+.farm-app .farm-quick-growing { display: flex; min-height: 45px; align-items: center; gap: 9px; font-size: 13px; }
+.farm-app .farm-drag-tool { position: fixed; z-index: 30; pointer-events: none; transform: translate(-50%, -90%) rotate(-8deg); padding: 6px; border-radius: 50%; background: #fff8dbe6; border: 2px solid #a88755; box-shadow: 0 4px 8px #73674438; }
+.farm-app .farm-drag-tool .farm-icon { width: 42px; height: 42px; display: block; }
+.farm-app input[type=number], .farm-app input[type=text], .farm-app select { font-size: 16px; }
+@media (max-width: 420px) {
+  .farm-app .farm-quick-tools-row { gap: 5px; }
+  .farm-app .farm-quick-tools-row button { font-size: 11px; padding: 4px 5px; }
+  .farm-app .farm-quick-tools-row button .farm-icon, .farm-app .farm-quick-tools-row button .farm-doodle { width: 29px; height: 29px; }
+}
+
+/* Compact map-first HUD. At 360×640 with zero safe-area insets:
+   header 98px + footer 56px leaves a 486px (75.9%) map before any modal. */
+.farm-app[data-hud=compact] {
+  --farm-hud-header-height: 98px;
+  --farm-hud-toolbar-height: 56px;
+}
+.farm-app[data-hud=compact] .farm-header {
+  flex: none;
+  height: calc(var(--farm-hud-header-height) + env(safe-area-inset-top));
+  min-height: calc(var(--farm-hud-header-height) + env(safe-area-inset-top));
+  max-height: none;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: 44px 44px;
+  gap: 2px 6px;
+  padding: calc(3px + env(safe-area-inset-top)) 8px 3px;
+  border-bottom: 2px solid #c7a478;
+  z-index: 7;
+}
+.farm-app[data-hud=compact] .farm-header button {
+  min-width: 44px;
+  min-height: 44px;
+  height: 44px;
+  padding: 3px 6px;
+  gap: 4px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 0 #b68f5b, inset 0 2px 0 #fffdf3;
+  line-height: 1.15;
+}
+.farm-app[data-hud=compact] .farm-header .farm-icon { width: 23px; height: 23px; }
+.farm-app[data-hud=compact] .farm-stat-coins { grid-column: span 4; }
+.farm-app[data-hud=compact] .farm-stat-vouchers { grid-column: span 3; }
+.farm-app[data-hud=compact] .farm-stat-level { grid-column: span 3; flex-direction: column; gap: 4px; }
+.farm-app[data-hud=compact] .farm-header .farm-more-button { grid-column: span 2; flex-direction: column; gap: 0; padding: 1px 4px; font-size: 11px; }
+.farm-app[data-hud=compact] .farm-more-button .farm-doodle { width: 24px; height: 24px; }
+.farm-app[data-hud=compact] .farm-stat-silo,
+.farm-app[data-hud=compact] .farm-stat-barn { grid-column: span 6; font-size: 13px; }
+.farm-app[data-hud=compact] .farm-stat-text { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.farm-app[data-hud=compact] .farm-stat-name { font-size: 10px; color: #755d42; }
+.farm-app[data-hud=compact] .farm-number { font: 600 13px/1.15 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.farm-app[data-hud=compact] .farm-stat-level-text { font-size: 15px; }
+.farm-app[data-hud=compact] .farm-stat-level progress { appearance: none; width: 100%; height: 5px; border: 1px solid #b49d70; border-radius: 6px; overflow: hidden; background: #e9dfbb; }
+.farm-app[data-hud=compact] .farm-stat-level progress::-webkit-progress-bar { background: #e9dfbb; }
+.farm-app[data-hud=compact] .farm-stat-level progress::-webkit-progress-value { background: #89a95c; }
+.farm-app[data-hud=compact] .farm-stat-level progress::-moz-progress-bar { background: #89a95c; }
+.farm-app[data-hud=compact] .farm-toolbar {
+  flex: none;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 7px;
+  height: calc(var(--farm-hud-toolbar-height) + env(safe-area-inset-bottom));
+  min-height: calc(var(--farm-hud-toolbar-height) + env(safe-area-inset-bottom));
+  padding: 5px 8px calc(5px + env(safe-area-inset-bottom));
+  border-top: 2px solid #ad8557;
+}
+.farm-app[data-hud=compact] .farm-toolbar > button,
+.farm-app[data-hud=compact] .farm-placement-toolbar > button {
+  min-height: 44px;
+  height: 44px;
+  min-width: 44px;
+  max-width: none;
+  flex: 1;
+  flex-direction: row;
+  gap: 3px;
+  padding: 4px;
+  font-size: 13px;
+  line-height: 1.1;
+  border-radius: 13px;
+}
+.farm-app[data-hud=compact] .farm-toolbar .farm-doodle,
+.farm-app[data-hud=compact] .farm-toolbar .farm-icon { width: 25px; height: 25px; }
+.farm-app[data-hud=compact] .farm-placement-toolbar { flex-wrap: nowrap; gap: 7px; }
+.farm-app[data-hud=compact] .farm-placement-toolbar > span {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: calc(100% + 8px);
+  min-width: 0;
+  padding: 7px 11px;
+  border: 1px solid #b69564;
+  border-radius: 12px;
+  background: #fff7e0f2;
+  box-shadow: 0 2px 4px #64523222;
+  pointer-events: none;
+}
+.farm-app[data-hud=compact] .farm-viewport { flex: 1 1 auto; min-height: 100px; }
+/* The live region stays readable to assistive technology, never part of flex sizing.
+   Stroke previews float into view; other outcomes use transient toasts. */
+.farm-app[data-hud=compact] .farm-status {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: calc(var(--farm-hud-toolbar-height) + env(safe-area-inset-bottom) + 8px);
+  z-index: 10;
+  width: 1px;
+  height: 1px;
+  min-height: 0;
+  max-height: none;
+  padding: 0;
+  border: 0;
+  clip-path: inset(50%);
+  overflow: hidden;
+  pointer-events: none;
+}
+.farm-app[data-hud=compact] .farm-status.is-visible {
+  width: auto;
+  height: auto;
+  max-height: 4.2em;
+  padding: 6px 10px;
+  border: 1px solid #c4aa7c;
+  border-radius: 11px;
+  background: #fff6dbed;
+  box-shadow: 0 2px 4px #64523222;
+  clip-path: none;
+  line-height: 1.4;
+}
+.farm-app[data-hud=compact] .farm-status.is-error { background: #fce2c7f2; }
+.farm-app[data-hud=compact] .farm-map-label {
+  top: 8px;
+  left: 8px;
+  max-width: calc(100% - 16px);
+  padding: 5px 9px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  line-height: 1.3;
+  font-size: 12px;
+  border-bottom-width: 1px;
+}
+.farm-app[data-hud=compact] .farm-map-label[hidden] { display: none; }
+.farm-app[data-hud=compact] .farm-map-label .farm-icon { width: 21px; height: 21px; }
+.farm-app[data-hud=compact] .farm-camera-tools {
+  left: auto;
+  right: 9px;
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+}
+.farm-app[data-hud=compact] .farm-camera-tools button { min-width: 44px; min-height: 44px; height: 44px; padding: 6px; }
+.farm-app[data-hud=compact] .farm-camera-tools .farm-icon { width: 25px; height: 25px; }
+.farm-app[data-hud=compact] .farm-camera-popover { display: flex; align-items: center; gap: 5px; padding: 5px; background: #fff4dbe8; border: 1px solid #b99565; border-radius: 14px; box-shadow: 0 3px 5px #77624020; }
+.farm-app[data-hud=compact] .farm-camera-popover[hidden] { display: none; }
+.farm-app[data-hud=compact] .farm-error-bar {
+  position: absolute;
+  top: calc(var(--farm-hud-header-height) + env(safe-area-inset-top) + 7px);
+  left: 8px;
+  right: 8px;
+  z-index: 12;
+  border: 1px solid #c99c70;
+  border-radius: 12px;
+  padding: 4px 7px 4px 10px;
+  gap: 7px;
+  flex-wrap: nowrap;
+  max-height: 70px;
+  box-shadow: 0 3px 5px #77624020;
+}
+.farm-app[data-hud=compact] .farm-error-bar span { flex: 1; min-width: 0; }
+.farm-app[data-hud=compact] .farm-error-bar button { flex: none; min-width: 44px; min-height: 44px; padding: 4px 7px; }
+.farm-app[data-hud=compact] .farm-toast {
+  top: calc(var(--farm-hud-header-height) + env(safe-area-inset-top) + 12px);
+  max-width: calc(100% - 24px);
+  padding: 9px 13px;
+}
+.farm-app[data-hud=compact] .farm-menu-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.farm-app[data-hud=compact] .farm-menu-grid button { min-width: 44px; min-height: 80px; padding: 10px 5px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; font-size: 14px; }
+.farm-app[data-hud=compact] .farm-menu-grid .farm-icon { width: 32px; height: 32px; }
+.farm-app[data-hud=compact] .farm-menu-note { font-size: 12px; color: #755d42; text-align: center; margin-top: 3px; }
+@media (min-width: 650px) {
+  .farm-app[data-hud=compact] { --farm-hud-header-height: 56px; }
+  .farm-app[data-hud=compact] .farm-header { grid-template-columns: 1.1fr .9fr .8fr 1.15fr 1.15fr 56px; grid-template-rows: 44px; padding: calc(5px + env(safe-area-inset-top)) 12px 5px; gap: 6px; }
+  .farm-app[data-hud=compact] .farm-header button { grid-column: auto; }
+  .farm-app[data-hud=compact] .farm-header .farm-stat-silo { grid-column: 4; grid-row: 1; }
+  .farm-app[data-hud=compact] .farm-header .farm-stat-barn { grid-column: 5; grid-row: 1; }
+  .farm-app[data-hud=compact] .farm-header .farm-more-button { grid-column: 6; grid-row: 1; }
+  .farm-app[data-hud=compact] .farm-stat-name { display: none; }
+}

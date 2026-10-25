@@ -1,0 +1,19 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {mkdtempSync,existsSync,readFileSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {spawnSync} from 'node:child_process';
+
+test('production package contains every static dependency and excludes QA-only content',()=>{
+  const root=fileURLToPath(new URL('../',import.meta.url));
+  const destination=join(mkdtempSync(join(tmpdir(),'farm-release-test-')),'release');
+  const result=spawnSync('python3',[join(root,'deploy/package-release.py'),destination],{encoding:'utf8'});
+  assert.equal(result.status,0,result.stdout+result.stderr);
+  for(const file of ['farm-ui.mjs','farm-ui.css','farm-match-ui.mjs','farm-match.css','farm-visuals.mjs','fonts/ZCOOLKuaiLe-Regular.woff2'])assert(existsSync(join(destination,'site',file)),file);
+  for(const path of ['tests','docs','tools'])assert(!existsSync(join(destination,'site',path)),path);
+  const sums=readFileSync(join(destination,'SHA256SUMS'),'utf8');
+  assert(sums.includes('site/farm-ui.css'));
+  assert(sums.includes('site/assets/farm/licenses/ATTRIBUTION.md'));
+});

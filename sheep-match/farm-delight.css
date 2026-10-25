@@ -1,0 +1,42 @@
+/* Cream, meadow green and warm honey; decorative layers never take input. */
+.farm-delight-layer{position:absolute;inset:0;overflow:hidden;z-index:25;pointer-events:none!important;contain:layout style paint}
+.farm-delight-layer *,.farm-delight-ambient,.farm-delight-ambient *{pointer-events:none!important;user-select:none}
+.farm-delight-particle{position:absolute;display:grid;place-items:center;width:26px;height:26px;color:#d3a449;font-size:22px;line-height:1;text-shadow:0 1px #fffce9;animation:farm-delight-pop var(--delight-duration,650ms) ease-out both}
+.farm-delight-particle.is-item img{width:30px;height:30px;object-fit:contain;filter:drop-shadow(0 2px 2px #5d70432b)}
+.farm-delight-particle.is-heart{color:#c58077;font-size:19px}.farm-delight-particle.is-coin{color:#dcae4b;text-shadow:0 1px #fff5cf,0 2px #ac7d3b}
+.farm-delight-particle.is-flight{animation:none;will-change:transform,opacity}
+.farm-delight-particle.is-still{animation:none;transform:translate(-50%,-100%);width:auto;height:auto;white-space:nowrap;font-size:11px;line-height:1.5;border-radius:7px;background:#fffbeded;border:1px solid #d4d8b9;padding:3px 7px;color:#56734a;text-shadow:none}
+@keyframes farm-delight-pop{0%{opacity:0;transform:translate(-50%,-50%) scale(.45)}20%{opacity:1;transform:translate(-50%,-65%) scale(1.12)}100%{opacity:0;transform:translate(calc(-50% + var(--delight-dx)),calc(-50% + var(--delight-rise))) scale(.7)}}
+/* Only the bounded, visible selection marked by refresh() is animated. */
+[data-delight=on] [data-delight-idle=crop]>.farm-sprite{transform-origin:50% 85%;animation:farm-delight-crop 4.8s ease-in-out infinite;animation-delay:var(--delight-delay)}
+[data-delight=on] [data-delight-idle=tree]>.farm-sprite{transform-origin:50% 85%;animation:farm-delight-tree 6.8s ease-in-out infinite;animation-delay:var(--delight-delay)}
+[data-delight=on] [data-delight-ripe=true]>.farm-ready-badge{animation:farm-delight-ready 4s ease-in-out infinite;animation-delay:var(--delight-delay)}
+[data-delight=on] [data-delight-idle=animal]>.farm-animal-preview{overflow:hidden;padding:2px 3px;isolation:isolate}
+[data-delight=on] [data-delight-idle=animal] .farm-animal-preview img{animation:farm-delight-animal 7s ease-in-out infinite;animation-delay:var(--delight-delay)}
+[data-delight=on] [data-delight-idle=animal] .farm-animal-preview img:nth-child(2){animation-delay:-2.5s}[data-delight=on] [data-delight-idle=animal] .farm-animal-preview img:nth-child(3){animation-delay:-4.8s}
+/* Individual translate preserves existing scaleX directional mirroring and frames. */
+@keyframes farm-delight-crop{0%,100%{rotate:-1.4deg}50%{rotate:1.4deg}}
+@keyframes farm-delight-tree{0%,100%{rotate:-.7deg}50%{rotate:.9deg}}
+@keyframes farm-delight-ready{0%,65%,100%{box-shadow:0 0 0 0 #f9e8a800}78%{box-shadow:0 0 0 4px #f9e8a855}}
+@keyframes farm-delight-animal{0%,20%,100%{translate:0 0}35%,50%{translate:2px -1px}70%,85%{translate:-2px 0}}
+[data-delight=on] [data-delight-idle=machine]::after{content:'';position:absolute;pointer-events:none;left:56%;top:12%;width:9px;height:12px;border-radius:50%;background:#fffbedb0;box-shadow:5px -6px 0 -2px #fffbed70;animation:farm-delight-steam 2.8s ease-out infinite;animation-delay:var(--delight-delay)}
+[data-delight=on] [data-delight-idle=machine]>.farm-sprite{animation:farm-delight-machine 2.4s ease-in-out infinite;animation-delay:var(--delight-delay);transform-origin:50% 80%}
+@keyframes farm-delight-machine{0%,85%,100%{rotate:0deg}89%{rotate:.4deg}94%{rotate:-.4deg}}
+@keyframes farm-delight-steam{0%{opacity:0;translate:0 0;scale:.6}25%{opacity:.65}100%{opacity:0;translate:7px -25px;scale:1.35}}
+.farm-delight-ambient{position:absolute;inset:8% 5% 16%;overflow:hidden;z-index:2;contain:layout paint;opacity:.65}
+.farm-delight-ambient[hidden]{display:none}
+.farm-delight-mote{position:absolute;width:5px;height:5px;border-radius:50%;background:#fff8c9;left:67%;top:23%;animation:farm-delight-drift 14s ease-in-out infinite}
+.farm-delight-mote:last-child{left:24%;top:61%;animation-delay:-8s;width:3px;height:3px}
+.farm-delight-butterfly{position:absolute;left:42%;top:37%;width:13px;height:8px;animation:farm-delight-butterfly-path 18s ease-in-out infinite;opacity:.6}
+.farm-delight-butterfly::before,.farm-delight-butterfly::after{content:'';position:absolute;top:0;width:6px;height:8px;background:#f6e8aa;border-radius:70% 30% 70% 30%;animation:farm-delight-wing .55s ease-in-out infinite alternate}
+.farm-delight-butterfly::after{left:6px;rotate:90deg;animation-delay:-.28s}
+@keyframes farm-delight-wing{from{scale:1 1}to{scale:.45 1}}
+@keyframes farm-delight-drift{0%,100%{translate:0 0;opacity:.05}45%{translate:16px -24px;opacity:.65}70%{translate:25px -17px;opacity:.2}}
+@keyframes farm-delight-butterfly-path{0%,100%{translate:0 0;opacity:0}15%{opacity:.6}40%{translate:35px -25px}60%{translate:48px 5px;opacity:.6}85%{translate:65px -12px;opacity:0}}
+[data-delight-paused=true] [data-delight-idle] *,[data-delight-paused=true] [data-delight-idle]::after,[data-delight-paused=true] .farm-delight-ambient *{animation-play-state:paused!important}
+[data-delight-reduced=true] [data-delight-idle] *,[data-delight-reduced=true] [data-delight-idle]::after,[data-delight=off] [data-delight-idle] *{animation:none!important}
+[data-delight-reduced=true] [data-delight-idle=machine]::after{display:none}
+@media(prefers-reduced-motion:reduce){.farm-delight-ambient{display:none!important}.farm-delight-particle,[data-delight-idle] *,[data-delight-idle]::after{animation:none!important}[data-delight-idle=machine]::after{display:none}}
+
+.farm-delight-particle.is-leaf{color:#739558;animation-name:farm-delight-seed}
+@keyframes farm-delight-seed{0%{opacity:0;transform:translate(calc(-50% + var(--delight-dx)),-42px) rotate(-20deg) scale(.6)}30%{opacity:1}65%{opacity:1;transform:translate(-50%,0) rotate(12deg) scale(1)}100%{opacity:0;transform:translate(-50%,-6px) rotate(0deg) scale(.7)}}

@@ -1,3 +1,4 @@
+import {farmStageConfig} from './farm-stage-data.mjs';
 export const VERSION = 3;
 const LEGACY_LEVELS = [
   { name: '初到牧场', subtitle: '先来一场轻松的热身', count: 18, kinds: 4, maxOpen: 2, layers: [[4,4,12],[3,3,6]] },
@@ -34,6 +35,7 @@ export function getLevelConfig(level) {
 }
 
 export function getGameConfig(game) {
+  if (game.rules === 'farm-v1') return farmStageConfig(game.level);
   return game.rules === 'legacy-three' || game.version < 3 ? LEGACY_LEVELS[game.level] : getLevelConfig(game.level);
 }
 
@@ -187,7 +189,7 @@ function assignWithRoute(board, config, rng) {
 }
 
 export function createGame(level = 0, seed = Date.now(), mode = 'classic', { maxNodes = 2500, randomAttempts = 4 } = {}) {
-  const rng = random(seed), config = getLevelConfig(level);
+  const rng = random(seed), config = mode === 'farm' ? farmStageConfig(level) : getLevelConfig(level);
   let board, solution, rejected = 0, nodes = 0, method;
   // Geometry growth also has a finite retry limit; invalid candidates never
   // become playable boards. Search and verification consume no RNG state.
@@ -203,7 +205,7 @@ export function createGame(level = 0, seed = Date.now(), mode = 'classic', { max
       solution = assignWithRoute(board, config, rng); method = 'verified-construction';
     }
     if (verifySolution(board, solution)) {
-      return { version: VERSION, rules: 'endless-v1', level, seed, mode, board, geometry: board.map(({ id,x,y,z }) => ({ id,x,y,z })),
+      return { version: VERSION, rules: mode === 'farm' ? 'farm-v1' : 'endless-v1', level, seed, mode, board, geometry: board.map(({ id,x,y,z }) => ({ id,x,y,z })),
         rack: [], reserve: [], matched: 0, total: board.length, status: 'playing',
         tools: { undo: 3, shuffle: 2, stash: 1 }, history: [], solution, elapsed: 0, started: false,
         generation: { attempts: attempt + 1, rejected, nodes, method } };
@@ -268,10 +270,11 @@ export function restore(raw) {
     const game = typeof raw === 'string' ? JSON.parse(raw) : clone(raw);
     if (![1, 2, VERSION].includes(game.version) || !validLevel(game.level)) return null;
     if (game.version < 3) game.rules = 'legacy-three';
-    if (!['legacy-three', 'endless-v1'].includes(game.rules)) return null;
+    if (!['legacy-three', 'endless-v1', 'farm-v1'].includes(game.rules)) return null;
     const config = getGameConfig(game);
     if (!config) return null;
-    if (!['classic','daily'].includes(game.mode) || !['playing','lost','won'].includes(game.status)) return null;
+    if ((game.rules === 'farm-v1') !== (game.mode === 'farm')) return null;
+    if (!['classic','daily','farm'].includes(game.mode) || !['playing','lost','won'].includes(game.status)) return null;
     if (!Array.isArray(game.board) || !Array.isArray(game.rack) || !Array.isArray(game.reserve)) return null;
     const tiles = [...game.board, ...game.rack, ...game.reserve];
     const geometry = game.version === 1 ? legacyLayout(game.level).map(({id,x,y,z}) => ({id,x,y,z})) : game.geometry;

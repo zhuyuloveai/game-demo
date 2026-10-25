@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "1.0",
+  "units": {
+    "time": "milliseconds",
+    "logicalGrid": 48
+  },
+  "animalActions": {
+    "idle_hungry": {
+      "framesPerDrawnDirection": 2,
+      "fps": 4,
+      "loop": true
+    },
+    "walk": {
+      "framesPerDrawnDirection": 4,
+      "fps": 8,
+      "loop": true
+    },
+    "eat": {
+      "framesPerDrawnDirection": 3,
+      "fps": 6,
+      "loop": true
+    },
+    "producing": {
+      "framesPerDrawnDirection": 2,
+      "fps": 4,
+      "loop": true
+    },
+    "ready": {
+      "framesPerDrawnDirection": 2,
+      "fps": 4,
+      "loop": true
+    },
+    "collect": {
+      "framesPerDrawnDirection": 2,
+      "fps": 5,
+      "loop": false
+    }
+  },
+  "drawnDirections": [
+    "front",
+    "back",
+    "side"
+  ],
+  "mirroredDirection": {
+    "right": "side"
+  },
+  "drawnFramesTargetPerSpecies": 45,
+  "runtimeDirectionalFramesPerSpecies": 60,
+  "countRule": "Count only real files as authored frames; mirrored direction is not an additional drawing.",
+  "reducedMotion": "Use first frame and static ready/needs-feed badge.",
+  "effects": "Presentation events never grant inventory, coins, XP or complete jobs.",
+  "soundRule": "Batch gesture emits at most one cue after successful transaction.",
+  "stateAliases": {
+    "idle_hungry": "idle"
+  },
+  "runtimeTimingSource": "animals/<species>/animation.json is authoritative for actual FPS/duration; target recommendations in this common file do not override per-species metadata."
+}

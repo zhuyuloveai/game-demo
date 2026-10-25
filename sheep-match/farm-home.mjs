@@ -44,7 +44,7 @@ function sprite(parts, theme, extra='') {
   return `<span class="layer ${motion} ${extra}" style="--x:${x}%;--y:${y}%;--w:${w}%;--z:${z};--delay:${delay}s;${spriteStyle(name)}">${stickerArtwork(name,theme)}${atmosphere}</span>`;
 }
 
-export function createFarmHome(root,{onContinue,onMusic,onSeen=()=>{},onReward=()=>{},onJournal=()=>{},onScene=()=>{},onGesture=()=>{},initialPage}) {
+export function createFarmHome(root,{onContinue,onMusic,onFarm=()=>{},onSeen=()=>{},onReward=()=>{},onJournal=()=>{},onScene=()=>{},onGesture=()=>{},initialPage}) {
   root.innerHTML=HOME_MARKUP;
   const $=selector=>root.querySelector(selector);
   const track=$('#farm-scenes'), reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -60,11 +60,12 @@ export function createFarmHome(root,{onContinue,onMusic,onSeen=()=>{},onReward=(
     const selected=farmPage(progress,index),theme=farmTheme(index);
     const parts=theme.groups.slice(0,selected.filled).map((g,i)=>g.parts.map(p=>sprite(p,theme,i>=animateFrom?'new-arrival':'')).join('')).join('');
     const label=selected.unlocked?`${theme.name}，已布置 ${selected.filled} 组元素`:`${theme.name}，第 ${selected.unlockAt} 关后解锁`;
-    return `<section class="scene season-scene" data-scene="${index}" data-season="${theme.key}" role="img" aria-label="${label}" style="--farm-stickers:url('./assets/farm/${theme.stickers}')">
+    return `<section class="scene season-scene" data-scene="${index}" data-season="${theme.key}" role="${theme.key==='spring'?'group':'img'}" aria-label="${label}" style="--farm-stickers:url('./assets/farm/${theme.stickers}')">
       <img class="landscape" src="./assets/farm/${theme.background}" alt="" draggable="false" loading="${index===page?'eager':'lazy'}">
       <div class="sky-light" aria-hidden="true"></div>
       <div class="natural-layers" aria-hidden="true">${theme.natural.map(p=>sprite(p,theme)).join('')}</div>
       <div class="farm-layers" aria-hidden="true">${parts}</div>
+      ${theme.key==='spring'?`<button class="farm-house-entry" aria-label="进入羊羊牧场经营" title="进入牧场" style="--entry-x:14%;--entry-y:42%;--entry-w:33%">${selected.filled<3?stickerArtwork('house',theme):''}<span>进入牧场 ↗</span></button>`:''}
       <div class="season-weather" aria-hidden="true">${Array.from({length:12},(_,i)=>`<i style="--i:${i}"></i>`).join('')}</div>
     </section>`;
   }
@@ -174,6 +175,11 @@ export function createFarmHome(root,{onContinue,onMusic,onSeen=()=>{},onReward=(
     else onJournal('decorations');
   });
   root.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>b.closest('dialog').close()));
+  let entryDown=null;
+  track.addEventListener('pointerdown',event=>{if(event.target.closest('.farm-house-entry'))entryDown={x:event.clientX,y:event.clientY,cancel:false};});
+  track.addEventListener('pointermove',event=>{if(entryDown&&Math.hypot(event.clientX-entryDown.x,event.clientY-entryDown.y)>8)entryDown.cancel=true;});
+  track.addEventListener('pointercancel',()=>{if(entryDown)entryDown.cancel=true;});
+  track.addEventListener('click',event=>{if(!event.target.closest('.farm-house-entry'))return;if(event.detail===0||!entryDown?.cancel){onGesture();onFarm();}entryDown=null;});
   track.addEventListener('animationend',event=>{if(event.animationName==='farm-arrive')event.target.classList.remove('new-arrival');});
   root.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',event=>{
     if(event.target!==d)return;const r=d.getBoundingClientRect();
@@ -188,6 +194,7 @@ export function createFarmHome(root,{onContinue,onMusic,onSeen=()=>{},onReward=(
     if(next!==page){page=next;paint();}
   },{passive:true});
   track.addEventListener('pointerdown',event=>{
+    if(event.target.closest('.farm-house-entry'))return;
     scrollTarget=null;onGesture();
     if(event.pointerType!=='mouse'||event.button!==0)return;
     drag={id:event.pointerId,x:event.clientX,left:track.scrollLeft,page};

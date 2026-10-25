@@ -1,0 +1,2590 @@
+// Runtime snapshot generated from docs/farm-design/data/project-parameters-v04.json.
+// Reference evidence remains unchanged; runtime IDs normalize to stable snake_case.
+export const FARM_CONFIG = {
+  "version": "sheep-core-v04-proposal",
+  "scope": "core_farm_only_no_fishing_mining_town_social",
+  "evidence_policy": "reference fields unchanged; project fields are adopted snapshot or explicit adaptation",
+  "initial": {
+    "coins": 100,
+    "construction_voucher": 0,
+    "fields": 6,
+    "wheat": 6,
+    "chickens": 3,
+    "chicken_feed": 3,
+    "barn": 50,
+    "silo": 50
+  },
+  "levelXpToNext": [
+    27,
+    7,
+    14,
+    30,
+    50,
+    220,
+    370,
+    490,
+    790,
+    960,
+    1180,
+    1550,
+    1790,
+    2270,
+    2880,
+    3270,
+    4120,
+    4740,
+    5610,
+    6320,
+    7750,
+    9140,
+    10830,
+    12200,
+    14000,
+    15700,
+    18300,
+    20500,
+    23400,
+    26100
+  ],
+  "fieldAllowance": [
+    6,
+    6,
+    9,
+    9,
+    12,
+    12,
+    15,
+    15,
+    18,
+    18,
+    21,
+    21,
+    24,
+    24,
+    27,
+    27,
+    30,
+    30,
+    33,
+    33,
+    36,
+    36,
+    39,
+    39,
+    42,
+    42,
+    45,
+    45,
+    48,
+    48
+  ],
+  "cropUnlockGift": 5,
+  "crops": [
+    {
+      "referenceId": "Wheat",
+      "projectId": "wheat",
+      "name": "小麦",
+      "unlockLevel": 1,
+      "durationMs": 120000,
+      "seedCount": 1,
+      "yieldCount": 2,
+      "xpPerHarvest": 1,
+      "M10": 36,
+      "storage": "silo",
+      "status": "COMMUNITY_SNAPSHOT_ADOPTED"
+    },
+    {
+      "referenceId": "Corn",
+      "projectId": "corn",
+      "name": "玉米",
+      "unlockLevel": 2,
+      "durationMs": 300000,
+      "seedCount": 1,
+      "yieldCount": 2,
+      "xpPerHarvest": 1,
+      "M10": 72,
+      "storage": "silo",
+      "status": "COMMUNITY_SNAPSHOT_ADOPTED"
+    },
+    {
+      "referenceId": "Soybean",
+      "projectId": "soybean",
+      "name": "大豆",
+      "unlockLevel": 5,
+      "durationMs": 1200000,
+      "seedCount": 1,
+      "yieldCount": 2,
+      "xpPerHarvest": 2,
+      "M10": 108,
+      "storage": "silo",
+      "status": "COMMUNITY_SNAPSHOT_ADOPTED"
+    },
+    {
+      "referenceId": "Sugarcane",
+      "projectId": "sugarcane",
+      "name": "甘蔗",
+      "unlockLevel": 7,
+      "durationMs": 1800000,
+      "seedCount": 1,
+      "yieldCount": 2,
+      "xpPerHarvest": 3,
+      "M10": 144,
+      "storage": "silo",
+      "status": "COMMUNITY_SNAPSHOT_ADOPTED"
+    },
+    {
+      "referenceId": "Carrot",
+      "projectId": "carrot",
+      "name": "胡萝卜",
+      "unlockLevel": 9,
+      "durationMs": 600000,
+      "seedCount": 1,
+      "yieldCount": 2,
+      "xpPerHarvest": 2,
+      "M10": 72,
+      "storage": "silo",
+      "status": "COMMUNITY_SNAPSHOT_ADOPTED"
+    },
+    {
+      "referenceId": "Indigo",
+      "projectId": "indigo",
+      "name": "靛蓝",
+      "unlockLevel": 13,
+      "durationMs": 7200000,
+      "seedCount": 1,
+      "yieldCount": 2,
+      "xpPerHarvest": 5,
+      "M10": 252,
+      "storage": "silo",
+      "status": "COMMUNITY_SNAPSHOT_ADOPTED"
+    },
+    {
+      "referenceId": "Pumpkin",
+      "projectId": "pumpkin",
+      "name": "南瓜",
+      "unlockLevel": 15,
+      "durationMs": 10800000,
+      "seedCount": 1,
+      "yieldCount": 2,
+      "xpPerHarvest": 6,
+      "M10": 324,
+      "storage": "silo",
+      "status": "COMMUNITY_SNAPSHOT_ADOPTED"
+    },
+    {
+      "referenceId": "Cotton",
+      "projectId": "cotton",
+      "name": "棉花",
+      "unlockLevel": 18,
+      "durationMs": 9000000,
+      "seedCount": 1,
+      "yieldCount": 2,
+      "xpPerHarvest": 6,
+      "M10": 288,
+      "storage": "silo",
+      "status": "COMMUNITY_SNAPSHOT_ADOPTED"
+    },
+    {
+      "referenceId": "Chili_Pepper",
+      "projectId": "chili_pepper",
+      "name": "辣椒",
+      "unlockLevel": 25,
+      "durationMs": 14400000,
+      "seedCount": 1,
+      "yieldCount": 2,
+      "xpPerHarvest": 7,
+      "M10": 360,
+      "storage": "silo",
+      "status": "COMMUNITY_SNAPSHOT_ADOPTED"
+    },
+    {
+      "referenceId": "Black_Bean",
+      "projectId": "black_bean",
+      "name": "黑豆",
+      "unlockLevel": 25,
+      "durationMs": 600000,
+      "seedCount": 1,
+      "yieldCount": 2,
+      "xpPerHarvest": 2,
+      "M10": 72,
+      "storage": "silo",
+      "status": "COMMUNITY_SNAPSHOT_ADOPTED"
+    },
+    {
+      "referenceId": "Tomato",
+      "projectId": "tomato",
+      "name": "番茄",
+      "unlockLevel": 30,
+      "durationMs": 21600000,
+      "seedCount": 1,
+      "yieldCount": 2,
+      "xpPerHarvest": 8,
+      "M10": 432,
+      "storage": "silo",
+      "status": "COMMUNITY_SNAPSHOT_ADOPTED"
+    }
+  ],
+  "items": [
+    {
+      "referenceId": "Egg",
+      "projectId": "egg",
+      "name": "鸡蛋",
+      "level": 1,
+      "machine": "Chicken",
+      "ingredients": {
+        "Chicken_Feed": 1
+      },
+      "durationMs": 1200000,
+      "yieldCount": 1,
+      "xpPerBatch": 2,
+      "M10": 180,
+      "priceStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Milk",
+      "projectId": "milk",
+      "name": "牛奶",
+      "level": 6,
+      "machine": "Cow",
+      "ingredients": {
+        "Cow_Feed": 1
+      },
+      "durationMs": 3600000,
+      "yieldCount": 1,
+      "xpPerBatch": 3,
+      "M10": 324,
+      "priceStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Bacon",
+      "projectId": "truffle_slice",
+      "name": "松露片",
+      "level": 10,
+      "machine": "Pig",
+      "ingredients": {
+        "Pig_Feed": 1
+      },
+      "durationMs": 14400000,
+      "yieldCount": 1,
+      "xpPerBatch": 5,
+      "M10": 504,
+      "priceStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Wool",
+      "projectId": "wool",
+      "name": "羊毛",
+      "level": 16,
+      "machine": "Sheep",
+      "ingredients": {
+        "Sheep_Feed": 1
+      },
+      "durationMs": 21600000,
+      "yieldCount": 1,
+      "xpPerBatch": 5,
+      "M10": 540,
+      "priceStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Lamb_Chop",
+      "projectId": "herb_bundle",
+      "name": "香草团",
+      "level": 25,
+      "machine": "Lamb",
+      "ingredients": {
+        "Lamb_Feed": 1
+      },
+      "durationMs": 1800000,
+      "yieldCount": 1,
+      "xpPerBatch": 4,
+      "M10": 360,
+      "priceStatus": "ADAPTATION_DISPLAY_SINGLE_TIMES_TEN",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Chicken_Feed",
+      "projectId": "chicken_feed",
+      "name": "鸡饲料",
+      "level": 3,
+      "machine": "Feed_Mill",
+      "ingredients": {
+        "Wheat": 2,
+        "Corn": 1
+      },
+      "durationMs": 300000,
+      "yieldCount": 3,
+      "xpPerBatch": 1,
+      "M10": 72,
+      "priceStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "recipeStatus": "ADAPTATION_CONFLICT_RESOLVED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Cow_Feed",
+      "projectId": "cow_feed",
+      "name": "牛饲料",
+      "level": 6,
+      "machine": "Feed_Mill",
+      "ingredients": {
+        "Soybean": 2,
+        "Corn": 1
+      },
+      "durationMs": 600000,
+      "yieldCount": 3,
+      "xpPerBatch": 2,
+      "M10": 144,
+      "priceStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Pig_Feed",
+      "projectId": "pig_feed",
+      "name": "猪饲料",
+      "level": 10,
+      "machine": "Feed_Mill",
+      "ingredients": {
+        "Carrot": 2,
+        "Soybean": 1
+      },
+      "durationMs": 1200000,
+      "yieldCount": 3,
+      "xpPerBatch": 2,
+      "M10": 144,
+      "priceStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Sheep_Feed",
+      "projectId": "sheep_feed",
+      "name": "羊饲料",
+      "level": 16,
+      "machine": "Feed_Mill",
+      "ingredients": {
+        "Wheat": 3,
+        "Soybean": 1
+      },
+      "durationMs": 1800000,
+      "yieldCount": 3,
+      "xpPerBatch": 3,
+      "M10": 144,
+      "priceStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Lamb_Feed",
+      "projectId": "lamb_feed",
+      "name": "羔羊饲料",
+      "level": 25,
+      "machine": "Feed_Mill",
+      "ingredients": {
+        "Black_Bean": 4,
+        "Soybean": 2
+      },
+      "durationMs": 600000,
+      "yieldCount": 3,
+      "xpPerBatch": 4,
+      "M10": 180,
+      "priceStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "recipeStatus": "ADAPTATION_CONFLICT_RESOLVED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Bread",
+      "projectId": "bread",
+      "name": "面包",
+      "level": 2,
+      "machine": "Bakery",
+      "ingredients": {
+        "Wheat": 3
+      },
+      "durationMs": 300000,
+      "yieldCount": 1,
+      "xpPerBatch": 3,
+      "M10": 216,
+      "priceStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Corn_Bread",
+      "projectId": "corn_bread",
+      "name": "玉米面包",
+      "level": 7,
+      "machine": "Bakery",
+      "ingredients": {
+        "Corn": 2,
+        "Egg": 2
+      },
+      "durationMs": 1800000,
+      "yieldCount": 1,
+      "xpPerBatch": 8,
+      "M10": 720,
+      "priceStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Cookie",
+      "projectId": "cookie",
+      "name": "饼干",
+      "level": 10,
+      "machine": "Bakery",
+      "ingredients": {
+        "Wheat": 2,
+        "Egg": 2,
+        "Brown_Sugar": 1
+      },
+      "durationMs": 3600000,
+      "yieldCount": 1,
+      "xpPerBatch": 13,
+      "M10": 1044,
+      "priceStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Raspberry_Muffin",
+      "projectId": "raspberry_muffin",
+      "name": "树莓松饼",
+      "level": 19,
+      "machine": "Bakery",
+      "ingredients": {
+        "Wheat": 2,
+        "Egg": 1,
+        "Raspberry": 2
+      },
+      "durationMs": 2700000,
+      "yieldCount": 1,
+      "xpPerBatch": 17,
+      "M10": 1400,
+      "priceStatus": "ADAPTATION_DISPLAY_SINGLE_TIMES_TEN",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Blackberry_Muffin",
+      "projectId": "blackberry_muffin",
+      "name": "黑莓松饼",
+      "level": 26,
+      "machine": "Bakery",
+      "ingredients": {
+        "Wheat": 1,
+        "Egg": 2,
+        "Blackberry": 2
+      },
+      "durationMs": 2700000,
+      "yieldCount": 1,
+      "xpPerBatch": 27,
+      "M10": 2260,
+      "priceStatus": "ADAPTATION_DISPLAY_SINGLE_TIMES_TEN",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Cream",
+      "projectId": "cream",
+      "name": "奶油",
+      "level": 6,
+      "machine": "Dairy",
+      "ingredients": {
+        "Milk": 1
+      },
+      "durationMs": 1200000,
+      "yieldCount": 1,
+      "xpPerBatch": 6,
+      "M10": 504,
+      "priceStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Butter",
+      "projectId": "butter",
+      "name": "黄油",
+      "level": 9,
+      "machine": "Dairy",
+      "ingredients": {
+        "Milk": 2
+      },
+      "durationMs": 1800000,
+      "yieldCount": 1,
+      "xpPerBatch": 10,
+      "M10": 828,
+      "priceStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Cheese",
+      "projectId": "cheese",
+      "name": "芝士",
+      "level": 12,
+      "machine": "Dairy",
+      "ingredients": {
+        "Milk": 3
+      },
+      "durationMs": 3600000,
+      "yieldCount": 1,
+      "xpPerBatch": 15,
+      "M10": 1224,
+      "priceStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Brown_Sugar",
+      "projectId": "brown_sugar",
+      "name": "红糖",
+      "level": 7,
+      "machine": "Sugar_Mill",
+      "ingredients": {
+        "Sugarcane": 1
+      },
+      "durationMs": 1200000,
+      "yieldCount": 1,
+      "xpPerBatch": 4,
+      "M10": 324,
+      "priceStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "White_Sugar",
+      "projectId": "white_sugar",
+      "name": "白糖",
+      "level": 13,
+      "machine": "Sugar_Mill",
+      "ingredients": {
+        "Sugarcane": 2
+      },
+      "durationMs": 2400000,
+      "yieldCount": 1,
+      "xpPerBatch": 6,
+      "M10": 504,
+      "priceStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Syrup",
+      "projectId": "syrup",
+      "name": "糖浆",
+      "level": 18,
+      "machine": "Sugar_Mill",
+      "ingredients": {
+        "Sugarcane": 4
+      },
+      "durationMs": 5400000,
+      "yieldCount": 1,
+      "xpPerBatch": 11,
+      "M10": 900,
+      "priceStatus": "ADAPTATION_DISPLAY_SINGLE_TIMES_TEN",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Popcorn",
+      "projectId": "popcorn",
+      "name": "爆米花",
+      "level": 8,
+      "machine": "Popcorn_Pot",
+      "ingredients": {
+        "Corn": 2
+      },
+      "durationMs": 1800000,
+      "yieldCount": 1,
+      "xpPerBatch": 4,
+      "M10": 320,
+      "priceStatus": "ADAPTATION_DISPLAY_SINGLE_TIMES_TEN",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Buttered_Popcorn",
+      "projectId": "buttered_popcorn",
+      "name": "黄油爆米花",
+      "level": 16,
+      "machine": "Popcorn_Pot",
+      "ingredients": {
+        "Corn": 2,
+        "Butter": 1
+      },
+      "durationMs": 3600000,
+      "yieldCount": 1,
+      "xpPerBatch": 15,
+      "M10": 1260,
+      "priceStatus": "ADAPTATION_DISPLAY_SINGLE_TIMES_TEN",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Chili_Popcorn",
+      "projectId": "chili_popcorn",
+      "name": "辣味爆米花",
+      "level": 25,
+      "machine": "Popcorn_Pot",
+      "ingredients": {
+        "Corn": 2,
+        "Chili_Pepper": 2
+      },
+      "durationMs": 7200000,
+      "yieldCount": 1,
+      "xpPerBatch": 15,
+      "M10": 1220,
+      "priceStatus": "ADAPTATION_DISPLAY_SINGLE_TIMES_TEN",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Pancake",
+      "projectId": "pancake",
+      "name": "薄煎饼",
+      "level": 9,
+      "machine": "BBQ_Grill",
+      "ingredients": {
+        "Egg": 3,
+        "Brown_Sugar": 1
+      },
+      "durationMs": 1800000,
+      "yieldCount": 1,
+      "xpPerBatch": 13,
+      "M10": 1080,
+      "priceStatus": "ADAPTATION_DISPLAY_SINGLE_TIMES_TEN",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Bacon_and_Eggs",
+      "projectId": "bacon_and_eggs",
+      "name": "松露煎蛋",
+      "level": 11,
+      "machine": "BBQ_Grill",
+      "ingredients": {
+        "Bacon": 2,
+        "Egg": 4
+      },
+      "durationMs": 3600000,
+      "yieldCount": 1,
+      "xpPerBatch": 24,
+      "M10": 2010,
+      "priceStatus": "ADAPTATION_DISPLAY_SINGLE_TIMES_TEN",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Hamburger",
+      "projectId": "hamburger",
+      "name": "松露汉堡",
+      "level": 18,
+      "machine": "BBQ_Grill",
+      "ingredients": {
+        "Bacon": 2,
+        "Bread": 2
+      },
+      "durationMs": 7200000,
+      "yieldCount": 1,
+      "xpPerBatch": 22,
+      "M10": 1800,
+      "priceStatus": "ADAPTATION_DISPLAY_SINGLE_TIMES_TEN",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Grilled_Lamb_Skewer",
+      "projectId": "grilled_lamb_skewer",
+      "name": "香草烤饼",
+      "level": 25,
+      "machine": "BBQ_Grill",
+      "ingredients": {
+        "Lamb_Chop": 2
+      },
+      "durationMs": 1200000,
+      "yieldCount": 1,
+      "xpPerBatch": 11,
+      "M10": 900,
+      "priceStatus": "ADAPTATION_DISPLAY_SINGLE_TIMES_TEN",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Roasted_Tomatoes",
+      "projectId": "roasted_tomatoes",
+      "name": "烤番茄",
+      "level": 30,
+      "machine": "BBQ_Grill",
+      "ingredients": {
+        "Tomato": 2
+      },
+      "durationMs": 5400000,
+      "yieldCount": 1,
+      "xpPerBatch": 14,
+      "M10": 1180,
+      "priceStatus": "ADAPTATION_DISPLAY_SINGLE_TIMES_TEN",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Carrot_Pie",
+      "projectId": "carrot_pie",
+      "name": "胡萝卜派",
+      "level": 14,
+      "machine": "Pie_Oven",
+      "ingredients": {
+        "Carrot": 3,
+        "Wheat": 2,
+        "Egg": 1
+      },
+      "durationMs": 3600000,
+      "yieldCount": 1,
+      "xpPerBatch": 10,
+      "M10": 820,
+      "priceStatus": "ADAPTATION_DISPLAY_SINGLE_TIMES_TEN",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Pumpkin_Pie",
+      "projectId": "pumpkin_pie",
+      "name": "南瓜派",
+      "level": 15,
+      "machine": "Pie_Oven",
+      "ingredients": {
+        "Pumpkin": 3,
+        "Wheat": 2,
+        "Egg": 1
+      },
+      "durationMs": 7200000,
+      "yieldCount": 1,
+      "xpPerBatch": 19,
+      "M10": 1580,
+      "priceStatus": "ADAPTATION_DISPLAY_SINGLE_TIMES_TEN",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Bacon_Pie",
+      "projectId": "bacon_pie",
+      "name": "松露派",
+      "level": 18,
+      "machine": "Pie_Oven",
+      "ingredients": {
+        "Bacon": 3,
+        "Wheat": 2,
+        "Egg": 1
+      },
+      "durationMs": 10800000,
+      "yieldCount": 1,
+      "xpPerBatch": 26,
+      "M10": 2190,
+      "priceStatus": "ADAPTATION_DISPLAY_SINGLE_TIMES_TEN",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Apple_Pie",
+      "projectId": "apple_pie",
+      "name": "苹果派",
+      "level": 28,
+      "machine": "Pie_Oven",
+      "ingredients": {
+        "Apple": 3,
+        "Wheat": 2,
+        "Egg": 1,
+        "Syrup": 1
+      },
+      "durationMs": 9000000,
+      "yieldCount": 1,
+      "xpPerBatch": 32,
+      "M10": 2700,
+      "priceStatus": "ADAPTATION_DISPLAY_SINGLE_TIMES_TEN",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Sweater",
+      "projectId": "sweater",
+      "name": "毛衣",
+      "level": 17,
+      "machine": "Loom",
+      "ingredients": {
+        "Wool": 2
+      },
+      "durationMs": 7200000,
+      "yieldCount": 1,
+      "xpPerBatch": 18,
+      "M10": 1510,
+      "priceStatus": "ADAPTATION_DISPLAY_SINGLE_TIMES_TEN",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Cotton_Fabric",
+      "projectId": "cotton_fabric",
+      "name": "棉布",
+      "level": 18,
+      "machine": "Loom",
+      "ingredients": {
+        "Cotton": 3
+      },
+      "durationMs": 1800000,
+      "yieldCount": 1,
+      "xpPerBatch": 13,
+      "M10": 1080,
+      "priceStatus": "ADAPTATION_DISPLAY_SINGLE_TIMES_TEN",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Blue_Woolly_Hat",
+      "projectId": "blue_woolly_hat",
+      "name": "蓝绒帽",
+      "level": 19,
+      "machine": "Loom",
+      "ingredients": {
+        "Wool": 1,
+        "Indigo": 1
+      },
+      "durationMs": 3600000,
+      "yieldCount": 1,
+      "xpPerBatch": 13,
+      "M10": 1110,
+      "priceStatus": "ADAPTATION_DISPLAY_SINGLE_TIMES_TEN",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Blue_Sweater",
+      "projectId": "blue_sweater",
+      "name": "蓝毛衣",
+      "level": 20,
+      "machine": "Loom",
+      "ingredients": {
+        "Wool": 2,
+        "Indigo": 2
+      },
+      "durationMs": 10800000,
+      "yieldCount": 1,
+      "xpPerBatch": 25,
+      "M10": 2080,
+      "priceStatus": "ADAPTATION_DISPLAY_SINGLE_TIMES_TEN",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Cotton_Shirt",
+      "projectId": "cotton_shirt",
+      "name": "棉衬衣",
+      "level": 19,
+      "machine": "Sewing_Machine",
+      "ingredients": {
+        "Cotton_Fabric": 2
+      },
+      "durationMs": 2700000,
+      "yieldCount": 1,
+      "xpPerBatch": 29,
+      "M10": 2410,
+      "priceStatus": "ADAPTATION_DISPLAY_SINGLE_TIMES_TEN",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Wooly_Chaps",
+      "projectId": "wooly_chaps",
+      "name": "绒裤",
+      "level": 21,
+      "machine": "Sewing_Machine",
+      "ingredients": {
+        "Cotton_Fabric": 1,
+        "Wool": 3
+      },
+      "durationMs": 5400000,
+      "yieldCount": 1,
+      "xpPerBatch": 37,
+      "M10": 3090,
+      "priceStatus": "ADAPTATION_DISPLAY_SINGLE_TIMES_TEN",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Violet_Dress",
+      "projectId": "violet_dress",
+      "name": "紫裙",
+      "level": 25,
+      "machine": "Sewing_Machine",
+      "ingredients": {
+        "Cotton_Fabric": 2,
+        "Indigo": 1,
+        "Raspberry": 1
+      },
+      "durationMs": 8100000,
+      "yieldCount": 1,
+      "xpPerBatch": 39,
+      "M10": 3270,
+      "priceStatus": "ADAPTATION_DISPLAY_SINGLE_TIMES_TEN",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Carrot_Cake",
+      "projectId": "carrot_cake",
+      "name": "胡萝卜蛋糕",
+      "level": 21,
+      "machine": "Cake_Oven",
+      "ingredients": {
+        "Carrot": 2,
+        "Butter": 1,
+        "Brown_Sugar": 1
+      },
+      "durationMs": 5400000,
+      "yieldCount": 1,
+      "xpPerBatch": 20,
+      "M10": 1656,
+      "priceStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Cream_Cake",
+      "projectId": "cream_cake",
+      "name": "奶油蛋糕",
+      "level": 23,
+      "machine": "Cake_Oven",
+      "ingredients": {
+        "Wheat": 5,
+        "Cream": 1,
+        "White_Sugar": 1
+      },
+      "durationMs": 10800000,
+      "yieldCount": 1,
+      "xpPerBatch": 26,
+      "M10": 2196,
+      "priceStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Red_Berry_Cake",
+      "projectId": "red_berry_cake",
+      "name": "红莓蛋糕",
+      "level": 23,
+      "machine": "Cake_Oven",
+      "ingredients": {
+        "Cherry": 2,
+        "Raspberry": 1,
+        "Milk": 1,
+        "Egg": 1
+      },
+      "durationMs": 3600000,
+      "yieldCount": 1,
+      "xpPerBatch": 31,
+      "M10": 2556,
+      "priceStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Cheesecake",
+      "projectId": "cheesecake",
+      "name": "芝士蛋糕",
+      "level": 24,
+      "machine": "Cake_Oven",
+      "ingredients": {
+        "Cheese": 1,
+        "Cookie": 1
+      },
+      "durationMs": 14400000,
+      "yieldCount": 1,
+      "xpPerBatch": 34,
+      "M10": 2844,
+      "priceStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Carrot_Juice",
+      "projectId": "carrot_juice",
+      "name": "胡萝卜汁",
+      "level": 26,
+      "machine": "Juice_Press",
+      "ingredients": {
+        "Carrot": 3
+      },
+      "durationMs": 1800000,
+      "yieldCount": 1,
+      "xpPerBatch": 6,
+      "M10": 460,
+      "priceStatus": "ADAPTATION_DISPLAY_SINGLE_TIMES_TEN",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Apple_Juice",
+      "projectId": "apple_juice",
+      "name": "苹果汁",
+      "level": 28,
+      "machine": "Juice_Press",
+      "ingredients": {
+        "Apple": 2
+      },
+      "durationMs": 7200000,
+      "yieldCount": 1,
+      "xpPerBatch": 15,
+      "M10": 1290,
+      "priceStatus": "ADAPTATION_DISPLAY_SINGLE_TIMES_TEN",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Cherry_Juice",
+      "projectId": "cherry_juice",
+      "name": "樱桃汁",
+      "level": 30,
+      "machine": "Juice_Press",
+      "ingredients": {
+        "Cherry": 2
+      },
+      "durationMs": 9000000,
+      "yieldCount": 1,
+      "xpPerBatch": 26,
+      "M10": 2160,
+      "priceStatus": "ADAPTATION_DISPLAY_SINGLE_TIMES_TEN",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    },
+    {
+      "referenceId": "Vanilla_Ice_Cream",
+      "projectId": "vanilla_ice_cream",
+      "name": "香草冰淇淋",
+      "level": 29,
+      "machine": "Ice_Cream_Maker",
+      "ingredients": {
+        "Milk": 1,
+        "Cream": 1,
+        "White_Sugar": 1
+      },
+      "durationMs": 7200000,
+      "yieldCount": 1,
+      "xpPerBatch": 20,
+      "M10": 1728,
+      "priceStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "recipeStatus": "COMMUNITY_SNAPSHOT_ADOPTED",
+      "storage": "barn"
+    }
+  ],
+  "buildings": [
+    {
+      "id": "Bakery",
+      "name": "面包房",
+      "unlockLevel": 2,
+      "coins": 20,
+      "buildMs": 10000,
+      "xp": 3,
+      "slots": 2,
+      "masteryCumulativeHours": [
+        35,
+        175,
+        735
+      ],
+      "footprint": [
+        2,
+        2
+      ],
+      "status": "ADAPTATION_BUILD_CONFLICT"
+    },
+    {
+      "id": "Feed_Mill_1",
+      "name": "饲料机一",
+      "unlockLevel": 3,
+      "coins": 5,
+      "buildMs": 40000,
+      "xp": 4,
+      "slots": 3,
+      "masteryCumulativeHours": [
+        120,
+        960,
+        6840
+      ],
+      "footprint": [
+        3,
+        2
+      ],
+      "status": "COMMUNITY_SNAPSHOT_ADOPTED"
+    },
+    {
+      "id": "Feed_Mill_2",
+      "name": "饲料机二",
+      "unlockLevel": 12,
+      "coins": 3200,
+      "buildMs": 40000,
+      "xp": 4,
+      "slots": 3,
+      "masteryCumulativeHours": [
+        120,
+        960,
+        6840
+      ],
+      "footprint": [
+        3,
+        2
+      ],
+      "status": "COMMUNITY_SNAPSHOT_ADOPTED"
+    },
+    {
+      "id": "Dairy",
+      "name": "乳品坊",
+      "unlockLevel": 6,
+      "coins": 50,
+      "buildMs": 7200000,
+      "xp": 8,
+      "slots": 2,
+      "masteryCumulativeHours": [
+        40,
+        160,
+        520
+      ],
+      "footprint": [
+        2,
+        2
+      ],
+      "status": "COMMUNITY_SNAPSHOT_ADOPTED"
+    },
+    {
+      "id": "Sugar_Mill",
+      "name": "糖坊",
+      "unlockLevel": 7,
+      "coins": 350,
+      "buildMs": 21600000,
+      "xp": 13,
+      "slots": 2,
+      "masteryCumulativeHours": [
+        25,
+        125,
+        525
+      ],
+      "footprint": [
+        2,
+        2
+      ],
+      "status": "COMMUNITY_SNAPSHOT_ADOPTED"
+    },
+    {
+      "id": "Popcorn_Pot",
+      "name": "爆米花锅",
+      "unlockLevel": 8,
+      "coins": 650,
+      "buildMs": 28800000,
+      "xp": 14,
+      "slots": 2,
+      "masteryCumulativeHours": [
+        50,
+        200,
+        650
+      ],
+      "footprint": [
+        2,
+        2
+      ],
+      "status": "COMMUNITY_SNAPSHOT_ADOPTED"
+    },
+    {
+      "id": "BBQ_Grill",
+      "name": "烤架",
+      "unlockLevel": 9,
+      "coins": 730,
+      "buildMs": 28800000,
+      "xp": 14,
+      "slots": 2,
+      "masteryCumulativeHours": [
+        30,
+        150,
+        630
+      ],
+      "footprint": [
+        2,
+        2
+      ],
+      "status": "COMMUNITY_SNAPSHOT_ADOPTED"
+    },
+    {
+      "id": "Pie_Oven",
+      "name": "派炉",
+      "unlockLevel": 14,
+      "coins": 2200,
+      "buildMs": 43200000,
+      "xp": 17,
+      "slots": 2,
+      "masteryCumulativeHours": [
+        40,
+        200,
+        840
+      ],
+      "footprint": [
+        2,
+        2
+      ],
+      "status": "COMMUNITY_SNAPSHOT_ADOPTED"
+    },
+    {
+      "id": "Loom",
+      "name": "织布机",
+      "unlockLevel": 17,
+      "coins": 3200,
+      "buildMs": 86400000,
+      "xp": 19,
+      "slots": 2,
+      "masteryCumulativeHours": [
+        36,
+        216,
+        1116
+      ],
+      "footprint": [
+        2,
+        2
+      ],
+      "status": "COMMUNITY_SNAPSHOT_ADOPTED"
+    },
+    {
+      "id": "Sewing_Machine",
+      "name": "缝纫机",
+      "unlockLevel": 19,
+      "coins": 4500,
+      "buildMs": 72000000,
+      "xp": 19,
+      "slots": 2,
+      "masteryCumulativeHours": [
+        72,
+        360,
+        1512
+      ],
+      "footprint": [
+        2,
+        2
+      ],
+      "status": "COMMUNITY_SNAPSHOT_ADOPTED"
+    },
+    {
+      "id": "Cake_Oven",
+      "name": "蛋糕炉",
+      "unlockLevel": 21,
+      "coins": 12100,
+      "buildMs": 86400000,
+      "xp": 24,
+      "slots": 2,
+      "masteryCumulativeHours": [
+        65,
+        325,
+        1365
+      ],
+      "footprint": [
+        3,
+        2
+      ],
+      "status": "COMMUNITY_SNAPSHOT_ADOPTED"
+    },
+    {
+      "id": "Juice_Press",
+      "name": "榨汁机",
+      "unlockLevel": 26,
+      "coins": 31000,
+      "buildMs": 115200000,
+      "xp": 27,
+      "slots": 2,
+      "masteryCumulativeHours": [
+        50,
+        300,
+        1550
+      ],
+      "footprint": [
+        2,
+        2
+      ],
+      "status": "COMMUNITY_SNAPSHOT_ADOPTED"
+    },
+    {
+      "id": "Ice_Cream_Maker",
+      "name": "冰淇淋机",
+      "unlockLevel": 29,
+      "coins": 38000,
+      "buildMs": 115200000,
+      "xp": 27,
+      "slots": 2,
+      "masteryCumulativeHours": [
+        60,
+        300,
+        660
+      ],
+      "footprint": [
+        3,
+        2
+      ],
+      "status": "ADAPTATION_BUILD_CONFLICT"
+    }
+  ],
+  "animals": [
+    {
+      "id": "Chicken",
+      "levels": [
+        1,
+        12,
+        23
+      ],
+      "capacity": 6,
+      "buildingCost": 5,
+      "prices": [
+        20,
+        140,
+        270
+      ],
+      "footprint": [
+        4,
+        4
+      ],
+      "buildMs": 0,
+      "status": "COMMUNITY_SNAPSHOT_WITH_EXPLICIT_PRICE_OVERRIDES"
+    },
+    {
+      "id": "Cow",
+      "levels": [
+        6,
+        15,
+        27
+      ],
+      "capacity": 5,
+      "buildingCost": 20,
+      "prices": [
+        50,
+        600,
+        1150
+      ],
+      "footprint": [
+        4,
+        4
+      ],
+      "buildMs": 0,
+      "status": "COMMUNITY_SNAPSHOT_WITH_EXPLICIT_PRICE_OVERRIDES"
+    },
+    {
+      "id": "Pig",
+      "levels": [
+        10,
+        18
+      ],
+      "capacity": 5,
+      "buildingCost": 150,
+      "prices": [
+        500,
+        1400
+      ],
+      "footprint": [
+        4,
+        4
+      ],
+      "buildMs": 0,
+      "status": "COMMUNITY_SNAPSHOT_WITH_EXPLICIT_PRICE_OVERRIDES"
+    },
+    {
+      "id": "Sheep",
+      "levels": [
+        16,
+        26
+      ],
+      "capacity": 5,
+      "buildingCost": 300,
+      "prices": [
+        800,
+        2300
+      ],
+      "footprint": [
+        4,
+        4
+      ],
+      "buildMs": 0,
+      "status": "COMMUNITY_SNAPSHOT_WITH_EXPLICIT_PRICE_OVERRIDES"
+    },
+    {
+      "id": "Lamb",
+      "levels": [
+        25,
+        30
+      ],
+      "capacity": 5,
+      "buildingCost": 500,
+      "prices": [
+        800,
+        2300
+      ],
+      "footprint": [
+        4,
+        4
+      ],
+      "buildMs": 0,
+      "status": "COMMUNITY_SNAPSHOT_WITH_EXPLICIT_PRICE_OVERRIDES"
+    }
+  ],
+  "adaptations": {
+    "chicken_feed_minutes": 5,
+    "lamb_feed_inputs": {
+      "black_bean": 4,
+      "soybean": 2
+    },
+    "bakery_build_ms": 10000,
+    "icecream_build_minutes": 1920,
+    "blueberry_minutes": 2040,
+    "first_chicken_coins": 20,
+    "third_cow_level": 27,
+    "third_cow_coins": 1150,
+    "construction_voucher_coin_price": 500,
+    "sale_recovery_ratio": 0.5,
+    "seed_repurchase_ratio": 1.25,
+    "fertilizer": {
+      "unlockLevel": 15,
+      "price": 100,
+      "windowMinutes": 30,
+      "durationFactor": 0.9
+    },
+    "material_roll_every_harvests": 30,
+    "material_daily_choice_cap": 4
+  },
+  "fruits": [
+    {
+      "referenceId": "Apple",
+      "projectId": "apple",
+      "name": "苹果",
+      "level": 15,
+      "coins": 160,
+      "durationMs": 57600000,
+      "sequence": [
+        2,
+        3,
+        4,
+        4
+      ],
+      "xpPerFruit": 7,
+      "M10": 396,
+      "footprint": [
+        2,
+        2
+      ],
+      "clearTool": "saw",
+      "status": "COMMUNITY_SNAPSHOT_ADOPTED"
+    },
+    {
+      "referenceId": "Raspberry",
+      "projectId": "raspberry",
+      "name": "树莓",
+      "level": 19,
+      "coins": 220,
+      "durationMs": 64800000,
+      "sequence": [
+        2,
+        3,
+        4,
+        4
+      ],
+      "xpPerFruit": 9,
+      "M10": 468,
+      "footprint": [
+        1,
+        1
+      ],
+      "clearTool": "axe",
+      "status": "COMMUNITY_SNAPSHOT_ADOPTED"
+    },
+    {
+      "referenceId": "Cherry",
+      "projectId": "cherry",
+      "name": "樱桃",
+      "level": 22,
+      "coins": 410,
+      "durationMs": 97200000,
+      "sequence": [
+        2,
+        3,
+        4,
+        4
+      ],
+      "xpPerFruit": 13,
+      "M10": 684,
+      "footprint": [
+        2,
+        2
+      ],
+      "clearTool": "saw",
+      "status": "COMMUNITY_SNAPSHOT_ADOPTED"
+    },
+    {
+      "referenceId": "Blackberry",
+      "projectId": "blackberry",
+      "name": "黑莓",
+      "level": 26,
+      "coins": 530,
+      "durationMs": 115200000,
+      "sequence": [
+        2,
+        3,
+        4,
+        4
+      ],
+      "xpPerFruit": 16,
+      "M10": 828,
+      "footprint": [
+        1,
+        1
+      ],
+      "clearTool": "axe",
+      "status": "COMMUNITY_SNAPSHOT_ADOPTED"
+    },
+    {
+      "referenceId": "Blueberries",
+      "projectId": "blueberries",
+      "name": "蓝莓",
+      "level": 30,
+      "coins": 550,
+      "durationMs": 122400000,
+      "sequence": [
+        2,
+        3,
+        4,
+        4
+      ],
+      "xpPerFruit": 16,
+      "M10": 828,
+      "footprint": [
+        1,
+        1
+      ],
+      "clearTool": "axe",
+      "status": "ADAPTATION_BLUEBERRY_CONFLICT"
+    }
+  ],
+  "map": {
+    "width": 64,
+    "height": 64,
+    "initialBounds": [
+      16,
+      16,
+      48,
+      48
+    ],
+    "expansionPatches": [
+      {
+        "id": "land_01",
+        "x": 16,
+        "y": 8,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 2,
+        "mallet": 2,
+        "marker_stake": 2
+      },
+      {
+        "id": "land_02",
+        "x": 24,
+        "y": 8,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 2,
+        "mallet": 2,
+        "marker_stake": 2
+      },
+      {
+        "id": "land_03",
+        "x": 32,
+        "y": 8,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 2,
+        "mallet": 2,
+        "marker_stake": 2
+      },
+      {
+        "id": "land_04",
+        "x": 40,
+        "y": 8,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 2,
+        "mallet": 2,
+        "marker_stake": 2
+      },
+      {
+        "id": "land_05",
+        "x": 8,
+        "y": 16,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 4,
+        "mallet": 4,
+        "marker_stake": 4
+      },
+      {
+        "id": "land_06",
+        "x": 48,
+        "y": 16,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 4,
+        "mallet": 4,
+        "marker_stake": 4
+      },
+      {
+        "id": "land_07",
+        "x": 8,
+        "y": 24,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 4,
+        "mallet": 4,
+        "marker_stake": 4
+      },
+      {
+        "id": "land_08",
+        "x": 48,
+        "y": 24,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 4,
+        "mallet": 4,
+        "marker_stake": 4
+      },
+      {
+        "id": "land_09",
+        "x": 8,
+        "y": 32,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 6,
+        "mallet": 6,
+        "marker_stake": 6
+      },
+      {
+        "id": "land_10",
+        "x": 48,
+        "y": 32,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 6,
+        "mallet": 6,
+        "marker_stake": 6
+      },
+      {
+        "id": "land_11",
+        "x": 8,
+        "y": 40,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 6,
+        "mallet": 6,
+        "marker_stake": 6
+      },
+      {
+        "id": "land_12",
+        "x": 48,
+        "y": 40,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 6,
+        "mallet": 6,
+        "marker_stake": 6
+      },
+      {
+        "id": "land_13",
+        "x": 16,
+        "y": 48,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 8,
+        "mallet": 8,
+        "marker_stake": 8
+      },
+      {
+        "id": "land_14",
+        "x": 24,
+        "y": 48,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 8,
+        "mallet": 8,
+        "marker_stake": 8
+      },
+      {
+        "id": "land_15",
+        "x": 32,
+        "y": 48,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 8,
+        "mallet": 8,
+        "marker_stake": 8
+      },
+      {
+        "id": "land_16",
+        "x": 40,
+        "y": 48,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 8,
+        "mallet": 8,
+        "marker_stake": 8
+      },
+      {
+        "id": "land_17",
+        "x": 16,
+        "y": 0,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 10,
+        "mallet": 10,
+        "marker_stake": 10
+      },
+      {
+        "id": "land_18",
+        "x": 24,
+        "y": 0,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 10,
+        "mallet": 10,
+        "marker_stake": 10
+      },
+      {
+        "id": "land_19",
+        "x": 32,
+        "y": 0,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 10,
+        "mallet": 10,
+        "marker_stake": 10
+      },
+      {
+        "id": "land_20",
+        "x": 40,
+        "y": 0,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 10,
+        "mallet": 10,
+        "marker_stake": 10
+      },
+      {
+        "id": "land_21",
+        "x": 8,
+        "y": 8,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 12,
+        "mallet": 12,
+        "marker_stake": 12
+      },
+      {
+        "id": "land_22",
+        "x": 48,
+        "y": 8,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 12,
+        "mallet": 12,
+        "marker_stake": 12
+      },
+      {
+        "id": "land_23",
+        "x": 0,
+        "y": 16,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 12,
+        "mallet": 12,
+        "marker_stake": 12
+      },
+      {
+        "id": "land_24",
+        "x": 56,
+        "y": 16,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 12,
+        "mallet": 12,
+        "marker_stake": 12
+      },
+      {
+        "id": "land_25",
+        "x": 0,
+        "y": 24,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 14,
+        "mallet": 14,
+        "marker_stake": 14
+      },
+      {
+        "id": "land_26",
+        "x": 56,
+        "y": 24,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 14,
+        "mallet": 14,
+        "marker_stake": 14
+      },
+      {
+        "id": "land_27",
+        "x": 0,
+        "y": 32,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 14,
+        "mallet": 14,
+        "marker_stake": 14
+      },
+      {
+        "id": "land_28",
+        "x": 56,
+        "y": 32,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 14,
+        "mallet": 14,
+        "marker_stake": 14
+      },
+      {
+        "id": "land_29",
+        "x": 0,
+        "y": 40,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 16,
+        "mallet": 16,
+        "marker_stake": 16
+      },
+      {
+        "id": "land_30",
+        "x": 56,
+        "y": 40,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 16,
+        "mallet": 16,
+        "marker_stake": 16
+      },
+      {
+        "id": "land_31",
+        "x": 8,
+        "y": 48,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 16,
+        "mallet": 16,
+        "marker_stake": 16
+      },
+      {
+        "id": "land_32",
+        "x": 48,
+        "y": 48,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 16,
+        "mallet": 16,
+        "marker_stake": 16
+      },
+      {
+        "id": "land_33",
+        "x": 16,
+        "y": 56,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 18,
+        "mallet": 18,
+        "marker_stake": 18
+      },
+      {
+        "id": "land_34",
+        "x": 24,
+        "y": 56,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 18,
+        "mallet": 18,
+        "marker_stake": 18
+      },
+      {
+        "id": "land_35",
+        "x": 32,
+        "y": 56,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 18,
+        "mallet": 18,
+        "marker_stake": 18
+      },
+      {
+        "id": "land_36",
+        "x": 40,
+        "y": 56,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 18,
+        "mallet": 18,
+        "marker_stake": 18
+      },
+      {
+        "id": "land_37",
+        "x": 8,
+        "y": 0,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 20,
+        "mallet": 20,
+        "marker_stake": 20
+      },
+      {
+        "id": "land_38",
+        "x": 48,
+        "y": 0,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 20,
+        "mallet": 20,
+        "marker_stake": 20
+      },
+      {
+        "id": "land_39",
+        "x": 0,
+        "y": 8,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 20,
+        "mallet": 20,
+        "marker_stake": 20
+      },
+      {
+        "id": "land_40",
+        "x": 56,
+        "y": 8,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 20,
+        "mallet": 20,
+        "marker_stake": 20
+      },
+      {
+        "id": "land_41",
+        "x": 0,
+        "y": 48,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 22,
+        "mallet": 22,
+        "marker_stake": 22
+      },
+      {
+        "id": "land_42",
+        "x": 56,
+        "y": 48,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 22,
+        "mallet": 22,
+        "marker_stake": 22
+      },
+      {
+        "id": "land_43",
+        "x": 8,
+        "y": 56,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 22,
+        "mallet": 22,
+        "marker_stake": 22
+      },
+      {
+        "id": "land_44",
+        "x": 48,
+        "y": 56,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 22,
+        "mallet": 22,
+        "marker_stake": 22
+      },
+      {
+        "id": "land_45",
+        "x": 0,
+        "y": 0,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 24,
+        "mallet": 24,
+        "marker_stake": 24
+      },
+      {
+        "id": "land_46",
+        "x": 56,
+        "y": 0,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 24,
+        "mallet": 24,
+        "marker_stake": 24
+      },
+      {
+        "id": "land_47",
+        "x": 0,
+        "y": 56,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 24,
+        "mallet": 24,
+        "marker_stake": 24
+      },
+      {
+        "id": "land_48",
+        "x": 56,
+        "y": 56,
+        "w": 8,
+        "h": 8,
+        "level": 22,
+        "land_deed": 24,
+        "mallet": 24,
+        "marker_stake": 24
+      }
+    ],
+    "obstacles": {
+      "initial": [
+        {
+          "id": "tree_0",
+          "x": 18,
+          "y": 36,
+          "type": "natural_tree"
+        },
+        {
+          "id": "bush_0",
+          "x": 20,
+          "y": 36,
+          "type": "natural_bush"
+        },
+        {
+          "id": "rock_0",
+          "x": 40,
+          "y": 40,
+          "type": "rock"
+        },
+        {
+          "id": "rock_1",
+          "x": 41,
+          "y": 40,
+          "type": "rock"
+        },
+        {
+          "id": "rock_2",
+          "x": 40,
+          "y": 41,
+          "type": "rock"
+        }
+      ],
+      "eachPatchLocalRocks": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "eachPatchLocalTree": [
+        5,
+        5
+      ]
+    }
+  },
+  "constructionVoucher": {
+    "coinBuyPrice": 500,
+    "ordinarySlots": [
+      6,
+      9,
+      12,
+      15,
+      18,
+      21,
+      24,
+      27
+    ],
+    "npcBoxes": [
+      5,
+      10,
+      15,
+      20,
+      25
+    ],
+    "everyTruckCount": 20,
+    "rewardPer20Trucks": 1,
+    "each5Levels": 2,
+    "tutorialBread2Reward": 2,
+    "maxMachineSlots": 9,
+    "maxNpcBoxes": 10
+  },
+  "materials": {
+    "harvestCount": 30,
+    "pendingRewardSlots": 1,
+    "categories": {
+      "storage": 70,
+      "clearing": 20,
+      "land": 10
+    },
+    "storageBuy": 375,
+    "storageSell": 150,
+    "landBuy": 563,
+    "landSell": 225,
+    "tools": {
+      "axe": [
+        100,
+        40
+      ],
+      "saw": [
+        150,
+        60
+      ],
+      "shovel": [
+        200,
+        80
+      ],
+      "dynamite": [
+        150,
+        60
+      ],
+      "tnt": [
+        250,
+        100
+      ]
+    },
+    "choiceThresholds": [
+      3,
+      6,
+      10
+    ],
+    "choiceRewards": [
+      1,
+      1,
+      2
+    ],
+    "choiceDailyCap": 4,
+    "choiceInventoryCap": 20
+  },
+  "rescue": {
+    "borrow": 1,
+    "grossYield": 2,
+    "repay": 1,
+    "netYield": 1,
+    "xp": 1,
+    "toolCounterIncrement": 0,
+    "maxConcurrent": 1,
+    "cooldownMs": 0,
+    "recoverableAssetTypes": [
+      "inventory",
+      "growing_wheat",
+      "ready_outputs",
+      "unclaimed_market_coins",
+      "cancellable_queue_inputs",
+      "cancellable_market_goods",
+      "eligible_reward_receipts"
+    ]
+  },
+  "orders": {
+    "unlock": 4,
+    "slots": 9,
+    "types": {
+      "normal": {
+        "weight": 60,
+        "coins": 0.75,
+        "xp": 1.5
+      },
+      "experience": {
+        "weight": 25,
+        "coins": 0.5,
+        "xp": 3
+      },
+      "coin": {
+        "weight": 15,
+        "coins": 1.05,
+        "xp": 0.5
+      }
+    },
+    "refreshMinutes": [
+      [
+        4,
+        9,
+        6
+      ],
+      [
+        10,
+        19,
+        15
+      ],
+      [
+        20,
+        9999,
+        30
+      ]
+    ],
+    "finalCoinCapRatio": 1.05
+  },
+  "npc": {
+    "unlock": 7,
+    "initialBoxes": 5,
+    "maxStack": 10,
+    "buyRatio": 1.1,
+    "recoveryRatio": 0.5,
+    "saleTiers": [
+      [
+        0.5,
+        2
+      ],
+      [
+        0.75,
+        10
+      ],
+      [
+        1,
+        30
+      ]
+    ],
+    "durationMultipliers": {
+      "crop": 1,
+      "animal": 1.5,
+      "processed": 2
+    },
+    "cropDailyBudgetFieldFactor": 2,
+    "otherDailyBudget": 10,
+    "repurchaseDailyLimit": null
+  },
+  "linkage": [
+    {
+      "stageId": "F01",
+      "tileCount": 24,
+      "layers": 1,
+      "types": 4,
+      "label": "草田旗帜",
+      "rewardId": "decor_flag",
+      "estimatedCoinValue": 0
+    },
+    {
+      "stageId": "F02",
+      "tileCount": 30,
+      "layers": 1,
+      "types": 5,
+      "label": "玉米5份",
+      "rewardId": "corn_5",
+      "estimatedCoinValue": 36
+    },
+    {
+      "stageId": "F03",
+      "tileCount": 36,
+      "layers": 2,
+      "types": 6,
+      "label": "金币30",
+      "rewardId": "coins_30",
+      "estimatedCoinValue": 30
+    },
+    {
+      "stageId": "F04",
+      "tileCount": 42,
+      "layers": 2,
+      "types": 6,
+      "label": "建设券1",
+      "rewardId": "voucher_1",
+      "estimatedCoinValue": 500
+    },
+    {
+      "stageId": "F05",
+      "tileCount": 48,
+      "layers": 2,
+      "types": 7,
+      "label": "鸡舍花纹外观",
+      "rewardId": "skin_coop",
+      "estimatedCoinValue": 0
+    },
+    {
+      "stageId": "F06",
+      "tileCount": 54,
+      "layers": 2,
+      "types": 7,
+      "label": "鸡领养抵扣券20金币",
+      "rewardId": "animal_credit_20",
+      "estimatedCoinValue": 20
+    },
+    {
+      "stageId": "F07",
+      "tileCount": 42,
+      "layers": 2,
+      "types": 6,
+      "label": "大豆5份",
+      "rewardId": "soybean_5",
+      "estimatedCoinValue": 54
+    },
+    {
+      "stageId": "F08",
+      "tileCount": 48,
+      "layers": 2,
+      "types": 7,
+      "label": "金币60",
+      "rewardId": "coins_60",
+      "estimatedCoinValue": 60
+    },
+    {
+      "stageId": "F09",
+      "tileCount": 54,
+      "layers": 3,
+      "types": 8,
+      "label": "建设券1",
+      "rewardId": "voucher_1",
+      "estimatedCoinValue": 500
+    },
+    {
+      "stageId": "F10",
+      "tileCount": 60,
+      "layers": 3,
+      "types": 8,
+      "label": "小风车装饰",
+      "rewardId": "decor_windmill",
+      "estimatedCoinValue": 0
+    },
+    {
+      "stageId": "F11",
+      "tileCount": 66,
+      "layers": 3,
+      "types": 9,
+      "label": "甘蔗5份",
+      "rewardId": "sugarcane_5",
+      "estimatedCoinValue": 72
+    },
+    {
+      "stageId": "F12",
+      "tileCount": 72,
+      "layers": 3,
+      "types": 9,
+      "label": "农场背景一和地块纪念牌",
+      "rewardId": "background_1",
+      "estimatedCoinValue": 0
+    },
+    {
+      "stageId": "F13",
+      "tileCount": 54,
+      "layers": 3,
+      "types": 8,
+      "label": "胡萝卜5份",
+      "rewardId": "carrot_5",
+      "estimatedCoinValue": 36
+    },
+    {
+      "stageId": "F14",
+      "tileCount": 60,
+      "layers": 3,
+      "types": 9,
+      "label": "建设券2",
+      "rewardId": "voucher_2",
+      "estimatedCoinValue": 1000
+    },
+    {
+      "stageId": "F15",
+      "tileCount": 66,
+      "layers": 3,
+      "types": 9,
+      "label": "金币100",
+      "rewardId": "coins_100",
+      "estimatedCoinValue": 100
+    },
+    {
+      "stageId": "F16",
+      "tileCount": 72,
+      "layers": 4,
+      "types": 10,
+      "label": "牛领养抵扣券50金币",
+      "rewardId": "animal_credit_50",
+      "estimatedCoinValue": 50
+    },
+    {
+      "stageId": "F17",
+      "tileCount": 78,
+      "layers": 4,
+      "types": 10,
+      "label": "靛蓝5份",
+      "rewardId": "indigo_5",
+      "estimatedCoinValue": 126
+    },
+    {
+      "stageId": "F18",
+      "tileCount": 84,
+      "layers": 4,
+      "types": 11,
+      "label": "园艺肥料1份",
+      "rewardId": "fertilizer_1",
+      "estimatedCoinValue": 100
+    },
+    {
+      "stageId": "F19",
+      "tileCount": 66,
+      "layers": 3,
+      "types": 9,
+      "label": "南瓜5份",
+      "rewardId": "pumpkin_5",
+      "estimatedCoinValue": 162
+    },
+    {
+      "stageId": "F20",
+      "tileCount": 72,
+      "layers": 4,
+      "types": 10,
+      "label": "建设券2",
+      "rewardId": "voucher_2",
+      "estimatedCoinValue": 1000
+    },
+    {
+      "stageId": "F21",
+      "tileCount": 78,
+      "layers": 4,
+      "types": 10,
+      "label": "金币150",
+      "rewardId": "coins_150",
+      "estimatedCoinValue": 150
+    },
+    {
+      "stageId": "F22",
+      "tileCount": 84,
+      "layers": 4,
+      "types": 11,
+      "label": "棉花5份",
+      "rewardId": "cotton_5",
+      "estimatedCoinValue": 144
+    },
+    {
+      "stageId": "F23",
+      "tileCount": 90,
+      "layers": 4,
+      "types": 11,
+      "label": "羊圈外观和小桥",
+      "rewardId": "skin_sheep",
+      "estimatedCoinValue": 0
+    },
+    {
+      "stageId": "F24",
+      "tileCount": 96,
+      "layers": 4,
+      "types": 12,
+      "label": "建设券2和农场背景二",
+      "rewardId": "voucher_2_background_2",
+      "estimatedCoinValue": 1000
+    }
+  ],
+  "queue": {
+    "completedBatchCap": 9,
+    "resumeStart": "max(previousCompletion,spaceFreedAt)",
+    "cancelWaitingFree": true
+  },
+  "achievementsMachineTypes": [
+    3,
+    8,
+    12
+  ]
+};
+
+export const CONTENT_VERSION = 'sheep-core-v04.1';
+export const SCHEMA_VERSION = 1;
+const index = (rows) => Object.fromEntries(rows.map(row => [row.id, row]));
+const snake = value => value.toLowerCase();
+const referenceIds = Object.fromEntries([...FARM_CONFIG.crops, ...FARM_CONFIG.items, ...FARM_CONFIG.fruits].map(row => [row.referenceId, row.projectId]));
+export const CROPS = index(FARM_CONFIG.crops.map(c => ({...c, id:c.projectId, level:c.unlockLevel, category:'crop', xp:c.xpPerHarvest, buyPrice:Math.ceil(c.M10*1.25)})));
+export const FRUITS = index(FARM_CONFIG.fruits.map(c => ({...c, id:c.projectId, unlockLevel:c.level, category:'fruit', storage:'silo'})));
+export const BUILDINGS = index(FARM_CONFIG.buildings.map(c => ({...c, referenceId:c.id,id:snake(c.id), machineType:snake(c.id).replace(/_[12]$/, ''), level:c.unlockLevel, category:'machine'})));
+export const ANIMALS = index(FARM_CONFIG.animals.map(c => {
+ const product = FARM_CONFIG.items.find(i=>i.machine===c.id);
+ return {...c,referenceId:c.id,id:snake(c.id),name:{Chicken:'鸡',Cow:'牛',Pig:'猪',Sheep:'绵羊',Lamb:'羔羊'}[c.id],level:c.levels[0],product:product.projectId,feedItem:referenceIds[Object.keys(product.ingredients)[0]],durationMs:product.durationMs,yieldCount:product.yieldCount,xp:product.xpPerBatch};
+}));
+export const RECIPES = index(FARM_CONFIG.items.filter(c=>!ANIMALS[snake(c.machine)]).map(c => ({...c,id:c.projectId,unlockLevel:c.level,machineType:snake(c.machine),inputs:Object.fromEntries(Object.entries(c.ingredients).map(([k,v])=>[referenceIds[k],v])),outputs:{[c.projectId]:c.yieldCount},xp:c.xpPerBatch})));
+export const STORAGE_MATERIALS = ['bolt','duct_tape','plank','nail','screw','wood_panel'];
+export const LAND_MATERIALS = ['land_deed','mallet','marker_stake'];
+export const CLEARING_TOOLS = Object.keys(FARM_CONFIG.materials.tools);
+const names = {bolt:'螺栓',duct_tape:'胶带',plank:'木板',nail:'钉子',screw:'螺钉',wood_panel:'嵌板',land_deed:'地契',mallet:'木槌',marker_stake:'标桩',axe:'斧',saw:'锯',shovel:'铲',dynamite:'炸药',tnt:'TNT'};
+export const TOOLS = index([...STORAGE_MATERIALS,...LAND_MATERIALS,...CLEARING_TOOLS].map(id=>({id,name:names[id],storage:'barn',category:STORAGE_MATERIALS.includes(id)?'storageMaterial':LAND_MATERIALS.includes(id)?'landMaterial':'tool',level:LAND_MATERIALS.includes(id)?22:1,buyPrice:STORAGE_MATERIALS.includes(id)?375:LAND_MATERIALS.includes(id)?563:FARM_CONFIG.materials.tools[id][0],sellPrice:STORAGE_MATERIALS.includes(id)?150:LAND_MATERIALS.includes(id)?225:FARM_CONFIG.materials.tools[id][1]})));
+export const ITEMS = {...CROPS,...FRUITS,...index(FARM_CONFIG.items.map(c=>({...c,id:c.projectId,category:ANIMALS[snake(c.machine)]?'animal':c.projectId.endsWith('_feed')?'feed':'processed',xp:c.xpPerBatch}))),...TOOLS,fertilizer:{id:'fertilizer',name:'园艺肥料',category:'fertilizer',storage:'barn',level:15,buyPrice:100}};
+export const DECORATIONS = index(['木牌','花盆','草垛','风车','路灯','石凳','长椅','旗杆','花栅','木栅','拱门','小桥','水槽','花圃','石雕','野餐垫'].map((name,i)=>({id:['sign','flowerpot','haystack','windmill','lamp','stone_stool','bench','flagpole','flower_fence','wood_fence','arch','bridge','water_trough','flowerbed','statue','picnic_mat'][i],name,coins:[50,80,100,300,150,100,180,150,30,20,500,500,200,250,600,120][i],level:1,footprint:[i===6||i===10||i===11?2:1,1],walkable:i===10||i===11||i===15,footprintLayer:i===15?'ground':'solid'})));
+export const LEVELS = FARM_CONFIG.levelXpToNext.map((xpToNext,i)=>({level:i+1,xpToNext,totalXp:FARM_CONFIG.levelXpToNext.slice(0,i).reduce((a,b)=>a+b,0),fields:FARM_CONFIG.fieldAllowance[i]}));
+export function levelForXp(xp) { let level=1; while(level<30&&xp>=LEVELS[level].totalXp) level++; return level; }
+export function fieldAllowance(level) { return FARM_CONFIG.fieldAllowance[Math.min(30,Math.max(1,level))-1]; }
+export function storageCapacity(upgrades) { return upgrades<=38?50+25*upgrades:1000+50*(upgrades-38); }
+export const FARM_ERRORS = {INSUFFICIENT_COINS:'金币不足，先出售多余物品或交付订单',INSUFFICIENT_ITEM:'物品不足，请先收获或生产',KEEP_SEED_RESERVE:'将用掉最后一份种子，请明确解除本次留种保护',STORAGE_FULL:'仓库空间不足，请先出售、投料或扩容',LEVEL_LOCKED:'农场等级尚未开放此内容',COUNT_LIMIT:'已达到当前数量上限',SPACE_BLOCKED:'该位置不可放置，请选择开放且可通行的空地',QUEUE_FULL:'加工队列已满，请先等待或领取',NOT_READY:'尚未完成，请等待生产结束',ALREADY_CLAIMED:'已经领取，请勿重复操作',STALE_REVISION:'农场已在其它操作中更新，请刷新后重试',INVALID_COMMAND:'操作内容不正确',SEED_RECOVERABLE:'仍有种子或可取回资源，请先领取或退回',CONFIRM_REQUIRED:'此操作需要明确确认',BUDGET_EXHAUSTED:'今日该物品的高价预算已用完，请即时回收或明日再来',NO_PRODUCTION_CHAIN:'尚无完整可持续生产链',JOB_RUNNING:'正在加工的任务不能取消',FEATURE_DISABLED:'此对照模式未开启该功能',INVALID_SAVE:'存档结构不合法，请恢复上一份有效存档',FERTILIZER_ACTIVE:'肥料仍在生效，不能叠加或提前续用'};
+export const ACHIEVEMENTS = {
+ fieldHarvests:{name:'田园收获',thresholds:[100,1000,10000]},machineBatches:{name:'巧手加工',thresholds:[30,300,3000]},feeds:{name:'温柔饲养',thresholds:[30,300,3000]},trucks:{name:'配送达人',thresholds:[20,200,2000]},npcSales:{name:'集市好邻居',thresholds:[10,100,1000]},storageUpgrades:{name:'仓储管家',thresholds:[2,10,30]},landExpansions:{name:'开垦新地',thresholds:[1,8,24]},machineTypes:{name:'工坊收藏',thresholds:[3,8,12]},layoutSaves:{name:'庭院设计',thresholds:[1,10,50]},stageVictories:{name:'牧场故事',thresholds:[6,12,24]}
+};
+export const REWARD_DECORATIONS = {
+ decor_flag:{id:'decor_flag',name:'草田旗帜',footprint:[1,1]},decor_windmill:{id:'decor_windmill',name:'小风车',footprint:[1,1]},decor_memorial:{id:'decor_memorial',name:'地块纪念牌',footprint:[1,1]},decor_bridge:{id:'decor_bridge',name:'故事小桥',footprint:[2,1],walkable:true},
+ ...Object.fromEntries(Object.entries(ACHIEVEMENTS).flatMap(([key,c])=>c.thresholds.map((_,i)=>{const id=`badge_${key}_${i+1}`;return [id,{id,name:`${c.name} · ${['铜','银','金'][i]}徽章`,footprint:[1,1]}];})))
+};
+export const COSMETICS = {skin_coop:{id:'skin_coop',name:'鸡舍花纹',target:'chicken'},skin_sheep:{id:'skin_sheep',name:'羊圈花纹',target:'sheep'},background_1:{id:'background_1',name:'春田晨光'},background_2:{id:'background_2',name:'牧野星光'}};
+export function decorationConfig(id) { return DECORATIONS[id]||REWARD_DECORATIONS[id]||null; }
+// Independent development comparison switches; defaults are the shipped content.
+export const FARM_FEATURES = Object.freeze({farmLinkageEnabled:true,npcMarketEnabled:true,materialRewardsEnabled:true,constructionVouchersEnabled:true});
+export const ROADS = {road:{id:'road',name:'田园道路',coins:0,level:1,footprint:[1,1],footprintLayer:'ground',walkable:true,status:'ADAPTATION',adaptationReason:'Free decorative ground-layer paths implement the approved layout scope; no production effect or resale value.',contentVersion:CONTENT_VERSION}};

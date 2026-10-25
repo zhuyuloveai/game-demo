@@ -1,3 +1,4 @@
+import {FARM_TRACKS} from './farm-audio-manifest.mjs';
 import { getLevelConfig, getGameConfig, createGame, freeTiles, pick, undo, stash, shuffle, restore } from './engine.mjs';
 import { restoreProgress, recordWin, levelWindow, resumeLevel } from './progression.mjs';
 import { sheep, FACES, UI } from './icons.mjs';
@@ -152,7 +153,7 @@ function renderSeason() {
   const season = seasonForLevel(game.level);
   const activeSeason=view==='home'?farmTheme(homeScene):season;
   document.body.dataset.season = activeSeason.key;
-  music.setTrack(SEASON_TRACKS[storySeason||activeSeason.key]);
+  music.setTrack(view==='farm'?FARM_TRACKS[operatingFarmScene]:SEASON_TRACKS[storySeason||activeSeason.key]);
   $('season-name').textContent = season.name;
   document.querySelector('meta[name="theme-color"]').content = activeSeason.color;
   const path = `./assets/seasons/${season.key}.svg`;
@@ -405,7 +406,7 @@ $('music-volume').addEventListener('input', event => {
 document.addEventListener('click', event => {
   if (!event.target.closest('#music-player')) music.unlock();
   const button = event.target.closest('button');
-  if (button && !button.disabled && !button.closest('#board, #reserve, .tools, #music-player') && button.id !== 'sound') effects.play('button');
+  if (button && !button.disabled && !button.closest('#board, #reserve, .tools, #music-player, .farm-app, .farm-match') && button.id !== 'sound') effects.play('button');
 }, {capture:true});
 document.addEventListener('keydown', event => {
   if (['Enter', ' '].includes(event.key) && !event.target.closest('#music-player')) music.unlock();
@@ -445,6 +446,21 @@ function returnHome(){
   lastTick=performance.now();render();farmHome.focus();
   if(!farmHome.openReward())scheduleHomeStory(true);
 }
+let operatingFarm=null,openingOperatingFarm=false,operatingFarmScene='farm';
+async function enterOperatingFarm(){
+  if(openingOperatingFarm)return;
+  openingOperatingFarm=true;
+  clearTimeout(homeStoryTimer);farmHome.closePanels();closeDrawer();closeDialog();
+  try{
+    if(!operatingFarm){
+      const {createFarmRuntime}=await import('./farm-runtime.mjs');
+      operatingFarm=await createFarmRuntime({onExit:returnHome,onScene:scene=>{operatingFarmScene=scene;music.setTrack(FARM_TRACKS[scene]);},getAudioSettings:()=>({music:music.state.enabled,sound:soundOn}),getMusicVolume:()=>music.state.volume,onMusicVolumeChange:value=>{music.setVolume(value);write(`${STORAGE}-music-volume`,music.state.volume);},initialAudio:{music:music.state.enabled,sound:soundOn},onSoundChange:enabled=>{soundOn=enabled;effects.setEnabled(enabled);write(`${STORAGE}-sound`,enabled);renderSound();},onMusicChange:enabled=>{music.setEnabled(enabled);write(`${STORAGE}-music`,enabled);}});
+    }
+    finishPickMotion();save();view='farm';$('farm-home').hidden=true;document.querySelector('.game-card').hidden=true;
+    operatingFarm.open();
+  }catch(error){view='home';$('farm-home').hidden=false;document.body.dataset.view='home';renderSeason();toast(`农场暂时未打开：${error.message}`);console.error(error);}
+  finally{openingOperatingFarm=false;}
+}
 function enterGame(){
   clearTimeout(homeStoryTimer);
   farmHome.closePanels();view='game';document.body.dataset.view='game';$('farm-home').hidden=true;
@@ -460,7 +476,7 @@ function scheduleHomeStory(includeCompletion=false,delay=550){
   },delay);
 }
 farmHome=createFarmHome($('farm-home'),{
-  initialPage:homeScene,onContinue:enterGame,onMusic:()=>openDrawer('music'),onGesture:()=>music.unlock(),
+  initialPage:homeScene,onContinue:enterGame,onFarm:enterOperatingFarm,onMusic:()=>openDrawer('music'),onGesture:()=>music.unlock(),
   onSeen:value=>{farmSeen=value;write(`${STORAGE}-farm-seen`,value);},
   onReward:()=>scheduleHomeStory(true,1300),
   onJournal:tab=>{clearTimeout(homeStoryTimer);notebook.open(tab);},

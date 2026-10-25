@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QA 手机尺寸预览 · 羊羊牧场</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #e8eadf; color: #314833; font: 15px/1.5 system-ui, sans-serif; }
+  header { padding: 12px 20px; background: #fffdf2; border-bottom: 1px solid #b9c8af; }
+  h1 { font-size: 18px; margin: 0 0 6px; }
+  p { margin: 6px 0; max-width: 80ch; }
+  nav { display: flex; flex-wrap: wrap; gap: 8px; }
+  button { min-height: 44px; padding: 8px 14px; border: 1px solid #66865b; border-radius: 10px; background: #fffdf2; color: #314833; cursor: pointer; }
+  button[aria-pressed="true"] { background: #426e43; color: white; }
+  main { padding: 20px; width: max-content; min-width: 100%; }
+  iframe { display: block; border: 0; width: 360px; height: 640px; background: white; outline: 2px solid #66865b; }
+  output { display: block; margin: 0 0 12px; }
+</style>
+<header>
+  <h1>QA 手机尺寸预览（不随生产版本发布）</h1>
+  <p>同源真实应用，仅调整 iframe 的 CSS 视口。不会模拟手机 UA、触摸设备、DPR 或安全区。共享当前本机存档；测试前请退出其他游戏页，避免多页写入冲突。</p>
+  <nav aria-label="预览控制">
+    <button type="button" data-width="360" data-height="640" aria-pressed="true">360 × 640</button>
+    <button type="button" data-width="390" data-height="844" aria-pressed="false">390 × 844</button>
+    <button type="button" id="start">载入真实游戏</button>
+    <button type="button" id="unload">卸载预览</button>
+  </nav>
+</header>
+<main>
+  <output id="size" aria-live="polite">iframe 视口：360 × 640 CSS px · 尚未载入</output>
+  <iframe title="真实游戏手机尺寸预览" width="360" height="640"></iframe>
+</main>
+<script>
+  const frame = document.querySelector('iframe');
+  const output = document.querySelector('#size');
+  let width = 360, height = 640, loaded = false;
+  function updateLabel() {
+    output.textContent = `iframe 视口：${width} × ${height} CSS px · ${loaded ? '真实游戏已载入' : '尚未载入'}`;
+  }
+  for (const button of document.querySelectorAll('[data-width]')) {
+    button.addEventListener('click', () => {
+      width = Number(button.dataset.width); height = Number(button.dataset.height);
+      frame.style.width = `${width}px`; frame.style.height = `${height}px`;
+      frame.width = width; frame.height = height;
+      for (const option of document.querySelectorAll('[data-width]')) option.setAttribute('aria-pressed', String(option === button));
+      updateLabel();
+    });
+  }
+  document.querySelector('#start').addEventListener('click', () => {
+    if (loaded) return;
+    frame.src = '../index.html?qa=20261025-0250'; loaded = true; updateLabel();
+  });
+  document.querySelector('#unload').addEventListener('click', () => {
+    frame.src = 'about:blank'; loaded = false; updateLabel();
+  });
+</script>
+</html>

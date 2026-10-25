@@ -1,0 +1,226 @@
+// v0.4 targets. Kept separate from the unchanged endless campaign curve.
+export const FARM_STAGES = [
+  {
+    "stageId": "F01",
+    "tileCount": 24,
+    "layers": 1,
+    "types": 4,
+    "label": "草田旗帜",
+    "rewardId": "decor_flag",
+    "estimatedCoinValue": 0
+  },
+  {
+    "stageId": "F02",
+    "tileCount": 30,
+    "layers": 1,
+    "types": 5,
+    "label": "玉米5份",
+    "rewardId": "corn_5",
+    "estimatedCoinValue": 36
+  },
+  {
+    "stageId": "F03",
+    "tileCount": 36,
+    "layers": 2,
+    "types": 6,
+    "label": "金币30",
+    "rewardId": "coins_30",
+    "estimatedCoinValue": 30
+  },
+  {
+    "stageId": "F04",
+    "tileCount": 42,
+    "layers": 2,
+    "types": 6,
+    "label": "建设券1",
+    "rewardId": "voucher_1",
+    "estimatedCoinValue": 500
+  },
+  {
+    "stageId": "F05",
+    "tileCount": 48,
+    "layers": 2,
+    "types": 7,
+    "label": "鸡舍花纹外观",
+    "rewardId": "skin_coop",
+    "estimatedCoinValue": 0
+  },
+  {
+    "stageId": "F06",
+    "tileCount": 54,
+    "layers": 2,
+    "types": 7,
+    "label": "鸡领养抵扣券20金币",
+    "rewardId": "animal_credit_20",
+    "estimatedCoinValue": 20
+  },
+  {
+    "stageId": "F07",
+    "tileCount": 42,
+    "layers": 2,
+    "types": 6,
+    "label": "大豆5份",
+    "rewardId": "soybean_5",
+    "estimatedCoinValue": 54
+  },
+  {
+    "stageId": "F08",
+    "tileCount": 48,
+    "layers": 2,
+    "types": 7,
+    "label": "金币60",
+    "rewardId": "coins_60",
+    "estimatedCoinValue": 60
+  },
+  {
+    "stageId": "F09",
+    "tileCount": 54,
+    "layers": 3,
+    "types": 8,
+    "label": "建设券1",
+    "rewardId": "voucher_1",
+    "estimatedCoinValue": 500
+  },
+  {
+    "stageId": "F10",
+    "tileCount": 60,
+    "layers": 3,
+    "types": 8,
+    "label": "小风车装饰",
+    "rewardId": "decor_windmill",
+    "estimatedCoinValue": 0
+  },
+  {
+    "stageId": "F11",
+    "tileCount": 66,
+    "layers": 3,
+    "types": 9,
+    "label": "甘蔗5份",
+    "rewardId": "sugarcane_5",
+    "estimatedCoinValue": 72
+  },
+  {
+    "stageId": "F12",
+    "tileCount": 72,
+    "layers": 3,
+    "types": 9,
+    "label": "农场背景一和地块纪念牌",
+    "rewardId": "background_1",
+    "estimatedCoinValue": 0
+  },
+  {
+    "stageId": "F13",
+    "tileCount": 54,
+    "layers": 3,
+    "types": 8,
+    "label": "胡萝卜5份",
+    "rewardId": "carrot_5",
+    "estimatedCoinValue": 36
+  },
+  {
+    "stageId": "F14",
+    "tileCount": 60,
+    "layers": 3,
+    "types": 9,
+    "label": "建设券2",
+    "rewardId": "voucher_2",
+    "estimatedCoinValue": 1000
+  },
+  {
+    "stageId": "F15",
+    "tileCount": 66,
+    "layers": 3,
+    "types": 9,
+    "label": "金币100",
+    "rewardId": "coins_100",
+    "estimatedCoinValue": 100
+  },
+  {
+    "stageId": "F16",
+    "tileCount": 72,
+    "layers": 4,
+    "types": 10,
+    "label": "牛领养抵扣券50金币",
+    "rewardId": "animal_credit_50",
+    "estimatedCoinValue": 50
+  },
+  {
+    "stageId": "F17",
+    "tileCount": 78,
+    "layers": 4,
+    "types": 10,
+    "label": "靛蓝5份",
+    "rewardId": "indigo_5",
+    "estimatedCoinValue": 126
+  },
+  {
+    "stageId": "F18",
+    "tileCount": 84,
+    "layers": 4,
+    "types": 11,
+    "label": "园艺肥料1份",
+    "rewardId": "fertilizer_1",
+    "estimatedCoinValue": 100
+  },
+  {
+    "stageId": "F19",
+    "tileCount": 66,
+    "layers": 3,
+    "types": 9,
+    "label": "南瓜5份",
+    "rewardId": "pumpkin_5",
+    "estimatedCoinValue": 162
+  },
+  {
+    "stageId": "F20",
+    "tileCount": 72,
+    "layers": 4,
+    "types": 10,
+    "label": "建设券2",
+    "rewardId": "voucher_2",
+    "estimatedCoinValue": 1000
+  },
+  {
+    "stageId": "F21",
+    "tileCount": 78,
+    "layers": 4,
+    "types": 10,
+    "label": "金币150",
+    "rewardId": "coins_150",
+    "estimatedCoinValue": 150
+  },
+  {
+    "stageId": "F22",
+    "tileCount": 84,
+    "layers": 4,
+    "types": 11,
+    "label": "棉花5份",
+    "rewardId": "cotton_5",
+    "estimatedCoinValue": 144
+  },
+  {
+    "stageId": "F23",
+    "tileCount": 90,
+    "layers": 4,
+    "types": 11,
+    "label": "羊圈外观和小桥",
+    "rewardId": "skin_sheep",
+    "estimatedCoinValue": 0
+  },
+  {
+    "stageId": "F24",
+    "tileCount": 96,
+    "layers": 4,
+    "types": 12,
+    "label": "建设券2和农场背景二",
+    "rewardId": "voucher_2_background_2",
+    "estimatedCoinValue": 1000
+  }
+];
+export function farmStageConfig(index) {
+  const stage=FARM_STAGES[index];
+  if (!stage) throw new RangeError("Unknown farm stage");
+  const sizes=Array(stage.layers).fill(Math.floor(stage.tileCount/stage.layers));
+  for(let i=0;i<stage.tileCount%stage.layers;i++) sizes[i]++;
+  return {name:stage.stageId, subtitle:stage.label, count:stage.tileCount,kinds:stage.types,maxOpen:index<6?2:3,openChance:.4,layers:sizes.map(n=>[6,6,n])};
+}
