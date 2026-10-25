@@ -1,3 +1,4 @@
+import {mountDisplayControls} from './display-mode.mjs';
 import {FARM_TRACKS} from './farm-audio-manifest.mjs';
 import { getLevelConfig, getGameConfig, createGame, freeTiles, pick, undo, stash, shuffle, restore } from './engine.mjs';
 import { restoreProgress, recordWin, levelWindow, resumeLevel } from './progression.mjs';
@@ -13,6 +14,7 @@ import {createStoryNotebook} from './story-notebook.mjs';
 import {restoreStoryProgress,acknowledgeStory,acknowledgeCompletion,arrivalStory,completionStory} from './story-progress.mjs';
 
 const $ = id => document.getElementById(id);
+mountDisplayControls();
 const STORAGE = 'sheep-pasture-v1';
 const CAMPAIGN_STORAGE = `${STORAGE}-campaign`;
 const DAILY_LEVEL = 14;

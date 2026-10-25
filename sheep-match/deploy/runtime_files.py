@@ -6,6 +6,8 @@ BASE_FILES = {
     "index.html": "text/html",
     "style.css": "text/css",
     "app.mjs": "application/javascript",
+    "display-mode.mjs": "application/javascript",
+    "display-mode.css": "text/css",
     "engine.mjs": "application/javascript",
     "icons.mjs": "application/javascript",
     "progression.mjs": "application/javascript",

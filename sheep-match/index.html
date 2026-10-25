@@ -19,6 +19,7 @@
 
   <link rel="stylesheet" href="./farm-delight.css">
   <link rel="stylesheet" href="./farm-match.css">
+  <link rel="stylesheet" href="./display-mode.css">
 </head>
 <body data-season="spring" data-view="home">
   <main id="farm-home" class="farm-home" aria-label="我的牧场首页"></main>
@@ -62,6 +63,7 @@
       <div class="sound-row"><span>操作与消除音效<small>和背景音乐分别开关</small></span><button class="sound-toggle" id="sound" aria-label="关闭音效" aria-pressed="true"></button></div>
     </section>
     <section id="menu-panel" class="drawer-panel" aria-label="更多功能" hidden>
+      <button class="menu-item" type="button" data-display-open aria-haspopup="dialog"><span>⛶ 屏幕与方向<small>全屏显示与退出全屏</small></span><span aria-hidden="true">→</span></button>
       <button class="menu-item" id="daily" aria-pressed="false"><span>☀ 今日牧场<small>同一天，同一张地图</small></span><span aria-hidden="true">→</span></button>
       <button class="menu-item" id="help"><span>♡ 怎么玩<small>三个一组，快乐发生</small></span><span aria-hidden="true">→</span></button>
       <div class="menu-stats"><span>本局用时 <b id="timer">00:00</b></span><span>已通关 <b id="win-count">0</b> 次</span></div><p class="quiet" id="save-label">进度自动保存</p>
