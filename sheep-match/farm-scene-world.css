@@ -56,7 +56,7 @@ html.fw-document,html.fw-document>body{overflow:clip;overscroll-behavior:none}
 .fw-move-object{border:2px dashed #9769a8!important;background:#fff4d8!important;color:#64496c!important;min-height:44px}
 
 /* The same swipe affordance applies to crops, animal products and factory trays. */
-.fw-products button,.fw-tray button,.fw-tool,.fw-job{touch-action:none}.fw-products button.marked,.fw-tray button.marked{outline:3px solid #ddaa53;outline-offset:1px;filter:brightness(1.12)}.fw-queue.fw-drop-target{outline:2px dashed #b48848;outline-offset:3px;background:#ffedb9}
+.fw-root .fw-products button,.fw-root .fw-tray button,.fw-root .fw-tool,.fw-root .fw-job{touch-action:none}.fw-products button.marked,.fw-tray button.marked{outline:3px solid #ddaa53;outline-offset:1px;filter:brightness(1.12)}.fw-queue.fw-drop-target{outline:2px dashed #b48848;outline-offset:3px;background:#ffedb9}
 
 .fw-object-panel.fw-machine-panel{max-height:48%}.fw-machine-panel .fw-tray{margin:3px 0 7px}.fw-machine-panel .fw-tray:before{content:"完成品 · 划过收取";font:10px system-ui;color:#795d3d;margin-right:3px}
 @media(max-height:460px){.fw-object-panel.fw-machine-panel{max-height:65%}}
