@@ -1104,7 +1104,10 @@ function perform(state,c,events,skipped) {
       break;
     }
     case 'setSkin':{
-      const e=entity(state,c.entityId,'shelter'),skin=COSMETICS[c.skinId];
+      const e=entity(state,c.entityId,'shelter');
+      // Restoring an owned shelter's original appearance is presentation-only.
+      if(c.skinId===null){delete e.skinId;break;}
+      const skin=COSMETICS[c.skinId];
       requireThat(skin?.target===e.configId&&state.decorations[c.skinId],'LEVEL_LOCKED','尚未获得对应外观');
       e.skinId=c.skinId;
       break;

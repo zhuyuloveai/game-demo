@@ -1,6 +1,6 @@
 import {createFarmSoundEffects,farmMatchCue} from './farm-audio.mjs';
 import {createFarmStore} from './farm-save.mjs';
-import {mountFarm} from './farm-ui.mjs';
+import {mountFarm} from './farm-scene-host.mjs';
 import {mountFarmMatch} from './farm-match-ui.mjs';
 export async function createFarmRuntime({
     onExit,

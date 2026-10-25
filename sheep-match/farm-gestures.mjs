@@ -41,6 +41,54 @@ export function createFarmStroke(mode,itemId,point){
   if(!['plant','harvest','feed'].includes(mode))return null;
   return {mode,itemId,ids:[],seen:new Set(),last:point,active:true,cancelReason:null};
 }
+const isAnimalStroke=stroke=>['feedAnimal','collectAnimal'].includes(stroke?.mode);
+const isFinitePoint=point=>point&&Number.isFinite(point.x)&&Number.isFinite(point.y);
+
+/** Animal targets and pointer positions must use the same rendered coordinate space. */
+export function createFarmAnimalStroke(mode,entityId,point){
+  if(!isAnimalStroke({mode})||typeof entityId!=='string'||!entityId||!isFinitePoint(point))return null;
+  return {mode,entityId,itemId:null,ids:[],seen:new Set(),last:point,active:true,cancelReason:null};
+}
+
+/** Return the first segment/rectangle intersection, not a sampled approximation. */
+function animalSegmentEntry(from,to,rect){
+  if(!rect||![rect.left,rect.top,rect.right,rect.bottom].every(Number.isFinite)||rect.left>=rect.right||rect.top>=rect.bottom)return null;
+  let enter=0,exit=1;
+  for(const [start,end,min,max] of [[from.x,to.x,rect.left,rect.right],[from.y,to.y,rect.top,rect.bottom]]){
+    const delta=end-start;
+    if(!delta){
+      if(start<min||start>max)return null;
+      continue;
+    }
+    const a=(min-start)/delta,b=(max-start)/delta;
+    enter=Math.max(enter,Math.min(a,b));
+    exit=Math.min(exit,Math.max(a,b));
+    if(enter>exit)return null;
+  }
+  return enter;
+}
+
+export function extendFarmAnimalStroke(stroke,point,targets){
+  if(!stroke?.active||!isAnimalStroke(stroke))return stroke;
+  const from=stroke.last||point;
+  if(!isFinitePoint(from)||!isFinitePoint(point)||!Number.isFinite(point.x-from.x)||!Number.isFinite(point.y-from.y)){
+    cancelFarmStroke(stroke,'invalid-point');
+    return stroke;
+  }
+  const hits=[];
+  for(const target of Array.isArray(targets)?targets:[]){
+    if(target?.entityId!==stroke.entityId||typeof target.id!=='string'||!target.id||stroke.seen.has(target.id))continue;
+    const entry=animalSegmentEntry(from,point,target);
+    if(entry!==null)hits.push({id:target.id,entry});
+  }
+  hits.sort((a,b)=>a.entry-b.entry);
+  for(const {id} of hits)if(!stroke.seen.has(id)){
+    stroke.seen.add(id);
+    stroke.ids.push(id);
+  }
+  stroke.last=point;
+  return stroke;
+}
 export function extendFarmStroke(stroke,point,resolveCell){
   if(!stroke?.active)return stroke;
   for(const cell of traceFarmSegment(stroke.last||point,point)){
@@ -64,6 +112,11 @@ export function finishFarmStroke(stroke){
   if(!stroke?.active)return null;
   stroke.active=false;
   if(!stroke.ids.length)return null;
+  if(isAnimalStroke(stroke))return {
+    type:stroke.mode==='feedAnimal'?'feed':'collectAnimal',
+    entityId:stroke.entityId,
+    animalIds:[...stroke.ids]
+  };
   return {
     type:stroke.mode==='plant'?'plant':stroke.mode==='feed'?'feed':'harvest',
     entityIds:[...stroke.ids],
@@ -72,6 +125,31 @@ export function finishFarmStroke(stroke){
 }
 export function previewFarmStroke(state,stroke){
   if(!stroke?.active)return [];
+  if(isAnimalStroke(stroke)){
+    const shelter=state.entities.find(e=>e.id===stroke.entityId&&e.kind==='shelter');
+    const config=ANIMALS[shelter?.configId];
+    let feed=config?state.inventory[config.feedItem]||0:0;
+    let space=state.storage.barn.capacity-Object.entries(state.inventory).reduce((n,[id,q])=>n+(ITEMS[id]?.storage==='barn'?q:0),0);
+    return stroke.ids.map(id=>{
+      const result={id,entityId:stroke.entityId,animalId:id,valid:false,reason:'状态不符',quantity:0};
+      const animal=shelter?.animals.find(a=>a.id===id);
+      if(!animal)return {...result,reason:'目标已不存在'};
+      if(!config||!ANIMALS[animal.configId])return result;
+      if(stroke.mode==='feedAnimal'&&animal.status==='hungry'){
+        result.quantity=1;
+        result.valid=feed>=1;
+        result.reason=result.valid?'可喂养':'饲料不足';
+        if(result.valid)feed--;
+      }
+      if(stroke.mode==='collectAnimal'&&animal.status==='ready'){
+        result.quantity=1;
+        result.valid=space>=1;
+        result.reason=result.valid?'可收取':'货仓空间不足';
+        if(result.valid)space--;
+      }
+      return result;
+    });
+  }
   let seeds=state.inventory[stroke.itemId]||0;
   const used=Object.entries(state.inventory).reduce((n,[id,q])=>n+(ITEMS[id]?.storage==='silo'?q:0),0);
   let space=state.storage.silo.capacity-used;

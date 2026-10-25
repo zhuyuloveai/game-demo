@@ -42,7 +42,7 @@ BASE_FILES = {
        for season in ("spring", "summer", "autumn", "winter")},
 }
 
-NEW_MODULES = ('farm-assets','farm-config','farm-core','farm-layout','farm-linkage','farm-match-ui','farm-runtime','farm-save','farm-stage-data','farm-stage-layouts','farm-ui','farm-gestures','farm-visuals','farm-audio','farm-audio-manifest','farm-delight')
+NEW_MODULES = ('farm-assets','farm-config','farm-core','farm-layout','farm-linkage','farm-match-ui','farm-runtime','farm-save','farm-stage-data','farm-stage-layouts','farm-ui','farm-gestures','farm-visuals','farm-audio','farm-audio-manifest','farm-delight','farm-scene-host','farm-scene-world','farm-scene-trade','farm-scene-management')
 MIME = {'.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.css':'text/css','.mjs':'application/javascript','.js':'application/javascript','.json':'application/json','.m4a':('audio/mp4','audio/x-m4a'),'.wav':('audio/wav','audio/x-wav'),'.md':'text/plain','.txt':'text/plain'}
 def expected_runtime(root):
     files = dict(BASE_FILES)
@@ -50,6 +50,7 @@ def expected_runtime(root):
     files.update({name:('audio/mp4','audio/x-m4a') for name in ('media/farm-life.m4a','media/farm-match.m4a')})
     for cue in ('plant','harvest','feed','product-ready','coin','button','soft-error','upgrade','first-clear','water','animal','tile-pick','tile-match','combo'):
         files[f'media/farm-sfx/{cue}.wav']=('audio/wav','audio/x-wav')
+    files.update({f'farm-scene-{name}.css':'text/css' for name in ('host','world','trade','management')})
     files.update({'farm-ui.css':'text/css','farm-match.css':'text/css','farm-delight.css':'text/css'})
     manifest = json.loads((root/'assets/farm/manifest.json').read_text())
     assert manifest['logicalGridSize'] == 48
