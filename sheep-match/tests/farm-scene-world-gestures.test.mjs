@@ -150,3 +150,20 @@ test('scene economic previews use the original core but never mutate current cha
   assert.equal(invalid.ok, false);
   assert.deepEqual(state, before);
 });
+
+test('direct world swipe intent follows the initial object and never changes action midway',async()=>{
+ const C=await import('../farm-config.mjs');let state=createFarm(0);const f=state.entities.find(e=>e.kind==='field'),s=state.entities.find(e=>e.kind==='shelter'),a=s.animals[0];
+ assert.equal(H.directWorldTool(f,null,null,state,C),null);
+ assert.deepEqual(H.directWorldTool(f,null,'wheat',state,C),{action:'plant',entityId:f.id,itemId:'wheat'});
+ f.crop={itemId:'wheat',readyAt:0};assert.equal(H.directWorldTool(f,null,'wheat',state,C).action,'harvest');
+ assert.equal(H.directWorldTool(f,null,'wheat',state,C,true),null);f.crop.readyAt=1;assert.equal(H.directWorldTool(f,null,'wheat',state,C),null);
+ assert.equal(H.directWorldTool(s,a.id,null,state,C).action,'feed');state.inventory.chicken_feed=0;assert.equal(H.directWorldTool(s,a.id,null,state,C),null);
+ a.status='ready';assert.equal(H.directWorldTool(s,a.id,null,state,C).action,'collectAnimal');
+ assert.equal(H.directWorldTool({id:'tree',kind:'fruit',configId:'apple',status:'ready'},null,null,state,C).action,'harvest');
+});
+
+test('factory product sweep collects exact job IDs once from its own machine',()=>{
+ const s=H.createStroke({action:'collectMachine',entityId:'bakery'}, {x:0,y:4});const targets=[rect('j1',0,0,'bakery'),rect('other',10,0,'dairy'),rect('j2',20,0,'bakery'),rect('j1',30,0,'bakery')];
+ H.extendStroke(s,{x:40,y:4},targets);H.extendStroke(s,{x:0,y:4},targets);
+ assert.deepEqual(H.finishStroke(s),{type:'collectMachine',entityId:'bakery',jobIds:['j1','j2']});assert.equal(H.finishStroke(s),null);
+});
