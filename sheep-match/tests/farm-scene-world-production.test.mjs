@@ -28,9 +28,9 @@ test('empty field and seed taps only select a tool and never spend seeds',()=>{
  const t=scene(),initial=clone(t.state);t.open('field_1');t.tap({action:'plant',itemId:'wheat',entityId:'field_1'});t.open('field_2');
  assert.equal(t.commands.length,0);assert.deepEqual(t.state,initial);assert.equal(t.snapshot().chosenSeed,'wheat');
 });
-test('mature crop first tap selects, second tap harvests exactly one; edit activation never collects',()=>{
+test('mature crop first tap harvests exactly once; repeated taps and edit activation never duplicate',()=>{
  let s=run(core.createFarm(0),{type:'plant',entityIds:['field_1','field_2'],itemId:'wheat'});s=core.advanceFarm(s,120000).state;
- const t=scene(s);t.edit({});t.open('field_1');assert.equal(t.commands.length,0);t.edit(null);t.open('field_1');assert.equal(t.commands.length,0);t.open('field_1');
+ const t=scene(s);t.edit({});t.open('field_1');assert.equal(t.commands.length,0);t.edit(null);t.open('field_1');assert.equal(t.commands.length,1);t.open('field_1');
  assert.deepEqual(t.commands,[{type:'harvest',entityIds:['field_1']}]);assert.equal(t.state.entities.find(e=>e.id==='field_1').crop,null);assert(t.state.entities.find(e=>e.id==='field_2').crop);
 });
 test('hungry and ready animal activation only selects, including repeated taps and tool taps',()=>{
@@ -83,7 +83,7 @@ test('layout autosave/restore uses original durable draft namespace and clears s
 });
 test('world layout saves each completed change and undo/redo, preserves declined recovery on exit, gates voucher affordances',()=>{
  assert.match(source,/ctx\.store\?\.saveDraft\?\.\(draft\)/);assert.match(source,/ctx\.store\?\.loadDraft/);assert.match(source,/ctx\.store\?\.clearDraft/);
- assert.match(source,/if\(!draft\|\|preserveStoredDraft\)return/);assert.match(source,/draft.positions=undo.pop\(\);persistLayoutDraft\(\)/);assert.match(source,/draft.positions=redo.pop\(\);persistLayoutDraft\(\)/);
+ assert.match(source,/if\(!draft\|\|preserveStoredDraft\|\|growthPreview\)return/);assert.match(source,/draft.positions=undo.pop\(\);persistLayoutDraft\(\)/);assert.match(source,/draft.positions=redo.pop\(\);persistLayoutDraft\(\)/);
  assert.match(source,/constructionVouchersEnabled!==false/);assert.match(source,/扩槽功能关闭/);assert.match(source,/vouchersEnabled\(\)&&e.slots<9\?'':'disabled'/);
 });
 test('last-seed recipe rejection offers a single explicit per-command override and cancel is resource-neutral',()=>{

@@ -1,6 +1,7 @@
 /** Pure, transactional farm economy. Time is logical milliseconds; no storage or UI side effects. */
 import {FARM_CONFIG,FARM_FEATURES,CONTENT_VERSION,SCHEMA_VERSION,CROPS,FRUITS,ANIMALS,BUILDINGS,RECIPES,ITEMS,TOOLS,DECORATIONS,ROADS,STORAGE_MATERIALS,LAND_MATERIALS,CLEARING_TOOLS,COSMETICS,decorationConfig,FARM_ERRORS,fieldAllowance,levelForXp,storageCapacity} from './farm-config.mjs';
 import {validateLayout,applyLayout} from './farm-layout.mjs';
+import {previewGrowthLayout,suggestGrowthPlacement,planGrowthRoads,growthRoadEntities} from './farm-growth-layouts.mjs';
 import {startFarmStage,actFarmStage} from './farm-linkage.mjs';
 const DAY=86400000, SIX_HOURS=21600000;
 const clone = value => structuredClone(value);
@@ -189,6 +190,9 @@ export function createFarm(now=Date.now(),options={}) {
     ;i<6;i++) state.entities.push(makeEntity(`field_${i+1}`,'field','field',28+i%3,28+Math.floor(i/3),1,1,{crop:null}));
   state.entities.push(makeEntity('shelter_chicken_1','shelter','chicken',34,24,4,4,{tier:0,animals:[animalInstance(state,'chicken'),animalInstance(state,'chicken'),animalInstance(state,'chicken')]}));
   for(const [id,configId,x,y] of [['natural_tree_1','natural_tree',18,36],['natural_bush_1','natural_bush',20,36],['rock_1','rock',40,40],['rock_2','rock',41,40],['rock_3','rock',40,41]]) state.entities.push(makeEntity(id,'obstacle',configId,x,y,1,1,{fixed:true}));
+  // Only creation adopts the authored blueprint; existing saves are never migrated spatially.
+  const growth=previewGrowthLayout(state);
+  if(growth.ok){const positions=new Map(growth.positions.map(p=>[p.id,p]));state.entities=state.entities.map(e=>({...e,...positions.get(e.id)}));state.entities.push(...growthRoadEntities(state,growth.proposedRoads));}
   refreshSupplies(state);
   return state;
 }
@@ -502,7 +506,8 @@ function purchase(state,c) {
     return;
   }
   requireThat(quantity===1,'INVALID_COMMAND','设施请逐个选择位置');
-  requireThat(integer(c.x)&&integer(c.y),'SPACE_BLOCKED');
+  const automaticPosition=c.x===undefined&&c.y===undefined;
+  requireThat(automaticPosition||(integer(c.x)&&integer(c.y)),'SPACE_BLOCKED');
   const rot=c.rotation||0;
   let e;
   if(category==='road') {
@@ -552,7 +557,18 @@ function purchase(state,c) {
     state.decorations[id]=(state.decorations[id]||0)+1;
   } else fail('INVALID_COMMAND','未知商店分类');
   e.rotation=rot;
+  if(automaticPosition){const p=suggestGrowthPlacement(state,e);requireThat(p,'SPACE_BLOCKED');Object.assign(e,p);}
+  // Only the explicit suggested-placement flow grows roads; custom placements do not.
+  const suggested=c.growthPlacement===true?suggestGrowthPlacement(state,e):null;
+  if(c.growthPlacement===true)requireThat(suggested&&suggested.x===e.x&&suggested.y===e.y,'SPACE_BLOCKED','推荐位置已改变，请重新预览');
   place(state,e);
+  if((automaticPosition||c.growthPlacement===true)&&['machine','shelter','field','fruit'].includes(e.kind)){
+    const paths=planGrowthRoads(state);requireThat(paths.ok,'SPACE_BLOCKED',paths.errors[0]?.message);
+    const roads=growthRoadEntities(state,paths.proposedRoads);
+    // Preserve the purchased entity as the final entry for existing caller contracts.
+    state.entities.splice(state.entities.length-1,0,...roads);
+    requireThat(validateLayout(state).ok,'SPACE_BLOCKED');
+  }
 }
 function harvestOne(state,id) {
   const e=entity(state,id);
@@ -1068,6 +1084,17 @@ function perform(state,c,events,skipped) {
     case 'clearObstacle':
     clearObstacle(state,c);
     break;
+    case 'adoptGrowthLayout':{
+      const plan=previewGrowthLayout(state);
+      requireThat(plan.ok,'SPACE_BLOCKED',plan.errors[0]?.message);
+      requireThat(typeof c.expectedSignature==='string'&&c.expectedSignature===plan.signature,'SPACE_BLOCKED','布局已变化，请重新预览成长方案');
+      const result=applyLayout(state,plan.positions);requireThat(result.ok,'SPACE_BLOCKED',result.errors[0]?.message);
+      const roads=growthRoadEntities(result.state,plan.proposedRoads);
+      result.state.entities.push(...roads);requireThat(validateLayout(result.state).ok,'SPACE_BLOCKED');
+      state.entities=result.state.entities;state.layoutRevision=result.state.layoutRevision;
+      bump(state,'layoutSaves');
+      break;
+    }
     case 'applyLayout':{
       const result=applyLayout(state,c.positions||c.draft);
       requireThat(result.ok,'SPACE_BLOCKED',result.errors?.[0]?.message);

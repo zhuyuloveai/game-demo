@@ -11,7 +11,7 @@ function controls(targetId){
  const state=createFarm(1000),draft=layout.beginLayout(state),calls={renders:0,fullRenders:0,captures:[],messages:[]};
  const node={dataset:{entity:targetId}},world={},map={};
  const target={closest(selector){return selector==='[data-entity]'||selector==='button'?node:selector==='.fw-world'?world:selector==='.fw-map'?map:null;}};
- const env={draft,selected:'barn',selectedAnimal:null,gesture:null,placement:null,pointers:new Map(),longPressTimer:0,
+ const env={growthPreview:null,draft,selected:'barn',selectedAnimal:null,gesture:null,placement:null,pointers:new Map(),longPressTimer:0,
   ctx:{layout,say:text=>calls.messages.push(text)},entity:id=>state.entities.find(e=>e.id===id),
   point:e=>({x:e.clientX,y:e.clientY}),worldPoint:p=>p,clone:structuredClone,actualUI:()=>false,
   within:(p,r)=>p.x>=r.left&&p.x<=r.right&&p.y>=r.top&&p.y<=r.bottom,

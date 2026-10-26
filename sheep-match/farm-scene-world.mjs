@@ -1,3 +1,7 @@
+import {resolveTerrainArt,isWoodFence} from './farm-runtime-terrain.mjs';
+import {resolveWorldArt,renderRuntimeArt,runtimeArtHit} from './farm-runtime-art.mjs';
+import {suggestGrowthPlacement,previewGrowthLayout,farmGrowthStage} from './farm-growth-layouts.mjs';
+import {project,unproject,footprintPolygon,polygonBounds,pointInPolygon,segmentPolygon,depth,groundRect,spriteRect,overlaps,topmostHit,fitOverview} from './farm-world-geometry.mjs';
 /** Persistent farm world: renders real store state; every economy change goes through ctx.act. */
   const TILE = 48;
   const CROP_FILES = { wheat:'c01-wheat',corn:'c02-corn',soybean:'c03-soybean',sugarcane:'c04-sugarcane',carrot:'c05-carrot',indigo:'c06-indigo',pumpkin:'c07-pumpkin',cotton:'c08-cotton',chili_pepper:'c09-pepper',black_bean:'c10-blackbean',tomato:'c11-tomato' };
@@ -11,11 +15,13 @@
     const dx=b.x-a.x,dy=b.y-a.y;
     return targets.map((r,index)=>{
       if (![r.left,r.top,r.right,r.bottom].every(Number.isFinite)||r.right<=r.left||r.bottom<=r.top) return null;
+      if(r.polygon){const t=segmentPolygon(a,b,r.polygon);return t===null?null:{r,index,t};}
       let lo=0,hi=1;
       for (const [p,q] of [[-dx,a.x-r.left],[dx,r.right-a.x],[-dy,a.y-r.top],[dy,r.bottom-a.y]]) {
         if (!p) { if(q<0)return null; continue; }
         const t=q/p; if(p<0)lo=Math.max(lo,t);else hi=Math.min(hi,t); if(lo>hi)return null;
       }
+      if(r.acceptPoint){let first=null;const samples=Math.max(1,Math.ceil(Math.hypot(dx,dy)*(hi-lo)/3));for(let i=0;i<=samples;i++){const t=lo+(hi-lo)*i/samples;if(r.acceptPoint({x:a.x+dx*t,y:a.y+dy*t})){first=t;break;}}if(first===null)return null;lo=first;}
       return {r,index,t:lo};
     }).filter(Boolean).sort((a,b)=>a.t-b.t||a.index-b.index).map(h=>h.r);
   }
@@ -66,6 +72,8 @@
     return {focused:!!active&&selected.id===e.id,muted:!!active&&selected.id!==e.id,showBadge:!active||selected.id===e.id,showProducts:!active||selected.id===e.id};
   }
   function machineTrayPlacement(e,footprint){const available=footprint.w*TILE,height=52,slots=Math.min(e.completed?.length||1,Math.max(1,Math.floor((available-6)/46))),width=slots*46+6;return {x:e.x*TILE+(available-width)/2,y:(e.y+footprint.h)*TILE-height,width,height,slots};}
+
+  function projectedMachineTray(e,f){const p=project(e.x+f.w/2,e.y+f.h),slots=Math.min(e.completed?.length||1,Math.max(1,Math.floor((f.w+f.h)*24/46))),width=slots*46+6;return {x:p.x-width/2,y:p.y-32,width,height:44,slots};}
   function directCropHarvestCommand(e,now,editing=false){
     return !editing&&e?.kind==='field'&&e.crop&&e.crop.readyAt<=now?{type:'harvest',entityIds:[e.id]}:null;
   }
@@ -98,20 +106,25 @@ export function recoverWorldLayoutDraft(state,saved,layout){
   const check=layout.validateLayout(state,positions);if(!check.ok)return {ok:false,message:'上次草稿暂不能恢复：'+(check.errors[0]?.message||'物件或位置已变化')};
   return {ok:true,draft:{...current,positions}};
 }
+/** Project the original square ground artwork, not its bounding rectangle. */
+export function renderProjectedGround(src,alt='',className=''){
+  const safe=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  return `<svg class="fw-ground-art ${safe(className)}" viewBox="0 0 48 24" role="img" aria-label="${safe(alt)}" xmlns="http://www.w3.org/2000/svg"><image href="${safe(src)}" width="48" height="48" transform="matrix(.5 .25 -.5 .25 24 0)"/></svg>`;
+}
 export function mountWorldScene(ctx) {
     const id=ctx.id||'P01';
     const root=ctx.root,doc=ctx.doc||root.ownerDocument,win=ctx.win||doc.defaultView;
     const esc=ctx.esc||((s)=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])));
     const config=ctx.config;let destroyed=false,selected=null,selectedAnimal=null,more=false,localPage=null,seedPage=0,recipePage=0;
     let camera={x:0,y:0,zoom:1},cameraReady=false,viewSize={w:0,h:0},focusAnchor=null,resizeRaf=0,gesture=null,pointers=new Map(),pinch=null,edgeRaf=0,edgeStamp=0,draft=null,undo=[],redo=[],placement=null,clearPreview=null,activeJob=null;
-    let preserveStoredDraft=false,pendingRecipe=null,chosenSeed=null,lastFieldTap=null;
+    let preserveStoredDraft=false,pendingRecipe=null,chosenSeed=null,lastFieldTap=null,harvestView=false,cameraSaveTimer=0,growthPreview=null;
     const listeners=[];
     root.classList.add('fw-root');
     const ownsDocument=root.parentElement===doc.body;
     if(ownsDocument)doc.documentElement?.classList.add('fw-document');
-    root.innerHTML=`<section class="fw-game" aria-label="${esc(CHAPTERS[id])}"><div class="fw-map" tabindex="0" aria-label="农场地图。拖动地图；点对象选工具，再拖工具连续操作；双击成熟田收一格；更多菜单进入布置"><div class="fw-world"></div></div><div class="fw-corners"></div><div class="fw-context"></div><div class="fw-local"></div><div class="fw-transaction"></div><div class="fw-stroke-note" role="status" aria-live="polite" hidden></div><div class="fw-cursor" aria-hidden="true" hidden></div></section>`;
+    root.innerHTML=`<section class="fw-game" aria-label="${esc(CHAPTERS[id])}"><div class="fw-map" tabindex="0" aria-label="农场地图。拖动地图；点对象选工具，再拖工具连续操作；点击成熟田收一格；农田透视可找到被遮挡的成熟田；更多菜单进入布置"><div class="fw-world"></div></div><div class="fw-corners"></div><div class="fw-context"></div><div class="fw-local"></div><div class="fw-transaction"></div><div class="fw-stroke-note" role="status" aria-live="polite" hidden></div><div class="fw-cursor" aria-hidden="true" hidden></div></section>`;
     const game=root.querySelector('.fw-game'),view=root.querySelector('.fw-map'),world=root.querySelector('.fw-world'),corners=root.querySelector('.fw-corners'),context=root.querySelector('.fw-context'),local=root.querySelector('.fw-local'),transaction=root.querySelector('.fw-transaction'),note=root.querySelector('.fw-stroke-note'),cursor=root.querySelector('.fw-cursor');
-    world.style.backgroundImage=`url("${ctx.asset('terrain/grass-0.svg')}")`;
+    world.style.backgroundImage="none";
     function on(el,event,fn,options){el.addEventListener(event,fn,options);listeners.push(()=>el.removeEventListener(event,fn,options));}
     function vouchersEnabled(){return ctx.state.features?.constructionVouchersEnabled!==false;}
     function entity(id){return ctx.state.entities.find(e=>e.id===id);}
@@ -132,10 +145,29 @@ export function mountWorldScene(ctx) {
       if(e.kind==='decoration')return `decor/${({sign:'wood-sign',flowerpot:'flower-pot',haystack:'hay-bales',stone_stool:'stone-seat',flagpole:'flag',flower_fence:'flower-fence',wood_fence:'wood-fence',water_trough:'trough',flowerbed:'flower-bed',statue:'stone-statue',picnic_mat:'picnic',decor_flag:'meadow-banner',decor_windmill:'festival-windmill',decor_memorial:'land-memorial',decor_bridge:'reward-bridge'})[e.configId]||e.configId}.svg`;
       return `buildings/${BUILDING_FILES[e.configId]||BUILDING_FILES[e.kind]||'Farmhouse'}.svg`;
     }
-    function art(e,cls=''){const path=entityArt(e);if(e.kind==='field'&&e.crop)return image('terrain/field-empty.svg','',cls+' fw-field-soil')+image(path,title(e),cls+' fw-crop-overlay');return path?image(path,title(e),cls):`<img class="${cls}" src="${ctx.art?ctx.art(e.configId):ctx.asset('ui/info.svg')}" alt="${esc(title(e))}" draggable="false">`;}
-    function animalArt(a){return image(`animals/${a.configId}/front/${a.status==='producing'?'producing':a.status==='ready'?'ready':'idle'}_00.svg`,name(a.configId),'fw-animal-art');}
-    function effectiveEntities(){return ctx.state.entities.map(e=>draft?{...e,...draft.positions.find(p=>p.id===e.id)}:e);}
-    function rectStyle(e){const f=ctx.layout.getFootprint(e);return `left:${e.x*TILE}px;top:${e.y*TILE}px;width:${f.w*TILE}px;height:${f.h*TILE}px;z-index:${Math.round((e.y+f.h)*10)}`;}
+    function fieldSoil(e){const terrain=resolveTerrainArt(e,[],ctx.state),g=groundRect(e,ctx.layout.getFootprint(e)),r=visualRect(e),height=g.width*terrain.height/terrain.width;return `<img class="fw-terrain-soil" src="${esc(terrain.src)}" alt="" aria-hidden="true" draggable="false" style="left:${g.left-r.left}px;top:${(g.top+g.bottom)/2-height/2-r.top}px;width:${g.width}px;height:${height}px">`;}
+    function art(e,cls=''){
+      if(e.kind==='road'||isWoodFence(e)){const terrain=resolveTerrainArt(e,effectiveEntities(),ctx.state);fallbackArtHit(e,.5,.5);return `<img class="fw-terrain-art ${esc(cls)}" src="${esc(terrain.src)}" alt="${esc(title(e))}" draggable="false">`;}
+      if(e.kind==='field'&&!e.crop)return fieldSoil(e);
+      const runtime=resolveWorldArt(e,ctx.state.now);
+      if(runtime)return (e.kind==='field'?fieldSoil(e):'')+renderRuntimeArt(runtime,{className:cls,alt:title(e)});
+      const path=entityArt(e);fallbackArtHit(e,.5,.5);
+      if(e.kind==='field'&&e.crop)return fieldSoil(e)+image(path,title(e),cls+' fw-crop-overlay');
+      return path?image(path,title(e),cls):`<img class="${cls}" src="${ctx.art?ctx.art(e.configId):ctx.asset('ui/info.svg')}" alt="${esc(title(e))}" draggable="false">`;
+    }
+    function animalArt(a){const runtime=resolveWorldArt({...a,kind:'animal'},ctx.state.now);if(runtime)return renderRuntimeArt(runtime,{className:'fw-animal-art',alt:name(a.configId)});return image(`animals/${a.configId}/front/${a.status==='producing'?'producing':a.status==='ready'?'ready':'idle'}_00.svg`,name(a.configId),'fw-animal-art');}
+    function effectiveEntities(){const rows=ctx.state.entities.map(e=>draft?{...e,...draft.positions.find(p=>p.id===e.id)}:e);if(growthPreview)rows.push(...growthPreview.plan.proposedRoads.map((p,i)=>({id:`__growth_road_${i}`,kind:'road',configId:'road',w:1,h:1,rotation:0,stored:false,previewOnly:true,...p})));return rows;}
+    function visualRect(e){
+      const f=ctx.layout.getFootprint(e),meta=resolveWorldArt(e,ctx.state.now),r=spriteRect(e,f,meta?.aspect||1);
+      if(isWoodFence(e)){const t=resolveTerrainArt(e),p=project(e.x+f.w/2,e.y+f.h/2);r.height=r.width*t.height/t.width;r.top=p.y-t.anchor[1]/t.height*r.height;return r;}
+      const scale=(meta?.scale||1)*(['house','barn','silo','machine','shelter','fruit'].includes(e.kind)?e.kind==='shelter'?.9:.82:1);
+      r.left+=r.width*(1-scale)/2;r.top+=r.height*(1-scale);r.width*=scale;r.height*=scale;return r;
+    }
+    function rectStyle(e){const r=visualRect(e);return `left:${r.left}px;top:${r.top}px;width:${r.width}px;height:${r.height}px;z-index:${r.depth}`;}
+    function groundStyle(e){const r=groundRect(e,ctx.layout.getFootprint(e)),points=r.polygon.map(p=>`${(p.x-r.left)/r.width*100}% ${(p.y-r.top)/r.height*100}%`).join(',');return `left:${r.left}px;top:${r.top}px;width:${r.width}px;height:${r.height}px;clip-path:polygon(${points})`;}
+    function screenPolygon(e){const r=view.getBoundingClientRect();return footprintPolygon(e,ctx.layout.getFootprint(e)).map(p=>({x:r.left+camera.x+p.x*camera.zoom,y:r.top+camera.y+p.y*camera.zoom}));}
+    function harvestTargets(){return effectiveEntities().filter(e=>!e.stored&&directCropHarvestCommand(e,ctx.state.now));}
+    function fadedIds(entities){if(!harvestView||draft||placement)return new Set();const targets=harvestTargets();return new Set(entities.filter(e=>e.kind!=='field'&&targets.some(t=>{const a=visualRect(e),b=groundRect(t,ctx.layout.getFootprint(t));return (depth(e,ctx.layout.getFootprint(e))>depth(t,ctx.layout.getFootprint(t))||(depth(e,ctx.layout.getFootprint(e))===depth(t,ctx.layout.getFootprint(t))&&entities.indexOf(e)>entities.findIndex(row=>row.id===t.id)))&&overlaps({...a,right:a.left+a.width,bottom:a.top+a.height},b);})).map(e=>e.id));}
     function stateBadge(e){
       if(e.kind==='field')return e.crop?(e.crop.readyAt<=ctx.state.now?'✓':remaining(e.crop.readyAt)):'';
       if(e.kind==='fruit')return ({ready:'果熟了',revive:'待复苏',withered:'待清理'})[e.status]||remaining(e.readyAt);
@@ -147,36 +179,38 @@ export function mountWorldScene(ctx) {
       const focused=doc.activeElement?.dataset?.entity;
       const entities=effectiveEntities().filter(e=>!e.stored),layoutCheck=draft?draftCheck():null;
       world.classList.toggle('fw-layout-world',!!draft);
-      let html=`<div class="fw-owned" style="left:768px;top:768px;width:1536px;height:1536px"></div>`;
-      if(id==='P12')for(const p of ctx.layout.LAND_PATCHES){const open=ctx.state.openedLand.includes(p.id),check=ctx.layout.canExpandLand(ctx.state,p.id);html+=`<button class="fw-land ${open?'opened':check.ok?'available':'locked'} ${selected===p.id?'selected':''}" data-land="${p.id}" style="left:${p.x*TILE}px;top:${p.y*TILE}px;width:${p.w*TILE}px;height:${p.h*TILE}px" aria-label="${p.id} ${open?'已开放':check.ok?'可以开垦':'暂不能开垦'}">${open?'已开垦':check.ok?'点选这块土地':'未开放'}</button>`;}
+      const faded=fadedIds(entities);game.classList.toggle('fw-harvest-view',harvestView);
+      let html=`<div class="fw-owned" style="${groundStyle({x:16,y:16,w:32,h:32})}"></div>`;
+      if(id==='P12')for(const p of ctx.layout.LAND_PATCHES){const open=ctx.state.openedLand.includes(p.id),check=ctx.layout.canExpandLand(ctx.state,p.id);html+=`<button class="fw-land ${open?'opened':check.ok?'available':'locked'} ${selected===p.id?'selected':''}" data-land="${p.id}" style="${groundStyle(p)}" aria-label="${p.id} ${open?'已开放':check.ok?'可以开垦':'暂不能开垦'}">${open?'已开垦':check.ok?'点选这块土地':'未开放'}</button>`;}
       for(const e of entities){
         const presentation=worldScenePresentation(id,selectedEntity(),e),badge=presentation.showBadge?stateBadge(e):'',marked=gesture?.stroke?.seen.has(e.id)||clearPreview?.ids.includes(e.id);
-        html+=`<button class="fw-entity fw-${e.kind} ${selected===e.id?'selected':''} ${marked?'marked':''} ${draft?'editing':''} ${draft&&ctx.layout.isFixedEntity(e)?'fw-layout-fixed':''} ${draft&&selected===e.id&&!layoutCheck.ok?'fw-invalid-position':''} ${presentation.focused?'fw-focused-entity':''} ${presentation.muted?'fw-muted-neighbor':''}" data-entity="${e.id}" style="${rectStyle(e)}${presentation.focused?';z-index:800':''}" aria-label="${esc(title(e))}${draft?ctx.layout.isFixedEntity(e)?'，固定建筑，不能移动':'，拖动布置，完成后保存':badge?'，'+esc(badge):''}">${art(e,'fw-entity-art')}${draft&&selected===e.id?`<span class="fw-drag-handle" aria-hidden="true">${ctx.layout.isFixedEntity(e)?'固定':'✥ 拖动'}</span>`:''}${badge?`<span class="fw-badge">${esc(badge)}</span>`:''}${e.kind==='machine'&&!e.built?image('terrain/construction-scaffold.svg','','fw-scaffold'):''}</button>`;
+        html+=`<button class="fw-entity fw-${e.kind} ${faded.has(e.id)?'fw-occluder-faded':''} ${harvestView&&directCropHarvestCommand(e,ctx.state.now)?'fw-harvest-target':''} ${selected===e.id?'selected':''} ${marked?'marked':''} ${draft?'editing':''} ${draft&&ctx.layout.isFixedEntity(e)?'fw-layout-fixed':''} ${draft&&selected===e.id&&!layoutCheck.ok?'fw-invalid-position':''} ${presentation.focused?'fw-focused-entity':''} ${presentation.muted?'fw-muted-neighbor':''}" data-entity="${e.id}" style="${rectStyle(e)}" aria-label="${esc(title(e))}${draft?ctx.layout.isFixedEntity(e)?'，固定建筑，不能移动':'，拖动布置，完成后保存':badge?'，'+esc(badge):''}"><span class="fw-ground-mark" style="${groundStyle(e)};left:${groundRect(e,ctx.layout.getFootprint(e)).left-visualRect(e).left}px;top:${groundRect(e,ctx.layout.getFootprint(e)).top-visualRect(e).top}px"></span>${art(e,'fw-entity-art')}${draft&&selected===e.id?`<span class="fw-drag-handle" aria-hidden="true">${ctx.layout.isFixedEntity(e)?'固定':'✥ 拖动'}</span>`:''}${badge?`<span class="fw-badge">${esc(badge)}</span>`:''}${e.kind==='machine'&&!e.built?image('terrain/construction-scaffold.svg','','fw-scaffold'):''}</button>`;
         if(e.kind==='shelter'){
-          const f=ctx.layout.getFootprint(e),cols=3,space=f.w*TILE/cols;
-          (e.animals||[]).forEach((a,i)=>{const ax=e.x*TILE+(i%cols)*space,ay=e.y*TILE+f.h*TILE*.48+Math.floor(i/cols)*space*.75;html+=`<button class="fw-animal ${presentation.muted?'fw-muted-neighbor':''} ${selectedAnimal===a.id?'selected':''} ${gesture?.stroke?.seen.has(a.id)?'marked':''}" data-animal="${a.id}" data-shelter="${e.id}" style="left:${ax}px;top:${ay}px;width:${space}px;height:${space*.9}px;z-index:${Math.round((e.y+f.h)*10)+2}" aria-label="${esc(name(a.configId))}，${a.status==='hungry'?'饿了':a.status==='ready'?'产物待收':remaining(a.readyAt)}">${animalArt(a)}<span class="fw-animal-state ${a.status==='ready'?'fw-ready-output':''}">${a.status==='ready'?item(config.ANIMALS[a.configId].product):a.status==='hungry'?item(config.ANIMALS[a.configId].feedItem):'◷'}</span></button>`;});
+          const f=ctx.layout.getFootprint(e),cols=3,space=Math.max(28,(f.w+f.h)*24/cols);
+          (e.animals||[]).forEach((a,i)=>{const am=resolveWorldArt({...a,kind:'animal'},ctx.state.now),ah=space/(am?.aspect||1.1),ap=project(e.x+(.5+i%cols)*f.w/cols,e.y+f.h*.64+Math.floor(i/cols)*.55),ax=ap.x-space/2,ay=ap.y-ah;html+=`<button class="fw-animal ${faded.has(e.id)?'fw-occluder-faded':''} ${presentation.muted?'fw-muted-neighbor':''} ${selectedAnimal===a.id?'selected':''} ${gesture?.stroke?.seen.has(a.id)?'marked':''}" data-animal="${a.id}" data-shelter="${e.id}" style="left:${ax}px;top:${ay}px;width:${space}px;height:${ah}px;z-index:${depth(e,f)+2}" aria-label="${esc(name(a.configId))}，${a.status==='hungry'?'饿了':a.status==='ready'?'产物待收':remaining(a.readyAt)}">${animalArt(a)}<span class="fw-animal-state ${a.status==='ready'?'fw-ready-output':''}">${a.status==='ready'?item(config.ANIMALS[a.configId].product):a.status==='hungry'?item(config.ANIMALS[a.configId].feedItem):'◷'}</span></button>`;});
         }
-        if(e.kind==='machine'&&e.completed.length&&presentation.showProducts){const tray=machineTrayPlacement(e,ctx.layout.getFootprint(e));html+=`<div class="fw-products" style="left:${tray.x}px;top:${tray.y}px;width:${tray.width}px;height:${tray.height}px;z-index:${presentation.focused?801:Math.round((e.y+ctx.layout.getFootprint(e).h)*10)+3}">${e.completed.slice(0,tray.slots).map(j=>`<button data-product="${j.id}" data-machine="${e.id}" aria-label="领取${esc(name(j.recipeId))}">${item(j.recipeId)}</button>`).join('')}</div>`;}
+        if(e.kind==='machine'&&e.completed.length&&presentation.showProducts){const tray=projectedMachineTray(e,ctx.layout.getFootprint(e));html+=`<div class="fw-products ${faded.has(e.id)?'fw-occluder-faded':''}" style="left:${tray.x}px;top:${tray.y}px;width:${tray.width}px;height:${tray.height}px;z-index:${depth(e,ctx.layout.getFootprint(e))+3}">${e.completed.slice(0,tray.slots).map(j=>`<button data-product="${j.id}" data-machine="${e.id}" aria-label="领取${esc(name(j.recipeId))}">${item(j.recipeId)}</button>`).join('')}</div>`;}
       }
       world.innerHTML=html;
       if(focused){world.querySelector(`[data-entity="${focused}"]`)?.focus({preventScroll:true});}
       renderGhost();transform();
     }
     function transform(){world.style.transform=`translate(${camera.x}px,${camera.y}px) scale(${camera.zoom})`;}
-    function worldPoint(p){const r=world.getBoundingClientRect();return {x:(p.x-r.left)/camera.zoom/TILE,y:(p.y-r.top)/camera.zoom/TILE};}
+    function worldPoint(p){const r=view.getBoundingClientRect();return unproject((p.x-r.left-camera.x)/camera.zoom,(p.y-r.top-camera.y)/camera.zoom);}
     function viewportSize(){return {w:view.clientWidth,h:view.clientHeight};}
-    function focus(e,zoom){if(!e)return;const f=ctx.layout.getFootprint(e),size=viewportSize();if(!(size.w>0&&size.h>0))return;camera.zoom=zoom||camera.zoom;camera.x=size.w/2-(e.x+f.w/2)*TILE*camera.zoom;camera.y=size.h*(id==='P05'&&e.kind==='machine'?.34:.43)-(e.y+f.h/2)*TILE*camera.zoom;viewSize=size;focusAnchor=id==='P05'&&e.kind==='machine'?{id:e.id,rx:.5,ry:.34}:null;cameraReady=true;transform();}
+    function focus(e,zoom){if(!e)return;const f=ctx.layout.getFootprint(e),size=viewportSize();if(!(size.w>0&&size.h>0))return;camera.zoom=zoom||camera.zoom;const p=project(e.x+f.w/2,e.y+f.h/2);camera.x=size.w/2-p.x*camera.zoom;camera.y=size.h*(id==='P05'&&e.kind==='machine'?.34:.43)-p.y*camera.zoom;viewSize=size;focusAnchor=id==='P05'&&e.kind==='machine'?{id:e.id,rx:.5,ry:.34}:null;cameraReady=true;transform();}
     function reframeViewport(){
       resizeRaf=0;if(destroyed)return;const next=viewportSize();if(!(next.w>0&&next.h>0))return;
       if(!cameraReady){defaultFocus();return;}
       const target=focusAnchor&&selected===focusAnchor.id?entity(focusAnchor.id):null,f=target?ctx.layout.getFootprint(target):null;
-      const anchor=target?{x:(target.x+f.w/2)*TILE,y:(target.y+f.h/2)*TILE,rx:focusAnchor.rx,ry:focusAnchor.ry}:null;
+      const anchor=target?{...project(target.x+f.w/2,target.y+f.h/2),rx:focusAnchor.rx,ry:focusAnchor.ry}:null;
       camera=resizeWorldCamera(camera,viewSize,next,anchor);viewSize=next;transform();
     }
     function scheduleReframe(){if(!resizeRaf)resizeRaf=win.requestAnimationFrame(reframeViewport);}
 
+    function overview(){const next=fitOverview(effectiveEntities().filter(e=>!e.stored&&e.kind!=='obstacle').map(visualRect),viewportSize());if(next){camera=next;cameraReady=true;focusAnchor=null;viewSize=viewportSize();transform();rememberCamera(true);}}
     function defaultFocus(){const all=ctx.state.entities;const target=id==='P03'?all.find(e=>e.kind==='fruit'):id==='P04'?all.find(e=>e.kind==='shelter'&&e.configId==='chicken'):id==='P05'?all.find(e=>e.kind==='machine'&&e.configId==='bakery'):id==='P12'?ctx.layout.LAND_PATCHES.find(p=>ctx.layout.canExpandLand(ctx.state,p.id).ok):id==='P16'?all.find(e=>!ctx.layout.isFixedEntity(e)&&!e.stored):all.find(e=>e.kind==='field');focus(target||all.find(e=>e.kind==='field')||all[0],id==='P04'?1.5:id==='P05'?1.6:id==='P03'?1.4:id==='P12'?.75:1);}
-    function renderCorners(){corners.innerHTML=`<div class="fw-corner fw-tl"><div class="fw-top-actions">${button('exit-farm','回首页','<span aria-hidden="true">⌂</span>','class="fw-home-button" aria-label="返回小院首页"')}${button('chapter:P13',`${ctx.state.level}级`,'<span>★</span>','aria-label="等级与任务"')}</div><small>${ctx.state.xp} XP</small></div><div class="fw-corner fw-tr">${button('shop',String(ctx.state.coins),'<span>●</span>','aria-label="金币与商店"')}${button('chapter:P07',vouchersEnabled()?`${ctx.state.vouchers}券`:'建设券功能关闭','',vouchersEnabled()?'aria-label="建设券"':'disabled aria-label="建设券功能关闭"')}</div><div class="fw-corner fw-bl">${button('shop','商店',image('ui/shop.svg','','fw-icon'))}</div><div class="fw-corner fw-br">${button('more','更多','<span>•••</span>',`aria-expanded="${more}"`)}</div>${more?`<nav class="fw-more" aria-label="农场更多入口">${[['chapter:P08','粮仓 / 货仓'],['chapter:P11','订单板'],['chapter:P09','乡间集市'],['chapter:P13','任务册'],['chapter:P14','牧场故事'],['chapter:P12','开垦土地'],['chapter:P19','外观与收纳'],['edit','布置农场'],['chapter:P17','设置与帮助'],['home-camera','回到农场中心'],['zoom-in','放大地图'],['zoom-out','缩小地图']].map(([a,n])=>button(a,n)).join('')}<button type="button" data-display-open aria-haspopup="dialog">屏幕与方向</button>${button('more','收起')}</nav>`:''}`;}
+    function renderCorners(){corners.innerHTML=`<div class="fw-corner fw-tl"><div class="fw-top-actions">${button('exit-farm','回首页','<span aria-hidden="true">⌂</span>','class="fw-home-button" aria-label="返回小院首页"')}${button('chapter:P13',`${ctx.state.level}级`,'<span>★</span>','aria-label="等级与任务"')}</div><small>${ctx.state.xp} XP · ${esc(farmGrowthStage(ctx.state).name)}</small></div><div class="fw-corner fw-tr">${button('shop',String(ctx.state.coins),'<span>●</span>','aria-label="金币与商店"')}${button('chapter:P07',vouchersEnabled()?`${ctx.state.vouchers}券`:'建设券功能关闭','',vouchersEnabled()?'aria-label="建设券"':'disabled aria-label="建设券功能关闭"')}</div><div class="fw-corner fw-bl">${button('shop','商店',image('ui/shop.svg','','fw-icon'))}${button('harvest-view',harvestView?'结束透视':'农田透视','',`aria-pressed="${harvestView}"`)}</div><div class="fw-corner fw-br">${button('more','更多','<span>•••</span>',`aria-expanded="${more}"`)}</div>${more?`<nav class="fw-more" aria-label="农场更多入口">${[['chapter:P08','粮仓 / 货仓'],['chapter:P11','订单板'],['chapter:P09','乡间集市'],['chapter:P13','任务册'],['chapter:P14','牧场故事'],['chapter:P12','开垦土地'],['chapter:P19','外观与收纳'],['edit','布置农场'],['chapter:P17','设置与帮助'],['home-camera','农场全景'],['zoom-in','放大地图'],['zoom-out','缩小地图']].map(([a,n])=>button(a,n)).join('')}<button type="button" data-display-open aria-haspopup="dialog">屏幕与方向</button>${button('more','收起')}</nav>`:''}`;}
     function toolArt(action,itemId,entityId){
       const e=entity(entityId),shape=action==='harvest'&&e?.kind==='field'?'scythe':action==='collectAnimal'&&e?.configId==='cow'?'bucket':action==='collectAnimal'&&e?.configId==='sheep'?'shears':null;
       if(shape){const paths={scythe:'<path d="M19 55 37 17" stroke="#94663d" stroke-width="6"/><path d="M34 18Q53 8 57 29Q43 18 23 32Z" fill="#d9e5df"/>',bucket:'<path d="M17 25h31l-4 29H21Z" fill="#d9e5df"/><path d="M21 25V16q11-16 23 0v9"/>',shears:'<circle cx="20" cy="45" r="9" fill="#e7c879"/><circle cx="43" cy="45" r="9" fill="#e7c879"/><path d="m25 38 20-28-8 30M38 38 18 10l8 30" fill="#d9e5df"/>'};return `<svg class="fw-tool-art" viewBox="0 0 64 64" fill="none" stroke="#355441" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[shape]}</svg>`;}
@@ -190,7 +224,7 @@ export function mountWorldScene(ctx) {
       let body='',sub='';
       if(e.kind==='field'){
         if(!e.crop){const crops=Object.values(config.CROPS).filter(c=>c.level<=ctx.state.level),group=crops.slice(seedPage*4,seedPage*4+4);body=group.map(c=>tool('plant',`${c.name} ${ctx.state.inventory[c.id]||0}`,c.id,e.id)).join('')+button('seeds-next','更多种子');sub='按住种子拖过空田连续播种，抬手完成这一笔。点击种子只选种，不消耗库存。';}
-        else if(e.crop.readyAt<=ctx.state.now){body=tool('harvest','镰刀 · 连续收获',null,e.id);sub='按住镰刀拖过成熟田连续收获；双击成熟田也可快捷收一格。';}
+        else if(e.crop.readyAt<=ctx.state.now){body=tool('harvest','镰刀 · 连续收获',null,e.id);sub='按住镰刀拖过成熟田连续收获；点击成熟田直接收一格。';}
         else{sub=`${name(e.crop.itemId)}还需 ${remaining(e.crop.readyAt)}`;body=image(entityArt(e),'正在生长','fw-growing');}
       }else if(e.kind==='fruit'){
         const c=config.FRUITS[e.configId];sub=e.status==='ready'?`按住果篮拖过成熟果树采摘 · 这次 ${c.sequence[e.harvestStage]}个 · 第${e.harvestStage+1}次果实`:e.status==='growing'?`再等 ${remaining(e.readyAt)}`:e.status==='revive'?`园丁免费次数：${Math.max(0,3-(ctx.state.npc.freeRevives||0))}`:'已完成最后一轮结果';
@@ -247,10 +281,12 @@ export function mountWorldScene(ctx) {
     }
     function renderLayoutThumbnail(positions,slot){
       if(!positions)return '<div class="fw-minimap fw-minimap-empty"><span>还没保存</span></div>';
-      const {entities,bounds:raw}=layoutThumbnail(ctx.state,positions),side=Math.max(raw.w,raw.h),b={x:raw.x-(side-raw.w)/2,y:raw.y-(side-raw.h)/2,w:side,h:side};
-      return `<div class="fw-minimap fw-scene-thumbnail" role="img" aria-label="方案${slot+1}的场景缩略图，${entities.length}个物件；只保存位置" style="aspect-ratio:${b.w}/${b.h};background-image:url('${ctx.asset('terrain/grass-0.svg')}')">${entities.map((e,index)=>`<span class="fw-mini-entity" aria-hidden="true" data-mini-entity="${e.id}" style="left:${(e.x-b.x)/b.w*100}%;top:${(e.y-b.y)/b.h*100}%;width:${e.displayW/b.w*100}%;height:${e.displayH/b.h*100}%;z-index:${index+1}">${art(e)}${e.kind==='shelter'?(e.animals||[]).map((a,i)=>`<span class="fw-mini-animal" style="left:${i%3*33}%;top:${48+Math.floor(i/3)*25}%">${animalArt(a)}</span>`).join(''):''}</span>`).join('')}</div>`;
+      const {entities}=layoutThumbnail(ctx.state,positions),rects=entities.map(e=>visualRect(e));
+      if(!rects.length)return '<div class="fw-minimap fw-minimap-empty">空方案</div>';
+      const left=Math.min(...rects.map(r=>r.left))-12,top=Math.min(...rects.map(r=>r.top))-12,right=Math.max(...rects.map(r=>r.left+r.width))+12,bottom=Math.max(...rects.map(r=>r.top+r.height))+12,w=right-left,h=bottom-top;
+      return `<div class="fw-minimap fw-scene-thumbnail" role="img" aria-label="方案${slot+1}的等距场景缩略图，${entities.length}个物件；只保存位置" style="aspect-ratio:${w}/${h}">${entities.map((e,index)=>{const r=rects[index];return `<span class="fw-mini-entity" aria-hidden="true" data-mini-entity="${e.id}" style="left:${(r.left-left)/w*100}%;top:${(r.top-top)/h*100}%;width:${r.width/w*100}%;height:${r.height/h*100}%;z-index:${r.depth}">${art(e)}</span>`;}).join('')}</div>`;
     }
-    function buyCommand(){return placement?{type:'buy',category:placement.category,itemId:placement.configId,x:placement.x,y:placement.y,rotation:placement.rotation}:null;}
+    function buyCommand(){return placement?{type:'buy',category:placement.category,itemId:placement.configId,x:placement.x,y:placement.y,rotation:placement.rotation,...(['machine','shelter','field','fruit'].includes(placement.category)&&placement.growthOrigin&&placement.x===placement.growthOrigin.x&&placement.y===placement.growthOrigin.y&&placement.rotation===placement.growthOrigin.rotation?{growthPlacement:true}:{})}:null;}
     function placementCheck(){return placement?commandPreview(ctx,buyCommand()):{ok:false};}
     function renderGhost(){
       world.querySelector('.fw-ghost')?.remove();
@@ -258,22 +294,23 @@ export function mountWorldScene(ctx) {
     }
     function draftCheck(){return draft?ctx.layout.validateLayout(ctx.state,draft):{ok:false};}
     function renderTransaction(){
-      if(placement){const check=placementCheck();transaction.innerHTML=`<div class="fw-placement-panel"><strong>${esc(title(placement))} · ${placement.coins} 金币</strong><small>${check.ok?'拖动建筑或点空地选位置':esc(check.message)}</small><div>${button('rotate-placement','旋转')}${button('cancel-placement','取消')}${button('confirm-placement',`支付 ${placement.coins} 金币并放置`,'',check.ok?'':'disabled')}</div></div>`;return;}
-      if(draft){const check=draftCheck(),e=selectedEntity();transaction.innerHTML=`<div class="fw-edit-panel"><strong>布置模式${e?' · '+esc(title(e)):''} · ${check.ok?'✓ 位置有效':'× '+esc(check.errors[0]?.message)}</strong><small class="fw-layout-instruction">${e&&ctx.layout.isFixedEntity(e)?'这个物件固定，不能移动。请拖动田地、仓库、工坊等其他物件。':'抓住物件直接拖动，拖空白移动地图。完成布置后保存，取消则恢复原位。'}</small><div>${button('rotate-draft','旋转','',e&&!ctx.layout.isFixedEntity(e)?'':'disabled')}${button('undo','撤销','',undo.length?'':'disabled')}${button('redo','重做','',redo.length?'':'disabled')}${button('layouts','方案')}${button('cancel-edit','取消')}${button('save-edit','完成布置','',check.ok?'':'disabled')}</div>${e&&ctx.layout.canStoreEntity(e)?button('store-object','收起此装饰'):''}<small>也可用方向键微调选中的可移动物件。</small></div>`;return;}
+      if(growthPreview){const n=growthPreview.plan.proposedRoads.length;transaction.innerHTML=`<div class="fw-edit-panel"><strong>推荐布局预览 · 新增 ${n} 格免费连接道路</strong><small>只安排已经拥有的物件，道路采用商店原有 0 金币规则；此时尚未保存。可拖空白查看，先撤销预览才能手动调整。</small><div>${button('undo-growth-preview','撤销预览')}${button('cancel-edit','取消布置')}${button('save-edit','应用推荐布局与道路')}</div></div>`;return;}
+      if(placement){const check=placementCheck();transaction.innerHTML=`<div class="fw-placement-panel"><strong>${esc(title(placement))} · ${placement.coins} 金币</strong><small>${check.ok?(buyCommand()?.growthPlacement?'推荐生长位置；确认时按 0 金币道路规则补齐连接道路，可拖动改为手动放置':'手动位置；只放置此物件，不调整已有布局'):esc(check.message)}</small><div>${button('rotate-placement','旋转')}${button('cancel-placement','取消')}${button('confirm-placement',`支付 ${placement.coins} 金币并放置`,'',check.ok?'':'disabled')}</div></div>`;return;}
+      if(draft){const check=draftCheck(),e=selectedEntity();transaction.innerHTML=`<div class="fw-edit-panel"><strong>布置模式${e?' · '+esc(title(e)):''} · ${check.ok?'✓ 位置有效':'× '+esc(check.errors[0]?.message)}</strong><small class="fw-layout-instruction">${e&&ctx.layout.isFixedEntity(e)?'这个物件固定，不能移动。请拖动田地、仓库、工坊等其他物件。':'抓住物件直接拖动，拖空白移动地图。完成布置后保存，取消则恢复原位。'}</small><div>${button('rotate-draft','旋转','',e&&!ctx.layout.isFixedEntity(e)?'':'disabled')}${button('undo','撤销','',undo.length?'':'disabled')}${button('redo','重做','',redo.length?'':'disabled')}${button('layouts','方案')}${button('growth-preview','预览成长布局')}${button('cancel-edit','取消')}${button('save-edit','完成布置','',check.ok?'':'disabled')}</div>${e&&ctx.layout.canStoreEntity(e)?button('store-object','收起此装饰'):''}<small>也可用方向键微调选中的可移动物件。</small></div>`;return;}
       if(clearPreview){transaction.innerHTML=`<div class="fw-placement-panel"><strong>${esc(name(clearPreview.tool))} ×1 → 清理 ${clearPreview.ids.length} 处</strong><small>消耗工具后，轮廓高亮的障碍将永久消失，不可撤销，不赠送材料。</small><div>${button('cancel-clear','取消')}${button('confirm-clear',`消耗 ${name(clearPreview.tool)} ×1 并清理 ${clearPreview.ids.length}处`)}</div></div>`;return;}
       if(selected?.startsWith('land_')){const p=ctx.layout.LAND_PATCHES.find(p=>p.id===selected),check=ctx.layout.canExpandLand(ctx.state,selected),owned=ctx.state.openedLand.includes(selected);transaction.innerHTML=`<div class="fw-land-panel"><header><strong>${owned?'已开放土地':'开垦 8 × 8 格'}</strong>${button('close-tool','×')}</header>${!owned?`<div class="fw-materials">${['land_deed','mallet','marker_stake'].map(key=>`<div>${item(key)}<strong class="${(ctx.state.inventory[key]||0)<p[key]?'short':''}">${ctx.state.inventory[key]||0} / ${p[key]}</strong></div>`).join('')}</div><small>${check.ok?'材料足够后可开垦，不自动清障':esc(check.message)}</small>${button('expand-land','消耗所示材料并开垦','',check.ok?'':'disabled')}`:'<p>边界已经开放。自然障碍需要另选工具清理。</p>'}</div>`;return;}
       transaction.innerHTML='';
     }
     function render(){if(destroyed)return;renderMap();renderCorners();renderContext();renderLocal();renderTransaction();game.style.setProperty('--fw-output-phase',`-${(ctx.state.now%5800)/1000}s`);game.dataset.reducedMotion=String(!!ctx.state.settings.reducedMotion);game.dataset.paused=String(doc.hidden||ctx.effectsPaused===true);}
-    function closeTemporary(){chosenSeed=null;cancelGesture();more=false;localPage=null;clearPreview=null;pendingRecipe=null;activeJob=null;selected=null;selectedAnimal=null;render();}
+    function closeTemporary(){harvestView=false;chosenSeed=null;cancelGesture();more=false;localPage=null;clearPreview=null;pendingRecipe=null;activeJob=null;selected=null;selectedAnimal=null;render();}
     function openStorage(kind){if(ctx.openScene)ctx.openScene('P08',{initialStorage:kind});else ctx.say('仓库入口暂不可用');}
     function goToSource(itemId){if(ctx.openSource)ctx.openSource(itemId);else ctx.say('请前往'+name(itemId)+'对应的田地或生产设施');}
     function openObject(id,animal){
       cancelGesture();more=false;localPage=null;clearPreview=null;selected=id;selectedAnimal=animal||null;seedPage=0;recipePage=0;
-      const e=entity(id),at=Date.now(),harvest=cropDoubleTapCommand(e,lastFieldTap,at,ctx.state.now,!!draft||!!placement);
+      const e=entity(id),at=Date.now(),harvest=directCropHarvestCommand(e,ctx.state.now,!!draft||!!placement);
       lastFieldTap=!draft&&!placement&&directCropHarvestCommand(e,ctx.state.now)?{id:e.id,at}:null;
       if(draft||placement){render();return;}
-      if(harvest){lastFieldTap=null;chosenSeed=null;doAct(harvest,'作物已入仓');render();return;}
+      if(harvest){lastFieldTap=null;chosenSeed=null;const result=doAct(harvest,'作物已入仓');if(result?.ok)selected=null;render();return;}
       if(e?.kind!=='field'||e.crop)chosenSeed=null;
       if(e?.kind==='machine'&&!e.built&&e.buildReadyAt<=ctx.state.now){doAct({type:'completeBuilding',entityId:e.id},'新建筑已揭幕');render();return;}
       if(e?.kind==='barn'||e?.kind==='silo'){openStorage(e.kind);return;}
@@ -285,29 +322,31 @@ export function mountWorldScene(ctx) {
       const c=placementConfig(config,category,key);
       if(!c){ctx.say('这个物件暂时不能购买');return;}
       placement={id:'__preview',kind:category,category,configId:key,w:c.footprint[0],h:c.footprint[1],x:35,y:35,rotation:0,coins:c.coins};
-      let found=false;for(let y=18;y<46&&!found;y++)for(let x=18;x<46&&!found;x++){placement.x=x;placement.y=y;if(placementCheck().ok)found=true;}
+      const suggested=suggestGrowthPlacement(ctx.state,placement);if(suggested){Object.assign(placement,suggested);placement.growthOrigin={x:suggested.x,y:suggested.y,rotation:0};}
+      let found=!!suggested;for(let y=18;y<46&&!found;y++)for(let x=18;x<46&&!found;x++){placement.x=x;placement.y=y;if(placementCheck().ok)found=true;}
       focus(placement,1.25);render();
     }
-    function persistLayoutDraft(){if(!draft||preserveStoredDraft)return;const result=ctx.store?.saveDraft?.(draft);if(result?.ok===false)ctx.say(result.message||'布局草稿未能自动保存，请勿关闭页面');return result;}
+    function persistLayoutDraft(){if(!draft||preserveStoredDraft||growthPreview)return;const result=ctx.store?.saveDraft?.(draft);if(result?.ok===false)ctx.say(result.message||'布局草稿未能自动保存，请勿关闭页面');return result;}
     function clearLayoutDraft(){const result=ctx.store?.clearDraft?.();if(result?.ok===false)ctx.say(result.message||'旧布局草稿未能清除');return result;}
     function enterEdit(){
-      if(placement||draft)return;cancelGesture();more=false;localPage=null;draft=ctx.layout.beginLayout(ctx.state);undo=[];redo=[];render();
+      if(placement||draft)return;harvestView=false;cancelGesture();more=false;localPage=null;draft=ctx.layout.beginLayout(ctx.state);undo=[];redo=[];render();
       preserveStoredDraft=false;const saved=ctx.store?.loadDraft?.();if(!saved)return true;preserveStoredDraft=true;
       const recovered=recoverWorldLayoutDraft(ctx.state,saved,ctx.layout);if(!recovered.ok){ctx.say(recovered.message);return true;}
       if(JSON.stringify(recovered.draft.positions)===JSON.stringify(draft.positions)){preserveStoredDraft=false;return true;}
       ctx.confirm({title:'继续上次未保存的布置？',body:'<p>只恢复物件位置草稿。库存、生产计时、金币和正式布局不会回退；取消则先查看当前布局。</p>',onConfirm:()=>{const latest=recoverWorldLayoutDraft(ctx.state,saved,ctx.layout);if(!latest.ok){ctx.say(latest.message);return latest;}draft=latest.draft;preserveStoredDraft=false;undo=[];redo=[];render();return {ok:true};}});return false;
     }
     function pushDraft(next){const check=ctx.layout.validateLayout(ctx.state,next);if(!check.ok){ctx.say(check.errors[0]?.message||'这个位置不合适');return false;}undo.push(clone(draft.positions));if(undo.length>50)undo.shift();redo=[];preserveStoredDraft=false;draft.positions=clone(next);persistLayoutDraft();render();return true;}
-    function changeDraft(id,values){if(!draft)return;const e=entity(id);if(!e||ctx.layout.isFixedEntity(e)){ctx.say('固定物件不能挪动');return;}pushDraft(draft.positions.map(p=>p.id===id?{...p,...values}:p));}
-    function saveDraft(){const r=doAct({type:'applyLayout',positions:draft.positions},'布局已保存，生产继续计时');if(r.ok){clearLayoutDraft();draft=null;undo=[];redo=[];render();}}
-    function cancelEdit(){if(!draft)return;const changed=undo.length||JSON.stringify(draft.positions)!==JSON.stringify(ctx.layout.beginLayout(ctx.state).positions);if(!changed){if(!preserveStoredDraft)clearLayoutDraft();draft=null;render();return;}ctx.confirm({title:'放弃这次布置？',body:'<p>只丢弃未保存位置，生产与库存不回退。</p>',onConfirm:()=>{clearLayoutDraft();draft=null;undo=[];redo=[];render();}});}
+    function changeDraft(id,values){if(!draft)return;if(growthPreview){ctx.say('推荐布局预览中，请先撤销预览再手动调整');return;}const e=entity(id);if(!e||ctx.layout.isFixedEntity(e)){ctx.say('固定物件不能挪动');return;}pushDraft(draft.positions.map(p=>p.id===id?{...p,...values}:p));}
+    function saveDraft(){const command=growthPreview?{type:'adoptGrowthLayout',expectedSignature:growthPreview.plan.signature}:{type:'applyLayout',positions:draft.positions};const r=doAct(command,'布局已保存，生产继续计时');if(r.ok){clearLayoutDraft();growthPreview=null;draft=null;undo=[];redo=[];render();}}
+    function cancelEdit(){if(!draft)return;if(growthPreview){draft.positions=growthPreview.previousPositions;growthPreview=null;}const changed=undo.length||JSON.stringify(draft.positions)!==JSON.stringify(ctx.layout.beginLayout(ctx.state).positions);if(!changed){if(!preserveStoredDraft)clearLayoutDraft();draft=null;render();return;}ctx.confirm({title:'放弃这次布置？',body:'<p>只丢弃未保存位置，生产与库存不回退。</p>',onConfirm:()=>{clearLayoutDraft();draft=null;undo=[];redo=[];render();}});}
     function reorderJob(direction){const e=selectedEntity(),ids=e.queue.filter(j=>j.startAt===null).map(j=>j.id),index=ids.indexOf(activeJob),to=index+direction;if(index<0||to<0||to>=ids.length)return;[ids[index],ids[to]]=[ids[to],ids[index]];doAct({type:'reorderQueue',entityId:e.id,jobIds:ids},'等待顺序已调整');}
     function action(action,el){
       lastFieldTap=null;
       if(action==='exit-farm'){cancelGesture();if(persistLayoutDraft()?.ok===false)return;more=false;ctx.exitFarm?.();return;}
       if(action.startsWith('chapter:')){if(draft){ctx.say('请先保存或取消布置');return;}closeTemporary();ctx.openScene?.(action.slice(8));return;}
       const e=selectedEntity();
-      if(action==='more'){cancelGesture();selected=null;selectedAnimal=null;localPage=null;more=!more;render();}
+      if(action==='harvest-view'){if(draft||placement){ctx.say('请先完成或取消布置');return;}cancelGesture();harvestView=!harvestView;selected=null;more=false;render();}
+      else if(action==='more'){cancelGesture();selected=null;selectedAnimal=null;localPage=null;more=!more;render();}
       else if(action==='shop'){if(draft||placement){ctx.say('请先完成或取消当前布置');return;}ctx.openScene('P07');}
       else if(action==='move-animal-panel'){localPage='move-animal';render();}
       else if(action.startsWith('move-animal:')){const [,animalId,targetEntityId]=action.split(':');const r=doAct({type:'moveAnimal',entityId:e.id,animalId,targetEntityId},'伙伴已迁入，生产计时保留');if(r.ok)selectedAnimal=null;render();}
@@ -318,8 +357,8 @@ export function mountWorldScene(ctx) {
       else if(action.startsWith('source:'))goToSource(action.slice(7));
       else if(action==='seeds-next'){seedPage=(seedPage+1)%Math.ceil(Object.values(config.CROPS).filter(c=>c.level<=ctx.state.level).length/4);renderContext();}
       else if(action==='recipes-next'){recipePage=(recipePage+1)%Math.ceil(Object.values(config.RECIPES).filter(r=>r.machineType===e.machineType&&r.level<=ctx.state.level).length/3);renderContext();}
-      else if(action==='home-camera'){cancelGesture();more=false;defaultFocus();render();}
-      else if(action==='zoom-in'||action==='zoom-out'){cancelGesture();const before={x:(view.clientWidth/2-camera.x)/camera.zoom,y:(view.clientHeight/2-camera.y)/camera.zoom};camera.zoom=Math.max(.75,Math.min(1.75,camera.zoom+(action==='zoom-in'?.15:-.15)));camera.x=view.clientWidth/2-before.x*camera.zoom;camera.y=view.clientHeight/2-before.y*camera.zoom;transform();}
+      else if(action==='home-camera'){cancelGesture();more=false;overview();render();}
+      else if(action==='zoom-in'||action==='zoom-out'){cancelGesture();const before={x:(view.clientWidth/2-camera.x)/camera.zoom,y:(view.clientHeight/2-camera.y)/camera.zoom};camera.zoom=Math.max(.75,Math.min(1.75,camera.zoom+(action==='zoom-in'?.15:-.15)));camera.x=view.clientWidth/2-before.x*camera.zoom;camera.y=view.clientHeight/2-before.y*camera.zoom;transform();rememberCamera(true);}
       else if(action==='revive'||action==='revive-voucher'){if(action==='revive-voucher'&&!vouchersEnabled()){ctx.say('建设券功能关闭');return;}ask({type:'reviveTree',entityId:e.id,useVoucher:action==='revive-voucher'},'请园丁帮忙',`<p>${action==='revive-voucher'?'消耗 1 建设券':'使用今天的 1 次免费复苏机会'}。复苏后重新生长。</p>`,'果树已复苏');}
       else if(action==='clear-tree'){const toolId=config.FRUITS[e.configId].clearTool;ask({type:'clearTree',entityId:e.id,confirmed:true},'清理这棵树？',`<p>${name(toolId)} ×1。树会移除，不能撤销。</p>`,'树已清理');}
       else if(action==='adopt'){const c=config.ANIMALS[e.configId],cost=c.prices[e.tier||0];ask({type:'buy',category:'animal',itemId:e.configId,entityId:e.id,quantity:1},'领养一位伙伴',`<p>${cost} 金币 · 入住当前${c.name}舍。</p>`,'新伙伴入住啦');}
@@ -341,6 +380,8 @@ export function mountWorldScene(ctx) {
       else if(action==='save-edit')saveDraft();
       else if(action==='cancel-edit')cancelEdit();
       else if(action==='store-object'){changeDraft(selected,{stored:true});ctx.say('完成布置后，可在更多 → 外观与收纳重新摆出，不重复收费');}
+      else if(action==='growth-preview'){const proposed=previewGrowthLayout(ctx.state);if(!proposed.ok){ctx.say(proposed.errors?.[0]?.message||'当前物件暂不能采用成长布局');return;}growthPreview={previousPositions:clone(draft.positions),plan:proposed};draft.positions=clone(proposed.positions);selected=null;render();ctx.say('推荐布局和连接道路仅预览，点击应用才保存');}
+      else if(action==='undo-growth-preview'&&growthPreview){draft.positions=growthPreview.previousPositions;growthPreview=null;selected=null;render();}
       else if(action==='layouts'){localPage='layouts';render();}
       else if(action.startsWith('save-slot:'))doAct({type:'saveLayoutSlot',slot:Number(action.split(':')[1]),positions:draft.positions},'方案已记录');
       else if(action.startsWith('load-slot:')){const p=ctx.state.layoutSlots[Number(action.split(':')[1])];if(p&&pushDraft(p)){localPage=null;render();}}
@@ -349,7 +390,7 @@ export function mountWorldScene(ctx) {
       else if(action==='job-cancel'){const j=e.queue.find(j=>j.id===activeJob);ask({type:'cancelJob',entityId:e.id,jobId:j.id},'取消等待中的这一批？',`<p>退还 ${Object.entries(j.inputs).map(([key,n])=>`${name(key)}×${n}`).join('、')}。货仓空间不足则不取消。</p>`,'原料已退回');}
     }
     function point(event){return {x:event.clientX,y:event.clientY};}
-    function within(p,r){return p.x>=r.left&&p.x<=r.right&&p.y>=r.top&&p.y<=r.bottom;}
+    function within(p,r){return r.polygon?pointInPolygon(p,r.polygon):p.x>=r.left&&p.x<=r.right&&p.y>=r.top&&p.y<=r.bottom;}
     function visibleTargetRect(el){
       const r=rectData(el.getBoundingClientRect()),panel=el.closest('.fw-object-panel');
       for(const bounds of [game.getBoundingClientRect(),...(panel?[panel.getBoundingClientRect()]:[])]) {
@@ -362,9 +403,9 @@ export function mountWorldScene(ctx) {
       if(tool.action==='feed'||tool.action==='collectAnimal')return [...world.querySelectorAll('[data-animal]')].filter(el=>{
         const shelter=entity(el.dataset.shelter),a=shelter?.animals.find(a=>a.id===el.dataset.animal);
         return a?.status===(tool.action==='feed'?'hungry':'ready');
-      }).map(el=>({id:el.dataset.animal,entityId:el.dataset.shelter,...rectData(el.getBoundingClientRect())}));
+      }).map(el=>{const r=rectData(el.getBoundingClientRect()),shelter=entity(el.dataset.shelter),a=shelter.animals.find(a=>a.id===el.dataset.animal),meta=resolveWorldArt({...a,kind:'animal'},ctx.state.now);return {id:a.id,entityId:shelter.id,...r,acceptPoint:p=>meta?runtimeArtHit(meta,(p.x-r.left)/(r.right-r.left),(p.y-r.top)/(r.bottom-r.top)):true};});
       const origin=entity(tool.entityId);
-      const targets=[...world.querySelectorAll('[data-entity]')].filter(el=>{const e=entity(el.dataset.entity);return tool.action==='enqueue'?e.id===tool.entityId:tool.action==='plant'?e.kind==='field'&&!e.crop:origin?.kind==='fruit'?e.kind==='fruit'&&e.status==='ready':e.kind==='field'&&e.crop?.readyAt<=ctx.state.now;}).map(el=>({id:el.dataset.entity,...rectData(el.getBoundingClientRect())}));
+      const targets=[...world.querySelectorAll('[data-entity]')].filter(el=>{const e=entity(el.dataset.entity);return tool.action==='enqueue'?e.id===tool.entityId:tool.action==='plant'?e.kind==='field'&&!e.crop:origin?.kind==='fruit'?e.kind==='fruit'&&e.status==='ready':e.kind==='field'&&e.crop?.readyAt<=ctx.state.now;}).map(el=>{const e=entity(el.dataset.entity),polygon=screenPolygon(e);return {id:e.id,...polygonBounds(polygon),polygon};});
       if(tool.action==='enqueue')for(const el of root.querySelectorAll('[data-queue-owner]'))if(el.dataset.queueOwner===tool.entityId)targets.push({id:tool.entityId,...visibleTargetRect(el)});
       return targets;
     }
@@ -411,6 +452,35 @@ export function mountWorldScene(ctx) {
       edgeStamp=0;win.cancelAnimationFrame?.(edgeRaf);edgeRaf=win.requestAnimationFrame?.(edgeFrame)||0;
       previewGesture(g,p);
     }
+    // Hit-testing is independent of the transparent sprite/button rectangle.
+    // Ground targets use the inverse logical map; upright artwork uses its alpha mask.
+    function hitWorld(p){
+      const local=worldPoint(p),projected=project(local.x,local.y),rows=effectiveEntities().filter(e=>!e.stored&&!e.previewOnly),faded=fadedIds(rows);
+      if(harvestView&&!draft&&!placement){const ripe=rows.find(e=>directCropHarvestCommand(e,ctx.state.now)&&pointInPolygon(projected,footprintPolygon(e,ctx.layout.getFootprint(e))));if(ripe)return {entityId:ripe.id};}
+      const sprites=[];
+      for(const e of rows){
+        const f=ctx.layout.getFootprint(e),r=visualRect(e),meta=isWoodFence(e)?null:resolveWorldArt(e,ctx.state.now);
+        if(!faded.has(e.id)){
+          const ground=pointInPolygon(projected,footprintPolygon(e,f)),u=(projected.x-r.left)/r.width,v=(projected.y-r.top)/r.height;
+          const alpha=e.kind==='field'&&!e.crop?false:meta?runtimeArtHit(meta,u,v):fallbackArtHit(e,u,v);
+          if(e.kind==='road'?ground:alpha||ground)sprites.push({entityId:e.id,z:depth(e,f)});
+        }
+        if(e.kind==='shelter'&&!draft)for(const el of world.querySelectorAll(`[data-shelter="${e.id}"]`)){
+          const r=el.getBoundingClientRect(),a=e.animals.find(a=>a.id===el.dataset.animal),meta=resolveWorldArt({...a,kind:'animal'},ctx.state.now),u=(p.x-r.left)/r.width,v=(p.y-r.top)/r.height;
+          if(meta?runtimeArtHit(meta,u,v):u>=.15&&u<=.85&&v>=.1&&v<=.95)sprites.push({entityId:e.id,animalId:a.id,z:depth(e,f)+2});
+        }
+      }
+      const top=topmostHit(sprites);if(top)return top;
+      if(id==='P12'){const land=ctx.layout.LAND_PATCHES.find(e=>pointInPolygon(projected,footprintPolygon(e,e)));if(land)return {landId:land.id};}
+      return {};
+    }
+    const fallbackMasks=new Map();
+    function fallbackArtHit(e,u,v){
+      if(u<0||v<0||u>1||v>1)return false;
+      const terrain=resolveTerrainArt(e,effectiveEntities(),ctx.state),src=terrain&&e.kind!=='field'?terrain.src:ctx.asset(entityArt(e));let mask=fallbackMasks.get(src);
+      if(!mask){mask={pixels:null};fallbackMasks.set(src,mask);const img=new win.Image();img.onload=()=>{try{const canvas=doc.createElement('canvas');canvas.width=canvas.height=64;const c=canvas.getContext('2d',{willReadFrequently:true});c.drawImage(img,0,0,64,64);mask.pixels=c.getImageData(0,0,64,64).data;}catch{mask.failed=true;}};img.src=src;}
+      return !!mask.pixels&&mask.pixels[(Math.min(63,Math.floor(v*64))*64+Math.min(63,Math.floor(u*64)))*4+3]>24;
+    }
     function handleDown(event){
       if(event.button!==undefined&&event.button!==0)return;
       if(pointers.size>1)return;
@@ -420,9 +490,9 @@ export function mountWorldScene(ctx) {
       if(productEl&&!draft&&!placement){lastFieldTap=null;gesture={type:'product-pending',id:event.pointerId,start:point(event),jobId:productEl.dataset.product,entityId:productEl.dataset.machine,rect:rectData(productEl.getBoundingClientRect()),directTool:!draft&&!placement?{action:'collectMachine',entityId:productEl.dataset.machine,itemId:entity(productEl.dataset.machine)?.completed.find(j=>j.id===productEl.dataset.product)?.recipeId}:null,time:Date.now()};event.preventDefault();game.setPointerCapture?.(event.pointerId);return;}
       if(target.closest('button')&&!target.closest('.fw-world'))return;
       if(!target.closest('.fw-map'))return;
-      const p=point(event),animal=target.closest('[data-animal]'),ent=target.closest('[data-entity]'),land=target.closest('[data-land]');
+      const p=point(event),hit=typeof hitWorld==='function'?hitWorld(p):null,animal=hit?(hit.animalId?{dataset:{animal:hit.animalId,shelter:hit.entityId}}:null):target.closest('[data-animal]'),ent=hit?(hit.entityId?{dataset:{entity:hit.entityId}}:null):target.closest('[data-entity]'),land=hit?(hit.landId?{dataset:{land:hit.landId}}:null):target.closest('[data-land]');
       if(placement){gesture={type:'place',id:event.pointerId,start:p};const w=worldPoint(p);placement.x=Math.floor(w.x-placement.w/2);placement.y=Math.floor(w.y-placement.h/2);render();}
-      else if(draft&&(ent||animal)){
+      else if(draft&&!growthPreview&&(ent||animal)){
         selected=animal?.dataset.shelter||ent.dataset.entity;selectedAnimal=null;
         if(ctx.layout.isFixedEntity(entity(selected)))gesture={type:'fixed',id:event.pointerId,start:p,last:p,entityId:selected};
         else {const w=worldPoint(p),pos=draft.positions.find(x=>x.id===selected);gesture={type:'edit',id:event.pointerId,start:p,last:p,entityId:selected,offset:{x:w.x-pos.x,y:w.y-pos.y},original:clone(draft.positions)};}
@@ -476,6 +546,7 @@ export function mountWorldScene(ctx) {
       }else if(g.type==='fixed'){ctx.say('这个物件固定，不能移动。请拖动其他物件。');render();
       }else if(g.type==='edit'){
         const next=clone(draft.positions);draft.positions=g.original;if(!pushDraft(next))render();
+      }else if(g.type==='pan'){if(typeof rememberCamera==='function')rememberCamera(true);
       }else if(g.type==='pan-pending'&&distance<8){
         if(g.landId){lastFieldTap=null;selected=g.landId;more=false;render();}
         else if(g.entityId){if(draft){selected=g.entityId;render();}else openObject(g.entityId,g.animalId);}
@@ -494,9 +565,9 @@ export function mountWorldScene(ctx) {
     },true);
     on(doc,'pointermove',e=>{
       if(root.closest('[inert]')||!pointers.has(e.pointerId))return;pointers.set(e.pointerId,point(e));if(!pinch||pointers.size!==2)return;const pts=[...pointers.values()],r=view.getBoundingClientRect(),middle={x:(pts[0].x+pts[1].x)/2,y:(pts[0].y+pts[1].y)/2};
-      if(pinch.distance<1)return;e.preventDefault();camera.zoom=Math.max(.75,Math.min(1.75,pinch.zoom*Math.hypot(pts[0].x-pts[1].x,pts[0].y-pts[1].y)/pinch.distance));camera.x=middle.x-r.left-pinch.ground.x*TILE*camera.zoom;camera.y=middle.y-r.top-pinch.ground.y*TILE*camera.zoom;transform();
+      if(pinch.distance<1)return;e.preventDefault();camera.zoom=Math.max(.75,Math.min(1.75,pinch.zoom*Math.hypot(pts[0].x-pts[1].x,pts[0].y-pts[1].y)/pinch.distance));camera.x=middle.x-r.left-project(pinch.ground.x,pinch.ground.y).x*camera.zoom;camera.y=middle.y-r.top-project(pinch.ground.x,pinch.ground.y).y*camera.zoom;transform();
     },{capture:true,passive:false});
-    on(doc,'pointerup',e=>{pointers.delete(e.pointerId);if(pointers.size<2)pinch=null;},true);
+    on(doc,'pointerup',e=>{const finishedPinch=!!pinch;pointers.delete(e.pointerId);if(pointers.size<2){pinch=null;if(finishedPinch)rememberCamera(true);}},true);
     on(doc,'pointercancel',e=>{pointers.delete(e.pointerId);cancelGesture('触控中断，未执行');},true);
     on(game,'pointerdown',handleDown);on(game,'pointermove',handleMove);on(game,'pointerup',handleUp);
     on(game,'lostpointercapture',e=>{if(gesture?.id===e.pointerId)cancelGesture('触控离开，未执行');});
@@ -517,12 +588,12 @@ export function mountWorldScene(ctx) {
       const r=target.getBoundingClientRect(),v=view.getBoundingClientRect();
       if(r.left<v.left||r.right>v.right||r.top<v.top||r.bottom>v.bottom){const e=entity(target.dataset.entity||target.dataset.shelter);if(e)focus(e,camera.zoom);}
     });
-    on(view,'wheel',e=>{e.preventDefault();cancelGesture();focusAnchor=null;const p=point(e),before=worldPoint(p),r=view.getBoundingClientRect();camera.zoom=Math.max(.75,Math.min(1.75,camera.zoom+(e.deltaY>0?-.1:.1)));camera.x=p.x-r.left-before.x*TILE*camera.zoom;camera.y=p.y-r.top-before.y*TILE*camera.zoom;transform();},{passive:false});
+    on(view,'wheel',e=>{e.preventDefault();cancelGesture();focusAnchor=null;const p=point(e),before=worldPoint(p),r=view.getBoundingClientRect();camera.zoom=Math.max(.75,Math.min(1.75,camera.zoom+(e.deltaY>0?-.1:.1)));camera.x=p.x-r.left-project(before.x,before.y).x*camera.zoom;camera.y=p.y-r.top-project(before.x,before.y).y*camera.zoom;transform();rememberCamera();},{passive:false});
     on(root,'keydown',e=>{
       if(e.key==='Escape'){e.preventDefault();if(gesture){cancelGesture('已取消');render();}else if(localPage){localPage=null;render();}else if(draft)cancelEdit();else if(placement){placement=null;ctx.openScene('P07');}else closeTemporary();return;}
       if(e.target.closest('input,select,textarea'))return;
       const vector={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]}[e.key];if(!vector)return;
-      e.preventDefault();cancelGesture();if(draft&&selected){const p=draft.positions.find(p=>p.id===selected);if(p)changeDraft(selected,{x:p.x+vector[0],y:p.y+vector[1]});}else if(placement){placement.x+=vector[0];placement.y+=vector[1];render();}else{focusAnchor=null;camera.x-=vector[0]*48;camera.y-=vector[1]*48;transform();}
+      e.preventDefault();cancelGesture();if(draft&&selected){const p=draft.positions.find(p=>p.id===selected);if(p)changeDraft(selected,{x:p.x+vector[0],y:p.y+vector[1]});}else if(placement){placement.x+=vector[0];placement.y+=vector[1];render();}else{focusAnchor=null;camera.x-=vector[0]*48;camera.y-=vector[1]*48;transform();rememberCamera();}
     });
     const unsubscribe=ctx.subscribe(()=>{if(!gesture)render();});
     const itemId=ctx.focusItem,recipe=ctx.focusRecipe?config.RECIPES[ctx.focusRecipe]:config.RECIPES[itemId];
@@ -532,15 +603,17 @@ export function mountWorldScene(ctx) {
     selected=e?.id||null;
     if(config.CROPS[itemId])seedPage=Math.max(0,Math.floor(Object.values(config.CROPS).filter(c=>c.level<=ctx.state.level).findIndex(c=>c.id===itemId)/4));
     if(recipe&&e)recipePage=Math.max(0,Math.floor(Object.values(config.RECIPES).filter(r=>r.machineType===e.machineType&&r.level<=ctx.state.level).findIndex(r=>r.id===recipe.id)/3));
-    if(e)focus(e,e.kind==='machine'?1.6:1.2);else if(id==='P01'&&ctx.state.camera){const saved=ctx.state.camera;viewSize=viewportSize();camera={zoom:saved.zoom,x:viewSize.w/2-saved.centerX*TILE*saved.zoom,y:viewSize.h/2-saved.centerY*TILE*saved.zoom};cameraReady=viewSize.w>0&&viewSize.h>0;}else defaultFocus();
+    if(e)focus(e,e.kind==='machine'?1.6:1.2);else if(id==='P01'&&ctx.state.camera){const saved=ctx.state.camera;viewSize=viewportSize();camera={zoom:saved.zoom,x:viewSize.w/2-project(saved.centerX,saved.centerY).x*saved.zoom,y:viewSize.h/2-project(saved.centerX,saved.centerY).y*saved.zoom};cameraReady=viewSize.w>0&&viewSize.h>0;}else defaultFocus();
     if(itemId&&!e)ctx.say('还没有对应设施，请先购买或解锁');
     if(ctx.initialPlacement)startPlacement(ctx.initialPlacement.category,ctx.initialPlacement.itemId);
     render();
     const resizeObserver=typeof win.ResizeObserver==='function'?new win.ResizeObserver(scheduleReframe):null;resizeObserver?.observe(view);
-    function saveCamera(){if(cameraReady)ctx.saveCamera?.({centerX:Math.max(0,Math.min(63.999,(view.clientWidth/2-camera.x)/camera.zoom/TILE)),centerY:Math.max(0,Math.min(63.999,(view.clientHeight/2-camera.y)/camera.zoom/TILE)),zoom:camera.zoom});}
-    const stopDeactivate=ctx.onDeactivate?.(()=>{cancelGesture();pointers.clear();persistLayoutDraft();saveCamera();});
-    function cleanup(){if(destroyed)return;destroyed=true;saveCamera();stopDeactivate?.();cancelGesture();persistLayoutDraft();win.cancelAnimationFrame?.(edgeRaf);win.cancelAnimationFrame?.(resizeRaf);listeners.splice(0).forEach(off=>off());unsubscribe?.();resizeObserver?.disconnect();root.classList.remove('fw-root');if(ownsDocument)doc.documentElement?.classList.remove('fw-document');}
+    function rememberCamera(immediate=false){win.clearTimeout(cameraSaveTimer);cameraSaveTimer=0;if(immediate)saveCamera();else cameraSaveTimer=win.setTimeout(()=>{cameraSaveTimer=0;if(!destroyed)saveCamera();},160);}
+    on(win,'pagehide',()=>{win.clearTimeout(cameraSaveTimer);saveCamera();});
+    function saveCamera(){if(cameraReady&&!root.closest('[inert]')){const p=unproject((view.clientWidth/2-camera.x)/camera.zoom,(view.clientHeight/2-camera.y)/camera.zoom);const next={centerX:Math.max(0,Math.min(63.999,p.x)),centerY:Math.max(0,Math.min(63.999,p.y)),zoom:camera.zoom},saved=ctx.state.camera;if(!saved||Object.keys(next).some(k=>Math.abs(next[k]-saved[k])>1e-7))ctx.saveCamera?.(next);}}
+    const stopDeactivate=ctx.onDeactivate?.(()=>{win.clearTimeout(cameraSaveTimer);cameraSaveTimer=0;cancelGesture();pointers.clear();persistLayoutDraft();saveCamera();});
+    function cleanup(){if(destroyed)return;destroyed=true;win.clearTimeout(cameraSaveTimer);saveCamera();stopDeactivate?.();cancelGesture();persistLayoutDraft();win.cancelAnimationFrame?.(edgeRaf);win.cancelAnimationFrame?.(resizeRaf);listeners.splice(0).forEach(off=>off());unsubscribe?.();resizeObserver?.disconnect();root.classList.remove('fw-root');if(ownsDocument)doc.documentElement?.classList.remove('fw-document');}
     ctx.onExit?.(cleanup);return cleanup;
   }
 
-export {segmentHits,createStroke,extendStroke,cancelStroke,finishStroke,obstacleTargets,commandPreview,layoutThumbnail,worldScenePresentation,machineTrayPlacement,directCropHarvestCommand,cropDoubleTapCommand,directWorldTool,resizeHasPendingAction,resizeWorldCamera};
+export {segmentHits,createStroke,extendStroke,cancelStroke,finishStroke,obstacleTargets,commandPreview,layoutThumbnail,worldScenePresentation,machineTrayPlacement,projectedMachineTray,directCropHarvestCommand,cropDoubleTapCommand,directWorldTool,resizeHasPendingAction,resizeWorldCamera};

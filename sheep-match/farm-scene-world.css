@@ -65,3 +65,54 @@ html.fw-document,html.fw-document>body{overflow:clip;overscroll-behavior:none}
 .fw-top-actions{display:flex;align-items:center;flex-wrap:wrap;gap:4px}.fw-tl .fw-home-button{font-size:12px}.fw-tl .fw-home-button>span{font-size:16px;color:#7b7955}
 
 .fw-tool-art{width:44px;height:44px;flex-shrink:0;pointer-events:none}.fw-cursor .fw-tool-art{width:48px;height:48px}
+
+/* 2:1 ground projection, upright art, independent footprint and interaction geometry. */
+.fw-world{width:3072px;height:1536px;background:none}
+.fw-owned{border:0;background:#c9e2a266}
+.fw-entity,.fw-animal{pointer-events:none;border-radius:0;overflow:visible}
+.fw-entity:after,.fw-animal:after,.fw-entity.editing:before{display:none}
+.fw-entity-art{object-fit:contain;overflow:visible}
+.fw-ground-mark{position:absolute;display:block;pointer-events:none;background:transparent;border:0}
+.fw-entity.selected .fw-ground-mark,.fw-entity.marked .fw-ground-mark,.fw-entity.editing .fw-ground-mark{background:#fff6ac88;filter:drop-shadow(0 0 2px #675d27)}
+.fw-field .fw-field-soil{display:none}
+.fw-field:before,.fw-iso-soil{content:"";position:absolute;display:block!important;left:0;bottom:0;width:100%;height:24px;background:#ad8559;border:1px solid #927044;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);pointer-events:none}
+.fw-field .fw-crop-overlay{inset:auto;bottom:0;height:100%;object-fit:contain}
+.fw-ground-art{display:block;width:100%;height:100%;pointer-events:none}.fw-entity.fw-road .fw-entity-art{height:100%;position:absolute;bottom:0;filter:none}
+.fw-occluder-faded{opacity:.18!important;filter:saturate(.5);pointer-events:none}
+.fw-harvest-target{opacity:1!important;filter:drop-shadow(1px 0 0 #fff7b8) drop-shadow(-1px 0 0 #fff7b8) drop-shadow(0 1px 0 #fff7b8)}
+.fw-harvest-target .fw-ground-mark{background:#fff5a677}
+.fw-corner.fw-bl{display:flex;gap:6px;align-items:flex-end}
+.fw-corner [data-action=harvest-view]{font-size:12px;max-width:80px}
+.fw-corner [aria-pressed=true]{background:#f8e6a4;outline:2px solid #82693d}
+.fw-layout-world:before{display:none}
+.fw-products{pointer-events:none}.fw-products button{pointer-events:auto}
+.fw-ground-mark,.fw-entity-art,.fw-animal-art{pointer-events:none}
+.fw-ghost{border:0;background:transparent}
+.fw-ghost.invalid{filter:drop-shadow(0 0 4px #b35a45)}
+.fw-land{pointer-events:none;border:0!important}
+.fw-products.fw-occluder-faded button{pointer-events:none}
+.fw-ghost{z-index:10000!important}
+.fw-mini-entity>.fw-runtime-png{width:100%;height:100%;display:block;overflow:visible}
+.fw-mini-entity>.fw-iso-soil{height:50%;border:0}
+
+/* Runtime PNGs are cropped inline SVGs, so UI icons need the same explicit
+   sizing as legacy img elements; never inherit the SVG 300×150 default. */
+.fw-object-panel .fw-runtime-png{display:inline-block;width:44px;height:44px;max-width:100%;flex:none;vertical-align:middle}
+.fw-tool .fw-runtime-png{width:35px;height:35px;display:block}
+.fw-recipe-row .fw-tool .fw-runtime-png{width:30px;height:30px}
+.fw-mini-shop .fw-runtime-png{display:block;width:100%;height:82px;filter:drop-shadow(0 4px 1px #53442b33)}
+.fw-ghost>.fw-runtime-png{display:block;width:100%;height:100%;opacity:.74}
+.fw-animal-transfer>.fw-runtime-png{width:44px;height:44px}
+@media(max-height:460px){.fw-mini-shop .fw-runtime-png{height:60px}}
+/* A fine inset outline keeps six adjoining logical fields readable as six
+   diamonds, without opening wide gaps or changing their hit footprints. */
+.fw-field:before,.fw-iso-soil{border:0;background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 24'%3E%3Cpath d='M24 1 47 12 24 23 1 12Z' fill='%23b18b60' stroke='%238c6846' stroke-width='1.25' stroke-linejoin='round'/%3E%3Cpath d='m7 12 17 8 17-8' fill='none' stroke='%23c7a078' stroke-width='.65'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+
+/* Approved terrain kit is already projected; its ground image stays full size
+   while the independent plant sprite grows using its own display scale. */
+.fw-field:before{display:none!important}
+.fw-terrain-soil{position:absolute;display:block;pointer-events:none;max-width:none!important;filter:none}
+.fw-terrain-art{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none}
+.fw-field>.fw-entity-art{padding:0}
+.fw-mini-entity>.fw-terrain-soil{width:100%!important;height:auto!important;left:0!important;top:auto!important;bottom:0}
+.fw-terrain-soil{z-index:0}.fw-field>.fw-entity-art{position:relative;z-index:1}

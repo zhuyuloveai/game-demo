@@ -12,7 +12,7 @@ function routing({entityId='field_1',animalId=null,editing=false}={}){
  if(animalId===true)animalId=shelter.animals[0].id;
  const ent=animalId?null:{dataset:{entity:entityId}},animal=animalId?{dataset:{animal:animalId,shelter:shelter.id}}:null;
  const target={closest:selector=>({'[data-entity]':ent,'[data-animal]':animal,'button':ent||animal,'.fw-world':{},'.fw-map':{}})[selector]||null};
- const env={ctx:{state,layout},config,directWorldTool,entity:id=>state.entities.find(e=>e.id===id),draft:editing?layout.beginLayout(state):null,placement:null,pointers:new Map(),gesture:null,selected:null,selectedAnimal:null,chosenSeed:'wheat',lastFieldTap:{id:'field_1',at:900},camera:{x:0,y:0,zoom:1},focusAnchor:null,
+ const env={growthPreview:null,ctx:{state,layout},config,directWorldTool,entity:id=>state.entities.find(e=>e.id===id),draft:editing?layout.beginLayout(state):null,placement:null,pointers:new Map(),gesture:null,selected:null,selectedAnimal:null,chosenSeed:'wheat',lastFieldTap:{id:'field_1',at:900},camera:{x:0,y:0,zoom:1},focusAnchor:null,
   point:e=>({x:e.clientX,y:e.clientY}),worldPoint:p=>p,clone:structuredClone,
   game:{setPointerCapture:id=>calls.captures.push(id),getBoundingClientRect:()=>({left:0,top:0,right:1000,bottom:1000})},
   win:{setTimeout:()=>assert.fail('Ordinary object input cannot schedule edit mode')},

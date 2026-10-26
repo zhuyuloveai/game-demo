@@ -1,0 +1,953 @@
+{
+  "sourceCommit": "52e6c187b8160cd69227f28e148c75dde9ab5bbe",
+  "sourcePack": "docs/art-packs/sumikko-farm-v1",
+  "plantStateManifest": "docs/art-packs/sumikko-farm-v1/plant-states/manifest.json",
+  "maxEdge": 512,
+  "assets": [
+    {
+      "key": "animals/chicken",
+      "path": "assets/farm-runtime/animals/chicken.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/animals/chicken.png",
+      "sourceSha256": "c71f7a10fa8b9d37010ff0cf1fa24e5924a3179f6b7a524a851a48c19e7d46aa",
+      "bytes": 107572,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "animals/cow",
+      "path": "assets/farm-runtime/animals/cow.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/animals/cow.png",
+      "sourceSha256": "78954bc26a410657ded1685da8c3e269aafc0ef11d035db70495c681f5c0320f",
+      "bytes": 130392,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "animals/lamb",
+      "path": "assets/farm-runtime/animals/lamb.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/animals/lamb.png",
+      "sourceSha256": "8ec02e350eceef541f38d297510d3d75313a47f23ad6c785481497d0a88e9fcc",
+      "bytes": 91226,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "animals/pig",
+      "path": "assets/farm-runtime/animals/pig.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/animals/pig.png",
+      "sourceSha256": "fb1ed2ce7feac63d021072844bec999a6e2d8b16e5ab83c3a3183b235542b867",
+      "bytes": 113051,
+      "width": 512,
+      "height": 427
+    },
+    {
+      "key": "animals/sheep",
+      "path": "assets/farm-runtime/animals/sheep.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/animals/sheep.png",
+      "sourceSha256": "239d6c2a2aaa33b63ea8f73e9edfe53227e66d0ae731aee569622ba92fe0356b",
+      "bytes": 112719,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "key": "buildings/bakery",
+      "path": "assets/farm-runtime/buildings/bakery.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/buildings/bakery.png",
+      "sourceSha256": "f877ec444482a55ce6b95e8e8b400cf14c5b5958bafbcc230f5f42d03e539afd",
+      "bytes": 295935,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "buildings/barn",
+      "path": "assets/farm-runtime/buildings/barn.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/buildings/barn.png",
+      "sourceSha256": "601988ed06d6560278cd7c7dca24f09aae8304fd9246e6f5cc7210c051e1b518",
+      "bytes": 253405,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "buildings/bbq-grill",
+      "path": "assets/farm-runtime/buildings/bbq-grill.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/buildings/bbq-grill.png",
+      "sourceSha256": "fe3c8751f18cc056dd40fb7470356fe934b7ad80c54783068ac0ff10ac23b559",
+      "bytes": 207567,
+      "width": 512,
+      "height": 467
+    },
+    {
+      "key": "buildings/cake-oven",
+      "path": "assets/farm-runtime/buildings/cake-oven.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/buildings/cake-oven.png",
+      "sourceSha256": "7192db80cdbf7dd09f81779f203d198ebd8f5b3fad2d614349563962b0cbd409",
+      "bytes": 219230,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "buildings/chicken-shelter",
+      "path": "assets/farm-runtime/buildings/chicken-shelter.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/buildings/chicken-shelter.png",
+      "sourceSha256": "1a99ce5c0cb8f009a16e1583ac3a4e5609fa5b309874def9a94bcc9f4b5bebb3",
+      "bytes": 172508,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "buildings/cow-shelter",
+      "path": "assets/farm-runtime/buildings/cow-shelter.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/buildings/cow-shelter.png",
+      "sourceSha256": "d6f33cb4b7cb92cba48815b81f391d8f3bf2a721978f91e77c9622f62f6f7142",
+      "bytes": 248508,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "buildings/dairy",
+      "path": "assets/farm-runtime/buildings/dairy.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/buildings/dairy.png",
+      "sourceSha256": "298fa91e80efa32d8419595af936450b7d695627d71c7775a2191ed96022f0c6",
+      "bytes": 277334,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "buildings/farmhouse",
+      "path": "assets/farm-runtime/buildings/farmhouse.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/buildings/farmhouse.png",
+      "sourceSha256": "f54a46f52a75b59fa5c875d4989f79e4b2e53a7c970c0594d0b3ac9970ce27eb",
+      "bytes": 212546,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "buildings/feed-mill",
+      "path": "assets/farm-runtime/buildings/feed-mill.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/buildings/feed-mill.png",
+      "sourceSha256": "d4a8ee9dfa7e0c81d57f12c548f71de856ca98e9a0be4ba6df4428ff825f8544",
+      "bytes": 216428,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "buildings/ice-cream-maker",
+      "path": "assets/farm-runtime/buildings/ice-cream-maker.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/buildings/ice-cream-maker.png",
+      "sourceSha256": "3db45cfdf95886bec421e5b61d945007c8200d6eacd932f780b9cc8d08d52025",
+      "bytes": 221287,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "buildings/juice-press",
+      "path": "assets/farm-runtime/buildings/juice-press.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/buildings/juice-press.png",
+      "sourceSha256": "83358823b7e702d861ac7706cf351d113b462a3bd4a2e1e6871cb3411394eb72",
+      "bytes": 189831,
+      "width": 512,
+      "height": 465
+    },
+    {
+      "key": "buildings/lamb-shelter",
+      "path": "assets/farm-runtime/buildings/lamb-shelter.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/buildings/lamb-shelter.png",
+      "sourceSha256": "4dde51ae44ee61e147ba1f422eb72112cc722447d1e518322f36d8f3d2bc69fe",
+      "bytes": 194086,
+      "width": 512,
+      "height": 417
+    },
+    {
+      "key": "buildings/loom",
+      "path": "assets/farm-runtime/buildings/loom.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/buildings/loom.png",
+      "sourceSha256": "585ceac252283ecaab358459146997006f14bd5d3eea6687c9fad4fc4ada6733",
+      "bytes": 229634,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "buildings/npc-stall",
+      "path": "assets/farm-runtime/buildings/npc-stall.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/buildings/npc-stall.png",
+      "sourceSha256": "857a6d170ab189a1eacaad35f58eaca4d3c3eebe73beeb0aa74059d4c2e27b41",
+      "bytes": 195236,
+      "width": 512,
+      "height": 424
+    },
+    {
+      "key": "buildings/order-board",
+      "path": "assets/farm-runtime/buildings/order-board.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/buildings/order-board.png",
+      "sourceSha256": "5550c637d5ccac077e585a9a4796a9b269825769cbee1d7afe70c41b3ebc2557",
+      "bytes": 173061,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "buildings/pie-oven",
+      "path": "assets/farm-runtime/buildings/pie-oven.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/buildings/pie-oven.png",
+      "sourceSha256": "9e82084dfaefd3a181da5840eac47b1cde7ba031016b648a612b030fc19c2273",
+      "bytes": 227799,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "buildings/pig-shelter",
+      "path": "assets/farm-runtime/buildings/pig-shelter.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/buildings/pig-shelter.png",
+      "sourceSha256": "3e33560e3f92cba884fc404576dfd1ffd75057e2b4beab0cbedf5d46bf7e9f86",
+      "bytes": 144539,
+      "width": 512,
+      "height": 363
+    },
+    {
+      "key": "buildings/popcorn-pot",
+      "path": "assets/farm-runtime/buildings/popcorn-pot.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/buildings/popcorn-pot.png",
+      "sourceSha256": "2eb302cc567d094d926ba3136e0faac945e73b242c468f4fe4421607dbae8a77",
+      "bytes": 197459,
+      "width": 512,
+      "height": 454
+    },
+    {
+      "key": "buildings/sewing-machine",
+      "path": "assets/farm-runtime/buildings/sewing-machine.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/buildings/sewing-machine.png",
+      "sourceSha256": "ed3b20248236118432d0ec8ece98a28c683a8a0f964dcb503b76ab54dd55fe66",
+      "bytes": 193023,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "buildings/sheep-shelter",
+      "path": "assets/farm-runtime/buildings/sheep-shelter.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/buildings/sheep-shelter.png",
+      "sourceSha256": "401a3fd69068142e4071c117ec4e0e124d1a2375730a9aa5370688313c3426eb",
+      "bytes": 213099,
+      "width": 512,
+      "height": 427
+    },
+    {
+      "key": "buildings/silo",
+      "path": "assets/farm-runtime/buildings/silo.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/buildings/silo.png",
+      "sourceSha256": "633c47342a1c5d88bbc20b91ca3190d679c3a52ffb94ff16bb15ff993ba312fa",
+      "bytes": 137331,
+      "width": 512,
+      "height": 427
+    },
+    {
+      "key": "buildings/sugar-mill",
+      "path": "assets/farm-runtime/buildings/sugar-mill.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/buildings/sugar-mill.png",
+      "sourceSha256": "b0b17db3d14985c441de4d41c009762f55ea7b46f02b244bfb7f5abe1ac8aeaa",
+      "bytes": 208209,
+      "width": 512,
+      "height": 422
+    },
+    {
+      "key": "crops/black-bean",
+      "path": "assets/farm-runtime/crops/black-bean.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/crops/black-bean.png",
+      "sourceSha256": "3ce501491866a2574985c2b23ea3841890702339f0a3e2c3e3738fb18b2dd969",
+      "bytes": 223322,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "crops/carrot",
+      "path": "assets/farm-runtime/crops/carrot.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/crops/carrot.png",
+      "sourceSha256": "080382bc3d3a9806c2a69019a1766d6074ccf30e932317f275d644649f07bbb6",
+      "bytes": 180008,
+      "width": 512,
+      "height": 465
+    },
+    {
+      "key": "crops/chili-pepper",
+      "path": "assets/farm-runtime/crops/chili-pepper.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/crops/chili-pepper.png",
+      "sourceSha256": "dca3941264f2ec622b5ca9306f8b57b156e21af48ba4ad83d9eba67045a75f76",
+      "bytes": 181754,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "crops/corn",
+      "path": "assets/farm-runtime/crops/corn.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/crops/corn.png",
+      "sourceSha256": "ab43c1f5d7511b3d2a648ca5b676e5d8060181b81a6dd32aadb786a6dcfb77e0",
+      "bytes": 200536,
+      "width": 512,
+      "height": 442
+    },
+    {
+      "key": "crops/cotton",
+      "path": "assets/farm-runtime/crops/cotton.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/crops/cotton.png",
+      "sourceSha256": "038c384bb9f8bb052255800f0879b833b68ab556b9f2baf7ec3292b1521523df",
+      "bytes": 175127,
+      "width": 512,
+      "height": 474
+    },
+    {
+      "key": "crops/indigo",
+      "path": "assets/farm-runtime/crops/indigo.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/crops/indigo.png",
+      "sourceSha256": "c9623942f147a7def69215f29cbac097bdb4989a744cb983ff8a428bb5e845d6",
+      "bytes": 154046,
+      "width": 512,
+      "height": 400
+    },
+    {
+      "key": "crops/pumpkin",
+      "path": "assets/farm-runtime/crops/pumpkin.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/crops/pumpkin.png",
+      "sourceSha256": "f998553d6f168cfed4f24eeaca3c501f15a85e00966ff8624dd461526089ff2b",
+      "bytes": 115369,
+      "width": 512,
+      "height": 341
+    },
+    {
+      "key": "crops/soybean",
+      "path": "assets/farm-runtime/crops/soybean.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/crops/soybean.png",
+      "sourceSha256": "1d55bb3b5921b8eb82aa0c8af1f1b01ddcac3f6e819bb7c5224ebfd8d8797aa7",
+      "bytes": 199771,
+      "width": 512,
+      "height": 427
+    },
+    {
+      "key": "crops/sugarcane",
+      "path": "assets/farm-runtime/crops/sugarcane.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/crops/sugarcane.png",
+      "sourceSha256": "35bf2cbf661052ea3e9bdb3e87ea2b4df73bc0a94978c44fec8d9ee90787d684",
+      "bytes": 166630,
+      "width": 512,
+      "height": 438
+    },
+    {
+      "key": "crops/tomato",
+      "path": "assets/farm-runtime/crops/tomato.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/crops/tomato.png",
+      "sourceSha256": "df43b0496ed0111c0487ed1262ce279236d67e8350cb769eb67621637fc1f5e3",
+      "bytes": 174656,
+      "width": 512,
+      "height": 480
+    },
+    {
+      "key": "crops/wheat",
+      "path": "assets/farm-runtime/crops/wheat.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/crops/wheat.png",
+      "sourceSha256": "2489a4fa3b5860476c4cfbf7a8ec2da20a6ac93e958667a5316ea0d6f07bb832",
+      "bytes": 194742,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "decor/arch",
+      "path": "assets/farm-runtime/decor/arch.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/decor/arch.png",
+      "sourceSha256": "3b251c12416e54e98967582db8d34a4e6e4003cc7b2a8d0712c0282799d2e730",
+      "bytes": 156737,
+      "width": 512,
+      "height": 457
+    },
+    {
+      "key": "decor/bench",
+      "path": "assets/farm-runtime/decor/bench.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/decor/bench.png",
+      "sourceSha256": "f5fb7c854c603570dcb93efc6b8558221544e1c6114d3e4c52c1268b66a4413e",
+      "bytes": 156724,
+      "width": 512,
+      "height": 410
+    },
+    {
+      "key": "decor/bridge",
+      "path": "assets/farm-runtime/decor/bridge.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/decor/bridge.png",
+      "sourceSha256": "458d990043f1677c3f05164cc03731c527d66d4b26c54ba4d65a7ac8ea16e374",
+      "bytes": 141553,
+      "width": 512,
+      "height": 341
+    },
+    {
+      "key": "decor/festival-windmill",
+      "path": "assets/farm-runtime/decor/festival-windmill.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/decor/festival-windmill.png",
+      "sourceSha256": "177c9fd6144e18b4a4745f74420563137d47113bfca43b66ecdd08065a49ae95",
+      "bytes": 174759,
+      "width": 512,
+      "height": 464
+    },
+    {
+      "key": "decor/flag",
+      "path": "assets/farm-runtime/decor/flag.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/decor/flag.png",
+      "sourceSha256": "bb3f4ff7d760839ed70bf8eee5423fa0fbcfd51282f4f50983eabc33918c161f",
+      "bytes": 93920,
+      "width": 512,
+      "height": 506
+    },
+    {
+      "key": "decor/flower-bed",
+      "path": "assets/farm-runtime/decor/flower-bed.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/decor/flower-bed.png",
+      "sourceSha256": "45595c1bf598143925f15b0effe85919a06484194db986e078e25f780a884e9f",
+      "bytes": 137216,
+      "width": 512,
+      "height": 341
+    },
+    {
+      "key": "decor/flower-fence",
+      "path": "assets/farm-runtime/decor/flower-fence.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/decor/flower-fence.png",
+      "sourceSha256": "a90f932194654522de460acd09420584ece56d550ae2c10202c9bf754f53e2b9",
+      "bytes": 106341,
+      "width": 512,
+      "height": 341
+    },
+    {
+      "key": "decor/flower-pot",
+      "path": "assets/farm-runtime/decor/flower-pot.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/decor/flower-pot.png",
+      "sourceSha256": "76d02cdade62651674172b74fea1bd76df5c8fed1a9ddd84c58845c929757f68",
+      "bytes": 161360,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "decor/hay-bales",
+      "path": "assets/farm-runtime/decor/hay-bales.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/decor/hay-bales.png",
+      "sourceSha256": "423de5f2d4e0fa4a86d0d55f85dc9c5e4c518aaa3b0ecea587bbcf983a419e94",
+      "bytes": 172262,
+      "width": 512,
+      "height": 433
+    },
+    {
+      "key": "decor/lamp",
+      "path": "assets/farm-runtime/decor/lamp.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/decor/lamp.png",
+      "sourceSha256": "8de4cdcae4b1916a79ebd42e0af39c13818fdc4564d737ce21d0ff76362758e5",
+      "bytes": 63672,
+      "width": 470,
+      "height": 512
+    },
+    {
+      "key": "decor/land-memorial",
+      "path": "assets/farm-runtime/decor/land-memorial.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/decor/land-memorial.png",
+      "sourceSha256": "d4a0fe510ed3ea9de241896d1b63bb07b9aed7037581d1baf3a5beba85349e82",
+      "bytes": 149277,
+      "width": 512,
+      "height": 472
+    },
+    {
+      "key": "decor/meadow-banner",
+      "path": "assets/farm-runtime/decor/meadow-banner.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/decor/meadow-banner.png",
+      "sourceSha256": "aac8279fbd779e1c4fabc0860cd751a3f56676efddc34caf8b6c84941bc55d09",
+      "bytes": 95958,
+      "width": 512,
+      "height": 341
+    },
+    {
+      "key": "decor/picnic",
+      "path": "assets/farm-runtime/decor/picnic.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/decor/picnic.png",
+      "sourceSha256": "0195407f45de3d8dc59101146ed45f9d89c4cf322f2f143f0cfaa96956e8af3a",
+      "bytes": 128802,
+      "width": 512,
+      "height": 341
+    },
+    {
+      "key": "decor/reward-bridge",
+      "path": "assets/farm-runtime/decor/reward-bridge.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/decor/reward-bridge.png",
+      "sourceSha256": "53baa25622a1e5aedaeb4269a2c4450a47668f99c3ad33c83af3dec1893ac886",
+      "bytes": 131799,
+      "width": 512,
+      "height": 341
+    },
+    {
+      "key": "decor/stone-seat",
+      "path": "assets/farm-runtime/decor/stone-seat.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/decor/stone-seat.png",
+      "sourceSha256": "2c1b8916cc4d85e103f5314af422e611a9cf2aa1b1fc2f04d08ad2fa6fbb724a",
+      "bytes": 77212,
+      "width": 512,
+      "height": 341
+    },
+    {
+      "key": "decor/stone-statue",
+      "path": "assets/farm-runtime/decor/stone-statue.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/decor/stone-statue.png",
+      "sourceSha256": "9710f76f1f18287e3b352a6fa93cbb015aaa134c9f6bcb0201714040453037a9",
+      "bytes": 136074,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "decor/trough",
+      "path": "assets/farm-runtime/decor/trough.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/decor/trough.png",
+      "sourceSha256": "9ab19fce80bc157f44330ceba2976f97ce162c07e192333f9bf3a3df14c82659",
+      "bytes": 109246,
+      "width": 512,
+      "height": 341
+    },
+    {
+      "key": "decor/windmill",
+      "path": "assets/farm-runtime/decor/windmill.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/decor/windmill.png",
+      "sourceSha256": "f8dacca228a0fcbf5ea668c26074771e48fc0a92be5ed8d1fde8522da3d0bf41",
+      "bytes": 177941,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "decor/wood-fence",
+      "path": "assets/farm-runtime/decor/wood-fence.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/decor/wood-fence.png",
+      "sourceSha256": "e7bcb9ef229002a800624f68dd2ffe513d470218e41bf78ad9a7b1af72652157",
+      "bytes": 90975,
+      "width": 512,
+      "height": 341
+    },
+    {
+      "key": "decor/wood-sign",
+      "path": "assets/farm-runtime/decor/wood-sign.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/decor/wood-sign.png",
+      "sourceSha256": "386aac115db02b81d91fcd89a7da985511655a93049638d74398c077a8baf3c9",
+      "bytes": 70653,
+      "width": 512,
+      "height": 341
+    },
+    {
+      "key": "fruit-plants/apple",
+      "path": "assets/farm-runtime/fruit-plants/apple.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/fruit-plants/apple.png",
+      "sourceSha256": "35ecb152c70003c5e41ca5229e042f16a2a99ca5d1e15d94d94cf7e8a24670dd",
+      "bytes": 172501,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "fruit-plants/blackberry",
+      "path": "assets/farm-runtime/fruit-plants/blackberry.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/fruit-plants/blackberry.png",
+      "sourceSha256": "1e9455da2fcebb86b7f1e85d17e21d3b2bcb151f850741e88b16882f6ce9804d",
+      "bytes": 184698,
+      "width": 512,
+      "height": 427
+    },
+    {
+      "key": "fruit-plants/blueberries",
+      "path": "assets/farm-runtime/fruit-plants/blueberries.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/fruit-plants/blueberries.png",
+      "sourceSha256": "2fd04910b9cbb744fe642a752b3a8dfb250e90da7a6a1737f431772db2091929",
+      "bytes": 241093,
+      "width": 512,
+      "height": 480
+    },
+    {
+      "key": "fruit-plants/cherry",
+      "path": "assets/farm-runtime/fruit-plants/cherry.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/fruit-plants/cherry.png",
+      "sourceSha256": "5dfb2f8c9d36ddef2d1534f75a4f73e8f45e3afed67c4521615bd1f5a92f03e3",
+      "bytes": 178867,
+      "width": 500,
+      "height": 512
+    },
+    {
+      "key": "fruit-plants/raspberry",
+      "path": "assets/farm-runtime/fruit-plants/raspberry.png",
+      "source": "docs/art-packs/sumikko-farm-v1/assets/fruit-plants/raspberry.png",
+      "sourceSha256": "5ab42e7b77268b036cbee2706af49141f126d1e9e8afc10b1ad5508f3cd784ca",
+      "bytes": 177730,
+      "width": 512,
+      "height": 427
+    },
+    {
+      "key": "plant-states/crops/wheat-sprout",
+      "path": "assets/farm-runtime/plant-states/crops/wheat-sprout.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/crops/wheat-sprout.png",
+      "sourceSha256": "7b499c3944c7e89da0f5c254bc0cff6a0f58a764716f0c50dc6d11acd23d9539",
+      "bytes": 137423,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "plant-states/crops/wheat-grown",
+      "path": "assets/farm-runtime/plant-states/crops/wheat-grown.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/crops/wheat-grown.png",
+      "sourceSha256": "a1d05cb166dd3b235555d1ee27ceea6bfe9af2ce1a2c6196a4fc925326de5935",
+      "bytes": 167585,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "plant-states/crops/corn-sprout",
+      "path": "assets/farm-runtime/plant-states/crops/corn-sprout.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/crops/corn-sprout.png",
+      "sourceSha256": "6e3cd8618efb2f70cf21c707bd942c51fedcdfed6e23332ee2c7ecbc4c99344e",
+      "bytes": 126069,
+      "width": 512,
+      "height": 442
+    },
+    {
+      "key": "plant-states/crops/corn-grown",
+      "path": "assets/farm-runtime/plant-states/crops/corn-grown.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/crops/corn-grown.png",
+      "sourceSha256": "a311fa8bf36ef26024e58c4e914b485810dcf34aee91967136df472f35f24290",
+      "bytes": 188429,
+      "width": 512,
+      "height": 442
+    },
+    {
+      "key": "plant-states/crops/soybean-sprout",
+      "path": "assets/farm-runtime/plant-states/crops/soybean-sprout.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/crops/soybean-sprout.png",
+      "sourceSha256": "01e6eb0706c17a31abf106d0df5a13defe6dbeaed01d889583ecf3b6a3e2f6e5",
+      "bytes": 126381,
+      "width": 512,
+      "height": 427
+    },
+    {
+      "key": "plant-states/crops/soybean-grown",
+      "path": "assets/farm-runtime/plant-states/crops/soybean-grown.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/crops/soybean-grown.png",
+      "sourceSha256": "7b2d11a2397030315dbb0e5157eda02703a8a117eb2b951758acecfffda0517f",
+      "bytes": 198092,
+      "width": 512,
+      "height": 427
+    },
+    {
+      "key": "plant-states/crops/sugarcane-sprout",
+      "path": "assets/farm-runtime/plant-states/crops/sugarcane-sprout.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/crops/sugarcane-sprout.png",
+      "sourceSha256": "0422331eeb20d4bf217f22f718aad23be5bda4257b32be1fa3825a8ebfe92c69",
+      "bytes": 118476,
+      "width": 512,
+      "height": 437
+    },
+    {
+      "key": "plant-states/crops/sugarcane-grown",
+      "path": "assets/farm-runtime/plant-states/crops/sugarcane-grown.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/crops/sugarcane-grown.png",
+      "sourceSha256": "7211043852b778423392ab86a9c5e8b95bf848cfc0c83c972a87782456cd328a",
+      "bytes": 126482,
+      "width": 512,
+      "height": 437
+    },
+    {
+      "key": "plant-states/crops/carrot-sprout",
+      "path": "assets/farm-runtime/plant-states/crops/carrot-sprout.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/crops/carrot-sprout.png",
+      "sourceSha256": "53eb43ccdb8a9000f841d3686be8b453e2d34fec7b94d43ff95e35b58a8d6de5",
+      "bytes": 120547,
+      "width": 512,
+      "height": 465
+    },
+    {
+      "key": "plant-states/crops/carrot-grown",
+      "path": "assets/farm-runtime/plant-states/crops/carrot-grown.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/crops/carrot-grown.png",
+      "sourceSha256": "12045a990b52453a29a54a79dcea55ff1abd620b8a012b6db8e5abe8e119a4f0",
+      "bytes": 191097,
+      "width": 512,
+      "height": 465
+    },
+    {
+      "key": "plant-states/crops/indigo-sprout",
+      "path": "assets/farm-runtime/plant-states/crops/indigo-sprout.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/crops/indigo-sprout.png",
+      "sourceSha256": "16f8c228cbe9a130db6b7f70bdde60c3a46ea88266abaacf9bd1f4b4d6d9b56e",
+      "bytes": 114025,
+      "width": 512,
+      "height": 400
+    },
+    {
+      "key": "plant-states/crops/indigo-grown",
+      "path": "assets/farm-runtime/plant-states/crops/indigo-grown.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/crops/indigo-grown.png",
+      "sourceSha256": "cd1d2213fa1eb9712071830f6d153c23d00a7d374c2f16fb9d501f3999de32b4",
+      "bytes": 155857,
+      "width": 512,
+      "height": 400
+    },
+    {
+      "key": "plant-states/crops/pumpkin-sprout",
+      "path": "assets/farm-runtime/plant-states/crops/pumpkin-sprout.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/crops/pumpkin-sprout.png",
+      "sourceSha256": "d6787ab0d7713b3f5b38d5d21e0b5a7b123f216a1b4e2548c349027ab71cc70b",
+      "bytes": 94592,
+      "width": 512,
+      "height": 341
+    },
+    {
+      "key": "plant-states/crops/pumpkin-grown",
+      "path": "assets/farm-runtime/plant-states/crops/pumpkin-grown.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/crops/pumpkin-grown.png",
+      "sourceSha256": "a6075a731c1c2a8f872754af1147697f8066f953e3a19b0f76f78eab74ec35fc",
+      "bytes": 135028,
+      "width": 512,
+      "height": 341
+    },
+    {
+      "key": "plant-states/crops/cotton-sprout",
+      "path": "assets/farm-runtime/plant-states/crops/cotton-sprout.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/crops/cotton-sprout.png",
+      "sourceSha256": "5324d6ce9f89898d807a98867589844f5f6f42663917d093b2f78dda6cfeb070",
+      "bytes": 119766,
+      "width": 512,
+      "height": 474
+    },
+    {
+      "key": "plant-states/crops/cotton-grown",
+      "path": "assets/farm-runtime/plant-states/crops/cotton-grown.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/crops/cotton-grown.png",
+      "sourceSha256": "56a8c19e3b902e7c785685ec84dad2fb6ffc7f63f15a4e2299e09cd1ad0fd5c2",
+      "bytes": 181547,
+      "width": 512,
+      "height": 474
+    },
+    {
+      "key": "plant-states/crops/chili-pepper-sprout",
+      "path": "assets/farm-runtime/plant-states/crops/chili-pepper-sprout.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/crops/chili-pepper-sprout.png",
+      "sourceSha256": "0a887e2b8c79d67711c212f8595554397336607a0f170885ab4e639b3a68adca",
+      "bytes": 98785,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "plant-states/crops/chili-pepper-grown",
+      "path": "assets/farm-runtime/plant-states/crops/chili-pepper-grown.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/crops/chili-pepper-grown.png",
+      "sourceSha256": "fa6553525d0acc4e4d9a5b0012981a79c1b2d0b8fd82a57c1f84a6a22da982d3",
+      "bytes": 184939,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "plant-states/crops/black-bean-sprout",
+      "path": "assets/farm-runtime/plant-states/crops/black-bean-sprout.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/crops/black-bean-sprout.png",
+      "sourceSha256": "8c91e2badb304a07832d8b008048c8f9c203860e19197138db05645d72a4e9fb",
+      "bytes": 130550,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "plant-states/crops/black-bean-grown",
+      "path": "assets/farm-runtime/plant-states/crops/black-bean-grown.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/crops/black-bean-grown.png",
+      "sourceSha256": "b33cc288abdab72ee2fbfc28b763a4118c45c09818ef4d66393358bcbc86732a",
+      "bytes": 220135,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "plant-states/crops/tomato-sprout",
+      "path": "assets/farm-runtime/plant-states/crops/tomato-sprout.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/crops/tomato-sprout.png",
+      "sourceSha256": "fc53371c7408ac9ac11170cce65c27898056e1e95ddab38373e1e4ecfbf4351a",
+      "bytes": 115907,
+      "width": 512,
+      "height": 480
+    },
+    {
+      "key": "plant-states/crops/tomato-grown",
+      "path": "assets/farm-runtime/plant-states/crops/tomato-grown.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/crops/tomato-grown.png",
+      "sourceSha256": "67241d63ac898483c606262ac3d362ac5c8a52875235e7c6fb3aaa883adb702e",
+      "bytes": 178046,
+      "width": 512,
+      "height": 480
+    },
+    {
+      "key": "plant-states/fruit-plants/apple-young",
+      "path": "assets/farm-runtime/plant-states/fruit-plants/apple-young.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/fruit-plants/apple-young.png",
+      "sourceSha256": "24cc829d23d382d1674143833f407e1ee10b3c6b207c931d165292779226462a",
+      "bytes": 139280,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "plant-states/fruit-plants/apple-growing",
+      "path": "assets/farm-runtime/plant-states/fruit-plants/apple-growing.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/fruit-plants/apple-growing.png",
+      "sourceSha256": "ee76c485a07633daab24a6eb8c79111fd23ccd63d970fb880e922fd9b61e198f",
+      "bytes": 158364,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "plant-states/fruit-plants/apple-wilt_help",
+      "path": "assets/farm-runtime/plant-states/fruit-plants/apple-wilt_help.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/fruit-plants/apple-wilt_help.png",
+      "sourceSha256": "8d7fc38ec928e4bdf9c25c552b83af0e5cb4c23a47319d747644f9f232a857b7",
+      "bytes": 172693,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "plant-states/fruit-plants/apple-wilt_final",
+      "path": "assets/farm-runtime/plant-states/fruit-plants/apple-wilt_final.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/fruit-plants/apple-wilt_final.png",
+      "sourceSha256": "bf9e1ffd080776c3170d87e3343451964ea3a839669162a9f3d646a84beef93a",
+      "bytes": 165740,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "plant-states/fruit-plants/raspberry-young",
+      "path": "assets/farm-runtime/plant-states/fruit-plants/raspberry-young.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/fruit-plants/raspberry-young.png",
+      "sourceSha256": "9cba8b59ace196b845fab821c25ed360133ed760d1a6daa4aae1530573fa478d",
+      "bytes": 143974,
+      "width": 512,
+      "height": 427
+    },
+    {
+      "key": "plant-states/fruit-plants/raspberry-growing",
+      "path": "assets/farm-runtime/plant-states/fruit-plants/raspberry-growing.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/fruit-plants/raspberry-growing.png",
+      "sourceSha256": "82166c8a571245d930213c582b4e18cc0b18cb28068d7da3ee8a45b95806f083",
+      "bytes": 189035,
+      "width": 512,
+      "height": 427
+    },
+    {
+      "key": "plant-states/fruit-plants/raspberry-wilt_help",
+      "path": "assets/farm-runtime/plant-states/fruit-plants/raspberry-wilt_help.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/fruit-plants/raspberry-wilt_help.png",
+      "sourceSha256": "2a723a75c4936ca3e6eda66a1138ea369eea70119dcf66036919b4194803f0c4",
+      "bytes": 170083,
+      "width": 512,
+      "height": 427
+    },
+    {
+      "key": "plant-states/fruit-plants/raspberry-wilt_final",
+      "path": "assets/farm-runtime/plant-states/fruit-plants/raspberry-wilt_final.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/fruit-plants/raspberry-wilt_final.png",
+      "sourceSha256": "66ad1ab7f2c7f6fa4546506959466f026df9a42a8dd5b73adbf2b598f9b924cf",
+      "bytes": 158323,
+      "width": 512,
+      "height": 426
+    },
+    {
+      "key": "plant-states/fruit-plants/cherry-young",
+      "path": "assets/farm-runtime/plant-states/fruit-plants/cherry-young.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/fruit-plants/cherry-young.png",
+      "sourceSha256": "7ca0bd94c7b023e705b017400d6492943ffddfcb0c67da84d7c63ea7bce65bec",
+      "bytes": 152437,
+      "width": 500,
+      "height": 512
+    },
+    {
+      "key": "plant-states/fruit-plants/cherry-growing",
+      "path": "assets/farm-runtime/plant-states/fruit-plants/cherry-growing.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/fruit-plants/cherry-growing.png",
+      "sourceSha256": "2cabed4ebb7ab29f95ad1631210c2bd26e4837ae232bdc6c5ee001ac28f28979",
+      "bytes": 174012,
+      "width": 500,
+      "height": 512
+    },
+    {
+      "key": "plant-states/fruit-plants/cherry-wilt_help",
+      "path": "assets/farm-runtime/plant-states/fruit-plants/cherry-wilt_help.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/fruit-plants/cherry-wilt_help.png",
+      "sourceSha256": "6b5bdb2e1900e67360ad9259dca543db0879157fe87aeb16213429575c34cd9a",
+      "bytes": 174349,
+      "width": 500,
+      "height": 512
+    },
+    {
+      "key": "plant-states/fruit-plants/cherry-wilt_final",
+      "path": "assets/farm-runtime/plant-states/fruit-plants/cherry-wilt_final.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/fruit-plants/cherry-wilt_final.png",
+      "sourceSha256": "223f30396fecf0491c7d438243e144b4dcefd8d4888f4a443e208720c76d6516",
+      "bytes": 164326,
+      "width": 500,
+      "height": 512
+    },
+    {
+      "key": "plant-states/fruit-plants/blackberry-young",
+      "path": "assets/farm-runtime/plant-states/fruit-plants/blackberry-young.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/fruit-plants/blackberry-young.png",
+      "sourceSha256": "cc77957735610ee4d5db971f713a7222feabc9c72c2ea0d6562927dc3f684f04",
+      "bytes": 120359,
+      "width": 512,
+      "height": 427
+    },
+    {
+      "key": "plant-states/fruit-plants/blackberry-growing",
+      "path": "assets/farm-runtime/plant-states/fruit-plants/blackberry-growing.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/fruit-plants/blackberry-growing.png",
+      "sourceSha256": "6505cfad99f29069d31db7f63a0c2cc20bce95b21928499e0d5ed5651c00c7cf",
+      "bytes": 176386,
+      "width": 512,
+      "height": 427
+    },
+    {
+      "key": "plant-states/fruit-plants/blackberry-wilt_help",
+      "path": "assets/farm-runtime/plant-states/fruit-plants/blackberry-wilt_help.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/fruit-plants/blackberry-wilt_help.png",
+      "sourceSha256": "4227ff5ec868e0ea2d071f097f87fdaf4d60b708864cc860e29e543e796778ad",
+      "bytes": 182331,
+      "width": 512,
+      "height": 427
+    },
+    {
+      "key": "plant-states/fruit-plants/blackberry-wilt_final",
+      "path": "assets/farm-runtime/plant-states/fruit-plants/blackberry-wilt_final.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/fruit-plants/blackberry-wilt_final.png",
+      "sourceSha256": "a2ba8450f007eefae11ec602e85ac55febc1815f1a68009c07a68a6765d27626",
+      "bytes": 146160,
+      "width": 512,
+      "height": 427
+    },
+    {
+      "key": "plant-states/fruit-plants/blueberries-young",
+      "path": "assets/farm-runtime/plant-states/fruit-plants/blueberries-young.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/fruit-plants/blueberries-young.png",
+      "sourceSha256": "d999130975e3c76e4fd9c527764fb064abbf25099c44264a4c8d2bfd224fa566",
+      "bytes": 173464,
+      "width": 512,
+      "height": 480
+    },
+    {
+      "key": "plant-states/fruit-plants/blueberries-growing",
+      "path": "assets/farm-runtime/plant-states/fruit-plants/blueberries-growing.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/fruit-plants/blueberries-growing.png",
+      "sourceSha256": "4a55ec90df3f0a6de548653d76d82a1e5071254f37b391506d6a201125e2de41",
+      "bytes": 249316,
+      "width": 512,
+      "height": 480
+    },
+    {
+      "key": "plant-states/fruit-plants/blueberries-wilt_help",
+      "path": "assets/farm-runtime/plant-states/fruit-plants/blueberries-wilt_help.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/fruit-plants/blueberries-wilt_help.png",
+      "sourceSha256": "e83d7f4edb024d4eaea5e8b3d5bdb9f30638db0263f6ad95d627bfe86d722bd7",
+      "bytes": 203946,
+      "width": 512,
+      "height": 480
+    },
+    {
+      "key": "plant-states/fruit-plants/blueberries-wilt_final",
+      "path": "assets/farm-runtime/plant-states/fruit-plants/blueberries-wilt_final.png",
+      "source": "docs/art-packs/sumikko-farm-v1/plant-states/assets/fruit-plants/blueberries-wilt_final.png",
+      "sourceSha256": "2289064b5e7ff4a72e92e8b2116f7b94819a41f744ae5e7f7c29859507699d96",
+      "bytes": 158624,
+      "width": 512,
+      "height": 480
+    }
+  ]
+}
