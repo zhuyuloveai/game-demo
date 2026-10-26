@@ -1,0 +1,2243 @@
+{
+  "schemaVersion": 1,
+  "title": "羊羊牧场 · 植物生长状态",
+  "mode": "builtin-imagegen",
+  "counts": {
+    "expectedNew": 42,
+    "generated": 42,
+    "existingMature": 16,
+    "totalStates": 58,
+    "families": 16
+  },
+  "anchorConvention": "Anchor and opaqueBounds are source pixels; all states share a bottom-center world anchor. displayScale is relative to mature visible width.",
+  "families": [
+    {
+      "plant": "wheat",
+      "label": "小麦",
+      "group": "crops",
+      "states": [
+        "wheat-sprout",
+        "wheat-grown",
+        "wheat-ripe"
+      ]
+    },
+    {
+      "plant": "corn",
+      "label": "玉米",
+      "group": "crops",
+      "states": [
+        "corn-sprout",
+        "corn-grown",
+        "corn-ripe"
+      ]
+    },
+    {
+      "plant": "soybean",
+      "label": "大豆",
+      "group": "crops",
+      "states": [
+        "soybean-sprout",
+        "soybean-grown",
+        "soybean-ripe"
+      ]
+    },
+    {
+      "plant": "sugarcane",
+      "label": "甘蔗",
+      "group": "crops",
+      "states": [
+        "sugarcane-sprout",
+        "sugarcane-grown",
+        "sugarcane-ripe"
+      ]
+    },
+    {
+      "plant": "carrot",
+      "label": "胡萝卜",
+      "group": "crops",
+      "states": [
+        "carrot-sprout",
+        "carrot-grown",
+        "carrot-ripe"
+      ]
+    },
+    {
+      "plant": "indigo",
+      "label": "靛蓝",
+      "group": "crops",
+      "states": [
+        "indigo-sprout",
+        "indigo-grown",
+        "indigo-ripe"
+      ]
+    },
+    {
+      "plant": "pumpkin",
+      "label": "南瓜",
+      "group": "crops",
+      "states": [
+        "pumpkin-sprout",
+        "pumpkin-grown",
+        "pumpkin-ripe"
+      ]
+    },
+    {
+      "plant": "cotton",
+      "label": "棉花",
+      "group": "crops",
+      "states": [
+        "cotton-sprout",
+        "cotton-grown",
+        "cotton-ripe"
+      ]
+    },
+    {
+      "plant": "chili-pepper",
+      "label": "辣椒",
+      "group": "crops",
+      "states": [
+        "chili-pepper-sprout",
+        "chili-pepper-grown",
+        "chili-pepper-ripe"
+      ]
+    },
+    {
+      "plant": "black-bean",
+      "label": "黑豆",
+      "group": "crops",
+      "states": [
+        "black-bean-sprout",
+        "black-bean-grown",
+        "black-bean-ripe"
+      ]
+    },
+    {
+      "plant": "tomato",
+      "label": "番茄",
+      "group": "crops",
+      "states": [
+        "tomato-sprout",
+        "tomato-grown",
+        "tomato-ripe"
+      ]
+    },
+    {
+      "plant": "apple",
+      "label": "苹果树",
+      "group": "fruit-plants",
+      "states": [
+        "apple-young",
+        "apple-growing",
+        "apple-fruit_ready",
+        "apple-wilt_help",
+        "apple-wilt_final"
+      ]
+    },
+    {
+      "plant": "raspberry",
+      "label": "树莓",
+      "group": "fruit-plants",
+      "states": [
+        "raspberry-young",
+        "raspberry-growing",
+        "raspberry-fruit_ready",
+        "raspberry-wilt_help",
+        "raspberry-wilt_final"
+      ]
+    },
+    {
+      "plant": "cherry",
+      "label": "樱桃树",
+      "group": "fruit-plants",
+      "states": [
+        "cherry-young",
+        "cherry-growing",
+        "cherry-fruit_ready",
+        "cherry-wilt_help",
+        "cherry-wilt_final"
+      ]
+    },
+    {
+      "plant": "blackberry",
+      "label": "黑莓",
+      "group": "fruit-plants",
+      "states": [
+        "blackberry-young",
+        "blackberry-growing",
+        "blackberry-fruit_ready",
+        "blackberry-wilt_help",
+        "blackberry-wilt_final"
+      ]
+    },
+    {
+      "plant": "blueberries",
+      "label": "蓝莓",
+      "group": "fruit-plants",
+      "states": [
+        "blueberries-young",
+        "blueberries-growing",
+        "blueberries-fruit_ready",
+        "blueberries-wilt_help",
+        "blueberries-wilt_final"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "key": "wheat-ripe",
+      "plant": "wheat",
+      "label": "小麦",
+      "projectId": "wheat",
+      "group": "crops",
+      "state": "ripe",
+      "stateLabel": "成熟",
+      "path": "../assets/crops/wheat.png",
+      "status": "existing",
+      "heightScale": 1,
+      "displayScale": 1,
+      "size": [
+        1312,
+        1199
+      ],
+      "opaqueBounds": [
+        178,
+        85,
+        1180,
+        1120
+      ],
+      "anchor": [
+        679.0,
+        1120
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.06453,
+      "sha256": "2489a4fa3b5860476c4cfbf7a8ec2da20a6ac93e958667a5316ea0d6f07bb832",
+      "bytes": 923315
+    },
+    {
+      "key": "corn-ripe",
+      "plant": "corn",
+      "label": "玉米",
+      "projectId": "corn",
+      "group": "crops",
+      "state": "ripe",
+      "stateLabel": "成熟",
+      "path": "../assets/crops/corn.png",
+      "status": "existing",
+      "heightScale": 1,
+      "displayScale": 1,
+      "size": [
+        1350,
+        1165
+      ],
+      "opaqueBounds": [
+        72,
+        51,
+        1279,
+        1111
+      ],
+      "anchor": [
+        675.5,
+        1111
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.06079,
+      "sha256": "ab43c1f5d7511b3d2a648ca5b676e5d8060181b81a6dd32aadb786a6dcfb77e0",
+      "bytes": 1024502
+    },
+    {
+      "key": "soybean-ripe",
+      "plant": "soybean",
+      "label": "大豆",
+      "projectId": "soybean",
+      "group": "crops",
+      "state": "ripe",
+      "stateLabel": "成熟",
+      "path": "../assets/crops/soybean.png",
+      "status": "existing",
+      "heightScale": 1,
+      "displayScale": 1,
+      "size": [
+        1374,
+        1145
+      ],
+      "opaqueBounds": [
+        127,
+        107,
+        1307,
+        1045
+      ],
+      "anchor": [
+        717.0,
+        1045
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.0438,
+      "sha256": "1d55bb3b5921b8eb82aa0c8af1f1b01ddcac3f6e819bb7c5224ebfd8d8797aa7",
+      "bytes": 1087642
+    },
+    {
+      "key": "sugarcane-ripe",
+      "plant": "sugarcane",
+      "label": "甘蔗",
+      "projectId": "sugarcane",
+      "group": "crops",
+      "state": "ripe",
+      "stateLabel": "成熟",
+      "path": "../assets/crops/sugarcane.png",
+      "status": "existing",
+      "heightScale": 1,
+      "displayScale": 1,
+      "size": [
+        1356,
+        1159
+      ],
+      "opaqueBounds": [
+        175,
+        33,
+        1218,
+        1111
+      ],
+      "anchor": [
+        696.5,
+        1111
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.0449,
+      "sha256": "35bf2cbf661052ea3e9bdb3e87ea2b4df73bc0a94978c44fec8d9ee90787d684",
+      "bytes": 860764
+    },
+    {
+      "key": "carrot-ripe",
+      "plant": "carrot",
+      "label": "胡萝卜",
+      "projectId": "carrot",
+      "group": "crops",
+      "state": "ripe",
+      "stateLabel": "成熟",
+      "path": "../assets/crops/carrot.png",
+      "status": "existing",
+      "heightScale": 1,
+      "displayScale": 1,
+      "size": [
+        1316,
+        1195
+      ],
+      "opaqueBounds": [
+        60,
+        137,
+        1260,
+        1085
+      ],
+      "anchor": [
+        660.0,
+        1085
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.03111,
+      "sha256": "080382bc3d3a9806c2a69019a1766d6074ccf30e932317f275d644649f07bbb6",
+      "bytes": 940822
+    },
+    {
+      "key": "indigo-ripe",
+      "plant": "indigo",
+      "label": "靛蓝",
+      "projectId": "indigo",
+      "group": "crops",
+      "state": "ripe",
+      "stateLabel": "成熟",
+      "path": "../assets/crops/indigo.png",
+      "status": "existing",
+      "heightScale": 1,
+      "displayScale": 1,
+      "size": [
+        1419,
+        1108
+      ],
+      "opaqueBounds": [
+        240,
+        73,
+        1184,
+        1045
+      ],
+      "anchor": [
+        712.0,
+        1045
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.04788,
+      "sha256": "c9623942f147a7def69215f29cbac097bdb4989a744cb983ff8a428bb5e845d6",
+      "bytes": 856908
+    },
+    {
+      "key": "pumpkin-ripe",
+      "plant": "pumpkin",
+      "label": "南瓜",
+      "projectId": "pumpkin",
+      "group": "crops",
+      "state": "ripe",
+      "stateLabel": "成熟",
+      "path": "../assets/crops/pumpkin.png",
+      "status": "existing",
+      "heightScale": 1,
+      "displayScale": 1,
+      "size": [
+        1536,
+        1024
+      ],
+      "opaqueBounds": [
+        171,
+        101,
+        1390,
+        916
+      ],
+      "anchor": [
+        780.5,
+        916
+      ],
+      "alphaRange": [
+        0,
+        254
+      ],
+      "lowAlphaFraction": 0.05402,
+      "sha256": "f998553d6f168cfed4f24eeaca3c501f15a85e00966ff8624dd461526089ff2b",
+      "bytes": 1323549
+    },
+    {
+      "key": "cotton-ripe",
+      "plant": "cotton",
+      "label": "棉花",
+      "projectId": "cotton",
+      "group": "crops",
+      "state": "ripe",
+      "stateLabel": "成熟",
+      "path": "../assets/crops/cotton.png",
+      "status": "existing",
+      "heightScale": 1,
+      "displayScale": 1,
+      "size": [
+        1303,
+        1207
+      ],
+      "opaqueBounds": [
+        84,
+        113,
+        1236,
+        1107
+      ],
+      "anchor": [
+        660.0,
+        1107
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.03731,
+      "sha256": "038c384bb9f8bb052255800f0879b833b68ab556b9f2baf7ec3292b1521523df",
+      "bytes": 869518
+    },
+    {
+      "key": "chili-pepper-ripe",
+      "plant": "chili-pepper",
+      "label": "辣椒",
+      "projectId": "chili_pepper",
+      "group": "crops",
+      "state": "ripe",
+      "stateLabel": "成熟",
+      "path": "../assets/crops/chili-pepper.png",
+      "status": "existing",
+      "heightScale": 1,
+      "displayScale": 1,
+      "size": [
+        1312,
+        1199
+      ],
+      "opaqueBounds": [
+        111,
+        79,
+        1224,
+        1114
+      ],
+      "anchor": [
+        667.5,
+        1114
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.07465,
+      "sha256": "dca3941264f2ec622b5ca9306f8b57b156e21af48ba4ad83d9eba67045a75f76",
+      "bytes": 895611
+    },
+    {
+      "key": "black-bean-ripe",
+      "plant": "black-bean",
+      "label": "黑豆",
+      "projectId": "black_bean",
+      "group": "crops",
+      "state": "ripe",
+      "stateLabel": "成熟",
+      "path": "../assets/crops/black-bean.png",
+      "status": "existing",
+      "heightScale": 1,
+      "displayScale": 1,
+      "size": [
+        1312,
+        1199
+      ],
+      "opaqueBounds": [
+        39,
+        27,
+        1280,
+        1149
+      ],
+      "anchor": [
+        659.5,
+        1149
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.03991,
+      "sha256": "3ce501491866a2574985c2b23ea3841890702339f0a3e2c3e3738fb18b2dd969",
+      "bytes": 1116916
+    },
+    {
+      "key": "tomato-ripe",
+      "plant": "tomato",
+      "label": "番茄",
+      "projectId": "tomato",
+      "group": "crops",
+      "state": "ripe",
+      "stateLabel": "成熟",
+      "path": "../assets/crops/tomato.png",
+      "status": "existing",
+      "heightScale": 1,
+      "displayScale": 1,
+      "size": [
+        1295,
+        1214
+      ],
+      "opaqueBounds": [
+        220,
+        86,
+        1139,
+        1133
+      ],
+      "anchor": [
+        679.5,
+        1133
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.04933,
+      "sha256": "df43b0496ed0111c0487ed1262ce279236d67e8350cb769eb67621637fc1f5e3",
+      "bytes": 856927
+    },
+    {
+      "key": "apple-fruit_ready",
+      "plant": "apple",
+      "label": "苹果树",
+      "projectId": "apple",
+      "group": "fruit-plants",
+      "state": "fruit_ready",
+      "stateLabel": "结果",
+      "path": "../assets/fruit-plants/apple.png",
+      "status": "existing",
+      "heightScale": 1,
+      "displayScale": 1,
+      "size": [
+        1312,
+        1199
+      ],
+      "opaqueBounds": [
+        100,
+        91,
+        1228,
+        1126
+      ],
+      "anchor": [
+        664.0,
+        1126
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.02949,
+      "sha256": "35ecb152c70003c5e41ca5229e042f16a2a99ca5d1e15d94d94cf7e8a24670dd",
+      "bytes": 918490
+    },
+    {
+      "key": "raspberry-fruit_ready",
+      "plant": "raspberry",
+      "label": "树莓",
+      "projectId": "raspberry",
+      "group": "fruit-plants",
+      "state": "fruit_ready",
+      "stateLabel": "结果",
+      "path": "../assets/fruit-plants/raspberry.png",
+      "status": "existing",
+      "heightScale": 1,
+      "displayScale": 1,
+      "size": [
+        1374,
+        1145
+      ],
+      "opaqueBounds": [
+        57,
+        124,
+        1319,
+        1014
+      ],
+      "anchor": [
+        688.0,
+        1014
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.01948,
+      "sha256": "5ab42e7b77268b036cbee2706af49141f126d1e9e8afc10b1ad5508f3cd784ca",
+      "bytes": 989951
+    },
+    {
+      "key": "cherry-fruit_ready",
+      "plant": "cherry",
+      "label": "樱桃树",
+      "projectId": "cherry",
+      "group": "fruit-plants",
+      "state": "fruit_ready",
+      "stateLabel": "结果",
+      "path": "../assets/fruit-plants/cherry.png",
+      "status": "existing",
+      "heightScale": 1,
+      "displayScale": 1,
+      "size": [
+        1239,
+        1269
+      ],
+      "opaqueBounds": [
+        81,
+        156,
+        1165,
+        1134
+      ],
+      "anchor": [
+        623.0,
+        1134
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.01894,
+      "sha256": "5dfb2f8c9d36ddef2d1534f75a4f73e8f45e3afed67c4521615bd1f5a92f03e3",
+      "bytes": 895951
+    },
+    {
+      "key": "blackberry-fruit_ready",
+      "plant": "blackberry",
+      "label": "黑莓",
+      "projectId": "blackberry",
+      "group": "fruit-plants",
+      "state": "fruit_ready",
+      "stateLabel": "结果",
+      "path": "../assets/fruit-plants/blackberry.png",
+      "status": "existing",
+      "heightScale": 1,
+      "displayScale": 1,
+      "size": [
+        1374,
+        1145
+      ],
+      "opaqueBounds": [
+        86,
+        119,
+        1295,
+        1021
+      ],
+      "anchor": [
+        690.5,
+        1021
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.02514,
+      "sha256": "1e9455da2fcebb86b7f1e85d17e21d3b2bcb151f850741e88b16882f6ce9804d",
+      "bytes": 1015660
+    },
+    {
+      "key": "blueberries-fruit_ready",
+      "plant": "blueberries",
+      "label": "蓝莓",
+      "projectId": "blueberries",
+      "group": "fruit-plants",
+      "state": "fruit_ready",
+      "stateLabel": "结果",
+      "path": "../assets/fruit-plants/blueberries.png",
+      "status": "existing",
+      "heightScale": 1,
+      "displayScale": 1,
+      "size": [
+        1295,
+        1214
+      ],
+      "opaqueBounds": [
+        40,
+        71,
+        1255,
+        1136
+      ],
+      "anchor": [
+        647.5,
+        1136
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.02764,
+      "sha256": "2fd04910b9cbb744fe642a752b3a8dfb250e90da7a6a1737f431772db2091929",
+      "bytes": 1219233
+    },
+    {
+      "key": "wheat-sprout",
+      "plant": "wheat",
+      "label": "小麦",
+      "group": "crops",
+      "state": "sprout",
+      "stateLabel": "幼苗",
+      "path": "assets/crops/wheat-sprout.png",
+      "projectId": "wheat",
+      "status": "generated",
+      "heightScale": 0.4,
+      "displayScale": 0.46085,
+      "provenance": "generation/wheat-sprout.json",
+      "sourceMatches": true,
+      "size": [
+        1312,
+        1199
+      ],
+      "opaqueBounds": [
+        143,
+        95,
+        1216,
+        1057
+      ],
+      "anchor": [
+        679.5,
+        1057
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.06709,
+      "sha256": "7b499c3944c7e89da0f5c254bc0cff6a0f58a764716f0c50dc6d11acd23d9539",
+      "bytes": 657002
+    },
+    {
+      "key": "wheat-grown",
+      "plant": "wheat",
+      "label": "小麦",
+      "group": "crops",
+      "state": "grown",
+      "stateLabel": "生长期",
+      "path": "assets/crops/wheat-grown.png",
+      "projectId": "wheat",
+      "status": "generated",
+      "heightScale": 0.75,
+      "displayScale": 0.82739,
+      "provenance": "generation/wheat-grown.json",
+      "sourceMatches": true,
+      "size": [
+        1312,
+        1199
+      ],
+      "opaqueBounds": [
+        116,
+        44,
+        1231,
+        1088
+      ],
+      "anchor": [
+        673.5,
+        1088
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.06982,
+      "sha256": "a1d05cb166dd3b235555d1ee27ceea6bfe9af2ce1a2c6196a4fc925326de5935",
+      "bytes": 812713
+    },
+    {
+      "key": "corn-sprout",
+      "plant": "corn",
+      "label": "玉米",
+      "group": "crops",
+      "state": "sprout",
+      "stateLabel": "幼苗",
+      "path": "assets/crops/corn-sprout.png",
+      "projectId": "corn",
+      "status": "generated",
+      "heightScale": 0.4,
+      "displayScale": 0.43485,
+      "provenance": "generation/corn-sprout.json",
+      "sourceMatches": true,
+      "size": [
+        1350,
+        1165
+      ],
+      "opaqueBounds": [
+        149,
+        188,
+        1221,
+        1054
+      ],
+      "anchor": [
+        685.0,
+        1054
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.05442,
+      "sha256": "6e3cd8618efb2f70cf21c707bd942c51fedcdfed6e23332ee2c7ecbc4c99344e",
+      "bytes": 653084
+    },
+    {
+      "key": "corn-grown",
+      "plant": "corn",
+      "label": "玉米",
+      "group": "crops",
+      "state": "grown",
+      "stateLabel": "生长期",
+      "path": "assets/crops/corn-grown.png",
+      "projectId": "corn",
+      "status": "generated",
+      "heightScale": 0.75,
+      "displayScale": 0.75078,
+      "provenance": "generation/corn-grown.json",
+      "sourceMatches": true,
+      "size": [
+        1350,
+        1165
+      ],
+      "opaqueBounds": [
+        74,
+        62,
+        1272,
+        1113
+      ],
+      "anchor": [
+        673.0,
+        1113
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.063,
+      "sha256": "a311fa8bf36ef26024e58c4e914b485810dcf34aee91967136df472f35f24290",
+      "bytes": 961702
+    },
+    {
+      "key": "soybean-sprout",
+      "plant": "soybean",
+      "label": "大豆",
+      "group": "crops",
+      "state": "sprout",
+      "stateLabel": "幼苗",
+      "path": "assets/crops/soybean-sprout.png",
+      "projectId": "soybean",
+      "status": "generated",
+      "heightScale": 0.4,
+      "displayScale": 0.40273,
+      "provenance": "generation/soybean-sprout.json",
+      "sourceMatches": true,
+      "size": [
+        1374,
+        1145
+      ],
+      "opaqueBounds": [
+        158,
+        153,
+        1227,
+        997
+      ],
+      "anchor": [
+        692.5,
+        997
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.05472,
+      "sha256": "01e6eb0706c17a31abf106d0df5a13defe6dbeaed01d889583ecf3b6a3e2f6e5",
+      "bytes": 710842
+    },
+    {
+      "key": "soybean-grown",
+      "plant": "soybean",
+      "label": "大豆",
+      "group": "crops",
+      "state": "grown",
+      "stateLabel": "生长期",
+      "path": "assets/crops/soybean-grown.png",
+      "projectId": "soybean",
+      "status": "generated",
+      "heightScale": 0.75,
+      "displayScale": 0.74874,
+      "provenance": "generation/soybean-grown.json",
+      "sourceMatches": true,
+      "size": [
+        1374,
+        1145
+      ],
+      "opaqueBounds": [
+        140,
+        116,
+        1313,
+        1050
+      ],
+      "anchor": [
+        726.5,
+        1050
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.04375,
+      "sha256": "7b2d11a2397030315dbb0e5157eda02703a8a117eb2b951758acecfffda0517f",
+      "bytes": 1070152
+    },
+    {
+      "key": "sugarcane-sprout",
+      "plant": "sugarcane",
+      "label": "甘蔗",
+      "group": "crops",
+      "state": "sprout",
+      "stateLabel": "幼苗",
+      "path": "assets/crops/sugarcane-sprout.png",
+      "projectId": "sugarcane",
+      "status": "generated",
+      "heightScale": 0.4,
+      "displayScale": 0.44403,
+      "provenance": "generation/sugarcane-sprout.json",
+      "sourceMatches": true,
+      "size": [
+        1357,
+        1159
+      ],
+      "opaqueBounds": [
+        210,
+        122,
+        1211,
+        1054
+      ],
+      "anchor": [
+        710.5,
+        1054
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.04419,
+      "sha256": "0422331eeb20d4bf217f22f718aad23be5bda4257b32be1fa3825a8ebfe92c69",
+      "bytes": 612443
+    },
+    {
+      "key": "sugarcane-grown",
+      "plant": "sugarcane",
+      "label": "甘蔗",
+      "group": "crops",
+      "state": "grown",
+      "stateLabel": "生长期",
+      "path": "assets/crops/sugarcane-grown.png",
+      "projectId": "sugarcane",
+      "status": "generated",
+      "heightScale": 0.75,
+      "displayScale": 0.65075,
+      "provenance": "generation/sugarcane-grown.json",
+      "sourceMatches": true,
+      "size": [
+        1357,
+        1159
+      ],
+      "opaqueBounds": [
+        276,
+        59,
+        1139,
+        1087
+      ],
+      "anchor": [
+        707.5,
+        1087
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.0532,
+      "sha256": "7211043852b778423392ab86a9c5e8b95bf848cfc0c83c972a87782456cd328a",
+      "bytes": 654328
+    },
+    {
+      "key": "carrot-sprout",
+      "plant": "carrot",
+      "label": "胡萝卜",
+      "group": "crops",
+      "state": "sprout",
+      "stateLabel": "幼苗",
+      "path": "assets/crops/carrot-sprout.png",
+      "projectId": "carrot",
+      "status": "generated",
+      "heightScale": 0.4,
+      "displayScale": 0.45919,
+      "provenance": "generation/carrot-sprout.json",
+      "sourceMatches": true,
+      "size": [
+        1316,
+        1195
+      ],
+      "opaqueBounds": [
+        159,
+        267,
+        1182,
+        971
+      ],
+      "anchor": [
+        670.5,
+        971
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.04134,
+      "sha256": "53eb43ccdb8a9000f841d3686be8b453e2d34fec7b94d43ff95e35b58a8d6de5",
+      "bytes": 629819
+    },
+    {
+      "key": "carrot-grown",
+      "plant": "carrot",
+      "label": "胡萝卜",
+      "group": "crops",
+      "state": "grown",
+      "stateLabel": "生长期",
+      "path": "assets/crops/carrot-grown.png",
+      "projectId": "carrot",
+      "status": "generated",
+      "heightScale": 0.75,
+      "displayScale": 0.8023,
+      "provenance": "generation/carrot-grown.json",
+      "sourceMatches": true,
+      "size": [
+        1316,
+        1195
+      ],
+      "opaqueBounds": [
+        47,
+        134,
+        1286,
+        1049
+      ],
+      "anchor": [
+        666.5,
+        1049
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.02193,
+      "sha256": "12045a990b52453a29a54a79dcea55ff1abd620b8a012b6db8e5abe8e119a4f0",
+      "bytes": 987128
+    },
+    {
+      "key": "indigo-sprout",
+      "plant": "indigo",
+      "label": "靛蓝",
+      "group": "crops",
+      "state": "sprout",
+      "stateLabel": "幼苗",
+      "path": "assets/crops/indigo-sprout.png",
+      "projectId": "indigo",
+      "status": "generated",
+      "heightScale": 0.4,
+      "displayScale": 0.50205,
+      "provenance": "generation/indigo-sprout.json",
+      "sourceMatches": true,
+      "size": [
+        1419,
+        1108
+      ],
+      "opaqueBounds": [
+        256,
+        210,
+        1169,
+        959
+      ],
+      "anchor": [
+        712.5,
+        959
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.04834,
+      "sha256": "16f8c228cbe9a130db6b7f70bdde60c3a46ea88266abaacf9bd1f4b4d6d9b56e",
+      "bytes": 643032
+    },
+    {
+      "key": "indigo-grown",
+      "plant": "indigo",
+      "label": "靛蓝",
+      "group": "crops",
+      "state": "grown",
+      "stateLabel": "生长期",
+      "path": "assets/crops/indigo-grown.png",
+      "projectId": "indigo",
+      "status": "generated",
+      "heightScale": 0.75,
+      "displayScale": 0.75996,
+      "provenance": "generation/indigo-grown.json",
+      "sourceMatches": true,
+      "size": [
+        1419,
+        1108
+      ],
+      "opaqueBounds": [
+        227,
+        64,
+        1217,
+        1070
+      ],
+      "anchor": [
+        722.0,
+        1070
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.05901,
+      "sha256": "cd1d2213fa1eb9712071830f6d153c23d00a7d374c2f16fb9d501f3999de32b4",
+      "bytes": 869351
+    },
+    {
+      "key": "pumpkin-sprout",
+      "plant": "pumpkin",
+      "label": "南瓜",
+      "group": "crops",
+      "state": "sprout",
+      "stateLabel": "幼苗",
+      "path": "assets/crops/pumpkin-sprout.png",
+      "projectId": "pumpkin",
+      "status": "generated",
+      "heightScale": 0.4,
+      "displayScale": 0.46114,
+      "provenance": "generation/pumpkin-sprout.json",
+      "sourceMatches": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "opaqueBounds": [
+        183,
+        172,
+        1359,
+        854
+      ],
+      "anchor": [
+        771.0,
+        854
+      ],
+      "alphaRange": [
+        0,
+        254
+      ],
+      "lowAlphaFraction": 0.04167,
+      "sha256": "d6787ab0d7713b3f5b38d5d21e0b5a7b123f216a1b4e2548c349027ab71cc70b",
+      "bytes": 1223296
+    },
+    {
+      "key": "pumpkin-grown",
+      "plant": "pumpkin",
+      "label": "南瓜",
+      "group": "crops",
+      "state": "grown",
+      "stateLabel": "生长期",
+      "path": "assets/crops/pumpkin-grown.png",
+      "projectId": "pumpkin",
+      "status": "generated",
+      "heightScale": 0.75,
+      "displayScale": 0.75273,
+      "provenance": "generation/pumpkin-grown.json",
+      "sourceMatches": true,
+      "size": [
+        1536,
+        1024
+      ],
+      "opaqueBounds": [
+        125,
+        80,
+        1422,
+        944
+      ],
+      "anchor": [
+        773.5,
+        944
+      ],
+      "alphaRange": [
+        0,
+        254
+      ],
+      "lowAlphaFraction": 0.03515,
+      "sha256": "a6075a731c1c2a8f872754af1147697f8066f953e3a19b0f76f78eab74ec35fc",
+      "bytes": 1405881
+    },
+    {
+      "key": "cotton-sprout",
+      "plant": "cotton",
+      "label": "棉花",
+      "group": "crops",
+      "state": "sprout",
+      "stateLabel": "幼苗",
+      "path": "assets/crops/cotton-sprout.png",
+      "projectId": "cotton",
+      "status": "generated",
+      "heightScale": 0.4,
+      "displayScale": 0.36791,
+      "provenance": "generation/cotton-sprout.json",
+      "sourceMatches": true,
+      "size": [
+        1303,
+        1207
+      ],
+      "opaqueBounds": [
+        227,
+        183,
+        1148,
+        1047
+      ],
+      "anchor": [
+        687.5,
+        1047
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.04074,
+      "sha256": "5324d6ce9f89898d807a98867589844f5f6f42663917d093b2f78dda6cfeb070",
+      "bytes": 622235
+    },
+    {
+      "key": "cotton-grown",
+      "plant": "cotton",
+      "label": "棉花",
+      "group": "crops",
+      "state": "grown",
+      "stateLabel": "生长期",
+      "path": "assets/crops/cotton-grown.png",
+      "projectId": "cotton",
+      "status": "generated",
+      "heightScale": 0.75,
+      "displayScale": 0.75554,
+      "provenance": "generation/cotton-grown.json",
+      "sourceMatches": true,
+      "size": [
+        1303,
+        1207
+      ],
+      "opaqueBounds": [
+        79,
+        126,
+        1229,
+        1111
+      ],
+      "anchor": [
+        654.0,
+        1111
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.03166,
+      "sha256": "56a8c19e3b902e7c785685ec84dad2fb6ffc7f63f15a4e2299e09cd1ad0fd5c2",
+      "bytes": 886640
+    },
+    {
+      "key": "chili-pepper-sprout",
+      "plant": "chili-pepper",
+      "label": "辣椒",
+      "group": "crops",
+      "state": "sprout",
+      "stateLabel": "幼苗",
+      "path": "assets/crops/chili-pepper-sprout.png",
+      "projectId": "chili_pepper",
+      "status": "generated",
+      "heightScale": 0.4,
+      "displayScale": 0.49894,
+      "provenance": "generation/chili-pepper-sprout.json",
+      "sourceMatches": true,
+      "size": [
+        1312,
+        1199
+      ],
+      "opaqueBounds": [
+        213,
+        306,
+        1105,
+        971
+      ],
+      "anchor": [
+        659.0,
+        971
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.06531,
+      "sha256": "0a887e2b8c79d67711c212f8595554397336607a0f170885ab4e639b3a68adca",
+      "bytes": 503708
+    },
+    {
+      "key": "chili-pepper-grown",
+      "plant": "chili-pepper",
+      "label": "辣椒",
+      "group": "crops",
+      "state": "grown",
+      "stateLabel": "生长期",
+      "path": "assets/crops/chili-pepper-grown.png",
+      "projectId": "chili_pepper",
+      "status": "generated",
+      "heightScale": 0.75,
+      "displayScale": 0.75145,
+      "provenance": "generation/chili-pepper-grown.json",
+      "sourceMatches": true,
+      "size": [
+        1312,
+        1199
+      ],
+      "opaqueBounds": [
+        109,
+        77,
+        1222,
+        1110
+      ],
+      "anchor": [
+        665.5,
+        1110
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.07157,
+      "sha256": "fa6553525d0acc4e4d9a5b0012981a79c1b2d0b8fd82a57c1f84a6a22da982d3",
+      "bytes": 901578
+    },
+    {
+      "key": "black-bean-sprout",
+      "plant": "black-bean",
+      "label": "黑豆",
+      "group": "crops",
+      "state": "sprout",
+      "stateLabel": "幼苗",
+      "path": "assets/crops/black-bean-sprout.png",
+      "projectId": "black_bean",
+      "status": "generated",
+      "heightScale": 0.4,
+      "displayScale": 0.51419,
+      "provenance": "generation/black-bean-sprout.json",
+      "sourceMatches": true,
+      "size": [
+        1312,
+        1199
+      ],
+      "opaqueBounds": [
+        85,
+        196,
+        1258,
+        1021
+      ],
+      "anchor": [
+        671.5,
+        1021
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.03941,
+      "sha256": "8c91e2badb304a07832d8b008048c8f9c203860e19197138db05645d72a4e9fb",
+      "bytes": 716749
+    },
+    {
+      "key": "black-bean-grown",
+      "plant": "black-bean",
+      "label": "黑豆",
+      "group": "crops",
+      "state": "grown",
+      "stateLabel": "生长期",
+      "path": "assets/crops/black-bean-grown.png",
+      "projectId": "black_bean",
+      "status": "generated",
+      "heightScale": 0.75,
+      "displayScale": 0.75323,
+      "provenance": "generation/black-bean-grown.json",
+      "sourceMatches": true,
+      "size": [
+        1312,
+        1199
+      ],
+      "opaqueBounds": [
+        28,
+        25,
+        1291,
+        1162
+      ],
+      "anchor": [
+        659.5,
+        1162
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.04506,
+      "sha256": "b33cc288abdab72ee2fbfc28b763a4118c45c09818ef4d66393358bcbc86732a",
+      "bytes": 1099040
+    },
+    {
+      "key": "tomato-sprout",
+      "plant": "tomato",
+      "label": "番茄",
+      "group": "crops",
+      "state": "sprout",
+      "stateLabel": "幼苗",
+      "path": "assets/crops/tomato-sprout.png",
+      "projectId": "tomato",
+      "status": "generated",
+      "heightScale": 0.4,
+      "displayScale": 0.51513,
+      "provenance": "generation/tomato-sprout.json",
+      "sourceMatches": true,
+      "size": [
+        1295,
+        1215
+      ],
+      "opaqueBounds": [
+        182,
+        155,
+        1127,
+        991
+      ],
+      "anchor": [
+        654.5,
+        991
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.07498,
+      "sha256": "fc53371c7408ac9ac11170cce65c27898056e1e95ddab38373e1e4ecfbf4351a",
+      "bytes": 586190
+    },
+    {
+      "key": "tomato-grown",
+      "plant": "tomato",
+      "label": "番茄",
+      "group": "crops",
+      "state": "grown",
+      "stateLabel": "生长期",
+      "path": "assets/crops/tomato-grown.png",
+      "projectId": "tomato",
+      "status": "generated",
+      "heightScale": 0.75,
+      "displayScale": 0.70296,
+      "provenance": "generation/tomato-grown.json",
+      "sourceMatches": true,
+      "size": [
+        1295,
+        1215
+      ],
+      "opaqueBounds": [
+        243,
+        94,
+        1106,
+        1143
+      ],
+      "anchor": [
+        674.5,
+        1143
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.05822,
+      "sha256": "67241d63ac898483c606262ac3d362ac5c8a52875235e7c6fb3aaa883adb702e",
+      "bytes": 856920
+    },
+    {
+      "key": "apple-young",
+      "plant": "apple",
+      "label": "苹果树",
+      "group": "fruit-plants",
+      "state": "young",
+      "stateLabel": "幼株",
+      "path": "assets/fruit-plants/apple-young.png",
+      "projectId": "apple",
+      "status": "generated",
+      "heightScale": 0.5,
+      "displayScale": 0.47392,
+      "provenance": "generation/apple-young.json",
+      "sourceMatches": true,
+      "size": [
+        1312,
+        1199
+      ],
+      "opaqueBounds": [
+        143,
+        114,
+        1176,
+        1114
+      ],
+      "anchor": [
+        659.5,
+        1114
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.02343,
+      "sha256": "24cc829d23d382d1674143833f407e1ee10b3c6b207c931d165292779226462a",
+      "bytes": 754342
+    },
+    {
+      "key": "apple-growing",
+      "plant": "apple",
+      "label": "苹果树",
+      "group": "fruit-plants",
+      "state": "growing",
+      "stateLabel": "生长中",
+      "path": "assets/fruit-plants/apple-growing.png",
+      "projectId": "apple",
+      "status": "generated",
+      "heightScale": 0.97,
+      "displayScale": 0.97479,
+      "provenance": "generation/apple-growing.json",
+      "sourceMatches": true,
+      "size": [
+        1312,
+        1199
+      ],
+      "opaqueBounds": [
+        84,
+        83,
+        1234,
+        1133
+      ],
+      "anchor": [
+        659.0,
+        1133
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.01378,
+      "sha256": "ee76c485a07633daab24a6eb8c79111fd23ccd63d970fb880e922fd9b61e198f",
+      "bytes": 883436
+    },
+    {
+      "key": "apple-wilt_help",
+      "plant": "apple",
+      "label": "苹果树",
+      "group": "fruit-plants",
+      "state": "wilt_help",
+      "stateLabel": "待复苏",
+      "path": "assets/fruit-plants/apple-wilt_help.png",
+      "projectId": "apple",
+      "status": "generated",
+      "heightScale": 0.95,
+      "displayScale": 0.91395,
+      "provenance": "generation/apple-wilt_help.json",
+      "sourceMatches": true,
+      "size": [
+        1312,
+        1199
+      ],
+      "opaqueBounds": [
+        117,
+        92,
+        1198,
+        1123
+      ],
+      "anchor": [
+        657.5,
+        1123
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.04674,
+      "sha256": "8d7fc38ec928e4bdf9c25c552b83af0e5cb4c23a47319d747644f9f232a857b7",
+      "bytes": 863350
+    },
+    {
+      "key": "apple-wilt_final",
+      "plant": "apple",
+      "label": "苹果树",
+      "group": "fruit-plants",
+      "state": "wilt_final",
+      "stateLabel": "枯死",
+      "path": "assets/fruit-plants/apple-wilt_final.png",
+      "projectId": "apple",
+      "status": "generated",
+      "heightScale": 0.9,
+      "displayScale": 0.89193,
+      "provenance": "generation/apple-wilt_final.json",
+      "sourceMatches": true,
+      "size": [
+        1312,
+        1199
+      ],
+      "opaqueBounds": [
+        105,
+        90,
+        1211,
+        1114
+      ],
+      "anchor": [
+        658.0,
+        1114
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.10447,
+      "sha256": "bf9e1ffd080776c3170d87e3343451964ea3a839669162a9f3d646a84beef93a",
+      "bytes": 849186
+    },
+    {
+      "key": "raspberry-young",
+      "plant": "raspberry",
+      "label": "树莓",
+      "group": "fruit-plants",
+      "state": "young",
+      "stateLabel": "幼株",
+      "path": "assets/fruit-plants/raspberry-young.png",
+      "projectId": "raspberry",
+      "status": "generated",
+      "heightScale": 0.5,
+      "displayScale": 0.48694,
+      "provenance": "generation/raspberry-young.json",
+      "sourceMatches": true,
+      "size": [
+        1374,
+        1145
+      ],
+      "opaqueBounds": [
+        92,
+        160,
+        1281,
+        1021
+      ],
+      "anchor": [
+        686.5,
+        1021
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.02522,
+      "sha256": "9cba8b59ace196b845fab821c25ed360133ed760d1a6daa4aae1530573fa478d",
+      "bytes": 803107
+    },
+    {
+      "key": "raspberry-growing",
+      "plant": "raspberry",
+      "label": "树莓",
+      "group": "fruit-plants",
+      "state": "growing",
+      "stateLabel": "生长中",
+      "path": "assets/fruit-plants/raspberry-growing.png",
+      "projectId": "raspberry",
+      "status": "generated",
+      "heightScale": 0.97,
+      "displayScale": 0.94757,
+      "provenance": "generation/raspberry-growing.json",
+      "sourceMatches": true,
+      "size": [
+        1374,
+        1145
+      ],
+      "opaqueBounds": [
+        32,
+        114,
+        1341,
+        1059
+      ],
+      "anchor": [
+        686.5,
+        1059
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.01522,
+      "sha256": "82166c8a571245d930213c582b4e18cc0b18cb28068d7da3ee8a45b95806f083",
+      "bytes": 1061424
+    },
+    {
+      "key": "raspberry-wilt_help",
+      "plant": "raspberry",
+      "label": "树莓",
+      "group": "fruit-plants",
+      "state": "wilt_help",
+      "stateLabel": "待复苏",
+      "path": "assets/fruit-plants/raspberry-wilt_help.png",
+      "projectId": "raspberry",
+      "status": "generated",
+      "heightScale": 0.95,
+      "displayScale": 0.96284,
+      "provenance": "generation/raspberry-wilt_help.json",
+      "sourceMatches": true,
+      "size": [
+        1374,
+        1145
+      ],
+      "opaqueBounds": [
+        63,
+        150,
+        1309,
+        1017
+      ],
+      "anchor": [
+        686.0,
+        1017
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.02385,
+      "sha256": "2a723a75c4936ca3e6eda66a1138ea369eea70119dcf66036919b4194803f0c4",
+      "bytes": 923118
+    },
+    {
+      "key": "raspberry-wilt_final",
+      "plant": "raspberry",
+      "label": "树莓",
+      "group": "fruit-plants",
+      "state": "wilt_final",
+      "stateLabel": "枯死",
+      "path": "assets/fruit-plants/raspberry-wilt_final.png",
+      "projectId": "raspberry",
+      "status": "generated",
+      "heightScale": 0.9,
+      "displayScale": 0.87595,
+      "provenance": "generation/raspberry-wilt_final.json",
+      "sourceMatches": true,
+      "size": [
+        1375,
+        1144
+      ],
+      "opaqueBounds": [
+        80,
+        140,
+        1300,
+        1024
+      ],
+      "anchor": [
+        690.0,
+        1024
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.02749,
+      "sha256": "66ad1ab7f2c7f6fa4546506959466f026df9a42a8dd5b73adbf2b598f9b924cf",
+      "bytes": 875678
+    },
+    {
+      "key": "cherry-young",
+      "plant": "cherry",
+      "label": "樱桃树",
+      "group": "fruit-plants",
+      "state": "young",
+      "stateLabel": "幼株",
+      "path": "assets/fruit-plants/cherry-young.png",
+      "projectId": "cherry",
+      "status": "generated",
+      "heightScale": 0.5,
+      "displayScale": 0.50553,
+      "provenance": "generation/cherry-young.json",
+      "sourceMatches": true,
+      "size": [
+        1240,
+        1269
+      ],
+      "opaqueBounds": [
+        97,
+        184,
+        1156,
+        1129
+      ],
+      "anchor": [
+        626.5,
+        1129
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.02462,
+      "sha256": "7ca0bd94c7b023e705b017400d6492943ffddfcb0c67da84d7c63ea7bce65bec",
+      "bytes": 763468
+    },
+    {
+      "key": "cherry-growing",
+      "plant": "cherry",
+      "label": "樱桃树",
+      "group": "fruit-plants",
+      "state": "growing",
+      "stateLabel": "生长中",
+      "path": "assets/fruit-plants/cherry-growing.png",
+      "projectId": "cherry",
+      "status": "generated",
+      "heightScale": 0.97,
+      "displayScale": 0.97602,
+      "provenance": "generation/cherry-growing.json",
+      "sourceMatches": true,
+      "size": [
+        1240,
+        1269
+      ],
+      "opaqueBounds": [
+        74,
+        149,
+        1177,
+        1138
+      ],
+      "anchor": [
+        625.5,
+        1138
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.01902,
+      "sha256": "2cabed4ebb7ab29f95ad1631210c2bd26e4837ae232bdc6c5ee001ac28f28979",
+      "bytes": 890731
+    },
+    {
+      "key": "cherry-wilt_help",
+      "plant": "cherry",
+      "label": "樱桃树",
+      "group": "fruit-plants",
+      "state": "wilt_help",
+      "stateLabel": "待复苏",
+      "path": "assets/fruit-plants/cherry-wilt_help.png",
+      "projectId": "cherry",
+      "status": "generated",
+      "heightScale": 0.95,
+      "displayScale": 0.91315,
+      "provenance": "generation/cherry-wilt_help.json",
+      "sourceMatches": true,
+      "size": [
+        1240,
+        1269
+      ],
+      "opaqueBounds": [
+        98,
+        143,
+        1157,
+        1137
+      ],
+      "anchor": [
+        627.5,
+        1137
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.02636,
+      "sha256": "6b5bdb2e1900e67360ad9259dca543db0879157fe87aeb16213429575c34cd9a",
+      "bytes": 840968
+    },
+    {
+      "key": "cherry-wilt_final",
+      "plant": "cherry",
+      "label": "樱桃树",
+      "group": "fruit-plants",
+      "state": "wilt_final",
+      "stateLabel": "枯死",
+      "path": "assets/fruit-plants/cherry-wilt_final.png",
+      "projectId": "cherry",
+      "status": "generated",
+      "heightScale": 0.9,
+      "displayScale": 0.87979,
+      "provenance": "generation/cherry-wilt_final.json",
+      "sourceMatches": true,
+      "size": [
+        1240,
+        1269
+      ],
+      "opaqueBounds": [
+        82,
+        149,
+        1159,
+        1143
+      ],
+      "anchor": [
+        620.5,
+        1143
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.02872,
+      "sha256": "223f30396fecf0491c7d438243e144b4dcefd8d4888f4a443e208720c76d6516",
+      "bytes": 848571
+    },
+    {
+      "key": "blackberry-young",
+      "plant": "blackberry",
+      "label": "黑莓",
+      "group": "fruit-plants",
+      "state": "young",
+      "stateLabel": "幼株",
+      "path": "assets/fruit-plants/blackberry-young.png",
+      "projectId": "blackberry",
+      "status": "generated",
+      "heightScale": 0.5,
+      "displayScale": 0.52306,
+      "provenance": "generation/blackberry-young.json",
+      "sourceMatches": true,
+      "size": [
+        1374,
+        1145
+      ],
+      "opaqueBounds": [
+        190,
+        222,
+        1222,
+        958
+      ],
+      "anchor": [
+        706.0,
+        958
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.02798,
+      "sha256": "cc77957735610ee4d5db971f713a7222feabc9c72c2ea0d6562927dc3f684f04",
+      "bytes": 675171
+    },
+    {
+      "key": "blackberry-growing",
+      "plant": "blackberry",
+      "label": "黑莓",
+      "group": "fruit-plants",
+      "state": "growing",
+      "stateLabel": "生长中",
+      "path": "assets/fruit-plants/blackberry-growing.png",
+      "projectId": "blackberry",
+      "status": "generated",
+      "heightScale": 0.97,
+      "displayScale": 0.96758,
+      "provenance": "generation/blackberry-growing.json",
+      "sourceMatches": true,
+      "size": [
+        1374,
+        1145
+      ],
+      "opaqueBounds": [
+        85,
+        119,
+        1295,
+        1024
+      ],
+      "anchor": [
+        690.0,
+        1024
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.01948,
+      "sha256": "6505cfad99f29069d31db7f63a0c2cc20bce95b21928499e0d5ed5651c00c7cf",
+      "bytes": 987919
+    },
+    {
+      "key": "blackberry-wilt_help",
+      "plant": "blackberry",
+      "label": "黑莓",
+      "group": "fruit-plants",
+      "state": "wilt_help",
+      "stateLabel": "待复苏",
+      "path": "assets/fruit-plants/blackberry-wilt_help.png",
+      "projectId": "blackberry",
+      "status": "generated",
+      "heightScale": 0.95,
+      "displayScale": 0.94502,
+      "provenance": "generation/blackberry-wilt_help.json",
+      "sourceMatches": true,
+      "size": [
+        1374,
+        1145
+      ],
+      "opaqueBounds": [
+        93,
+        123,
+        1281,
+        1014
+      ],
+      "anchor": [
+        687.0,
+        1014
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.03325,
+      "sha256": "4227ff5ec868e0ea2d071f097f87fdaf4d60b708864cc860e29e543e796778ad",
+      "bytes": 976039
+    },
+    {
+      "key": "blackberry-wilt_final",
+      "plant": "blackberry",
+      "label": "黑莓",
+      "group": "fruit-plants",
+      "state": "wilt_final",
+      "stateLabel": "枯死",
+      "path": "assets/fruit-plants/blackberry-wilt_final.png",
+      "projectId": "blackberry",
+      "status": "generated",
+      "heightScale": 0.9,
+      "displayScale": 0.76445,
+      "provenance": "generation/blackberry-wilt_final.json",
+      "sourceMatches": true,
+      "size": [
+        1374,
+        1145
+      ],
+      "opaqueBounds": [
+        203,
+        134,
+        1206,
+        1015
+      ],
+      "anchor": [
+        704.5,
+        1015
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.07932,
+      "sha256": "a2ba8450f007eefae11ec602e85ac55febc1815f1a68009c07a68a6765d27626",
+      "bytes": 750242
+    },
+    {
+      "key": "blueberries-young",
+      "plant": "blueberries",
+      "label": "蓝莓",
+      "group": "fruit-plants",
+      "state": "young",
+      "stateLabel": "幼株",
+      "path": "assets/fruit-plants/blueberries-young.png",
+      "projectId": "blueberries",
+      "status": "generated",
+      "heightScale": 0.5,
+      "displayScale": 0.52546,
+      "provenance": "generation/blueberries-young.json",
+      "sourceMatches": true,
+      "size": [
+        1295,
+        1215
+      ],
+      "opaqueBounds": [
+        100,
+        139,
+        1233,
+        1084
+      ],
+      "anchor": [
+        666.5,
+        1084
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.03527,
+      "sha256": "d999130975e3c76e4fd9c527764fb064abbf25099c44264a4c8d2bfd224fa566",
+      "bytes": 849056
+    },
+    {
+      "key": "blueberries-growing",
+      "plant": "blueberries",
+      "label": "蓝莓",
+      "group": "fruit-plants",
+      "state": "growing",
+      "stateLabel": "生长中",
+      "path": "assets/fruit-plants/blueberries-growing.png",
+      "projectId": "blueberries",
+      "status": "generated",
+      "heightScale": 0.97,
+      "displayScale": 0.96284,
+      "provenance": "generation/blueberries-growing.json",
+      "sourceMatches": true,
+      "size": [
+        1295,
+        1215
+      ],
+      "opaqueBounds": [
+        29,
+        67,
+        1269,
+        1162
+      ],
+      "anchor": [
+        649.0,
+        1162
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.02476,
+      "sha256": "4a55ec90df3f0a6de548653d76d82a1e5071254f37b391506d6a201125e2de41",
+      "bytes": 1271360
+    },
+    {
+      "key": "blueberries-wilt_help",
+      "plant": "blueberries",
+      "label": "蓝莓",
+      "group": "fruit-plants",
+      "state": "wilt_help",
+      "stateLabel": "待复苏",
+      "path": "assets/fruit-plants/blueberries-wilt_help.png",
+      "projectId": "blueberries",
+      "status": "generated",
+      "heightScale": 0.95,
+      "displayScale": 0.9422,
+      "provenance": "generation/blueberries-wilt_help.json",
+      "sourceMatches": true,
+      "size": [
+        1295,
+        1215
+      ],
+      "opaqueBounds": [
+        88,
+        129,
+        1224,
+        1133
+      ],
+      "anchor": [
+        656.0,
+        1133
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.05317,
+      "sha256": "e83d7f4edb024d4eaea5e8b3d5bdb9f30638db0263f6ad95d627bfe86d722bd7",
+      "bytes": 982530
+    },
+    {
+      "key": "blueberries-wilt_final",
+      "plant": "blueberries",
+      "label": "蓝莓",
+      "group": "fruit-plants",
+      "state": "wilt_final",
+      "stateLabel": "枯死",
+      "path": "assets/fruit-plants/blueberries-wilt_final.png",
+      "projectId": "blueberries",
+      "status": "generated",
+      "heightScale": 0.9,
+      "displayScale": 0.82825,
+      "provenance": "generation/blueberries-wilt_final.json",
+      "sourceMatches": true,
+      "size": [
+        1295,
+        1215
+      ],
+      "opaqueBounds": [
+        156,
+        114,
+        1187,
+        1096
+      ],
+      "anchor": [
+        671.5,
+        1096
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "lowAlphaFraction": 0.17904,
+      "sha256": "2289064b5e7ff4a72e92e8b2116f7b94819a41f744ae5e7f7c29859507699d96",
+      "bytes": 760155
+    }
+  ]
+}

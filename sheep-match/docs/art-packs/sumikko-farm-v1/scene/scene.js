@@ -1,3 +1,4 @@
+import { roadPathsMarkup, fenceLinePieces, fieldTileSvg } from '../terrain/components.mjs';
 const NS = 'http://www.w3.org/2000/svg';
 const scene = document.querySelector('#scene');
 const viewport = document.querySelector('#viewport');
@@ -19,6 +20,8 @@ const objects = make('g', { id: 'objects' }, scene);
 const atmosphere = make('g', { id: 'atmosphere', 'pointer-events': 'none' }, scene);
 const layout = make('g', { class: 'layout-layer' }, scene);
 let assets;
+const plantMode = new URLSearchParams(location.search).get('plants') || 'mature';
+const plantFamilies = new Map();
 let toastTimer;
 function toast(message) {
   $('toast').textContent = message;
@@ -44,10 +47,8 @@ function drawGround() {
   }
   // A continuous connected lane with the same width at bends and intersections.
   const roads = ['M3 10.5H21.6', 'M11 3.3V21.5', 'M5.5 5.6V10.5', 'M9 5.5V10.5', 'M17 5V10.5', 'M15.4 10.5V15.1', 'M11 16.6H15.4'];
-  const roadLayer = make('g', { transform: 'matrix(40 20 -40 20 800 75)' }, ground);
-  for (const stroke of [{ color: '#c4b58a', width: 1.48 }, { color: '#f5e7bd', width: 1.35 }]) {
-    for (const d of roads) make('path', { d, fill: 'none', stroke: stroke.color, 'stroke-width': stroke.width, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }, roadLayer);
-  }
+  const roadLayer = make('g', {}, ground);
+  roadLayer.innerHTML = roadPathsMarkup(roads, { unit: 40, origin: [800, 75] });
   for (let u = 3.4; u < 21; u += 1.15) {
     const p = point(u, 10.5 + (rand() - .5) * .5);
     make('ellipse', { cx: p.x, cy: p.y, rx: 6 + rand() * 5, ry: 3, fill: '#e7d7aa', opacity: .6 }, ground);
@@ -62,11 +63,10 @@ function drawGround() {
   // Every crop has a complete soil cell, with furrows under the plant.
   for (let row = 0; row < 5; row++) for (let col = 0; col < 4; col++) {
     const u = 3.5 + col * 1.35, v = 12.4 + row * 1.17;
-    bed(u, v, 1.22, 1.02, (row + col) % 2 ? '#c8a87e' : '#ceaf83', '#ac916e', 1);
-    for (let line = 0; line < 3; line++) {
-      const a = point(u + .15, v + .22 + line * .26), b = point(u + 1.05, v + .22 + line * .26);
-      make('path', { d: `M${a.x} ${a.y}L${b.x} ${b.y}`, stroke: '#b49770', 'stroke-width': 2, 'stroke-linecap': 'round' }, ground);
-    }
+    // Affine placement retains the approved rectangular cell footprint.
+    const field = make('g', { transform: `matrix(${1.22*40/64} ${1.22*20/64} ${-1.02*40/64} ${1.02*20/64} ${point(u+.61,v+.51).x} ${point(u+.61,v+.51).y})` }, ground);
+    const tile = make('g', { transform: 'matrix(.5 -.5 1 1 -68 -4)' }, field);
+    tile.innerHTML = fieldTileSvg(plantMode === 'sprout' ? 'sown' : 'empty');
   }
   bed(13.2, 3.5, 6, 5.8, '#d7e4ad');
   bed(13.5, 12.6, 5.5, 5.5, '#d8e4b3');
@@ -124,27 +124,20 @@ function rock(x, y, size = 1) {
   return addLayer(g, y);
 }
 
-function fence(a, b, options = {}) {
-  const p = point(...a), q = point(...b);
-  const count = Math.max(1, Math.ceil(Math.hypot(b[0] - a[0], b[1] - a[1]) / 1.25));
-  for (let i = 0; i < count; i++) {
-    const x1 = p.x + (q.x - p.x) * i / count, y1 = p.y + (q.y - p.y) * i / count;
-    const x2 = p.x + (q.x - p.x) * (i + 1) / count, y2 = p.y + (q.y - p.y) * (i + 1) / count;
-    const g = make('g');
-    for (const h of [13, 29]) make('path', { d: `M${x1} ${y1-h}L${x2} ${y2-h}`, stroke: '#bd9f73', 'stroke-width': 10, 'stroke-linecap': 'round' }, g);
-    for (const h of [13, 29]) make('path', { d: `M${x1} ${y1-h-1}L${x2} ${y2-h-1}`, stroke: '#ebc794', 'stroke-width': 6, 'stroke-linecap': 'round' }, g);
-    addLayer(g, Math.max(y1, y2) - 1);
-  }
-  for (let i = 0; i <= count; i++) {
-    const x = p.x + (q.x - p.x) * i / count, y = p.y + (q.y - p.y) * i / count;
-    const g = make('g');
-    make('path', { d: `M${x-5} ${y-37}L${x} ${y-41}L${x+6} ${y-37}V${y}Q${x} ${y+4} ${x-5} ${y}Z`, fill: '#edca96', stroke: '#bfa478', 'stroke-width': 1.5, 'stroke-linejoin': 'round' }, g);
-    make('path', { d: `M${x+1} ${y-35}V${y-2}`, stroke: '#f8dcae', 'stroke-width': 2 }, g);
-    addLayer(g, y);
+function fence(a, b) {
+  for (const piece of fenceLinePieces(a, b, { unit: 40, origin: [800, 75] })) {
+    const group = make('g'); group.innerHTML = piece.markup; addLayer(group, piece.depth);
   }
 }
 
 function sprite(key, u, v, width, options = {}) {
+  const family = plantFamilies.get(key);
+  if (family && ['sprout','grown','mixed'].includes(plantMode)) {
+    const stage = plantMode === 'mixed' ? ['sprout','grown','mature'][Math.abs(Math.round(u*10+v*10))%3] : plantMode;
+    const state = family.group === 'crops' ? stage : ({sprout:'young',grown:'growing',mature:'mature'}[stage]);
+    const alternative = `${key}-${state}`;
+    if (assets[alternative]) { key = alternative; width *= assets[key].displayScale; }
+  }
   const asset = assets[key];
   if (!asset) throw new Error(`Missing scene asset: ${key}`);
   const p = options.screen ? { x: u, y: v } : point(u, v);
@@ -373,6 +366,13 @@ function configureCamera(){
 async function init(){
   try{
     const response=await fetch('assets.json');if(!response.ok)throw new Error('资源清单加载失败');assets=await response.json();
+    if (['sprout','grown','mixed'].includes(plantMode)) {
+      const states = await fetch('../plant-states/manifest.json'); if (!states.ok) throw new Error('植物状态清单加载失败');
+      const manifest = await states.json();
+      manifest.families.forEach(f => plantFamilies.set(f.plant, f));
+      for (const a of manifest.assets.filter(a => a.status === 'generated')) assets[a.key] = { src: '../plant-states/'+a.path, size: a.size, bounds: a.opaqueBounds, label: a.label+'·'+a.stateLabel, displayScale: a.displayScale };
+    }
+    scene.dataset.plants = plantMode;
     drawGround();drawNature();populateFarm();drawLayout();addAtmosphere();
     layers.sort((a,b)=>a.depth-b.depth||a.order-b.order).forEach(({el})=>objects.append(el));
     configureCamera();

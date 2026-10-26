@@ -14,6 +14,15 @@ files += [root / 'scene' / name for name in [
     'README.md', 'assets.json', 'index.html', 'scene.js', 'style.css',
     'scene-preview.png', 'browser-preview.png', 'verification.md',
 ]]
+states = json.loads((root / 'plant-states/manifest.json').read_text())
+assert states['counts']['generated'] == 42 and states['counts']['totalStates'] == 58
+terrain = json.loads((root / 'terrain/manifest.json').read_text())
+assert len(terrain['assets']) == 35
+for folder in ['plant-states', 'terrain']:
+    files += sorted(p for p in (root / folder).rglob('*')
+                    if p.is_file() and p.suffix in {'.png', '.jpg', '.svg', '.json', '.py', '.mjs', '.css', '.html', '.md'}
+                    and not {'__pycache__', 'drafts'}.intersection(p.relative_to(root).parts))
+assert len(files) == len(set(files)), 'Duplicate archive members'
 with zipfile.ZipFile(root / 'assets.zip', 'w', zipfile.ZIP_DEFLATED, compresslevel=6) as z:
     for p in files:
         z.write(p, p.relative_to(root))
@@ -21,4 +30,7 @@ with zipfile.ZipFile(root / 'assets.zip') as z:
     assert z.testzip() is None
     pngs = [s for s in z.namelist() if s.startswith('assets/') and s.endswith('.png')]
     assert len(pngs) == 63
-    print(json.dumps({'pngs': len(pngs), 'archiveFiles': len(z.namelist()), 'zipBytes': (root / 'assets.zip').stat().st_size}))
+    state_pngs = [s for s in z.namelist() if s.startswith('plant-states/assets/') and s.endswith('.png')]
+    terrain_svgs = [s for s in z.namelist() if s.startswith('terrain/svg/') and s.endswith('.svg')]
+    assert len(state_pngs) == 42 and len(terrain_svgs) == 35
+    print(json.dumps({'basePNGs': len(pngs), 'plantStatePNGs': len(state_pngs), 'terrainSVGs': len(terrain_svgs), 'archiveFiles': len(z.namelist()), 'zipBytes': (root / 'assets.zip').stat().st_size}))

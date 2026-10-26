@@ -1,0 +1,708 @@
+{
+  "schemaVersion": 1,
+  "title": "小牧场 · 可拼接地形组件",
+  "projection": {
+    "ratio": "2:1",
+    "unit": 64
+  },
+  "connectionBits": {
+    "N": 1,
+    "E": 2,
+    "S": 4,
+    "W": 8
+  },
+  "counts": {
+    "roads": 16,
+    "fences": 16,
+    "fields": 3,
+    "total": 35
+  },
+  "assets": [
+    {
+      "id": "road-0",
+      "kind": "road",
+      "mask": 0,
+      "directions": [],
+      "path": "svg/roads/road-0.svg",
+      "width": 128,
+      "height": 64,
+      "anchor": [
+        64,
+        32
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "road-1",
+      "kind": "road",
+      "mask": 1,
+      "directions": [
+        "N"
+      ],
+      "path": "svg/roads/road-1.svg",
+      "width": 128,
+      "height": 64,
+      "anchor": [
+        64,
+        32
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "road-2",
+      "kind": "road",
+      "mask": 2,
+      "directions": [
+        "E"
+      ],
+      "path": "svg/roads/road-2.svg",
+      "width": 128,
+      "height": 64,
+      "anchor": [
+        64,
+        32
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "road-3",
+      "kind": "road",
+      "mask": 3,
+      "directions": [
+        "N",
+        "E"
+      ],
+      "path": "svg/roads/road-3.svg",
+      "width": 128,
+      "height": 64,
+      "anchor": [
+        64,
+        32
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "road-4",
+      "kind": "road",
+      "mask": 4,
+      "directions": [
+        "S"
+      ],
+      "path": "svg/roads/road-4.svg",
+      "width": 128,
+      "height": 64,
+      "anchor": [
+        64,
+        32
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "road-5",
+      "kind": "road",
+      "mask": 5,
+      "directions": [
+        "N",
+        "S"
+      ],
+      "path": "svg/roads/road-5.svg",
+      "width": 128,
+      "height": 64,
+      "anchor": [
+        64,
+        32
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "road-6",
+      "kind": "road",
+      "mask": 6,
+      "directions": [
+        "E",
+        "S"
+      ],
+      "path": "svg/roads/road-6.svg",
+      "width": 128,
+      "height": 64,
+      "anchor": [
+        64,
+        32
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "road-7",
+      "kind": "road",
+      "mask": 7,
+      "directions": [
+        "N",
+        "E",
+        "S"
+      ],
+      "path": "svg/roads/road-7.svg",
+      "width": 128,
+      "height": 64,
+      "anchor": [
+        64,
+        32
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "road-8",
+      "kind": "road",
+      "mask": 8,
+      "directions": [
+        "W"
+      ],
+      "path": "svg/roads/road-8.svg",
+      "width": 128,
+      "height": 64,
+      "anchor": [
+        64,
+        32
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "road-9",
+      "kind": "road",
+      "mask": 9,
+      "directions": [
+        "N",
+        "W"
+      ],
+      "path": "svg/roads/road-9.svg",
+      "width": 128,
+      "height": 64,
+      "anchor": [
+        64,
+        32
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "road-a",
+      "kind": "road",
+      "mask": 10,
+      "directions": [
+        "E",
+        "W"
+      ],
+      "path": "svg/roads/road-a.svg",
+      "width": 128,
+      "height": 64,
+      "anchor": [
+        64,
+        32
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "road-b",
+      "kind": "road",
+      "mask": 11,
+      "directions": [
+        "N",
+        "E",
+        "W"
+      ],
+      "path": "svg/roads/road-b.svg",
+      "width": 128,
+      "height": 64,
+      "anchor": [
+        64,
+        32
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "road-c",
+      "kind": "road",
+      "mask": 12,
+      "directions": [
+        "S",
+        "W"
+      ],
+      "path": "svg/roads/road-c.svg",
+      "width": 128,
+      "height": 64,
+      "anchor": [
+        64,
+        32
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "road-d",
+      "kind": "road",
+      "mask": 13,
+      "directions": [
+        "N",
+        "S",
+        "W"
+      ],
+      "path": "svg/roads/road-d.svg",
+      "width": 128,
+      "height": 64,
+      "anchor": [
+        64,
+        32
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "road-e",
+      "kind": "road",
+      "mask": 14,
+      "directions": [
+        "E",
+        "S",
+        "W"
+      ],
+      "path": "svg/roads/road-e.svg",
+      "width": 128,
+      "height": 64,
+      "anchor": [
+        64,
+        32
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "road-f",
+      "kind": "road",
+      "mask": 15,
+      "directions": [
+        "N",
+        "E",
+        "S",
+        "W"
+      ],
+      "path": "svg/roads/road-f.svg",
+      "width": 128,
+      "height": 64,
+      "anchor": [
+        64,
+        32
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "fence-0",
+      "kind": "fence",
+      "mask": 0,
+      "directions": [],
+      "path": "svg/fences/fence-0.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "fence-1",
+      "kind": "fence",
+      "mask": 1,
+      "directions": [
+        "N"
+      ],
+      "path": "svg/fences/fence-1.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "fence-2",
+      "kind": "fence",
+      "mask": 2,
+      "directions": [
+        "E"
+      ],
+      "path": "svg/fences/fence-2.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "fence-3",
+      "kind": "fence",
+      "mask": 3,
+      "directions": [
+        "N",
+        "E"
+      ],
+      "path": "svg/fences/fence-3.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "fence-4",
+      "kind": "fence",
+      "mask": 4,
+      "directions": [
+        "S"
+      ],
+      "path": "svg/fences/fence-4.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "fence-5",
+      "kind": "fence",
+      "mask": 5,
+      "directions": [
+        "N",
+        "S"
+      ],
+      "path": "svg/fences/fence-5.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "fence-6",
+      "kind": "fence",
+      "mask": 6,
+      "directions": [
+        "E",
+        "S"
+      ],
+      "path": "svg/fences/fence-6.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "fence-7",
+      "kind": "fence",
+      "mask": 7,
+      "directions": [
+        "N",
+        "E",
+        "S"
+      ],
+      "path": "svg/fences/fence-7.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "fence-8",
+      "kind": "fence",
+      "mask": 8,
+      "directions": [
+        "W"
+      ],
+      "path": "svg/fences/fence-8.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "fence-9",
+      "kind": "fence",
+      "mask": 9,
+      "directions": [
+        "N",
+        "W"
+      ],
+      "path": "svg/fences/fence-9.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "fence-a",
+      "kind": "fence",
+      "mask": 10,
+      "directions": [
+        "E",
+        "W"
+      ],
+      "path": "svg/fences/fence-a.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "fence-b",
+      "kind": "fence",
+      "mask": 11,
+      "directions": [
+        "N",
+        "E",
+        "W"
+      ],
+      "path": "svg/fences/fence-b.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "fence-c",
+      "kind": "fence",
+      "mask": 12,
+      "directions": [
+        "S",
+        "W"
+      ],
+      "path": "svg/fences/fence-c.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "fence-d",
+      "kind": "fence",
+      "mask": 13,
+      "directions": [
+        "N",
+        "S",
+        "W"
+      ],
+      "path": "svg/fences/fence-d.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "fence-e",
+      "kind": "fence",
+      "mask": 14,
+      "directions": [
+        "E",
+        "S",
+        "W"
+      ],
+      "path": "svg/fences/fence-e.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "fence-f",
+      "kind": "fence",
+      "mask": 15,
+      "directions": [
+        "N",
+        "E",
+        "S",
+        "W"
+      ],
+      "path": "svg/fences/fence-f.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "field-empty",
+      "kind": "field",
+      "state": "empty",
+      "path": "svg/fields/field-empty.svg",
+      "width": 128,
+      "height": 72,
+      "anchor": [
+        64,
+        36
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "field-sown",
+      "kind": "field",
+      "state": "sown",
+      "path": "svg/fields/field-sown.svg",
+      "width": 128,
+      "height": 72,
+      "anchor": [
+        64,
+        36
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "field-fertilized",
+      "kind": "field",
+      "state": "fertilized",
+      "path": "svg/fields/field-fertilized.svg",
+      "width": 128,
+      "height": 72,
+      "anchor": [
+        64,
+        36
+      ],
+      "footprint": [
+        1,
+        1
+      ]
+    }
+  ]
+}

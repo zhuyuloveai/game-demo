@@ -1,0 +1,15 @@
+{
+  "key": "blackberry-wilt_final",
+  "plant": "blackberry",
+  "label": "黑莓",
+  "group": "fruit-plants",
+  "state": "wilt_final",
+  "stateLabel": "枯死",
+  "displayScale": 1,
+  "path": "assets/fruit-plants/blackberry-wilt_final.png",
+  "reference": "../assets/fruit-plants/blackberry.png",
+  "prompt": "Use case: stylized-concept.\nAsset type: ONE transparent PNG plant sprite for the existing cute 2D farm game.\nReference role: the attached image is the APPROVED MATURE PLANT and STYLE REFERENCE. Create the specified DIFFERENT growth state of that same species. Keep its characteristic leaf shape, branching, cluster arrangement and gentle thin warm-tan contour. This new state belongs to the same asset family.\nStyle: very simple flat pastel farming-game illustration, rounded soft shapes, light warm tan outlines, restrained flat cel shadow, muted light green leaves, soft honey wood. Same orthographic elevated three-quarter camera and ground axes around +/-26.6 degrees as the reference. No realistic texture, glossy lighting, dramatic highlights, heavy dark borders, or white sticker border.\nComposition: one compact whole plant/clump only, centered, completely visible, occupying about 75 percent of the canvas, transparent padding on every side. Actual alpha transparency, crisp silhouettes with solid opaque internal colors. NO background, ground tile, soil patch, pot, cast shadow, haze, halo, loose props, text, labels or contact sheet. No face, character or human.\n\nSPECIES / STATE: 黑莓 / wilt_final.\nSUBJECT: A finally withered dry compact blackberry bramble with clustered soft pointed leaves and thin forked warm-tan stems. Retain recognizable mature trunk and main branch structure, now warm muted tan dry branches. Bare silhouette with only two to five curled small ochre-brown leaves attached. No green leaves, no fruit, no blossoms, no ground pile. Gentle cute flat style, not spooky, no face or skull.",
+  "mode": "builtin-imagegen",
+  "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-86de7819-6d36-4182-8569-96b383de3f25.png",
+  "status": "generated"
+}
