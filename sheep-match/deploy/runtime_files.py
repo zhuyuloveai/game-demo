@@ -46,6 +46,7 @@ BASE_FILES = {
 
 NEW_MODULES = ('farm-assets','farm-config','farm-core','farm-layout','farm-linkage','farm-match-ui','farm-runtime','farm-save','farm-stage-data','farm-stage-layouts','farm-ui','farm-gestures','farm-visuals','farm-audio','farm-audio-manifest','farm-delight','farm-scene-host','farm-scene-world','farm-scene-trade','farm-scene-management','farm-growth-layouts','farm-world-geometry','farm-runtime-art','farm-runtime-art-metadata','farm-runtime-terrain','farm-runtime-environment','farm-runtime-environment-metadata','farm-animal-layout')
 MIME = {'.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.css':'text/css','.mjs':'application/javascript','.js':'application/javascript','.json':'application/json','.m4a':('audio/mp4','audio/x-m4a'),'.wav':('audio/wav','audio/x-wav'),'.md':'text/plain','.txt':'text/plain'}
+NEW_MODULES += ('farm-art-direction','farm-art-presentation','farm-pen-art')
 def expected_runtime(root):
     files = dict(BASE_FILES)
     files.update({name+'.mjs':'application/javascript' for name in NEW_MODULES})
@@ -74,7 +75,7 @@ def expected_runtime(root):
         path = PurePosixPath(asset['path'])
         assert not path.is_absolute() and '..' not in path.parts and str(path).startswith('assets/farm-runtime/'), path
         files[str(path)] = MIME[path.suffix]
-    for group, names in [('roads', [f'road-{i:x}.svg' for i in range(16)]), ('fences', [f'fence-{i:x}.svg' for i in range(16)]), ('fields', ['field-empty.svg', 'field-sown.svg', 'field-fertilized.svg'])]:
+    for group, names in [('roads', [f'road-{i:x}.svg' for i in range(16)]), ('fences', [f'fence-{i:x}.svg' for i in range(16)]), ('flower-fences', [f'flower-fence-{i:x}.svg' for i in range(16)]), ('fields', ['field-empty.svg', 'field-sown.svg', 'field-fertilized.svg'])]:
         for name in names:
             files[f'assets/farm-terrain/{group}/{name}'] = 'image/svg+xml'
     return files

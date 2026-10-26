@@ -9,7 +9,7 @@
     "totalStates": 58,
     "families": 16
   },
-  "anchorConvention": "Anchor and opaqueBounds are source pixels; all states share a bottom-center world anchor. displayScale is relative to mature visible width.",
+  "anchorConvention": "Anchor and opaqueBounds describe source pixel bounds. Runtime root anchors and world sizes are defined in ../spatial-specs.json. displayScale is relative to mature visible width.",
   "families": [
     {
       "plant": "wheat",
@@ -336,22 +336,22 @@
         1195
       ],
       "opaqueBounds": [
-        60,
-        137,
-        1260,
-        1085
+        23,
+        155,
+        1293,
+        1015
       ],
       "anchor": [
-        660.0,
-        1085
+        658.0,
+        1015
       ],
       "alphaRange": [
         0,
         255
       ],
-      "lowAlphaFraction": 0.03111,
-      "sha256": "080382bc3d3a9806c2a69019a1766d6074ccf30e932317f275d644649f07bbb6",
-      "bytes": 940822
+      "lowAlphaFraction": 0.02118,
+      "sha256": "ed8def528662b83445de2375ff8fb49c249f0ca3fa3042e3a27da744bb00efe0",
+      "bytes": 952760
     },
     {
       "key": "indigo-ripe",
@@ -1026,7 +1026,7 @@
       "projectId": "carrot",
       "status": "generated",
       "heightScale": 0.4,
-      "displayScale": 0.45919,
+      "displayScale": 0.3936,
       "provenance": "generation/carrot-sprout.json",
       "sourceMatches": true,
       "size": [
@@ -1062,7 +1062,7 @@
       "projectId": "carrot",
       "status": "generated",
       "heightScale": 0.75,
-      "displayScale": 0.8023,
+      "displayScale": 0.68771,
       "provenance": "generation/carrot-grown.json",
       "sourceMatches": true,
       "size": [

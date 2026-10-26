@@ -57,3 +57,17 @@ export function artStateCoverage(state){
    fruits:state.entities.filter(e=>e.kind==='fruit').map(e=>({entityId:e.id,itemId:e.configId,visual:e.status==='ready'?'ripe':e.status==='revive'?'wilt_help':e.status==='withered'?'wilt_final':e.harvestStage===0&&e.readyAt-state.now>config.FRUITS[e.configId].durationMs/2?'young':'growing',x:e.x,y:e.y}))
  };
 }
+
+/** Count/pose acceptance fixture: empty, half and full pens share real scene code. */
+export function penArtFixture(count='full'){
+ let s=growthFixture(5);
+ for(const id of s.entities.filter(e=>e.kind==='shelter').map(e=>e.id)){
+  let e=s.entities.find(e=>e.id===id),capacity=config.ANIMALS[e.configId].capacity;
+  if(count==='empty')e.animals=[];
+  else if(count==='half')e.animals=e.animals.slice(0,Math.ceil(capacity/2));
+  else if(e.animals.length<capacity)s=core.executeFarm(s,{type:'buy',category:'animal',entityId:id,quantity:capacity-e.animals.length},s.now).state;
+  e=s.entities.find(e=>e.id===id);
+  e.animals.forEach((a,i)=>{a.status=['hungry','producing','ready'][i%3];a.readyAt=a.status==='hungry'?0:a.status==='producing'?s.now+60000:s.now-1;});
+ }
+ core.assertFarm(s);return s;
+}

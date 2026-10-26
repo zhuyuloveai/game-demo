@@ -1,0 +1,308 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "id": "flower-fence-0",
+      "mask": 0,
+      "path": "svg/flower-fences/flower-fence-0.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ],
+      "directions": []
+    },
+    {
+      "id": "flower-fence-1",
+      "mask": 1,
+      "path": "svg/flower-fences/flower-fence-1.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ],
+      "directions": [
+        "N"
+      ]
+    },
+    {
+      "id": "flower-fence-2",
+      "mask": 2,
+      "path": "svg/flower-fences/flower-fence-2.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ],
+      "directions": [
+        "E"
+      ]
+    },
+    {
+      "id": "flower-fence-3",
+      "mask": 3,
+      "path": "svg/flower-fences/flower-fence-3.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ],
+      "directions": [
+        "N",
+        "E"
+      ]
+    },
+    {
+      "id": "flower-fence-4",
+      "mask": 4,
+      "path": "svg/flower-fences/flower-fence-4.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ],
+      "directions": [
+        "S"
+      ]
+    },
+    {
+      "id": "flower-fence-5",
+      "mask": 5,
+      "path": "svg/flower-fences/flower-fence-5.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ],
+      "directions": [
+        "N",
+        "S"
+      ]
+    },
+    {
+      "id": "flower-fence-6",
+      "mask": 6,
+      "path": "svg/flower-fences/flower-fence-6.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ],
+      "directions": [
+        "E",
+        "S"
+      ]
+    },
+    {
+      "id": "flower-fence-7",
+      "mask": 7,
+      "path": "svg/flower-fences/flower-fence-7.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ],
+      "directions": [
+        "N",
+        "E",
+        "S"
+      ]
+    },
+    {
+      "id": "flower-fence-8",
+      "mask": 8,
+      "path": "svg/flower-fences/flower-fence-8.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ],
+      "directions": [
+        "W"
+      ]
+    },
+    {
+      "id": "flower-fence-9",
+      "mask": 9,
+      "path": "svg/flower-fences/flower-fence-9.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ],
+      "directions": [
+        "N",
+        "W"
+      ]
+    },
+    {
+      "id": "flower-fence-a",
+      "mask": 10,
+      "path": "svg/flower-fences/flower-fence-a.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ],
+      "directions": [
+        "E",
+        "W"
+      ]
+    },
+    {
+      "id": "flower-fence-b",
+      "mask": 11,
+      "path": "svg/flower-fences/flower-fence-b.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ],
+      "directions": [
+        "N",
+        "E",
+        "W"
+      ]
+    },
+    {
+      "id": "flower-fence-c",
+      "mask": 12,
+      "path": "svg/flower-fences/flower-fence-c.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ],
+      "directions": [
+        "S",
+        "W"
+      ]
+    },
+    {
+      "id": "flower-fence-d",
+      "mask": 13,
+      "path": "svg/flower-fences/flower-fence-d.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ],
+      "directions": [
+        "N",
+        "S",
+        "W"
+      ]
+    },
+    {
+      "id": "flower-fence-e",
+      "mask": 14,
+      "path": "svg/flower-fences/flower-fence-e.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ],
+      "directions": [
+        "E",
+        "S",
+        "W"
+      ]
+    },
+    {
+      "id": "flower-fence-f",
+      "mask": 15,
+      "path": "svg/flower-fences/flower-fence-f.svg",
+      "width": 128,
+      "height": 136,
+      "anchor": [
+        64,
+        100
+      ],
+      "footprint": [
+        1,
+        1
+      ],
+      "directions": [
+        "N",
+        "E",
+        "S",
+        "W"
+      ]
+    }
+  ]
+}

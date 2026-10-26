@@ -125,3 +125,23 @@ html.fw-document,html.fw-document>body{overflow:clip;overscroll-behavior:none}
 .fw-badge>img{width:20px;height:20px;vertical-align:middle;margin-right:2px}
 .fw-placement-footprint{position:absolute;pointer-events:none;max-width:none!important;opacity:.9!important}
 .fw-mastery-state{width:60px;height:28px;object-fit:contain;display:block}
+
+/* Spatial art pass: quiet status marks, compact outputs and layered yards. */
+.fw-pen-component{position:absolute;pointer-events:none}
+.fw-pen-layer{display:block;width:100%;height:100%;overflow:visible;pointer-events:none}
+.fw-badge.fw-status-dot{right:auto;bottom:auto;transform:none;min-width:0;min-height:0;box-sizing:border-box;width:11px;height:11px;line-height:10px;padding:0;border:1px solid #9caa75;border-radius:50%;background:#fff7d9;color:#748357;font:700 8px/10px system-ui;box-shadow:none;pointer-events:none}
+.fw-field .fw-badge:not(.fw-status-dot),.fw-fruit .fw-badge:not(.fw-status-dot){font:10px/1.2 system-ui;background:#fff7e7e8;border:1px solid #c4b18b;box-shadow:none}
+.fw-products{overflow:visible;gap:0}
+.fw-products button{position:relative;display:grid;place-items:center;transform:scale(var(--fw-output-scale,1));transform-origin:center;min-width:44px;min-height:44px;border-radius:50%}
+.fw-products button img,.fw-products button .item-art{width:24px;height:24px;filter:drop-shadow(0 1px 1px #6c594b30);animation:none}
+.fw-products button:focus-visible{outline:2px solid #9c7c58;background:#fff8e7cc}
+.fw-output-count{position:absolute;right:3px;bottom:5px;min-width:12px;border-radius:7px;padding:0 2px;color:#78644d;background:#fff4d9;font:700 9px/13px system-ui;border:1px solid #d1ba91;pointer-events:none}
+.fw-tray img,.fw-ready-output img{filter:drop-shadow(0 1px 1px #6c594b30)}
+.fw-door-marker{position:absolute;z-index:1900;transform:translate(-50%,-50%);padding:2px 5px;background:#fff4d9;color:#79654c;border:1px dashed #ab9672;border-radius:7px;font:9px/1.2 system-ui;pointer-events:none}
+.fw-animal-state{background:#fff7e4bd;border:1px solid #d1bc92;border-radius:50%}
+.fw-animal-state img,.fw-animal-state .item-art{filter:none;animation:none}
+.fw-pen-label{font-size:9px!important;min-height:18px!important;line-height:14px!important;opacity:.9}
+
+.fw-decor-front{position:absolute;pointer-events:none}
+
+.fw-ghost>.fw-runtime-png{position:relative;z-index:1}

@@ -12011,7 +12011,8 @@
       "modifications": "Byte-for-byte export of original icon.",
       "group": "items",
       "bytes": 503,
-      "sha256": "a94f1d9a88b67c8236ec82964a776861e6905938f57e9ec081ba50e22be66589"
+      "sha256": "e22ab9e9f9b656ce9e0e11f5bfe7bba3a5475e6f8878d52c8d8db8b1afbc438b",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.corn",
@@ -12039,7 +12040,8 @@
       "modifications": "Byte-for-byte export of original icon.",
       "group": "items",
       "bytes": 631,
-      "sha256": "b91f84503c749f680ebd9314b68aaa744e4f2c4c8b35bc9782321ab6e8d1b9c8"
+      "sha256": "c4249c71824003a0d94439d09402f33bbdf1c54136be74a8f4d51048af75ae5b",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.soybean",
@@ -12065,7 +12067,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 504,
-      "sha256": "2e94f67a1a66f864c3964b3664d45f4ca4e25b868fb4901b5f3ca2657fff6c66"
+      "sha256": "b1b59651d0818184b4210ef3ac7076d072f3211e20c8f2fc43b06d70a5ac8751",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.sugarcane",
@@ -12091,7 +12094,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 1264,
-      "sha256": "4f7c7709b398d2c600316a35241cb6a7a0117507f6e4425bda92349f7f2a4cf4"
+      "sha256": "051821dc13a4d98d6385feaadc122412313eddf90f5a75d121ab082bdb2c05fe",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.carrot",
@@ -12119,7 +12123,8 @@
       "modifications": "Byte-for-byte export of original icon.",
       "group": "items",
       "bytes": 649,
-      "sha256": "1af096e4f4f1fa6aa4923f51e1f01188c592ff008330d8423b4e94f05559d8ae"
+      "sha256": "395528610e5820cd457d3ebde8d34c3bdf7c1a4c57815efc941b70886eba774a",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.indigo",
@@ -12145,7 +12150,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 1090,
-      "sha256": "4ac521ceee5eb1e597ba2c0e2a0dc1b848921891bb153987b873c9b3c4c72911"
+      "sha256": "d533f4534c7f4c5406f192fc4b45af37b9bf24dbaaad68425318d604fe617d73",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.pumpkin",
@@ -12173,7 +12179,8 @@
       "modifications": "Byte-for-byte export of original icon.",
       "group": "items",
       "bytes": 688,
-      "sha256": "bfe979bc9c76ea7b57fdbeddf6d1499595da2af3d0bb5065501fd5b2adcb581c"
+      "sha256": "4c30b095aa0ad1ca6bd332a3d4a6f16668866a89377e36dc50eba451e2c14778",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.cotton",
@@ -12199,7 +12206,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 1186,
-      "sha256": "161338f2e6b2338008333aa5d4dd2603541f94ed45bbcdd56564bf2f69887370"
+      "sha256": "88bd899e8105ba3efa0234b53d26b6244255aa54db71381d2e89776a0d226bc7",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.chili_pepper",
@@ -12225,7 +12233,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 488,
-      "sha256": "4da59109a34158fe618920848cc11b3ad0fa06ddbc3a563a4344f28db7bfd052"
+      "sha256": "be1ce92ac493340f5c35e2983955f86f89bf33836a5a783d3711dd8b9b2bfbf2",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.black_bean",
@@ -12251,7 +12260,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 504,
-      "sha256": "202ff77bb1b6e08da8c07ce4a79cfff316a8d241904a983e497d29ef13a1e938"
+      "sha256": "83caf15f6ff83a07fb6dc1b628c941a1e5d74e658849d693003dd99c181757d8",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.tomato",
@@ -12280,7 +12290,8 @@
       "modifications": "Original EPS curves extracted, recoloured, contour added; six tomato paths only.",
       "group": "items",
       "bytes": 3568,
-      "sha256": "73f9edf7819cf8997a8858521d7350941c37f0503f9194a6f4186e222563b389"
+      "sha256": "41e140950032ab3b07ed7fff0b7237d643d14f26cfc1bb7015ff00f2eba4390b",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.apple",
@@ -12308,7 +12319,8 @@
       "modifications": "Byte-for-byte export of original icon.",
       "group": "items",
       "bytes": 621,
-      "sha256": "6a1484b058712c6fd91b92cda8026e70cbbb6de1cccd9aa2ab94cb842a8b5037"
+      "sha256": "887a224f67b6edb0308233531d8bdf3fdf58e36b8394e43e93676b1685b37618",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.raspberry",
@@ -12334,7 +12346,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 1117,
-      "sha256": "99315de1f8aa98d045f31ea5946c39993645e15193c427d11263a7943fe90d04"
+      "sha256": "4c3a4b8e694aae2b56853ba3de80353d33e838db9c2b9bfce497fda1ad19195a",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.cherry",
@@ -12360,7 +12373,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 838,
-      "sha256": "53a3f64f6cc71d165c6e14c5b998fd5c61d7b0d5a2aff4d72c4d7f9641bd9cef"
+      "sha256": "b9b696022227cad71b098025b9bd0406c135729662f6e8e42717da10f65e969b",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.blackberry",
@@ -12386,7 +12400,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 1117,
-      "sha256": "31860de28e21b1090c1c12e44fcfe44ceeb72d29007a88a4e86ea0b457ff0ce3"
+      "sha256": "d0e285fafdbc6af1826a513da56c77c69ed42e6d797c5350fc7c2bc2fc075959",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.blueberries",
@@ -12412,7 +12427,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 1064,
-      "sha256": "4cdcc24603f113fec57cd1a1a9c7596be04850563609fd980ece586094a54a3a"
+      "sha256": "93cbff836e0aeaee9dbe0636443ed21fb4eba0993eecf3e524fbab9eebc422b0",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.egg",
@@ -12438,7 +12454,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 364,
-      "sha256": "739547b7f35b8eb93d8182c54b5821b5caa271e9d713c47177a409f23c3b3784"
+      "sha256": "372dc0ed41d20ccf04a35e06f7c01e137cfec909b2a06eb786d13349ee5bd24f",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.milk",
@@ -12466,7 +12483,8 @@
       "modifications": "Byte-for-byte export of original icon.",
       "group": "items",
       "bytes": 565,
-      "sha256": "7e9f5b626858f1cbf077f0e654b4b0e063220b91f02ba4889f1eb727ace45b3c"
+      "sha256": "1ab3d290a2dec47fefcd4fe28d047ef30c6cdc562dfdcc83e4b1186dae754adb",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.truffle_slice",
@@ -12492,7 +12510,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 413,
-      "sha256": "bd2b3f56384b6535059f12688d7fdcd9138397ae290f111604477beee4de41c5"
+      "sha256": "e0348d72200d98f13972171b11ae721ec6febe23d92f4ce82b1eb8d673a0e035",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.wool",
@@ -12518,7 +12537,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 462,
-      "sha256": "b5d09ccb1ad6b902784843e6a391b5685d16ba5b24544e918dc53208ebe94623"
+      "sha256": "d35ef559e487b3b509562e688aac77e5542afa3df77db7409b9afe5fe2b96c72",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.herb_bundle",
@@ -12544,7 +12564,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 1267,
-      "sha256": "6b99cd9fcc390bccaa23e92e9e14be844c60937647a54e9f8ad84d52532ba8c6"
+      "sha256": "3c925ea94535d8362427d063bebc920acb3eea4b554cfe6071c7b56ab83a189e",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.chicken_feed",
@@ -12570,7 +12591,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 789,
-      "sha256": "c3edcf0a021e1e8a862606bea1fd0e3177e29030aa8352d70bc0937eac4a9473"
+      "sha256": "5cf17c7db7ec352bfed0fc2e3cb3d6b74f938a01338091c7a1a28a4432e39cdb",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.cow_feed",
@@ -12596,7 +12618,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 875,
-      "sha256": "db68e7ac1fb905129d6524989cd4de53077812eb5d4fb71ffbc2ac373b65c87e"
+      "sha256": "39ba07b56233a67f2d141f716eea5b6aac323bfabbeb38e1d916073ff7d3ffaa",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.pig_feed",
@@ -12622,7 +12645,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 861,
-      "sha256": "4f128654b35270c8dd7cb7a3727b4085565f1f34ba834b7d91122c0aca60e61c"
+      "sha256": "972795c4f1008877a32bff3be635f767e10435bf2f3ff4fa9d3dfefe711c74d9",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.sheep_feed",
@@ -12648,7 +12672,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 1080,
-      "sha256": "4157e134bfac43e5898480d13d2ad96326cffae26370d8d5fbcacfe7750d632c"
+      "sha256": "100dc2c78a2f217e4797cc414c30d9272abd6d92a1bd9f38aba596669e1524a3",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.lamb_feed",
@@ -12674,7 +12699,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 1204,
-      "sha256": "b140cbadafe4650c977c9edfa342c20427c47e866c753930489126ac943cd397"
+      "sha256": "4a3b9e2e73279188498976afc369ede94ab01168041ecb87bdf38f5dcfdab7c9",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.bread",
@@ -12700,7 +12726,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 490,
-      "sha256": "355447167ae3c6b2f3a995449c4c615287fb0486e0619739ee50df0cdaae7f49"
+      "sha256": "0ec2befd0e4b79f7484c44fb7abc78e1585989a38d8be704611fe36772e496d7",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.corn_bread",
@@ -12726,7 +12753,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 862,
-      "sha256": "6d38335030b553dbcb7f59ffbaed8a98b7f9655ccaab535ffe87c8e8e1588a4b"
+      "sha256": "53b32e55ab95e3305411a87b2ea8bdafcddbd870b874c0cd4ca6e5ecd7031fa5",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.cookie",
@@ -12752,7 +12780,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 705,
-      "sha256": "6b11f80e64ca49efd73d1b00026529c2e383d44e6d6e2ead1b7a2eabc6cb81b8"
+      "sha256": "eb5c824a9fa930ef8c8f2aa299b216f1a64d07e46708ac822090eebe55928287",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.raspberry_muffin",
@@ -12778,7 +12807,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 772,
-      "sha256": "be57f50ac5a270cfc13474ef91a04bfe107d2b85bdccb9c186dc380684360c40"
+      "sha256": "02d9a7407cad70caa4ced68c30356a78fdabcd7af2f3a2b8671302e54adfd920",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.blackberry_muffin",
@@ -12804,7 +12834,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 772,
-      "sha256": "82c29ec4b6ffd2ef220dd9d5e17d318300e651e10b70209838b3ada6571db11c"
+      "sha256": "a36f65efa1c88699d98b6ab058f7b6b31511ee9b264c1c28505ea7642c70634c",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.cream",
@@ -12830,7 +12861,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 454,
-      "sha256": "b30104d35b7656f7e864d9c8310a1ced2ce68f9eca4e1dc9ae2c3af600c135e6"
+      "sha256": "ffcbeb168dc70daf7c289ce152c80766cad5bd85ab5fe0377e004e8024a14537",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.butter",
@@ -12856,7 +12888,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 436,
-      "sha256": "dcb89138d07d537915e718ac2adc1dab332ac85dfb2e3577dea77769812f33f5"
+      "sha256": "0774d74f7053ffd30fab50bf2edbdf0d0eb7362548aa42cb363ad561b21d1248",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.cheese",
@@ -12882,7 +12915,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 620,
-      "sha256": "806b572101a2ef8e725391c15f41203433f74912585f08a16542dccfbd022611"
+      "sha256": "b8232571c9718a60a2dfbaa3cab26ff36f4f813ae31467ebc88460ef8d4e5c67",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.brown_sugar",
@@ -12908,7 +12942,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 617,
-      "sha256": "5dfb3ea3fa1ab080d5d7930c78900c010e67eba5dbd1672e7511f5c8a293fe26"
+      "sha256": "f77e226d2132ace4e27dabf33f19add948c003de57ec943d433d67c5b593db33",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.white_sugar",
@@ -12934,7 +12969,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 617,
-      "sha256": "8ca3a330e5d6aa695928bf003dfc2ca1597f420f67f203b38a752ddbef760d49"
+      "sha256": "cce69be76b9a6695a019cd272c2022399464203b3181f5aece971b8a0d4278b5",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.syrup",
@@ -12960,7 +12996,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 564,
-      "sha256": "ba85bdecc6d3c7d059a34f4ac964f265f0abf3352ca5d214bad0a8d29a44091f"
+      "sha256": "3f912c90c3e3648a29d339e028705b39d04f0168999f73b2261a4acc10d37f6b",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.popcorn",
@@ -12986,7 +13023,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 881,
-      "sha256": "c3e8747dcd2b558f3951ccab25dfcf0d8910ccd3346514308d57c36744b987bc"
+      "sha256": "fb9c28c57ab088279c1e721a23eab11a8020d15f4ec1f546605e6a9867efd327",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.buttered_popcorn",
@@ -13012,7 +13050,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 881,
-      "sha256": "149fde32cd65b46102f12b51095d7ffce69565f5fba9ab9c654b3abd80eb908a"
+      "sha256": "3120ada3c49f24a55d323703fe8e28b5df179f28015cc6abae482c7a9a56c31f",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.chili_popcorn",
@@ -13038,7 +13077,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 1005,
-      "sha256": "bbf5c90dfdec5a3088a9bacfbc61d9c964ab20386531487359468bfce4915031"
+      "sha256": "17d3f3479ee4e2e2654fff1fbec3f14ac7b8e93e09101bafc3a7c6967809517f",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.pancake",
@@ -13064,7 +13104,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 707,
-      "sha256": "9d97870023ba956fe7e5fc0ea250eb84e5e5f4fe80cd6505261c28fde0164d66"
+      "sha256": "0a9163e22d47a279e760a45ec7b70c74cbbb2336bce68d42bffaf2b2293dc26d",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.bacon_and_eggs",
@@ -13090,7 +13131,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 809,
-      "sha256": "dcd0453beff92bf7b19a6ae0e3a6b5b23c0d3d8925681d0bdcf41823099b502e"
+      "sha256": "351a03aed4e903d2fcddd76072b5a8d7f2720d585100da98496fe15cfbb1bc7a",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.hamburger",
@@ -13116,7 +13158,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 890,
-      "sha256": "2b1d4d27a6ab57e6b8535ee2d414d9e9643b92139bd6119ccc87cc88aca807f6"
+      "sha256": "0272d321efbf14f356ac109644fba1a00298a0a939899fa6b1a5dc6feb279229",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.grilled_lamb_skewer",
@@ -13142,7 +13185,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 1075,
-      "sha256": "56eac3659e405bbe35a7122192b53958c46cf7501b60a7b34c29caf48f4e8260"
+      "sha256": "3e50535a5ceefa3240e53531d5d8a08b5bbfcb16eea480fc41bd2f1626c73918",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.roasted_tomatoes",
@@ -13168,7 +13212,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 840,
-      "sha256": "d72c3c378ddf06f04d0a138783e5c38b323e24b6e12437d0e64ebabf8d096269"
+      "sha256": "a93a8bb0cac7f3947db6db4241c3f0dfb259cfbe3ca77bfe99a947235e523030",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.carrot_pie",
@@ -13194,7 +13239,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 1001,
-      "sha256": "2baff58426059aefe0aeccfcc8ef1faa2065e98abecdfacfa9137a3f9dc6bf22"
+      "sha256": "e63a5a5418bdc8c60fd1f7051561f1a44d00e72760f4a23b9184cf635a1cbf6b",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.pumpkin_pie",
@@ -13220,7 +13266,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 777,
-      "sha256": "f254b2ad576a18f0ec6f07ca661a70bdaa23799f6b057fc58769a26372aaf4a6"
+      "sha256": "a32e0e65fd89c4cec96c094142fa9fccb7cfbd158dea69bb972b83be5fbec090",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.bacon_pie",
@@ -13246,7 +13293,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 945,
-      "sha256": "dd4357d2f1a2ca3dcb35d5f5652c30852e4286400aa0f97ef9dde38d90ef7a8c"
+      "sha256": "25df4a67ab43cc3eb3a7a8bf4ba8dafcb915d5bf7ca38ad5f4d2702ac4716a10",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.apple_pie",
@@ -13272,7 +13320,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 1033,
-      "sha256": "caaca0428fe97a3993e45322c52852a5931f08e8d4197f68eaa0649361cd15c2"
+      "sha256": "a4ecf8f14c242b026d40fada74c49389a5d07f0f56710d693c64cb0f358730f1",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.sweater",
@@ -13298,7 +13347,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 372,
-      "sha256": "b4dbda7f3c27f1cd5e3ecf63108bff60aef5eb5d054842f49206e97c6a14dc93"
+      "sha256": "b6a71a5af482e4cc6c497a4f990d3945c6838345155014fa9c89eaecf0d5cfe4",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.cotton_fabric",
@@ -13324,7 +13374,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 480,
-      "sha256": "c0f882bd3d4e5449d6ef8b852de8afe73cf29dd6f91c2786577ccdf8d839e3fb"
+      "sha256": "91bc1838c7630f2576d2b2ac082b83f118bfb2135dc82f6e256424397b5b9179",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.blue_woolly_hat",
@@ -13350,7 +13401,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 542,
-      "sha256": "270755c3409e85758972b9c4652d8d4255c7f6c890c675f1ee23142110003bdf"
+      "sha256": "8ea33ba4f44b3728ac2953e1ccb5dabb009b60331e7757d5df71a6e3330d7367",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.blue_sweater",
@@ -13376,7 +13428,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 495,
-      "sha256": "ca5a3dc67d64e5aa8cef5cde065fcd0aaa92b5dd8b948e43fd86cc59d0a03b77"
+      "sha256": "4261793d78a07a0953e8371880275f69460d9c264afb540f0dc1822c36430f71",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.cotton_shirt",
@@ -13402,7 +13455,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 547,
-      "sha256": "d7fbd78d3bf8bf7b559f5e9659caa482001954c8815f4704c150d5df4708ce94"
+      "sha256": "d745515a4a43249424145e968f04515c559d2f154759021fdfcd5366953a1f19",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.wooly_chaps",
@@ -13428,7 +13482,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 352,
-      "sha256": "32229af8558650e3185061c57ce340652dced7465e504653f99684d3063fca39"
+      "sha256": "df17fbdb0ce776a444e883465b5b60023005ef04f70c3fca328574c18db26fb3",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.violet_dress",
@@ -13454,7 +13509,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 367,
-      "sha256": "c2881169dd05c3ea37b416fa2f561526bc5cd59689e5fb0e149486f9731f9df8"
+      "sha256": "b6eae76a44aa66baef8755d823c4762bcafadc80e25c9359d7d470e2f1b983de",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.carrot_cake",
@@ -13480,7 +13536,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 974,
-      "sha256": "455bd1f6bde4aeb579d0dedc4c083f6ba218d80b007235426f59e2ec404e79a3"
+      "sha256": "80fce48dcd5f5fb48c18702cefd8c380e379ac6e79ad561dac8f1df7c7e0f329",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.cream_cake",
@@ -13506,7 +13563,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 754,
-      "sha256": "18654b51b74a189b44f7fe43622a42394baca498066a58ce8b898fbe1666cbc1"
+      "sha256": "214a98949fc7ee82678bf5a36fdfc4a87c51dd628c2d89c6538a6b54a1d4f49e",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.red_berry_cake",
@@ -13532,7 +13590,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 808,
-      "sha256": "043e3d33b69c07a54b597eb5c662a639ae611954ce80b8957da5fd6115ec16b7"
+      "sha256": "7285b28f9eb8a29142c5670c487c3ddcdb7f6a9118e4374b4508c05967fd4fa5",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.cheesecake",
@@ -13558,7 +13617,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 553,
-      "sha256": "a6163509b237a0e473191fe94a515014459193da4e6f7a701df9f643f140354a"
+      "sha256": "42b2da6a2afb4462ea4b5c0448855fc3b7663d77486bc7c24253165b2d143020",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.carrot_juice",
@@ -13584,7 +13644,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 866,
-      "sha256": "e8a247044cf58db5ffcbabfc3b6390c25c247ee5d630e703a9c4ce40ce5c04da"
+      "sha256": "f4c4d3b873664fd177a02e67fc32ab16cf77a03ed2269e627281af36d27371ff",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.apple_juice",
@@ -13610,7 +13671,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 582,
-      "sha256": "33d38fa5468e30606a16a9f330ee1042d1012e4f4100054593bcac6d1249e2a8"
+      "sha256": "cd3483443c56f9f5842dea30433c807a28a5f05c02c6a9068a2c56cbd90d1106",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.cherry_juice",
@@ -13636,7 +13698,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 731,
-      "sha256": "f4e08023003ea0768239281d81902445fa7372f37869f3495d378f4aad4fb946"
+      "sha256": "b2e29c748630f0c37216416364258c0b003babe053bb1b9940b5d18ab3d464b4",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.vanilla_ice_cream",
@@ -13662,7 +13725,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 532,
-      "sha256": "6d6290f7ecdb355454861fbd40acc9bc512e210c22d8640895ff52983b37aa1d"
+      "sha256": "5259eced81d91a5f26cdb1265eed44809c524b4c4a8f161f553150d373294c53",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.bolt",
@@ -13688,7 +13752,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 488,
-      "sha256": "d26e61c2e96676f96fd435c40fd1c5e2708b2703723be182f29b0491496fa942"
+      "sha256": "24228a31034573c1d80eb0bd1510c5c0b6440bc165f08e8960e5ef42f1769021",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.duct_tape",
@@ -13714,7 +13779,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 393,
-      "sha256": "34ec81b8cf1fc8d2a4942ed45a0591befaa4910bab326ea6bf96ca4e3d2e8ebf"
+      "sha256": "c0429c545dfa05d50e4d60abab79bf4b789f3e236e333613657d76cea3d0946b",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.plank",
@@ -13740,7 +13806,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 439,
-      "sha256": "7770c9600263cdd58efe04ef8151df75f8d62f2908d755831aaaf6709c724a6c"
+      "sha256": "ea89543931cafcfcde3f7cf270d725f992eeb3ec91d7784fbc15f84430f56c8d",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.nail",
@@ -13766,7 +13833,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 342,
-      "sha256": "6293b013d802a5b51d3d89461502ab7855bd095547d26e32608cd4370f8d4795"
+      "sha256": "25d60d94c870d1a8cb1ee2c58158f7a039a8606517b009aa64f3b6800c01fa5b",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.screw",
@@ -13792,7 +13860,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 458,
-      "sha256": "313581b10ba7353f307a52a3f57ebd2ddf2cf9b65d9bed99bdd12fc2f13f5611"
+      "sha256": "0f2804bf57c3111f472ab46d9b0ed0f86ac73b96fcc0d3c93a4f0886a1d87c34",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.wood_panel",
@@ -13818,7 +13887,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 499,
-      "sha256": "40bd2ac5f8804ccaefeb0ddb13a5af5500ffbe59328ec89d6cb4733152e7bb7a"
+      "sha256": "4c739f2f7528d5308912d680b7a196b0db745d60658cb45bbe5ba3202de1b367",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.land_deed",
@@ -13844,7 +13914,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 618,
-      "sha256": "bf8fc822260caed3ddaaf8df313d8e9cb3ddd4cb3b12c57754bbece16e9a4792"
+      "sha256": "17ed3890c41655b7302cc72f2b64588a8ab81514fe2669cd66e426257c0d6b0a",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.mallet",
@@ -13870,7 +13941,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 460,
-      "sha256": "1a63e0f22ff35ad3db36ed524995e7b1c02a61112780ac1321707f271652850b"
+      "sha256": "ede2604fbc9b5861bcc4b696e509110308071822f5fc8afd087f9301ac1fe926",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.marker_stake",
@@ -13896,7 +13968,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 455,
-      "sha256": "bcfdea5472b5327cf319ccece29d65d8320f42e9fe3904f013abf8308737a2c9"
+      "sha256": "94ec74181527be33562855b332d59ff404cfb41408d011b0bd355ef1fc49699c",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.axe",
@@ -13922,7 +13995,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 353,
-      "sha256": "f9c173d9a6d136de3992cf94dc77ec95422c6b27910ca25a525fde7c9edd6a40"
+      "sha256": "366804325086eac6af93ca1b4214c550548bb31ed6f10feecbd9cb5cf39b38b9",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.saw",
@@ -13948,7 +14022,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 387,
-      "sha256": "c8dfab699df15e26f001fcf691b81935f63d409cb57b87b7fdc7166ee4be0a3c"
+      "sha256": "40586d4b9e41147a1c5ce49c4986d7f425b33f22abb09f4c20178287dcd06003",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.shovel",
@@ -13974,7 +14049,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 583,
-      "sha256": "d0f6434929fbdbbc0ae9022f3cede75c143bbe003293539628bb33a4bb2a0f27"
+      "sha256": "5a499db19bd1ddf2b81562a96401010fb740ff4222caa4507d1d197e2af366ca",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.dynamite",
@@ -14000,7 +14076,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 424,
-      "sha256": "5726de10bc062fb2984d6fb6e1e03633553807e4f3454027dea92ef7952e70b3"
+      "sha256": "4101c1dca02328ec635effd11844d126e4490cb72e712c88197f21ccd9a99d6f",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.tnt",
@@ -14026,7 +14103,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 838,
-      "sha256": "d77ec4859e6676d46da55bea3950435d1426015cbc9c4bc426e846834b6d98fe"
+      "sha256": "0944421dc811cedc4d0d0a5f8af979ae65f317c6f1732af1a06657e0647220b6",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.fertilizer",
@@ -14052,7 +14130,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 777,
-      "sha256": "52d84882476650aadbc23a5e14167bb1f9f3ecee5adfbf0e9106e0b93ee54036"
+      "sha256": "2d85343d78ba2ad1048f8eaa2d7d5a167f8a775024d0b6c20d7e0b3442047e79",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.coin",
@@ -14078,7 +14157,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 490,
-      "sha256": "3cb3d1e783fed9a0502593ffb0786045f5fb6bae980ba28ca4c543fbbd1a223c"
+      "sha256": "3b623d957195493fa48aa34cf3476664cfdbaa923c40bb171971fb0c6fdf9972",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.construction_voucher",
@@ -14104,7 +14184,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 606,
-      "sha256": "09a729ea3968f06ce64a087b316a2b941b0785d8672e897cd0c112a3c6d5e3da"
+      "sha256": "e05e2c37923af9899c184e210c28911693a467b3a2a860e244e2e5842a396e63",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.material_choice_voucher",
@@ -14130,7 +14211,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 618,
-      "sha256": "345031972927cdb259554f12c14cb0e31fb663a715cf41d4b46f96d5ab67ae5b"
+      "sha256": "8bd05d49f0d1658c4a800a49510f0b8db7b5b640d74fbbd212c40122cb212583",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.xp",
@@ -14156,7 +14238,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 308,
-      "sha256": "b7eb9802662614542d9daf0bb7ac5763920ccb9fba38b1882f13993c33db02e6"
+      "sha256": "a2b16bcc54e56500139e9cb2c6a9fef96a22d525cbbc28028f8de428aa0595fc",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.chicken_credit",
@@ -14182,7 +14265,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 775,
-      "sha256": "ee0a95d7ebc1aa415e3051860ba9cc90d4a29da398649482041bd9ecc9c75872"
+      "sha256": "ae73a1597261b701513dac1c6da83e83f0a4d64a0431c8e6e6d65110f9ea8428",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "items.cow_credit",
@@ -14208,7 +14292,8 @@
       "modifications": "New original vector paths in unified farm palette; no image generation.",
       "group": "items",
       "bytes": 861,
-      "sha256": "4bb7368fae2d2e4841e74c86988cc9d0070f3c63da6704e1b5aafd11f55b9eeb"
+      "sha256": "0ff29e480c293eeef589da3025bf454850ac1f031d4d3f550f2d9d3a1c8d06b3",
+      "revision": "2026-10-26 warm outline and lighter stroke"
     },
     {
       "assetId": "ui.sow",

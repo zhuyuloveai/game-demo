@@ -318,7 +318,7 @@
       "projectId": "carrot",
       "status": "generated",
       "heightScale": 0.4,
-      "displayScale": 0.45919,
+      "displayScale": 0.3936,
       "provenance": "generation/carrot-sprout.json",
       "sourceMatches": true,
       "size": [
@@ -354,7 +354,7 @@
       "projectId": "carrot",
       "status": "generated",
       "heightScale": 0.75,
-      "displayScale": 0.8023,
+      "displayScale": 0.68771,
       "provenance": "generation/carrot-grown.json",
       "sourceMatches": true,
       "size": [

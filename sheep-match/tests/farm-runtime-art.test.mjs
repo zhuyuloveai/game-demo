@@ -60,7 +60,7 @@ test('cropped viewport preserves aspect and escapes attributes without mutating 
 test('new plant manifest scale and complete 42-state inventory are preserved',()=>{
  const manifest=JSON.parse(readFileSync(new URL('../docs/art-packs/sumikko-farm-v1/plant-states/manifest.json',import.meta.url)));
  const generated=manifest.assets.filter(a=>a.status!=='existing');assert.equal(generated.length,42);
- for(const entry of generated){const art=RUNTIME_ART_METADATA['plant-states/'+entry.group+'/'+entry.key];assert.ok(art);assert.equal(art.scale,entry.displayScale);assert.deepEqual(art.anchor,[.5,1]);}
+ for(const entry of generated){const art=RUNTIME_ART_METADATA['plant-states/'+entry.group+'/'+entry.key];assert.ok(art);assert.equal(art.scale,entry.displayScale);assert.equal(art.anchor[0],.5);assert(art.anchor[1]>.7&&art.anchor[1]<1);}
 });
 
 test('all five animal families use stable anchored state poses with unknown states falling back',()=>{

@@ -77,6 +77,13 @@ export function fenceTileSvg(mask) {
   const body = DIRECTIONS.filter(d => mask & d.bit).map(d => rails(p, project(d.dx * .5, d.dy * .5, { unit: 64, origin: [64, 100] }), size)).join('') + post(p, size);
   return svg(FRAME.fence, body);
 }
+/** Same shared-edge geometry as wooden fences, with a low flowering hedge. */
+export function flowerFenceTileSvg(mask) {
+  checkMask(mask);const p={x:64,y:100};
+  const flower=(x,y)=>`<g transform="translate(${n(x)} ${n(y)})"><path d="M-11 3Q-19-6-10-11Q-4-17 3-9Q15-15 17-3Q22 8 9 10Q-3 18-11 3" fill="#bdd39b" stroke="#91ac77" stroke-width="1.8"/><path d="M0-8C-9-16-15-3-7 1C-12 11 3 15 5 6C17 8 17-7 7-5C6-15-3-16 0-8Z" fill="#f9dcc6" stroke="#cfad90" stroke-width="1.3"/><circle cx="2" cy="0" r="3.5" fill="#f1d380"/></g>`;
+  const arms=DIRECTIONS.filter(d=>mask&d.bit).map(d=>{const q=project(d.dx*.5,d.dy*.5,{unit:64,origin:[64,100]});return rails(p,q,1)+flower((p.x+q.x)/2,(p.y+q.y)/2-19);}).join('');
+  return svg(FRAME.fence,arms+post(p,1)+flower(64,77));
+}
 /** Individual rail and post pieces carry world depth, ready to interleave with animals/buildings. */
 export function fenceNetworkPieces(cells, options = {}) {
   const normalized = normalizeCells(cells), occupied = new Set(normalized.map(c => key(...c)));

@@ -1,0 +1,2573 @@
+{
+  "version": 1,
+  "coordinates": "anchor, support, entry and connections: normalized cropped image; groundPoint: normalized projected footprint bounds; visualWidth: world px, 48 px per tile",
+  "assets": {
+    "animals/chicken": {
+      "visualWidth": 28,
+      "anchor": [
+        0.5,
+        0.95
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "bodyRegion": [
+        0.08,
+        0.1,
+        0.92,
+        0.94
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "animals/cow": {
+      "visualWidth": 38,
+      "anchor": [
+        0.5,
+        0.91
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "bodyRegion": [
+        0.08,
+        0.1,
+        0.92,
+        0.94
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "animals/lamb": {
+      "visualWidth": 30,
+      "anchor": [
+        0.5,
+        0.93
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "bodyRegion": [
+        0.08,
+        0.1,
+        0.92,
+        0.94
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "animals/pig": {
+      "visualWidth": 35,
+      "anchor": [
+        0.5,
+        0.93
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "bodyRegion": [
+        0.08,
+        0.1,
+        0.92,
+        0.94
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "animals/sheep": {
+      "visualWidth": 33,
+      "anchor": [
+        0.5,
+        0.93
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "bodyRegion": [
+        0.08,
+        0.1,
+        0.92,
+        0.94
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "buildings/bakery": {
+      "visualWidth": 110,
+      "anchor": [
+        0.5,
+        0.83
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "support": [
+        [
+          0.15,
+          0.76
+        ],
+        [
+          0.5,
+          0.64
+        ],
+        [
+          0.9,
+          0.79
+        ],
+        [
+          0.5,
+          0.98
+        ]
+      ],
+      "entry": [
+        0.26,
+        0.91
+      ],
+      "outputAnchor": [
+        0.7,
+        0.82
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "buildings/barn": {
+      "visualWidth": 138,
+      "anchor": [
+        0.5,
+        0.83
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "support": [
+        [
+          0.15,
+          0.76
+        ],
+        [
+          0.5,
+          0.64
+        ],
+        [
+          0.9,
+          0.79
+        ],
+        [
+          0.5,
+          0.98
+        ]
+      ],
+      "entry": [
+        0.26,
+        0.91
+      ],
+      "outputAnchor": [
+        0.7,
+        0.82
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "buildings/bbq-grill": {
+      "visualWidth": 80,
+      "anchor": [
+        0.5,
+        0.83
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "support": [
+        [
+          0.15,
+          0.76
+        ],
+        [
+          0.5,
+          0.64
+        ],
+        [
+          0.9,
+          0.79
+        ],
+        [
+          0.5,
+          0.98
+        ]
+      ],
+      "entry": [
+        0.26,
+        0.91
+      ],
+      "outputAnchor": [
+        0.7,
+        0.82
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "buildings/cake-oven": {
+      "visualWidth": 112,
+      "anchor": [
+        0.5,
+        0.83
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "support": [
+        [
+          0.15,
+          0.76
+        ],
+        [
+          0.5,
+          0.64
+        ],
+        [
+          0.9,
+          0.79
+        ],
+        [
+          0.5,
+          0.98
+        ]
+      ],
+      "entry": [
+        0.26,
+        0.91
+      ],
+      "outputAnchor": [
+        0.7,
+        0.82
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "buildings/chicken-shelter": {
+      "visualWidth": 108,
+      "anchor": [
+        0.5,
+        0.87
+      ],
+      "groundPoint": [
+        0.5,
+        0.16
+      ],
+      "support": [
+        [
+          0.15,
+          0.76
+        ],
+        [
+          0.5,
+          0.64
+        ],
+        [
+          0.9,
+          0.79
+        ],
+        [
+          0.5,
+          0.98
+        ]
+      ],
+      "entry": [
+        0.26,
+        0.91
+      ],
+      "outputAnchor": [
+        0.7,
+        0.82
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "buildings/cow-shelter": {
+      "visualWidth": 112,
+      "anchor": [
+        0.5,
+        0.87
+      ],
+      "groundPoint": [
+        0.5,
+        0.16
+      ],
+      "support": [
+        [
+          0.15,
+          0.76
+        ],
+        [
+          0.5,
+          0.64
+        ],
+        [
+          0.9,
+          0.79
+        ],
+        [
+          0.5,
+          0.98
+        ]
+      ],
+      "entry": [
+        0.26,
+        0.91
+      ],
+      "outputAnchor": [
+        0.7,
+        0.82
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "buildings/dairy": {
+      "visualWidth": 108,
+      "anchor": [
+        0.5,
+        0.83
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "support": [
+        [
+          0.15,
+          0.76
+        ],
+        [
+          0.5,
+          0.64
+        ],
+        [
+          0.9,
+          0.79
+        ],
+        [
+          0.5,
+          0.98
+        ]
+      ],
+      "entry": [
+        0.26,
+        0.91
+      ],
+      "outputAnchor": [
+        0.7,
+        0.82
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "buildings/farmhouse": {
+      "visualWidth": 162,
+      "anchor": [
+        0.5,
+        0.83
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "support": [
+        [
+          0.15,
+          0.76
+        ],
+        [
+          0.5,
+          0.64
+        ],
+        [
+          0.9,
+          0.79
+        ],
+        [
+          0.5,
+          0.98
+        ]
+      ],
+      "entry": [
+        0.26,
+        0.91
+      ],
+      "outputAnchor": [
+        0.7,
+        0.82
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "buildings/feed-mill": {
+      "visualWidth": 108,
+      "anchor": [
+        0.5,
+        0.83
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "support": [
+        [
+          0.15,
+          0.76
+        ],
+        [
+          0.5,
+          0.64
+        ],
+        [
+          0.9,
+          0.79
+        ],
+        [
+          0.5,
+          0.98
+        ]
+      ],
+      "entry": [
+        0.26,
+        0.91
+      ],
+      "outputAnchor": [
+        0.7,
+        0.82
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "buildings/ice-cream-maker": {
+      "visualWidth": 104,
+      "anchor": [
+        0.5,
+        0.83
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "support": [
+        [
+          0.15,
+          0.76
+        ],
+        [
+          0.5,
+          0.64
+        ],
+        [
+          0.9,
+          0.79
+        ],
+        [
+          0.5,
+          0.98
+        ]
+      ],
+      "entry": [
+        0.26,
+        0.91
+      ],
+      "outputAnchor": [
+        0.7,
+        0.82
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "buildings/juice-press": {
+      "visualWidth": 94,
+      "anchor": [
+        0.5,
+        0.83
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "support": [
+        [
+          0.15,
+          0.76
+        ],
+        [
+          0.5,
+          0.64
+        ],
+        [
+          0.9,
+          0.79
+        ],
+        [
+          0.5,
+          0.98
+        ]
+      ],
+      "entry": [
+        0.26,
+        0.91
+      ],
+      "outputAnchor": [
+        0.7,
+        0.82
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "buildings/lamb-shelter": {
+      "visualWidth": 108,
+      "anchor": [
+        0.5,
+        0.87
+      ],
+      "groundPoint": [
+        0.5,
+        0.16
+      ],
+      "support": [
+        [
+          0.15,
+          0.76
+        ],
+        [
+          0.5,
+          0.64
+        ],
+        [
+          0.9,
+          0.79
+        ],
+        [
+          0.5,
+          0.98
+        ]
+      ],
+      "entry": [
+        0.26,
+        0.91
+      ],
+      "outputAnchor": [
+        0.7,
+        0.82
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "buildings/loom": {
+      "visualWidth": 96,
+      "anchor": [
+        0.5,
+        0.83
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "support": [
+        [
+          0.15,
+          0.76
+        ],
+        [
+          0.5,
+          0.64
+        ],
+        [
+          0.9,
+          0.79
+        ],
+        [
+          0.5,
+          0.98
+        ]
+      ],
+      "entry": [
+        0.26,
+        0.91
+      ],
+      "outputAnchor": [
+        0.7,
+        0.82
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "buildings/npc-stall": {
+      "visualWidth": 116,
+      "anchor": [
+        0.5,
+        0.83
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "support": [
+        [
+          0.15,
+          0.76
+        ],
+        [
+          0.5,
+          0.64
+        ],
+        [
+          0.9,
+          0.79
+        ],
+        [
+          0.5,
+          0.98
+        ]
+      ],
+      "entry": [
+        0.26,
+        0.91
+      ],
+      "outputAnchor": [
+        0.7,
+        0.82
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "buildings/order-board": {
+      "visualWidth": 68,
+      "anchor": [
+        0.5,
+        0.83
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "support": [
+        [
+          0.15,
+          0.76
+        ],
+        [
+          0.5,
+          0.64
+        ],
+        [
+          0.9,
+          0.79
+        ],
+        [
+          0.5,
+          0.98
+        ]
+      ],
+      "entry": [
+        0.26,
+        0.91
+      ],
+      "outputAnchor": [
+        0.7,
+        0.82
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "buildings/pie-oven": {
+      "visualWidth": 102,
+      "anchor": [
+        0.5,
+        0.83
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "support": [
+        [
+          0.15,
+          0.76
+        ],
+        [
+          0.5,
+          0.64
+        ],
+        [
+          0.9,
+          0.79
+        ],
+        [
+          0.5,
+          0.98
+        ]
+      ],
+      "entry": [
+        0.26,
+        0.91
+      ],
+      "outputAnchor": [
+        0.7,
+        0.82
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "buildings/pig-shelter": {
+      "visualWidth": 114,
+      "anchor": [
+        0.5,
+        0.87
+      ],
+      "groundPoint": [
+        0.5,
+        0.16
+      ],
+      "support": [
+        [
+          0.15,
+          0.76
+        ],
+        [
+          0.5,
+          0.64
+        ],
+        [
+          0.9,
+          0.79
+        ],
+        [
+          0.5,
+          0.98
+        ]
+      ],
+      "entry": [
+        0.26,
+        0.91
+      ],
+      "outputAnchor": [
+        0.7,
+        0.82
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "buildings/popcorn-pot": {
+      "visualWidth": 78,
+      "anchor": [
+        0.5,
+        0.83
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "support": [
+        [
+          0.15,
+          0.76
+        ],
+        [
+          0.5,
+          0.64
+        ],
+        [
+          0.9,
+          0.79
+        ],
+        [
+          0.5,
+          0.98
+        ]
+      ],
+      "entry": [
+        0.26,
+        0.91
+      ],
+      "outputAnchor": [
+        0.7,
+        0.82
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "buildings/sewing-machine": {
+      "visualWidth": 90,
+      "anchor": [
+        0.5,
+        0.83
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "support": [
+        [
+          0.15,
+          0.76
+        ],
+        [
+          0.5,
+          0.64
+        ],
+        [
+          0.9,
+          0.79
+        ],
+        [
+          0.5,
+          0.98
+        ]
+      ],
+      "entry": [
+        0.26,
+        0.91
+      ],
+      "outputAnchor": [
+        0.7,
+        0.82
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "buildings/sheep-shelter": {
+      "visualWidth": 112,
+      "anchor": [
+        0.5,
+        0.87
+      ],
+      "groundPoint": [
+        0.5,
+        0.16
+      ],
+      "support": [
+        [
+          0.15,
+          0.76
+        ],
+        [
+          0.5,
+          0.64
+        ],
+        [
+          0.9,
+          0.79
+        ],
+        [
+          0.5,
+          0.98
+        ]
+      ],
+      "entry": [
+        0.26,
+        0.91
+      ],
+      "outputAnchor": [
+        0.7,
+        0.82
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "buildings/silo": {
+      "visualWidth": 100,
+      "anchor": [
+        0.5,
+        0.83
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "support": [
+        [
+          0.15,
+          0.76
+        ],
+        [
+          0.5,
+          0.64
+        ],
+        [
+          0.9,
+          0.79
+        ],
+        [
+          0.5,
+          0.98
+        ]
+      ],
+      "entry": [
+        0.26,
+        0.91
+      ],
+      "outputAnchor": [
+        0.7,
+        0.82
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "buildings/sugar-mill": {
+      "visualWidth": 108,
+      "anchor": [
+        0.5,
+        0.83
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "support": [
+        [
+          0.15,
+          0.76
+        ],
+        [
+          0.5,
+          0.64
+        ],
+        [
+          0.9,
+          0.79
+        ],
+        [
+          0.5,
+          0.98
+        ]
+      ],
+      "entry": [
+        0.26,
+        0.91
+      ],
+      "outputAnchor": [
+        0.7,
+        0.82
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "crops/black-bean": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.93
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "crops/carrot": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.91
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "crops/chili-pepper": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.93
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "crops/corn": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.91
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "crops/cotton": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "crops/indigo": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "crops/pumpkin": {
+      "visualWidth": 42,
+      "anchor": [
+        0.5,
+        0.83
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "crops/soybean": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.91
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "crops/sugarcane": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "crops/tomato": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "crops/wheat": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.93
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "decor/arch": {
+      "visualWidth": 72,
+      "anchor": [
+        0.5,
+        0.89
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ],
+      "connectionPoints": [
+        [
+          0.17,
+          0.82
+        ],
+        [
+          0.84,
+          0.99
+        ]
+      ],
+      "passageAxis": [
+        [
+          0.68,
+          0.75
+        ],
+        [
+          0.34,
+          0.95
+        ]
+      ],
+      "layerPlan": [
+        "rear-post",
+        "canopy",
+        "front-post"
+      ],
+      "layerMode": "shared-canvas-clipped",
+      "frontOcclusion": [
+        [
+          0.65,
+          0.32
+        ],
+        [
+          1,
+          0.32
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0.65,
+          1
+        ]
+      ]
+    },
+    "decor/bench": {
+      "visualWidth": 66,
+      "anchor": [
+        0.5,
+        0.83
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "decor/bridge": {
+      "visualWidth": 78,
+      "anchor": [
+        0.5,
+        0.78
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ],
+      "connectionPoints": [
+        [
+          0.12,
+          0.78
+        ],
+        [
+          0.9,
+          0.42
+        ]
+      ],
+      "passageAxis": [
+        [
+          0.12,
+          0.78
+        ],
+        [
+          0.9,
+          0.42
+        ]
+      ],
+      "layerPlan": [
+        "deck-and-far-rail",
+        "near-rail"
+      ],
+      "layerMode": "shared-canvas-clipped",
+      "frontOcclusion": [
+        [
+          0.31,
+          0.66
+        ],
+        [
+          0.39,
+          0.61
+        ],
+        [
+          0.56,
+          0.44
+        ],
+        [
+          0.76,
+          0.32
+        ],
+        [
+          0.85,
+          0.2
+        ],
+        [
+          1,
+          0.23
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0.31,
+          1
+        ]
+      ]
+    },
+    "decor/festival-windmill": {
+      "visualWidth": 52,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ],
+      "motion": {
+        "status": "static",
+        "parts": [
+          {
+            "name": "rotor",
+            "pivot": [
+              0.5,
+              0.3
+            ]
+          }
+        ]
+      }
+    },
+    "decor/flag": {
+      "visualWidth": 32,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ],
+      "motion": {
+        "status": "static",
+        "parts": [
+          {
+            "name": "cloth",
+            "pivot": [
+              0.23,
+              0.24
+            ]
+          }
+        ]
+      }
+    },
+    "decor/flower-bed": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "decor/flower-fence": {
+      "visualWidth": 48,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "decor/flower-pot": {
+      "visualWidth": 28,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "decor/hay-bales": {
+      "visualWidth": 42,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "decor/lamp": {
+      "visualWidth": 18,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "decor/land-memorial": {
+      "visualWidth": 46,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "decor/meadow-banner": {
+      "visualWidth": 76,
+      "anchor": [
+        0.5,
+        0.89
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ],
+      "connectionPoints": [
+        [
+          0.2,
+          0.67
+        ],
+        [
+          0.82,
+          0.88
+        ]
+      ],
+      "passageAxis": [
+        [
+          0.28,
+          0.56
+        ],
+        [
+          0.72,
+          0.9
+        ]
+      ],
+      "layerPlan": [
+        "rear-post",
+        "canopy",
+        "front-post"
+      ],
+      "layerMode": "shared-canvas-clipped",
+      "motion": {
+        "status": "static",
+        "parts": [
+          {
+            "name": "cloth",
+            "pivot": [
+              0.23,
+              0.24
+            ]
+          }
+        ]
+      },
+      "frontOcclusion": [
+        [
+          0.76,
+          0.18
+        ],
+        [
+          1,
+          0.18
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0.76,
+          1
+        ]
+      ]
+    },
+    "decor/picnic": {
+      "visualWidth": 46,
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "decor/reward-bridge": {
+      "visualWidth": 78,
+      "anchor": [
+        0.5,
+        0.78
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ],
+      "connectionPoints": [
+        [
+          0.12,
+          0.78
+        ],
+        [
+          0.9,
+          0.42
+        ]
+      ],
+      "passageAxis": [
+        [
+          0.12,
+          0.78
+        ],
+        [
+          0.9,
+          0.42
+        ]
+      ],
+      "layerPlan": [
+        "deck-and-far-rail",
+        "near-rail"
+      ],
+      "layerMode": "shared-canvas-clipped",
+      "frontOcclusion": [
+        [
+          0.38,
+          0.64
+        ],
+        [
+          0.49,
+          0.54
+        ],
+        [
+          0.65,
+          0.4
+        ],
+        [
+          0.8,
+          0.31
+        ],
+        [
+          0.8,
+          0.17
+        ],
+        [
+          1,
+          0.17
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0.38,
+          1
+        ]
+      ]
+    },
+    "decor/stone-seat": {
+      "visualWidth": 30,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "decor/stone-statue": {
+      "visualWidth": 36,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "decor/trough": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.83
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "decor/windmill": {
+      "visualWidth": 42,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ],
+      "motion": {
+        "status": "static",
+        "parts": [
+          {
+            "name": "rotor",
+            "pivot": [
+              0.5,
+              0.3
+            ]
+          }
+        ]
+      }
+    },
+    "decor/wood-fence": {
+      "visualWidth": 48,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "decor/wood-sign": {
+      "visualWidth": 32,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0,
+        270
+      ]
+    },
+    "fruit-plants/apple": {
+      "visualWidth": 98,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "fruit-plants/blackberry": {
+      "visualWidth": 44,
+      "anchor": [
+        0.5,
+        0.88
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "fruit-plants/blueberries": {
+      "visualWidth": 44,
+      "anchor": [
+        0.5,
+        0.88
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "fruit-plants/cherry": {
+      "visualWidth": 98,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "fruit-plants/raspberry": {
+      "visualWidth": 44,
+      "anchor": [
+        0.5,
+        0.88
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/crops/wheat-sprout": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.93
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/crops/wheat-grown": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.93
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/crops/corn-sprout": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.91
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/crops/corn-grown": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.91
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/crops/soybean-sprout": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.91
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/crops/soybean-grown": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.91
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/crops/sugarcane-sprout": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/crops/sugarcane-grown": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/crops/carrot-sprout": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.91
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/crops/carrot-grown": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.91
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/crops/indigo-sprout": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/crops/indigo-grown": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/crops/pumpkin-sprout": {
+      "visualWidth": 42,
+      "anchor": [
+        0.5,
+        0.83
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/crops/pumpkin-grown": {
+      "visualWidth": 42,
+      "anchor": [
+        0.5,
+        0.83
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/crops/cotton-sprout": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/crops/cotton-grown": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/crops/chili-pepper-sprout": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.93
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/crops/chili-pepper-grown": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.93
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/crops/black-bean-sprout": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.93
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/crops/black-bean-grown": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.93
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/crops/tomato-sprout": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/crops/tomato-grown": {
+      "visualWidth": 40,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/fruit-plants/apple-young": {
+      "visualWidth": 98,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/fruit-plants/apple-growing": {
+      "visualWidth": 98,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/fruit-plants/apple-wilt_help": {
+      "visualWidth": 98,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/fruit-plants/apple-wilt_final": {
+      "visualWidth": 98,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/fruit-plants/raspberry-young": {
+      "visualWidth": 44,
+      "anchor": [
+        0.5,
+        0.88
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/fruit-plants/raspberry-growing": {
+      "visualWidth": 44,
+      "anchor": [
+        0.5,
+        0.88
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/fruit-plants/raspberry-wilt_help": {
+      "visualWidth": 44,
+      "anchor": [
+        0.5,
+        0.88
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/fruit-plants/raspberry-wilt_final": {
+      "visualWidth": 44,
+      "anchor": [
+        0.5,
+        0.88
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/fruit-plants/cherry-young": {
+      "visualWidth": 98,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/fruit-plants/cherry-growing": {
+      "visualWidth": 98,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/fruit-plants/cherry-wilt_help": {
+      "visualWidth": 98,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/fruit-plants/cherry-wilt_final": {
+      "visualWidth": 98,
+      "anchor": [
+        0.5,
+        0.94
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/fruit-plants/blackberry-young": {
+      "visualWidth": 44,
+      "anchor": [
+        0.5,
+        0.88
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/fruit-plants/blackberry-growing": {
+      "visualWidth": 44,
+      "anchor": [
+        0.5,
+        0.88
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/fruit-plants/blackberry-wilt_help": {
+      "visualWidth": 44,
+      "anchor": [
+        0.5,
+        0.88
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/fruit-plants/blackberry-wilt_final": {
+      "visualWidth": 44,
+      "anchor": [
+        0.5,
+        0.88
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/fruit-plants/blueberries-young": {
+      "visualWidth": 44,
+      "anchor": [
+        0.5,
+        0.88
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/fruit-plants/blueberries-growing": {
+      "visualWidth": 44,
+      "anchor": [
+        0.5,
+        0.88
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/fruit-plants/blueberries-wilt_help": {
+      "visualWidth": 44,
+      "anchor": [
+        0.5,
+        0.88
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "plant-states/fruit-plants/blueberries-wilt_final": {
+      "visualWidth": 44,
+      "anchor": [
+        0.5,
+        0.88
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "animal-states/chicken-producing": {
+      "visualWidth": 28,
+      "anchor": [
+        0.5,
+        0.95
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "bodyRegion": [
+        0.08,
+        0.1,
+        0.92,
+        0.94
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "animal-states/chicken-ready": {
+      "visualWidth": 28,
+      "anchor": [
+        0.5,
+        0.95
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "bodyRegion": [
+        0.08,
+        0.1,
+        0.92,
+        0.94
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "animal-states/cow-producing": {
+      "visualWidth": 38,
+      "anchor": [
+        0.5,
+        0.91
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "bodyRegion": [
+        0.08,
+        0.1,
+        0.92,
+        0.94
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "animal-states/cow-ready": {
+      "visualWidth": 38,
+      "anchor": [
+        0.5,
+        0.91
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "bodyRegion": [
+        0.08,
+        0.1,
+        0.92,
+        0.94
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "animal-states/pig-producing": {
+      "visualWidth": 35,
+      "anchor": [
+        0.5,
+        0.93
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "bodyRegion": [
+        0.08,
+        0.1,
+        0.92,
+        0.94
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "animal-states/pig-ready": {
+      "visualWidth": 35,
+      "anchor": [
+        0.5,
+        0.93
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "bodyRegion": [
+        0.08,
+        0.1,
+        0.92,
+        0.94
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "animal-states/sheep-producing": {
+      "visualWidth": 33,
+      "anchor": [
+        0.5,
+        0.93
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "bodyRegion": [
+        0.08,
+        0.1,
+        0.92,
+        0.94
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "animal-states/sheep-ready": {
+      "visualWidth": 33,
+      "anchor": [
+        0.5,
+        0.93
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "bodyRegion": [
+        0.08,
+        0.1,
+        0.92,
+        0.94
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "animal-states/lamb-producing": {
+      "visualWidth": 30,
+      "anchor": [
+        0.5,
+        0.93
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "bodyRegion": [
+        0.08,
+        0.1,
+        0.92,
+        0.94
+      ],
+      "allowedRotations": [
+        0
+      ]
+    },
+    "animal-states/lamb-ready": {
+      "visualWidth": 30,
+      "anchor": [
+        0.5,
+        0.93
+      ],
+      "groundPoint": [
+        0.5,
+        0.5
+      ],
+      "bodyRegion": [
+        0.08,
+        0.1,
+        0.92,
+        0.94
+      ],
+      "allowedRotations": [
+        0
+      ]
+    }
+  }
+}

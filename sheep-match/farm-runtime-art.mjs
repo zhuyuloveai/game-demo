@@ -40,19 +40,36 @@ export function resolveWorldArt(entity,now=0){
   return null;
 }
 const escaped=value=>String(value??'').replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+let clipSequence=0;
 /** SVG is only an image viewport here: no flattening, stretching or skewing the PNG. */
-export function renderRuntimeArt(art,{className='',alt=''}={}){
+export function renderRuntimeArt(art,{className='',alt='',mirror=false,layer='all'}={}){
   if(!art)return '';
   const [x0,y0,x1,y1]=art.bounds;
-  return `<svg class="${escaped(className)} fw-runtime-png" viewBox="${x0} ${y0} ${x1-x0} ${y1-y0}" preserveAspectRatio="xMidYMax meet" role="img" aria-label="${escaped(alt)}" focusable="false" style="pointer-events:none"><image href="${escaped(art.src)}" x="0" y="0" width="${art.width}" height="${art.height}" /></svg>`;
+  const points=art.frontOcclusion;
+  // Clip paths are normalized to this same cropped viewport. The two layers
+  // partition one PNG exactly, so no independent rescaling/registration drift.
+  const polygon=points?'M'+points.map(([x,y])=>`${x0+x*(x1-x0)} ${y0+y*(y1-y0)}`).join('L')+'Z':'';
+  const clipId=polygon&&layer!=='all'?`runtime-art-clip-${++clipSequence}`:null;
+  const path=(layer==='back'?`M${x0} ${y0}H${x1}V${y1}H${x0}Z`:'')+polygon;
+  const defs=clipId?`<defs><clipPath id="${clipId}" clipPathUnits="userSpaceOnUse"><path d="${path}" clip-rule="evenodd"/></clipPath></defs>`:'';
+  return `<svg class="${escaped(className)} fw-runtime-png" viewBox="${x0} ${y0} ${x1-x0} ${y1-y0}" preserveAspectRatio="xMidYMax meet" role="img" aria-label="${escaped(alt)}" focusable="false" style="pointer-events:none">${defs}<g${mirror?` transform="translate(${x0+x1} 0) scale(-1 1)"`:''}><g${clipId?` clip-path="url(#${clipId})"`:''}><image href="${escaped(art.src)}" x="0" y="0" width="${art.width}" height="${art.height}" /></g></g></svg>`;
+}
+export function runtimeArtFrontHit(art,u,v,{mirror=false}={}){
+ if(!art?.frontOcclusion)return false;if(mirror)u=1-u;
+ const points=art.frontOcclusion;let inside=false;
+ for(let i=0,j=points.length-1;i<points.length;j=i++){
+  const [xi,yi]=points[i],[xj,yj]=points[j];
+  if((yi>v)!==(yj>v)&&u<(xj-xi)*(v-yi)/(yj-yi)+xi)inside=!inside;
+ }
+ return inside;
 }
 const bitRows=new WeakMap();
 /** u/v are coordinates in the CROPPED visual rectangle, not the logical footprint. */
-export function runtimeArtHit(art,u,v){
+export function runtimeArtHit(art,u,v,{mirror=false}={}){
   if(!art||!Number.isFinite(u)||!Number.isFinite(v)||u<0||v<0||u>=1||v>=1)return false;
   if(!art.mask)return true;
   let rows=bitRows.get(art);if(!rows){rows=art.mask.rows.map(row=>BigInt('0x'+row));bitRows.set(art,rows);}
-  const n=art.mask.size,x=Math.floor(u*n),y=Math.floor(v*n);
+  const n=art.mask.size,x=mirror?n-1-Math.floor(u*n):Math.floor(u*n),y=Math.floor(v*n);
   return !!(rows[y]&(1n<<BigInt(x)));
 }
 export function runtimeArtInventory(){return Object.keys(RUNTIME_ART_METADATA).sort();}

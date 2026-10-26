@@ -82,7 +82,7 @@ for plant in dict.fromkeys(j['plant'] for j in jobs):
 manifest = {'schemaVersion': 1, 'title': '羊羊牧场 · 植物生长状态', 'mode': 'builtin-imagegen',
             'counts': {'expectedNew': 42, 'generated': len(generated), 'existingMature': 16,
                        'totalStates': len(assets), 'families': 16},
-            'anchorConvention': 'Anchor and opaqueBounds are source pixels; all states share a bottom-center world anchor. displayScale is relative to mature visible width.',
+            'anchorConvention': 'Anchor and opaqueBounds describe source pixel bounds. Runtime root anchors and world sizes are defined in ../spatial-specs.json. displayScale is relative to mature visible width.',
             'families': families, 'assets': assets}
 (ROOT / 'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
 (ROOT / 'qa').mkdir(exist_ok=True)

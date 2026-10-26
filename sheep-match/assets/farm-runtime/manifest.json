@@ -1,5 +1,5 @@
 {
-  "sourceCommit": "db4e5b4a97049b5135ec1df472c7ac27dd13a881",
+  "sourceCommit": "71c80aa0d319815ddfe7237f597e35b6e64aefc8",
   "sourcePack": "docs/art-packs/sumikko-farm-v1",
   "plantStateManifest": "docs/art-packs/sumikko-farm-v1/plant-states/manifest.json",
   "animalStateManifest": "docs/art-packs/sumikko-farm-v1/animal-states/manifest.json",
@@ -261,8 +261,8 @@
       "key": "crops/carrot",
       "path": "assets/farm-runtime/crops/carrot.png",
       "source": "docs/art-packs/sumikko-farm-v1/assets/crops/carrot.png",
-      "sourceSha256": "080382bc3d3a9806c2a69019a1766d6074ccf30e932317f275d644649f07bbb6",
-      "bytes": 180008,
+      "sourceSha256": "ed8def528662b83445de2375ff8fb49c249f0ca3fa3042e3a27da744bb00efe0",
+      "bytes": 182356,
       "width": 512,
       "height": 465
     },
