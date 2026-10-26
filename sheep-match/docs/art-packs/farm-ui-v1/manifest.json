@@ -1,5 +1,5 @@
 {
-  "version": "0.1-sample",
+  "version": "0.2-farm-materials",
   "baseCommit": "77a41898f0c9d0d647c93cd9bf266ef1c3b42794",
   "scope": "P0 production-panel sample only; P1/P2 await direction confirmation",
   "units": "CSS px at 1x; nineSlice top right bottom left",
@@ -57,16 +57,16 @@
         20
       ],
       "contentPadding": [
-        12,
+        8,
         16,
-        12,
+        8,
         16
       ],
       "safeContentRect": [
         16,
-        12,
+        8,
         64,
-        40
+        48
       ],
       "minimumDisplaySize": [
         160,
@@ -1177,12 +1177,12 @@
         4,
         8,
         4,
-        8
+        14
       ],
       "safeContentRect": [
-        8,
+        14,
         4,
-        48,
+        42,
         20
       ],
       "minimumDisplaySize": [
@@ -1214,12 +1214,12 @@
         4,
         8,
         4,
-        8
+        14
       ],
       "safeContentRect": [
-        8,
+        14,
         4,
-        48,
+        42,
         20
       ],
       "minimumDisplaySize": [
@@ -1251,12 +1251,12 @@
         4,
         8,
         4,
-        8
+        14
       ],
       "safeContentRect": [
-        8,
+        14,
         4,
-        48,
+        42,
         20
       ],
       "minimumDisplaySize": [
@@ -1288,12 +1288,12 @@
         4,
         8,
         4,
-        8
+        14
       ],
       "safeContentRect": [
-        8,
+        14,
         4,
-        48,
+        42,
         20
       ],
       "minimumDisplaySize": [
@@ -1678,6 +1678,60 @@
       "minimumDisplaySize": [
         16,
         16
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "canopy-default",
+      "family": "canopy",
+      "state": "default",
+      "file": "components/canopy-default.svg",
+      "canvas": [
+        384,
+        28
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        280,
+        20
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "linen-corner-default",
+      "family": "linen-corner",
+      "state": "default",
+      "file": "components/linen-corner-default.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        20,
+        20
       ],
       "anchor": [
         0,

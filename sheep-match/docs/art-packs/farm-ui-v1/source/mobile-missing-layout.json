@@ -13,31 +13,41 @@
     },
     {
       "edge": 26,
-      "h": 582.6796875,
+      "h": 594.9375,
       "id": "panel-default",
       "name": "skin panel-skin",
       "type": "component",
       "w": 384,
       "x": 8,
-      "y": 149.3203125
+      "y": 137.0625
     },
     {
-      "color": "rgb(228, 215, 188)",
+      "edge": 16,
+      "h": 24,
+      "id": "canopy-default",
+      "name": "canopy-art",
+      "type": "component",
+      "w": 362,
+      "x": 19,
+      "y": 122.0625
+    },
+    {
+      "color": "rgb(212, 188, 148)",
       "name": "header-divider",
       "type": "line",
       "w": 356,
       "x": 22,
-      "y": 217.7109375
+      "y": 212.7109375
     },
     {
-      "fill": "rgb(242, 233, 209)",
+      "fill": "rgb(255, 244, 215)",
       "h": 42,
       "name": "facility-icon-well",
-      "radius": 14,
+      "radius": 11,
       "type": "rect",
       "w": 42,
       "x": 22,
-      "y": 165.515625
+      "y": 156.8828125
     },
     {
       "fit": "contain",
@@ -46,36 +56,46 @@
       "src": "reused/bakery.png",
       "type": "image",
       "w": 48,
-      "x": 22,
-      "y": 161.515625
+      "x": 23,
+      "y": 153.8828125
+    },
+    {
+      "edge": 20,
+      "h": 53.6484375,
+      "id": "title-default",
+      "name": "skin",
+      "type": "component",
+      "w": 252,
+      "x": 73,
+      "y": 151.0625
     },
     {
       "color": "rgb(100, 81, 59)",
       "font": "FarmHappy, \"PingFang SC\", sans-serif",
-      "h": 26.4453125,
-      "lineHeight": 26.45,
+      "h": 24.1484375,
+      "lineHeight": 24.15,
       "name": "H1",
-      "size": 23,
+      "size": 21,
       "text": "面包房",
       "type": "text",
-      "w": 252,
+      "w": 232,
       "weight": "400",
-      "x": 73,
-      "y": 163.3203125
+      "x": 83,
+      "y": 156.0625
     },
     {
-      "color": "rgb(138, 120, 96)",
+      "color": "rgb(130, 101, 65)",
       "font": "\"PingFang SC\", \"Microsoft YaHei\", sans-serif",
-      "h": 15.9453125,
-      "lineHeight": 15.95,
+      "h": 14.5,
+      "lineHeight": 14.5,
       "name": "subtitle",
-      "size": 11,
+      "size": 10,
       "text": "选个配方，慢慢烤好",
       "type": "text",
-      "w": 252,
+      "w": 232,
       "weight": "400",
-      "x": 73,
-      "y": 193.765625
+      "x": 83,
+      "y": 183.2109375
     },
     {
       "edge": 16,
@@ -85,21 +105,31 @@
       "type": "component",
       "w": 44,
       "x": 334,
-      "y": 164.515625
+      "y": 155.8828125
+    },
+    {
+      "fit": "contain",
+      "h": 22,
+      "name": "reused/wheat.svg",
+      "src": "reused/wheat.svg",
+      "type": "image",
+      "w": 19,
+      "x": 23,
+      "y": 231.7109375
     },
     {
       "color": "rgb(96, 78, 60)",
       "font": "\"PingFang SC\", \"Microsoft YaHei\", sans-serif",
       "h": 20.296875,
       "lineHeight": 20.3,
-      "name": "H2",
+      "name": "SPAN",
       "size": 14,
       "text": "想做点什么？",
       "type": "text",
       "w": 84,
       "weight": "600",
-      "x": 23,
-      "y": 237.5625
+      "x": 47,
+      "y": 232.5625
     },
     {
       "edge": 16,
@@ -109,7 +139,7 @@
       "type": "component",
       "w": 54,
       "x": 259,
-      "y": 230.7109375
+      "y": 225.7109375
     },
     {
       "color": "rgb(96, 78, 60)",
@@ -123,7 +153,7 @@
       "w": 24,
       "weight": "400",
       "x": 274,
-      "y": 239.0078125
+      "y": 234.0078125
     },
     {
       "edge": 16,
@@ -133,7 +163,7 @@
       "type": "component",
       "w": 60,
       "x": 317,
-      "y": 230.7109375
+      "y": 225.7109375
     },
     {
       "color": "rgb(96, 78, 60)",
@@ -147,17 +177,17 @@
       "w": 36,
       "weight": "400",
       "x": 329,
-      "y": 239.0078125
+      "y": 234.0078125
     },
     {
       "edge": 19,
-      "h": 80.6953125,
+      "h": 85.6953125,
       "id": "recipe-card-default",
       "name": "skin",
       "type": "component",
       "w": 112.6640625,
       "x": 24,
-      "y": 275.7109375
+      "y": 270.7109375
     },
     {
       "fit": "contain",
@@ -199,13 +229,13 @@
     },
     {
       "edge": 19,
-      "h": 80.6953125,
+      "h": 85.6953125,
       "id": "recipe-card-selected",
       "name": "skin",
       "type": "component",
       "w": 112.671875,
       "x": 143.6640625,
-      "y": 275.7109375
+      "y": 270.7109375
     },
     {
       "fit": "contain",
@@ -247,13 +277,13 @@
     },
     {
       "edge": 19,
-      "h": 80.6953125,
+      "h": 85.6953125,
       "id": "recipe-card-missing",
       "name": "skin",
       "type": "component",
       "w": 112.6640625,
       "x": 263.3359375,
-      "y": 275.7109375
+      "y": 270.7109375
     },
     {
       "fit": "contain",
@@ -569,7 +599,7 @@
       "type": "component",
       "w": 61.25,
       "x": 34,
-      "y": 587.9921875
+      "y": 586.9921875
     },
     {
       "edge": 6,
@@ -579,7 +609,7 @@
       "type": "component",
       "w": 31.84375,
       "x": 34,
-      "y": 587.9921875
+      "y": 586.9921875
     },
     {
       "edge": 16,
@@ -742,7 +772,7 @@
       "src": "components/symbol-complete.svg",
       "type": "image",
       "w": 19,
-      "x": 32,
+      "x": 33,
       "y": 621.5
     },
     {
@@ -756,7 +786,7 @@
       "type": "text",
       "w": 36,
       "weight": "600",
-      "x": 57,
+      "x": 58,
       "y": 622.296875
     },
     {
@@ -766,7 +796,7 @@
       "src": "reused/bread.svg",
       "type": "image",
       "w": 26,
-      "x": 104,
+      "x": 105,
       "y": 618
     },
     {
@@ -780,7 +810,7 @@
       "type": "text",
       "w": 16.0703125,
       "weight": "400",
-      "x": 136,
+      "x": 137,
       "y": 622.296875
     },
     {
@@ -808,7 +838,7 @@
       "y": 623
     },
     {
-      "color": "rgb(228, 215, 188)",
+      "color": "rgb(212, 188, 148)",
       "name": "footer-divider",
       "type": "line",
       "w": 356,
@@ -879,8 +909,8 @@
     }
   ],
   "qa": {
-    "bodyClientHeight": 432,
-    "bodyScrollHeight": 432,
+    "bodyClientHeight": 437,
+    "bodyScrollHeight": 437,
     "brokenImages": [],
     "documentOverflow": false,
     "undersizedTargets": []

@@ -3,7 +3,7 @@ const params=new URLSearchParams(location.search),scenario=params.get('state')||
 const recipes=[{id:'bread',name:'面包',time:'5 分钟',inputs:[['wheat','小麦',3]]},{id:'corn_bread',name:'玉米面包',time:'30 分钟',inputs:[['corn','玉米',2],['egg','鸡蛋',2]]},{id:'cookie',name:'饼干',time:'60 分钟',inputs:[['wheat','小麦',2],['egg','鸡蛋',2],['brown_sugar','红糖',1]]}];
 const stock={wheat:18,corn:12,egg:scenario==='missing'?1:6,brown_sugar:3};if(scenario==='empty')Object.keys(stock).forEach(k=>stock[k]=0);
 let selected='corn_bread',filter=scenario==='empty'?'available':'all';
-function skin(root=document){root.querySelectorAll('[data-art]').forEach(el=>{const id=el.dataset.art;el.style.setProperty('--art',`url('${new URL('components/'+id+'.svg',location.href).href}')`);let n=id.startsWith('panel')?26:id.startsWith('title')?20:id.startsWith('recipe-card')?19:id.startsWith('quantity')?13:id.startsWith('notice')?15:16;if(id.startsWith('progress'))n=id.endsWith('fill')?6:7;el.style.setProperty('--slice',n);el.style.setProperty('--edge',n+'px');});}
+function skin(root=document){root.querySelectorAll('[data-art]').forEach(el=>{const id=el.dataset.art;el.style.setProperty('--art',`url('${new URL('components/'+id+'.svg?rev=farm-v2',location.href).href}')`);let n=id.startsWith('panel')?26:id.startsWith('title')?20:id.startsWith('recipe-card')?19:id.startsWith('quantity')?13:id.startsWith('notice')?15:16;if(id.startsWith('progress'))n=id.endsWith('fill')?6:7;el.style.setProperty('--slice',n);el.style.setProperty('--edge',n+'px');});}
 function img(id,cls=''){return `<img class="${cls}" data-export-image src="reused/${id}.svg" alt="">`;}
 function enough(r){return r.inputs.every(([id,,n])=>stock[id]>=n);}
 function toast(s){document.querySelector('.review-feedback').textContent='美术样板：'+s;}

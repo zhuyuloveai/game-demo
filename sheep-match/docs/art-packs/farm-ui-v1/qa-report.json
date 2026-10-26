@@ -1,7 +1,7 @@
 {
   "status": "passed",
-  "components": 48,
-  "families": 15,
+  "components": 50,
+  "families": 17,
   "unchangedReusedArt": 12,
   "existingEnvironmentReviewed": 12,
   "layouts": [
@@ -11,8 +11,8 @@
         400,
         740
       ],
-      "bodyClientHeight": 382,
-      "bodyScrollHeight": 382,
+      "bodyClientHeight": 387,
+      "bodyScrollHeight": 387,
       "brokenImages": [],
       "documentOverflow": false,
       "undersizedTargets": []
@@ -23,8 +23,8 @@
         1280,
         720
       ],
-      "bodyClientHeight": 440,
-      "bodyScrollHeight": 440,
+      "bodyClientHeight": 445,
+      "bodyScrollHeight": 445,
       "brokenImages": [],
       "documentOverflow": false,
       "undersizedTargets": []
@@ -35,8 +35,8 @@
         400,
         740
       ],
-      "bodyClientHeight": 432,
-      "bodyScrollHeight": 432,
+      "bodyClientHeight": 437,
+      "bodyScrollHeight": 437,
       "brokenImages": [],
       "documentOverflow": false,
       "undersizedTargets": []
@@ -59,8 +59,8 @@
         400,
         740
       ],
-      "bodyClientHeight": 400,
-      "bodyScrollHeight": 400,
+      "bodyClientHeight": 405,
+      "bodyScrollHeight": 405,
       "brokenImages": [],
       "documentOverflow": false,
       "undersizedTargets": []
@@ -71,8 +71,8 @@
         400,
         740
       ],
-      "bodyClientHeight": 382,
-      "bodyScrollHeight": 382,
+      "bodyClientHeight": 387,
+      "bodyScrollHeight": 387,
       "brokenImages": [],
       "documentOverflow": false,
       "undersizedTargets": []

@@ -24,8 +24,8 @@ for f in (R/'source').glob('*-layout.json'):
    name=m['id']
   elif typ=='image':
    p=(R/l['src'].split('?')[0]).resolve();body=f'<image href="{uri(p)}" x="{x}" y="{y}" width="{w}" height="{h}" preserveAspectRatio="xMidYMid {"slice" if l.get("fit")=="cover" else "meet"}"/>'
-  elif typ=='rect':body=f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{l["radius"]}" fill="{esc(l["fill"])}"/>'
-  elif typ=='line':body=f'<path d="M{x} {y}h{w}" stroke="{esc(l["color"])}" stroke-width="1"/>'
+  elif typ=='rect':body=f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{l["radius"]}" fill="{esc(l["fill"])}" stroke="#c7ae82" stroke-width="1"/>'
+  elif typ=='line':body=f'<path d="M{x} {y}h{w}" stroke="{esc(l["color"])}" stroke-width="1" stroke-dasharray="2 2"/>'
   elif typ=='text':
    lines=l['text'].split('\n');lh=l['lineHeight'];yy=y+(h-lh*len(lines))/2+lh/2
    body=''.join(f'<text x="{x}" y="{yy+j*lh}" font-family="{esc(l["font"])}" font-size="{l["size"]}" font-weight="{l["weight"]}" fill="{esc(l["color"])}" dominant-baseline="central">{esc(t)}</text>' for j,t in enumerate(lines))
