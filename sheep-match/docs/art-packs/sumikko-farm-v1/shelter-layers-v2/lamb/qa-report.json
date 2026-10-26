@@ -1,0 +1,257 @@
+{
+  "status": "passed",
+  "id": "lamb",
+  "capacity": 5,
+  "logicalFootprint": [
+    4,
+    4
+  ],
+  "gameCodeChanged": false,
+  "preservedSources": [
+    "sources/original-lamb-shelter.png",
+    "sources/lamb-hungry-original.png",
+    "sources/lamb-producing-original.png",
+    "sources/lamb-ready-original.png"
+  ],
+  "images": [
+    {
+      "file": "layers/01-ground.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "9fecf217bf1033b2a4096807dfaccca881d0b6dce92e927a7c2f1bd59a2efb9b"
+    },
+    {
+      "file": "layers/02-building-shadow.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "020cb0feeeac63a15f249f1d3fcf847a0281c531f091d251658c7f350395e5d4"
+    },
+    {
+      "file": "layers/03-rear-fence.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "85684248fe7530ae383a3992615eff77b51fabe0997619da3c3465fa1d36a7bc"
+    },
+    {
+      "file": "layers/04-building.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "a1fb91cdf7027ae9ad8ac474240c853f7e071c1312e70fe9d82b687c4e14e3e4"
+    },
+    {
+      "file": "layers/07-front-fence.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "b318a14e379c05722a0faa2763422fb062540655f6357b9d9f7cd650962ee82f"
+    },
+    {
+      "file": "layers/reference-animal-shadows.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "aa31082e86094e8a748e72936909dba0b8a206de09e4fe93b93148d94ca9211d"
+    },
+    {
+      "file": "layers/reference-lamb-1.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "7c59d8dd18319708003c8bdcb72f75dd457ddd21c0a07303bb831109c3978fe5"
+    },
+    {
+      "file": "layers/reference-lamb-2.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "a125ac6eafbe0497d697ff44e005f30bcbbf84440f5e97c632552beedd360c59"
+    },
+    {
+      "file": "layers/reference-lamb-3.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "8f92755bb421b953e8c7018ab8fe1ca67ab96ecc8e1aa9e186ed04fb8fd7e3c1"
+    },
+    {
+      "file": "layers/reference-lamb-4.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "2971d4396885b475b5b73c70739cef79618c5b86a0f07f0467ae11dff5c364a9"
+    },
+    {
+      "file": "layers/reference-lamb-5.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "bf2265c3bf9ed3489ce60a6677809483251a6ed94418c798b2928809375991ab"
+    },
+    {
+      "file": "animals/lamb-hungry-shadow.png",
+      "width": 360,
+      "height": 280,
+      "sha256": "dcceeeaf16da9051270f534aedc6e6e7d68aaba14f68421df576adf4b408e91f"
+    },
+    {
+      "file": "animals/lamb-hungry.png",
+      "width": 360,
+      "height": 280,
+      "sha256": "848e29213c914a0d355d2554bebb61f5274933b0b2b7e188dd9662d84bf26589"
+    },
+    {
+      "file": "animals/lamb-producing-shadow.png",
+      "width": 360,
+      "height": 280,
+      "sha256": "da800ca8ae0a8e05c643dc68261d23d54b34dca6bf2ea03ee453c354d4d70994"
+    },
+    {
+      "file": "animals/lamb-producing.png",
+      "width": 360,
+      "height": 280,
+      "sha256": "77544809e0f5cd209ffd6555691a7df6e64c49f5e592665f5ef182dc14fa464c"
+    },
+    {
+      "file": "animals/lamb-ready-shadow.png",
+      "width": 360,
+      "height": 280,
+      "sha256": "ce5095c98b537b42b4aa9cdf13706ba4cf9167521a6ab29c86fd112a907fcfb8"
+    },
+    {
+      "file": "animals/lamb-ready.png",
+      "width": 360,
+      "height": 280,
+      "sha256": "bf11b7b275af4ea3f4778a12a1ab5cac3da10d802d1e20a3ef85ed42740917f5"
+    }
+  ],
+  "states": [
+    {
+      "state": "hungry",
+      "anchor": [
+        650,
+        996
+      ],
+      "normalizedAnchor": [
+        180,
+        230
+      ],
+      "bodyWidth": 200,
+      "bodyCenterX": 190.14120667522465,
+      "contacts": 3
+    },
+    {
+      "state": "producing",
+      "anchor": [
+        680,
+        988
+      ],
+      "normalizedAnchor": [
+        180,
+        230
+      ],
+      "bodyWidth": 200,
+      "bodyCenterX": 188.5439229843562,
+      "contacts": 4
+    },
+    {
+      "state": "ready",
+      "anchor": [
+        680,
+        1021
+      ],
+      "normalizedAnchor": [
+        180,
+        230
+      ],
+      "bodyWidth": 200,
+      "bodyCenterX": 187.2164948453608,
+      "contacts": 4
+    }
+  ],
+  "bodyCenterDriftPx": 2.9247118298638384,
+  "placementChecks": [
+    {
+      "state": "hungry",
+      "position": 1,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "hungry",
+      "position": 2,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "hungry",
+      "position": 3,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "hungry",
+      "position": 4,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "hungry",
+      "position": 5,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "producing",
+      "position": 1,
+      "groundContacts": 4,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "producing",
+      "position": 2,
+      "groundContacts": 4,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "producing",
+      "position": 3,
+      "groundContacts": 4,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "producing",
+      "position": 4,
+      "groundContacts": 4,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "producing",
+      "position": 5,
+      "groundContacts": 4,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "ready",
+      "position": 1,
+      "groundContacts": 4,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "ready",
+      "position": 2,
+      "groundContacts": 4,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "ready",
+      "position": 3,
+      "groundContacts": 4,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "ready",
+      "position": 4,
+      "groundContacts": 4,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "ready",
+      "position": 5,
+      "groundContacts": 4,
+      "insideFootprintAndStandingArea": true
+    }
+  ]
+}

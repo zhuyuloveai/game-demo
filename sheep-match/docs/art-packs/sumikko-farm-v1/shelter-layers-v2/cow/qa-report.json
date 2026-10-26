@@ -1,0 +1,257 @@
+{
+  "status": "passed",
+  "id": "cow",
+  "capacity": 5,
+  "logicalFootprint": [
+    4,
+    4
+  ],
+  "gameCodeChanged": false,
+  "preservedSources": [
+    "sources/original-cow-shelter.png",
+    "sources/cow-hungry-original.png",
+    "sources/cow-producing-original.png",
+    "sources/cow-ready-original.png"
+  ],
+  "images": [
+    {
+      "file": "layers/01-ground.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "9fecf217bf1033b2a4096807dfaccca881d0b6dce92e927a7c2f1bd59a2efb9b"
+    },
+    {
+      "file": "layers/02-building-shadow.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "df8bc67e164edb9295e4717adb47be22896dd61d3af5a0b7b8c5f37f1ab5aa7e"
+    },
+    {
+      "file": "layers/03-rear-fence.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "85684248fe7530ae383a3992615eff77b51fabe0997619da3c3465fa1d36a7bc"
+    },
+    {
+      "file": "layers/04-building.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "54ce97beab129660d89a5ce0489d72a41cee2a5fe88a5fc5e40acc5268e5ffad"
+    },
+    {
+      "file": "layers/07-front-fence.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "b318a14e379c05722a0faa2763422fb062540655f6357b9d9f7cd650962ee82f"
+    },
+    {
+      "file": "layers/reference-animal-shadows.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "b3f519a18614a0952f68625de1b0f7f3c860c737f994ffde4fdad36c41134c4b"
+    },
+    {
+      "file": "layers/reference-cow-1.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "2303ab9c277e6cdcc1cd7f627c60b4796fea80e4b9e1e7d2efbd9a32541197b0"
+    },
+    {
+      "file": "layers/reference-cow-2.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "e60465324e4b90e317c6ab51c74ab49fb22facc4e78e01b32794feb13b153a30"
+    },
+    {
+      "file": "layers/reference-cow-3.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "2a989e8525ca9a471e05b8d92f2d41a8972fdc5ed1ff7e520d16b3ba436cf8dc"
+    },
+    {
+      "file": "layers/reference-cow-4.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "cf5b1638b5f742181aec62262e1ed171e353fe81c8540a633bd149b8276347be"
+    },
+    {
+      "file": "layers/reference-cow-5.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "0e8e7d7b233681db439c618546a4e9172e09be09df5ff0b924bb9844ade75f49"
+    },
+    {
+      "file": "animals/cow-hungry-shadow.png",
+      "width": 360,
+      "height": 280,
+      "sha256": "313a005a0a7bfe1627b3be4bdebab53d3debc814f804ec26cb3f64f2c10a8937"
+    },
+    {
+      "file": "animals/cow-hungry.png",
+      "width": 360,
+      "height": 280,
+      "sha256": "2c88743496086fbaabf1ac9a5e7a56fc95f921bb0f82141e47339d79ca85634f"
+    },
+    {
+      "file": "animals/cow-producing-shadow.png",
+      "width": 360,
+      "height": 280,
+      "sha256": "0bef8d1c18a557a893695dd52f9c04d7960f1058005c97fdf97aafd066c4a4b4"
+    },
+    {
+      "file": "animals/cow-producing.png",
+      "width": 360,
+      "height": 280,
+      "sha256": "da0331f568458a156703a6003d3c7a04cf192d66610caca334cc1601f47adad8"
+    },
+    {
+      "file": "animals/cow-ready-shadow.png",
+      "width": 360,
+      "height": 280,
+      "sha256": "9148ccf567235fe7ff93f0463292abcebd3626155df720e17337fe9b6d7321d5"
+    },
+    {
+      "file": "animals/cow-ready.png",
+      "width": 360,
+      "height": 280,
+      "sha256": "9be41c147879e07e8ad9447df4aef8a19dd30c81edd2c3dfd0d37cf4a2288fd0"
+    }
+  ],
+  "states": [
+    {
+      "state": "hungry",
+      "anchor": [
+        618,
+        1020
+      ],
+      "normalizedAnchor": [
+        180,
+        230
+      ],
+      "bodyWidth": 238,
+      "bodyCenterX": 180,
+      "contacts": 3
+    },
+    {
+      "state": "producing",
+      "anchor": [
+        624,
+        1013
+      ],
+      "normalizedAnchor": [
+        180,
+        230
+      ],
+      "bodyWidth": 238,
+      "bodyCenterX": 180,
+      "contacts": 4
+    },
+    {
+      "state": "ready",
+      "anchor": [
+        628,
+        1022
+      ],
+      "normalizedAnchor": [
+        180,
+        230
+      ],
+      "bodyWidth": 238,
+      "bodyCenterX": 180,
+      "contacts": 4
+    }
+  ],
+  "bodyCenterDriftPx": 0,
+  "placementChecks": [
+    {
+      "state": "hungry",
+      "position": 1,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "hungry",
+      "position": 2,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "hungry",
+      "position": 3,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "hungry",
+      "position": 4,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "hungry",
+      "position": 5,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "producing",
+      "position": 1,
+      "groundContacts": 4,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "producing",
+      "position": 2,
+      "groundContacts": 4,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "producing",
+      "position": 3,
+      "groundContacts": 4,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "producing",
+      "position": 4,
+      "groundContacts": 4,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "producing",
+      "position": 5,
+      "groundContacts": 4,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "ready",
+      "position": 1,
+      "groundContacts": 4,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "ready",
+      "position": 2,
+      "groundContacts": 4,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "ready",
+      "position": 3,
+      "groundContacts": 4,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "ready",
+      "position": 4,
+      "groundContacts": 4,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "ready",
+      "position": 5,
+      "groundContacts": 4,
+      "insideFootprintAndStandingArea": true
+    }
+  ]
+}

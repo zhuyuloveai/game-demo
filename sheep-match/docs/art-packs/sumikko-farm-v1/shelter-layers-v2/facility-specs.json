@@ -1,0 +1,429 @@
+{
+  "pig": {
+    "name": "猪圈",
+    "capacity": 5,
+    "bodyWidth": 224,
+    "building": {
+      "left": 350,
+      "top": 95,
+      "width": 560,
+      "support": [
+        [
+          620,
+          355
+        ],
+        [
+          915,
+          485
+        ],
+        [
+          660,
+          580
+        ],
+        [
+          405,
+          445
+        ]
+      ],
+      "entry": [
+        520,
+        500
+      ]
+    },
+    "animals": [
+      {
+        "state": "hungry",
+        "body": [
+          244,
+          204,
+          1150,
+          932
+        ],
+        "anchorX": 650,
+        "contactXs": [
+          410,
+          650,
+          1040
+        ],
+        "contactKind": "standing hooves"
+      },
+      {
+        "state": "producing",
+        "body": [
+          190,
+          232,
+          1190,
+          930
+        ],
+        "anchorX": 650,
+        "contactXs": [
+          270,
+          590,
+          650,
+          1175
+        ],
+        "contactKind": "front curled hooves and rear resting hoof"
+      },
+      {
+        "state": "ready",
+        "body": [
+          254,
+          222,
+          1140,
+          940
+        ],
+        "anchorX": 650,
+        "contactXs": [
+          410,
+          650,
+          1040
+        ],
+        "contactKind": "standing hooves"
+      }
+    ],
+    "positions": [
+      [
+        300,
+        600
+      ],
+      [
+        650,
+        590
+      ],
+      [
+        900,
+        620
+      ],
+      [
+        420,
+        710
+      ],
+      [
+        700,
+        750
+      ]
+    ]
+  },
+  "sheep": {
+    "name": "绵羊棚",
+    "capacity": 5,
+    "bodyWidth": 230,
+    "building": {
+      "left": 350,
+      "top": 115,
+      "width": 560,
+      "support": [
+        [
+          645,
+          350
+        ],
+        [
+          915,
+          480
+        ],
+        [
+          655,
+          580
+        ],
+        [
+          405,
+          450
+        ]
+      ],
+      "entry": [
+        530,
+        520
+      ]
+    },
+    "animals": [
+      {
+        "state": "hungry",
+        "body": [
+          275,
+          262,
+          1080,
+          1005
+        ],
+        "anchorX": 650,
+        "contactXs": [
+          390,
+          650,
+          970
+        ],
+        "contactKind": "standing hooves"
+      },
+      {
+        "state": "producing",
+        "body": [
+          264,
+          341,
+          1143,
+          1045
+        ],
+        "anchorX": 680,
+        "contactXs": [
+          390,
+          620,
+          680,
+          1030
+        ],
+        "contactKind": "curled hooves and resting belly fleece"
+      },
+      {
+        "state": "ready",
+        "body": [
+          240,
+          184,
+          1173,
+          1076
+        ],
+        "anchorX": 680,
+        "contactXs": [
+          390,
+          620,
+          680,
+          1030
+        ],
+        "contactKind": "standing hooves"
+      }
+    ],
+    "positions": [
+      [
+        300,
+        600
+      ],
+      [
+        650,
+        590
+      ],
+      [
+        900,
+        620
+      ],
+      [
+        420,
+        710
+      ],
+      [
+        700,
+        750
+      ]
+    ]
+  },
+  "lamb": {
+    "name": "羊羔棚",
+    "capacity": 5,
+    "bodyWidth": 200,
+    "building": {
+      "left": 370,
+      "top": 85,
+      "width": 520,
+      "support": [
+        [
+          650,
+          345
+        ],
+        [
+          900,
+          470
+        ],
+        [
+          640,
+          570
+        ],
+        [
+          405,
+          450
+        ]
+      ],
+      "entry": [
+        520,
+        510
+      ]
+    },
+    "animals": [
+      {
+        "state": "hungry",
+        "body": [
+          300,
+          328,
+          1079,
+          959
+        ],
+        "anchorX": 650,
+        "contactXs": [
+          480,
+          650,
+          900
+        ],
+        "contactKind": "standing hooves"
+      },
+      {
+        "state": "producing",
+        "body": [
+          300,
+          354,
+          1131,
+          975
+        ],
+        "anchorX": 680,
+        "contactXs": [
+          480,
+          620,
+          680,
+          900
+        ],
+        "contactKind": "curled hooves and resting belly"
+      },
+      {
+        "state": "ready",
+        "body": [
+          275,
+          245,
+          1148,
+          990
+        ],
+        "anchorX": 680,
+        "contactXs": [
+          450,
+          650,
+          680,
+          950
+        ],
+        "contactKind": "standing hooves"
+      }
+    ],
+    "positions": [
+      [
+        300,
+        600
+      ],
+      [
+        650,
+        590
+      ],
+      [
+        900,
+        620
+      ],
+      [
+        420,
+        710
+      ],
+      [
+        700,
+        750
+      ]
+    ]
+  },
+  "chicken": {
+    "name": "鸡舍",
+    "capacity": 6,
+    "bodyWidth": 180,
+    "building": {
+      "left": 400,
+      "top": 85,
+      "width": 500,
+      "support": [
+        [
+          650,
+          350
+        ],
+        [
+          910,
+          480
+        ],
+        [
+          685,
+          565
+        ],
+        [
+          500,
+          445
+        ]
+      ],
+      "entry": [
+        568,
+        440
+      ],
+      "ramp": {
+        "top": [
+          568,
+          440
+        ],
+        "landing": [
+          470,
+          580
+        ],
+        "groundPolygon": [
+          [
+            428,
+            551
+          ],
+          [
+            477,
+            576
+          ],
+          [
+            548,
+            514
+          ],
+          [
+            497,
+            489
+          ]
+        ]
+      }
+    },
+    "animals": [
+      {
+        "state": "hungry",
+        "body": [
+          264,
+          350,
+          1000,
+          1017
+        ],
+        "anchorX": 650,
+        "contactXs": [
+          450,
+          650,
+          680
+        ],
+        "contactKind": "two feet / toes"
+      },
+      {
+        "state": "producing",
+        "body": [
+          223,
+          375,
+          1040,
+          1004
+        ],
+        "anchorX": 650,
+        "contactXs": [
+          450,
+          600,
+          650
+        ],
+        "contactKind": "tucked toes, lower resting body"
+      },
+      {
+        "state": "ready",
+        "body": [
+          243,
+          320,
+          1005,
+          1000
+        ],
+        "anchorX": 650,
+        "contactXs": [
+          450,
+          650,
+          680
+        ],
+        "contactKind": "two feet / toes"
+      }
+    ]
+  }
+}

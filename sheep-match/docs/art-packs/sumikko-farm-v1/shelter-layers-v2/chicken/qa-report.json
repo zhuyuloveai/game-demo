@@ -1,0 +1,281 @@
+{
+  "status": "passed",
+  "id": "chicken",
+  "capacity": 6,
+  "logicalFootprint": [
+    4,
+    4
+  ],
+  "gameCodeChanged": false,
+  "preservedSources": [
+    "sources/original-chicken-shelter.png",
+    "sources/chicken-hungry-original.png",
+    "sources/chicken-producing-original.png",
+    "sources/chicken-ready-original.png"
+  ],
+  "images": [
+    {
+      "file": "layers/01-ground.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "9fecf217bf1033b2a4096807dfaccca881d0b6dce92e927a7c2f1bd59a2efb9b"
+    },
+    {
+      "file": "layers/02-building-shadow.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "4ce6abadbdab1730a3bee9160b8180154175419dc8b149344d2ad269f6e2cb84"
+    },
+    {
+      "file": "layers/03-rear-fence.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "85684248fe7530ae383a3992615eff77b51fabe0997619da3c3465fa1d36a7bc"
+    },
+    {
+      "file": "layers/04-building.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "5be57e31999286e18dc81fee68de7df297e8fa3e194e0ce3660ab21902576d54"
+    },
+    {
+      "file": "layers/07-front-fence.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "b318a14e379c05722a0faa2763422fb062540655f6357b9d9f7cd650962ee82f"
+    },
+    {
+      "file": "layers/reference-animal-shadows.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "5b39bee9127b464192a57a1314a7955b30640c0791f00d6a2b1e262d3e0ca9eb"
+    },
+    {
+      "file": "layers/reference-chicken-1.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "484f41fe7625365c72329a8fe92a0f915e20d3d7a2515828ec45d15e4ad02c6b"
+    },
+    {
+      "file": "layers/reference-chicken-2.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "b7265daaab9b19286e9598c9cbcfecccc6bf63c557f16fe7a11ac8ea6fca9fb6"
+    },
+    {
+      "file": "layers/reference-chicken-3.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "d843d761f1e710d10a2f982a853bfad1834ee3e69218f5817fb8f879d285118d"
+    },
+    {
+      "file": "layers/reference-chicken-4.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "1e173eb440ca7f4d0dde07d292af8995428d4b7256ca6de5d1b20a1525ff5e24"
+    },
+    {
+      "file": "layers/reference-chicken-5.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "fe7ff5e879d68110d6da9feb7e6f5b4679eb028adc5496b0d9392d9fa027156c"
+    },
+    {
+      "file": "layers/reference-chicken-6.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "737855167b8a5c48884071fb31c23f4b0980ace2224e8d987cbb1c32a97ce6de"
+    },
+    {
+      "file": "animals/chicken-hungry-shadow.png",
+      "width": 360,
+      "height": 280,
+      "sha256": "d92df151ce09ea0dcece1930c12a6b6a561893fe14fac66163d66c58d20892ba"
+    },
+    {
+      "file": "animals/chicken-hungry.png",
+      "width": 360,
+      "height": 280,
+      "sha256": "cda786dc7cf03bea0979dfb312e813c0ea0d83456764f27b0615f5163760d3f0"
+    },
+    {
+      "file": "animals/chicken-producing-shadow.png",
+      "width": 360,
+      "height": 280,
+      "sha256": "e78599bf0030ce2c10aa35ae0d8275c851b23138dbf78cae60be6ea16a8ec543"
+    },
+    {
+      "file": "animals/chicken-producing.png",
+      "width": 360,
+      "height": 280,
+      "sha256": "e279d1f4f1c186f9c760cf88f9b134b849f10fe41bf4a4b17f7953593c64174a"
+    },
+    {
+      "file": "animals/chicken-ready-shadow.png",
+      "width": 360,
+      "height": 280,
+      "sha256": "57347cc56aa5c06099db6867fb307a4cbd106f19db03abbd2432f7a7d2de38bb"
+    },
+    {
+      "file": "animals/chicken-ready.png",
+      "width": 360,
+      "height": 280,
+      "sha256": "ef7f4a52574581e2f6bfbcf4cf63c21fe51eb3c8f5ccd927da0d8c6992df8f6e"
+    }
+  ],
+  "states": [
+    {
+      "state": "hungry",
+      "anchor": [
+        650,
+        1073
+      ],
+      "normalizedAnchor": [
+        180,
+        230
+      ],
+      "bodyWidth": 180,
+      "bodyCenterX": 175.5978260869565,
+      "contacts": 3
+    },
+    {
+      "state": "producing",
+      "anchor": [
+        650,
+        1020
+      ],
+      "normalizedAnchor": [
+        180,
+        230
+      ],
+      "bodyWidth": 180,
+      "bodyCenterX": 175.92411260709912,
+      "contacts": 3
+    },
+    {
+      "state": "ready",
+      "anchor": [
+        650,
+        1064
+      ],
+      "normalizedAnchor": [
+        180,
+        230
+      ],
+      "bodyWidth": 180,
+      "bodyCenterX": 173.85826771653547,
+      "contacts": 3
+    }
+  ],
+  "bodyCenterDriftPx": 2.0658448905636533,
+  "placementChecks": [
+    {
+      "state": "hungry",
+      "position": 1,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "hungry",
+      "position": 2,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "hungry",
+      "position": 3,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "hungry",
+      "position": 4,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "hungry",
+      "position": 5,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "hungry",
+      "position": 6,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "producing",
+      "position": 1,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "producing",
+      "position": 2,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "producing",
+      "position": 3,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "producing",
+      "position": 4,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "producing",
+      "position": 5,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "producing",
+      "position": 6,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "ready",
+      "position": 1,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "ready",
+      "position": 2,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "ready",
+      "position": 3,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "ready",
+      "position": 4,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "ready",
+      "position": 5,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "ready",
+      "position": 6,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    }
+  ]
+}

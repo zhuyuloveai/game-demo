@@ -1,0 +1,257 @@
+{
+  "status": "passed",
+  "id": "pig",
+  "capacity": 5,
+  "logicalFootprint": [
+    4,
+    4
+  ],
+  "gameCodeChanged": false,
+  "preservedSources": [
+    "sources/original-pig-shelter.png",
+    "sources/pig-hungry-original.png",
+    "sources/pig-producing-original.png",
+    "sources/pig-ready-original.png"
+  ],
+  "images": [
+    {
+      "file": "layers/01-ground.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "9fecf217bf1033b2a4096807dfaccca881d0b6dce92e927a7c2f1bd59a2efb9b"
+    },
+    {
+      "file": "layers/02-building-shadow.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "3c627e6a31c7f4542c6ae33518d2761f160a6eaf8636ec11810c4f390eaef25b"
+    },
+    {
+      "file": "layers/03-rear-fence.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "85684248fe7530ae383a3992615eff77b51fabe0997619da3c3465fa1d36a7bc"
+    },
+    {
+      "file": "layers/04-building.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "8864e27fe0c36e0778a8129123b12cd3a3f62cdae2a87428c0b8530e8f5f1a5d"
+    },
+    {
+      "file": "layers/07-front-fence.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "b318a14e379c05722a0faa2763422fb062540655f6357b9d9f7cd650962ee82f"
+    },
+    {
+      "file": "layers/reference-animal-shadows.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "02550867df6aa747f16228c480097250b75316a13408dc5492777d10ed3c31bf"
+    },
+    {
+      "file": "layers/reference-pig-1.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "4c2bb7dc100fe805f10823918030c2f709a925c986ae13bc642e6f2d2095125b"
+    },
+    {
+      "file": "layers/reference-pig-2.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "e935abc4516615e408d293c6deaa4872b6de4d51d5c354217de81f5282332e79"
+    },
+    {
+      "file": "layers/reference-pig-3.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "155dc917d6bf75a00dcac8153e13b2ac4ba573ba45ca13ddfb2fd2c6ba5e743b"
+    },
+    {
+      "file": "layers/reference-pig-4.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "0630c72c4d49a5dc47e0d2591088673f4c683e7a8b6e7185cb61c05f6b4840dd"
+    },
+    {
+      "file": "layers/reference-pig-5.png",
+      "width": 1200,
+      "height": 1000,
+      "sha256": "18a2f953b1365beee9df022e94a6c935674f42d2b8307e6ba3b1b8b30b25de7a"
+    },
+    {
+      "file": "animals/pig-hungry-shadow.png",
+      "width": 360,
+      "height": 280,
+      "sha256": "30e67c9e69c35de895939136eee1d13de4cd114423f0f5d46ae090d424ba098a"
+    },
+    {
+      "file": "animals/pig-hungry.png",
+      "width": 360,
+      "height": 280,
+      "sha256": "88f2fce5b152ba98db4f31cfa317aa19eafcdec402e027f2809720119182612d"
+    },
+    {
+      "file": "animals/pig-producing-shadow.png",
+      "width": 360,
+      "height": 280,
+      "sha256": "1285e1f7f6db804a56eaaa5fca1c5bc6eb198f6f2271e1ba6dd5832e17e4b2f1"
+    },
+    {
+      "file": "animals/pig-producing.png",
+      "width": 360,
+      "height": 280,
+      "sha256": "c200c2895f76851d8fabfb0942466eda427b2cce44e8bc1867e43014d9242a17"
+    },
+    {
+      "file": "animals/pig-ready-shadow.png",
+      "width": 360,
+      "height": 280,
+      "sha256": "a71de9766139bee4ad1cca8a6d8dc64bf51b34865ba38f106dd3b31b6249b192"
+    },
+    {
+      "file": "animals/pig-ready.png",
+      "width": 360,
+      "height": 280,
+      "sha256": "6e9f9d4bf516827aa55460b4e4151a1b7900b1a371596f258848a7b3726de854"
+    }
+  ],
+  "states": [
+    {
+      "state": "hungry",
+      "anchor": [
+        650,
+        998
+      ],
+      "normalizedAnchor": [
+        180,
+        230
+      ],
+      "bodyWidth": 224,
+      "bodyCenterX": 191.62030905077262,
+      "contacts": 3
+    },
+    {
+      "state": "producing",
+      "anchor": [
+        650,
+        965
+      ],
+      "normalizedAnchor": [
+        180,
+        230
+      ],
+      "bodyWidth": 224,
+      "bodyCenterX": 188.96000000000004,
+      "contacts": 4
+    },
+    {
+      "state": "ready",
+      "anchor": [
+        650,
+        979
+      ],
+      "normalizedAnchor": [
+        180,
+        230
+      ],
+      "bodyWidth": 224,
+      "bodyCenterX": 191.882618510158,
+      "contacts": 3
+    }
+  ],
+  "bodyCenterDriftPx": 2.9226185101579745,
+  "placementChecks": [
+    {
+      "state": "hungry",
+      "position": 1,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "hungry",
+      "position": 2,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "hungry",
+      "position": 3,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "hungry",
+      "position": 4,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "hungry",
+      "position": 5,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "producing",
+      "position": 1,
+      "groundContacts": 4,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "producing",
+      "position": 2,
+      "groundContacts": 4,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "producing",
+      "position": 3,
+      "groundContacts": 4,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "producing",
+      "position": 4,
+      "groundContacts": 4,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "producing",
+      "position": 5,
+      "groundContacts": 4,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "ready",
+      "position": 1,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "ready",
+      "position": 2,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "ready",
+      "position": 3,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "ready",
+      "position": 4,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    },
+    {
+      "state": "ready",
+      "position": 5,
+      "groundContacts": 3,
+      "insideFootprintAndStandingArea": true
+    }
+  ]
+}

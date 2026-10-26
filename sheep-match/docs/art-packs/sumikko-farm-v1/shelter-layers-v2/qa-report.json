@@ -1,0 +1,316 @@
+{
+  "status": "passed",
+  "facilities": 5,
+  "animalStates": 15,
+  "fullCapacity": 26,
+  "statePlacementChecks": 78,
+  "transparentPngExports": 86,
+  "gameCodeChanged": false,
+  "results": [
+    {
+      "status": "passed",
+      "id": "cow",
+      "capacity": 5,
+      "logicalFootprint": [
+        4,
+        4
+      ],
+      "gameCodeChanged": false,
+      "preservedSources": [
+        "sources/original-cow-shelter.png",
+        "sources/cow-hungry-original.png",
+        "sources/cow-producing-original.png",
+        "sources/cow-ready-original.png"
+      ],
+      "states": [
+        {
+          "state": "hungry",
+          "anchor": [
+            618,
+            1020
+          ],
+          "normalizedAnchor": [
+            180,
+            230
+          ],
+          "bodyWidth": 238,
+          "bodyCenterX": 180,
+          "contacts": 3
+        },
+        {
+          "state": "producing",
+          "anchor": [
+            624,
+            1013
+          ],
+          "normalizedAnchor": [
+            180,
+            230
+          ],
+          "bodyWidth": 238,
+          "bodyCenterX": 180,
+          "contacts": 4
+        },
+        {
+          "state": "ready",
+          "anchor": [
+            628,
+            1022
+          ],
+          "normalizedAnchor": [
+            180,
+            230
+          ],
+          "bodyWidth": 238,
+          "bodyCenterX": 180,
+          "contacts": 4
+        }
+      ],
+      "bodyCenterDriftPx": 0
+    },
+    {
+      "status": "passed",
+      "id": "pig",
+      "capacity": 5,
+      "logicalFootprint": [
+        4,
+        4
+      ],
+      "gameCodeChanged": false,
+      "preservedSources": [
+        "sources/original-pig-shelter.png",
+        "sources/pig-hungry-original.png",
+        "sources/pig-producing-original.png",
+        "sources/pig-ready-original.png"
+      ],
+      "states": [
+        {
+          "state": "hungry",
+          "anchor": [
+            650,
+            998
+          ],
+          "normalizedAnchor": [
+            180,
+            230
+          ],
+          "bodyWidth": 224,
+          "bodyCenterX": 191.62030905077262,
+          "contacts": 3
+        },
+        {
+          "state": "producing",
+          "anchor": [
+            650,
+            965
+          ],
+          "normalizedAnchor": [
+            180,
+            230
+          ],
+          "bodyWidth": 224,
+          "bodyCenterX": 188.96000000000004,
+          "contacts": 4
+        },
+        {
+          "state": "ready",
+          "anchor": [
+            650,
+            979
+          ],
+          "normalizedAnchor": [
+            180,
+            230
+          ],
+          "bodyWidth": 224,
+          "bodyCenterX": 191.882618510158,
+          "contacts": 3
+        }
+      ],
+      "bodyCenterDriftPx": 2.9226185101579745
+    },
+    {
+      "status": "passed",
+      "id": "sheep",
+      "capacity": 5,
+      "logicalFootprint": [
+        4,
+        4
+      ],
+      "gameCodeChanged": false,
+      "preservedSources": [
+        "sources/original-sheep-shelter.png",
+        "sources/sheep-hungry-original.png",
+        "sources/sheep-producing-original.png",
+        "sources/sheep-ready-original.png"
+      ],
+      "states": [
+        {
+          "state": "hungry",
+          "anchor": [
+            650,
+            1041
+          ],
+          "normalizedAnchor": [
+            180,
+            230
+          ],
+          "bodyWidth": 230,
+          "bodyCenterX": 187.8571428571429,
+          "contacts": 3
+        },
+        {
+          "state": "producing",
+          "anchor": [
+            680,
+            1050
+          ],
+          "normalizedAnchor": [
+            180,
+            230
+          ],
+          "bodyWidth": 230,
+          "bodyCenterX": 186.14903299203638,
+          "contacts": 4
+        },
+        {
+          "state": "ready",
+          "anchor": [
+            680,
+            1087
+          ],
+          "normalizedAnchor": [
+            180,
+            230
+          ],
+          "bodyWidth": 230,
+          "bodyCenterX": 186.5326902465166,
+          "contacts": 4
+        }
+      ],
+      "bodyCenterDriftPx": 1.7081098651065076
+    },
+    {
+      "status": "passed",
+      "id": "lamb",
+      "capacity": 5,
+      "logicalFootprint": [
+        4,
+        4
+      ],
+      "gameCodeChanged": false,
+      "preservedSources": [
+        "sources/original-lamb-shelter.png",
+        "sources/lamb-hungry-original.png",
+        "sources/lamb-producing-original.png",
+        "sources/lamb-ready-original.png"
+      ],
+      "states": [
+        {
+          "state": "hungry",
+          "anchor": [
+            650,
+            996
+          ],
+          "normalizedAnchor": [
+            180,
+            230
+          ],
+          "bodyWidth": 200,
+          "bodyCenterX": 190.14120667522465,
+          "contacts": 3
+        },
+        {
+          "state": "producing",
+          "anchor": [
+            680,
+            988
+          ],
+          "normalizedAnchor": [
+            180,
+            230
+          ],
+          "bodyWidth": 200,
+          "bodyCenterX": 188.5439229843562,
+          "contacts": 4
+        },
+        {
+          "state": "ready",
+          "anchor": [
+            680,
+            1021
+          ],
+          "normalizedAnchor": [
+            180,
+            230
+          ],
+          "bodyWidth": 200,
+          "bodyCenterX": 187.2164948453608,
+          "contacts": 4
+        }
+      ],
+      "bodyCenterDriftPx": 2.9247118298638384
+    },
+    {
+      "status": "passed",
+      "id": "chicken",
+      "capacity": 6,
+      "logicalFootprint": [
+        4,
+        4
+      ],
+      "gameCodeChanged": false,
+      "preservedSources": [
+        "sources/original-chicken-shelter.png",
+        "sources/chicken-hungry-original.png",
+        "sources/chicken-producing-original.png",
+        "sources/chicken-ready-original.png"
+      ],
+      "states": [
+        {
+          "state": "hungry",
+          "anchor": [
+            650,
+            1073
+          ],
+          "normalizedAnchor": [
+            180,
+            230
+          ],
+          "bodyWidth": 180,
+          "bodyCenterX": 175.5978260869565,
+          "contacts": 3
+        },
+        {
+          "state": "producing",
+          "anchor": [
+            650,
+            1020
+          ],
+          "normalizedAnchor": [
+            180,
+            230
+          ],
+          "bodyWidth": 180,
+          "bodyCenterX": 175.92411260709912,
+          "contacts": 3
+        },
+        {
+          "state": "ready",
+          "anchor": [
+            650,
+            1064
+          ],
+          "normalizedAnchor": [
+            180,
+            230
+          ],
+          "bodyWidth": 180,
+          "bodyCenterX": 173.85826771653547,
+          "contacts": 3
+        }
+      ],
+      "bodyCenterDriftPx": 2.0658448905636533
+    }
+  ]
+}
