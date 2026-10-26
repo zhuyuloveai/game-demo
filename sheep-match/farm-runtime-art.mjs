@@ -28,7 +28,10 @@ export function resolveWorldArt(entity,now=0){
     if(entity.status==='growing')state=entity.harvestStage===0&&entity.readyAt-now>(FRUITS[configId]?.durationMs||0)/2?'young':'growing';
     return state?descriptor('plant-states/fruit-plants/'+dash(configId)+'-'+state):null;
   }
-  if(kind==='animal')return descriptor('animals/'+dash(configId));
+  if(kind==='animal'){
+    const state=['producing','ready'].includes(entity.status)?entity.status:null;
+    return (state&&descriptor('animal-states/'+dash(configId)+'-'+state))||descriptor('animals/'+dash(configId));
+  }
   if(kind==='shelter')return entity.skinId?null:descriptor('buildings/'+dash(configId)+'-shelter');
   if(kind==='house')return descriptor('buildings/farmhouse');
   if(kind==='barn'||kind==='silo')return descriptor('buildings/'+kind);

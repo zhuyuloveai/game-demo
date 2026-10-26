@@ -808,7 +808,9 @@ function perform(state,c,events,skipped) {
           a.status='producing';
           a.readyAt=state.now+config.durationMs;
           bump(draft,'feeds');
-          if(shelter.id==='shelter_chicken_1'){
+          // Tutorial progress belongs only to the three starter chickens.
+          // Identity follows starter chickens when moved; purchased animals never enter this field.
+          if(['animal_100','animal_101','animal_102'].includes(id)){
             draft.tutorial.initialFed??={};
             draft.tutorial.initialFed[id]=true;
           }

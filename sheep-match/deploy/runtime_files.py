@@ -44,7 +44,7 @@ BASE_FILES = {
        for season in ("spring", "summer", "autumn", "winter")},
 }
 
-NEW_MODULES = ('farm-assets','farm-config','farm-core','farm-layout','farm-linkage','farm-match-ui','farm-runtime','farm-save','farm-stage-data','farm-stage-layouts','farm-ui','farm-gestures','farm-visuals','farm-audio','farm-audio-manifest','farm-delight','farm-scene-host','farm-scene-world','farm-scene-trade','farm-scene-management','farm-growth-layouts','farm-world-geometry','farm-runtime-art','farm-runtime-art-metadata','farm-runtime-terrain')
+NEW_MODULES = ('farm-assets','farm-config','farm-core','farm-layout','farm-linkage','farm-match-ui','farm-runtime','farm-save','farm-stage-data','farm-stage-layouts','farm-ui','farm-gestures','farm-visuals','farm-audio','farm-audio-manifest','farm-delight','farm-scene-host','farm-scene-world','farm-scene-trade','farm-scene-management','farm-growth-layouts','farm-world-geometry','farm-runtime-art','farm-runtime-art-metadata','farm-runtime-terrain','farm-runtime-environment','farm-runtime-environment-metadata','farm-animal-layout')
 MIME = {'.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.css':'text/css','.mjs':'application/javascript','.js':'application/javascript','.json':'application/json','.m4a':('audio/mp4','audio/x-m4a'),'.wav':('audio/wav','audio/x-wav'),'.md':'text/plain','.txt':'text/plain'}
 def expected_runtime(root):
     files = dict(BASE_FILES)
@@ -65,6 +65,12 @@ def expected_runtime(root):
     runtime_art = json.loads((root/'assets/farm-runtime/manifest.json').read_text())
     files['assets/farm-runtime/manifest.json'] = 'application/json'
     for asset in runtime_art['assets']:
+        path = PurePosixPath(asset['path'])
+        assert not path.is_absolute() and '..' not in path.parts and str(path).startswith('assets/farm-runtime/'), path
+        files[str(path)] = MIME[path.suffix]
+    environment_art = json.loads((root/'assets/farm-runtime/environment-manifest.json').read_text())
+    files['assets/farm-runtime/environment-manifest.json'] = 'application/json'
+    for asset in environment_art['assets']:
         path = PurePosixPath(asset['path'])
         assert not path.is_absolute() and '..' not in path.parts and str(path).startswith('assets/farm-runtime/'), path
         files[str(path)] = MIME[path.suffix]

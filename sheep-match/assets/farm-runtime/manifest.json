@@ -1,7 +1,8 @@
 {
-  "sourceCommit": "52e6c187b8160cd69227f28e148c75dde9ab5bbe",
+  "sourceCommit": "db4e5b4a97049b5135ec1df472c7ac27dd13a881",
   "sourcePack": "docs/art-packs/sumikko-farm-v1",
   "plantStateManifest": "docs/art-packs/sumikko-farm-v1/plant-states/manifest.json",
+  "animalStateManifest": "docs/art-packs/sumikko-farm-v1/animal-states/manifest.json",
   "maxEdge": 512,
   "assets": [
     {
@@ -948,6 +949,96 @@
       "bytes": 158624,
       "width": 512,
       "height": 480
+    },
+    {
+      "key": "animal-states/chicken-producing",
+      "path": "assets/farm-runtime/animal-states/chicken-producing.png",
+      "source": "docs/art-packs/sumikko-farm-v1/animal-states/assets/chicken-producing.png",
+      "sourceSha256": "aeb70d1dc8e34062329c668186ca0c9ffb7cc56619b28c12b6ba0410ecc2f65f",
+      "bytes": 113240,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "animal-states/chicken-ready",
+      "path": "assets/farm-runtime/animal-states/chicken-ready.png",
+      "source": "docs/art-packs/sumikko-farm-v1/animal-states/assets/chicken-ready.png",
+      "sourceSha256": "c48ee1bfb560e1c18b671d982efcec9d27612d1b9b6db64c6795f350b7950660",
+      "bytes": 107838,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "animal-states/cow-producing",
+      "path": "assets/farm-runtime/animal-states/cow-producing.png",
+      "source": "docs/art-packs/sumikko-farm-v1/animal-states/assets/cow-producing.png",
+      "sourceSha256": "de63464ef750747ec62de96abc11d81ba1351bc3aa7bb7c756814e212da30911",
+      "bytes": 129822,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "animal-states/cow-ready",
+      "path": "assets/farm-runtime/animal-states/cow-ready.png",
+      "source": "docs/art-packs/sumikko-farm-v1/animal-states/assets/cow-ready.png",
+      "sourceSha256": "a6cdc6a74ab2a2b6b1e3066c9e0cec5819edfbc9943f885be918018be6fe1381",
+      "bytes": 134068,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "animal-states/pig-producing",
+      "path": "assets/farm-runtime/animal-states/pig-producing.png",
+      "source": "docs/art-packs/sumikko-farm-v1/animal-states/assets/pig-producing.png",
+      "sourceSha256": "01769724afa584c2ef037ef99e4f4d3a177320f1d0f373468582bbaaaea3f759",
+      "bytes": 118445,
+      "width": 512,
+      "height": 427
+    },
+    {
+      "key": "animal-states/pig-ready",
+      "path": "assets/farm-runtime/animal-states/pig-ready.png",
+      "source": "docs/art-packs/sumikko-farm-v1/animal-states/assets/pig-ready.png",
+      "sourceSha256": "33a4527137319f8a05f5a86722dea541d09d5579d9f51883db412267cde2e3a9",
+      "bytes": 109318,
+      "width": 512,
+      "height": 427
+    },
+    {
+      "key": "animal-states/sheep-producing",
+      "path": "assets/farm-runtime/animal-states/sheep-producing.png",
+      "source": "docs/art-packs/sumikko-farm-v1/animal-states/assets/sheep-producing.png",
+      "sourceSha256": "c331e2696b28d66513d68004c029c8b46b2f2d55feb0613f5bcd48083c2ed40d",
+      "bytes": 123250,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "key": "animal-states/sheep-ready",
+      "path": "assets/farm-runtime/animal-states/sheep-ready.png",
+      "source": "docs/art-packs/sumikko-farm-v1/animal-states/assets/sheep-ready.png",
+      "sourceSha256": "22fc6b17156533cbf637a450b0f7c6830413c0a87547bceba675f66fd37aa088",
+      "bytes": 146842,
+      "width": 512,
+      "height": 512
+    },
+    {
+      "key": "animal-states/lamb-producing",
+      "path": "assets/farm-runtime/animal-states/lamb-producing.png",
+      "source": "docs/art-packs/sumikko-farm-v1/animal-states/assets/lamb-producing.png",
+      "sourceSha256": "5d021ad059aec578302e858d6ec2f3e8ef8854e29a0679ff767cddbb3dd690a4",
+      "bytes": 100393,
+      "width": 512,
+      "height": 468
+    },
+    {
+      "key": "animal-states/lamb-ready",
+      "path": "assets/farm-runtime/animal-states/lamb-ready.png",
+      "source": "docs/art-packs/sumikko-farm-v1/animal-states/assets/lamb-ready.png",
+      "sourceSha256": "80a6da5a7ddfb8b9280e6de6cfd2459144cfce5ea8ad14cbb4393f22071306f2",
+      "bytes": 116035,
+      "width": 512,
+      "height": 468
     }
   ]
 }

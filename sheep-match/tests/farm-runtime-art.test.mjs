@@ -36,8 +36,8 @@ test('earned skins, absent plants and unsupported world kinds deliberately retai
  for(const kind of ['obstacle','road'])assert.equal(resolveWorldArt({kind,configId:'natural_tree'}),null);
  assert.equal(resolveWorldArt({kind:'decoration',configId:'badge_fieldHarvests_1'}),null);
 });
-test('all 105 transparent derivative PNGs and source digests are valid',()=>{
- assert.equal(runtimeArtInventory().length,105);
+test('all 115 transparent derivative PNGs and source digests are valid',()=>{
+ assert.equal(runtimeArtInventory().length,115);
  for(const art of Object.values(RUNTIME_ART_METADATA)){
   const data=readFileSync(new URL('../'+art.path,import.meta.url));assert.deepEqual([...data.subarray(0,8)],[137,80,78,71,13,10,26,10]);
   assert.equal(data.readUInt32BE(16),art.width);assert.equal(data.readUInt32BE(20),art.height);assert.ok(Math.max(art.width,art.height)<=512);
@@ -61,4 +61,18 @@ test('new plant manifest scale and complete 42-state inventory are preserved',()
  const manifest=JSON.parse(readFileSync(new URL('../docs/art-packs/sumikko-farm-v1/plant-states/manifest.json',import.meta.url)));
  const generated=manifest.assets.filter(a=>a.status!=='existing');assert.equal(generated.length,42);
  for(const entry of generated){const art=RUNTIME_ART_METADATA['plant-states/'+entry.group+'/'+entry.key];assert.ok(art);assert.equal(art.scale,entry.displayScale);assert.deepEqual(art.anchor,[.5,1]);}
+});
+
+test('all five animal families use stable anchored state poses with unknown states falling back',()=>{
+ const manifest=JSON.parse(readFileSync(new URL('../docs/art-packs/sumikko-farm-v1/animal-states/manifest.json',import.meta.url)));
+ for(const configId of Object.keys(ANIMALS)){
+  const entity={kind:'animal',configId,status:'hungry'},copy=structuredClone(entity),base=resolveWorldArt(entity);
+  assert.equal(base.key,'animals/'+configId);
+  for(const status of ['producing','ready']){
+   const art=resolveWorldArt({...entity,status}),entry=manifest.assets.find(a=>a.key===configId+'-'+status);
+   assert.equal(art.key,'animal-states/'+configId+'-'+status);assert.deepEqual(art.anchor,base.anchor);assert.equal(art.scale,entry.displayScale);
+   assert.notEqual(art.sourceSha256,base.sourceSha256);assert.equal(art.animation,'static');
+  }
+  assert.equal(resolveWorldArt({...entity,status:'walking'}),base);assert.deepEqual(entity,copy);
+ }
 });
