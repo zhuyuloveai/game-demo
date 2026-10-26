@@ -1,3 +1,5 @@
+import {resolveShelterAnimal,resolveShelterSpec} from '../farm-runtime-shelters.mjs';
+import {shelterCanvasRect,shelterLayerDepths} from '../farm-shelter-geometry.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -53,13 +55,13 @@ test('unselected growing plants do not show countdowns, ripe crops keep a small 
 });
 test('five layered pens keep every full-capacity foot in the yard between rear and near fence',()=>{
  for(const configId of Object.keys(ANIMALS))for(const rotation of [0,270]){
-  const e={kind:'shelter',configId,x:20,y:20,w:4,h:4,rotation},f=getFootprint(e),layers=penLayers(e,f),hut=anchoredArtRect(e,f,resolveWorldArt(e));
+  const e={kind:'shelter',configId,x:20,y:20,w:4,h:4,rotation},f=getFootprint(e),layers=penLayers(e,f),canvas=shelterCanvasRect(e,f);
   for(let i=0;i<ANIMALS[configId].capacity;i++){
-   const r=animalPlacement(e,f,i,resolveWorldArt({kind:'animal',configId,status:'ready'}));
-   assert(pointInPolygon(r.foot,footprintPolygon(e,f)));assert(r.foot.y>hut.foot.y+20);
+   const r=animalPlacement(e,f,i,resolveShelterAnimal({configId,status:'ready'}));
+   assert(pointInPolygon(r.foot,footprintPolygon(e,f)));assert(r.depth>shelterLayerDepths(e,f).building);
    assert(layers.rearDepth<r.depth&&r.depth<layers.frontDepth);
   }
-  assert(layers.front.includes('<svg'));assert(layers.ground.includes('#e3d2ab'));
+  assert(layers.front.includes('<svg'));assert(layers.ground.includes(resolveShelterSpec(configId).layers.ground.src));assert(layers.ground.includes(resolveShelterSpec(configId).layers.buildingShadow.src));
  }
 });
 test('all sixteen flowering fence masks connect and ignore neighboring wooden fences',()=>{

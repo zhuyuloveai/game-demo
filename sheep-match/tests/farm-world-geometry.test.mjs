@@ -21,7 +21,7 @@ test('projected production tray is anchored in machine foreground and remains co
  const e={x:25,y:25,w:3,h:2,completed:[{},{}]},t=projectedMachineTray(e,{w:3,h:2}),p=project(26.5,27);assert.equal(t.x+t.width/2,p.x);assert(t.slots<=2);assert.equal(t.height,44);
 });
 test('renderer uses alpha hits, explicit harvest mode, projected camera and polygon strokes',()=>{
- const s=readFileSync(new URL('../farm-scene-world.mjs',import.meta.url),'utf8');for(const marker of ['runtimeArtHit(meta,u,v)','hitWorld(p)','fadedIds(rows)',"button('harvest-view'",'polygon=screenPolygon(e)','project(saved.centerX,saved.centerY)','unproject((view.clientWidth/2-camera.x)'])assert(s.includes(marker),marker);
+ const s=readFileSync(new URL('../farm-scene-world.mjs',import.meta.url),'utf8');for(const marker of ['runtimeArtHit(meta,u,v,{mirror:','hitWorld(p)','fadedIds(rows)',"button('harvest-view'",'polygon=screenPolygon(e)','project(saved.centerX,saved.centerY)','unproject((view.clientWidth/2-camera.x)'])assert(s.includes(marker),marker);
 });
 
 test('overlapping equal-depth sprites pick the later painted DOM sibling',()=>{assert.equal(topmostHit([{entityId:'rear',z:100},{entityId:'front',z:100}]).entityId,'front');assert.equal(topmostHit([{entityId:'higher',z:102},{entityId:'later',z:100}]).entityId,'higher');});

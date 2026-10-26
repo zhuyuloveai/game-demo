@@ -1,3 +1,5 @@
+import {resolveShelterSpec,resolveShelterLayer,resolveShelterAnimal,resolveShelterAnimalShadow} from './farm-runtime-shelters.mjs';
+import {shelterCanvasRect,shelterCanvasPoint,shelterLayerDepths,shelterLayerHit,shelterSummary,shelterHitCandidates} from './farm-shelter-geometry.mjs';
 import {resolveEnvironmentArt,resolveObstacleArt,resolveEnvironmentLegacyArt,resolveBuildingBadge,resolveMachineMasteryArt} from './farm-runtime-environment.mjs';
 import {artRotations,nextArtRotation,mirroredArt,legacyArtRotation} from './farm-art-direction.mjs';
 import {anchoredArtRect,environmentRect,compactTrayPlacement,worldBadge} from './farm-art-presentation.mjs';
@@ -152,6 +154,8 @@ export function mountWorldScene(ctx) {
     }
     function fieldSoil(e){const terrain=resolveTerrainArt(e,[],ctx.state),g=groundRect(e,ctx.layout.getFootprint(e)),r=visualRect(e),height=g.width*terrain.height/terrain.width;return `<img class="fw-terrain-soil" src="${esc(terrain.src)}" alt="" aria-hidden="true" draggable="false" style="left:${g.left-r.left}px;top:${(g.top+g.bottom)/2-height/2-r.top}px;width:${g.width}px;height:${height}px">`;}
     function art(e,cls='',layer='all'){
+      const spec=e.kind==='shelter'&&resolveShelterSpec(e);
+      if(spec){const keys=layer==='back'?['building']:['ground','buildingShadow','rearFence','building','frontFence'];return keys.map(key=>renderRuntimeArt(spec.layers[key],{className:cls+' fw-layered-art',alt:key==='building'?title(e):'',mirror:mirroredArt(e)})).join('');}
       if(e.kind==='road'||isConnectedFence(e)){const terrain=resolveTerrainArt(e,effectiveEntities(),ctx.state);fallbackArtHit(e,.5,.5);return `<img class="fw-terrain-art ${esc(cls)}" src="${esc(terrain.src)}" alt="${esc(title(e))}" draggable="false">`;}
       if(e.kind==='field'&&!e.crop)return fieldSoil(e);
       const environment=resolveObstacleArt(e);if(environment){fallbackArtHit(e,.5,.5);return `<img class="${esc(cls)}" src="${esc(environment.src)}" alt="${esc(title(e))}" draggable="false">`;}
@@ -161,9 +165,11 @@ export function mountWorldScene(ctx) {
       if(e.kind==='field'&&e.crop)return fieldSoil(e)+image(path,title(e),cls+' fw-crop-overlay');
       return path?image(path,title(e),cls):`<img class="${cls}" src="${ctx.art?ctx.art(e.configId):ctx.asset('ui/info.svg')}" alt="${esc(title(e))}" draggable="false">`;
     }
-    function animalArt(a){const runtime=resolveWorldArt({...a,kind:'animal'},ctx.state.now);if(runtime)return renderRuntimeArt(runtime,{className:'fw-animal-art',alt:name(a.configId)});return image(`animals/${a.configId}/front/${a.status==='producing'?'producing':a.status==='ready'?'ready':'idle'}_00.svg`,name(a.configId),'fw-animal-art');}
+    function animalMeta(a,pen){return (!pen?.skinId&&resolveShelterAnimal(a))||resolveWorldArt({...a,kind:'animal'},ctx.state.now);}
+    function animalArt(a,pen){const runtime=animalMeta(a,pen);if(runtime)return renderRuntimeArt(runtime,{className:'fw-animal-art'+(runtime.shelterLayered?' fw-layered-art':''),alt:name(a.configId),mirror:runtime.shelterLayered&&mirroredArt(pen)});return image(`animals/${a.configId}/front/${a.status==='producing'?'producing':a.status==='ready'?'ready':'idle'}_00.svg`,name(a.configId),'fw-animal-art');}
     function effectiveEntities(){const rows=ctx.state.entities.map(e=>draft?{...e,...draft.positions.find(p=>p.id===e.id)}:e);if(growthPreview)rows.push(...growthPreview.plan.proposedRoads.map((p,i)=>({id:`__growth_road_${i}`,kind:'road',configId:'road',w:1,h:1,rotation:0,stored:false,previewOnly:true,...p})));return rows;}
     function visualRect(e){
+      if(e.kind==='shelter'){const r=shelterCanvasRect(e,ctx.layout.getFootprint(e));if(r)return r;}
       const f=ctx.layout.getFootprint(e),meta=resolveWorldArt(e,ctx.state.now),r=spriteRect(e,f,meta?.aspect||1);
       const environment=resolveObstacleArt(e);if(environment)return environmentRect(e,f,environment);
       if(isConnectedFence(e)){const t=resolveTerrainArt(e),p=project(e.x+f.w/2,e.y+f.h/2);r.height=r.width*t.height/t.width;r.top=p.y-t.anchor[1]/t.height*r.height;return r;}
@@ -176,24 +182,31 @@ export function mountWorldScene(ctx) {
     function groundStyle(e){const r=groundRect(e,ctx.layout.getFootprint(e)),points=r.polygon.map(p=>`${(p.x-r.left)/r.width*100}% ${(p.y-r.top)/r.height*100}%`).join(',');return `left:${r.left}px;top:${r.top}px;width:${r.width}px;height:${r.height}px;clip-path:polygon(${points})`;}
     function screenPolygon(e){const r=view.getBoundingClientRect();return footprintPolygon(e,ctx.layout.getFootprint(e)).map(p=>({x:r.left+camera.x+p.x*camera.zoom,y:r.top+camera.y+p.y*camera.zoom}));}
     function harvestTargets(){return effectiveEntities().filter(e=>!e.stored&&directCropHarvestCommand(e,ctx.state.now));}
+    function paintedCandidate(r,meta,mirror=false){
+      if(!meta)return r;
+      const [bx,by,bw,bh]=meta.bounds,paint=meta.paintedBounds;
+      let rect={...r};
+      if(paint&&meta.fullCanvas){const [x0,y0,x1,y1]=paint,u0=mirror?1-x1/meta.width:x0/meta.width;rect={...r,left:r.left+u0*r.width,top:r.top+y0/meta.height*r.height,width:(x1-x0)/meta.width*r.width,height:(y1-y0)/meta.height*r.height};}
+      return {...rect,hitAt:p=>runtimeArtHit(meta,(p.x-r.left)/r.width,(p.y-r.top)/r.height,{mirror})};
+    }
     function fadedIds(entities){
       if(draft||placement)return new Set();
-      // Match the actual painter: each animal is a foreground sprite, not part of its low backdrop.
       const candidates=[];
       for(const [order,e] of entities.entries()){
         if(['field','road'].includes(e.kind))continue;
-        const bias=order/10000;
-        candidates.push({...visualRect(e),depth:entityPaintDepth(e)+bias,entityId:e.id});
-        if(resolveWorldArt(e)?.frontOcclusion)candidates.push({...visualRect(e),depth:depth(e,ctx.layout.getFootprint(e))+1+bias,entityId:e.id});
+        const bias=order/10000,spec=e.kind==='shelter'&&resolveShelterSpec(e),r=visualRect(e);
+        if(spec){const layers=shelterLayerDepths(e,ctx.layout.getFootprint(e));for(const key of ['rearFence','building','frontFence'])candidates.push({...paintedCandidate(r,spec.layers[key],mirroredArt(e)),depth:layers[key]+bias,entityId:e.id});}
+        else{candidates.push({...paintedCandidate(r,resolveWorldArt(e,ctx.state.now),mirroredArt(e)),depth:entityPaintDepth(e)+bias,entityId:e.id});
+          if(resolveWorldArt(e)?.frontOcclusion)candidates.push({...r,depth:depth(e,ctx.layout.getFootprint(e))+1+bias,entityId:e.id});}
         if(e.kind==='shelter')for(const [i,a] of e.animals.entries()){
-          const r=animalPlacement(e,ctx.layout.getFootprint(e),i,resolveWorldArt({...a,kind:'animal'},ctx.state.now));
-          candidates.push({...r,depth:r.depth+bias+(i+1)/1000000,entityId:e.id});
+          const meta=animalMeta(a,e),r=animalPlacement(e,ctx.layout.getFootprint(e),i,meta);
+          candidates.push({...paintedCandidate(r,meta,meta?.shelterLayered&&mirroredArt(e)),depth:r.depth+bias+(i+1)/1000000,entityId:e.id});
         }
       }
       const pen=selectedEntity(),cutaway=new Set();
       if(pen?.kind==='shelter'){
         const bias=entities.findIndex(e=>e.id===pen.id)/10000;
-        const targets=pen.animals.map((a,i)=>{const r=animalPlacement(pen,ctx.layout.getFootprint(pen),i,resolveWorldArt({...a,kind:'animal'},ctx.state.now));return {...r,depth:r.depth+bias+(i+1)/1000000};});
+        const targets=pen.animals.map((a,i)=>{const meta=animalMeta(a,pen),r=animalPlacement(pen,ctx.layout.getFootprint(pen),i,meta);return {...paintedCandidate(r,meta,meta?.shelterLayered&&mirroredArt(pen)),depth:r.depth+bias+(i+1)/1000000};});
         for(const id of animalOccluderIds(targets,candidates.filter(c=>c.entityId!==pen.id)))cutaway.add(id);
       }
       if(harvestView){
@@ -222,8 +235,12 @@ export function mountWorldScene(ctx) {
         const layered=resolveWorldArt(e,ctx.state.now);if(layered?.frontOcclusion){const r=visualRect(e);html+=`<div aria-hidden="true" class="fw-decor-front ${faded.has(e.id)?'fw-occluder-faded':''}" style="left:${r.left}px;top:${r.top}px;width:${r.width}px;height:${r.height}px;z-index:${depth(e,ctx.layout.getFootprint(e))+1}">${renderRuntimeArt(layered,{className:'fw-entity-art',alt:'',mirror:mirroredArt(e),layer:'front'})}</div>`;}
         if(e.kind==='shelter'){
           const f=ctx.layout.getFootprint(e),layers=penLayers(e,f);
-          html+=`<div class="fw-pen-component" style="${layers.style};z-index:${layers.groundDepth}">${layers.ground}</div><div class="fw-pen-component" style="${layers.style};z-index:${layers.rearDepth}">${layers.rear}</div><div class="fw-pen-component ${faded.has(e.id)?'fw-occluder-faded':''}" style="${layers.style};z-index:${layers.frontDepth}">${layers.front}</div>`;
-          (e.animals||[]).forEach((a,i)=>{const am=resolveWorldArt({...a,kind:'animal'},ctx.state.now),r=animalPlacement(e,f,i,am);html+=`<button class="fw-animal ${faded.has(e.id)?'fw-occluder-faded':''} ${presentation.muted?'fw-muted-neighbor':''} ${selectedAnimal===a.id?'selected':''} ${gesture?.stroke?.seen.has(a.id)?'marked':''}" data-animal="${a.id}" data-shelter="${e.id}" data-depth="${r.depth}" style="left:${r.left}px;top:${r.top}px;width:${r.width}px;height:${r.height}px;z-index:${r.depth}" aria-label="${esc(name(a.configId))}，${a.status==='hungry'?'饿了':a.status==='ready'?'产物待收':remaining(a.readyAt)}">${animalArt(a)}<span class="fw-animal-state ${a.status==='ready'?'fw-ready-output':''}">${a.status==='ready'?item(config.ANIMALS[a.configId].product):a.status==='hungry'?item(config.ANIMALS[a.configId].feedItem):'◷'}</span></button>`;});
+          html+=`<div class="fw-pen-component" style="${layers.style};z-index:${layers.groundDepth}">${layers.ground}</div><div class="fw-pen-component ${faded.has(e.id)?'fw-occluder-faded':''}" style="${layers.style};z-index:${layers.rearDepth}">${layers.rear}</div><div class="fw-pen-component ${faded.has(e.id)?'fw-occluder-faded':''}" style="${layers.style};z-index:${layers.frontDepth}">${layers.front}</div>`;
+          (e.animals||[]).forEach((a,i)=>{const am=animalMeta(a,e),r=animalPlacement(e,f,i,am),shadow=am.shelterLayered&&resolveShelterAnimalShadow(a);
+            if(shadow)html+=`<div class="fw-animal-shadow ${faded.has(e.id)?'fw-occluder-faded':''}" style="left:${r.left}px;top:${r.top}px;width:${r.width}px;height:${r.height}px;z-index:3">${renderRuntimeArt(shadow,{mirror:r.mirror})}</div>`;
+            html+=`<button class="fw-animal ${am?.shelterLayered?'fw-layered-animal':''} ${faded.has(e.id)?'fw-occluder-faded':''} ${presentation.muted?'fw-muted-neighbor':''} ${selectedAnimal===a.id?'selected':''} ${gesture?.stroke?.seen.has(a.id)?'marked':''}" data-animal="${a.id}" data-shelter="${e.id}" data-depth="${r.depth}" style="left:${r.left}px;top:${r.top}px;width:${r.width}px;height:${r.height}px;z-index:${r.depth}" aria-label="${esc(name(a.configId))}，${a.status==='hungry'?'饿了':a.status==='ready'?'产物待收':remaining(a.readyAt)}">${animalArt(a,e)}${selected===e.id&&!draft?`<span class="fw-animal-state ${a.status==='ready'?'fw-ready-output':''}">${a.status==='ready'?item(config.ANIMALS[a.configId].product):a.status==='hungry'?item(config.ANIMALS[a.configId].feedItem):'◷'}</span>`:''}</button>`;
+          });
+          const summary=shelterSummary(e);if(!draft&&summary&&selected!==e.id&&!faded.has(e.id)){const g=groundRect(e,f),p=resolveShelterSpec(e)?shelterCanvasPoint(e,f,[1050,590]):{x:g.right,y:(g.top+g.bottom)/2};html+=`<button class="fw-pen-summary" data-pen="${e.id}" style="left:${p.x-9}px;top:${p.y-24}px;z-index:${layers.frontDepth+2}" aria-label="${esc(title(e))}，${summary.label}，选择工具">${summary.state==='ready'?item(config.ANIMALS[e.configId].product):item(config.ANIMALS[e.configId].feedItem)}<small>${summary.count}</small></button>`;}
           if(!draft&&selected===e.id) {const g=groundRect(e,f);html+=`<button class="fw-pen-label" data-pen="${e.id}" style="left:${(g.left+g.right)/2-30}px;top:${g.bottom+3}px;z-index:1600" aria-label="查看${esc(title(e))}，${e.animals.length}只">${esc(title(e))} ${e.animals.length}/${config.ANIMALS[e.configId].capacity}</button>`;}
 
         }
@@ -312,7 +329,7 @@ export function mountWorldScene(ctx) {
       }else if(localPage==='move-animal'){
         const e=selectedEntity();heading='迁移伙伴 · 保留生产计时';
         const targets=ctx.state.entities.filter(t=>t.kind==='shelter'&&t.id!==e?.id&&t.configId===e?.configId&&t.animals.length<config.ANIMALS[t.configId].capacity);
-        body=!e||!targets.length?'<p>还没有有空位的同类栏舍。可先在商店建造同类栏舍。</p>':`<p>选择伙伴和目标栏舍。迁移不收费、不喂养，也不重置生产或待收产物。</p>${e.animals.map((a,i)=>`<section class="fw-animal-transfer">${animalArt(a)}<strong>${esc(name(a.configId))} ${i+1} · ${a.status==='ready'?'产物待收':a.status==='hungry'?'饿了':remaining(a.readyAt)}</strong><div>${targets.map(t=>button('move-animal:'+a.id+':'+t.id,`迁入 (${t.x},${t.y}) · ${t.animals.length}/${config.ANIMALS[t.configId].capacity}`)).join('')}</div></section>`).join('')}`;
+        body=!e||!targets.length?'<p>还没有有空位的同类栏舍。可先在商店建造同类栏舍。</p>':`<p>选择伙伴和目标栏舍。迁移不收费、不喂养，也不重置生产或待收产物。</p>${e.animals.map((a,i)=>`<section class="fw-animal-transfer">${animalArt(a,e)}<strong>${esc(name(a.configId))} ${i+1} · ${a.status==='ready'?'产物待收':a.status==='hungry'?'饿了':remaining(a.readyAt)}</strong><div>${targets.map(t=>button('move-animal:'+a.id+':'+t.id,`迁入 (${t.x},${t.y}) · ${t.animals.length}/${config.ANIMALS[t.configId].capacity}`)).join('')}</div></section>`).join('')}`;
       }else if(localPage==='layouts'){
         heading='两张布局方案';body=`<div class="fw-layout-slots">${[0,1].map(slot=>{const positions=ctx.state.layoutSlots[slot];return `<section><strong>方案 ${slot+1}</strong>${renderLayoutThumbnail(positions,slot)}${button(`save-slot:${slot}`,'记录草稿')}${button(`load-slot:${slot}`,'放入草稿','',positions?'':'disabled')}</section>`;}).join('')}</div>`;
       }
@@ -328,7 +345,7 @@ export function mountWorldScene(ctx) {
     function buyCommand(){return placement?{type:'buy',category:placement.category,itemId:placement.configId,x:placement.x,y:placement.y,rotation:placement.rotation,...(['machine','shelter','field','fruit'].includes(placement.category)&&placement.growthOrigin&&placement.x===placement.growthOrigin.x&&placement.y===placement.growthOrigin.y&&placement.rotation===placement.growthOrigin.rotation?{growthPlacement:true}:{})}:null;}
     function placementCheck(){return placement?commandPreview(ctx,buyCommand()):{ok:false};}
     function penPreview(e){
-      if(e.kind!=='shelter')return '';
+      if(e.kind!=='shelter'||resolveShelterSpec(e))return '';
       const f=ctx.layout.getFootprint(e),r=visualRect(e),g=groundRect(e,f),layers=penLayers(e,f),style=`left:${g.left-r.left}px;top:${g.top-18-r.top}px;width:${g.width}px;height:${g.height+18}px`;
       return ['ground','rear','front'].map(layer=>`<div class="fw-pen-component" style="${style};z-index:${layer==='front'?2:0}">${layers[layer]}</div>`).join('');
     }
@@ -442,12 +459,13 @@ export function mountWorldScene(ctx) {
       }
       return r;
     }
+    function shelterForegroundAt(e,p){const w=worldPoint(p);return shelterLayerHit(e,ctx.layout.getFootprint(e),'frontFence',project(w.x,w.y));}
     function targetsFor(tool){
       if(tool.action==='collectMachine')return [...root.querySelectorAll('[data-product]')].filter(el=>el.dataset.machine===tool.entityId).map(el=>({id:el.dataset.product,entityId:el.dataset.machine,...visibleTargetRect(el)}));
       if(tool.action==='feed'||tool.action==='collectAnimal')return [...world.querySelectorAll('[data-animal]')].filter(el=>{
         const shelter=entity(el.dataset.shelter),a=shelter?.animals.find(a=>a.id===el.dataset.animal);
         return !el.classList.contains('fw-occluder-faded')&&a?.status===(tool.action==='feed'?'hungry':'ready');
-      }).map(el=>{const r=rectData(el.getBoundingClientRect()),shelter=entity(el.dataset.shelter),a=shelter.animals.find(a=>a.id===el.dataset.animal),meta=resolveWorldArt({...a,kind:'animal'},ctx.state.now);const badge=el.querySelector('.fw-animal-state')?.getBoundingClientRect(),bounds=badge?{left:Math.min(r.left,badge.left),top:Math.min(r.top,badge.top),right:Math.max(r.right,badge.right),bottom:Math.max(r.bottom,badge.bottom)}:r;return {id:a.id,entityId:shelter.id,...bounds,acceptPoint:p=>(badge&&within(p,badge))||(meta?runtimeArtHit(meta,(p.x-r.left)/(r.right-r.left),(p.y-r.top)/(r.bottom-r.top)):within(p,r))};});
+      }).map(el=>{const r=rectData(el.getBoundingClientRect()),shelter=entity(el.dataset.shelter),a=shelter.animals.find(a=>a.id===el.dataset.animal),meta=animalMeta(a,shelter);const badge=el.querySelector('.fw-animal-state')?.getBoundingClientRect(),bounds=badge?{left:Math.min(r.left,badge.left),top:Math.min(r.top,badge.top),right:Math.max(r.right,badge.right),bottom:Math.max(r.bottom,badge.bottom)}:r;return {id:a.id,entityId:shelter.id,...bounds,acceptPoint:p=>(badge&&within(p,badge))||(meta?runtimeArtHit(meta,(p.x-r.left)/(r.right-r.left),(p.y-r.top)/(r.bottom-r.top),{mirror:meta.shelterLayered&&mirroredArt(shelter)})&&!shelterForegroundAt(shelter,p):within(p,r))};});
       const origin=entity(tool.entityId);
       const targets=[...world.querySelectorAll('[data-entity]')].filter(el=>{const e=entity(el.dataset.entity);return tool.action==='enqueue'?e.id===tool.entityId:tool.action==='plant'?e.kind==='field'&&!e.crop:origin?.kind==='fruit'?e.kind==='fruit'&&e.status==='ready':e.kind==='field'&&e.crop?.readyAt<=ctx.state.now;}).map(el=>{const e=entity(el.dataset.entity),polygon=screenPolygon(e);return {id:e.id,...polygonBounds(polygon),polygon};});
       if(tool.action==='enqueue')for(const el of root.querySelectorAll('[data-queue-owner]'))if(el.dataset.queueOwner===tool.entityId)targets.push({id:tool.entityId,...visibleTargetRect(el)});
@@ -506,12 +524,17 @@ export function mountWorldScene(ctx) {
         const f=ctx.layout.getFootprint(e),r=visualRect(e),meta=isConnectedFence(e)?null:resolveWorldArt(e,ctx.state.now);
         if(!faded.has(e.id)){
           const ground=pointInPolygon(projected,footprintPolygon(e,f)),u=(projected.x-r.left)/r.width,v=(projected.y-r.top)/r.height;
-          const alpha=e.kind==='field'&&!e.crop?false:meta?runtimeArtHit(meta,u,v,{mirror:mirroredArt(e)}):fallbackArtHit(e,u,v);
-          if(e.kind==='road'?ground:alpha||ground)sprites.push({entityId:e.id,z:alpha&&runtimeArtFrontHit(meta,u,v,{mirror:mirroredArt(e)})?depth(e,f)+1:entityPaintDepth(e)});
+          const spec=e.kind==='shelter'&&resolveShelterSpec(e);
+          if(spec){
+            sprites.push(...shelterHitCandidates(e,f,projected));
+          }else{
+            const alpha=e.kind==='field'&&!e.crop?false:meta?runtimeArtHit(meta,u,v,{mirror:mirroredArt(e)}):fallbackArtHit(e,u,v);
+            if(e.kind==='road'?ground:alpha||ground)sprites.push({entityId:e.id,z:alpha&&runtimeArtFrontHit(meta,u,v,{mirror:mirroredArt(e)})?depth(e,f)+1:entityPaintDepth(e)});
+          }
         }
         if(e.kind==='shelter'&&!draft&&!faded.has(e.id))for(const el of world.querySelectorAll(`[data-shelter="${e.id}"]`)){
-          const r=el.getBoundingClientRect(),a=e.animals.find(a=>a.id===el.dataset.animal),meta=resolveWorldArt({...a,kind:'animal'},ctx.state.now),u=(p.x-r.left)/r.width,v=(p.y-r.top)/r.height;
-          const badge=el.querySelector('.fw-animal-state')?.getBoundingClientRect();if((badge&&within(p,badge))||(meta?runtimeArtHit(meta,u,v):u>=.15&&u<=.85&&v>=.1&&v<=.95))sprites.push({entityId:e.id,animalId:a.id,z:Number(el.dataset.depth)});
+          const r=el.getBoundingClientRect(),a=e.animals.find(a=>a.id===el.dataset.animal),meta=animalMeta(a,e),u=(p.x-r.left)/r.width,v=(p.y-r.top)/r.height;
+          const badge=el.querySelector('.fw-animal-state')?.getBoundingClientRect();if((badge&&within(p,badge))||(meta?runtimeArtHit(meta,u,v,{mirror:meta.shelterLayered&&mirroredArt(e)}):u>=.15&&u<=.85&&v>=.1&&v<=.95))sprites.push({entityId:e.id,animalId:a.id,z:Number(el.dataset.depth)});
         }
       }
       const top=topmostHit(sprites);if(top)return top;
