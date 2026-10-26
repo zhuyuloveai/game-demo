@@ -1,0 +1,1689 @@
+{
+  "version": "0.1-sample",
+  "baseCommit": "77a41898f0c9d0d647c93cd9bf266ef1c3b42794",
+  "scope": "P0 production-panel sample only; P1/P2 await direction confirmation",
+  "units": "CSS px at 1x; nineSlice top right bottom left",
+  "components": [
+    {
+      "id": "panel-default",
+      "family": "panel",
+      "state": "default",
+      "file": "components/panel-default.svg",
+      "canvas": [
+        96,
+        96
+      ],
+      "nineSlice": [
+        26,
+        26,
+        26,
+        26
+      ],
+      "contentPadding": [
+        14,
+        14,
+        12,
+        14
+      ],
+      "safeContentRect": [
+        14,
+        14,
+        68,
+        70
+      ],
+      "minimumDisplaySize": [
+        280,
+        220
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "title-default",
+      "family": "title",
+      "state": "default",
+      "file": "components/title-default.svg",
+      "canvas": [
+        96,
+        64
+      ],
+      "nineSlice": [
+        20,
+        20,
+        20,
+        20
+      ],
+      "contentPadding": [
+        12,
+        16,
+        12,
+        16
+      ],
+      "safeContentRect": [
+        16,
+        12,
+        64,
+        40
+      ],
+      "minimumDisplaySize": [
+        160,
+        52
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "well-default",
+      "family": "well",
+      "state": "default",
+      "file": "components/well-default.svg",
+      "canvas": [
+        80,
+        80
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        12,
+        56,
+        56
+      ],
+      "minimumDisplaySize": [
+        72,
+        64
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "divider-default",
+      "family": "divider",
+      "state": "default",
+      "file": "components/divider-default.svg",
+      "canvas": [
+        64,
+        4
+      ],
+      "nineSlice": [
+        0,
+        2,
+        0,
+        2
+      ],
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": [
+        0,
+        0,
+        64,
+        4
+      ],
+      "minimumDisplaySize": [
+        32,
+        4
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "button-primary-default",
+      "family": "button-primary",
+      "state": "default",
+      "file": "components/button-primary-default.svg",
+      "canvas": [
+        96,
+        48
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        18,
+        10,
+        18
+      ],
+      "safeContentRect": [
+        18,
+        10,
+        60,
+        28
+      ],
+      "minimumDisplaySize": [
+        88,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "button-primary-pressed",
+      "family": "button-primary",
+      "state": "pressed",
+      "file": "components/button-primary-pressed.svg",
+      "canvas": [
+        96,
+        48
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        18,
+        10,
+        18
+      ],
+      "safeContentRect": [
+        18,
+        10,
+        60,
+        28
+      ],
+      "minimumDisplaySize": [
+        88,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "button-primary-disabled",
+      "family": "button-primary",
+      "state": "disabled",
+      "file": "components/button-primary-disabled.svg",
+      "canvas": [
+        96,
+        48
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        18,
+        10,
+        18
+      ],
+      "safeContentRect": [
+        18,
+        10,
+        60,
+        28
+      ],
+      "minimumDisplaySize": [
+        88,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "button-secondary-default",
+      "family": "button-secondary",
+      "state": "default",
+      "file": "components/button-secondary-default.svg",
+      "canvas": [
+        96,
+        48
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        18,
+        10,
+        18
+      ],
+      "safeContentRect": [
+        18,
+        10,
+        60,
+        28
+      ],
+      "minimumDisplaySize": [
+        88,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "button-secondary-pressed",
+      "family": "button-secondary",
+      "state": "pressed",
+      "file": "components/button-secondary-pressed.svg",
+      "canvas": [
+        96,
+        48
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        18,
+        10,
+        18
+      ],
+      "safeContentRect": [
+        18,
+        10,
+        60,
+        28
+      ],
+      "minimumDisplaySize": [
+        88,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "button-secondary-disabled",
+      "family": "button-secondary",
+      "state": "disabled",
+      "file": "components/button-secondary-disabled.svg",
+      "canvas": [
+        96,
+        48
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        18,
+        10,
+        18
+      ],
+      "safeContentRect": [
+        18,
+        10,
+        60,
+        28
+      ],
+      "minimumDisplaySize": [
+        88,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "close-default",
+      "family": "close",
+      "state": "default",
+      "file": "components/close-default.svg",
+      "canvas": [
+        48,
+        48
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        44,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "close-pressed",
+      "family": "close",
+      "state": "pressed",
+      "file": "components/close-pressed.svg",
+      "canvas": [
+        48,
+        48
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        44,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "close-disabled",
+      "family": "close",
+      "state": "disabled",
+      "file": "components/close-disabled.svg",
+      "canvas": [
+        48,
+        48
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        44,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "tab-default",
+      "family": "tab",
+      "state": "default",
+      "file": "components/tab-default.svg",
+      "canvas": [
+        96,
+        40
+      ],
+      "nineSlice": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "contentPadding": [
+        8,
+        14,
+        8,
+        14
+      ],
+      "safeContentRect": [
+        14,
+        8,
+        68,
+        24
+      ],
+      "minimumDisplaySize": [
+        80,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "tab-selected",
+      "family": "tab",
+      "state": "selected",
+      "file": "components/tab-selected.svg",
+      "canvas": [
+        96,
+        40
+      ],
+      "nineSlice": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "contentPadding": [
+        8,
+        14,
+        8,
+        14
+      ],
+      "safeContentRect": [
+        14,
+        8,
+        68,
+        24
+      ],
+      "minimumDisplaySize": [
+        80,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "tab-pressed",
+      "family": "tab",
+      "state": "pressed",
+      "file": "components/tab-pressed.svg",
+      "canvas": [
+        96,
+        40
+      ],
+      "nineSlice": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "contentPadding": [
+        8,
+        14,
+        8,
+        14
+      ],
+      "safeContentRect": [
+        14,
+        8,
+        68,
+        24
+      ],
+      "minimumDisplaySize": [
+        80,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "tab-disabled",
+      "family": "tab",
+      "state": "disabled",
+      "file": "components/tab-disabled.svg",
+      "canvas": [
+        96,
+        40
+      ],
+      "nineSlice": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "contentPadding": [
+        8,
+        14,
+        8,
+        14
+      ],
+      "safeContentRect": [
+        14,
+        8,
+        68,
+        24
+      ],
+      "minimumDisplaySize": [
+        80,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "item-slot-default",
+      "family": "item-slot",
+      "state": "default",
+      "file": "components/item-slot-default.svg",
+      "canvas": [
+        72,
+        72
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        52,
+        52
+      ],
+      "minimumDisplaySize": [
+        64,
+        64
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "item-slot-selected",
+      "family": "item-slot",
+      "state": "selected",
+      "file": "components/item-slot-selected.svg",
+      "canvas": [
+        72,
+        72
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        52,
+        52
+      ],
+      "minimumDisplaySize": [
+        64,
+        64
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "item-slot-pressed",
+      "family": "item-slot",
+      "state": "pressed",
+      "file": "components/item-slot-pressed.svg",
+      "canvas": [
+        72,
+        72
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        52,
+        52
+      ],
+      "minimumDisplaySize": [
+        64,
+        64
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "item-slot-disabled",
+      "family": "item-slot",
+      "state": "disabled",
+      "file": "components/item-slot-disabled.svg",
+      "canvas": [
+        72,
+        72
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        52,
+        52
+      ],
+      "minimumDisplaySize": [
+        64,
+        64
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "item-slot-missing",
+      "family": "item-slot",
+      "state": "missing",
+      "file": "components/item-slot-missing.svg",
+      "canvas": [
+        72,
+        72
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        52,
+        52
+      ],
+      "minimumDisplaySize": [
+        64,
+        64
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "recipe-card-default",
+      "family": "recipe-card",
+      "state": "default",
+      "file": "components/recipe-card-default.svg",
+      "canvas": [
+        112,
+        104
+      ],
+      "nineSlice": [
+        19,
+        19,
+        19,
+        19
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        92,
+        84
+      ],
+      "minimumDisplaySize": [
+        88,
+        88
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "recipe-card-selected",
+      "family": "recipe-card",
+      "state": "selected",
+      "file": "components/recipe-card-selected.svg",
+      "canvas": [
+        112,
+        104
+      ],
+      "nineSlice": [
+        19,
+        19,
+        19,
+        19
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        92,
+        84
+      ],
+      "minimumDisplaySize": [
+        88,
+        88
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "recipe-card-pressed",
+      "family": "recipe-card",
+      "state": "pressed",
+      "file": "components/recipe-card-pressed.svg",
+      "canvas": [
+        112,
+        104
+      ],
+      "nineSlice": [
+        19,
+        19,
+        19,
+        19
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        92,
+        84
+      ],
+      "minimumDisplaySize": [
+        88,
+        88
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "recipe-card-disabled",
+      "family": "recipe-card",
+      "state": "disabled",
+      "file": "components/recipe-card-disabled.svg",
+      "canvas": [
+        112,
+        104
+      ],
+      "nineSlice": [
+        19,
+        19,
+        19,
+        19
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        92,
+        84
+      ],
+      "minimumDisplaySize": [
+        88,
+        88
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "recipe-card-missing",
+      "family": "recipe-card",
+      "state": "missing",
+      "file": "components/recipe-card-missing.svg",
+      "canvas": [
+        112,
+        104
+      ],
+      "nineSlice": [
+        19,
+        19,
+        19,
+        19
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        92,
+        84
+      ],
+      "minimumDisplaySize": [
+        88,
+        88
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "queue-slot-empty",
+      "family": "queue-slot",
+      "state": "empty",
+      "file": "components/queue-slot-empty.svg",
+      "canvas": [
+        80,
+        80
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        60,
+        60
+      ],
+      "minimumDisplaySize": [
+        64,
+        64
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "queue-slot-running",
+      "family": "queue-slot",
+      "state": "running",
+      "file": "components/queue-slot-running.svg",
+      "canvas": [
+        80,
+        80
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        60,
+        60
+      ],
+      "minimumDisplaySize": [
+        64,
+        64
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "queue-slot-waiting",
+      "family": "queue-slot",
+      "state": "waiting",
+      "file": "components/queue-slot-waiting.svg",
+      "canvas": [
+        80,
+        80
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        60,
+        60
+      ],
+      "minimumDisplaySize": [
+        64,
+        64
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "queue-slot-complete",
+      "family": "queue-slot",
+      "state": "complete",
+      "file": "components/queue-slot-complete.svg",
+      "canvas": [
+        80,
+        80
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        60,
+        60
+      ],
+      "minimumDisplaySize": [
+        64,
+        64
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "queue-slot-locked",
+      "family": "queue-slot",
+      "state": "locked",
+      "file": "components/queue-slot-locked.svg",
+      "canvas": [
+        80,
+        80
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        60,
+        60
+      ],
+      "minimumDisplaySize": [
+        64,
+        64
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "quantity-default",
+      "family": "quantity",
+      "state": "default",
+      "file": "components/quantity-default.svg",
+      "canvas": [
+        64,
+        28
+      ],
+      "nineSlice": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "contentPadding": [
+        4,
+        8,
+        4,
+        8
+      ],
+      "safeContentRect": [
+        8,
+        4,
+        48,
+        20
+      ],
+      "minimumDisplaySize": [
+        36,
+        24
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "quantity-missing",
+      "family": "quantity",
+      "state": "missing",
+      "file": "components/quantity-missing.svg",
+      "canvas": [
+        64,
+        28
+      ],
+      "nineSlice": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "contentPadding": [
+        4,
+        8,
+        4,
+        8
+      ],
+      "safeContentRect": [
+        8,
+        4,
+        48,
+        20
+      ],
+      "minimumDisplaySize": [
+        36,
+        24
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "quantity-complete",
+      "family": "quantity",
+      "state": "complete",
+      "file": "components/quantity-complete.svg",
+      "canvas": [
+        64,
+        28
+      ],
+      "nineSlice": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "contentPadding": [
+        4,
+        8,
+        4,
+        8
+      ],
+      "safeContentRect": [
+        8,
+        4,
+        48,
+        20
+      ],
+      "minimumDisplaySize": [
+        36,
+        24
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "quantity-disabled",
+      "family": "quantity",
+      "state": "disabled",
+      "file": "components/quantity-disabled.svg",
+      "canvas": [
+        64,
+        28
+      ],
+      "nineSlice": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "contentPadding": [
+        4,
+        8,
+        4,
+        8
+      ],
+      "safeContentRect": [
+        8,
+        4,
+        48,
+        20
+      ],
+      "minimumDisplaySize": [
+        36,
+        24
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "progress-track",
+      "family": "progress",
+      "state": "track",
+      "file": "components/progress-track.svg",
+      "canvas": [
+        96,
+        16
+      ],
+      "nineSlice": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "contentPadding": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "safeContentRect": [
+        2,
+        2,
+        92,
+        12
+      ],
+      "minimumDisplaySize": [
+        40,
+        12
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "progress-fill",
+      "family": "progress",
+      "state": "fill",
+      "file": "components/progress-fill.svg",
+      "canvas": [
+        96,
+        16
+      ],
+      "nineSlice": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        12,
+        12
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "notice-info",
+      "family": "notice",
+      "state": "info",
+      "file": "components/notice-info.svg",
+      "canvas": [
+        96,
+        64
+      ],
+      "nineSlice": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "contentPadding": [
+        10,
+        12,
+        10,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        10,
+        72,
+        44
+      ],
+      "minimumDisplaySize": [
+        160,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "notice-missing",
+      "family": "notice",
+      "state": "missing",
+      "file": "components/notice-missing.svg",
+      "canvas": [
+        96,
+        64
+      ],
+      "nineSlice": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "contentPadding": [
+        10,
+        12,
+        10,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        10,
+        72,
+        44
+      ],
+      "minimumDisplaySize": [
+        160,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "notice-full",
+      "family": "notice",
+      "state": "full",
+      "file": "components/notice-full.svg",
+      "canvas": [
+        96,
+        64
+      ],
+      "nineSlice": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "contentPadding": [
+        10,
+        12,
+        10,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        10,
+        72,
+        44
+      ],
+      "minimumDisplaySize": [
+        160,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "notice-empty",
+      "family": "notice",
+      "state": "empty",
+      "file": "components/notice-empty.svg",
+      "canvas": [
+        96,
+        64
+      ],
+      "nineSlice": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "contentPadding": [
+        10,
+        12,
+        10,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        10,
+        72,
+        44
+      ],
+      "minimumDisplaySize": [
+        160,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "symbol-lock",
+      "family": "symbol",
+      "state": "lock",
+      "file": "components/symbol-lock.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        16,
+        16
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "symbol-complete",
+      "family": "symbol",
+      "state": "complete",
+      "file": "components/symbol-complete.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        16,
+        16
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "symbol-clock",
+      "family": "symbol",
+      "state": "clock",
+      "file": "components/symbol-clock.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        16,
+        16
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "symbol-plus",
+      "family": "symbol",
+      "state": "plus",
+      "file": "components/symbol-plus.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        16,
+        16
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "symbol-warning",
+      "family": "symbol",
+      "state": "warning",
+      "file": "components/symbol-warning.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        16,
+        16
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    },
+    {
+      "id": "symbol-arrow",
+      "family": "symbol",
+      "state": "arrow",
+      "file": "components/symbol-arrow.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        16,
+        16
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false
+    }
+  ]
+}

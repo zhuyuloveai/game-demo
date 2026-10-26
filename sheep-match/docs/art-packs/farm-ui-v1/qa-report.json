@@ -1,0 +1,84 @@
+{
+  "status": "passed",
+  "components": 48,
+  "families": 15,
+  "unchangedReusedArt": 12,
+  "existingEnvironmentReviewed": 12,
+  "layouts": [
+    {
+      "name": "mobile-long-layout",
+      "viewport": [
+        400,
+        740
+      ],
+      "bodyClientHeight": 382,
+      "bodyScrollHeight": 382,
+      "brokenImages": [],
+      "documentOverflow": false,
+      "undersizedTargets": []
+    },
+    {
+      "name": "production-wide-layout",
+      "viewport": [
+        1280,
+        720
+      ],
+      "bodyClientHeight": 440,
+      "bodyScrollHeight": 440,
+      "brokenImages": [],
+      "documentOverflow": false,
+      "undersizedTargets": []
+    },
+    {
+      "name": "mobile-missing-layout",
+      "viewport": [
+        400,
+        740
+      ],
+      "bodyClientHeight": 432,
+      "bodyScrollHeight": 432,
+      "brokenImages": [],
+      "documentOverflow": false,
+      "undersizedTargets": []
+    },
+    {
+      "name": "mobile-empty-layout",
+      "viewport": [
+        400,
+        740
+      ],
+      "bodyClientHeight": 432,
+      "bodyScrollHeight": 432,
+      "brokenImages": [],
+      "documentOverflow": false,
+      "undersizedTargets": []
+    },
+    {
+      "name": "mobile-full-layout",
+      "viewport": [
+        400,
+        740
+      ],
+      "bodyClientHeight": 400,
+      "bodyScrollHeight": 400,
+      "brokenImages": [],
+      "documentOverflow": false,
+      "undersizedTargets": []
+    },
+    {
+      "name": "production-mobile-layout",
+      "viewport": [
+        400,
+        740
+      ],
+      "bodyClientHeight": 382,
+      "bodyScrollHeight": 382,
+      "brokenImages": [],
+      "documentOverflow": false,
+      "undersizedTargets": []
+    }
+  ],
+  "gameCodeChanged": false,
+  "p1TerrainAuthored": false,
+  "p2EffectsAuthored": false
+}

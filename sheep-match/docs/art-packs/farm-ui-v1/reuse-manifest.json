@@ -1,0 +1,86 @@
+[
+  {
+    "id": "bread",
+    "file": "reused/bread.svg",
+    "original": "assets/farm/items/bread.svg",
+    "sha256": "0ec2befd0e4b79f7484c44fb7abc78e1585989a38d8be704611fe36772e496d7",
+    "change": "none"
+  },
+  {
+    "id": "corn_bread",
+    "file": "reused/corn_bread.svg",
+    "original": "assets/farm/items/corn_bread.svg",
+    "sha256": "53b32e55ab95e3305411a87b2ea8bdafcddbd870b874c0cd4ca6e5ecd7031fa5",
+    "change": "none"
+  },
+  {
+    "id": "cookie",
+    "file": "reused/cookie.svg",
+    "original": "assets/farm/items/cookie.svg",
+    "sha256": "eb5c824a9fa930ef8c8f2aa299b216f1a64d07e46708ac822090eebe55928287",
+    "change": "none"
+  },
+  {
+    "id": "raspberry_muffin",
+    "file": "reused/raspberry_muffin.svg",
+    "original": "assets/farm/items/raspberry_muffin.svg",
+    "sha256": "02d9a7407cad70caa4ced68c30356a78fdabcd7af2f3a2b8671302e54adfd920",
+    "change": "none"
+  },
+  {
+    "id": "blackberry_muffin",
+    "file": "reused/blackberry_muffin.svg",
+    "original": "assets/farm/items/blackberry_muffin.svg",
+    "sha256": "a36f65efa1c88699d98b6ab058f7b6b31511ee9b264c1c28505ea7642c70634c",
+    "change": "none"
+  },
+  {
+    "id": "wheat",
+    "file": "reused/wheat.svg",
+    "original": "assets/farm/items/wheat.svg",
+    "sha256": "e22ab9e9f9b656ce9e0e11f5bfe7bba3a5475e6f8878d52c8d8db8b1afbc438b",
+    "change": "none"
+  },
+  {
+    "id": "corn",
+    "file": "reused/corn.svg",
+    "original": "assets/farm/items/corn.svg",
+    "sha256": "c4249c71824003a0d94439d09402f33bbdf1c54136be74a8f4d51048af75ae5b",
+    "change": "none"
+  },
+  {
+    "id": "egg",
+    "file": "reused/egg.svg",
+    "original": "assets/farm/items/egg.svg",
+    "sha256": "372dc0ed41d20ccf04a35e06f7c01e137cfec909b2a06eb786d13349ee5bd24f",
+    "change": "none"
+  },
+  {
+    "id": "brown_sugar",
+    "file": "reused/brown_sugar.svg",
+    "original": "assets/farm/items/brown_sugar.svg",
+    "sha256": "f77e226d2132ace4e27dabf33f19add948c003de57ec943d433d67c5b593db33",
+    "change": "none"
+  },
+  {
+    "id": "raspberry",
+    "file": "reused/raspberry.svg",
+    "original": "assets/farm/items/raspberry.svg",
+    "sha256": "4c3a4b8e694aae2b56853ba3de80353d33e838db9c2b9bfce497fda1ad19195a",
+    "change": "none"
+  },
+  {
+    "id": "blackberry",
+    "file": "reused/blackberry.svg",
+    "original": "assets/farm/items/blackberry.svg",
+    "sha256": "d0e285fafdbc6af1826a513da56c77c69ed42e6d797c5350fc7c2bc2fc075959",
+    "change": "none"
+  },
+  {
+    "id": "bakery",
+    "file": "reused/bakery.png",
+    "original": "assets/farm-runtime/buildings/bakery.png",
+    "sha256": "9bc26c3c6f97382a14e4c5e77cd20c8b1cc8bfc87da7eb2d82e55dbb4ff6e5ca",
+    "change": "none"
+  }
+]
