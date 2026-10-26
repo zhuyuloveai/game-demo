@@ -5,11 +5,9 @@
 import {validateLayout,positionOf,isFixedEntity,isGround,isPassable,isCellOpen,entityCells,operationDoor,needsDoor,FARM_MAP} from './farm-layout.mjs';
 
 export const GROWTH_STAGES=Object.freeze([
-  {id:1,name:'一小片家园',description:'已有小屋、仓库、六块田与鸡舍'},
-  {id:2,name:'农场初成',description:'实际购入第一座工坊或增加田地'},
-  {id:3,name:'生产成簇',description:'拥有五座工坊或三种动物栏舍'},
-  {id:4,name:'果牧丰盛',description:'拥有果园并扩展生产，或拥有九座工坊'},
-  {id:5,name:'繁荣农庄',description:'拥有十二座工坊，或四十八块田与五种果树'}
+  {id:1,name:'小农场',description:'从六块田起步，逐步添置工坊与动物栏舍'},
+  {id:2,name:'成长农场',description:'拥有五座工坊或三种动物栏舍，继续扩展生产与果园'},
+  {id:3,name:'繁荣农场',description:'拥有十二座工坊，或四十八块田与五种果树'}
 ].map(Object.freeze));
 const MACHINE_SLOTS=Object.freeze({
   bakery:[34,18],feed_mill_1:[38,18],feed_mill_2:[44,18],dairy:[42,18],
@@ -29,8 +27,9 @@ export function farmGrowthStage(state){
   const owned=state.entities.filter(e=>!e.stored),machines=owned.filter(e=>e.kind==='machine'),fields=owned.filter(e=>e.kind==='field').length;
   const animals=new Set(owned.filter(e=>e.kind==='shelter').map(e=>e.configId)).size;
   const fruits=new Set(owned.filter(e=>e.kind==='fruit').map(e=>e.configId)).size;
-  const n=machines.length>=12||(fields>=48&&fruits===5)?5:
-    machines.length>=9||(fruits>0&&animals>=3)?4:machines.length>=5||animals>=3?3:machines.length>0||fields>6?2:1;
+  // Three owned-content bands: legacy stages 1–2 / 3–4 / 5. Derived only, never saved.
+  const n=machines.length>=12||(fields>=48&&fruits===5)?3:
+    machines.length>=5||animals>=3?2:1;
   return {...GROWTH_STAGES[n-1],counts:{fields,machines:machines.length,animalKinds:animals,fruitKinds:fruits}};
 }
 /** Stable slots expand in six-field beds with a one-cell service aisle. */

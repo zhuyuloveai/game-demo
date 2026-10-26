@@ -29,7 +29,7 @@ node --test tests/farm-*.test.mjs docs/art-packs/sumikko-farm-v1/terrain/compone
 
 | 场景 | 检查与结果 |
 | --- | --- |
-| 成长阶段 5 | 建筑、作物、棚舍、道路及成品图标同屏检查，保存 `after.png` |
+| 原五阶段体系的阶段 5（现繁荣农场） | 建筑、作物、棚舍、道路及成品图标同屏检查，保存 `after.png` |
 | 空栏/满栏 | 空栏 0 只动物、五组共 15 层院子组件；满栏共 26 只动物，混合 hungry / producing / ready 状态 |
 | 手机横屏 844×360 | 拖动收蛋篮，一笔收取两只鸡，正式反馈“这一笔已完成 · 鸡蛋 +2”，见 `mobile-collection.png` |
 | 工坊领取 | 点击面包机成品，正式反馈“成品已入仓 · 面包 +1”；领取目标实测 44×44 屏幕像素 |

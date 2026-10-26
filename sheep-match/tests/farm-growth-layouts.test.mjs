@@ -3,22 +3,23 @@ import assert from 'node:assert/strict';
 import {createFarm,executeFarm,advanceFarm,assertFarm} from '../farm-core.mjs';
 import {BUILDINGS,FRUITS,ANIMALS,LEVELS,FARM_CONFIG} from '../farm-config.mjs';
 import {validateLayout,positionOf} from '../farm-layout.mjs';
-import {makeEnvelope,validateEnvelope} from '../farm-save.mjs';
+import {validateFarmState,makeEnvelope,validateEnvelope} from '../farm-save.mjs';
 import {farmGrowthStage,previewGrowthLayout,suggestGrowthPlacement,GROWTH_STAGES} from '../farm-growth-layouts.mjs';
+import {growthFixture,growthFixtureStageFromQuery,penArtFixture} from './farm-growth-fixtures.mjs';
 const cmd=(s,c,t=s.now)=>executeFarm(s,c,t).state;
 const rich=()=>{const s=createFarm(0);s.level=30;s.xp=LEVELS[29].totalXp;s.coins=10000000;return s;};
 const positions=s=>s.entities.map(positionOf);
 const buy=(s,category,itemId)=>cmd(s,{type:'buy',category,itemId});
 const rest=e=>{const {x,y,rotation,stored,...r}=e;return r;};
 test('new farm is a valid compact authored blueprint without extra owned content',()=>{
- const s=createFarm(0);assertFarm(s);assert.equal(validateLayout(s).ok,true);assert.equal(s.entities.filter(e=>e.kind!=='road').length,15);assert.equal(s.coins,100);assert.equal(s.entities.find(e=>e.kind==='shelter').x,22);assert.equal(previewGrowthLayout(s).changed,0);assert.equal(farmGrowthStage(s).id,1);assert.equal(GROWTH_STAGES.length,5);
+ const s=createFarm(0);assertFarm(s);assert.equal(validateLayout(s).ok,true);assert.equal(s.entities.filter(e=>e.kind!=='road').length,15);assert.equal(s.coins,100);assert.equal(s.entities.find(e=>e.kind==='shelter').x,22);assert.equal(previewGrowthLayout(s).changed,0);assert.equal(farmGrowthStage(s).id,1);assert.equal(GROWTH_STAGES.length,3);
 });
 test('growth stages use owned milestones, never level alone or unpurchased templates',()=>{
- let s=rich();assert.equal(farmGrowthStage(s).id,1);s=buy(s,'machine','bakery');assert.equal(farmGrowthStage(s).id,2);
- for(const id of ['feed_mill_1','dairy','sugar_mill','popcorn_pot'])s=buy(s,'machine',id);assert.equal(farmGrowthStage(s).id,3);
- for(const id of ['bbq_grill','pie_oven','loom','sewing_machine'])s=buy(s,'machine',id);assert.equal(farmGrowthStage(s).id,4);
- for(const id of ['cake_oven','juice_press','ice_cream_maker'])s=buy(s,'machine',id);assert.equal(farmGrowthStage(s).id,5);
- const sparse=buy(rich(),'machine','ice_cream_maker');assert.equal(farmGrowthStage(sparse).id,2);
+ let s=rich();assert.equal(farmGrowthStage(s).id,1);s=buy(s,'machine','bakery');assert.equal(farmGrowthStage(s).id,1);
+ for(const id of ['feed_mill_1','dairy','sugar_mill','popcorn_pot'])s=buy(s,'machine',id);assert.equal(farmGrowthStage(s).id,2);
+ for(const id of ['bbq_grill','pie_oven','loom','sewing_machine'])s=buy(s,'machine',id);assert.equal(farmGrowthStage(s).id,2);
+ for(const id of ['cake_oven','juice_press','ice_cream_maker'])s=buy(s,'machine',id);assert.equal(farmGrowthStage(s).id,3);
+ const sparse=buy(rich(),'machine','ice_cream_maker');assert.equal(farmGrowthStage(sparse).id,1);
 });
 test('all 48 fields and all production/fruit/animal kinds fit additively without moving neighbours',()=>{
  let s=rich();
@@ -27,7 +28,7 @@ test('all 48 fields and all production/fruit/animal kinds fit additively without
  for(const id of Object.keys(BUILDINGS))add('machine',id);
  for(const a of Object.values(ANIMALS))for(let i=a.id==='chicken'?1:0;i<a.levels.length;i++)add('shelter',a.id);
  for(const id of Object.keys(FRUITS))for(let i=0;i<4;i++)add('fruit',id);
- assertFarm(s);assert.equal(s.entities.filter(e=>e.kind==='field').length,48);assert.equal(s.entities.filter(e=>e.kind==='machine').length,13);assert.equal(s.entities.filter(e=>e.kind==='fruit').length,20);assert.equal(s.entities.filter(e=>e.kind==='shelter').length,12);assert.equal(farmGrowthStage(s).id,5);
+ assertFarm(s);assert.equal(s.entities.filter(e=>e.kind==='field').length,48);assert.equal(s.entities.filter(e=>e.kind==='machine').length,13);assert.equal(s.entities.filter(e=>e.kind==='fruit').length,20);assert.equal(s.entities.filter(e=>e.kind==='shelter').length,12);assert.equal(farmGrowthStage(s).id,3);
  const preview=previewGrowthLayout(s);assert.equal(preview.ok,true);assert.equal(validateLayout(s,preview.positions).ok,true);
 });
 test('different purchase order, custom placements and existing saved positions stay untouched',()=>{
@@ -56,4 +57,28 @@ test('explicit invalid position is rejected rather than silently relocated; auto
 
 test('no legal placement returns null without changing land, resources or neighbour positions',()=>{
  const s=rich(),before=structuredClone(s);assert.equal(suggestGrowthPlacement(s,{id:'too-large',kind:'machine',configId:'bakery',w:64,h:64,rotation:0}),null);assert.deepEqual(s,before);
+});
+
+// Stage numbering is derived presentation, not a persisted unlock or placement rule.
+test('three stage names and all owned milestone boundaries exclude stored content',()=>{
+ assert.deepEqual(GROWTH_STAGES.map(({id,name})=>[id,name]),[[1,'小农场'],[2,'成长农场'],[3,'繁荣农场']]);
+ const state=(machines=0,fields=6,animalKinds=1,fruitKinds=0)=>({entities:[
+  ...Array.from({length:machines},(_,i)=>({id:`m${i}`,kind:'machine',configId:`m${i}`})),
+  ...Array.from({length:fields},(_,i)=>({id:`f${i}`,kind:'field'})),
+  ...Array.from({length:animalKinds},(_,i)=>({id:`a${i}`,kind:'shelter',configId:`a${i}`})),
+  ...Array.from({length:fruitKinds},(_,i)=>({id:`r${i}`,kind:'fruit',configId:`r${i}`}))]});
+ for(const [args,want] of [[[0,6,1,0],1],[[1,18,2,0],1],[[4,30,2,0],1],[[5,6,1,0],2],[[0,6,3,0],2],[[9,42,4,4],2],[[11,48,2,4],2],[[12,6,1,0],3],[[0,47,2,5],1],[[0,48,2,4],1],[[0,48,2,5],3]]){
+  const s=state(...args),before=structuredClone(s);assert.equal(farmGrowthStage(s).id,want,JSON.stringify(args));assert.deepEqual(s,before);
+ }
+ const s=state(4,47,2,4);s.entities.push({kind:'machine',stored:true},{kind:'shelter',configId:'extra',stored:true},{kind:'fruit',configId:'extra',stored:true},{kind:'field',stored:true});assert.equal(farmGrowthStage(s).id,1);
+ const duplicate=state(0,6,2,0);duplicate.entities.push({kind:'shelter',configId:'a0'});assert.equal(farmGrowthStage(duplicate).id,1);
+});
+test('three display fixtures match actual derived stages and remain valid saves',()=>{
+ for(const n of [1,2,3]){const s=growthFixture(n);validateFarmState(s);assert.equal(farmGrowthStage(s).id,n);assert.equal(validateEnvelope(makeEnvelope(s)),true);}
+ for(const n of [0,4,5,1.5,NaN])assert.throws(()=>growthFixture(n),RangeError);
+ const full=penArtFixture('full');validateFarmState(full);assert.equal(farmGrowthStage(full).id,3);assert.equal(full.entities.filter(e=>e.kind==='shelter').reduce((n,e)=>n+e.animals.length,0),26);
+});
+
+test('isolated QA query uses current three stages with bounded legacy link fallbacks',()=>{
+ for(const [value,want] of [['1',1],['2',2],['3',3],['4',2],['5',3],['0',1],['6',1],['bad',1],[null,1],['1.5',1]])assert.equal(growthFixtureStageFromQuery(value),want);
 });

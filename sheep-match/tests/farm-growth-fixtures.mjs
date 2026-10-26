@@ -1,16 +1,22 @@
 /** Isolated browser QA fixtures. Never imported by the production runtime. */
 import * as core from '../farm-core.mjs';
 import * as config from '../farm-config.mjs';
+/** Current 1..3 query; only obsolete out-of-range 4/5 links are redirected.
+ * Old stage=3 cannot be distinguished from the current stage=3 URL. */
+export function growthFixtureStageFromQuery(value){
+ const n=Number(value);return n===4?2:n===5?3:Number.isInteger(n)&&n>=1&&n<=3?n:1;
+}
 export function growthFixture(stage=1){
+ if(!Number.isInteger(stage)||stage<1||stage>3)throw new RangeError('Growth stage must be 1, 2 or 3');
  let s=core.createFarm(1800000000000);if(stage===1)return s;
- const levels=[1,9,17,26,30],fieldCounts=[6,18,30,42,48],machineCounts=[0,4,7,11,13],animalCounts=[1,2,3,4,5];
+ const levels=[1,17,30],fieldCounts=[6,30,48],machineCounts=[0,7,13],animalCounts=[1,3,5];
  s.level=levels[stage-1];s.xp=config.FARM_CONFIG.levelXpToNext.slice(0,s.level-1).reduce((a,b)=>a+b,0);s.coins=1000000;
  for(const kind of ['silo','barn'])s.storage[kind]={upgrades:100,capacity:config.storageCapacity(100)};
  const act=(c,now=s.now)=>{s=core.executeFarm(s,c,now).state;};
  while(s.entities.filter(e=>e.kind==='field').length<fieldCounts[stage-1])act({type:'buy',category:'field'});
  for(const b of Object.values(config.BUILDINGS).filter(b=>b.level<=s.level).slice(0,machineCounts[stage-1])){act({type:'buy',category:'machine',itemId:b.id});const e=s.entities.at(-1);act({type:'completeBuilding',entityId:e.id},e.buildReadyAt);}
  for(const a of Object.values(config.ANIMALS).slice(1,animalCounts[stage-1])){act({type:'buy',category:'shelter',itemId:a.id});act({type:'buy',category:'animal',entityId:s.entities.at(-1).id,quantity:3});}
- if(stage>=4)for(const f of Object.values(config.FRUITS).filter(f=>f.level<=s.level))for(let i=0;i<(stage===5?3:2);i++)act({type:'buy',category:'fruit',itemId:f.id});
+ if(stage===3)for(const f of Object.values(config.FRUITS).filter(f=>f.level<=s.level))for(let i=0;i<3;i++)act({type:'buy',category:'fruit',itemId:f.id});
  for(const item of Object.values(config.ITEMS))s.inventory[item.id]=item.category==='crop'?100:25;
  const crops=Object.values(config.CROPS).filter(c=>c.level<=s.level);s.entities.filter(e=>e.kind==='field').forEach((e,i)=>act({type:'plant',entityIds:[e.id],itemId:crops[i%crops.length].id}));
  for(const e of s.entities.filter(e=>e.kind==='shelter'))act({type:'feed',entityId:e.id});
@@ -60,7 +66,7 @@ export function artStateCoverage(state){
 
 /** Count/pose acceptance fixture: empty, half and full pens share real scene code. */
 export function penArtFixture(count='full'){
- let s=growthFixture(5);
+ let s=growthFixture(3);
  for(const id of s.entities.filter(e=>e.kind==='shelter').map(e=>e.id)){
   let e=s.entities.find(e=>e.id===id),capacity=config.ANIMALS[e.configId].capacity;
   if(count==='empty')e.animals=[];
