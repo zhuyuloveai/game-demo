@@ -1,0 +1,510 @@
+{
+  "version": 2,
+  "sourcePack": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2",
+  "facilities": [
+    "chicken",
+    "cow",
+    "pig",
+    "sheep",
+    "lamb"
+  ],
+  "maxLayerEdge": 600,
+  "maxAnimalEdge": 360,
+  "assets": [
+    {
+      "key": "layers/chicken/ground",
+      "path": "assets/farm-runtime/shelters-v2/layers/chicken/ground.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/chicken/layers/01-ground.png",
+      "sourceSha256": "9fecf217bf1033b2a4096807dfaccca881d0b6dce92e927a7c2f1bd59a2efb9b",
+      "width": 600,
+      "height": 500,
+      "bytes": 126895
+    },
+    {
+      "key": "layers/chicken/buildingShadow",
+      "path": "assets/farm-runtime/shelters-v2/layers/chicken/buildingShadow.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/chicken/layers/02-building-shadow.png",
+      "sourceSha256": "4ce6abadbdab1730a3bee9160b8180154175419dc8b149344d2ad269f6e2cb84",
+      "width": 600,
+      "height": 500,
+      "bytes": 16894
+    },
+    {
+      "key": "layers/chicken/rearFence",
+      "path": "assets/farm-runtime/shelters-v2/layers/chicken/rearFence.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/chicken/layers/03-rear-fence.png",
+      "sourceSha256": "85684248fe7530ae383a3992615eff77b51fabe0997619da3c3465fa1d36a7bc",
+      "width": 600,
+      "height": 500,
+      "bytes": 43238
+    },
+    {
+      "key": "layers/chicken/building",
+      "path": "assets/farm-runtime/shelters-v2/layers/chicken/building.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/chicken/layers/04-building.png",
+      "sourceSha256": "5be57e31999286e18dc81fee68de7df297e8fa3e194e0ce3660ab21902576d54",
+      "width": 600,
+      "height": 500,
+      "bytes": 85703
+    },
+    {
+      "key": "layers/chicken/frontFence",
+      "path": "assets/farm-runtime/shelters-v2/layers/chicken/frontFence.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/chicken/layers/07-front-fence.png",
+      "sourceSha256": "b318a14e379c05722a0faa2763422fb062540655f6357b9d9f7cd650962ee82f",
+      "width": 600,
+      "height": 500,
+      "bytes": 48895
+    },
+    {
+      "key": "animals/chicken/hungry",
+      "path": "assets/farm-runtime/shelters-v2/animals/chicken/hungry.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/chicken/animals/chicken-hungry.png",
+      "sourceSha256": "cda786dc7cf03bea0979dfb312e813c0ea0d83456764f27b0615f5163760d3f0",
+      "width": 360,
+      "height": 280,
+      "bytes": 41587
+    },
+    {
+      "key": "animals/chicken/hungry-shadow",
+      "path": "assets/farm-runtime/shelters-v2/animals/chicken/hungry-shadow.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/chicken/animals/chicken-hungry-shadow.png",
+      "sourceSha256": "d92df151ce09ea0dcece1930c12a6b6a561893fe14fac66163d66c58d20892ba",
+      "width": 360,
+      "height": 280,
+      "bytes": 2127
+    },
+    {
+      "key": "animals/chicken/producing",
+      "path": "assets/farm-runtime/shelters-v2/animals/chicken/producing.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/chicken/animals/chicken-producing.png",
+      "sourceSha256": "e279d1f4f1c186f9c760cf88f9b134b849f10fe41bf4a4b17f7953593c64174a",
+      "width": 360,
+      "height": 280,
+      "bytes": 37376
+    },
+    {
+      "key": "animals/chicken/producing-shadow",
+      "path": "assets/farm-runtime/shelters-v2/animals/chicken/producing-shadow.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/chicken/animals/chicken-producing-shadow.png",
+      "sourceSha256": "e78599bf0030ce2c10aa35ae0d8275c851b23138dbf78cae60be6ea16a8ec543",
+      "width": 360,
+      "height": 280,
+      "bytes": 2131
+    },
+    {
+      "key": "animals/chicken/ready",
+      "path": "assets/farm-runtime/shelters-v2/animals/chicken/ready.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/chicken/animals/chicken-ready.png",
+      "sourceSha256": "ef7f4a52574581e2f6bfbcf4cf63c21fe51eb3c8f5ccd927da0d8c6992df8f6e",
+      "width": 360,
+      "height": 280,
+      "bytes": 39058
+    },
+    {
+      "key": "animals/chicken/ready-shadow",
+      "path": "assets/farm-runtime/shelters-v2/animals/chicken/ready-shadow.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/chicken/animals/chicken-ready-shadow.png",
+      "sourceSha256": "57347cc56aa5c06099db6867fb307a4cbd106f19db03abbd2432f7a7d2de38bb",
+      "width": 360,
+      "height": 280,
+      "bytes": 2122
+    },
+    {
+      "key": "layers/cow/ground",
+      "path": "assets/farm-runtime/shelters-v2/layers/cow/ground.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/cow/layers/01-ground.png",
+      "sourceSha256": "9fecf217bf1033b2a4096807dfaccca881d0b6dce92e927a7c2f1bd59a2efb9b",
+      "width": 600,
+      "height": 500,
+      "bytes": 126895
+    },
+    {
+      "key": "layers/cow/buildingShadow",
+      "path": "assets/farm-runtime/shelters-v2/layers/cow/buildingShadow.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/cow/layers/02-building-shadow.png",
+      "sourceSha256": "df8bc67e164edb9295e4717adb47be22896dd61d3af5a0b7b8c5f37f1ab5aa7e",
+      "width": 600,
+      "height": 500,
+      "bytes": 19629
+    },
+    {
+      "key": "layers/cow/rearFence",
+      "path": "assets/farm-runtime/shelters-v2/layers/cow/rearFence.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/cow/layers/03-rear-fence.png",
+      "sourceSha256": "85684248fe7530ae383a3992615eff77b51fabe0997619da3c3465fa1d36a7bc",
+      "width": 600,
+      "height": 500,
+      "bytes": 43238
+    },
+    {
+      "key": "layers/cow/building",
+      "path": "assets/farm-runtime/shelters-v2/layers/cow/building.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/cow/layers/04-building.png",
+      "sourceSha256": "54ce97beab129660d89a5ce0489d72a41cee2a5fe88a5fc5e40acc5268e5ffad",
+      "width": 600,
+      "height": 500,
+      "bytes": 102750
+    },
+    {
+      "key": "layers/cow/frontFence",
+      "path": "assets/farm-runtime/shelters-v2/layers/cow/frontFence.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/cow/layers/07-front-fence.png",
+      "sourceSha256": "b318a14e379c05722a0faa2763422fb062540655f6357b9d9f7cd650962ee82f",
+      "width": 600,
+      "height": 500,
+      "bytes": 48895
+    },
+    {
+      "key": "animals/cow/hungry",
+      "path": "assets/farm-runtime/shelters-v2/animals/cow/hungry.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/cow/animals/cow-hungry.png",
+      "sourceSha256": "2c88743496086fbaabf1ac9a5e7a56fc95f921bb0f82141e47339d79ca85634f",
+      "width": 360,
+      "height": 280,
+      "bytes": 45896
+    },
+    {
+      "key": "animals/cow/hungry-shadow",
+      "path": "assets/farm-runtime/shelters-v2/animals/cow/hungry-shadow.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/cow/animals/cow-hungry-shadow.png",
+      "sourceSha256": "313a005a0a7bfe1627b3be4bdebab53d3debc814f804ec26cb3f64f2c10a8937",
+      "width": 360,
+      "height": 280,
+      "bytes": 2817
+    },
+    {
+      "key": "animals/cow/producing",
+      "path": "assets/farm-runtime/shelters-v2/animals/cow/producing.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/cow/animals/cow-producing.png",
+      "sourceSha256": "da0331f568458a156703a6003d3c7a04cf192d66610caca334cc1601f47adad8",
+      "width": 360,
+      "height": 280,
+      "bytes": 42101
+    },
+    {
+      "key": "animals/cow/producing-shadow",
+      "path": "assets/farm-runtime/shelters-v2/animals/cow/producing-shadow.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/cow/animals/cow-producing-shadow.png",
+      "sourceSha256": "0bef8d1c18a557a893695dd52f9c04d7960f1058005c97fdf97aafd066c4a4b4",
+      "width": 360,
+      "height": 280,
+      "bytes": 3094
+    },
+    {
+      "key": "animals/cow/ready",
+      "path": "assets/farm-runtime/shelters-v2/animals/cow/ready.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/cow/animals/cow-ready.png",
+      "sourceSha256": "9be41c147879e07e8ad9447df4aef8a19dd30c81edd2c3dfd0d37cf4a2288fd0",
+      "width": 360,
+      "height": 280,
+      "bytes": 45751
+    },
+    {
+      "key": "animals/cow/ready-shadow",
+      "path": "assets/farm-runtime/shelters-v2/animals/cow/ready-shadow.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/cow/animals/cow-ready-shadow.png",
+      "sourceSha256": "9148ccf567235fe7ff93f0463292abcebd3626155df720e17337fe9b6d7321d5",
+      "width": 360,
+      "height": 280,
+      "bytes": 3017
+    },
+    {
+      "key": "layers/pig/ground",
+      "path": "assets/farm-runtime/shelters-v2/layers/pig/ground.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/pig/layers/01-ground.png",
+      "sourceSha256": "9fecf217bf1033b2a4096807dfaccca881d0b6dce92e927a7c2f1bd59a2efb9b",
+      "width": 600,
+      "height": 500,
+      "bytes": 126895
+    },
+    {
+      "key": "layers/pig/buildingShadow",
+      "path": "assets/farm-runtime/shelters-v2/layers/pig/buildingShadow.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/pig/layers/02-building-shadow.png",
+      "sourceSha256": "3c627e6a31c7f4542c6ae33518d2761f160a6eaf8636ec11810c4f390eaef25b",
+      "width": 600,
+      "height": 500,
+      "bytes": 15538
+    },
+    {
+      "key": "layers/pig/rearFence",
+      "path": "assets/farm-runtime/shelters-v2/layers/pig/rearFence.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/pig/layers/03-rear-fence.png",
+      "sourceSha256": "85684248fe7530ae383a3992615eff77b51fabe0997619da3c3465fa1d36a7bc",
+      "width": 600,
+      "height": 500,
+      "bytes": 43238
+    },
+    {
+      "key": "layers/pig/building",
+      "path": "assets/farm-runtime/shelters-v2/layers/pig/building.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/pig/layers/04-building.png",
+      "sourceSha256": "8864e27fe0c36e0778a8129123b12cd3a3f62cdae2a87428c0b8530e8f5f1a5d",
+      "width": 600,
+      "height": 500,
+      "bytes": 90161
+    },
+    {
+      "key": "layers/pig/frontFence",
+      "path": "assets/farm-runtime/shelters-v2/layers/pig/frontFence.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/pig/layers/07-front-fence.png",
+      "sourceSha256": "b318a14e379c05722a0faa2763422fb062540655f6357b9d9f7cd650962ee82f",
+      "width": 600,
+      "height": 500,
+      "bytes": 48895
+    },
+    {
+      "key": "animals/pig/hungry",
+      "path": "assets/farm-runtime/shelters-v2/animals/pig/hungry.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/pig/animals/pig-hungry.png",
+      "sourceSha256": "88f2fce5b152ba98db4f31cfa317aa19eafcdec402e027f2809720119182612d",
+      "width": 360,
+      "height": 280,
+      "bytes": 47253
+    },
+    {
+      "key": "animals/pig/hungry-shadow",
+      "path": "assets/farm-runtime/shelters-v2/animals/pig/hungry-shadow.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/pig/animals/pig-hungry-shadow.png",
+      "sourceSha256": "30e67c9e69c35de895939136eee1d13de4cd114423f0f5d46ae090d424ba098a",
+      "width": 360,
+      "height": 280,
+      "bytes": 2670
+    },
+    {
+      "key": "animals/pig/producing",
+      "path": "assets/farm-runtime/shelters-v2/animals/pig/producing.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/pig/animals/pig-producing.png",
+      "sourceSha256": "c200c2895f76851d8fabfb0942466eda427b2cce44e8bc1867e43014d9242a17",
+      "width": 360,
+      "height": 280,
+      "bytes": 41523
+    },
+    {
+      "key": "animals/pig/producing-shadow",
+      "path": "assets/farm-runtime/shelters-v2/animals/pig/producing-shadow.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/pig/animals/pig-producing-shadow.png",
+      "sourceSha256": "1285e1f7f6db804a56eaaa5fca1c5bc6eb198f6f2271e1ba6dd5832e17e4b2f1",
+      "width": 360,
+      "height": 280,
+      "bytes": 2845
+    },
+    {
+      "key": "animals/pig/ready",
+      "path": "assets/farm-runtime/shelters-v2/animals/pig/ready.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/pig/animals/pig-ready.png",
+      "sourceSha256": "6e9f9d4bf516827aa55460b4e4151a1b7900b1a371596f258848a7b3726de854",
+      "width": 360,
+      "height": 280,
+      "bytes": 48276
+    },
+    {
+      "key": "animals/pig/ready-shadow",
+      "path": "assets/farm-runtime/shelters-v2/animals/pig/ready-shadow.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/pig/animals/pig-ready-shadow.png",
+      "sourceSha256": "a71de9766139bee4ad1cca8a6d8dc64bf51b34865ba38f106dd3b31b6249b192",
+      "width": 360,
+      "height": 280,
+      "bytes": 2535
+    },
+    {
+      "key": "layers/sheep/ground",
+      "path": "assets/farm-runtime/shelters-v2/layers/sheep/ground.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/sheep/layers/01-ground.png",
+      "sourceSha256": "9fecf217bf1033b2a4096807dfaccca881d0b6dce92e927a7c2f1bd59a2efb9b",
+      "width": 600,
+      "height": 500,
+      "bytes": 126895
+    },
+    {
+      "key": "layers/sheep/buildingShadow",
+      "path": "assets/farm-runtime/shelters-v2/layers/sheep/buildingShadow.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/sheep/layers/02-building-shadow.png",
+      "sourceSha256": "9262d95a0de18f2e614617e5571055a5f98e77679094ec77b137cb9c464652f9",
+      "width": 600,
+      "height": 500,
+      "bytes": 9434
+    },
+    {
+      "key": "layers/sheep/rearFence",
+      "path": "assets/farm-runtime/shelters-v2/layers/sheep/rearFence.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/sheep/layers/03-rear-fence.png",
+      "sourceSha256": "85684248fe7530ae383a3992615eff77b51fabe0997619da3c3465fa1d36a7bc",
+      "width": 600,
+      "height": 500,
+      "bytes": 43238
+    },
+    {
+      "key": "layers/sheep/building",
+      "path": "assets/farm-runtime/shelters-v2/layers/sheep/building.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/sheep/layers/04-building.png",
+      "sourceSha256": "4e3d9c0b96a79f29976ec77b8edee502cbca8b38d9e44faf46ff0db7bbe2f148",
+      "width": 600,
+      "height": 500,
+      "bytes": 71124
+    },
+    {
+      "key": "layers/sheep/frontFence",
+      "path": "assets/farm-runtime/shelters-v2/layers/sheep/frontFence.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/sheep/layers/07-front-fence.png",
+      "sourceSha256": "b318a14e379c05722a0faa2763422fb062540655f6357b9d9f7cd650962ee82f",
+      "width": 600,
+      "height": 500,
+      "bytes": 48895
+    },
+    {
+      "key": "animals/sheep/hungry",
+      "path": "assets/farm-runtime/shelters-v2/animals/sheep/hungry.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/sheep/animals/sheep-hungry.png",
+      "sourceSha256": "a35eec024fff09a411b700d40457e1fb80ec50ad32764f145180f6a9c48ef63d",
+      "width": 360,
+      "height": 280,
+      "bytes": 52059
+    },
+    {
+      "key": "animals/sheep/hungry-shadow",
+      "path": "assets/farm-runtime/shelters-v2/animals/sheep/hungry-shadow.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/sheep/animals/sheep-hungry-shadow.png",
+      "sourceSha256": "45e5b2c2f328f658a07a0c9fbb2ed6f3c5d874a87ffeced35cc0c1d1d3efe7b6",
+      "width": 360,
+      "height": 280,
+      "bytes": 2693
+    },
+    {
+      "key": "animals/sheep/producing",
+      "path": "assets/farm-runtime/shelters-v2/animals/sheep/producing.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/sheep/animals/sheep-producing.png",
+      "sourceSha256": "1f077ec905d221e150a44ee9e88e851bf69dd09f798b6586a8efcc81343fdbdb",
+      "width": 360,
+      "height": 280,
+      "bytes": 49765
+    },
+    {
+      "key": "animals/sheep/producing-shadow",
+      "path": "assets/farm-runtime/shelters-v2/animals/sheep/producing-shadow.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/sheep/animals/sheep-producing-shadow.png",
+      "sourceSha256": "33a93945bfd50e6885f880b5964b7b0e39508ab3bd00deb98c94c78844039e76",
+      "width": 360,
+      "height": 280,
+      "bytes": 2859
+    },
+    {
+      "key": "animals/sheep/ready",
+      "path": "assets/farm-runtime/shelters-v2/animals/sheep/ready.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/sheep/animals/sheep-ready.png",
+      "sourceSha256": "afd10d14701925d0b784f9c4bde422f5b83a0891026c7331602ef0f58c45c371",
+      "width": 360,
+      "height": 280,
+      "bytes": 52990
+    },
+    {
+      "key": "animals/sheep/ready-shadow",
+      "path": "assets/farm-runtime/shelters-v2/animals/sheep/ready-shadow.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/sheep/animals/sheep-ready-shadow.png",
+      "sourceSha256": "1f4f3f683103fd60553455f20398589d91d4cbd7a1843e334d8c86e3667f6722",
+      "width": 360,
+      "height": 280,
+      "bytes": 3034
+    },
+    {
+      "key": "layers/lamb/ground",
+      "path": "assets/farm-runtime/shelters-v2/layers/lamb/ground.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/lamb/layers/01-ground.png",
+      "sourceSha256": "9fecf217bf1033b2a4096807dfaccca881d0b6dce92e927a7c2f1bd59a2efb9b",
+      "width": 600,
+      "height": 500,
+      "bytes": 126895
+    },
+    {
+      "key": "layers/lamb/buildingShadow",
+      "path": "assets/farm-runtime/shelters-v2/layers/lamb/buildingShadow.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/lamb/layers/02-building-shadow.png",
+      "sourceSha256": "020cb0feeeac63a15f249f1d3fcf847a0281c531f091d251658c7f350395e5d4",
+      "width": 600,
+      "height": 500,
+      "bytes": 8463
+    },
+    {
+      "key": "layers/lamb/rearFence",
+      "path": "assets/farm-runtime/shelters-v2/layers/lamb/rearFence.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/lamb/layers/03-rear-fence.png",
+      "sourceSha256": "85684248fe7530ae383a3992615eff77b51fabe0997619da3c3465fa1d36a7bc",
+      "width": 600,
+      "height": 500,
+      "bytes": 43238
+    },
+    {
+      "key": "layers/lamb/building",
+      "path": "assets/farm-runtime/shelters-v2/layers/lamb/building.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/lamb/layers/04-building.png",
+      "sourceSha256": "a1fb91cdf7027ae9ad8ac474240c853f7e071c1312e70fe9d82b687c4e14e3e4",
+      "width": 600,
+      "height": 500,
+      "bytes": 87414
+    },
+    {
+      "key": "layers/lamb/frontFence",
+      "path": "assets/farm-runtime/shelters-v2/layers/lamb/frontFence.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/lamb/layers/07-front-fence.png",
+      "sourceSha256": "b318a14e379c05722a0faa2763422fb062540655f6357b9d9f7cd650962ee82f",
+      "width": 600,
+      "height": 500,
+      "bytes": 48895
+    },
+    {
+      "key": "animals/lamb/hungry",
+      "path": "assets/farm-runtime/shelters-v2/animals/lamb/hungry.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/lamb/animals/lamb-hungry.png",
+      "sourceSha256": "848e29213c914a0d355d2554bebb61f5274933b0b2b7e188dd9662d84bf26589",
+      "width": 360,
+      "height": 280,
+      "bytes": 39058
+    },
+    {
+      "key": "animals/lamb/hungry-shadow",
+      "path": "assets/farm-runtime/shelters-v2/animals/lamb/hungry-shadow.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/lamb/animals/lamb-hungry-shadow.png",
+      "sourceSha256": "dcceeeaf16da9051270f534aedc6e6e7d68aaba14f68421df576adf4b408e91f",
+      "width": 360,
+      "height": 280,
+      "bytes": 2476
+    },
+    {
+      "key": "animals/lamb/producing",
+      "path": "assets/farm-runtime/shelters-v2/animals/lamb/producing.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/lamb/animals/lamb-producing.png",
+      "sourceSha256": "77544809e0f5cd209ffd6555691a7df6e64c49f5e592665f5ef182dc14fa464c",
+      "width": 360,
+      "height": 280,
+      "bytes": 38332
+    },
+    {
+      "key": "animals/lamb/producing-shadow",
+      "path": "assets/farm-runtime/shelters-v2/animals/lamb/producing-shadow.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/lamb/animals/lamb-producing-shadow.png",
+      "sourceSha256": "da800ca8ae0a8e05c643dc68261d23d54b34dca6bf2ea03ee453c354d4d70994",
+      "width": 360,
+      "height": 280,
+      "bytes": 2779
+    },
+    {
+      "key": "animals/lamb/ready",
+      "path": "assets/farm-runtime/shelters-v2/animals/lamb/ready.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/lamb/animals/lamb-ready.png",
+      "sourceSha256": "bf11b7b275af4ea3f4778a12a1ab5cac3da10d802d1e20a3ef85ed42740917f5",
+      "width": 360,
+      "height": 280,
+      "bytes": 39443
+    },
+    {
+      "key": "animals/lamb/ready-shadow",
+      "path": "assets/farm-runtime/shelters-v2/animals/lamb/ready-shadow.png",
+      "source": "docs/art-packs/sumikko-farm-v1/shelter-layers-v2/lamb/animals/lamb-ready-shadow.png",
+      "sourceSha256": "ce5095c98b537b42b4aa9cdf13706ba4cf9167521a6ab29c86fd112a907fcfb8",
+      "width": 360,
+      "height": 280,
+      "bytes": 2685
+    }
+  ]
+}

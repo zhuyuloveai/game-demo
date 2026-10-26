@@ -1,9 +1,14 @@
+import {resolveShelterSpec} from './farm-runtime-shelters.mjs';
+import {shelterCanvasRect,shelterLayerDepths} from './farm-shelter-geometry.mjs';
+import {renderRuntimeArt} from './farm-runtime-art.mjs';
 import {groundRect,depth} from './farm-world-geometry.mjs';
 
 /** Reuses the approved hut PNG as the back building. Yard and fences are native
  * terrain components, drawn in the same shared ground canvas for all five pens.
  * Animals stay independent; the near fence covers feet, never faces or targets. */
 export function penLayers(entity,footprint){
+ const spec=resolveShelterSpec(entity);
+ if(spec){const r=shelterCanvasRect(entity,footprint),d=shelterLayerDepths(entity,footprint),draw=key=>renderRuntimeArt(spec.layers[key],{className:'fw-pen-layer',mirror:entity.rotation===270});return {ground:draw('ground')+draw('buildingShadow'),rear:draw('rearFence'),front:draw('frontFence'),style:`left:${r.left}px;top:${r.top}px;width:${r.width}px;height:${r.height}px`,groundDepth:d.ground,rearDepth:d.rearFence,frontDepth:d.frontFence};}
  const g=groundRect(entity,footprint),w=g.width,h=g.height;
  const pt=(x,y)=>[w*x,h*y];
  const A=pt(.5,.035),B=pt(.965,.5),C=pt(.5,.965),D=pt(.035,.5);
