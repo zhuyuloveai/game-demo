@@ -1,0 +1,2655 @@
+{
+  "version": 1,
+  "status": "chicken sample awaiting user review; other four species not authored",
+  "baseCommit": "c7eab83e56fa4ec91e0d10927575eef1cf697bb2",
+  "species": "chicken",
+  "canvas": [
+    360,
+    280
+  ],
+  "anchor": [
+    180,
+    230
+  ],
+  "bodyWidth": 180,
+  "direction": "approved left-facing elevated oblique side; other side may be mirrored by game code",
+  "originalLayout": "../../shelter-layers-v2/chicken/layout.json",
+  "originalContacts": [
+    [
+      131.087,
+      219.2391
+    ],
+    [
+      180,
+      230
+    ],
+    [
+      187.337,
+      228.0435
+    ]
+  ],
+  "groundShadow": {
+    "file": "shadows/ground-shadow.png",
+    "canvas": [
+      360,
+      280
+    ],
+    "anchor": [
+      180,
+      230
+    ],
+    "independent": true,
+    "source": "../../shelter-layers-v2/chicken/animals/chicken-hungry-shadow.png",
+    "sha256": "d92df151ce09ea0dcece1930c12a6b6a561893fe14fac66163d66c58d20892ba"
+  },
+  "walkTravel": {
+    "perCycleVector": [
+      -36,
+      18
+    ],
+    "perCycleLength": 40.24922359499622,
+    "cycleSeconds": 1,
+    "stepCount": 2,
+    "stepVector": [
+      -18,
+      9
+    ],
+    "nativePixelsPerSecond": 40.24922359499622,
+    "note": "Translate world root by (-36,+18) px per one-second cycle at native display scale. Stance toes move (+36,-18) px/s relative to root, canceling scene translation. Multiply both by display scale. Do not bake translation into frames."
+  },
+  "sources": {
+    "generator": "built-in image_gen",
+    "prompts": "sources/generation-prompts.json",
+    "refinements": "sources/generation-refinements.json",
+    "bodyReuse": "hungry body pixels reused for walking; only articulated legs are new; producing and ready are references only",
+    "neutralFrameReused": false
+  },
+  "actions": [
+    {
+      "id": "eat",
+      "name": "低头啄食",
+      "fps": 12,
+      "frameCount": 12,
+      "durationMs": 1000,
+      "loop": "play once then return to hungry; may repeat frames 00–11 for review",
+      "atlas": "atlases/chicken-eat.png",
+      "atlasCanvas": [
+        1456,
+        852
+      ],
+      "atlasPadding": 2,
+      "shadow": "shadows/ground-shadow.png",
+      "frames": [
+        {
+          "index": 0,
+          "sourcePoseIndex": 0,
+          "file": "frames/eat/00.png",
+          "source": "sources/frame-svg/eat-00.svg",
+          "durationMs": 83.33333333333333,
+          "anchor": [
+            180,
+            230
+          ],
+          "canvas": [
+            360,
+            280
+          ],
+          "cropped": false,
+          "offset": [
+            0,
+            0
+          ],
+          "contacts": {
+            "near": {
+              "actual": [
+                180,
+                230
+              ],
+              "support": true,
+              "source": [
+                145.5,
+                283.5
+              ]
+            },
+            "far": {
+              "actual": [
+                131.087,
+                219.2391
+              ],
+              "support": true,
+              "source": [
+                70.5,
+                272.5
+              ]
+            }
+          },
+          "registration": {
+            "scaleY": 0.6923076923076923,
+            "scaleX": 0.6521733333333335,
+            "shearY": 0.04194020512820503,
+            "translation": [
+              85.10877999999998,
+              27.628469384615386
+            ],
+            "bodyRegistrationWidth": 260,
+            "sourceRect": [
+              61,
+              33,
+              321,
+              289
+            ],
+            "method": "anatomical near/far toe-pad registration plus reviewed torso width; affine perspective calibration, not canvas or alpha-box bottom"
+          },
+          "layers": [
+            {
+              "name": "painted-eat-pose",
+              "file": "sources/layer-png/eat-00-painted-eat-pose.png"
+            }
+          ],
+          "atlasRect": [
+            2,
+            2,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 1,
+          "sourcePoseIndex": 1,
+          "file": "frames/eat/01.png",
+          "source": "sources/frame-svg/eat-01.svg",
+          "durationMs": 83.33333333333333,
+          "anchor": [
+            180,
+            230
+          ],
+          "canvas": [
+            360,
+            280
+          ],
+          "cropped": false,
+          "offset": [
+            0,
+            0
+          ],
+          "contacts": {
+            "near": {
+              "actual": [
+                180,
+                230
+              ],
+              "support": true,
+              "source": [
+                152.5,
+                238.5
+              ]
+            },
+            "far": {
+              "actual": [
+                131.087,
+                219.2391
+              ],
+              "support": true,
+              "source": [
+                78.5,
+                227.5
+              ]
+            }
+          },
+          "registration": {
+            "scaleY": 0.6923076923076923,
+            "scaleX": 0.6609864864864866,
+            "shearY": 0.04250696465696456,
+            "translation": [
+              79.1995608108108,
+              58.402303274428306
+            ],
+            "bodyRegistrationWidth": 260,
+            "sourceRect": [
+              468,
+              80,
+              320,
+              244
+            ],
+            "method": "anatomical near/far toe-pad registration plus reviewed torso width; affine perspective calibration, not canvas or alpha-box bottom"
+          },
+          "layers": [
+            {
+              "name": "painted-eat-pose",
+              "file": "sources/layer-png/eat-01-painted-eat-pose.png"
+            }
+          ],
+          "atlasRect": [
+            366,
+            2,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 2,
+          "sourcePoseIndex": 2,
+          "file": "frames/eat/02.png",
+          "source": "sources/frame-svg/eat-02.svg",
+          "durationMs": 83.33333333333333,
+          "anchor": [
+            180,
+            230
+          ],
+          "canvas": [
+            360,
+            280
+          ],
+          "cropped": false,
+          "offset": [
+            0,
+            0
+          ],
+          "contacts": {
+            "near": {
+              "actual": [
+                180,
+                230
+              ],
+              "support": true,
+              "source": [
+                160.5,
+                237.5
+              ]
+            },
+            "far": {
+              "actual": [
+                131.087,
+                219.2391
+              ],
+              "support": true,
+              "source": [
+                85.5,
+                229.5
+              ]
+            }
+          },
+          "registration": {
+            "scaleY": 0.694980694980695,
+            "scaleX": 0.6521733333333335,
+            "shearY": 0.06934739253539243,
+            "translation": [
+              75.32617999999998,
+              53.81182844015444
+            ],
+            "bodyRegistrationWidth": 259,
+            "sourceRect": [
+              863,
+              82,
+              323,
+              244
+            ],
+            "method": "anatomical near/far toe-pad registration plus reviewed torso width; affine perspective calibration, not canvas or alpha-box bottom"
+          },
+          "layers": [
+            {
+              "name": "painted-eat-pose",
+              "file": "sources/layer-png/eat-02-painted-eat-pose.png"
+            }
+          ],
+          "atlasRect": [
+            730,
+            2,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 3,
+          "sourcePoseIndex": 3,
+          "file": "frames/eat/03.png",
+          "source": "sources/frame-svg/eat-03.svg",
+          "durationMs": 83.33333333333333,
+          "anchor": [
+            180,
+            230
+          ],
+          "canvas": [
+            360,
+            280
+          ],
+          "cropped": false,
+          "offset": [
+            0,
+            0
+          ],
+          "contacts": {
+            "near": {
+              "actual": [
+                180,
+                230
+              ],
+              "support": true,
+              "source": [
+                168.5,
+                239.5
+              ]
+            },
+            "far": {
+              "occludedByPeck": true,
+              "referenceGround": [
+                131.087,
+                219.2391
+              ]
+            }
+          },
+          "registration": {
+            "scaleY": 0.6923076923076923,
+            "scaleX": 0.6923076923076923,
+            "shearY": 0.05,
+            "translation": [
+              63.346153846153854,
+              55.767307692307696
+            ],
+            "bodyRegistrationWidth": 260,
+            "sourceRect": [
+              1262,
+              81,
+              325,
+              245
+            ],
+            "method": "anatomical near/far toe-pad registration plus reviewed torso width; affine perspective calibration, not canvas or alpha-box bottom"
+          },
+          "layers": [
+            {
+              "name": "painted-eat-pose",
+              "file": "sources/layer-png/eat-03-painted-eat-pose.png"
+            }
+          ],
+          "atlasRect": [
+            1094,
+            2,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 4,
+          "sourcePoseIndex": 4,
+          "file": "frames/eat/04.png",
+          "source": "sources/frame-svg/eat-04.svg",
+          "durationMs": 83.33333333333333,
+          "anchor": [
+            180,
+            230
+          ],
+          "canvas": [
+            360,
+            280
+          ],
+          "cropped": false,
+          "offset": [
+            0,
+            0
+          ],
+          "contacts": {
+            "near": {
+              "actual": [
+                180,
+                230
+              ],
+              "support": true,
+              "source": [
+                164.5,
+                239.5
+              ]
+            },
+            "far": {
+              "occludedByPeck": true,
+              "referenceGround": [
+                131.087,
+                219.2391
+              ]
+            }
+          },
+          "registration": {
+            "scaleY": 0.6741573033707865,
+            "scaleX": 0.6741573033707865,
+            "shearY": 0.05,
+            "translation": [
+              69.10112359550563,
+              60.31432584269663
+            ],
+            "bodyRegistrationWidth": 267,
+            "sourceRect": [
+              57,
+              380,
+              320,
+              247
+            ],
+            "method": "anatomical near/far toe-pad registration plus reviewed torso width; affine perspective calibration, not canvas or alpha-box bottom"
+          },
+          "layers": [
+            {
+              "name": "painted-eat-pose",
+              "file": "sources/layer-png/eat-04-painted-eat-pose.png"
+            }
+          ],
+          "atlasRect": [
+            2,
+            286,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 5,
+          "sourcePoseIndex": 5,
+          "file": "frames/eat/05.png",
+          "source": "sources/frame-svg/eat-05.svg",
+          "durationMs": 83.33333333333333,
+          "anchor": [
+            180,
+            230
+          ],
+          "canvas": [
+            360,
+            280
+          ],
+          "cropped": false,
+          "offset": [
+            0,
+            0
+          ],
+          "contacts": {
+            "near": {
+              "actual": [
+                180,
+                230
+              ],
+              "support": true,
+              "source": [
+                173.5,
+                242.5
+              ]
+            },
+            "far": {
+              "occludedByPeck": true,
+              "referenceGround": [
+                131.087,
+                219.2391
+              ]
+            }
+          },
+          "registration": {
+            "scaleY": 0.6666666666666666,
+            "scaleX": 0.6666666666666666,
+            "shearY": 0.05,
+            "translation": [
+              64.33333333333334,
+              59.65833333333333
+            ],
+            "bodyRegistrationWidth": 270,
+            "sourceRect": [
+              454,
+              376,
+              341,
+              249
+            ],
+            "method": "anatomical near/far toe-pad registration plus reviewed torso width; affine perspective calibration, not canvas or alpha-box bottom"
+          },
+          "layers": [
+            {
+              "name": "painted-eat-pose",
+              "file": "sources/layer-png/eat-05-painted-eat-pose.png"
+            }
+          ],
+          "atlasRect": [
+            366,
+            286,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 6,
+          "sourcePoseIndex": 6,
+          "file": "frames/eat/06.png",
+          "source": "sources/frame-svg/eat-06.svg",
+          "durationMs": 83.33333333333333,
+          "anchor": [
+            180,
+            230
+          ],
+          "canvas": [
+            360,
+            280
+          ],
+          "cropped": false,
+          "offset": [
+            0,
+            0
+          ],
+          "contacts": {
+            "near": {
+              "actual": [
+                180,
+                230
+              ],
+              "support": true,
+              "source": [
+                169.5,
+                240.5
+              ]
+            },
+            "far": {
+              "occludedByPeck": true,
+              "referenceGround": [
+                131.087,
+                219.2391
+              ]
+            }
+          },
+          "registration": {
+            "scaleY": 0.6766917293233082,
+            "scaleX": 0.6766917293233082,
+            "shearY": 0.05,
+            "translation": [
+              65.30075187969925,
+              58.78063909774437
+            ],
+            "bodyRegistrationWidth": 266,
+            "sourceRect": [
+              860,
+              378,
+              335,
+              247
+            ],
+            "method": "anatomical near/far toe-pad registration plus reviewed torso width; affine perspective calibration, not canvas or alpha-box bottom"
+          },
+          "layers": [
+            {
+              "name": "painted-eat-pose",
+              "file": "sources/layer-png/eat-06-painted-eat-pose.png"
+            }
+          ],
+          "atlasRect": [
+            730,
+            286,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 7,
+          "sourcePoseIndex": 8,
+          "file": "frames/eat/07.png",
+          "source": "sources/frame-svg/eat-07.svg",
+          "durationMs": 83.33333333333333,
+          "anchor": [
+            180,
+            230
+          ],
+          "canvas": [
+            360,
+            280
+          ],
+          "cropped": false,
+          "offset": [
+            0,
+            0
+          ],
+          "contacts": {
+            "near": {
+              "actual": [
+                180,
+                230
+              ],
+              "support": true,
+              "source": [
+                153.5,
+                238.5
+              ]
+            },
+            "far": {
+              "actual": [
+                131.087,
+                219.2391
+              ],
+              "support": true,
+              "source": [
+                79.5,
+                228.5
+              ]
+            }
+          },
+          "registration": {
+            "scaleY": 0.6666666666666666,
+            "scaleX": 0.6609864864864866,
+            "shearY": 0.055327477477477384,
+            "translation": [
+              78.5385743243243,
+              62.50723220720721
+            ],
+            "bodyRegistrationWidth": 270,
+            "sourceRect": [
+              65,
+              674,
+              320,
+              245
+            ],
+            "method": "anatomical near/far toe-pad registration plus reviewed torso width; affine perspective calibration, not canvas or alpha-box bottom"
+          },
+          "layers": [
+            {
+              "name": "painted-eat-pose",
+              "file": "sources/layer-png/eat-07-painted-eat-pose.png"
+            }
+          ],
+          "atlasRect": [
+            1094,
+            286,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 8,
+          "sourcePoseIndex": 7,
+          "file": "frames/eat/08.png",
+          "source": "sources/frame-svg/eat-08.svg",
+          "durationMs": 83.33333333333333,
+          "anchor": [
+            180,
+            230
+          ],
+          "canvas": [
+            360,
+            280
+          ],
+          "cropped": false,
+          "offset": [
+            0,
+            0
+          ],
+          "contacts": {
+            "near": {
+              "actual": [
+                180,
+                230
+              ],
+              "support": true,
+              "source": [
+                166.5,
+                238.5
+              ]
+            },
+            "far": {
+              "actual": [
+                131.087,
+                219.2391
+              ],
+              "support": true,
+              "source": [
+                86.5,
+                237.5
+              ]
+            }
+          },
+          "registration": {
+            "scaleY": 0.6593406593406593,
+            "scaleX": 0.6114125000000001,
+            "shearY": 0.12626949175824168,
+            "translation": [
+              78.19981874999998,
+              51.723382369505515
+            ],
+            "bodyRegistrationWidth": 273,
+            "sourceRect": [
+              1270,
+              380,
+              336,
+              245
+            ],
+            "method": "anatomical near/far toe-pad registration plus reviewed torso width; affine perspective calibration, not canvas or alpha-box bottom"
+          },
+          "layers": [
+            {
+              "name": "painted-eat-pose",
+              "file": "sources/layer-png/eat-08-painted-eat-pose.png"
+            }
+          ],
+          "atlasRect": [
+            2,
+            570,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 9,
+          "sourcePoseIndex": 9,
+          "file": "frames/eat/09.png",
+          "source": "sources/frame-svg/eat-09.svg",
+          "durationMs": 83.33333333333333,
+          "anchor": [
+            180,
+            230
+          ],
+          "canvas": [
+            360,
+            280
+          ],
+          "cropped": false,
+          "offset": [
+            0,
+            0
+          ],
+          "contacts": {
+            "near": {
+              "actual": [
+                180,
+                230
+              ],
+              "support": true,
+              "source": [
+                148.5,
+                236.5
+              ]
+            },
+            "far": {
+              "actual": [
+                131.087,
+                219.2391
+              ],
+              "support": true,
+              "source": [
+                75.5,
+                223.5
+              ]
+            }
+          },
+          "registration": {
+            "scaleY": 0.6617647058823529,
+            "scaleX": 0.670041095890411,
+            "shearY": 0.02956107977437539,
+            "translation": [
+              80.49889726027396,
+              69.10282671232878
+            ],
+            "bodyRegistrationWidth": 272,
+            "sourceRect": [
+              478,
+              676,
+              322,
+              243
+            ],
+            "method": "anatomical near/far toe-pad registration plus reviewed torso width; affine perspective calibration, not canvas or alpha-box bottom"
+          },
+          "layers": [
+            {
+              "name": "painted-eat-pose",
+              "file": "sources/layer-png/eat-09-painted-eat-pose.png"
+            }
+          ],
+          "atlasRect": [
+            366,
+            570,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 10,
+          "sourcePoseIndex": 11,
+          "file": "frames/eat/10.png",
+          "source": "sources/frame-svg/eat-10.svg",
+          "durationMs": 83.33333333333333,
+          "anchor": [
+            180,
+            230
+          ],
+          "canvas": [
+            360,
+            280
+          ],
+          "cropped": false,
+          "offset": [
+            0,
+            0
+          ],
+          "contacts": {
+            "near": {
+              "actual": [
+                180,
+                230
+              ],
+              "support": true,
+              "source": [
+                147.5,
+                250.5
+              ]
+            },
+            "far": {
+              "actual": [
+                131.087,
+                219.2391
+              ],
+              "support": true,
+              "source": [
+                73.5,
+                240.5
+              ]
+            }
+          },
+          "registration": {
+            "scaleY": 0.6545454545454545,
+            "scaleX": 0.6609864864864866,
+            "shearY": 0.05696547911547902,
+            "translation": [
+              82.50449324324322,
+              57.633955466830486
+            ],
+            "bodyRegistrationWidth": 275,
+            "sourceRect": [
+              1289,
+              663,
+              320,
+              256
+            ],
+            "method": "anatomical near/far toe-pad registration plus reviewed torso width; affine perspective calibration, not canvas or alpha-box bottom"
+          },
+          "layers": [
+            {
+              "name": "painted-eat-pose",
+              "file": "sources/layer-png/eat-10-painted-eat-pose.png"
+            }
+          ],
+          "atlasRect": [
+            730,
+            570,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 11,
+          "sourcePoseIndex": 10,
+          "file": "frames/eat/11.png",
+          "source": "sources/frame-svg/eat-11.svg",
+          "durationMs": 83.33333333333333,
+          "anchor": [
+            180,
+            230
+          ],
+          "canvas": [
+            360,
+            280
+          ],
+          "cropped": false,
+          "offset": [
+            0,
+            0
+          ],
+          "contacts": {
+            "near": {
+              "actual": [
+                180,
+                230
+              ],
+              "support": true,
+              "source": [
+                145.5,
+                260.5
+              ]
+            },
+            "far": {
+              "actual": [
+                131.087,
+                219.2391
+              ],
+              "support": true,
+              "source": [
+                70.5,
+                252.5
+              ]
+            }
+          },
+          "registration": {
+            "scaleY": 0.7122302158273381,
+            "scaleX": 0.6521733333333335,
+            "shearY": 0.06750744364508383,
+            "translation": [
+              85.10877999999998,
+              34.64169572661871
+            ],
+            "bodyRegistrationWidth": 278,
+            "sourceRect": [
+              881,
+              653,
+              322,
+              266
+            ],
+            "method": "anatomical near/far toe-pad registration plus reviewed torso width; affine perspective calibration, not canvas or alpha-box bottom"
+          },
+          "layers": [
+            {
+              "name": "painted-eat-pose",
+              "file": "sources/layer-png/eat-11-painted-eat-pose.png"
+            }
+          ],
+          "atlasRect": [
+            1094,
+            570,
+            360,
+            280
+          ]
+        }
+      ]
+    },
+    {
+      "id": "walk",
+      "name": "原地短走",
+      "fps": 12,
+      "frameCount": 12,
+      "durationMs": 1000,
+      "loop": "repeat frames 00–11; no duplicate endpoint",
+      "atlas": "atlases/chicken-walk.png",
+      "atlasCanvas": [
+        1456,
+        852
+      ],
+      "atlasPadding": 2,
+      "shadow": "shadows/ground-shadow.png",
+      "frames": [
+        {
+          "index": 0,
+          "sourcePoseIndex": 5,
+          "file": "frames/walk/00.png",
+          "source": "sources/frame-svg/walk-00.svg",
+          "durationMs": 83.33333333333333,
+          "anchor": [
+            180,
+            230
+          ],
+          "canvas": [
+            360,
+            280
+          ],
+          "cropped": false,
+          "offset": [
+            0,
+            0
+          ],
+          "contacts": {
+            "far": {
+              "actual": [
+                140.087,
+                214.7391
+              ],
+              "projectedGround": [
+                140.087,
+                214.7391
+              ],
+              "support": false,
+              "lift": 0,
+              "part": {
+                "file": "sources/parts/walk-00-far.png",
+                "canvas": [
+                  58,
+                  47
+                ],
+                "sourceGoldBounds": [
+                  56,
+                  240,
+                  102,
+                  275
+                ],
+                "sourceCrop": [
+                  50,
+                  234,
+                  58,
+                  47
+                ],
+                "toePadContact": [
+                  27.5,
+                  46.5
+                ],
+                "sourceToePadContact": [
+                  77.5,
+                  280.5
+                ]
+              },
+              "scale": 0.52,
+              "translation": [
+                125.78699999999999,
+                190.5591
+              ]
+            },
+            "near": {
+              "actual": [
+                171,
+                234.5
+              ],
+              "projectedGround": [
+                171,
+                234.5
+              ],
+              "support": true,
+              "lift": 0,
+              "part": {
+                "file": "sources/parts/walk-00-near.png",
+                "canvas": [
+                  76,
+                  58
+                ],
+                "sourceGoldBounds": [
+                  172,
+                  236,
+                  236,
+                  282
+                ],
+                "sourceCrop": [
+                  166,
+                  230,
+                  76,
+                  58
+                ],
+                "toePadContact": [
+                  40.5,
+                  58.5
+                ],
+                "sourceToePadContact": [
+                  206.5,
+                  288.5
+                ]
+              },
+              "scale": 0.55,
+              "translation": [
+                148.725,
+                202.325
+              ]
+            }
+          },
+          "registration": {
+            "body": "sources/parts/hungry-body-reused.png",
+            "bodyTranslation": [
+              0,
+              0
+            ],
+            "bodyScale": 1,
+            "bodyWidth": 180,
+            "sourcePoseIndex": 5,
+            "method": "reused approved raster body, independently drawn articulated leg sprites aligned to anatomical toe pads"
+          },
+          "layers": [
+            {
+              "name": "far-leg",
+              "file": "sources/layer-png/walk-00-far-leg.png"
+            },
+            {
+              "name": "near-leg",
+              "file": "sources/layer-png/walk-00-near-leg.png"
+            },
+            {
+              "name": "approved-hungry-body",
+              "file": "sources/layer-png/walk-00-approved-hungry-body.png"
+            }
+          ],
+          "atlasRect": [
+            2,
+            2,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 1,
+          "sourcePoseIndex": 6,
+          "file": "frames/walk/01.png",
+          "source": "sources/frame-svg/walk-01.svg",
+          "durationMs": 83.33333333333333,
+          "anchor": [
+            180,
+            230
+          ],
+          "canvas": [
+            360,
+            280
+          ],
+          "cropped": false,
+          "offset": [
+            0,
+            0
+          ],
+          "contacts": {
+            "far": {
+              "actual": [
+                138.88122863405994,
+                211.84198568297003
+              ],
+              "projectedGround": [
+                138.88122863405994,
+                215.34198568297003
+              ],
+              "support": false,
+              "lift": 3.4999999999999996,
+              "part": {
+                "file": "sources/parts/walk-01-far.png",
+                "canvas": [
+                  58,
+                  47
+                ],
+                "sourceGoldBounds": [
+                  39,
+                  236,
+                  85,
+                  271
+                ],
+                "sourceCrop": [
+                  33,
+                  230,
+                  58,
+                  47
+                ],
+                "toePadContact": [
+                  33.5,
+                  45.5
+                ],
+                "sourceToePadContact": [
+                  66.5,
+                  275.5
+                ]
+              },
+              "scale": 0.52,
+              "translation": [
+                121.46122863405994,
+                188.18198568297004
+              ]
+            },
+            "near": {
+              "actual": [
+                174,
+                233
+              ],
+              "projectedGround": [
+                174,
+                233
+              ],
+              "support": true,
+              "lift": 0,
+              "part": {
+                "file": "sources/parts/walk-01-near.png",
+                "canvas": [
+                  67,
+                  63
+                ],
+                "sourceGoldBounds": [
+                  179,
+                  236,
+                  234,
+                  289
+                ],
+                "sourceCrop": [
+                  173,
+                  230,
+                  67,
+                  63
+                ],
+                "toePadContact": [
+                  27.5,
+                  59.5
+                ],
+                "sourceToePadContact": [
+                  200.5,
+                  289.5
+                ]
+              },
+              "scale": 0.55,
+              "translation": [
+                158.875,
+                200.275
+              ]
+            }
+          },
+          "registration": {
+            "body": "sources/parts/hungry-body-reused.png",
+            "bodyTranslation": [
+              0,
+              0
+            ],
+            "bodyScale": 1,
+            "bodyWidth": 180,
+            "sourcePoseIndex": 6,
+            "method": "reused approved raster body, independently drawn articulated leg sprites aligned to anatomical toe pads"
+          },
+          "layers": [
+            {
+              "name": "far-leg",
+              "file": "sources/layer-png/walk-01-far-leg.png"
+            },
+            {
+              "name": "near-leg",
+              "file": "sources/layer-png/walk-01-near-leg.png"
+            },
+            {
+              "name": "approved-hungry-body",
+              "file": "sources/layer-png/walk-01-approved-hungry-body.png"
+            }
+          ],
+          "atlasRect": [
+            366,
+            2,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 2,
+          "sourcePoseIndex": 7,
+          "file": "frames/walk/02.png",
+          "source": "sources/frame-svg/walk-02.svg",
+          "durationMs": 83.33333333333333,
+          "anchor": [
+            180,
+            230
+          ],
+          "canvas": [
+            360,
+            280
+          ],
+          "cropped": false,
+          "offset": [
+            0,
+            0
+          ],
+          "contacts": {
+            "far": {
+              "actual": [
+                135.587,
+                210.92692217350893
+              ],
+              "projectedGround": [
+                135.587,
+                216.9891
+              ],
+              "support": false,
+              "lift": 6.06217782649107,
+              "part": {
+                "file": "sources/parts/walk-02-far.png",
+                "canvas": [
+                  58,
+                  50
+                ],
+                "sourceGoldBounds": [
+                  60,
+                  240,
+                  106,
+                  278
+                ],
+                "sourceCrop": [
+                  54,
+                  234,
+                  58,
+                  50
+                ],
+                "toePadContact": [
+                  32.5,
+                  49.5
+                ],
+                "sourceToePadContact": [
+                  86.5,
+                  283.5
+                ]
+              },
+              "scale": 0.52,
+              "translation": [
+                118.68699999999998,
+                185.18692217350892
+              ]
+            },
+            "near": {
+              "actual": [
+                177,
+                231.5
+              ],
+              "projectedGround": [
+                177,
+                231.5
+              ],
+              "support": true,
+              "lift": 0,
+              "part": {
+                "file": "sources/parts/walk-02-near.png",
+                "canvas": [
+                  68,
+                  62
+                ],
+                "sourceGoldBounds": [
+                  194,
+                  230,
+                  250,
+                  280
+                ],
+                "sourceCrop": [
+                  188,
+                  224,
+                  68,
+                  62
+                ],
+                "toePadContact": [
+                  31.5,
+                  62.5
+                ],
+                "sourceToePadContact": [
+                  219.5,
+                  286.5
+                ]
+              },
+              "scale": 0.55,
+              "translation": [
+                159.675,
+                197.125
+              ]
+            }
+          },
+          "registration": {
+            "body": "sources/parts/hungry-body-reused.png",
+            "bodyTranslation": [
+              0,
+              0
+            ],
+            "bodyScale": 1,
+            "bodyWidth": 180,
+            "sourcePoseIndex": 7,
+            "method": "reused approved raster body, independently drawn articulated leg sprites aligned to anatomical toe pads"
+          },
+          "layers": [
+            {
+              "name": "far-leg",
+              "file": "sources/layer-png/walk-02-far-leg.png"
+            },
+            {
+              "name": "near-leg",
+              "file": "sources/layer-png/walk-02-near-leg.png"
+            },
+            {
+              "name": "approved-hungry-body",
+              "file": "sources/layer-png/walk-02-approved-hungry-body.png"
+            }
+          ],
+          "atlasRect": [
+            730,
+            2,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 3,
+          "sourcePoseIndex": 8,
+          "file": "frames/walk/03.png",
+          "source": "sources/frame-svg/walk-03.svg",
+          "durationMs": 83.33333333333333,
+          "anchor": [
+            180,
+            230
+          ],
+          "canvas": [
+            360,
+            280
+          ],
+          "cropped": false,
+          "offset": [
+            0,
+            0
+          ],
+          "contacts": {
+            "far": {
+              "actual": [
+                131.087,
+                212.2391
+              ],
+              "projectedGround": [
+                131.087,
+                219.2391
+              ],
+              "support": false,
+              "lift": 7,
+              "part": {
+                "file": "sources/parts/walk-03-far.png",
+                "canvas": [
+                  60,
+                  51
+                ],
+                "sourceGoldBounds": [
+                  39,
+                  233,
+                  87,
+                  272
+                ],
+                "sourceCrop": [
+                  33,
+                  227,
+                  60,
+                  51
+                ],
+                "toePadContact": [
+                  36.5,
+                  50.5
+                ],
+                "sourceToePadContact": [
+                  69.5,
+                  277.5
+                ]
+              },
+              "scale": 0.52,
+              "translation": [
+                112.10699999999999,
+                185.97910000000002
+              ]
+            },
+            "near": {
+              "actual": [
+                180,
+                230
+              ],
+              "projectedGround": [
+                180,
+                230
+              ],
+              "support": true,
+              "lift": 0,
+              "part": {
+                "file": "sources/parts/walk-03-near.png",
+                "canvas": [
+                  69,
+                  60
+                ],
+                "sourceGoldBounds": [
+                  174,
+                  237,
+                  231,
+                  285
+                ],
+                "sourceCrop": [
+                  168,
+                  231,
+                  69,
+                  60
+                ],
+                "toePadContact": [
+                  29.5,
+                  60.5
+                ],
+                "sourceToePadContact": [
+                  197.5,
+                  291.5
+                ]
+              },
+              "scale": 0.55,
+              "translation": [
+                163.775,
+                196.725
+              ]
+            }
+          },
+          "registration": {
+            "body": "sources/parts/hungry-body-reused.png",
+            "bodyTranslation": [
+              0,
+              0
+            ],
+            "bodyScale": 1,
+            "bodyWidth": 180,
+            "sourcePoseIndex": 8,
+            "method": "reused approved raster body, independently drawn articulated leg sprites aligned to anatomical toe pads"
+          },
+          "layers": [
+            {
+              "name": "far-leg",
+              "file": "sources/layer-png/walk-03-far-leg.png"
+            },
+            {
+              "name": "near-leg",
+              "file": "sources/layer-png/walk-03-near-leg.png"
+            },
+            {
+              "name": "approved-hungry-body",
+              "file": "sources/layer-png/walk-03-approved-hungry-body.png"
+            }
+          ],
+          "atlasRect": [
+            1094,
+            2,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 4,
+          "sourcePoseIndex": 9,
+          "file": "frames/walk/04.png",
+          "source": "sources/frame-svg/walk-04.svg",
+          "durationMs": 83.33333333333333,
+          "anchor": [
+            180,
+            230
+          ],
+          "canvas": [
+            360,
+            280
+          ],
+          "cropped": false,
+          "offset": [
+            0,
+            0
+          ],
+          "contacts": {
+            "far": {
+              "actual": [
+                126.58699999999999,
+                215.42692217350893
+              ],
+              "projectedGround": [
+                126.58699999999999,
+                221.4891
+              ],
+              "support": false,
+              "lift": 6.062177826491071,
+              "part": {
+                "file": "sources/parts/walk-04-far.png",
+                "canvas": [
+                  61,
+                  53
+                ],
+                "sourceGoldBounds": [
+                  43,
+                  227,
+                  92,
+                  268
+                ],
+                "sourceCrop": [
+                  37,
+                  221,
+                  61,
+                  53
+                ],
+                "toePadContact": [
+                  33.5,
+                  53.5
+                ],
+                "sourceToePadContact": [
+                  70.5,
+                  274.5
+                ]
+              },
+              "scale": 0.52,
+              "translation": [
+                109.16699999999999,
+                187.60692217350893
+              ]
+            },
+            "near": {
+              "actual": [
+                183,
+                228.5
+              ],
+              "projectedGround": [
+                183,
+                228.5
+              ],
+              "support": true,
+              "lift": 0,
+              "part": {
+                "file": "sources/parts/walk-04-near.png",
+                "canvas": [
+                  68,
+                  56
+                ],
+                "sourceGoldBounds": [
+                  180,
+                  238,
+                  236,
+                  282
+                ],
+                "sourceCrop": [
+                  174,
+                  232,
+                  68,
+                  56
+                ],
+                "toePadContact": [
+                  29.5,
+                  55.5
+                ],
+                "sourceToePadContact": [
+                  203.5,
+                  287.5
+                ]
+              },
+              "scale": 0.55,
+              "translation": [
+                166.775,
+                197.975
+              ]
+            }
+          },
+          "registration": {
+            "body": "sources/parts/hungry-body-reused.png",
+            "bodyTranslation": [
+              0,
+              0
+            ],
+            "bodyScale": 1,
+            "bodyWidth": 180,
+            "sourcePoseIndex": 9,
+            "method": "reused approved raster body, independently drawn articulated leg sprites aligned to anatomical toe pads"
+          },
+          "layers": [
+            {
+              "name": "far-leg",
+              "file": "sources/layer-png/walk-04-far-leg.png"
+            },
+            {
+              "name": "near-leg",
+              "file": "sources/layer-png/walk-04-near-leg.png"
+            },
+            {
+              "name": "approved-hungry-body",
+              "file": "sources/layer-png/walk-04-approved-hungry-body.png"
+            }
+          ],
+          "atlasRect": [
+            2,
+            286,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 5,
+          "sourcePoseIndex": 10,
+          "file": "frames/walk/05.png",
+          "source": "sources/frame-svg/walk-05.svg",
+          "durationMs": 83.33333333333333,
+          "anchor": [
+            180,
+            230
+          ],
+          "canvas": [
+            360,
+            280
+          ],
+          "cropped": false,
+          "offset": [
+            0,
+            0
+          ],
+          "contacts": {
+            "far": {
+              "actual": [
+                123.29277136594004,
+                219.63621431702998
+              ],
+              "projectedGround": [
+                123.29277136594004,
+                223.13621431702998
+              ],
+              "support": false,
+              "lift": 3.4999999999999996,
+              "part": {
+                "file": "sources/parts/walk-05-far.png",
+                "canvas": [
+                  61,
+                  52
+                ],
+                "sourceGoldBounds": [
+                  40,
+                  239,
+                  89,
+                  279
+                ],
+                "sourceCrop": [
+                  34,
+                  233,
+                  61,
+                  52
+                ],
+                "toePadContact": [
+                  36.5,
+                  50.5
+                ],
+                "sourceToePadContact": [
+                  70.5,
+                  283.5
+                ]
+              },
+              "scale": 0.52,
+              "translation": [
+                104.31277136594004,
+                193.37621431703
+              ]
+            },
+            "near": {
+              "actual": [
+                186,
+                227
+              ],
+              "projectedGround": [
+                186,
+                227
+              ],
+              "support": true,
+              "lift": 0,
+              "part": {
+                "file": "sources/parts/walk-05-near.png",
+                "canvas": [
+                  68,
+                  57
+                ],
+                "sourceGoldBounds": [
+                  180,
+                  238,
+                  236,
+                  283
+                ],
+                "sourceCrop": [
+                  174,
+                  232,
+                  68,
+                  57
+                ],
+                "toePadContact": [
+                  28.5,
+                  57.5
+                ],
+                "sourceToePadContact": [
+                  202.5,
+                  289.5
+                ]
+              },
+              "scale": 0.55,
+              "translation": [
+                170.325,
+                195.375
+              ]
+            }
+          },
+          "registration": {
+            "body": "sources/parts/hungry-body-reused.png",
+            "bodyTranslation": [
+              0,
+              0
+            ],
+            "bodyScale": 1,
+            "bodyWidth": 180,
+            "sourcePoseIndex": 10,
+            "method": "reused approved raster body, independently drawn articulated leg sprites aligned to anatomical toe pads"
+          },
+          "layers": [
+            {
+              "name": "far-leg",
+              "file": "sources/layer-png/walk-05-far-leg.png"
+            },
+            {
+              "name": "near-leg",
+              "file": "sources/layer-png/walk-05-near-leg.png"
+            },
+            {
+              "name": "approved-hungry-body",
+              "file": "sources/layer-png/walk-05-approved-hungry-body.png"
+            }
+          ],
+          "atlasRect": [
+            366,
+            286,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 6,
+          "sourcePoseIndex": 11,
+          "file": "frames/walk/06.png",
+          "source": "sources/frame-svg/walk-06.svg",
+          "durationMs": 83.33333333333333,
+          "anchor": [
+            180,
+            230
+          ],
+          "canvas": [
+            360,
+            280
+          ],
+          "cropped": false,
+          "offset": [
+            0,
+            0
+          ],
+          "contacts": {
+            "far": {
+              "actual": [
+                122.08699999999999,
+                223.7391
+              ],
+              "projectedGround": [
+                122.08699999999999,
+                223.7391
+              ],
+              "support": true,
+              "lift": 0,
+              "part": {
+                "file": "sources/parts/walk-06-far.png",
+                "canvas": [
+                  63,
+                  51
+                ],
+                "sourceGoldBounds": [
+                  47,
+                  245,
+                  98,
+                  284
+                ],
+                "sourceCrop": [
+                  41,
+                  239,
+                  63,
+                  51
+                ],
+                "toePadContact": [
+                  35.5,
+                  48.5
+                ],
+                "sourceToePadContact": [
+                  76.5,
+                  287.5
+                ]
+              },
+              "scale": 0.52,
+              "translation": [
+                103.62699999999998,
+                198.5191
+              ]
+            },
+            "near": {
+              "actual": [
+                189,
+                225.5
+              ],
+              "projectedGround": [
+                189,
+                225.5
+              ],
+              "support": false,
+              "lift": 0,
+              "part": {
+                "file": "sources/parts/walk-06-near.png",
+                "canvas": [
+                  51,
+                  52
+                ],
+                "sourceGoldBounds": [
+                  201,
+                  233,
+                  240,
+                  273
+                ],
+                "sourceCrop": [
+                  195,
+                  227,
+                  51,
+                  52
+                ],
+                "toePadContact": [
+                  20.5,
+                  51.5
+                ],
+                "sourceToePadContact": [
+                  215.5,
+                  278.5
+                ]
+              },
+              "scale": 0.55,
+              "translation": [
+                177.725,
+                197.175
+              ]
+            }
+          },
+          "registration": {
+            "body": "sources/parts/hungry-body-reused.png",
+            "bodyTranslation": [
+              0,
+              0
+            ],
+            "bodyScale": 1,
+            "bodyWidth": 180,
+            "sourcePoseIndex": 11,
+            "method": "reused approved raster body, independently drawn articulated leg sprites aligned to anatomical toe pads"
+          },
+          "layers": [
+            {
+              "name": "far-leg",
+              "file": "sources/layer-png/walk-06-far-leg.png"
+            },
+            {
+              "name": "near-leg",
+              "file": "sources/layer-png/walk-06-near-leg.png"
+            },
+            {
+              "name": "approved-hungry-body",
+              "file": "sources/layer-png/walk-06-approved-hungry-body.png"
+            }
+          ],
+          "atlasRect": [
+            730,
+            286,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 7,
+          "sourcePoseIndex": 0,
+          "file": "frames/walk/07.png",
+          "source": "sources/frame-svg/walk-07.svg",
+          "durationMs": 83.33333333333333,
+          "anchor": [
+            180,
+            230
+          ],
+          "canvas": [
+            360,
+            280
+          ],
+          "cropped": false,
+          "offset": [
+            0,
+            0
+          ],
+          "contacts": {
+            "far": {
+              "actual": [
+                125.08699999999999,
+                222.2391
+              ],
+              "projectedGround": [
+                125.08699999999999,
+                222.2391
+              ],
+              "support": true,
+              "lift": 0,
+              "part": {
+                "file": "sources/parts/walk-07-far.png",
+                "canvas": [
+                  68,
+                  56
+                ],
+                "sourceGoldBounds": [
+                  38,
+                  242,
+                  94,
+                  288
+                ],
+                "sourceCrop": [
+                  32,
+                  236,
+                  68,
+                  56
+                ],
+                "toePadContact": [
+                  37.5,
+                  49.5
+                ],
+                "sourceToePadContact": [
+                  69.5,
+                  285.5
+                ]
+              },
+              "scale": 0.52,
+              "translation": [
+                105.58699999999999,
+                196.4991
+              ]
+            },
+            "near": {
+              "actual": [
+                187.79422863405995,
+                222.60288568297003
+              ],
+              "projectedGround": [
+                187.79422863405995,
+                226.10288568297003
+              ],
+              "support": false,
+              "lift": 3.4999999999999996,
+              "part": {
+                "file": "sources/parts/walk-07-near.png",
+                "canvas": [
+                  50,
+                  49
+                ],
+                "sourceGoldBounds": [
+                  169,
+                  245,
+                  207,
+                  282
+                ],
+                "sourceCrop": [
+                  163,
+                  239,
+                  50,
+                  49
+                ],
+                "toePadContact": [
+                  23.5,
+                  48.5
+                ],
+                "sourceToePadContact": [
+                  186.5,
+                  287.5
+                ]
+              },
+              "scale": 0.55,
+              "translation": [
+                174.86922863405994,
+                195.92788568297001
+              ]
+            }
+          },
+          "registration": {
+            "body": "sources/parts/hungry-body-reused.png",
+            "bodyTranslation": [
+              0,
+              0
+            ],
+            "bodyScale": 1,
+            "bodyWidth": 180,
+            "sourcePoseIndex": 0,
+            "method": "reused approved raster body, independently drawn articulated leg sprites aligned to anatomical toe pads"
+          },
+          "layers": [
+            {
+              "name": "far-leg",
+              "file": "sources/layer-png/walk-07-far-leg.png"
+            },
+            {
+              "name": "near-leg",
+              "file": "sources/layer-png/walk-07-near-leg.png"
+            },
+            {
+              "name": "approved-hungry-body",
+              "file": "sources/layer-png/walk-07-approved-hungry-body.png"
+            }
+          ],
+          "atlasRect": [
+            1094,
+            286,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 8,
+          "sourcePoseIndex": 1,
+          "file": "frames/walk/08.png",
+          "source": "sources/frame-svg/walk-08.svg",
+          "durationMs": 83.33333333333333,
+          "anchor": [
+            180,
+            230
+          ],
+          "canvas": [
+            360,
+            280
+          ],
+          "cropped": false,
+          "offset": [
+            0,
+            0
+          ],
+          "contacts": {
+            "far": {
+              "actual": [
+                128.087,
+                220.7391
+              ],
+              "projectedGround": [
+                128.087,
+                220.7391
+              ],
+              "support": true,
+              "lift": 0,
+              "part": {
+                "file": "sources/parts/walk-08-far.png",
+                "canvas": [
+                  64,
+                  51
+                ],
+                "sourceGoldBounds": [
+                  48,
+                  246,
+                  100,
+                  285
+                ],
+                "sourceCrop": [
+                  42,
+                  240,
+                  64,
+                  51
+                ],
+                "toePadContact": [
+                  36.5,
+                  48.5
+                ],
+                "sourceToePadContact": [
+                  78.5,
+                  288.5
+                ]
+              },
+              "scale": 0.52,
+              "translation": [
+                109.10699999999999,
+                195.5191
+              ]
+            },
+            "near": {
+              "actual": [
+                184.5,
+                221.68782217350892
+              ],
+              "projectedGround": [
+                184.5,
+                227.75
+              ],
+              "support": false,
+              "lift": 6.06217782649107,
+              "part": {
+                "file": "sources/parts/walk-08-near.png",
+                "canvas": [
+                  48,
+                  44
+                ],
+                "sourceGoldBounds": [
+                  166,
+                  242,
+                  202,
+                  274
+                ],
+                "sourceCrop": [
+                  160,
+                  236,
+                  48,
+                  44
+                ],
+                "toePadContact": [
+                  23.5,
+                  44.5
+                ],
+                "sourceToePadContact": [
+                  183.5,
+                  280.5
+                ]
+              },
+              "scale": 0.55,
+              "translation": [
+                171.575,
+                197.21282217350893
+              ]
+            }
+          },
+          "registration": {
+            "body": "sources/parts/hungry-body-reused.png",
+            "bodyTranslation": [
+              0,
+              0
+            ],
+            "bodyScale": 1,
+            "bodyWidth": 180,
+            "sourcePoseIndex": 1,
+            "method": "reused approved raster body, independently drawn articulated leg sprites aligned to anatomical toe pads"
+          },
+          "layers": [
+            {
+              "name": "far-leg",
+              "file": "sources/layer-png/walk-08-far-leg.png"
+            },
+            {
+              "name": "near-leg",
+              "file": "sources/layer-png/walk-08-near-leg.png"
+            },
+            {
+              "name": "approved-hungry-body",
+              "file": "sources/layer-png/walk-08-approved-hungry-body.png"
+            }
+          ],
+          "atlasRect": [
+            2,
+            570,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 9,
+          "sourcePoseIndex": 2,
+          "file": "frames/walk/09.png",
+          "source": "sources/frame-svg/walk-09.svg",
+          "durationMs": 83.33333333333333,
+          "anchor": [
+            180,
+            230
+          ],
+          "canvas": [
+            360,
+            280
+          ],
+          "cropped": false,
+          "offset": [
+            0,
+            0
+          ],
+          "contacts": {
+            "far": {
+              "actual": [
+                131.087,
+                219.2391
+              ],
+              "projectedGround": [
+                131.087,
+                219.2391
+              ],
+              "support": true,
+              "lift": 0,
+              "part": {
+                "file": "sources/parts/walk-09-far.png",
+                "canvas": [
+                  64,
+                  53
+                ],
+                "sourceGoldBounds": [
+                  52,
+                  246,
+                  104,
+                  287
+                ],
+                "sourceCrop": [
+                  46,
+                  240,
+                  64,
+                  53
+                ],
+                "toePadContact": [
+                  33.5,
+                  52.5
+                ],
+                "sourceToePadContact": [
+                  79.5,
+                  292.5
+                ]
+              },
+              "scale": 0.52,
+              "translation": [
+                113.66699999999999,
+                191.9391
+              ]
+            },
+            "near": {
+              "actual": [
+                180,
+                223
+              ],
+              "projectedGround": [
+                180,
+                230
+              ],
+              "support": false,
+              "lift": 7,
+              "part": {
+                "file": "sources/parts/walk-09-near.png",
+                "canvas": [
+                  61,
+                  54
+                ],
+                "sourceGoldBounds": [
+                  166,
+                  243,
+                  215,
+                  285
+                ],
+                "sourceCrop": [
+                  160,
+                  237,
+                  61,
+                  54
+                ],
+                "toePadContact": [
+                  27.5,
+                  54.5
+                ],
+                "sourceToePadContact": [
+                  187.5,
+                  291.5
+                ]
+              },
+              "scale": 0.55,
+              "translation": [
+                164.875,
+                193.025
+              ]
+            }
+          },
+          "registration": {
+            "body": "sources/parts/hungry-body-reused.png",
+            "bodyTranslation": [
+              0,
+              0
+            ],
+            "bodyScale": 1,
+            "bodyWidth": 180,
+            "sourcePoseIndex": 2,
+            "method": "reused approved raster body, independently drawn articulated leg sprites aligned to anatomical toe pads"
+          },
+          "layers": [
+            {
+              "name": "far-leg",
+              "file": "sources/layer-png/walk-09-far-leg.png"
+            },
+            {
+              "name": "near-leg",
+              "file": "sources/layer-png/walk-09-near-leg.png"
+            },
+            {
+              "name": "approved-hungry-body",
+              "file": "sources/layer-png/walk-09-approved-hungry-body.png"
+            }
+          ],
+          "atlasRect": [
+            366,
+            570,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 10,
+          "sourcePoseIndex": 3,
+          "file": "frames/walk/10.png",
+          "source": "sources/frame-svg/walk-10.svg",
+          "durationMs": 83.33333333333333,
+          "anchor": [
+            180,
+            230
+          ],
+          "canvas": [
+            360,
+            280
+          ],
+          "cropped": false,
+          "offset": [
+            0,
+            0
+          ],
+          "contacts": {
+            "far": {
+              "actual": [
+                134.087,
+                217.7391
+              ],
+              "projectedGround": [
+                134.087,
+                217.7391
+              ],
+              "support": true,
+              "lift": 0,
+              "part": {
+                "file": "sources/parts/walk-10-far.png",
+                "canvas": [
+                  58,
+                  49
+                ],
+                "sourceGoldBounds": [
+                  55,
+                  250,
+                  101,
+                  287
+                ],
+                "sourceCrop": [
+                  49,
+                  244,
+                  58,
+                  49
+                ],
+                "toePadContact": [
+                  31.5,
+                  47.5
+                ],
+                "sourceToePadContact": [
+                  80.5,
+                  291.5
+                ]
+              },
+              "scale": 0.52,
+              "translation": [
+                117.707,
+                193.03910000000002
+              ]
+            },
+            "near": {
+              "actual": [
+                175.5,
+                226.18782217350892
+              ],
+              "projectedGround": [
+                175.5,
+                232.25
+              ],
+              "support": false,
+              "lift": 6.062177826491071,
+              "part": {
+                "file": "sources/parts/walk-10-near.png",
+                "canvas": [
+                  60,
+                  57
+                ],
+                "sourceGoldBounds": [
+                  201,
+                  240,
+                  249,
+                  285
+                ],
+                "sourceCrop": [
+                  195,
+                  234,
+                  60,
+                  57
+                ],
+                "toePadContact": [
+                  25.5,
+                  56.5
+                ],
+                "sourceToePadContact": [
+                  220.5,
+                  290.5
+                ]
+              },
+              "scale": 0.55,
+              "translation": [
+                161.475,
+                195.1128221735089
+              ]
+            }
+          },
+          "registration": {
+            "body": "sources/parts/hungry-body-reused.png",
+            "bodyTranslation": [
+              0,
+              0
+            ],
+            "bodyScale": 1,
+            "bodyWidth": 180,
+            "sourcePoseIndex": 3,
+            "method": "reused approved raster body, independently drawn articulated leg sprites aligned to anatomical toe pads"
+          },
+          "layers": [
+            {
+              "name": "far-leg",
+              "file": "sources/layer-png/walk-10-far-leg.png"
+            },
+            {
+              "name": "near-leg",
+              "file": "sources/layer-png/walk-10-near-leg.png"
+            },
+            {
+              "name": "approved-hungry-body",
+              "file": "sources/layer-png/walk-10-approved-hungry-body.png"
+            }
+          ],
+          "atlasRect": [
+            730,
+            570,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 11,
+          "sourcePoseIndex": 4,
+          "file": "frames/walk/11.png",
+          "source": "sources/frame-svg/walk-11.svg",
+          "durationMs": 83.33333333333333,
+          "anchor": [
+            180,
+            230
+          ],
+          "canvas": [
+            360,
+            280
+          ],
+          "cropped": false,
+          "offset": [
+            0,
+            0
+          ],
+          "contacts": {
+            "far": {
+              "actual": [
+                137.087,
+                216.2391
+              ],
+              "projectedGround": [
+                137.087,
+                216.2391
+              ],
+              "support": true,
+              "lift": 0,
+              "part": {
+                "file": "sources/parts/walk-11-far.png",
+                "canvas": [
+                  62,
+                  48
+                ],
+                "sourceGoldBounds": [
+                  50,
+                  241,
+                  100,
+                  277
+                ],
+                "sourceCrop": [
+                  44,
+                  235,
+                  62,
+                  48
+                ],
+                "toePadContact": [
+                  32.5,
+                  47.5
+                ],
+                "sourceToePadContact": [
+                  76.5,
+                  282.5
+                ]
+              },
+              "scale": 0.52,
+              "translation": [
+                120.18699999999998,
+                191.53910000000002
+              ]
+            },
+            "near": {
+              "actual": [
+                172.20577136594005,
+                230.39711431702997
+              ],
+              "projectedGround": [
+                172.20577136594005,
+                233.89711431702997
+              ],
+              "support": false,
+              "lift": 3.4999999999999996,
+              "part": {
+                "file": "sources/parts/walk-11-near.png",
+                "canvas": [
+                  64,
+                  56
+                ],
+                "sourceGoldBounds": [
+                  174,
+                  240,
+                  226,
+                  284
+                ],
+                "sourceCrop": [
+                  168,
+                  234,
+                  64,
+                  56
+                ],
+                "toePadContact": [
+                  25.5,
+                  56.5
+                ],
+                "sourceToePadContact": [
+                  193.5,
+                  290.5
+                ]
+              },
+              "scale": 0.55,
+              "translation": [
+                158.18077136594005,
+                199.32211431702996
+              ]
+            }
+          },
+          "registration": {
+            "body": "sources/parts/hungry-body-reused.png",
+            "bodyTranslation": [
+              0,
+              0
+            ],
+            "bodyScale": 1,
+            "bodyWidth": 180,
+            "sourcePoseIndex": 4,
+            "method": "reused approved raster body, independently drawn articulated leg sprites aligned to anatomical toe pads"
+          },
+          "layers": [
+            {
+              "name": "far-leg",
+              "file": "sources/layer-png/walk-11-far-leg.png"
+            },
+            {
+              "name": "near-leg",
+              "file": "sources/layer-png/walk-11-near-leg.png"
+            },
+            {
+              "name": "approved-hungry-body",
+              "file": "sources/layer-png/walk-11-approved-hungry-body.png"
+            }
+          ],
+          "atlasRect": [
+            1094,
+            570,
+            360,
+            280
+          ]
+        }
+      ]
+    }
+  ]
+}
