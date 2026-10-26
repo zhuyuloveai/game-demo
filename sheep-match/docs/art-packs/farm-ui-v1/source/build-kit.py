@@ -73,13 +73,19 @@ for i in range(12):
  canopy+=f'<path d="M{x+1} 2h32v15q-2 9-16 9t-16-9Z" fill="{fill}" stroke="#c6a078" stroke-width="1"/>'
 canopy+='<path d="M2 3H382" stroke="#ad8b64" stroke-width="2"/>'
 emit('canopy','default',384,28,canopy,None,[0]*4,None,[280,20])
+p=C/'canopy-default.svg';p.write_text(p.read_text().replace('viewBox=','preserveAspectRatio="none" viewBox='))
 # Small stitched linen corner: separate decoration, never a full-panel image.
 emit('linen-corner','default',32,32,'<path d="M2 2H30L2 30Z" fill="#d3dfba" stroke="#a5b286" stroke-width="1"/><path d="M5 5h17L5 22Z" stroke="#8fa16d" stroke-width=".8" stroke-dasharray="2 3"/>',None,[0]*4,None,[20,20])
-(R/'manifest.json').write_text(json.dumps({'version':'0.2-farm-materials','baseCommit':'77a41898f0c9d0d647c93cd9bf266ef1c3b42794','scope':'P0 production-panel sample only; P1/P2 await direction confirmation','units':'CSS px at 1x; nineSlice top right bottom left','components':manifest},ensure_ascii=False,indent=2))
-ids=['bread','corn_bread','cookie','raspberry_muffin','blackberry_muffin','wheat','corn','egg','brown_sugar','raspberry','blackberry']
+exec((R/'source/build-extensions.py').read_text())
+for component in manifest:
+ component['scaling']='nine-slice' if component['nineSlice'] else ('stretch-x' if component['family']=='canopy' else 'uniform')
+(R/'manifest.json').write_text(json.dumps({'version':'0.3-expanded','baseCommit':'6f195a1','scope':'P0 reusable UI expansion; see terrain/manifest.json and effects/manifest.json for P1/P2','units':'CSS px at 1x; nineSlice top right bottom left','components':manifest},ensure_ascii=False,indent=2))
+ids=['bread','corn_bread','cookie','raspberry_muffin','blackberry_muffin','wheat','corn','egg','brown_sugar','raspberry','blackberry','coin','carrot','soybean','apple','milk','cream','plank','nail','screw','axe']
 reuse=[]
 for id in ids:
  p=GAME/'assets/farm/items'/f'{id}.svg';q=R/'reused'/p.name;copy2(p,q);reuse.append(dict(id=id,file=str(q.relative_to(R)),original=str(p.relative_to(GAME)),sha256=hashlib.sha256(p.read_bytes()).hexdigest(),change='none'))
 p=GAME/'assets/farm-runtime/buildings/bakery.png';copy2(p,R/'reused/bakery.png');reuse.append(dict(id='bakery',file='reused/bakery.png',original=str(p.relative_to(GAME)),sha256=hashlib.sha256(p.read_bytes()).hexdigest(),change='none'))
+for id in ['barn','npc-stall','order-board','dairy','feed-mill','sugar-mill','popcorn-pot','pie-oven']:
+ p=GAME/'assets/farm-runtime/buildings'/f'{id}.png';q=R/'reused'/p.name;copy2(p,q);reuse.append(dict(id=id,file=str(q.relative_to(R)),original=str(p.relative_to(GAME)),sha256=hashlib.sha256(p.read_bytes()).hexdigest(),change='none'))
 (R/'reuse-manifest.json').write_text(json.dumps(reuse,ensure_ascii=False,indent=2))
 print('exported',len(manifest),'UI component states;',len(reuse),'unchanged reference assets')

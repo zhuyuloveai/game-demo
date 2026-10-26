@@ -1,0 +1,478 @@
+{
+  "version": "1.0",
+  "frameOrder": "0 through 7, then hide; transparent first/last frames",
+  "effects": [
+    {
+      "id": "clear-dust",
+      "canvas": [
+        128,
+        96
+      ],
+      "anchor": [
+        64,
+        76
+      ],
+      "recommendedDisplaySize": [
+        128,
+        96
+      ],
+      "fps": 12,
+      "frameCount": 8,
+      "durationMs": 667,
+      "loop": false,
+      "blend": "source-over",
+      "atlas": "effects/atlases/clear-dust.png",
+      "atlasCanvas": [
+        528,
+        200
+      ],
+      "atlasPadding": 2,
+      "frames": [
+        {
+          "index": 0,
+          "svg": "effects/svg/clear-dust-00.svg",
+          "png": "effects/frames/clear-dust-00.png",
+          "atlasRect": [
+            2,
+            2,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 1,
+          "svg": "effects/svg/clear-dust-01.svg",
+          "png": "effects/frames/clear-dust-01.png",
+          "atlasRect": [
+            134,
+            2,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 2,
+          "svg": "effects/svg/clear-dust-02.svg",
+          "png": "effects/frames/clear-dust-02.png",
+          "atlasRect": [
+            266,
+            2,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 3,
+          "svg": "effects/svg/clear-dust-03.svg",
+          "png": "effects/frames/clear-dust-03.png",
+          "atlasRect": [
+            398,
+            2,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 4,
+          "svg": "effects/svg/clear-dust-04.svg",
+          "png": "effects/frames/clear-dust-04.png",
+          "atlasRect": [
+            2,
+            102,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 5,
+          "svg": "effects/svg/clear-dust-05.svg",
+          "png": "effects/frames/clear-dust-05.png",
+          "atlasRect": [
+            134,
+            102,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 6,
+          "svg": "effects/svg/clear-dust-06.svg",
+          "png": "effects/frames/clear-dust-06.png",
+          "atlasRect": [
+            266,
+            102,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 7,
+          "svg": "effects/svg/clear-dust-07.svg",
+          "png": "effects/frames/clear-dust-07.png",
+          "atlasRect": [
+            398,
+            102,
+            128,
+            96
+          ]
+        }
+      ],
+      "reducedMotion": "Skip effect; update the underlying object directly.",
+      "zOrder": "Local ground plane under UI and neighboring objects. Do not put this in the center of the screen."
+    },
+    {
+      "id": "stone-chips",
+      "canvas": [
+        128,
+        96
+      ],
+      "anchor": [
+        64,
+        76
+      ],
+      "recommendedDisplaySize": [
+        128,
+        96
+      ],
+      "fps": 12,
+      "frameCount": 8,
+      "durationMs": 667,
+      "loop": false,
+      "blend": "source-over",
+      "atlas": "effects/atlases/stone-chips.png",
+      "atlasCanvas": [
+        528,
+        200
+      ],
+      "atlasPadding": 2,
+      "frames": [
+        {
+          "index": 0,
+          "svg": "effects/svg/stone-chips-00.svg",
+          "png": "effects/frames/stone-chips-00.png",
+          "atlasRect": [
+            2,
+            2,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 1,
+          "svg": "effects/svg/stone-chips-01.svg",
+          "png": "effects/frames/stone-chips-01.png",
+          "atlasRect": [
+            134,
+            2,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 2,
+          "svg": "effects/svg/stone-chips-02.svg",
+          "png": "effects/frames/stone-chips-02.png",
+          "atlasRect": [
+            266,
+            2,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 3,
+          "svg": "effects/svg/stone-chips-03.svg",
+          "png": "effects/frames/stone-chips-03.png",
+          "atlasRect": [
+            398,
+            2,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 4,
+          "svg": "effects/svg/stone-chips-04.svg",
+          "png": "effects/frames/stone-chips-04.png",
+          "atlasRect": [
+            2,
+            102,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 5,
+          "svg": "effects/svg/stone-chips-05.svg",
+          "png": "effects/frames/stone-chips-05.png",
+          "atlasRect": [
+            134,
+            102,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 6,
+          "svg": "effects/svg/stone-chips-06.svg",
+          "png": "effects/frames/stone-chips-06.png",
+          "atlasRect": [
+            266,
+            102,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 7,
+          "svg": "effects/svg/stone-chips-07.svg",
+          "png": "effects/frames/stone-chips-07.png",
+          "atlasRect": [
+            398,
+            102,
+            128,
+            96
+          ]
+        }
+      ],
+      "reducedMotion": "Skip effect; update the underlying object directly.",
+      "zOrder": "Local ground plane under UI and neighboring objects. Do not put this in the center of the screen."
+    },
+    {
+      "id": "wood-chips",
+      "canvas": [
+        128,
+        96
+      ],
+      "anchor": [
+        64,
+        76
+      ],
+      "recommendedDisplaySize": [
+        128,
+        96
+      ],
+      "fps": 12,
+      "frameCount": 8,
+      "durationMs": 667,
+      "loop": false,
+      "blend": "source-over",
+      "atlas": "effects/atlases/wood-chips.png",
+      "atlasCanvas": [
+        528,
+        200
+      ],
+      "atlasPadding": 2,
+      "frames": [
+        {
+          "index": 0,
+          "svg": "effects/svg/wood-chips-00.svg",
+          "png": "effects/frames/wood-chips-00.png",
+          "atlasRect": [
+            2,
+            2,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 1,
+          "svg": "effects/svg/wood-chips-01.svg",
+          "png": "effects/frames/wood-chips-01.png",
+          "atlasRect": [
+            134,
+            2,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 2,
+          "svg": "effects/svg/wood-chips-02.svg",
+          "png": "effects/frames/wood-chips-02.png",
+          "atlasRect": [
+            266,
+            2,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 3,
+          "svg": "effects/svg/wood-chips-03.svg",
+          "png": "effects/frames/wood-chips-03.png",
+          "atlasRect": [
+            398,
+            2,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 4,
+          "svg": "effects/svg/wood-chips-04.svg",
+          "png": "effects/frames/wood-chips-04.png",
+          "atlasRect": [
+            2,
+            102,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 5,
+          "svg": "effects/svg/wood-chips-05.svg",
+          "png": "effects/frames/wood-chips-05.png",
+          "atlasRect": [
+            134,
+            102,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 6,
+          "svg": "effects/svg/wood-chips-06.svg",
+          "png": "effects/frames/wood-chips-06.png",
+          "atlasRect": [
+            266,
+            102,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 7,
+          "svg": "effects/svg/wood-chips-07.svg",
+          "png": "effects/frames/wood-chips-07.png",
+          "atlasRect": [
+            398,
+            102,
+            128,
+            96
+          ]
+        }
+      ],
+      "reducedMotion": "Skip effect; update the underlying object directly.",
+      "zOrder": "Local ground plane under UI and neighboring objects. Do not put this in the center of the screen."
+    },
+    {
+      "id": "land-open",
+      "canvas": [
+        128,
+        96
+      ],
+      "anchor": [
+        64,
+        76
+      ],
+      "recommendedDisplaySize": [
+        128,
+        96
+      ],
+      "fps": 16,
+      "frameCount": 8,
+      "durationMs": 500,
+      "loop": false,
+      "blend": "source-over",
+      "atlas": "effects/atlases/land-open.png",
+      "atlasCanvas": [
+        528,
+        200
+      ],
+      "atlasPadding": 2,
+      "frames": [
+        {
+          "index": 0,
+          "svg": "effects/svg/land-open-00.svg",
+          "png": "effects/frames/land-open-00.png",
+          "atlasRect": [
+            2,
+            2,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 1,
+          "svg": "effects/svg/land-open-01.svg",
+          "png": "effects/frames/land-open-01.png",
+          "atlasRect": [
+            134,
+            2,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 2,
+          "svg": "effects/svg/land-open-02.svg",
+          "png": "effects/frames/land-open-02.png",
+          "atlasRect": [
+            266,
+            2,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 3,
+          "svg": "effects/svg/land-open-03.svg",
+          "png": "effects/frames/land-open-03.png",
+          "atlasRect": [
+            398,
+            2,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 4,
+          "svg": "effects/svg/land-open-04.svg",
+          "png": "effects/frames/land-open-04.png",
+          "atlasRect": [
+            2,
+            102,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 5,
+          "svg": "effects/svg/land-open-05.svg",
+          "png": "effects/frames/land-open-05.png",
+          "atlasRect": [
+            134,
+            102,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 6,
+          "svg": "effects/svg/land-open-06.svg",
+          "png": "effects/frames/land-open-06.png",
+          "atlasRect": [
+            266,
+            102,
+            128,
+            96
+          ]
+        },
+        {
+          "index": 7,
+          "svg": "effects/svg/land-open-07.svg",
+          "png": "effects/frames/land-open-07.png",
+          "atlasRect": [
+            398,
+            102,
+            128,
+            96
+          ]
+        }
+      ],
+      "reducedMotion": "Skip effect; update the underlying object directly.",
+      "zOrder": "Local ground plane under UI and neighboring objects. Do not put this in the center of the screen."
+    }
+  ]
+}

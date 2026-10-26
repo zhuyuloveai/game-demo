@@ -20,7 +20,7 @@ layouts=[]
 for p in (R/'source').glob('*-layout.json'):
  d=json.loads(p.read_text());q=d['qa'];assert not q['documentOverflow'] and not q['brokenImages'] and not q['undersizedTargets'],p
  assert q['bodyScrollHeight']<=q['bodyClientHeight']+1,p
- art=ET.parse(p.with_name(p.name.replace('-layout.json','.svg')));assert len(list(art.iter('{http://www.w3.org/2000/svg}text')))>=25,p
+ art=ET.parse(p.with_name(p.name.replace('-layout.json','.svg')));expected=sum(len(l['text'].split('\n')) for l in d['layers'] if l['type']=='text');assert len(list(art.iter('{http://www.w3.org/2000/svg}text')))==expected and expected>0,p
  layouts.append({'name':p.stem,'viewport':[d['width'],d['height']],**q})
 missing=[]
 class Links(HTMLParser):
@@ -33,5 +33,5 @@ class Links(HTMLParser):
    if not (self.p.parent/unquote(u.path)).exists():missing.append([str(self.p.relative_to(R)),v])
 for p in R.glob('*.html'):Links(p).feed(p.read_text())
 assert not missing,missing
-report={'status':'passed','components':len(m['components']),'families':len(families),'unchangedReusedArt':12,'existingEnvironmentReviewed':12,'layouts':layouts,'gameCodeChanged':False,'p1TerrainAuthored':False,'p2EffectsAuthored':False}
+report={'status':'passed','components':len(m['components']),'families':len(families),'unchangedReusedArt':len(json.loads((R/'reuse-manifest.json').read_text())),'existingEnvironmentReviewed':12,'layouts':layouts,'gameCodeChanged':False,'p1TerrainAuthored':(R/'terrain/manifest.json').exists(),'p2EffectsAuthored':(R/'effects/manifest.json').exists()}
 (R/'qa-report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps(report,ensure_ascii=False))

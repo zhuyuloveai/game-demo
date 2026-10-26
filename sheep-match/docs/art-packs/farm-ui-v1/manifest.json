@@ -1,7 +1,7 @@
 {
-  "version": "0.2-farm-materials",
-  "baseCommit": "77a41898f0c9d0d647c93cd9bf266ef1c3b42794",
-  "scope": "P0 production-panel sample only; P1/P2 await direction confirmation",
+  "version": "0.3-expanded",
+  "baseCommit": "6f195a1",
+  "scope": "P0 reusable UI expansion; see terrain/manifest.json and effects/manifest.json for P1/P2",
   "units": "CSS px at 1x; nineSlice top right bottom left",
   "components": [
     {
@@ -39,7 +39,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "title-default",
@@ -76,7 +77,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "well-default",
@@ -113,7 +115,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "divider-default",
@@ -150,7 +153,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "button-primary-default",
@@ -187,7 +191,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "button-primary-pressed",
@@ -224,7 +229,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "button-primary-disabled",
@@ -261,7 +267,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "button-secondary-default",
@@ -298,7 +305,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "button-secondary-pressed",
@@ -335,7 +343,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "button-secondary-disabled",
@@ -372,7 +381,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "close-default",
@@ -399,7 +409,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "uniform"
     },
     {
       "id": "close-pressed",
@@ -426,7 +437,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "uniform"
     },
     {
       "id": "close-disabled",
@@ -453,7 +465,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "uniform"
     },
     {
       "id": "tab-default",
@@ -490,7 +503,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "tab-selected",
@@ -527,7 +541,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "tab-pressed",
@@ -564,7 +579,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "tab-disabled",
@@ -601,7 +617,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "item-slot-default",
@@ -638,7 +655,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "item-slot-selected",
@@ -675,7 +693,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "item-slot-pressed",
@@ -712,7 +731,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "item-slot-disabled",
@@ -749,7 +769,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "item-slot-missing",
@@ -786,7 +807,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "recipe-card-default",
@@ -823,7 +845,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "recipe-card-selected",
@@ -860,7 +883,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "recipe-card-pressed",
@@ -897,7 +921,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "recipe-card-disabled",
@@ -934,7 +959,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "recipe-card-missing",
@@ -971,7 +997,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "queue-slot-empty",
@@ -1008,7 +1035,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "queue-slot-running",
@@ -1045,7 +1073,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "queue-slot-waiting",
@@ -1082,7 +1111,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "queue-slot-complete",
@@ -1119,7 +1149,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "queue-slot-locked",
@@ -1156,7 +1187,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "quantity-default",
@@ -1193,7 +1225,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "quantity-missing",
@@ -1230,7 +1263,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "quantity-complete",
@@ -1267,7 +1301,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "quantity-disabled",
@@ -1304,7 +1339,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "progress-track",
@@ -1341,7 +1377,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "progress-fill",
@@ -1373,7 +1410,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "notice-info",
@@ -1410,7 +1448,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "notice-missing",
@@ -1447,7 +1486,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "notice-full",
@@ -1484,7 +1524,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "notice-empty",
@@ -1521,7 +1562,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "nine-slice"
     },
     {
       "id": "symbol-lock",
@@ -1548,7 +1590,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "uniform"
     },
     {
       "id": "symbol-complete",
@@ -1575,7 +1618,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "uniform"
     },
     {
       "id": "symbol-clock",
@@ -1602,7 +1646,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "uniform"
     },
     {
       "id": "symbol-plus",
@@ -1629,7 +1674,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "uniform"
     },
     {
       "id": "symbol-warning",
@@ -1656,7 +1702,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "uniform"
     },
     {
       "id": "symbol-arrow",
@@ -1683,7 +1730,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "uniform"
     },
     {
       "id": "canopy-default",
@@ -1710,7 +1758,8 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "stretch-x"
     },
     {
       "id": "linen-corner-default",
@@ -1737,7 +1786,1230 @@
         0,
         0
       ],
-      "containsText": false
+      "containsText": false,
+      "scaling": "uniform"
+    },
+    {
+      "id": "shelf-card-default",
+      "family": "shelf-card",
+      "state": "default",
+      "file": "components/shelf-card-default.svg",
+      "canvas": [
+        120,
+        116
+      ],
+      "nineSlice": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "contentPadding": [
+        24,
+        12,
+        20,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        24,
+        96,
+        72
+      ],
+      "minimumDisplaySize": [
+        92,
+        96
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "shelf-card-selected",
+      "family": "shelf-card",
+      "state": "selected",
+      "file": "components/shelf-card-selected.svg",
+      "canvas": [
+        120,
+        116
+      ],
+      "nineSlice": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "contentPadding": [
+        24,
+        12,
+        20,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        24,
+        96,
+        72
+      ],
+      "minimumDisplaySize": [
+        92,
+        96
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "shelf-card-missing",
+      "family": "shelf-card",
+      "state": "missing",
+      "file": "components/shelf-card-missing.svg",
+      "canvas": [
+        120,
+        116
+      ],
+      "nineSlice": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "contentPadding": [
+        24,
+        12,
+        20,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        24,
+        96,
+        72
+      ],
+      "minimumDisplaySize": [
+        92,
+        96
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "shelf-card-locked",
+      "family": "shelf-card",
+      "state": "locked",
+      "file": "components/shelf-card-locked.svg",
+      "canvas": [
+        120,
+        116
+      ],
+      "nineSlice": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "contentPadding": [
+        24,
+        12,
+        20,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        24,
+        96,
+        72
+      ],
+      "minimumDisplaySize": [
+        92,
+        96
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "shelf-card-pressed",
+      "family": "shelf-card",
+      "state": "pressed",
+      "file": "components/shelf-card-pressed.svg",
+      "canvas": [
+        120,
+        116
+      ],
+      "nineSlice": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "contentPadding": [
+        24,
+        12,
+        20,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        24,
+        96,
+        72
+      ],
+      "minimumDisplaySize": [
+        92,
+        96
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "order-paper-default",
+      "family": "order-paper",
+      "state": "default",
+      "file": "components/order-paper-default.svg",
+      "canvas": [
+        112,
+        104
+      ],
+      "nineSlice": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "contentPadding": [
+        24,
+        12,
+        20,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        24,
+        88,
+        60
+      ],
+      "minimumDisplaySize": [
+        80,
+        76
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "order-paper-selected",
+      "family": "order-paper",
+      "state": "selected",
+      "file": "components/order-paper-selected.svg",
+      "canvas": [
+        112,
+        104
+      ],
+      "nineSlice": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "contentPadding": [
+        24,
+        12,
+        20,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        24,
+        88,
+        60
+      ],
+      "minimumDisplaySize": [
+        80,
+        76
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "order-paper-missing",
+      "family": "order-paper",
+      "state": "missing",
+      "file": "components/order-paper-missing.svg",
+      "canvas": [
+        112,
+        104
+      ],
+      "nineSlice": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "contentPadding": [
+        24,
+        12,
+        20,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        24,
+        88,
+        60
+      ],
+      "minimumDisplaySize": [
+        80,
+        76
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "order-paper-locked",
+      "family": "order-paper",
+      "state": "locked",
+      "file": "components/order-paper-locked.svg",
+      "canvas": [
+        112,
+        104
+      ],
+      "nineSlice": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "contentPadding": [
+        24,
+        12,
+        20,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        24,
+        88,
+        60
+      ],
+      "minimumDisplaySize": [
+        80,
+        76
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "order-paper-pressed",
+      "family": "order-paper",
+      "state": "pressed",
+      "file": "components/order-paper-pressed.svg",
+      "canvas": [
+        112,
+        104
+      ],
+      "nineSlice": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "contentPadding": [
+        24,
+        12,
+        20,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        24,
+        88,
+        60
+      ],
+      "minimumDisplaySize": [
+        80,
+        76
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "detail-paper-default",
+      "family": "detail-paper",
+      "state": "default",
+      "file": "components/detail-paper-default.svg",
+      "canvas": [
+        96,
+        96
+      ],
+      "nineSlice": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "contentPadding": [
+        24,
+        12,
+        20,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        24,
+        72,
+        52
+      ],
+      "minimumDisplaySize": [
+        240,
+        96
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "detail-paper-missing",
+      "family": "detail-paper",
+      "state": "missing",
+      "file": "components/detail-paper-missing.svg",
+      "canvas": [
+        96,
+        96
+      ],
+      "nineSlice": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "contentPadding": [
+        24,
+        12,
+        20,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        24,
+        72,
+        52
+      ],
+      "minimumDisplaySize": [
+        240,
+        96
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "detail-paper-empty",
+      "family": "detail-paper",
+      "state": "empty",
+      "file": "components/detail-paper-empty.svg",
+      "canvas": [
+        96,
+        96
+      ],
+      "nineSlice": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "contentPadding": [
+        24,
+        12,
+        20,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        24,
+        72,
+        52
+      ],
+      "minimumDisplaySize": [
+        240,
+        96
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "stepper-default",
+      "family": "stepper",
+      "state": "default",
+      "file": "components/stepper-default.svg",
+      "canvas": [
+        48,
+        48
+      ],
+      "nineSlice": [
+        14,
+        14,
+        14,
+        14
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        28,
+        28
+      ],
+      "minimumDisplaySize": [
+        44,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "stepper-pressed",
+      "family": "stepper",
+      "state": "pressed",
+      "file": "components/stepper-pressed.svg",
+      "canvas": [
+        48,
+        48
+      ],
+      "nineSlice": [
+        14,
+        14,
+        14,
+        14
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        28,
+        28
+      ],
+      "minimumDisplaySize": [
+        44,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "stepper-disabled",
+      "family": "stepper",
+      "state": "disabled",
+      "file": "components/stepper-disabled.svg",
+      "canvas": [
+        48,
+        48
+      ],
+      "nineSlice": [
+        14,
+        14,
+        14,
+        14
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        28,
+        28
+      ],
+      "minimumDisplaySize": [
+        44,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "slider-track-default",
+      "family": "slider-track",
+      "state": "default",
+      "file": "components/slider-track-default.svg",
+      "canvas": [
+        96,
+        12
+      ],
+      "nineSlice": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "contentPadding": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "safeContentRect": [
+        2,
+        2,
+        92,
+        8
+      ],
+      "minimumDisplaySize": [
+        72,
+        8
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "slider-track-disabled",
+      "family": "slider-track",
+      "state": "disabled",
+      "file": "components/slider-track-disabled.svg",
+      "canvas": [
+        96,
+        12
+      ],
+      "nineSlice": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "contentPadding": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "safeContentRect": [
+        2,
+        2,
+        92,
+        8
+      ],
+      "minimumDisplaySize": [
+        72,
+        8
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "slider-thumb-default",
+      "family": "slider-thumb",
+      "state": "default",
+      "file": "components/slider-thumb-default.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        28,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "uniform"
+    },
+    {
+      "id": "slider-thumb-pressed",
+      "family": "slider-thumb",
+      "state": "pressed",
+      "file": "components/slider-thumb-pressed.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        28,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "uniform"
+    },
+    {
+      "id": "slider-thumb-disabled",
+      "family": "slider-thumb",
+      "state": "disabled",
+      "file": "components/slider-thumb-disabled.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        28,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "uniform"
+    },
+    {
+      "id": "checkbox-off",
+      "family": "checkbox",
+      "state": "off",
+      "file": "components/checkbox-off.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        24,
+        24
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "uniform"
+    },
+    {
+      "id": "checkbox-on",
+      "family": "checkbox",
+      "state": "on",
+      "file": "components/checkbox-on.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        24,
+        24
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "uniform"
+    },
+    {
+      "id": "checkbox-pressed",
+      "family": "checkbox",
+      "state": "pressed",
+      "file": "components/checkbox-pressed.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        24,
+        24
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "uniform"
+    },
+    {
+      "id": "checkbox-disabled",
+      "family": "checkbox",
+      "state": "disabled",
+      "file": "components/checkbox-disabled.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        24,
+        24
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "uniform"
+    },
+    {
+      "id": "resource-pill-default",
+      "family": "resource-pill",
+      "state": "default",
+      "file": "components/resource-pill-default.svg",
+      "canvas": [
+        96,
+        40
+      ],
+      "nineSlice": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "contentPadding": [
+        8,
+        12,
+        8,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        8,
+        72,
+        24
+      ],
+      "minimumDisplaySize": [
+        76,
+        36
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "resource-pill-missing",
+      "family": "resource-pill",
+      "state": "missing",
+      "file": "components/resource-pill-missing.svg",
+      "canvas": [
+        96,
+        40
+      ],
+      "nineSlice": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "contentPadding": [
+        8,
+        12,
+        8,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        8,
+        72,
+        24
+      ],
+      "minimumDisplaySize": [
+        76,
+        36
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "resource-pill-complete",
+      "family": "resource-pill",
+      "state": "complete",
+      "file": "components/resource-pill-complete.svg",
+      "canvas": [
+        96,
+        40
+      ],
+      "nineSlice": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "contentPadding": [
+        8,
+        12,
+        8,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        8,
+        72,
+        24
+      ],
+      "minimumDisplaySize": [
+        76,
+        36
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "toast-paper-info",
+      "family": "toast-paper",
+      "state": "info",
+      "file": "components/toast-paper-info.svg",
+      "canvas": [
+        112,
+        64
+      ],
+      "nineSlice": [
+        18,
+        18,
+        18,
+        18
+      ],
+      "contentPadding": [
+        12,
+        16,
+        12,
+        16
+      ],
+      "safeContentRect": [
+        16,
+        12,
+        80,
+        40
+      ],
+      "minimumDisplaySize": [
+        200,
+        48
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "toast-paper-success",
+      "family": "toast-paper",
+      "state": "success",
+      "file": "components/toast-paper-success.svg",
+      "canvas": [
+        112,
+        64
+      ],
+      "nineSlice": [
+        18,
+        18,
+        18,
+        18
+      ],
+      "contentPadding": [
+        12,
+        16,
+        12,
+        16
+      ],
+      "safeContentRect": [
+        16,
+        12,
+        80,
+        40
+      ],
+      "minimumDisplaySize": [
+        200,
+        48
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "toast-paper-warning",
+      "family": "toast-paper",
+      "state": "warning",
+      "file": "components/toast-paper-warning.svg",
+      "canvas": [
+        112,
+        64
+      ],
+      "nineSlice": [
+        18,
+        18,
+        18,
+        18
+      ],
+      "contentPadding": [
+        12,
+        16,
+        12,
+        16
+      ],
+      "safeContentRect": [
+        16,
+        12,
+        80,
+        40
+      ],
+      "minimumDisplaySize": [
+        200,
+        48
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "ribbon-default",
+      "family": "ribbon",
+      "state": "default",
+      "file": "components/ribbon-default.svg",
+      "canvas": [
+        80,
+        32
+      ],
+      "nineSlice": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "contentPadding": [
+        6,
+        12,
+        8,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        6,
+        56,
+        18
+      ],
+      "minimumDisplaySize": [
+        64,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "ribbon-complete",
+      "family": "ribbon",
+      "state": "complete",
+      "file": "components/ribbon-complete.svg",
+      "canvas": [
+        80,
+        32
+      ],
+      "nineSlice": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "contentPadding": [
+        6,
+        12,
+        8,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        6,
+        56,
+        18
+      ],
+      "minimumDisplaySize": [
+        64,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "ribbon-locked",
+      "family": "ribbon",
+      "state": "locked",
+      "file": "components/ribbon-locked.svg",
+      "canvas": [
+        80,
+        32
+      ],
+      "nineSlice": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "contentPadding": [
+        6,
+        12,
+        8,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        6,
+        56,
+        18
+      ],
+      "minimumDisplaySize": [
+        64,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
     }
   ]
 }
