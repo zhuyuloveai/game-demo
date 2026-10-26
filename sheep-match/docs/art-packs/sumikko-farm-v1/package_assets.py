@@ -18,7 +18,13 @@ states = json.loads((root / 'plant-states/manifest.json').read_text())
 assert states['counts']['generated'] == 42 and states['counts']['totalStates'] == 58
 terrain = json.loads((root / 'terrain/manifest.json').read_text())
 assert len(terrain['assets']) == 35
-for folder in ['plant-states', 'terrain']:
+environment = json.loads((root / 'environment/manifest.json').read_text())
+animals = json.loads((root / 'animal-states/manifest.json').read_text())
+buildings = json.loads((root / 'building-states/manifest.json').read_text())
+assert len(environment['assets']) == 42
+assert animals['counts']['generated'] == 10 and animals['counts']['totalStates'] == 15
+assert len(buildings['assets']) == 8
+for folder in ['plant-states', 'terrain', 'environment', 'animal-states', 'building-states', 'expansion']:
     files += sorted(p for p in (root / folder).rglob('*')
                     if p.is_file() and p.suffix in {'.png', '.jpg', '.svg', '.json', '.py', '.mjs', '.css', '.html', '.md'}
                     and not {'__pycache__', 'drafts'}.intersection(p.relative_to(root).parts))
@@ -33,4 +39,8 @@ with zipfile.ZipFile(root / 'assets.zip') as z:
     state_pngs = [s for s in z.namelist() if s.startswith('plant-states/assets/') and s.endswith('.png')]
     terrain_svgs = [s for s in z.namelist() if s.startswith('terrain/svg/') and s.endswith('.svg')]
     assert len(state_pngs) == 42 and len(terrain_svgs) == 35
-    print(json.dumps({'basePNGs': len(pngs), 'plantStatePNGs': len(state_pngs), 'terrainSVGs': len(terrain_svgs), 'archiveFiles': len(z.namelist()), 'zipBytes': (root / 'assets.zip').stat().st_size}))
+    animal_pngs = [s for s in z.namelist() if s.startswith('animal-states/assets/') and s.endswith('.png')]
+    environment_svgs = [s for s in z.namelist() if s.startswith('environment/svg/') and s.endswith('.svg')]
+    building_svgs = [s for s in z.namelist() if s.startswith('building-states/svg/') and s.endswith('.svg')]
+    assert len(animal_pngs) == 10 and len(environment_svgs) == 42 and len(building_svgs) == 8
+    print(json.dumps({'totalAssetPNGs': len(pngs)+len(state_pngs)+len(animal_pngs), 'totalAssetSVGs': len(terrain_svgs)+len(environment_svgs)+len(building_svgs), 'animalStatePNGs': len(animal_pngs), 'environmentSVGs': len(environment_svgs), 'buildingStateSVGs': len(building_svgs), 'basePNGs': len(pngs), 'plantStatePNGs': len(state_pngs), 'terrainSVGs': len(terrain_svgs), 'archiveFiles': len(z.namelist()), 'zipBytes': (root / 'assets.zip').stat().st_size}))

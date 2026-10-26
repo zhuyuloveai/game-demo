@@ -1,0 +1,14 @@
+{
+  "key": "cow-producing",
+  "animal": "cow",
+  "label": "奶牛",
+  "projectId": "Cow",
+  "state": "producing",
+  "stateLabel": "生产中",
+  "path": "assets/cow-producing.png",
+  "reference": "../assets/animals/cow.png",
+  "prompt": "Use case: stylized-concept.\nAsset type: ONE transparent PNG animal state sprite for an existing cute 2D farming game.\nReference role: the attached approved animal is the IDENTITY AND STYLE REFERENCE. Draw that exact original animal in the specified new pose, retaining its characteristic silhouette, body-to-head proportions, colors, patch pattern, facial features, ears, horns, feet, curl and tail. Same elevated three-quarter camera facing lower-left.\nStyle: simple rounded flat pastel illustration, delicate warm-tan contour, solid cream or pale peach fills with restrained cel shading. Match the reference. No realistic fur, glossy 3D shading, dark thick outlines or white sticker border.\nComposition: one whole animal only, centered, occupying about 75 percent of the canvas with transparent margin on all sides, feet/ground contact fully visible. Actual alpha transparency and solid opaque interior fills. No background, ground patch, floor, shadow, glow, haze, floating symbols, text, progress bar, emoji, accessories, clothes or duplicate characters. Keep tiny eyes and face calm and gentle.\n\nSTATE / SUBJECT: producing\nThe same cream-and-taupe cow in a low relaxed crouching pose with legs tucked, head tilted down and eyes gently closed, quietly chewing. Retain the exact taupe patch shapes and peach muzzle. No grass or food or props.",
+  "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-8c9dee47-c14f-4c64-bcd4-3fd098bd3a5b.png",
+  "mode": "builtin-imagegen",
+  "status": "generated"
+}

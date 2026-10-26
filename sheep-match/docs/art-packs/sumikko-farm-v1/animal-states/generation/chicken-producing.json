@@ -1,0 +1,14 @@
+{
+  "key": "chicken-producing",
+  "animal": "chicken",
+  "label": "小鸡",
+  "projectId": "Chicken",
+  "state": "producing",
+  "stateLabel": "生产中",
+  "path": "assets/chicken-producing.png",
+  "reference": "../assets/animals/chicken.png",
+  "prompt": "Use case: stylized-concept.\nAsset type: ONE transparent PNG animal state sprite for an existing cute 2D farming game.\nReference role: the attached approved animal is the IDENTITY AND STYLE REFERENCE. Draw that exact original animal in the specified new pose, retaining its characteristic silhouette, body-to-head proportions, colors, patch pattern, facial features, ears, horns, feet, curl and tail. Same elevated three-quarter camera facing lower-left.\nStyle: simple rounded flat pastel illustration, delicate warm-tan contour, solid cream or pale peach fills with restrained cel shading. Match the reference. No realistic fur, glossy 3D shading, dark thick outlines or white sticker border.\nComposition: one whole animal only, centered, occupying about 75 percent of the canvas with transparent margin on all sides, feet/ground contact fully visible. Actual alpha transparency and solid opaque interior fills. No background, ground patch, floor, shadow, glow, haze, floating symbols, text, progress bar, emoji, accessories, clothes or duplicate characters. Keep tiny eyes and face calm and gentle.\n\nSTATE / SUBJECT: producing\nThe same cream hen sits low in a compact brooding/resting posture, feet tucked beneath, tail relaxed, folded wings, eyes softly closed as tiny curved lines. Preserve coral comb and yellow beak. No nest or egg.",
+  "original": "/Users/zhuyu/.codex/generated_images/01a168ab-715b-7903-a434-711b0b8c65cf/exec-62190fdc-0595-4427-9d27-ab01606008d1.png",
+  "mode": "builtin-imagegen",
+  "status": "generated"
+}

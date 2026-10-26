@@ -1,0 +1,310 @@
+{
+  "generated": 10,
+  "allRGBA": true,
+  "allTransparent": true,
+  "uniqueHashes": 10,
+  "sourceMatches": true,
+  "alphaReviewCandidates": [],
+  "assets": [
+    {
+      "key": "chicken-producing",
+      "animal": "chicken",
+      "label": "小鸡",
+      "projectId": "Chicken",
+      "state": "producing",
+      "stateLabel": "生产中",
+      "path": "assets/chicken-producing.png",
+      "status": "generated",
+      "displayScale": 1,
+      "provenance": "generation/chicken-producing.json",
+      "sourceMatches": true,
+      "size": [
+        1312,
+        1199
+      ],
+      "opaqueBounds": [
+        224,
+        221,
+        1176,
+        1034
+      ],
+      "anchor": [
+        700.0,
+        1034
+      ],
+      "sha256": "aeb70d1dc8e34062329c668186ca0c9ffb7cc56619b28c12b6ba0410ecc2f65f",
+      "bytes": 657216,
+      "lowAlphaFraction": 0.02476
+    },
+    {
+      "key": "chicken-ready",
+      "animal": "chicken",
+      "label": "小鸡",
+      "projectId": "Chicken",
+      "state": "ready",
+      "stateLabel": "可收取",
+      "path": "assets/chicken-ready.png",
+      "status": "generated",
+      "displayScale": 1,
+      "provenance": "generation/chicken-ready.json",
+      "sourceMatches": true,
+      "size": [
+        1312,
+        1199
+      ],
+      "opaqueBounds": [
+        244,
+        197,
+        1149,
+        1071
+      ],
+      "anchor": [
+        696.5,
+        1071
+      ],
+      "sha256": "c48ee1bfb560e1c18b671d982efcec9d27612d1b9b6db64c6795f350b7950660",
+      "bytes": 598909,
+      "lowAlphaFraction": 0.04085
+    },
+    {
+      "key": "cow-producing",
+      "animal": "cow",
+      "label": "奶牛",
+      "projectId": "Cow",
+      "state": "producing",
+      "stateLabel": "生产中",
+      "path": "assets/cow-producing.png",
+      "status": "generated",
+      "displayScale": 1,
+      "provenance": "generation/cow-producing.json",
+      "sourceMatches": true,
+      "size": [
+        1312,
+        1199
+      ],
+      "opaqueBounds": [
+        69,
+        300,
+        1284,
+        1020
+      ],
+      "anchor": [
+        676.5,
+        1020
+      ],
+      "sha256": "de63464ef750747ec62de96abc11d81ba1351bc3aa7bb7c756814e212da30911",
+      "bytes": 744978,
+      "lowAlphaFraction": 0.03961
+    },
+    {
+      "key": "cow-ready",
+      "animal": "cow",
+      "label": "奶牛",
+      "projectId": "Cow",
+      "state": "ready",
+      "stateLabel": "可收取",
+      "path": "assets/cow-ready.png",
+      "status": "generated",
+      "displayScale": 1,
+      "provenance": "generation/cow-ready.json",
+      "sourceMatches": true,
+      "size": [
+        1312,
+        1199
+      ],
+      "opaqueBounds": [
+        92,
+        207,
+        1270,
+        1023
+      ],
+      "anchor": [
+        681.0,
+        1023
+      ],
+      "sha256": "a6cdc6a74ab2a2b6b1e3066c9e0cec5819edfbc9943f885be918018be6fe1381",
+      "bytes": 791540,
+      "lowAlphaFraction": 0.02074
+    },
+    {
+      "key": "pig-producing",
+      "animal": "pig",
+      "label": "小猪",
+      "projectId": "Pig",
+      "state": "producing",
+      "stateLabel": "生产中",
+      "path": "assets/pig-producing.png",
+      "status": "generated",
+      "displayScale": 1,
+      "provenance": "generation/pig-producing.json",
+      "sourceMatches": true,
+      "size": [
+        1374,
+        1145
+      ],
+      "opaqueBounds": [
+        137,
+        232,
+        1316,
+        983
+      ],
+      "anchor": [
+        726.5,
+        983
+      ],
+      "sha256": "01769724afa584c2ef037ef99e4f4d3a177320f1d0f373468582bbaaaea3f759",
+      "bytes": 797043,
+      "lowAlphaFraction": 0.01399
+    },
+    {
+      "key": "pig-ready",
+      "animal": "pig",
+      "label": "小猪",
+      "projectId": "Pig",
+      "state": "ready",
+      "stateLabel": "可收取",
+      "path": "assets/pig-ready.png",
+      "status": "generated",
+      "displayScale": 1,
+      "provenance": "generation/pig-ready.json",
+      "sourceMatches": true,
+      "size": [
+        1374,
+        1145
+      ],
+      "opaqueBounds": [
+        207,
+        222,
+        1247,
+        981
+      ],
+      "anchor": [
+        727.0,
+        981
+      ],
+      "sha256": "33a4527137319f8a05f5a86722dea541d09d5579d9f51883db412267cde2e3a9",
+      "bytes": 684564,
+      "lowAlphaFraction": 0.02051
+    },
+    {
+      "key": "sheep-producing",
+      "animal": "sheep",
+      "label": "绵羊",
+      "projectId": "Sheep",
+      "state": "producing",
+      "stateLabel": "生产中",
+      "path": "assets/sheep-producing.png",
+      "status": "generated",
+      "displayScale": 1,
+      "provenance": "generation/sheep-producing.json",
+      "sourceMatches": true,
+      "size": [
+        1254,
+        1254
+      ],
+      "opaqueBounds": [
+        113,
+        342,
+        1143,
+        1080
+      ],
+      "anchor": [
+        628.0,
+        1080
+      ],
+      "sha256": "c331e2696b28d66513d68004c029c8b46b2f2d55feb0613f5bcd48083c2ed40d",
+      "bytes": 713496,
+      "lowAlphaFraction": 0.02735
+    },
+    {
+      "key": "sheep-ready",
+      "animal": "sheep",
+      "label": "绵羊",
+      "projectId": "Sheep",
+      "state": "ready",
+      "stateLabel": "可收取",
+      "path": "assets/sheep-ready.png",
+      "status": "generated",
+      "displayScale": 1.08,
+      "provenance": "generation/sheep-ready.json",
+      "sourceMatches": true,
+      "size": [
+        1254,
+        1254
+      ],
+      "opaqueBounds": [
+        88,
+        184,
+        1173,
+        1115
+      ],
+      "anchor": [
+        630.5,
+        1115
+      ],
+      "sha256": "22fc6b17156533cbf637a450b0f7c6830413c0a87547bceba675f66fd37aa088",
+      "bytes": 777471,
+      "lowAlphaFraction": 0.01896
+    },
+    {
+      "key": "lamb-producing",
+      "animal": "lamb",
+      "label": "羔羊",
+      "projectId": "Lamb",
+      "state": "producing",
+      "stateLabel": "生产中",
+      "path": "assets/lamb-producing.png",
+      "status": "generated",
+      "displayScale": 1,
+      "provenance": "generation/lamb-producing.json",
+      "sourceMatches": true,
+      "size": [
+        1312,
+        1199
+      ],
+      "opaqueBounds": [
+        185,
+        354,
+        1132,
+        1006
+      ],
+      "anchor": [
+        658.5,
+        1006
+      ],
+      "sha256": "5d021ad059aec578302e858d6ec2f3e8ef8854e29a0679ff767cddbb3dd690a4",
+      "bytes": 574824,
+      "lowAlphaFraction": 0.01779
+    },
+    {
+      "key": "lamb-ready",
+      "animal": "lamb",
+      "label": "羔羊",
+      "projectId": "Lamb",
+      "state": "ready",
+      "stateLabel": "可收取",
+      "path": "assets/lamb-ready.png",
+      "status": "generated",
+      "displayScale": 1,
+      "provenance": "generation/lamb-ready.json",
+      "sourceMatches": true,
+      "size": [
+        1312,
+        1199
+      ],
+      "opaqueBounds": [
+        145,
+        246,
+        1149,
+        1028
+      ],
+      "anchor": [
+        647.0,
+        1028
+      ],
+      "sha256": "80a6da5a7ddfb8b9280e6de6cfd2459144cfce5ea8ad14cbb4393f22071306f2",
+      "bytes": 671321,
+      "lowAlphaFraction": 0.02167
+    }
+  ]
+}

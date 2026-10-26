@@ -1,0 +1,116 @@
+{
+  "mode": "builtin-imagegen",
+  "expected": 10,
+  "jobs": [
+    {
+      "key": "chicken-producing",
+      "animal": "chicken",
+      "label": "小鸡",
+      "projectId": "Chicken",
+      "state": "producing",
+      "stateLabel": "生产中",
+      "path": "assets/chicken-producing.png",
+      "reference": "../assets/animals/chicken.png",
+      "prompt": "Use case: stylized-concept.\nAsset type: ONE transparent PNG animal state sprite for an existing cute 2D farming game.\nReference role: the attached approved animal is the IDENTITY AND STYLE REFERENCE. Draw that exact original animal in the specified new pose, retaining its characteristic silhouette, body-to-head proportions, colors, patch pattern, facial features, ears, horns, feet, curl and tail. Same elevated three-quarter camera facing lower-left.\nStyle: simple rounded flat pastel illustration, delicate warm-tan contour, solid cream or pale peach fills with restrained cel shading. Match the reference. No realistic fur, glossy 3D shading, dark thick outlines or white sticker border.\nComposition: one whole animal only, centered, occupying about 75 percent of the canvas with transparent margin on all sides, feet/ground contact fully visible. Actual alpha transparency and solid opaque interior fills. No background, ground patch, floor, shadow, glow, haze, floating symbols, text, progress bar, emoji, accessories, clothes or duplicate characters. Keep tiny eyes and face calm and gentle.\n\nSTATE / SUBJECT: producing\nThe same cream hen sits low in a compact brooding/resting posture, feet tucked beneath, tail relaxed, folded wings, eyes softly closed as tiny curved lines. Preserve coral comb and yellow beak. No nest or egg."
+    },
+    {
+      "key": "chicken-ready",
+      "animal": "chicken",
+      "label": "小鸡",
+      "projectId": "Chicken",
+      "state": "ready",
+      "stateLabel": "可收取",
+      "path": "assets/chicken-ready.png",
+      "reference": "../assets/animals/chicken.png",
+      "prompt": "Use case: stylized-concept.\nAsset type: ONE transparent PNG animal state sprite for an existing cute 2D farming game.\nReference role: the attached approved animal is the IDENTITY AND STYLE REFERENCE. Draw that exact original animal in the specified new pose, retaining its characteristic silhouette, body-to-head proportions, colors, patch pattern, facial features, ears, horns, feet, curl and tail. Same elevated three-quarter camera facing lower-left.\nStyle: simple rounded flat pastel illustration, delicate warm-tan contour, solid cream or pale peach fills with restrained cel shading. Match the reference. No realistic fur, glossy 3D shading, dark thick outlines or white sticker border.\nComposition: one whole animal only, centered, occupying about 75 percent of the canvas with transparent margin on all sides, feet/ground contact fully visible. Actual alpha transparency and solid opaque interior fills. No background, ground patch, floor, shadow, glow, haze, floating symbols, text, progress bar, emoji, accessories, clothes or duplicate characters. Keep tiny eyes and face calm and gentle.\n\nSTATE / SUBJECT: ready\nThe same cream hen stands tall and alert on both visible feet, head gently lifted, dot eye open, small wing lifted slightly away from body in a welcoming gesture, tail perked. Keep the plump squat body. No egg or props."
+    },
+    {
+      "key": "cow-producing",
+      "animal": "cow",
+      "label": "奶牛",
+      "projectId": "Cow",
+      "state": "producing",
+      "stateLabel": "生产中",
+      "path": "assets/cow-producing.png",
+      "reference": "../assets/animals/cow.png",
+      "prompt": "Use case: stylized-concept.\nAsset type: ONE transparent PNG animal state sprite for an existing cute 2D farming game.\nReference role: the attached approved animal is the IDENTITY AND STYLE REFERENCE. Draw that exact original animal in the specified new pose, retaining its characteristic silhouette, body-to-head proportions, colors, patch pattern, facial features, ears, horns, feet, curl and tail. Same elevated three-quarter camera facing lower-left.\nStyle: simple rounded flat pastel illustration, delicate warm-tan contour, solid cream or pale peach fills with restrained cel shading. Match the reference. No realistic fur, glossy 3D shading, dark thick outlines or white sticker border.\nComposition: one whole animal only, centered, occupying about 75 percent of the canvas with transparent margin on all sides, feet/ground contact fully visible. Actual alpha transparency and solid opaque interior fills. No background, ground patch, floor, shadow, glow, haze, floating symbols, text, progress bar, emoji, accessories, clothes or duplicate characters. Keep tiny eyes and face calm and gentle.\n\nSTATE / SUBJECT: producing\nThe same cream-and-taupe cow in a low relaxed crouching pose with legs tucked, head tilted down and eyes gently closed, quietly chewing. Retain the exact taupe patch shapes and peach muzzle. No grass or food or props."
+    },
+    {
+      "key": "cow-ready",
+      "animal": "cow",
+      "label": "奶牛",
+      "projectId": "Cow",
+      "state": "ready",
+      "stateLabel": "可收取",
+      "path": "assets/cow-ready.png",
+      "reference": "../assets/animals/cow.png",
+      "prompt": "Use case: stylized-concept.\nAsset type: ONE transparent PNG animal state sprite for an existing cute 2D farming game.\nReference role: the attached approved animal is the IDENTITY AND STYLE REFERENCE. Draw that exact original animal in the specified new pose, retaining its characteristic silhouette, body-to-head proportions, colors, patch pattern, facial features, ears, horns, feet, curl and tail. Same elevated three-quarter camera facing lower-left.\nStyle: simple rounded flat pastel illustration, delicate warm-tan contour, solid cream or pale peach fills with restrained cel shading. Match the reference. No realistic fur, glossy 3D shading, dark thick outlines or white sticker border.\nComposition: one whole animal only, centered, occupying about 75 percent of the canvas with transparent margin on all sides, feet/ground contact fully visible. Actual alpha transparency and solid opaque interior fills. No background, ground patch, floor, shadow, glow, haze, floating symbols, text, progress bar, emoji, accessories, clothes or duplicate characters. Keep tiny eyes and face calm and gentle.\n\nSTATE / SUBJECT: ready\nThe same cream-and-taupe cow standing squarely on stubby feet, head lifted, ears perked outward and tiny dot eyes open, tail curved lightly upward. A very small content mouth. Retain the same patch locations. No bucket or milk or props."
+    },
+    {
+      "key": "pig-producing",
+      "animal": "pig",
+      "label": "小猪",
+      "projectId": "Pig",
+      "state": "producing",
+      "stateLabel": "生产中",
+      "path": "assets/pig-producing.png",
+      "reference": "../assets/animals/pig.png",
+      "prompt": "Use case: stylized-concept.\nAsset type: ONE transparent PNG animal state sprite for an existing cute 2D farming game.\nReference role: the attached approved animal is the IDENTITY AND STYLE REFERENCE. Draw that exact original animal in the specified new pose, retaining its characteristic silhouette, body-to-head proportions, colors, patch pattern, facial features, ears, horns, feet, curl and tail. Same elevated three-quarter camera facing lower-left.\nStyle: simple rounded flat pastel illustration, delicate warm-tan contour, solid cream or pale peach fills with restrained cel shading. Match the reference. No realistic fur, glossy 3D shading, dark thick outlines or white sticker border.\nComposition: one whole animal only, centered, occupying about 75 percent of the canvas with transparent margin on all sides, feet/ground contact fully visible. Actual alpha transparency and solid opaque interior fills. No background, ground patch, floor, shadow, glow, haze, floating symbols, text, progress bar, emoji, accessories, clothes or duplicate characters. Keep tiny eyes and face calm and gentle.\n\nSTATE / SUBJECT: producing\nThe same pale-peach pig lying cozily on its belly, front feet forward, eyes softly closed, ears drooping gently and snout pointed down. Preserve tiny curly tail. This is a relaxed after-feeding resting pose. No mud or props."
+    },
+    {
+      "key": "pig-ready",
+      "animal": "pig",
+      "label": "小猪",
+      "projectId": "Pig",
+      "state": "ready",
+      "stateLabel": "可收取",
+      "path": "assets/pig-ready.png",
+      "reference": "../assets/animals/pig.png",
+      "prompt": "Use case: stylized-concept.\nAsset type: ONE transparent PNG animal state sprite for an existing cute 2D farming game.\nReference role: the attached approved animal is the IDENTITY AND STYLE REFERENCE. Draw that exact original animal in the specified new pose, retaining its characteristic silhouette, body-to-head proportions, colors, patch pattern, facial features, ears, horns, feet, curl and tail. Same elevated three-quarter camera facing lower-left.\nStyle: simple rounded flat pastel illustration, delicate warm-tan contour, solid cream or pale peach fills with restrained cel shading. Match the reference. No realistic fur, glossy 3D shading, dark thick outlines or white sticker border.\nComposition: one whole animal only, centered, occupying about 75 percent of the canvas with transparent margin on all sides, feet/ground contact fully visible. Actual alpha transparency and solid opaque interior fills. No background, ground patch, floor, shadow, glow, haze, floating symbols, text, progress bar, emoji, accessories, clothes or duplicate characters. Keep tiny eyes and face calm and gentle.\n\nSTATE / SUBJECT: ready\nThe same pale-peach pig standing happily upright on four short feet, snout lifted and ears a little perked, dot eyes open and tiny calm smile. Slightly lifted curly tail. Preserve round bean-shaped body. No props."
+    },
+    {
+      "key": "sheep-producing",
+      "animal": "sheep",
+      "label": "绵羊",
+      "projectId": "Sheep",
+      "state": "producing",
+      "stateLabel": "生产中",
+      "path": "assets/sheep-producing.png",
+      "reference": "../assets/animals/sheep.png",
+      "prompt": "Use case: stylized-concept.\nAsset type: ONE transparent PNG animal state sprite for an existing cute 2D farming game.\nReference role: the attached approved animal is the IDENTITY AND STYLE REFERENCE. Draw that exact original animal in the specified new pose, retaining its characteristic silhouette, body-to-head proportions, colors, patch pattern, facial features, ears, horns, feet, curl and tail. Same elevated three-quarter camera facing lower-left.\nStyle: simple rounded flat pastel illustration, delicate warm-tan contour, solid cream or pale peach fills with restrained cel shading. Match the reference. No realistic fur, glossy 3D shading, dark thick outlines or white sticker border.\nComposition: one whole animal only, centered, occupying about 75 percent of the canvas with transparent margin on all sides, feet/ground contact fully visible. Actual alpha transparency and solid opaque interior fills. No background, ground patch, floor, shadow, glow, haze, floating symbols, text, progress bar, emoji, accessories, clothes or duplicate characters. Keep tiny eyes and face calm and gentle.\n\nSTATE / SUBJECT: producing\nThe same adult sheep rests low with short feet tucked beneath its cream cloud body, face lowered and eyes closed in relaxed curved lines. Wool is compact, less puffed than the ready state, peach face and floppy ears unchanged. No props."
+    },
+    {
+      "key": "sheep-ready",
+      "animal": "sheep",
+      "label": "绵羊",
+      "projectId": "Sheep",
+      "state": "ready",
+      "stateLabel": "可收取",
+      "path": "assets/sheep-ready.png",
+      "reference": "../assets/animals/sheep.png",
+      "prompt": "Use case: stylized-concept.\nAsset type: ONE transparent PNG animal state sprite for an existing cute 2D farming game.\nReference role: the attached approved animal is the IDENTITY AND STYLE REFERENCE. Draw that exact original animal in the specified new pose, retaining its characteristic silhouette, body-to-head proportions, colors, patch pattern, facial features, ears, horns, feet, curl and tail. Same elevated three-quarter camera facing lower-left.\nStyle: simple rounded flat pastel illustration, delicate warm-tan contour, solid cream or pale peach fills with restrained cel shading. Match the reference. No realistic fur, glossy 3D shading, dark thick outlines or white sticker border.\nComposition: one whole animal only, centered, occupying about 75 percent of the canvas with transparent margin on all sides, feet/ground contact fully visible. Actual alpha transparency and solid opaque interior fills. No background, ground patch, floor, shadow, glow, haze, floating symbols, text, progress bar, emoji, accessories, clothes or duplicate characters. Keep tiny eyes and face calm and gentle.\n\nSTATE / SUBJECT: ready\nThe same adult sheep standing alert on visible short tan feet, thick fluffy cloud wool puffed about 15 percent fuller, face raised, dot eyes open and ears relaxed outward. The wool is visibly ready to shear. Keep the existing simple big cloud scallops. No loose wool, shears, sparkles or props."
+    },
+    {
+      "key": "lamb-producing",
+      "animal": "lamb",
+      "label": "羔羊",
+      "projectId": "Lamb",
+      "state": "producing",
+      "stateLabel": "生产中",
+      "path": "assets/lamb-producing.png",
+      "reference": "../assets/animals/lamb.png",
+      "prompt": "Use case: stylized-concept.\nAsset type: ONE transparent PNG animal state sprite for an existing cute 2D farming game.\nReference role: the attached approved animal is the IDENTITY AND STYLE REFERENCE. Draw that exact original animal in the specified new pose, retaining its characteristic silhouette, body-to-head proportions, colors, patch pattern, facial features, ears, horns, feet, curl and tail. Same elevated three-quarter camera facing lower-left.\nStyle: simple rounded flat pastel illustration, delicate warm-tan contour, solid cream or pale peach fills with restrained cel shading. Match the reference. No realistic fur, glossy 3D shading, dark thick outlines or white sticker border.\nComposition: one whole animal only, centered, occupying about 75 percent of the canvas with transparent margin on all sides, feet/ground contact fully visible. Actual alpha transparency and solid opaque interior fills. No background, ground patch, floor, shadow, glow, haze, floating symbols, text, progress bar, emoji, accessories, clothes or duplicate characters. Keep tiny eyes and face calm and gentle.\n\nSTATE / SUBJECT: producing\nThe same baby lamb curled in a small sleepy resting crouch, tiny feet tucked underneath, eyes closed, head slightly lowered. Retain the single forehead spiral curl, small peach face and pink inner ears. Keep baby proportions distinctly smaller/younger than adult sheep. No props."
+    },
+    {
+      "key": "lamb-ready",
+      "animal": "lamb",
+      "label": "羔羊",
+      "projectId": "Lamb",
+      "state": "ready",
+      "stateLabel": "可收取",
+      "path": "assets/lamb-ready.png",
+      "reference": "../assets/animals/lamb.png",
+      "prompt": "Use case: stylized-concept.\nAsset type: ONE transparent PNG animal state sprite for an existing cute 2D farming game.\nReference role: the attached approved animal is the IDENTITY AND STYLE REFERENCE. Draw that exact original animal in the specified new pose, retaining its characteristic silhouette, body-to-head proportions, colors, patch pattern, facial features, ears, horns, feet, curl and tail. Same elevated three-quarter camera facing lower-left.\nStyle: simple rounded flat pastel illustration, delicate warm-tan contour, solid cream or pale peach fills with restrained cel shading. Match the reference. No realistic fur, glossy 3D shading, dark thick outlines or white sticker border.\nComposition: one whole animal only, centered, occupying about 75 percent of the canvas with transparent margin on all sides, feet/ground contact fully visible. Actual alpha transparency and solid opaque interior fills. No background, ground patch, floor, shadow, glow, haze, floating symbols, text, progress bar, emoji, accessories, clothes or duplicate characters. Keep tiny eyes and face calm and gentle.\n\nSTATE / SUBJECT: ready\nThe same baby lamb standing on four short feet, tiny head raised, dot eyes open and little ears lifted outward, soft cloud fleece slightly puffed. Retain its single forehead spiral curl and little peach face. Keep baby proportions. No props."
+    }
+  ]
+}

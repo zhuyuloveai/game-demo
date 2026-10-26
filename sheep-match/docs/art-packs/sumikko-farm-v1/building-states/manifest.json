@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "count": 8,
+  "title": "建筑状态与熟练度标记",
+  "placement": "anchor is the badge pointer tip; place above the building, scale independently of building footprint",
+  "assets": [
+    {
+      "id": "constructing",
+      "label": "施工中",
+      "kind": "status",
+      "meaning": "木锤与木板",
+      "path": "svg/constructing.svg",
+      "legacyPath": "buildings/states/constructing.svg",
+      "width": 64,
+      "height": 76,
+      "anchor": [
+        32,
+        72
+      ],
+      "minDisplaySize": 24,
+      "sha256": "78167e1804518ae0fd33138f30dd413adbf458a6274a4d2c78bdc60363cd8253"
+    },
+    {
+      "id": "processing",
+      "label": "加工中",
+      "kind": "status",
+      "meaning": "沙漏",
+      "path": "svg/processing.svg",
+      "legacyPath": "buildings/states/processing.svg",
+      "width": 64,
+      "height": 76,
+      "anchor": [
+        32,
+        72
+      ],
+      "minDisplaySize": 24,
+      "sha256": "10faf010a983b3822c682376bda9f35573e013c33b567ae03f9fd7ba8477fc26"
+    },
+    {
+      "id": "complete",
+      "label": "已完工",
+      "kind": "status",
+      "meaning": "叶绿对勾",
+      "path": "svg/complete.svg",
+      "legacyPath": "buildings/states/complete.svg",
+      "width": 64,
+      "height": 76,
+      "anchor": [
+        32,
+        72
+      ],
+      "minDisplaySize": 24,
+      "sha256": "6d3ca0cfd93516bdf3452d522190389ec92ad358513e85779cf145e86b267b17"
+    },
+    {
+      "id": "full",
+      "label": "仓位已满",
+      "kind": "status",
+      "meaning": "装满的货箱",
+      "path": "svg/full.svg",
+      "legacyPath": "buildings/states/full.svg",
+      "width": 64,
+      "height": 76,
+      "anchor": [
+        32,
+        72
+      ],
+      "minDisplaySize": 24,
+      "sha256": "7c70168e48a2c5180ac2764e0d29a887423913d8abc1b82b44594c163eb58bd7"
+    },
+    {
+      "id": "mastery-0",
+      "label": "熟练度·初识",
+      "kind": "mastery",
+      "level": 0,
+      "meaning": "一粒种子",
+      "path": "svg/mastery-0.svg",
+      "legacyPath": "buildings/states/mastery-0.svg",
+      "width": 64,
+      "height": 76,
+      "anchor": [
+        32,
+        72
+      ],
+      "minDisplaySize": 24,
+      "sha256": "27ea0d2a5fc7dc2ec952e2111ece5c11006933d436b1cdcb6fcc83742bd97290"
+    },
+    {
+      "id": "mastery-1",
+      "label": "熟练度·上手",
+      "kind": "mastery",
+      "level": 1,
+      "meaning": "两片嫩芽",
+      "path": "svg/mastery-1.svg",
+      "legacyPath": "buildings/states/mastery-1.svg",
+      "width": 64,
+      "height": 76,
+      "anchor": [
+        32,
+        72
+      ],
+      "minDisplaySize": 24,
+      "sha256": "10b18df63391d8dc3265e90ab4a560d294e4924887802984c39ba03fb53a69ce"
+    },
+    {
+      "id": "mastery-2",
+      "label": "熟练度·熟练",
+      "kind": "mastery",
+      "level": 2,
+      "meaning": "四叶小枝",
+      "path": "svg/mastery-2.svg",
+      "legacyPath": "buildings/states/mastery-2.svg",
+      "width": 64,
+      "height": 76,
+      "anchor": [
+        32,
+        72
+      ],
+      "minDisplaySize": 24,
+      "sha256": "046334a2156f5717b11a5a233b2796b828d808094b254045609484ce8bda20d0"
+    },
+    {
+      "id": "mastery-3",
+      "label": "熟练度·精通",
+      "kind": "mastery",
+      "level": 3,
+      "meaning": "绽放小花",
+      "path": "svg/mastery-3.svg",
+      "legacyPath": "buildings/states/mastery-3.svg",
+      "width": 64,
+      "height": 76,
+      "anchor": [
+        32,
+        72
+      ],
+      "minDisplaySize": 24,
+      "sha256": "026385dccc64d896415abe4146b18df700e1daf3f71aa479de364883a64b248b"
+    }
+  ]
+}
