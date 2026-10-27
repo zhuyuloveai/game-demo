@@ -1,0 +1,6 @@
+const p=new URLSearchParams(location.search),page=document.querySelector('#page'),device=document.querySelector('#device'),state=document.querySelector('#state'),frame=document.querySelector('iframe');
+page.value=['shop','storage','orders'].includes(p.get('page'))?p.get('page'):'shop';device.value=p.get('device')==='wide'?'wide':'phone';
+const choices={shop:[['normal','常态'],['missing','金币不足'],['locked','未解锁'],['owned','已经拥有']],storage:[['normal','常态'],['full','仓库已满'],['empty','仓库为空']],orders:[['normal','常态'],['missing','缺少物品'],['cooldown','等待补单']]};
+function states(value='normal'){state.innerHTML=choices[page.value].map(([id,label])=>`<option value="${id}">${label}</option>`).join('');state.value=choices[page.value].some(x=>x[0]===value)?value:'normal';}
+function render(){document.querySelector('.viewer').classList.toggle('phone',device.value==='phone');frame.src=`pages.html?page=${page.value}&state=${state.value}`;document.querySelector('#source-link').href=`source/${page.value}-${device.value==='phone'?'mobile':'wide'}.svg`;}
+page.addEventListener('change',()=>{states();render();});state.addEventListener('change',render);device.addEventListener('change',render);states(p.get('state'));render();

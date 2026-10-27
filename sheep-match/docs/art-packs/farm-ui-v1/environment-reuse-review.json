@@ -1,0 +1,170 @@
+[
+  {
+    "id": "grass-0",
+    "source": "../sumikko-farm-v1/environment/svg/grass-0.svg",
+    "sha256": "3829e6e57cf4c729981dfb38918ff0c59b2639763f45e1abfb28686e5ed4592d",
+    "anchor": [
+      64,
+      32
+    ],
+    "canvas": [
+      128,
+      64
+    ],
+    "status": "existing; retain; not newly authored"
+  },
+  {
+    "id": "grass-1",
+    "source": "../sumikko-farm-v1/environment/svg/grass-1.svg",
+    "sha256": "90f0f7b6b5ff046f2d3f3183601cda79d1ae2d387c1306e0b171b74aeba1c872",
+    "anchor": [
+      64,
+      32
+    ],
+    "canvas": [
+      128,
+      64
+    ],
+    "status": "existing; retain; not newly authored"
+  },
+  {
+    "id": "accent-0",
+    "source": "../sumikko-farm-v1/environment/svg/accent-0.svg",
+    "sha256": "75171a3c8acbd5c58bfc1356db3a42d62533f447a78adc2c6eab2db10e3e545e",
+    "anchor": [
+      64,
+      32
+    ],
+    "canvas": [
+      128,
+      64
+    ],
+    "status": "existing; retain; not newly authored"
+  },
+  {
+    "id": "accent-4",
+    "source": "../sumikko-farm-v1/environment/svg/accent-4.svg",
+    "sha256": "5467802180231322d4b7b9ed5656109d0ef32f5b528f8c03196961ccd170dfca",
+    "anchor": [
+      64,
+      32
+    ],
+    "canvas": [
+      128,
+      64
+    ],
+    "status": "existing; retain; not newly authored"
+  },
+  {
+    "id": "boundary-expandable",
+    "source": "../sumikko-farm-v1/environment/svg/boundary-expandable.svg",
+    "sha256": "62c8ca19ef55304830eb965f9bf25ee55ae9df8e575c9c774556b84961b1fa53",
+    "anchor": [
+      64,
+      32
+    ],
+    "canvas": [
+      128,
+      64
+    ],
+    "status": "existing; retain; not newly authored"
+  },
+  {
+    "id": "boundary-locked",
+    "source": "../sumikko-farm-v1/environment/svg/boundary-locked.svg",
+    "sha256": "83e19b6af3519da4ff08f0627b7eaf0c489f3b1842f188d8153b19ab875c5246",
+    "anchor": [
+      64,
+      32
+    ],
+    "canvas": [
+      128,
+      64
+    ],
+    "status": "existing; retain; not newly authored"
+  },
+  {
+    "id": "unopened-fog",
+    "source": "../sumikko-farm-v1/environment/svg/unopened-fog.svg",
+    "sha256": "f09aa1932d85e0420ebbbfc99598bdf48a4d3a7f4c64f8b9464b24165199fc4d",
+    "anchor": [
+      64,
+      32
+    ],
+    "canvas": [
+      128,
+      64
+    ],
+    "status": "existing; retain; not newly authored"
+  },
+  {
+    "id": "natural-tree",
+    "source": "../sumikko-farm-v1/environment/svg/natural-tree.svg",
+    "sha256": "a5284b393f59019f1b8c065c12291b3580bdeb91eb62179368742c4f5d4d41b3",
+    "anchor": [
+      80,
+      180
+    ],
+    "canvas": [
+      160,
+      200
+    ],
+    "status": "existing; retain; not newly authored"
+  },
+  {
+    "id": "natural-bush",
+    "source": "../sumikko-farm-v1/environment/svg/natural-bush.svg",
+    "sha256": "ccdaaed2173c8322b2c091f626be2910ff76b03cc648d8a3d5ef1a4898af19c2",
+    "anchor": [
+      64,
+      82
+    ],
+    "canvas": [
+      128,
+      100
+    ],
+    "status": "existing; retain; not newly authored"
+  },
+  {
+    "id": "rocks-0",
+    "source": "../sumikko-farm-v1/environment/svg/rocks-0.svg",
+    "sha256": "9be1edab0081346824a2c4cbea3d8d0b2106ee81c3616ae7fd9623e59aa8efad",
+    "anchor": [
+      64,
+      82
+    ],
+    "canvas": [
+      128,
+      100
+    ],
+    "status": "existing; retain; not newly authored"
+  },
+  {
+    "id": "rocks-1",
+    "source": "../sumikko-farm-v1/environment/svg/rocks-1.svg",
+    "sha256": "78bed106cb485cd1bd5eaa984a0d8177e1e86ee63a710aac790efbde7301ee08",
+    "anchor": [
+      64,
+      82
+    ],
+    "canvas": [
+      128,
+      100
+    ],
+    "status": "existing; retain; not newly authored"
+  },
+  {
+    "id": "rocks-2",
+    "source": "../sumikko-farm-v1/environment/svg/rocks-2.svg",
+    "sha256": "faa62698e8ac4eea4b8ab172737a9226c681769cf9ce76aa5520a2605512ec6f",
+    "anchor": [
+      64,
+      82
+    ],
+    "canvas": [
+      128,
+      100
+    ],
+    "status": "existing; retain; not newly authored"
+  }
+]

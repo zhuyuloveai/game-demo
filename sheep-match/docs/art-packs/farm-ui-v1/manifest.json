@@ -1,0 +1,3015 @@
+{
+  "version": "0.3-expanded",
+  "baseCommit": "6f195a1",
+  "scope": "P0 reusable UI expansion; see terrain/manifest.json and effects/manifest.json for P1/P2",
+  "units": "CSS px at 1x; nineSlice top right bottom left",
+  "components": [
+    {
+      "id": "panel-default",
+      "family": "panel",
+      "state": "default",
+      "file": "components/panel-default.svg",
+      "canvas": [
+        96,
+        96
+      ],
+      "nineSlice": [
+        26,
+        26,
+        26,
+        26
+      ],
+      "contentPadding": [
+        14,
+        14,
+        12,
+        14
+      ],
+      "safeContentRect": [
+        14,
+        14,
+        68,
+        70
+      ],
+      "minimumDisplaySize": [
+        280,
+        220
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "title-default",
+      "family": "title",
+      "state": "default",
+      "file": "components/title-default.svg",
+      "canvas": [
+        96,
+        64
+      ],
+      "nineSlice": [
+        20,
+        20,
+        20,
+        20
+      ],
+      "contentPadding": [
+        8,
+        16,
+        8,
+        16
+      ],
+      "safeContentRect": [
+        16,
+        8,
+        64,
+        48
+      ],
+      "minimumDisplaySize": [
+        160,
+        52
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "well-default",
+      "family": "well",
+      "state": "default",
+      "file": "components/well-default.svg",
+      "canvas": [
+        80,
+        80
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        12,
+        56,
+        56
+      ],
+      "minimumDisplaySize": [
+        72,
+        64
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "divider-default",
+      "family": "divider",
+      "state": "default",
+      "file": "components/divider-default.svg",
+      "canvas": [
+        64,
+        4
+      ],
+      "nineSlice": [
+        0,
+        2,
+        0,
+        2
+      ],
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": [
+        0,
+        0,
+        64,
+        4
+      ],
+      "minimumDisplaySize": [
+        32,
+        4
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "button-primary-default",
+      "family": "button-primary",
+      "state": "default",
+      "file": "components/button-primary-default.svg",
+      "canvas": [
+        96,
+        48
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        18,
+        10,
+        18
+      ],
+      "safeContentRect": [
+        18,
+        10,
+        60,
+        28
+      ],
+      "minimumDisplaySize": [
+        88,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "button-primary-pressed",
+      "family": "button-primary",
+      "state": "pressed",
+      "file": "components/button-primary-pressed.svg",
+      "canvas": [
+        96,
+        48
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        18,
+        10,
+        18
+      ],
+      "safeContentRect": [
+        18,
+        10,
+        60,
+        28
+      ],
+      "minimumDisplaySize": [
+        88,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "button-primary-disabled",
+      "family": "button-primary",
+      "state": "disabled",
+      "file": "components/button-primary-disabled.svg",
+      "canvas": [
+        96,
+        48
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        18,
+        10,
+        18
+      ],
+      "safeContentRect": [
+        18,
+        10,
+        60,
+        28
+      ],
+      "minimumDisplaySize": [
+        88,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "button-secondary-default",
+      "family": "button-secondary",
+      "state": "default",
+      "file": "components/button-secondary-default.svg",
+      "canvas": [
+        96,
+        48
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        18,
+        10,
+        18
+      ],
+      "safeContentRect": [
+        18,
+        10,
+        60,
+        28
+      ],
+      "minimumDisplaySize": [
+        88,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "button-secondary-pressed",
+      "family": "button-secondary",
+      "state": "pressed",
+      "file": "components/button-secondary-pressed.svg",
+      "canvas": [
+        96,
+        48
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        18,
+        10,
+        18
+      ],
+      "safeContentRect": [
+        18,
+        10,
+        60,
+        28
+      ],
+      "minimumDisplaySize": [
+        88,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "button-secondary-disabled",
+      "family": "button-secondary",
+      "state": "disabled",
+      "file": "components/button-secondary-disabled.svg",
+      "canvas": [
+        96,
+        48
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        18,
+        10,
+        18
+      ],
+      "safeContentRect": [
+        18,
+        10,
+        60,
+        28
+      ],
+      "minimumDisplaySize": [
+        88,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "close-default",
+      "family": "close",
+      "state": "default",
+      "file": "components/close-default.svg",
+      "canvas": [
+        48,
+        48
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        44,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "uniform"
+    },
+    {
+      "id": "close-pressed",
+      "family": "close",
+      "state": "pressed",
+      "file": "components/close-pressed.svg",
+      "canvas": [
+        48,
+        48
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        44,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "uniform"
+    },
+    {
+      "id": "close-disabled",
+      "family": "close",
+      "state": "disabled",
+      "file": "components/close-disabled.svg",
+      "canvas": [
+        48,
+        48
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        44,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "uniform"
+    },
+    {
+      "id": "tab-default",
+      "family": "tab",
+      "state": "default",
+      "file": "components/tab-default.svg",
+      "canvas": [
+        96,
+        40
+      ],
+      "nineSlice": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "contentPadding": [
+        8,
+        14,
+        8,
+        14
+      ],
+      "safeContentRect": [
+        14,
+        8,
+        68,
+        24
+      ],
+      "minimumDisplaySize": [
+        80,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "tab-selected",
+      "family": "tab",
+      "state": "selected",
+      "file": "components/tab-selected.svg",
+      "canvas": [
+        96,
+        40
+      ],
+      "nineSlice": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "contentPadding": [
+        8,
+        14,
+        8,
+        14
+      ],
+      "safeContentRect": [
+        14,
+        8,
+        68,
+        24
+      ],
+      "minimumDisplaySize": [
+        80,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "tab-pressed",
+      "family": "tab",
+      "state": "pressed",
+      "file": "components/tab-pressed.svg",
+      "canvas": [
+        96,
+        40
+      ],
+      "nineSlice": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "contentPadding": [
+        8,
+        14,
+        8,
+        14
+      ],
+      "safeContentRect": [
+        14,
+        8,
+        68,
+        24
+      ],
+      "minimumDisplaySize": [
+        80,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "tab-disabled",
+      "family": "tab",
+      "state": "disabled",
+      "file": "components/tab-disabled.svg",
+      "canvas": [
+        96,
+        40
+      ],
+      "nineSlice": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "contentPadding": [
+        8,
+        14,
+        8,
+        14
+      ],
+      "safeContentRect": [
+        14,
+        8,
+        68,
+        24
+      ],
+      "minimumDisplaySize": [
+        80,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "item-slot-default",
+      "family": "item-slot",
+      "state": "default",
+      "file": "components/item-slot-default.svg",
+      "canvas": [
+        72,
+        72
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        52,
+        52
+      ],
+      "minimumDisplaySize": [
+        64,
+        64
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "item-slot-selected",
+      "family": "item-slot",
+      "state": "selected",
+      "file": "components/item-slot-selected.svg",
+      "canvas": [
+        72,
+        72
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        52,
+        52
+      ],
+      "minimumDisplaySize": [
+        64,
+        64
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "item-slot-pressed",
+      "family": "item-slot",
+      "state": "pressed",
+      "file": "components/item-slot-pressed.svg",
+      "canvas": [
+        72,
+        72
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        52,
+        52
+      ],
+      "minimumDisplaySize": [
+        64,
+        64
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "item-slot-disabled",
+      "family": "item-slot",
+      "state": "disabled",
+      "file": "components/item-slot-disabled.svg",
+      "canvas": [
+        72,
+        72
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        52,
+        52
+      ],
+      "minimumDisplaySize": [
+        64,
+        64
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "item-slot-missing",
+      "family": "item-slot",
+      "state": "missing",
+      "file": "components/item-slot-missing.svg",
+      "canvas": [
+        72,
+        72
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        52,
+        52
+      ],
+      "minimumDisplaySize": [
+        64,
+        64
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "recipe-card-default",
+      "family": "recipe-card",
+      "state": "default",
+      "file": "components/recipe-card-default.svg",
+      "canvas": [
+        112,
+        104
+      ],
+      "nineSlice": [
+        19,
+        19,
+        19,
+        19
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        92,
+        84
+      ],
+      "minimumDisplaySize": [
+        88,
+        88
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "recipe-card-selected",
+      "family": "recipe-card",
+      "state": "selected",
+      "file": "components/recipe-card-selected.svg",
+      "canvas": [
+        112,
+        104
+      ],
+      "nineSlice": [
+        19,
+        19,
+        19,
+        19
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        92,
+        84
+      ],
+      "minimumDisplaySize": [
+        88,
+        88
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "recipe-card-pressed",
+      "family": "recipe-card",
+      "state": "pressed",
+      "file": "components/recipe-card-pressed.svg",
+      "canvas": [
+        112,
+        104
+      ],
+      "nineSlice": [
+        19,
+        19,
+        19,
+        19
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        92,
+        84
+      ],
+      "minimumDisplaySize": [
+        88,
+        88
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "recipe-card-disabled",
+      "family": "recipe-card",
+      "state": "disabled",
+      "file": "components/recipe-card-disabled.svg",
+      "canvas": [
+        112,
+        104
+      ],
+      "nineSlice": [
+        19,
+        19,
+        19,
+        19
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        92,
+        84
+      ],
+      "minimumDisplaySize": [
+        88,
+        88
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "recipe-card-missing",
+      "family": "recipe-card",
+      "state": "missing",
+      "file": "components/recipe-card-missing.svg",
+      "canvas": [
+        112,
+        104
+      ],
+      "nineSlice": [
+        19,
+        19,
+        19,
+        19
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        92,
+        84
+      ],
+      "minimumDisplaySize": [
+        88,
+        88
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "queue-slot-empty",
+      "family": "queue-slot",
+      "state": "empty",
+      "file": "components/queue-slot-empty.svg",
+      "canvas": [
+        80,
+        80
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        60,
+        60
+      ],
+      "minimumDisplaySize": [
+        64,
+        64
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "queue-slot-running",
+      "family": "queue-slot",
+      "state": "running",
+      "file": "components/queue-slot-running.svg",
+      "canvas": [
+        80,
+        80
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        60,
+        60
+      ],
+      "minimumDisplaySize": [
+        64,
+        64
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "queue-slot-waiting",
+      "family": "queue-slot",
+      "state": "waiting",
+      "file": "components/queue-slot-waiting.svg",
+      "canvas": [
+        80,
+        80
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        60,
+        60
+      ],
+      "minimumDisplaySize": [
+        64,
+        64
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "queue-slot-complete",
+      "family": "queue-slot",
+      "state": "complete",
+      "file": "components/queue-slot-complete.svg",
+      "canvas": [
+        80,
+        80
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        60,
+        60
+      ],
+      "minimumDisplaySize": [
+        64,
+        64
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "queue-slot-locked",
+      "family": "queue-slot",
+      "state": "locked",
+      "file": "components/queue-slot-locked.svg",
+      "canvas": [
+        80,
+        80
+      ],
+      "nineSlice": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        60,
+        60
+      ],
+      "minimumDisplaySize": [
+        64,
+        64
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "quantity-default",
+      "family": "quantity",
+      "state": "default",
+      "file": "components/quantity-default.svg",
+      "canvas": [
+        64,
+        28
+      ],
+      "nineSlice": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "contentPadding": [
+        4,
+        8,
+        4,
+        14
+      ],
+      "safeContentRect": [
+        14,
+        4,
+        42,
+        20
+      ],
+      "minimumDisplaySize": [
+        36,
+        24
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "quantity-missing",
+      "family": "quantity",
+      "state": "missing",
+      "file": "components/quantity-missing.svg",
+      "canvas": [
+        64,
+        28
+      ],
+      "nineSlice": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "contentPadding": [
+        4,
+        8,
+        4,
+        14
+      ],
+      "safeContentRect": [
+        14,
+        4,
+        42,
+        20
+      ],
+      "minimumDisplaySize": [
+        36,
+        24
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "quantity-complete",
+      "family": "quantity",
+      "state": "complete",
+      "file": "components/quantity-complete.svg",
+      "canvas": [
+        64,
+        28
+      ],
+      "nineSlice": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "contentPadding": [
+        4,
+        8,
+        4,
+        14
+      ],
+      "safeContentRect": [
+        14,
+        4,
+        42,
+        20
+      ],
+      "minimumDisplaySize": [
+        36,
+        24
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "quantity-disabled",
+      "family": "quantity",
+      "state": "disabled",
+      "file": "components/quantity-disabled.svg",
+      "canvas": [
+        64,
+        28
+      ],
+      "nineSlice": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "contentPadding": [
+        4,
+        8,
+        4,
+        14
+      ],
+      "safeContentRect": [
+        14,
+        4,
+        42,
+        20
+      ],
+      "minimumDisplaySize": [
+        36,
+        24
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "progress-track",
+      "family": "progress",
+      "state": "track",
+      "file": "components/progress-track.svg",
+      "canvas": [
+        96,
+        16
+      ],
+      "nineSlice": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "contentPadding": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "safeContentRect": [
+        2,
+        2,
+        92,
+        12
+      ],
+      "minimumDisplaySize": [
+        40,
+        12
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "progress-fill",
+      "family": "progress",
+      "state": "fill",
+      "file": "components/progress-fill.svg",
+      "canvas": [
+        96,
+        16
+      ],
+      "nineSlice": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        12,
+        12
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "notice-info",
+      "family": "notice",
+      "state": "info",
+      "file": "components/notice-info.svg",
+      "canvas": [
+        96,
+        64
+      ],
+      "nineSlice": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "contentPadding": [
+        10,
+        12,
+        10,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        10,
+        72,
+        44
+      ],
+      "minimumDisplaySize": [
+        160,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "notice-missing",
+      "family": "notice",
+      "state": "missing",
+      "file": "components/notice-missing.svg",
+      "canvas": [
+        96,
+        64
+      ],
+      "nineSlice": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "contentPadding": [
+        10,
+        12,
+        10,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        10,
+        72,
+        44
+      ],
+      "minimumDisplaySize": [
+        160,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "notice-full",
+      "family": "notice",
+      "state": "full",
+      "file": "components/notice-full.svg",
+      "canvas": [
+        96,
+        64
+      ],
+      "nineSlice": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "contentPadding": [
+        10,
+        12,
+        10,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        10,
+        72,
+        44
+      ],
+      "minimumDisplaySize": [
+        160,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "notice-empty",
+      "family": "notice",
+      "state": "empty",
+      "file": "components/notice-empty.svg",
+      "canvas": [
+        96,
+        64
+      ],
+      "nineSlice": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "contentPadding": [
+        10,
+        12,
+        10,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        10,
+        72,
+        44
+      ],
+      "minimumDisplaySize": [
+        160,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "symbol-lock",
+      "family": "symbol",
+      "state": "lock",
+      "file": "components/symbol-lock.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        16,
+        16
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "uniform"
+    },
+    {
+      "id": "symbol-complete",
+      "family": "symbol",
+      "state": "complete",
+      "file": "components/symbol-complete.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        16,
+        16
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "uniform"
+    },
+    {
+      "id": "symbol-clock",
+      "family": "symbol",
+      "state": "clock",
+      "file": "components/symbol-clock.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        16,
+        16
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "uniform"
+    },
+    {
+      "id": "symbol-plus",
+      "family": "symbol",
+      "state": "plus",
+      "file": "components/symbol-plus.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        16,
+        16
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "uniform"
+    },
+    {
+      "id": "symbol-warning",
+      "family": "symbol",
+      "state": "warning",
+      "file": "components/symbol-warning.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        16,
+        16
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "uniform"
+    },
+    {
+      "id": "symbol-arrow",
+      "family": "symbol",
+      "state": "arrow",
+      "file": "components/symbol-arrow.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        16,
+        16
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "uniform"
+    },
+    {
+      "id": "canopy-default",
+      "family": "canopy",
+      "state": "default",
+      "file": "components/canopy-default.svg",
+      "canvas": [
+        384,
+        28
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        280,
+        20
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "stretch-x"
+    },
+    {
+      "id": "linen-corner-default",
+      "family": "linen-corner",
+      "state": "default",
+      "file": "components/linen-corner-default.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        20,
+        20
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "uniform"
+    },
+    {
+      "id": "shelf-card-default",
+      "family": "shelf-card",
+      "state": "default",
+      "file": "components/shelf-card-default.svg",
+      "canvas": [
+        120,
+        116
+      ],
+      "nineSlice": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "contentPadding": [
+        24,
+        12,
+        20,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        24,
+        96,
+        72
+      ],
+      "minimumDisplaySize": [
+        92,
+        96
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "shelf-card-selected",
+      "family": "shelf-card",
+      "state": "selected",
+      "file": "components/shelf-card-selected.svg",
+      "canvas": [
+        120,
+        116
+      ],
+      "nineSlice": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "contentPadding": [
+        24,
+        12,
+        20,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        24,
+        96,
+        72
+      ],
+      "minimumDisplaySize": [
+        92,
+        96
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "shelf-card-missing",
+      "family": "shelf-card",
+      "state": "missing",
+      "file": "components/shelf-card-missing.svg",
+      "canvas": [
+        120,
+        116
+      ],
+      "nineSlice": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "contentPadding": [
+        24,
+        12,
+        20,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        24,
+        96,
+        72
+      ],
+      "minimumDisplaySize": [
+        92,
+        96
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "shelf-card-locked",
+      "family": "shelf-card",
+      "state": "locked",
+      "file": "components/shelf-card-locked.svg",
+      "canvas": [
+        120,
+        116
+      ],
+      "nineSlice": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "contentPadding": [
+        24,
+        12,
+        20,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        24,
+        96,
+        72
+      ],
+      "minimumDisplaySize": [
+        92,
+        96
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "shelf-card-pressed",
+      "family": "shelf-card",
+      "state": "pressed",
+      "file": "components/shelf-card-pressed.svg",
+      "canvas": [
+        120,
+        116
+      ],
+      "nineSlice": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "contentPadding": [
+        24,
+        12,
+        20,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        24,
+        96,
+        72
+      ],
+      "minimumDisplaySize": [
+        92,
+        96
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "order-paper-default",
+      "family": "order-paper",
+      "state": "default",
+      "file": "components/order-paper-default.svg",
+      "canvas": [
+        112,
+        104
+      ],
+      "nineSlice": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "contentPadding": [
+        24,
+        12,
+        20,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        24,
+        88,
+        60
+      ],
+      "minimumDisplaySize": [
+        80,
+        76
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "order-paper-selected",
+      "family": "order-paper",
+      "state": "selected",
+      "file": "components/order-paper-selected.svg",
+      "canvas": [
+        112,
+        104
+      ],
+      "nineSlice": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "contentPadding": [
+        24,
+        12,
+        20,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        24,
+        88,
+        60
+      ],
+      "minimumDisplaySize": [
+        80,
+        76
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "order-paper-missing",
+      "family": "order-paper",
+      "state": "missing",
+      "file": "components/order-paper-missing.svg",
+      "canvas": [
+        112,
+        104
+      ],
+      "nineSlice": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "contentPadding": [
+        24,
+        12,
+        20,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        24,
+        88,
+        60
+      ],
+      "minimumDisplaySize": [
+        80,
+        76
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "order-paper-locked",
+      "family": "order-paper",
+      "state": "locked",
+      "file": "components/order-paper-locked.svg",
+      "canvas": [
+        112,
+        104
+      ],
+      "nineSlice": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "contentPadding": [
+        24,
+        12,
+        20,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        24,
+        88,
+        60
+      ],
+      "minimumDisplaySize": [
+        80,
+        76
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "order-paper-pressed",
+      "family": "order-paper",
+      "state": "pressed",
+      "file": "components/order-paper-pressed.svg",
+      "canvas": [
+        112,
+        104
+      ],
+      "nineSlice": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "contentPadding": [
+        24,
+        12,
+        20,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        24,
+        88,
+        60
+      ],
+      "minimumDisplaySize": [
+        80,
+        76
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "detail-paper-default",
+      "family": "detail-paper",
+      "state": "default",
+      "file": "components/detail-paper-default.svg",
+      "canvas": [
+        96,
+        96
+      ],
+      "nineSlice": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "contentPadding": [
+        24,
+        12,
+        20,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        24,
+        72,
+        52
+      ],
+      "minimumDisplaySize": [
+        240,
+        96
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "detail-paper-missing",
+      "family": "detail-paper",
+      "state": "missing",
+      "file": "components/detail-paper-missing.svg",
+      "canvas": [
+        96,
+        96
+      ],
+      "nineSlice": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "contentPadding": [
+        24,
+        12,
+        20,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        24,
+        72,
+        52
+      ],
+      "minimumDisplaySize": [
+        240,
+        96
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "detail-paper-empty",
+      "family": "detail-paper",
+      "state": "empty",
+      "file": "components/detail-paper-empty.svg",
+      "canvas": [
+        96,
+        96
+      ],
+      "nineSlice": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "contentPadding": [
+        24,
+        12,
+        20,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        24,
+        72,
+        52
+      ],
+      "minimumDisplaySize": [
+        240,
+        96
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "stepper-default",
+      "family": "stepper",
+      "state": "default",
+      "file": "components/stepper-default.svg",
+      "canvas": [
+        48,
+        48
+      ],
+      "nineSlice": [
+        14,
+        14,
+        14,
+        14
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        28,
+        28
+      ],
+      "minimumDisplaySize": [
+        44,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "stepper-pressed",
+      "family": "stepper",
+      "state": "pressed",
+      "file": "components/stepper-pressed.svg",
+      "canvas": [
+        48,
+        48
+      ],
+      "nineSlice": [
+        14,
+        14,
+        14,
+        14
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        28,
+        28
+      ],
+      "minimumDisplaySize": [
+        44,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "stepper-disabled",
+      "family": "stepper",
+      "state": "disabled",
+      "file": "components/stepper-disabled.svg",
+      "canvas": [
+        48,
+        48
+      ],
+      "nineSlice": [
+        14,
+        14,
+        14,
+        14
+      ],
+      "contentPadding": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "safeContentRect": [
+        10,
+        10,
+        28,
+        28
+      ],
+      "minimumDisplaySize": [
+        44,
+        44
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "slider-track-default",
+      "family": "slider-track",
+      "state": "default",
+      "file": "components/slider-track-default.svg",
+      "canvas": [
+        96,
+        12
+      ],
+      "nineSlice": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "contentPadding": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "safeContentRect": [
+        2,
+        2,
+        92,
+        8
+      ],
+      "minimumDisplaySize": [
+        72,
+        8
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "slider-track-disabled",
+      "family": "slider-track",
+      "state": "disabled",
+      "file": "components/slider-track-disabled.svg",
+      "canvas": [
+        96,
+        12
+      ],
+      "nineSlice": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "contentPadding": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "safeContentRect": [
+        2,
+        2,
+        92,
+        8
+      ],
+      "minimumDisplaySize": [
+        72,
+        8
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "slider-thumb-default",
+      "family": "slider-thumb",
+      "state": "default",
+      "file": "components/slider-thumb-default.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        28,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "uniform"
+    },
+    {
+      "id": "slider-thumb-pressed",
+      "family": "slider-thumb",
+      "state": "pressed",
+      "file": "components/slider-thumb-pressed.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        28,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "uniform"
+    },
+    {
+      "id": "slider-thumb-disabled",
+      "family": "slider-thumb",
+      "state": "disabled",
+      "file": "components/slider-thumb-disabled.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        28,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "uniform"
+    },
+    {
+      "id": "checkbox-off",
+      "family": "checkbox",
+      "state": "off",
+      "file": "components/checkbox-off.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        24,
+        24
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "uniform"
+    },
+    {
+      "id": "checkbox-on",
+      "family": "checkbox",
+      "state": "on",
+      "file": "components/checkbox-on.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        24,
+        24
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "uniform"
+    },
+    {
+      "id": "checkbox-pressed",
+      "family": "checkbox",
+      "state": "pressed",
+      "file": "components/checkbox-pressed.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        24,
+        24
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "uniform"
+    },
+    {
+      "id": "checkbox-disabled",
+      "family": "checkbox",
+      "state": "disabled",
+      "file": "components/checkbox-disabled.svg",
+      "canvas": [
+        32,
+        32
+      ],
+      "nineSlice": null,
+      "contentPadding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "safeContentRect": null,
+      "minimumDisplaySize": [
+        24,
+        24
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "uniform"
+    },
+    {
+      "id": "resource-pill-default",
+      "family": "resource-pill",
+      "state": "default",
+      "file": "components/resource-pill-default.svg",
+      "canvas": [
+        96,
+        40
+      ],
+      "nineSlice": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "contentPadding": [
+        8,
+        12,
+        8,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        8,
+        72,
+        24
+      ],
+      "minimumDisplaySize": [
+        76,
+        36
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "resource-pill-missing",
+      "family": "resource-pill",
+      "state": "missing",
+      "file": "components/resource-pill-missing.svg",
+      "canvas": [
+        96,
+        40
+      ],
+      "nineSlice": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "contentPadding": [
+        8,
+        12,
+        8,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        8,
+        72,
+        24
+      ],
+      "minimumDisplaySize": [
+        76,
+        36
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "resource-pill-complete",
+      "family": "resource-pill",
+      "state": "complete",
+      "file": "components/resource-pill-complete.svg",
+      "canvas": [
+        96,
+        40
+      ],
+      "nineSlice": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "contentPadding": [
+        8,
+        12,
+        8,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        8,
+        72,
+        24
+      ],
+      "minimumDisplaySize": [
+        76,
+        36
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "toast-paper-info",
+      "family": "toast-paper",
+      "state": "info",
+      "file": "components/toast-paper-info.svg",
+      "canvas": [
+        112,
+        64
+      ],
+      "nineSlice": [
+        18,
+        18,
+        18,
+        18
+      ],
+      "contentPadding": [
+        12,
+        16,
+        12,
+        16
+      ],
+      "safeContentRect": [
+        16,
+        12,
+        80,
+        40
+      ],
+      "minimumDisplaySize": [
+        200,
+        48
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "toast-paper-success",
+      "family": "toast-paper",
+      "state": "success",
+      "file": "components/toast-paper-success.svg",
+      "canvas": [
+        112,
+        64
+      ],
+      "nineSlice": [
+        18,
+        18,
+        18,
+        18
+      ],
+      "contentPadding": [
+        12,
+        16,
+        12,
+        16
+      ],
+      "safeContentRect": [
+        16,
+        12,
+        80,
+        40
+      ],
+      "minimumDisplaySize": [
+        200,
+        48
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "toast-paper-warning",
+      "family": "toast-paper",
+      "state": "warning",
+      "file": "components/toast-paper-warning.svg",
+      "canvas": [
+        112,
+        64
+      ],
+      "nineSlice": [
+        18,
+        18,
+        18,
+        18
+      ],
+      "contentPadding": [
+        12,
+        16,
+        12,
+        16
+      ],
+      "safeContentRect": [
+        16,
+        12,
+        80,
+        40
+      ],
+      "minimumDisplaySize": [
+        200,
+        48
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "ribbon-default",
+      "family": "ribbon",
+      "state": "default",
+      "file": "components/ribbon-default.svg",
+      "canvas": [
+        80,
+        32
+      ],
+      "nineSlice": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "contentPadding": [
+        6,
+        12,
+        8,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        6,
+        56,
+        18
+      ],
+      "minimumDisplaySize": [
+        64,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "ribbon-complete",
+      "family": "ribbon",
+      "state": "complete",
+      "file": "components/ribbon-complete.svg",
+      "canvas": [
+        80,
+        32
+      ],
+      "nineSlice": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "contentPadding": [
+        6,
+        12,
+        8,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        6,
+        56,
+        18
+      ],
+      "minimumDisplaySize": [
+        64,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    },
+    {
+      "id": "ribbon-locked",
+      "family": "ribbon",
+      "state": "locked",
+      "file": "components/ribbon-locked.svg",
+      "canvas": [
+        80,
+        32
+      ],
+      "nineSlice": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "contentPadding": [
+        6,
+        12,
+        8,
+        12
+      ],
+      "safeContentRect": [
+        12,
+        6,
+        56,
+        18
+      ],
+      "minimumDisplaySize": [
+        64,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "containsText": false,
+      "scaling": "nine-slice"
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "status": "passed",
+  "components": 84,
+  "families": 27,
+  "unchangedReusedArt": 30,
+  "existingEnvironmentReviewed": 12,
+  "layouts": [
+    {
+      "name": "mobile-long-layout",
+      "viewport": [
+        400,
+        740
+      ],
+      "bodyClientHeight": 387,
+      "bodyScrollHeight": 387,
+      "brokenImages": [],
+      "documentOverflow": false,
+      "undersizedTargets": []
+    },
+    {
+      "name": "orders-wide-layout",
+      "viewport": [
+        1280,
+        720
+      ],
+      "bodyClientHeight": 333,
+      "bodyScrollHeight": 333,
+      "brokenImages": [],
+      "documentOverflow": false,
+      "undersizedTargets": []
+    },
+    {
+      "name": "shop-locked-mobile-layout",
+      "viewport": [
+        400,
+        740
+      ],
+      "bodyClientHeight": 383,
+      "bodyScrollHeight": 383,
+      "brokenImages": [],
+      "documentOverflow": false,
+      "undersizedTargets": []
+    },
+    {
+      "name": "storage-wide-layout",
+      "viewport": [
+        1280,
+        720
+      ],
+      "bodyClientHeight": 338,
+      "bodyScrollHeight": 338,
+      "brokenImages": [],
+      "documentOverflow": false,
+      "undersizedTargets": []
+    },
+    {
+      "name": "shop-missing-mobile-layout",
+      "viewport": [
+        400,
+        740
+      ],
+      "bodyClientHeight": 383,
+      "bodyScrollHeight": 383,
+      "brokenImages": [],
+      "documentOverflow": false,
+      "undersizedTargets": []
+    },
+    {
+      "name": "orders-missing-mobile-layout",
+      "viewport": [
+        400,
+        740
+      ],
+      "bodyClientHeight": 433,
+      "bodyScrollHeight": 433,
+      "brokenImages": [],
+      "documentOverflow": false,
+      "undersizedTargets": []
+    },
+    {
+      "name": "storage-full-mobile-layout",
+      "viewport": [
+        400,
+        740
+      ],
+      "bodyClientHeight": 432,
+      "bodyScrollHeight": 432,
+      "brokenImages": [],
+      "documentOverflow": false,
+      "undersizedTargets": []
+    },
+    {
+      "name": "shop-mobile-layout",
+      "viewport": [
+        400,
+        740
+      ],
+      "bodyClientHeight": 383,
+      "bodyScrollHeight": 383,
+      "brokenImages": [],
+      "documentOverflow": false,
+      "undersizedTargets": []
+    },
+    {
+      "name": "storage-mobile-layout",
+      "viewport": [
+        400,
+        740
+      ],
+      "bodyClientHeight": 432,
+      "bodyScrollHeight": 432,
+      "brokenImages": [],
+      "documentOverflow": false,
+      "undersizedTargets": []
+    },
+    {
+      "name": "production-wide-layout",
+      "viewport": [
+        1280,
+        720
+      ],
+      "bodyClientHeight": 445,
+      "bodyScrollHeight": 445,
+      "brokenImages": [],
+      "documentOverflow": false,
+      "undersizedTargets": []
+    },
+    {
+      "name": "orders-mobile-layout",
+      "viewport": [
+        400,
+        740
+      ],
+      "bodyClientHeight": 433,
+      "bodyScrollHeight": 433,
+      "brokenImages": [],
+      "documentOverflow": false,
+      "undersizedTargets": []
+    },
+    {
+      "name": "shop-wide-layout",
+      "viewport": [
+        1280,
+        720
+      ],
+      "bodyClientHeight": 431,
+      "bodyScrollHeight": 431,
+      "brokenImages": [],
+      "documentOverflow": false,
+      "undersizedTargets": []
+    },
+    {
+      "name": "mobile-missing-layout",
+      "viewport": [
+        400,
+        740
+      ],
+      "bodyClientHeight": 437,
+      "bodyScrollHeight": 437,
+      "brokenImages": [],
+      "documentOverflow": false,
+      "undersizedTargets": []
+    },
+    {
+      "name": "mobile-empty-layout",
+      "viewport": [
+        400,
+        740
+      ],
+      "bodyClientHeight": 432,
+      "bodyScrollHeight": 432,
+      "brokenImages": [],
+      "documentOverflow": false,
+      "undersizedTargets": []
+    },
+    {
+      "name": "orders-cooldown-mobile-layout",
+      "viewport": [
+        400,
+        740
+      ],
+      "bodyClientHeight": 342,
+      "bodyScrollHeight": 342,
+      "brokenImages": [],
+      "documentOverflow": false,
+      "undersizedTargets": []
+    },
+    {
+      "name": "mobile-full-layout",
+      "viewport": [
+        400,
+        740
+      ],
+      "bodyClientHeight": 405,
+      "bodyScrollHeight": 405,
+      "brokenImages": [],
+      "documentOverflow": false,
+      "undersizedTargets": []
+    },
+    {
+      "name": "storage-empty-mobile-layout",
+      "viewport": [
+        400,
+        740
+      ],
+      "bodyClientHeight": 329,
+      "bodyScrollHeight": 329,
+      "brokenImages": [],
+      "documentOverflow": false,
+      "undersizedTargets": []
+    },
+    {
+      "name": "production-mobile-layout",
+      "viewport": [
+        400,
+        740
+      ],
+      "bodyClientHeight": 387,
+      "bodyScrollHeight": 387,
+      "brokenImages": [],
+      "documentOverflow": false,
+      "undersizedTargets": []
+    }
+  ],
+  "gameCodeChanged": false,
+  "p1TerrainAuthored": true,
+  "p2EffectsAuthored": true
+}

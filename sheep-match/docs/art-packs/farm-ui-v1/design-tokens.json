@@ -1,0 +1,89 @@
+{
+  "unit": "CSS px at 1x",
+  "colors": {
+    "ink": "#604e3c",
+    "muted": "#8a7860",
+    "cream": "#fff9e9",
+    "well": "#f5eedb",
+    "warmOutline": "#b5a082",
+    "divider": "#e4d7bc",
+    "selected": "#edf3df",
+    "selectedOutline": "#8da66e",
+    "primary": "#f2b996",
+    "primaryOutline": "#ae805f",
+    "missing": "#fff0e6",
+    "missingText": "#a76042",
+    "disabled": "#e9e4d7"
+  },
+  "typography": {
+    "title": {
+      "font": "existing ZCOOLKuaiLe / FarmHappy",
+      "wide": 24,
+      "mobile": 21
+    },
+    "body": {
+      "font": "PingFang SC / Microsoft YaHei / sans-serif",
+      "wide": 14,
+      "mobile": 14
+    },
+    "supportingText": {
+      "wide": 11,
+      "mobile": 10
+    },
+    "primaryAction": {
+      "wide": 16,
+      "mobile": 15
+    }
+  },
+  "layout": {
+    "widePanelWidth": 500,
+    "wideOuterMargin": 24,
+    "mobileOuterMargin": 8,
+    "minimumTouchTarget": [
+      44,
+      44
+    ],
+    "primaryButtonHeight": 48,
+    "mobilePreviewViewport": [
+      400,
+      740
+    ],
+    "shortViewportBehavior": "header/footer remain visible; scroll panel body"
+  },
+  "decoration": {
+    "strongGradients": false,
+    "bakedText": false,
+    "bakedItemIcons": false,
+    "shadow": "short warm offset; do not stack multiple opaque shadows"
+  },
+  "materials": {
+    "panel": "pale timber frame with warm cream inset",
+    "title": "small wooden sign",
+    "recipes": "clipped paper recipe cards",
+    "queue": "shallow wooden crates",
+    "trim": "separate striped canvas canopy; optional linen corner"
+  },
+  "expansion": {
+    "version": "0.3",
+    "panelWideWidth": 624,
+    "wideStorageAndOrders": "two columns",
+    "mobilePreviewViewport": [
+      400,
+      740
+    ],
+    "mobileTopReserve": 105,
+    "terrainPNGScale": 2,
+    "groundAxisSlopes": [
+      0.5,
+      -0.5
+    ],
+    "effectCanvas": [
+      128,
+      96
+    ],
+    "effectAnchor": [
+      64,
+      76
+    ]
+  }
+}

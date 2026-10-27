@@ -1,0 +1,184 @@
+{
+  "status": "passed",
+  "terrain": [
+    {
+      "id": "grass-edge-ne-dense",
+      "canvas": [
+        512,
+        320
+      ],
+      "transparent": true,
+      "groundAxes": true
+    },
+    {
+      "id": "grass-edge-ne-sparse",
+      "canvas": [
+        512,
+        320
+      ],
+      "transparent": true,
+      "groundAxes": true
+    },
+    {
+      "id": "soil-grass-ne",
+      "canvas": [
+        512,
+        320
+      ],
+      "transparent": true,
+      "groundAxes": true
+    },
+    {
+      "id": "grass-edge-nw-dense",
+      "canvas": [
+        512,
+        320
+      ],
+      "transparent": true,
+      "groundAxes": true
+    },
+    {
+      "id": "grass-edge-nw-sparse",
+      "canvas": [
+        512,
+        320
+      ],
+      "transparent": true,
+      "groundAxes": true
+    },
+    {
+      "id": "soil-grass-nw",
+      "canvas": [
+        512,
+        320
+      ],
+      "transparent": true,
+      "groundAxes": true
+    },
+    {
+      "id": "grass-corner-outer-n",
+      "canvas": [
+        512,
+        320
+      ],
+      "transparent": true,
+      "groundAxes": true
+    },
+    {
+      "id": "grass-corner-inner-n",
+      "canvas": [
+        512,
+        320
+      ],
+      "transparent": true,
+      "groundAxes": true
+    },
+    {
+      "id": "grass-corner-outer-e",
+      "canvas": [
+        512,
+        320
+      ],
+      "transparent": true,
+      "groundAxes": true
+    },
+    {
+      "id": "grass-corner-inner-e",
+      "canvas": [
+        512,
+        320
+      ],
+      "transparent": true,
+      "groundAxes": true
+    },
+    {
+      "id": "grass-corner-outer-s",
+      "canvas": [
+        512,
+        320
+      ],
+      "transparent": true,
+      "groundAxes": true
+    },
+    {
+      "id": "grass-corner-inner-s",
+      "canvas": [
+        512,
+        320
+      ],
+      "transparent": true,
+      "groundAxes": true
+    },
+    {
+      "id": "grass-corner-outer-w",
+      "canvas": [
+        512,
+        320
+      ],
+      "transparent": true,
+      "groundAxes": true
+    },
+    {
+      "id": "grass-corner-inner-w",
+      "canvas": [
+        512,
+        320
+      ],
+      "transparent": true,
+      "groundAxes": true
+    },
+    {
+      "id": "grass-cap-ne-start",
+      "canvas": [
+        512,
+        320
+      ],
+      "transparent": true,
+      "groundAxes": true
+    },
+    {
+      "id": "grass-cap-ne-end",
+      "canvas": [
+        512,
+        320
+      ],
+      "transparent": true,
+      "groundAxes": true
+    },
+    {
+      "id": "grass-cap-nw-start",
+      "canvas": [
+        512,
+        320
+      ],
+      "transparent": true,
+      "groundAxes": true
+    },
+    {
+      "id": "grass-cap-nw-end",
+      "canvas": [
+        512,
+        320
+      ],
+      "transparent": true,
+      "groundAxes": true
+    },
+    {
+      "id": "fog-overlay-reused",
+      "canvas": [
+        256,
+        128
+      ],
+      "transparent": true,
+      "groundAxes": true
+    }
+  ],
+  "newTerrain": 18,
+  "derivedFog": 1,
+  "effects": 4,
+  "transparentFrames": 32,
+  "atlasFramesMatchIndependentPng": true,
+  "effectEndpointsTransparent": true,
+  "editableSvgSources": true,
+  "gameChangesAgainstMain": false
+}

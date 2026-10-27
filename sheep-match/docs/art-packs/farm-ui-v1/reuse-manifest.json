@@ -1,0 +1,212 @@
+[
+  {
+    "id": "bread",
+    "file": "reused/bread.svg",
+    "original": "assets/farm/items/bread.svg",
+    "sha256": "0ec2befd0e4b79f7484c44fb7abc78e1585989a38d8be704611fe36772e496d7",
+    "change": "none"
+  },
+  {
+    "id": "corn_bread",
+    "file": "reused/corn_bread.svg",
+    "original": "assets/farm/items/corn_bread.svg",
+    "sha256": "53b32e55ab95e3305411a87b2ea8bdafcddbd870b874c0cd4ca6e5ecd7031fa5",
+    "change": "none"
+  },
+  {
+    "id": "cookie",
+    "file": "reused/cookie.svg",
+    "original": "assets/farm/items/cookie.svg",
+    "sha256": "eb5c824a9fa930ef8c8f2aa299b216f1a64d07e46708ac822090eebe55928287",
+    "change": "none"
+  },
+  {
+    "id": "raspberry_muffin",
+    "file": "reused/raspberry_muffin.svg",
+    "original": "assets/farm/items/raspberry_muffin.svg",
+    "sha256": "02d9a7407cad70caa4ced68c30356a78fdabcd7af2f3a2b8671302e54adfd920",
+    "change": "none"
+  },
+  {
+    "id": "blackberry_muffin",
+    "file": "reused/blackberry_muffin.svg",
+    "original": "assets/farm/items/blackberry_muffin.svg",
+    "sha256": "a36f65efa1c88699d98b6ab058f7b6b31511ee9b264c1c28505ea7642c70634c",
+    "change": "none"
+  },
+  {
+    "id": "wheat",
+    "file": "reused/wheat.svg",
+    "original": "assets/farm/items/wheat.svg",
+    "sha256": "e22ab9e9f9b656ce9e0e11f5bfe7bba3a5475e6f8878d52c8d8db8b1afbc438b",
+    "change": "none"
+  },
+  {
+    "id": "corn",
+    "file": "reused/corn.svg",
+    "original": "assets/farm/items/corn.svg",
+    "sha256": "c4249c71824003a0d94439d09402f33bbdf1c54136be74a8f4d51048af75ae5b",
+    "change": "none"
+  },
+  {
+    "id": "egg",
+    "file": "reused/egg.svg",
+    "original": "assets/farm/items/egg.svg",
+    "sha256": "372dc0ed41d20ccf04a35e06f7c01e137cfec909b2a06eb786d13349ee5bd24f",
+    "change": "none"
+  },
+  {
+    "id": "brown_sugar",
+    "file": "reused/brown_sugar.svg",
+    "original": "assets/farm/items/brown_sugar.svg",
+    "sha256": "f77e226d2132ace4e27dabf33f19add948c003de57ec943d433d67c5b593db33",
+    "change": "none"
+  },
+  {
+    "id": "raspberry",
+    "file": "reused/raspberry.svg",
+    "original": "assets/farm/items/raspberry.svg",
+    "sha256": "4c3a4b8e694aae2b56853ba3de80353d33e838db9c2b9bfce497fda1ad19195a",
+    "change": "none"
+  },
+  {
+    "id": "blackberry",
+    "file": "reused/blackberry.svg",
+    "original": "assets/farm/items/blackberry.svg",
+    "sha256": "d0e285fafdbc6af1826a513da56c77c69ed42e6d797c5350fc7c2bc2fc075959",
+    "change": "none"
+  },
+  {
+    "id": "coin",
+    "file": "reused/coin.svg",
+    "original": "assets/farm/items/coin.svg",
+    "sha256": "3b623d957195493fa48aa34cf3476664cfdbaa923c40bb171971fb0c6fdf9972",
+    "change": "none"
+  },
+  {
+    "id": "carrot",
+    "file": "reused/carrot.svg",
+    "original": "assets/farm/items/carrot.svg",
+    "sha256": "395528610e5820cd457d3ebde8d34c3bdf7c1a4c57815efc941b70886eba774a",
+    "change": "none"
+  },
+  {
+    "id": "soybean",
+    "file": "reused/soybean.svg",
+    "original": "assets/farm/items/soybean.svg",
+    "sha256": "b1b59651d0818184b4210ef3ac7076d072f3211e20c8f2fc43b06d70a5ac8751",
+    "change": "none"
+  },
+  {
+    "id": "apple",
+    "file": "reused/apple.svg",
+    "original": "assets/farm/items/apple.svg",
+    "sha256": "887a224f67b6edb0308233531d8bdf3fdf58e36b8394e43e93676b1685b37618",
+    "change": "none"
+  },
+  {
+    "id": "milk",
+    "file": "reused/milk.svg",
+    "original": "assets/farm/items/milk.svg",
+    "sha256": "1ab3d290a2dec47fefcd4fe28d047ef30c6cdc562dfdcc83e4b1186dae754adb",
+    "change": "none"
+  },
+  {
+    "id": "cream",
+    "file": "reused/cream.svg",
+    "original": "assets/farm/items/cream.svg",
+    "sha256": "ffcbeb168dc70daf7c289ce152c80766cad5bd85ab5fe0377e004e8024a14537",
+    "change": "none"
+  },
+  {
+    "id": "plank",
+    "file": "reused/plank.svg",
+    "original": "assets/farm/items/plank.svg",
+    "sha256": "ea89543931cafcfcde3f7cf270d725f992eeb3ec91d7784fbc15f84430f56c8d",
+    "change": "none"
+  },
+  {
+    "id": "nail",
+    "file": "reused/nail.svg",
+    "original": "assets/farm/items/nail.svg",
+    "sha256": "25d60d94c870d1a8cb1ee2c58158f7a039a8606517b009aa64f3b6800c01fa5b",
+    "change": "none"
+  },
+  {
+    "id": "screw",
+    "file": "reused/screw.svg",
+    "original": "assets/farm/items/screw.svg",
+    "sha256": "0f2804bf57c3111f472ab46d9b0ed0f86ac73b96fcc0d3c93a4f0886a1d87c34",
+    "change": "none"
+  },
+  {
+    "id": "axe",
+    "file": "reused/axe.svg",
+    "original": "assets/farm/items/axe.svg",
+    "sha256": "366804325086eac6af93ca1b4214c550548bb31ed6f10feecbd9cb5cf39b38b9",
+    "change": "none"
+  },
+  {
+    "id": "bakery",
+    "file": "reused/bakery.png",
+    "original": "assets/farm-runtime/buildings/bakery.png",
+    "sha256": "9bc26c3c6f97382a14e4c5e77cd20c8b1cc8bfc87da7eb2d82e55dbb4ff6e5ca",
+    "change": "none"
+  },
+  {
+    "id": "barn",
+    "file": "reused/barn.png",
+    "original": "assets/farm-runtime/buildings/barn.png",
+    "sha256": "d8bd069986cdc3b9ecf936e51b076e1e8ffae3362f789059570afda9853ebb9e",
+    "change": "none"
+  },
+  {
+    "id": "npc-stall",
+    "file": "reused/npc-stall.png",
+    "original": "assets/farm-runtime/buildings/npc-stall.png",
+    "sha256": "528901995982c87ad486b1ee3ac3430e7798d0648c070e428833dc84d3154070",
+    "change": "none"
+  },
+  {
+    "id": "order-board",
+    "file": "reused/order-board.png",
+    "original": "assets/farm-runtime/buildings/order-board.png",
+    "sha256": "c2214e3149779908e31bd7c6fa6b0c563220bf1fbe5037ac132f39c87fb1b5a6",
+    "change": "none"
+  },
+  {
+    "id": "dairy",
+    "file": "reused/dairy.png",
+    "original": "assets/farm-runtime/buildings/dairy.png",
+    "sha256": "fabb1013b1fa8f7ffed8a8eb189928c2c62b7d21f0978407bdebe0d0522a3784",
+    "change": "none"
+  },
+  {
+    "id": "feed-mill",
+    "file": "reused/feed-mill.png",
+    "original": "assets/farm-runtime/buildings/feed-mill.png",
+    "sha256": "64b7143af8317ddea2d1f473791dca8a551528a0a99e363d99df64dea5a28d4a",
+    "change": "none"
+  },
+  {
+    "id": "sugar-mill",
+    "file": "reused/sugar-mill.png",
+    "original": "assets/farm-runtime/buildings/sugar-mill.png",
+    "sha256": "8a26c86bdb9d5c3024a89657b3ba4cd7547d49945172aae54252c97b9a64f03c",
+    "change": "none"
+  },
+  {
+    "id": "popcorn-pot",
+    "file": "reused/popcorn-pot.png",
+    "original": "assets/farm-runtime/buildings/popcorn-pot.png",
+    "sha256": "bee44b7b263e390085c0eb9eae0389456ba64137f5eb8386711d08042154ff94",
+    "change": "none"
+  },
+  {
+    "id": "pie-oven",
+    "file": "reused/pie-oven.png",
+    "original": "assets/farm-runtime/buildings/pie-oven.png",
+    "sha256": "b373f76c158e2ff0409e1257a9c0764ad3d1bc6f682d60543fb6a90de96509e4",
+    "change": "none"
+  }
+]
