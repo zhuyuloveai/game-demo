@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "count": 67,
+  "categories": {
+    "items": 26,
+    "ui": 35,
+    "tools": 6,
+    "total": 67
+  },
+  "svgXmlAndHashes": "PASS",
+  "pngCanvasAndTransparency": "PASS",
+  "originalMappings": "PASS",
+  "aliases": "PASS"
+}

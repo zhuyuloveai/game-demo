@@ -1,0 +1,405 @@
+{
+  "version": 2,
+  "id": "cow",
+  "name": "牛棚",
+  "status": "completed art-only delivery",
+  "baseCommit": "7925a5b255cdb07efc4a1d148aa8fdea45019691",
+  "canvas": {
+    "width": 1200,
+    "height": 1000,
+    "commonAnchor": [
+      600,
+      590
+    ],
+    "layerOffset": [
+      0,
+      0
+    ],
+    "cropped": false
+  },
+  "footprint": {
+    "logicalTiles": [
+      4,
+      4
+    ],
+    "tileAxisX": [
+      125,
+      62.5
+    ],
+    "tileAxisY": [
+      -125,
+      62.5
+    ],
+    "polygon": [
+      [
+        600,
+        340
+      ],
+      [
+        1100,
+        590
+      ],
+      [
+        600,
+        840
+      ],
+      [
+        100,
+        590
+      ]
+    ]
+  },
+  "buildingSupport": [
+    [
+      645,
+      355
+    ],
+    [
+      907,
+      490
+    ],
+    [
+      640,
+      575
+    ],
+    [
+      415,
+      446
+    ]
+  ],
+  "standingRegion": [
+    [
+      250,
+      545
+    ],
+    [
+      950,
+      545
+    ],
+    [
+      1095,
+      590
+    ],
+    [
+      600,
+      838
+    ],
+    [
+      105,
+      590
+    ]
+  ],
+  "standingExclusions": [
+    [
+      [
+        645,
+        355
+      ],
+      [
+        907,
+        490
+      ],
+      [
+        640,
+        575
+      ],
+      [
+        415,
+        446
+      ]
+    ]
+  ],
+  "entry": {
+    "threshold": [
+      524,
+      500
+    ],
+    "direction": "front-left",
+    "yardGate": [
+      235,
+      660
+    ]
+  },
+  "occlusion": {
+    "foregroundGroundBoundary": [
+      [
+        100,
+        590
+      ],
+      [
+        600,
+        840
+      ],
+      [
+        1100,
+        590
+      ]
+    ],
+    "fenceHeightPx": 60,
+    "fenceOriginalSplitPath": "M0 0H1774V370H1695L1650 400L1600 430H170L125 405L94 370H0Z",
+    "maskIn": "sources/fence-ring-generated.png",
+    "sourceToCanvas": {
+      "scale": [
+        0.609,
+        0.66
+      ],
+      "offset": [
+        60,
+        270
+      ]
+    },
+    "note": "Use exported front alpha to occlude feet; do not use the entire foreground bounding box."
+  },
+  "layerOrder": [
+    "01-ground",
+    "02-building-shadow",
+    "03-rear-fence",
+    "04-building",
+    "reference-animal-shadows",
+    "reference-cow-1",
+    "reference-cow-2",
+    "reference-cow-3",
+    "reference-cow-4",
+    "reference-cow-5",
+    "07-front-fence"
+  ],
+  "animalCanvas": {
+    "width": 360,
+    "height": 280,
+    "anchor": [
+      180,
+      230
+    ],
+    "bodyWidth": 238
+  },
+  "animals": [
+    {
+      "state": "hungry",
+      "source": "cow-hungry-original.png",
+      "body": [
+        98,
+        304,
+        1138,
+        951
+      ],
+      "anchor": [
+        618,
+        1020
+      ],
+      "contacts": [
+        [
+          405,
+          990
+        ],
+        [
+          618,
+          1020
+        ],
+        [
+          951,
+          982
+        ]
+      ],
+      "contactKind": "standing hooves",
+      "scale": 0.22884615384615384,
+      "offset": [
+        38.57307692307694,
+        -3.4230769230769056
+      ],
+      "normalizedContacts": [
+        [
+          131.256,
+          223.135
+        ],
+        [
+          180,
+          230
+        ],
+        [
+          256.206,
+          221.304
+        ]
+      ],
+      "bodyNormalized": [
+        61.000000000000014,
+        66.14615384615387,
+        299,
+        214.2096153846154
+      ]
+    },
+    {
+      "state": "producing",
+      "source": "cow-producing-original.png",
+      "body": [
+        74,
+        354,
+        1174,
+        986
+      ],
+      "anchor": [
+        624,
+        1013
+      ],
+      "contacts": [
+        [
+          404,
+          996
+        ],
+        [
+          624,
+          1013
+        ],
+        [
+          813,
+          976
+        ],
+        [
+          1004,
+          965
+        ]
+      ],
+      "contactKind": "curled hooves and belly",
+      "scale": 0.21636363636363637,
+      "offset": [
+        44.98909090909092,
+        10.823636363636354
+      ],
+      "normalizedContacts": [
+        [
+          132.4,
+          226.322
+        ],
+        [
+          180,
+          230
+        ],
+        [
+          220.893,
+          221.995
+        ],
+        [
+          262.218,
+          219.615
+        ]
+      ],
+      "bodyNormalized": [
+        61.000000000000014,
+        87.41636363636363,
+        299,
+        224.15818181818182
+      ]
+    },
+    {
+      "state": "ready",
+      "source": "cow-ready-original.png",
+      "body": [
+        96,
+        325,
+        1160,
+        979
+      ],
+      "anchor": [
+        628,
+        1022
+      ],
+      "contacts": [
+        [
+          405,
+          984
+        ],
+        [
+          628,
+          1022
+        ],
+        [
+          811,
+          956
+        ],
+        [
+          998,
+          982
+        ]
+      ],
+      "contactKind": "standing hooves",
+      "scale": 0.2236842105263158,
+      "offset": [
+        39.52631578947367,
+        1.3947368421052602
+      ],
+      "normalizedContacts": [
+        [
+          130.118,
+          221.5
+        ],
+        [
+          180,
+          230
+        ],
+        [
+          220.934,
+          215.237
+        ],
+        [
+          262.763,
+          221.053
+        ]
+      ],
+      "bodyNormalized": [
+        60.999999999999986,
+        74.09210526315789,
+        299,
+        220.3815789473684
+      ]
+    }
+  ],
+  "referenceAnimalPlacements": [
+    {
+      "state": "hungry",
+      "at": [
+        330,
+        620
+      ]
+    },
+    {
+      "state": "producing",
+      "at": [
+        600,
+        620
+      ]
+    },
+    {
+      "state": "ready",
+      "at": [
+        870,
+        620
+      ]
+    },
+    {
+      "state": "ready",
+      "at": [
+        470,
+        730
+      ]
+    },
+    {
+      "state": "hungry",
+      "at": [
+        730,
+        730
+      ]
+    }
+  ],
+  "sourceMapping": {
+    "assets/buildings/cow-shelter.png": "layers/04-building.png",
+    "assets/animals/cow.png": "animals/cow-hungry.png",
+    "animal-states/assets/cow-producing.png": "animals/cow-producing.png",
+    "animal-states/assets/cow-ready.png": "animals/cow-ready.png"
+  },
+  "notes": [
+    "No game modules or original art changed.",
+    "Animal originals are reused pixel-for-pixel before uniform scaling and placement.",
+    "Sources retain original canvases; all facility exports are aligned 1200x1000.",
+    "Use normalized animals at unit scale; their actual front-middle hoof contact is [180,230], not canvas bottom center.",
+    "No capacity or hitbox changes are implemented."
+  ]
+}

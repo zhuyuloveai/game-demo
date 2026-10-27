@@ -1,0 +1,1279 @@
+{
+  "version": 1,
+  "species": "cow",
+  "baseCommit": "0a8363f",
+  "canvas": [
+    360,
+    280
+  ],
+  "anchor": [
+    180,
+    230
+  ],
+  "offset": [
+    0,
+    0
+  ],
+  "direction": "front-left elevated three-quarter; mirror x for other side",
+  "originalHungryContacts": [
+    [
+      131.256,
+      223.135
+    ],
+    [
+      180,
+      230
+    ],
+    [
+      256.206,
+      221.304
+    ]
+  ],
+  "groundShadow": "shadows/ground-shadow.png",
+  "sourceLayout": "sources/reference-layout.json",
+  "actions": {
+    "eat": {
+      "fps": 12,
+      "frameCount": 12,
+      "durationMs": 1000,
+      "loop": false,
+      "previewLoop": true,
+      "endFrameRepeated": false,
+      "atlas": "atlases/cow-eat.png",
+      "atlasCanvas": [
+        1456,
+        852
+      ],
+      "editableSource": "sources/cow-eat.ora",
+      "frames": [
+        {
+          "index": 0,
+          "file": "frames/eat/00.png",
+          "sourceRect": [
+            30,
+            91,
+            338,
+            234
+          ],
+          "sourceScale": 0.78806,
+          "sourceOffset": [
+            63,
+            47
+          ],
+          "anchor": [
+            180,
+            230
+          ],
+          "visibleHoofTips": [
+            [
+              136,
+              220
+            ],
+            [
+              181,
+              228
+            ],
+            [
+              256,
+              221
+            ]
+          ],
+          "contactMethod": "Opaque hoof underside in visually reviewed per-frame anatomical regions. Occluded feet omitted. Walking tips may be raised, not all are ground support points.",
+          "bounds": [
+            64,
+            48,
+            327,
+            229
+          ],
+          "sha256": "f263e925f053f788a1895f49bc9a5ad12d1a602bc231f4116884ff8b3e9ec6d8",
+          "supportAnchor": [
+            256,
+            221
+          ],
+          "supportTarget": [
+            256.206,
+            221.304
+          ],
+          "atlasRect": [
+            2,
+            2,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 1,
+          "file": "frames/eat/01.png",
+          "sourceRect": [
+            405,
+            114,
+            330,
+            212
+          ],
+          "sourceScale": 0.78806,
+          "sourceOffset": [
+            65,
+            63
+          ],
+          "anchor": [
+            180,
+            230
+          ],
+          "visibleHoofTips": [
+            [
+              139,
+              225
+            ],
+            [
+              188,
+              227
+            ],
+            [
+              257,
+              221
+            ]
+          ],
+          "contactMethod": "Opaque hoof underside in visually reviewed per-frame anatomical regions. Occluded feet omitted. Walking tips may be raised, not all are ground support points.",
+          "bounds": [
+            66,
+            65,
+            323,
+            229
+          ],
+          "sha256": "2d0de5ab7e4b29ccf40270744ea02e04420ac779b5e218a89e273809ec6c47d4",
+          "supportAnchor": [
+            256,
+            221
+          ],
+          "supportTarget": [
+            256.206,
+            221.304
+          ],
+          "atlasRect": [
+            366,
+            2,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 2,
+          "file": "frames/eat/02.png",
+          "sourceRect": [
+            755,
+            112,
+            340,
+            218
+          ],
+          "sourceScale": 0.78806,
+          "sourceOffset": [
+            57,
+            61
+          ],
+          "anchor": [
+            180,
+            230
+          ],
+          "visibleHoofTips": [
+            [
+              188,
+              230
+            ],
+            [
+              257,
+              221
+            ]
+          ],
+          "contactMethod": "Opaque hoof underside in visually reviewed per-frame anatomical regions. Occluded feet omitted. Walking tips may be raised, not all are ground support points.",
+          "bounds": [
+            58,
+            63,
+            323,
+            231
+          ],
+          "sha256": "46e25142fd0a15fe823b70713e6615c8d2e6ac87e58a26f8f0826d7fdf7dcc42",
+          "supportAnchor": [
+            256,
+            221
+          ],
+          "supportTarget": [
+            256.206,
+            221.304
+          ],
+          "atlasRect": [
+            730,
+            2,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 3,
+          "file": "frames/eat/03.png",
+          "sourceRect": [
+            1115,
+            114,
+            328,
+            225
+          ],
+          "sourceScale": 0.78806,
+          "sourceOffset": [
+            54,
+            64
+          ],
+          "anchor": [
+            180,
+            230
+          ],
+          "visibleHoofTips": [
+            [
+              188,
+              232
+            ],
+            [
+              259,
+              220
+            ]
+          ],
+          "contactMethod": "Opaque hoof underside in visually reviewed per-frame anatomical regions. Occluded feet omitted. Walking tips may be raised, not all are ground support points.",
+          "bounds": [
+            56,
+            66,
+            310,
+            239
+          ],
+          "sha256": "947acb1cee5dcdfe6158580f62af1337ffb0b6dcfb26dbfee4eaffab8b95d583",
+          "supportAnchor": [
+            256,
+            221
+          ],
+          "supportTarget": [
+            256.206,
+            221.304
+          ],
+          "atlasRect": [
+            1094,
+            2,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 4,
+          "file": "frames/eat/04.png",
+          "sourceRect": [
+            31,
+            439,
+            340,
+            232
+          ],
+          "sourceScale": 0.78806,
+          "sourceOffset": [
+            49,
+            64
+          ],
+          "anchor": [
+            180,
+            230
+          ],
+          "visibleHoofTips": [
+            [
+              191,
+              234
+            ],
+            [
+              257,
+              221
+            ]
+          ],
+          "contactMethod": "Opaque hoof underside in visually reviewed per-frame anatomical regions. Occluded feet omitted. Walking tips may be raised, not all are ground support points.",
+          "bounds": [
+            50,
+            66,
+            315,
+            245
+          ],
+          "sha256": "1f5e979372f4019b9362f4653b1738d7ba939ae1fa77496c2b7ef35a103c7a26",
+          "supportAnchor": [
+            256,
+            221
+          ],
+          "supportTarget": [
+            256.206,
+            221.304
+          ],
+          "atlasRect": [
+            2,
+            286,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 5,
+          "file": "frames/eat/05.png",
+          "sourceRect": [
+            388,
+            441,
+            341,
+            229
+          ],
+          "sourceScale": 0.78806,
+          "sourceOffset": [
+            48,
+            65
+          ],
+          "anchor": [
+            180,
+            230
+          ],
+          "visibleHoofTips": [
+            [
+              191,
+              234
+            ],
+            [
+              257,
+              221
+            ]
+          ],
+          "contactMethod": "Opaque hoof underside in visually reviewed per-frame anatomical regions. Occluded feet omitted. Walking tips may be raised, not all are ground support points.",
+          "bounds": [
+            50,
+            66,
+            316,
+            244
+          ],
+          "sha256": "df8547f349aaf2c004d2298df66329cd4fe494737915702ab8971c45040aa1e2",
+          "supportAnchor": [
+            256,
+            221
+          ],
+          "supportTarget": [
+            256.206,
+            221.304
+          ],
+          "atlasRect": [
+            366,
+            286,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 6,
+          "file": "frames/eat/06.png",
+          "sourceRect": [
+            749,
+            440,
+            341,
+            230
+          ],
+          "sourceScale": 0.78806,
+          "sourceOffset": [
+            48,
+            64
+          ],
+          "anchor": [
+            180,
+            230
+          ],
+          "visibleHoofTips": [
+            [
+              190,
+              234
+            ],
+            [
+              257,
+              221
+            ]
+          ],
+          "contactMethod": "Opaque hoof underside in visually reviewed per-frame anatomical regions. Occluded feet omitted. Walking tips may be raised, not all are ground support points.",
+          "bounds": [
+            50,
+            65,
+            315,
+            243
+          ],
+          "sha256": "f92bc09260536d19dda085893a6a31df3fad42bb65fdfe2c7d3c0c4640a2ae85",
+          "supportAnchor": [
+            256,
+            221
+          ],
+          "supportTarget": [
+            256.206,
+            221.304
+          ],
+          "atlasRect": [
+            730,
+            286,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 7,
+          "file": "frames/eat/07.png",
+          "sourceRect": [
+            1111,
+            440,
+            336,
+            229
+          ],
+          "sourceScale": 0.78806,
+          "sourceOffset": [
+            49,
+            64
+          ],
+          "anchor": [
+            180,
+            230
+          ],
+          "visibleHoofTips": [
+            [
+              191,
+              234
+            ],
+            [
+              257,
+              221
+            ]
+          ],
+          "contactMethod": "Opaque hoof underside in visually reviewed per-frame anatomical regions. Occluded feet omitted. Walking tips may be raised, not all are ground support points.",
+          "bounds": [
+            50,
+            65,
+            314,
+            242
+          ],
+          "sha256": "ef96b65811afecfbbf17986719cf306571a99e44d3e4db54d0a620acf95ab9e5",
+          "supportAnchor": [
+            256,
+            221
+          ],
+          "supportTarget": [
+            256.206,
+            221.304
+          ],
+          "atlasRect": [
+            1094,
+            286,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 8,
+          "file": "frames/eat/08.png",
+          "sourceRect": [
+            40,
+            793,
+            333,
+            217
+          ],
+          "sourceScale": 0.78806,
+          "sourceOffset": [
+            61,
+            57
+          ],
+          "anchor": [
+            180,
+            230
+          ],
+          "visibleHoofTips": [
+            [
+              136,
+              219
+            ],
+            [
+              182,
+              226
+            ],
+            [
+              257,
+              221
+            ]
+          ],
+          "contactMethod": "Opaque hoof underside in visually reviewed per-frame anatomical regions. Occluded feet omitted. Walking tips may be raised, not all are ground support points.",
+          "bounds": [
+            63,
+            59,
+            321,
+            227
+          ],
+          "sha256": "1d8d765ad0ec39c562f2835008f2650f3abffe400929f87e2b38d6e397787a2a",
+          "supportAnchor": [
+            256,
+            221
+          ],
+          "supportTarget": [
+            256.206,
+            221.304
+          ],
+          "atlasRect": [
+            2,
+            570,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 9,
+          "file": "frames/eat/09.png",
+          "sourceRect": [
+            389,
+            788,
+            346,
+            225
+          ],
+          "sourceScale": 0.78806,
+          "sourceOffset": [
+            55,
+            53
+          ],
+          "anchor": [
+            180,
+            230
+          ],
+          "visibleHoofTips": [
+            [
+              135,
+              221
+            ],
+            [
+              179,
+              227
+            ],
+            [
+              255,
+              221
+            ]
+          ],
+          "contactMethod": "Opaque hoof underside in visually reviewed per-frame anatomical regions. Occluded feet omitted. Walking tips may be raised, not all are ground support points.",
+          "bounds": [
+            56,
+            55,
+            326,
+            229
+          ],
+          "sha256": "26feb79d38f5938f431e93abd40d39eb73123b101fe8eb22f34557e22b65a313",
+          "supportAnchor": [
+            256,
+            221
+          ],
+          "supportTarget": [
+            256.206,
+            221.304
+          ],
+          "atlasRect": [
+            366,
+            570,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 10,
+          "file": "frames/eat/10.png",
+          "sourceRect": [
+            749,
+            787,
+            346,
+            226
+          ],
+          "sourceScale": 0.78806,
+          "sourceOffset": [
+            57,
+            52
+          ],
+          "anchor": [
+            180,
+            230
+          ],
+          "visibleHoofTips": [
+            [
+              134,
+              219
+            ],
+            [
+              180,
+              227
+            ],
+            [
+              255,
+              221
+            ]
+          ],
+          "contactMethod": "Opaque hoof underside in visually reviewed per-frame anatomical regions. Occluded feet omitted. Walking tips may be raised, not all are ground support points.",
+          "bounds": [
+            59,
+            53,
+            328,
+            229
+          ],
+          "sha256": "2ade2ec43d77aa5c1f525e0e99fc6422774750a3af21924878bd76fdfe80f556",
+          "supportAnchor": [
+            256,
+            221
+          ],
+          "supportTarget": [
+            256.206,
+            221.304
+          ],
+          "atlasRect": [
+            730,
+            570,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 11,
+          "file": "frames/eat/11.png",
+          "sourceRect": [
+            1114,
+            774,
+            333,
+            234
+          ],
+          "sourceScale": 0.78806,
+          "sourceOffset": [
+            62,
+            45
+          ],
+          "anchor": [
+            180,
+            230
+          ],
+          "visibleHoofTips": [
+            [
+              135,
+              217
+            ],
+            [
+              181,
+              226
+            ],
+            [
+              256,
+              221
+            ]
+          ],
+          "contactMethod": "Opaque hoof underside in visually reviewed per-frame anatomical regions. Occluded feet omitted. Walking tips may be raised, not all are ground support points.",
+          "bounds": [
+            64,
+            46,
+            322,
+            228
+          ],
+          "sha256": "40e0451179b4eca0b27ab6cea65174adac08f1c75383bea6fb050e3f3d3901f7",
+          "supportAnchor": [
+            256,
+            221
+          ],
+          "supportTarget": [
+            256.206,
+            221.304
+          ],
+          "atlasRect": [
+            1094,
+            570,
+            360,
+            280
+          ]
+        }
+      ]
+    },
+    "walk": {
+      "fps": 12,
+      "frameCount": 12,
+      "durationMs": 1000,
+      "loop": true,
+      "previewLoop": true,
+      "endFrameRepeated": false,
+      "atlas": "atlases/cow-walk.png",
+      "atlasCanvas": [
+        1456,
+        852
+      ],
+      "editableSource": "sources/cow-walk.ora",
+      "frames": [
+        {
+          "index": 0,
+          "file": "frames/walk/00.png",
+          "sourceRect": [
+            29,
+            76,
+            344,
+            244
+          ],
+          "sourceScale": 0.774194,
+          "sourceOffset": [
+            58,
+            52
+          ],
+          "anchor": [
+            180,
+            230
+          ],
+          "visibleHoofTips": [
+            [
+              119,
+              238
+            ],
+            [
+              163,
+              224
+            ],
+            [
+              258,
+              226
+            ]
+          ],
+          "contactMethod": "Opaque hoof underside in visually reviewed per-frame anatomical regions. Occluded feet omitted. Walking tips may be raised, not all are ground support points.",
+          "bounds": [
+            59,
+            54,
+            323,
+            240
+          ],
+          "sha256": "2debe1dffe30a97e12ec558082354b28536b6f0f4e15cf3c668f4613ecf151c2",
+          "atlasRect": [
+            2,
+            2,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 1,
+          "file": "frames/walk/01.png",
+          "sourceRect": [
+            388,
+            77,
+            345,
+            242
+          ],
+          "sourceScale": 0.774194,
+          "sourceOffset": [
+            58,
+            52
+          ],
+          "anchor": [
+            180,
+            230
+          ],
+          "visibleHoofTips": [
+            [
+              137,
+              236
+            ],
+            [
+              265,
+              225
+            ]
+          ],
+          "contactMethod": "Opaque hoof underside in visually reviewed per-frame anatomical regions. Occluded feet omitted. Walking tips may be raised, not all are ground support points.",
+          "bounds": [
+            59,
+            54,
+            324,
+            237
+          ],
+          "sha256": "37b6b1a487070c4d3afd281d8caf39b47dbe46695f18d31cadaeeeb2d52a6a8c",
+          "atlasRect": [
+            366,
+            2,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 2,
+          "file": "frames/walk/02.png",
+          "sourceRect": [
+            746,
+            77,
+            344,
+            241
+          ],
+          "sourceScale": 0.774194,
+          "sourceOffset": [
+            58,
+            52
+          ],
+          "anchor": [
+            180,
+            230
+          ],
+          "visibleHoofTips": [
+            [
+              143,
+              236
+            ],
+            [
+              268,
+              226
+            ]
+          ],
+          "contactMethod": "Opaque hoof underside in visually reviewed per-frame anatomical regions. Occluded feet omitted. Walking tips may be raised, not all are ground support points.",
+          "bounds": [
+            60,
+            54,
+            323,
+            237
+          ],
+          "sha256": "6bc6b68a018b46152f216ca07d323e396713348858fa22bde651308ed80737dc",
+          "atlasRect": [
+            730,
+            2,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 3,
+          "file": "frames/walk/03.png",
+          "sourceRect": [
+            1104,
+            77,
+            344,
+            234
+          ],
+          "sourceScale": 0.774194,
+          "sourceOffset": [
+            58,
+            52
+          ],
+          "anchor": [
+            180,
+            230
+          ],
+          "visibleHoofTips": [
+            [
+              138,
+              230
+            ],
+            [
+              158,
+              227
+            ],
+            [
+              252,
+              230
+            ],
+            [
+              265,
+              227
+            ]
+          ],
+          "contactMethod": "Opaque hoof underside in visually reviewed per-frame anatomical regions. Occluded feet omitted. Walking tips may be raised, not all are ground support points.",
+          "bounds": [
+            59,
+            53,
+            324,
+            232
+          ],
+          "sha256": "0bef631f746808d1a8c4cbf10de71735c76b10a515b0494fb0e16a22f130f206",
+          "atlasRect": [
+            1094,
+            2,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 4,
+          "file": "frames/walk/04.png",
+          "sourceRect": [
+            26,
+            412,
+            346,
+            244
+          ],
+          "sourceScale": 0.774194,
+          "sourceOffset": [
+            58,
+            52
+          ],
+          "anchor": [
+            180,
+            230
+          ],
+          "visibleHoofTips": [
+            [
+              127,
+              228
+            ],
+            [
+              155,
+              238
+            ],
+            [
+              250,
+              231
+            ]
+          ],
+          "contactMethod": "Opaque hoof underside in visually reviewed per-frame anatomical regions. Occluded feet omitted. Walking tips may be raised, not all are ground support points.",
+          "bounds": [
+            60,
+            54,
+            325,
+            240
+          ],
+          "sha256": "a401bae3534dbdef5b3f00c4e52dcb681ad0b5c8e7fc132e1a7bc1a4507944f3",
+          "atlasRect": [
+            2,
+            286,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 5,
+          "file": "frames/walk/05.png",
+          "sourceRect": [
+            388,
+            411,
+            345,
+            235
+          ],
+          "sourceScale": 0.774194,
+          "sourceOffset": [
+            58,
+            52
+          ],
+          "anchor": [
+            180,
+            230
+          ],
+          "visibleHoofTips": [
+            [
+              117,
+              231
+            ],
+            [
+              180,
+              225
+            ],
+            [
+              247,
+              230
+            ],
+            [
+              267,
+              213
+            ]
+          ],
+          "contactMethod": "Opaque hoof underside in visually reviewed per-frame anatomical regions. Occluded feet omitted. Walking tips may be raised, not all are ground support points.",
+          "bounds": [
+            60,
+            53,
+            324,
+            233
+          ],
+          "sha256": "7f6e7d9c151c41292f8b3a7cc74340f493d3299c9e464d975728f71732948587",
+          "atlasRect": [
+            366,
+            286,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 6,
+          "file": "frames/walk/06.png",
+          "sourceRect": [
+            748,
+            411,
+            343,
+            244
+          ],
+          "sourceScale": 0.774194,
+          "sourceOffset": [
+            58,
+            52
+          ],
+          "anchor": [
+            180,
+            230
+          ],
+          "visibleHoofTips": [
+            [
+              124,
+              239
+            ],
+            [
+              175,
+              227
+            ],
+            [
+              270,
+              230
+            ]
+          ],
+          "contactMethod": "Opaque hoof underside in visually reviewed per-frame anatomical regions. Occluded feet omitted. Walking tips may be raised, not all are ground support points.",
+          "bounds": [
+            59,
+            54,
+            323,
+            240
+          ],
+          "sha256": "dbc1c02376826037f98fab09b21a82863301366373802e3ea1c4d3fc1e6372bb",
+          "atlasRect": [
+            730,
+            286,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 7,
+          "file": "frames/walk/07.png",
+          "sourceRect": [
+            1104,
+            415,
+            344,
+            243
+          ],
+          "sourceScale": 0.774194,
+          "sourceOffset": [
+            58,
+            52
+          ],
+          "anchor": [
+            180,
+            230
+          ],
+          "visibleHoofTips": [
+            [
+              123,
+              227
+            ],
+            [
+              165,
+              237
+            ],
+            [
+              258,
+              225
+            ]
+          ],
+          "contactMethod": "Opaque hoof underside in visually reviewed per-frame anatomical regions. Occluded feet omitted. Walking tips may be raised, not all are ground support points.",
+          "bounds": [
+            60,
+            53,
+            323,
+            238
+          ],
+          "sha256": "3fa5d5fc661b5e4eacfe611d1e93fd312ae29fa6b91b124a2a567e9e21a0ae5b",
+          "atlasRect": [
+            1094,
+            286,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 8,
+          "file": "frames/walk/08.png",
+          "sourceRect": [
+            27,
+            750,
+            345,
+            243
+          ],
+          "sourceScale": 0.774194,
+          "sourceOffset": [
+            58,
+            52
+          ],
+          "anchor": [
+            180,
+            230
+          ],
+          "visibleHoofTips": [
+            [
+              123,
+              238
+            ],
+            [
+              169,
+              222
+            ],
+            [
+              252,
+              229
+            ]
+          ],
+          "contactMethod": "Opaque hoof underside in visually reviewed per-frame anatomical regions. Occluded feet omitted. Walking tips may be raised, not all are ground support points.",
+          "bounds": [
+            59,
+            53,
+            324,
+            239
+          ],
+          "sha256": "e69a5616951a5f676e80c1261bd53b20f199dd48e441b5e2840dd3fb7d617da2",
+          "atlasRect": [
+            2,
+            570,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 9,
+          "file": "frames/walk/09.png",
+          "sourceRect": [
+            387,
+            755,
+            345,
+            238
+          ],
+          "sourceScale": 0.774194,
+          "sourceOffset": [
+            58,
+            52
+          ],
+          "anchor": [
+            180,
+            230
+          ],
+          "visibleHoofTips": [
+            [
+              143,
+              233
+            ],
+            [
+              162,
+              224
+            ],
+            [
+              251,
+              230
+            ]
+          ],
+          "contactMethod": "Opaque hoof underside in visually reviewed per-frame anatomical regions. Occluded feet omitted. Walking tips may be raised, not all are ground support points.",
+          "bounds": [
+            60,
+            54,
+            324,
+            234
+          ],
+          "sha256": "23ba5559ec2a2c0a2afc04b509a8a6383a0a55d4e657b46212acd88a00ddb98e",
+          "atlasRect": [
+            366,
+            570,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 10,
+          "file": "frames/walk/10.png",
+          "sourceRect": [
+            747,
+            756,
+            346,
+            236
+          ],
+          "sourceScale": 0.774194,
+          "sourceOffset": [
+            58,
+            52
+          ],
+          "anchor": [
+            180,
+            230
+          ],
+          "visibleHoofTips": [
+            [
+              139,
+              232
+            ],
+            [
+              156,
+              232
+            ],
+            [
+              262,
+              227
+            ]
+          ],
+          "contactMethod": "Opaque hoof underside in visually reviewed per-frame anatomical regions. Occluded feet omitted. Walking tips may be raised, not all are ground support points.",
+          "bounds": [
+            59,
+            53,
+            324,
+            233
+          ],
+          "sha256": "78f4b738dba458182a49a8286c8ff832c44c14a073a53663f6d8b9d5abf862ce",
+          "atlasRect": [
+            730,
+            570,
+            360,
+            280
+          ]
+        },
+        {
+          "index": 11,
+          "file": "frames/walk/11.png",
+          "sourceRect": [
+            1107,
+            749,
+            341,
+            244
+          ],
+          "sourceScale": 0.774194,
+          "sourceOffset": [
+            58,
+            52
+          ],
+          "anchor": [
+            180,
+            230
+          ],
+          "visibleHoofTips": [
+            [
+              116,
+              239
+            ],
+            [
+              172,
+              227
+            ],
+            [
+              256,
+              231
+            ]
+          ],
+          "contactMethod": "Opaque hoof underside in visually reviewed per-frame anatomical regions. Occluded feet omitted. Walking tips may be raised, not all are ground support points.",
+          "bounds": [
+            60,
+            53,
+            321,
+            240
+          ],
+          "sha256": "b45dfb8c336af355e7909b8584dc1b82ca1f7d1df054f7589a274e9c5e29259a",
+          "atlasRect": [
+            1094,
+            570,
+            360,
+            280
+          ]
+        }
+      ]
+    }
+  },
+  "integration": "Art delivery only; runtime code unchanged.",
+  "walkTravel": {
+    "suggestedPixelsPerCycle": [
+      -32,
+      16
+    ],
+    "cycleMs": 1000,
+    "stepsPerCycle": 2,
+    "speedScaling": "Multiply root displacement by display scale; movement belongs to game code.",
+    "note": "Initial stride recommendation. Visible contact samples are provided for final in-engine slip tuning; no frame claims mathematically zero slip."
+  }
+}

@@ -1,0 +1,162 @@
+[
+  {
+    "species": "cow",
+    "action": "eat",
+    "reference": "cow/sources/reference-hungry.png",
+    "promptFile": "cow/sources/eat-prompt.txt",
+    "frames": 12,
+    "fps": 12,
+    "canvas": [
+      360,
+      280
+    ],
+    "anchor": [
+      180,
+      230
+    ],
+    "source": "cow/sources/eat-generated-atlas.png",
+    "sourceSha256": "4a8d749fbc86b55ab04277ee425ddc20748925a7d921066ccdd623777d077c0a",
+    "generator": "built-in image_gen",
+    "generatedImageId": "exec-144cab83-ad46-47fe-85f6-49ad22f31746.png"
+  },
+  {
+    "species": "cow",
+    "action": "walk",
+    "reference": "cow/sources/reference-hungry.png",
+    "promptFile": "cow/sources/walk-prompt.txt",
+    "frames": 12,
+    "fps": 12,
+    "canvas": [
+      360,
+      280
+    ],
+    "anchor": [
+      180,
+      230
+    ],
+    "source": "cow/sources/walk-generated-atlas.png",
+    "sourceSha256": "35b91ef8334221bfefb6c4409a2d19318dd92c82a56fa6adb5f44cd74776899c",
+    "generator": "built-in image_gen",
+    "generatedImageId": "exec-99f4b9fc-6d5c-4de9-82da-d3aba4ee7024.png"
+  },
+  {
+    "species": "pig",
+    "action": "eat",
+    "reference": "pig/sources/reference-hungry.png",
+    "promptFile": "pig/sources/eat-prompt.txt",
+    "frames": 12,
+    "fps": 12,
+    "canvas": [
+      360,
+      280
+    ],
+    "anchor": [
+      180,
+      230
+    ],
+    "source": "pig/sources/eat-generated-atlas.png",
+    "sourceSha256": "6d80f2a2513ef44cebdb8ec4aac17262f7707ca440ee94cc3674b73db4724758",
+    "generator": "built-in image_gen",
+    "generatedImageId": "exec-6a180e6b-e76c-491b-b947-62dc3106e5f2.png"
+  },
+  {
+    "species": "pig",
+    "action": "walk",
+    "reference": "pig/sources/reference-hungry.png",
+    "promptFile": "pig/sources/walk-prompt.txt",
+    "frames": 12,
+    "fps": 12,
+    "canvas": [
+      360,
+      280
+    ],
+    "anchor": [
+      180,
+      230
+    ],
+    "source": "pig/sources/walk-generated-atlas.png",
+    "sourceSha256": "ba7594f2ff673ce51d4029b1bdf532ae5830546c601204068aa4f5049e95db5f",
+    "generator": "built-in image_gen",
+    "generatedImageId": "exec-52726802-d193-4af8-a859-365263e7e1f3.png"
+  },
+  {
+    "species": "sheep",
+    "action": "eat",
+    "reference": "sheep/sources/reference-hungry.png",
+    "promptFile": "sheep/sources/eat-prompt.txt",
+    "frames": 12,
+    "fps": 12,
+    "canvas": [
+      360,
+      280
+    ],
+    "anchor": [
+      180,
+      230
+    ],
+    "source": "sheep/sources/eat-generated-atlas.png",
+    "sourceSha256": "9af07cd0b76ea1fa204bbd1e9fd0a5a9e5c4ba710164ea6b92a2e971b6f17272",
+    "generator": "built-in image_gen",
+    "generatedImageId": "exec-0da4d311-f2e0-48ae-a5c8-c691d019e18c.png"
+  },
+  {
+    "species": "sheep",
+    "action": "walk",
+    "reference": "sheep/sources/reference-hungry.png",
+    "promptFile": "sheep/sources/walk-prompt.txt",
+    "frames": 12,
+    "fps": 12,
+    "canvas": [
+      360,
+      280
+    ],
+    "anchor": [
+      180,
+      230
+    ],
+    "source": "sheep/sources/walk-generated-atlas.png",
+    "sourceSha256": "f3e40f68b8500720d29f368f65153404f188c623f760a17dca00d92033287c2f",
+    "generator": "built-in image_gen",
+    "generatedImageId": "exec-94fb5e69-bdde-4d28-9983-2e91bab1d153.png"
+  },
+  {
+    "species": "lamb",
+    "action": "eat",
+    "reference": "lamb/sources/reference-hungry.png",
+    "promptFile": "lamb/sources/eat-prompt.txt",
+    "frames": 12,
+    "fps": 12,
+    "canvas": [
+      360,
+      280
+    ],
+    "anchor": [
+      180,
+      230
+    ],
+    "source": "lamb/sources/eat-generated-atlas.png",
+    "sourceSha256": "edce0d07f65a2c4f175fe7a2176c8772a336f81403ed811ee7178369f98141e9",
+    "generator": "built-in image_gen",
+    "generatedImageId": "exec-ea604425-9eb0-49c4-902d-fb6efeb4d4e5.png"
+  },
+  {
+    "species": "lamb",
+    "action": "walk",
+    "reference": "lamb/sources/reference-hungry.png",
+    "promptFile": "lamb/sources/walk-prompt.txt",
+    "frames": 12,
+    "fps": 12,
+    "canvas": [
+      360,
+      280
+    ],
+    "anchor": [
+      180,
+      230
+    ],
+    "source": "lamb/sources/walk-generated-atlas.png",
+    "sourceSha256": "a10e0c0b46002b0c846442062861655322a4d4d5304a3912dc09360d376bf508",
+    "generator": "built-in image_gen",
+    "generatedImageId": "exec-d149772f-4336-44ec-b349-6bca79774446.png"
+  }
+]

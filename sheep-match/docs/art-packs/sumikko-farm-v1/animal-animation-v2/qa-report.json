@@ -1,0 +1,247 @@
+{
+  "baseCommit": "0a8363f",
+  "animals": [
+    {
+      "species": "cow",
+      "action": "eat",
+      "frames": 12,
+      "uniqueFrames": 12,
+      "canvas": [
+        360,
+        280
+      ],
+      "atlasAndOraMatch": true,
+      "supportErrorMaxPx": 0.304,
+      "adjacentImageDifference": [
+        15.035,
+        9.869,
+        14.222,
+        10.931,
+        5.29,
+        3.968,
+        2.324,
+        16.756,
+        12.315,
+        6.142,
+        9.018,
+        5.554
+      ],
+      "loopSeamDifference": 5.554,
+      "maxAdjacentDifference": 16.756
+    },
+    {
+      "species": "cow",
+      "action": "walk",
+      "frames": 12,
+      "uniqueFrames": 12,
+      "canvas": [
+        360,
+        280
+      ],
+      "atlasAndOraMatch": true,
+      "supportErrorMaxPx": null,
+      "adjacentImageDifference": [
+        6.871,
+        5.673,
+        7.572,
+        9.913,
+        8.307,
+        7.895,
+        9.384,
+        7.903,
+        7.457,
+        4.918,
+        8.36,
+        7.328
+      ],
+      "loopSeamDifference": 7.328,
+      "maxAdjacentDifference": 9.913
+    },
+    {
+      "species": "pig",
+      "action": "eat",
+      "frames": 12,
+      "uniqueFrames": 12,
+      "canvas": [
+        360,
+        280
+      ],
+      "atlasAndOraMatch": true,
+      "supportErrorMaxPx": 0,
+      "adjacentImageDifference": [
+        10.255,
+        8.173,
+        9.584,
+        7.445,
+        6.428,
+        4.292,
+        6.599,
+        12.571,
+        8.067,
+        6.923,
+        7.915,
+        8.566
+      ],
+      "loopSeamDifference": 8.566,
+      "maxAdjacentDifference": 12.571
+    },
+    {
+      "species": "pig",
+      "action": "walk",
+      "frames": 12,
+      "uniqueFrames": 12,
+      "canvas": [
+        360,
+        280
+      ],
+      "atlasAndOraMatch": true,
+      "supportErrorMaxPx": null,
+      "adjacentImageDifference": [
+        8.061,
+        6.186,
+        5.553,
+        6.218,
+        7.256,
+        7.077,
+        4.86,
+        4.273,
+        9.089,
+        9.213,
+        8.162,
+        5.945
+      ],
+      "loopSeamDifference": 5.945,
+      "maxAdjacentDifference": 9.213
+    },
+    {
+      "species": "sheep",
+      "action": "eat",
+      "frames": 12,
+      "uniqueFrames": 12,
+      "canvas": [
+        360,
+        280
+      ],
+      "atlasAndOraMatch": true,
+      "supportErrorMaxPx": 0,
+      "adjacentImageDifference": [
+        13.079,
+        8.849,
+        11.648,
+        9.057,
+        8.74,
+        5.15,
+        5.807,
+        11.133,
+        14.433,
+        7.532,
+        8.978,
+        8.277
+      ],
+      "loopSeamDifference": 8.277,
+      "maxAdjacentDifference": 14.433
+    },
+    {
+      "species": "sheep",
+      "action": "walk",
+      "frames": 12,
+      "uniqueFrames": 12,
+      "canvas": [
+        360,
+        280
+      ],
+      "atlasAndOraMatch": true,
+      "supportErrorMaxPx": null,
+      "adjacentImageDifference": [
+        9.355,
+        6.988,
+        8.421,
+        7.889,
+        10.741,
+        10.633,
+        12.137,
+        13.347,
+        15.542,
+        9.683,
+        10.768,
+        12.616
+      ],
+      "loopSeamDifference": 12.616,
+      "maxAdjacentDifference": 15.542
+    },
+    {
+      "species": "lamb",
+      "action": "eat",
+      "frames": 12,
+      "uniqueFrames": 12,
+      "canvas": [
+        360,
+        280
+      ],
+      "atlasAndOraMatch": true,
+      "supportErrorMaxPx": 0,
+      "adjacentImageDifference": [
+        6.447,
+        9.203,
+        7.955,
+        7.258,
+        5.051,
+        6.637,
+        6.763,
+        9.57,
+        8.442,
+        5.898,
+        4.795,
+        3.177
+      ],
+      "loopSeamDifference": 3.177,
+      "maxAdjacentDifference": 9.57
+    },
+    {
+      "species": "lamb",
+      "action": "walk",
+      "frames": 12,
+      "uniqueFrames": 12,
+      "canvas": [
+        360,
+        280
+      ],
+      "atlasAndOraMatch": true,
+      "supportErrorMaxPx": null,
+      "adjacentImageDifference": [
+        5.118,
+        3.137,
+        3.792,
+        7.69,
+        4.383,
+        4.122,
+        4.02,
+        3.72,
+        4.435,
+        5.107,
+        4.519,
+        5.867
+      ],
+      "loopSeamDifference": 5.867,
+      "maxAdjacentDifference": 7.69
+    }
+  ],
+  "icons": {
+    "count": 67,
+    "categories": {
+      "items": 26,
+      "ui": 35,
+      "tools": 6,
+      "total": 67
+    },
+    "svgXmlAndHashes": "PASS",
+    "pngCanvasAndTransparency": "PASS",
+    "originalMappings": "PASS",
+    "aliases": "PASS"
+  },
+  "limitations": [
+    "Art-only delivery; runtime integration and live movement speed calibration have not been performed.",
+    "Raster action frames preserve hand-drawn variations; geometric checks do not prove perceptual zero flicker."
+  ],
+  "status": "PASS"
+}
