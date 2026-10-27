@@ -1,0 +1,204 @@
+{
+  "build": "after-before-management-fix",
+  "stage": "3",
+  "mode": "management",
+  "seconds": 15,
+  "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "hardwareConcurrency": 9,
+  "viewport": [
+    1180,
+    757
+  ],
+  "rAF": {
+    "n": 878,
+    "p50": 16.7,
+    "p95": 16.8,
+    "p99": 33.4,
+    "max": 83.4
+  },
+  "rAFFirst2Min": {
+    "n": 878,
+    "p50": 16.7,
+    "p95": 16.8,
+    "p99": 33.4,
+    "max": 83.4
+  },
+  "rAFLast2Min": {
+    "n": 878,
+    "p50": 16.7,
+    "p95": 16.8,
+    "p99": 33.4,
+    "max": 83.4
+  },
+  "interactionToNextFrame": {
+    "n": 47,
+    "p50": 13.6,
+    "p95": 55.6,
+    "p99": 82.9,
+    "max": 82.9
+  },
+  "over25": 0.02050113895216401,
+  "longTasks": {
+    "n": 1,
+    "p50": 75,
+    "p95": 75,
+    "p99": 75,
+    "max": 75
+  },
+  "longTaskTimeline": [
+    {
+      "elapsedMs": 3014.5999999996275,
+      "duration": 75
+    }
+  ],
+  "longTasksPerMinute": [
+    1
+  ],
+  "tick": {
+    "n": 15,
+    "p50": 15.2,
+    "p95": 21.7,
+    "p99": 21.7,
+    "max": 21.7
+  },
+  "added": 12,
+  "removed": 8,
+  "worldRebuilds": 0,
+  "forestRebuilds": 0,
+  "managementPaints": 6,
+  "getStateCloneCount": 0,
+  "getStateCloneMs": 0,
+  "storageReads": 342,
+  "storageWrites": 114,
+  "domStart": 2394,
+  "domEnd": 2542,
+  "sameFirstEntity": true,
+  "heapStart": 73433726,
+  "heapEnd": 51990760,
+  "elapsed": 15050.099999999627,
+  "actions": {
+    "camera": {
+      "attempted": 42,
+      "passed": 42,
+      "failed": 0
+    },
+    "shopOpen": {
+      "attempted": 3,
+      "passed": 3,
+      "failed": 0
+    },
+    "shopClose": {
+      "attempted": 2,
+      "passed": 2,
+      "failed": 0
+    },
+    "zoom": {
+      "attempted": 0,
+      "passed": 0,
+      "failed": 0
+    },
+    "harvest": {
+      "attempted": 0,
+      "passed": 0,
+      "failed": 0
+    },
+    "layoutOpen": {
+      "attempted": 0,
+      "passed": 0,
+      "failed": 0
+    },
+    "layoutClose": {
+      "attempted": 0,
+      "passed": 0,
+      "failed": 0
+    }
+  },
+  "errors": [],
+  "heapSamples": [
+    {
+      "elapsedMs": 0.2999999988824129,
+      "bytes": 73433726
+    },
+    {
+      "elapsedMs": 1007,
+      "bytes": 69290549
+    },
+    {
+      "elapsedMs": 2004.5999999996275,
+      "bytes": 85513266
+    },
+    {
+      "elapsedMs": 3014.2999999988824,
+      "bytes": 41564199
+    },
+    {
+      "elapsedMs": 4000.699999999255,
+      "bytes": 47948517
+    },
+    {
+      "elapsedMs": 5000.5999999996275,
+      "bytes": 53881711
+    },
+    {
+      "elapsedMs": 6000.699999999255,
+      "bytes": 59789793
+    },
+    {
+      "elapsedMs": 7015.199999999255,
+      "bytes": 61569580
+    },
+    {
+      "elapsedMs": 8009,
+      "bytes": 36124884
+    },
+    {
+      "elapsedMs": 9002.199999999255,
+      "bytes": 43092285
+    },
+    {
+      "elapsedMs": 10000.599999999627,
+      "bytes": 49577081
+    },
+    {
+      "elapsedMs": 11000.599999999627,
+      "bytes": 55596391
+    },
+    {
+      "elapsedMs": 12000.599999999627,
+      "bytes": 61621401
+    },
+    {
+      "elapsedMs": 13003.799999998882,
+      "bytes": 32852989
+    },
+    {
+      "elapsedMs": 14008.299999998882,
+      "bytes": 46158463
+    },
+    {
+      "elapsedMs": 15002.5,
+      "bytes": 51990760
+    },
+    {
+      "elapsedMs": 15046.900000000373,
+      "bytes": 51990760
+    }
+  ],
+  "heapFinalMinuteMin": 32852989,
+  "metadata": {
+    "schemaVersion": 2,
+    "timerPairUs": 0.3730000000074506,
+    "moduleBase": "http://127.0.0.1:46280/game-demo-layer-review/sheep-match/",
+    "storageMode": "localStorage",
+    "storageNamespace": "farm-perf-qa",
+    "longTasksSupported": true,
+    "heapSupported": true,
+    "heapInterpretation": "Observed used JS heap, sampled each second; final-minute minimum is not forced-GC retained memory.",
+    "interactionInterpretation": "Synthetic key/click to next rAF, not hardware input latency or INP.",
+    "mutationInterpretation": "Direct child-list mutations, not a visual flicker detector.",
+    "fixture": "growthFixture 3",
+    "devicePixelRatio": 1,
+    "visibility": "visible",
+    "priorErrors": []
+  }
+}

@@ -1,0 +1,159 @@
+--- a/sheep-match/farm-save.mjs
++++ b/sheep-match/farm-save.mjs
+@@ -480,7 +480,7 @@
+         }
+       }
+       anchor();
+-      emit();
++      diagnostic('emitIncludingCloneAndSubscribers',()=>(emit()));
+       if(status.recoveryRequired)return {ok:false,error:'RECOVERY_REQUIRED',message:status.message,state:clone(state),status:getStatus()};
+       return {ok:true,state:clone(state),status:getStatus()};
+     }catch(error){
+@@ -501,18 +501,18 @@
+   }
+   function persist(candidate,{commitId=uid('commit'),skipConflict=false}={}){
+     if(readOnly||closed)throw fail('READ_ONLY',status.recoveryRequired?'请先恢复存档':'当前农场为只读，请关闭另一窗口或使用接管');
+-    if(!skipConflict)checkConflict();
+-    validateFarmState(candidate);
+-    const envelope=makeEnvelope(candidate,{saveId,commitId,savedAtWallMs:Number(wallNow())});
+-    const slot=active==='a'?'b':'a',target=`${key}:${slot}`,previous=storage.getItem(target),raw=JSON.stringify(envelope);
++    if(!skipConflict)diagnostic('conflictChecks',()=>(checkConflict()));
++    diagnostic('candidateValidation',()=>(validateFarmState(candidate)));
++    const envelope=diagnostic('envelopeCloneAndChecksum',()=>(makeEnvelope(candidate,{saveId,commitId,savedAtWallMs:Number(wallNow())})));
++    const slot=active==='a'?'b':'a',target=`${key}:${slot}`,previous=storage.getItem(target),raw=diagnostic('serializeEnvelope',()=>(JSON.stringify(envelope)));
+     let wrote=false;
+     try{
+       storage.setItem(target,raw);
+       wrote=true;
+       const stored=storage.getItem(target);
+       if(stored!==raw)throw fail('SAVE_FAILED','存档写入校验失败，本次操作未执行');
+-      const verified=JSON.parse(stored);
+-      validateEnvelope(verified);
++      const verified=diagnostic('readbackParse',()=>(JSON.parse(stored)));
++      diagnostic('readbackValidation',()=>(validateEnvelope(verified)));
+       snapshotCache.set(slot,{raw:stored,snapshot:freezeSnapshot({slot,raw:stored,envelope:verified,migrated:false})});
+     }catch(error){
+       if(wrote){
+@@ -536,7 +536,7 @@
+     active=slot;
+     diskRevision=envelope.revision;
+     diskCommit=envelope.commitId;
+-    state=clone(candidate);
++    state=diagnostic('commitDetachedClone',()=>(clone(candidate)));
+     anchor();
+     status={...status,error:null,message:null};
+     return envelope;
+@@ -545,24 +545,24 @@
+     try{
+       if(!plain(command))throw fail('INVALID_COMMAND','操作格式不正确');
+       if(readOnly||closed)throw fail('READ_ONLY','当前窗口为只读，请接管后操作');
+-      checkConflict();
++      diagnostic('conflictChecks',()=>(checkConflict()));
+       const cmd={
+         ...command,
+         commandId:command.commandId??`farmcmd:${writerId}:${++commandOrdinal}`,
+         expectedRevision:command.expectedRevision??state.revision
+       };
+       let result;
+-      if(cmd.type==='tick')result=advanceFarm(state,clockNow()); else result=executeFarm(state,cmd,clockNow());
++      if(cmd.type==='tick')result=diagnostic('advanceFarm',()=>(advanceFarm(state,clockNow()))); else result=executeFarm(state,cmd,clockNow());
+       if(result.ok===false)throw fail(result.error??'INVALID_COMMAND',result.message);
+       const candidate=result.state??result;
+       // A changed revision already proves a changed state. Preserve the full
+       // comparison for equal revisions (including legitimate no-op commands).
+       if(candidate.revision!==state.revision||canonicalStringify(candidate)!==canonicalStringify(state)||diskRevision<0)persist(candidate,{commitId:cmd.commandId});
+-      emit();
+-      return {...result,ok:true,state:clone(state),revision:state.revision,commandId:cmd.commandId};
++      diagnostic('emitIncludingCloneAndSubscribers',()=>(emit()));
++      return {...result,ok:true,state:diagnostic('returnDetachedClone',()=>(clone(state))),revision:state.revision,commandId:cmd.commandId};
+     }catch(error){
+       const result=setFailure(error);
+-      emit();
++      diagnostic('emitIncludingCloneAndSubscribers',()=>(emit()));
+       return result;
+     }
+   }
+@@ -607,7 +607,7 @@
+       if(!preview)throw fail('INVALID_IMPORT','请先预览存档，再确认导入');
+       if(closed||(locks&&!releasing)||(!status.recoveryRequired&&readOnly))throw fail('READ_ONLY','只读窗口不能导入存档');
+       if(preview.expectedRevision!==state.revision||preview.expectedCommit!==diskCommit)throw fail('STALE_REVISION','预览后农场已变化，请重新预览');
+-      if(!status.recoveryRequired)checkConflict();
++      if(!status.recoveryRequired)diagnostic('conflictChecks',()=>(checkConflict()));
+ 
+       // Both backups are verified before the new economic state is committed.
+       const backups=[['before-import',exportSave()],['import-original',preview.original]];
+@@ -629,7 +629,7 @@
+       status={...status,recoveryRequired:false,error:null,message:null};
+       previews.clear();
+       clearDraft();
+-      emit();
++      diagnostic('emitIncludingCloneAndSubscribers',()=>(emit()));
+       return {ok:true,state:clone(state),revision:state.revision};
+     }catch(error){
+       return setFailure(error);
+@@ -710,7 +710,7 @@
+         status.mode='read-only';
+         releasing();
+         releasing=null;
+-        emit();
++        diagnostic('emitIncludingCloneAndSubscribers',()=>(emit()));
+       }
+     });
+   function acquireWriter(){
+@@ -720,7 +720,7 @@
+       status.mode='single-window';
+       const loaded=load();
+       if(!loaded.ok||status.recoveryRequired)readOnly=true;
+-      emit();
++      diagnostic('emitIncludingCloneAndSubscribers',()=>(emit()));
+       return Promise.resolve(!readOnly);
+     }
+     if(releasing)return Promise.resolve(!readOnly&&!status.recoveryRequired);
+@@ -731,7 +731,7 @@
+               readOnly=true;
+               status.mode='read-only';
+               resolve(false);
+-              emit();
++              diagnostic('emitIncludingCloneAndSubscribers',()=>(emit()));
+               return;
+             }
+             let release;
+@@ -744,14 +744,14 @@
+             const loaded=load();
+             if(!loaded.ok||status.recoveryRequired)readOnly=true;
+             resolve(!readOnly);
+-            emit();
++            diagnostic('emitIncludingCloneAndSubscribers',()=>(emit()));
+             await held;
+           }).catch(error=>{
+             readOnly=true;
+             status.mode='lock-error';
+             status.message=error.message;
+             resolve(false);
+-            emit();
++            diagnostic('emitIncludingCloneAndSubscribers',()=>(emit()));
+           });
+       }).finally(()=>{
+         acquiring=null;
+@@ -767,12 +767,12 @@
+   function onStorage(event){
+     if(event.key===`${key}:a`||event.key===`${key}:b`){
+       try{
+-        checkConflict();
++        diagnostic('conflictChecks',()=>(checkConflict()));
+       }catch{
+         readOnly=true;
+         status.mode='conflict';
+         status.message='其它窗口更新了农场，请重新加载或接管。';
+-        emit();
++        diagnostic('emitIncludingCloneAndSubscribers',()=>(emit()));
+       }
+     }
+   }
+@@ -822,3 +822,6 @@
+   store.ready=locks?acquireWriter():Promise.resolve(!readOnly);
+   return store;
+ }
++
++let diagnosticProfile=null;export function setDiagnosticProfile(callback){diagnosticProfile=callback;}
++function diagnostic(label,fn){const start=performance.now();try{return fn();}finally{diagnosticProfile?.({name:"store."+label,duration:performance.now()-start});}}

@@ -56,13 +56,25 @@ function checkItems(map,label){
   if(!plain(map))throw fail('INVALID_SAVE',`${label}格式无效`);
   for(const [id,n]of Object.entries(map))if(!ITEMS[id]||!int(n))throw fail('INVALID_SAVE',`${label}含未知物品或无效数量`);
 }
+// Only schema text is memoized, never an input object or validation result.
+// Bound even future dynamic callers; private Sets are never exposed to consumers.
+const schemaKeyCache=new Map();
+function schemaKeys(keys){
+  let schema=schemaKeyCache.get(keys);
+  if(!schema){
+    const list=keys.split(' ');schema={list,allowed:new Set(list)};
+    if(schemaKeyCache.size>=64)schemaKeyCache.delete(schemaKeyCache.keys().next().value);
+    schemaKeyCache.set(keys,schema);
+  }
+  return schema;
+}
 function keysOnly(value,keys,label){
   if(!plain(value))throw fail('INVALID_SAVE',`${label}格式无效`);
-  const allowed=new Set(keys.split(' '));
+  const {allowed}=schemaKeys(keys);
   for(const key of Object.keys(value))if(!allowed.has(key))throw fail('INVALID_SAVE',`${label}包含未知关键字段：${key}`);
 }
 function requiredKeys(value,keys,label){
-  for(const key of keys.split(' '))if(!Object.prototype.hasOwnProperty.call(value,key))throw fail('INVALID_SAVE',`${label}缺少必填字段：${key}`);
+  for(const key of schemaKeys(keys).list)if(!Object.prototype.hasOwnProperty.call(value,key))throw fail('INVALID_SAVE',`${label}缺少必填字段：${key}`);
 }
 function nonnegative(value,label){
   if(!int(value))throw fail('INVALID_SAVE',`${label}必须是非负整数`);
@@ -184,6 +196,19 @@ function validateLedgers(state){
     if(!stageId(id)||typeof record.won!=='boolean'||!int(record.bestScore)||record.receiptId!==`stage_${id}`)throw fail('INVALID_SAVE','支线通关记录无效');
   }
 }
+const ENTITY_EXTRA_KEYS={
+  field:'crop',
+  house:'fixed door',
+  barn:'',
+  silo:'',
+  shelter:'tier animals skinId',
+  machine:'machineType built buildReadyAt queue completed slots slotUpgrades blockedAt lastCompletionAt',
+  fruit:'harvestStage status readyAt revived',
+  decoration:'walkable footprintLayer',
+  obstacle:'fixed',
+  road:'footprintLayer walkable'
+};
+
 export function validateFarmState(state){
   checkedTree(state);
   if(!plain(state))throw fail('INVALID_SAVE','存档主体格式无效');
@@ -195,35 +220,25 @@ export function validateFarmState(state){
   if(!int(state.level)||state.level<1||state.level>30)throw fail('INVALID_SAVE','农场等级无效');
   checkItems(state.inventory,'库存');
   if(!Array.isArray(state.entities)||state.entities.length>8192)throw fail('INVALID_SAVE','实体列表无效');
+  // Config exports remain mutable: capture their keys once per validation,
+  // not once per entity and never permanently across validation calls.
+  const allowed={
+    field:['field'],
+    house:['house'],
+    barn:['barn'],
+    silo:['silo'],
+    shelter:Object.keys(ANIMALS),
+    machine:Object.keys(BUILDINGS),
+    fruit:Object.keys(FRUITS),
+    decoration:[...Object.keys(DECORATIONS),...Object.keys(REWARD_DECORATIONS)],
+    obstacle:['natural_tree','natural_bush','rock'],
+    road:['road']
+  };
   const ids=new Set();
   for(const e of state.entities){
     if(!plain(e)||typeof e.id!=='string'||!/^[a-zA-Z0-9_:-]{1,160}$/.test(e.id)||ids.has(e.id))throw fail('INVALID_SAVE','实体ID重复或无效');
     ids.add(e.id);
-    const extras={
-      field:'crop',
-      house:'fixed door',
-      barn:'',
-      silo:'',
-      shelter:'tier animals skinId',
-      machine:'machineType built buildReadyAt queue completed slots slotUpgrades blockedAt lastCompletionAt',
-      fruit:'harvestStage status readyAt revived',
-      decoration:'walkable footprintLayer',
-      obstacle:'fixed',
-      road:'footprintLayer walkable'
-    };
-    keysOnly(e,`id kind configId x y w h rotation stored ${extras[e.kind]??''}`,'实体');
-    const allowed={
-      field:['field'],
-      house:['house'],
-      barn:['barn'],
-      silo:['silo'],
-      shelter:Object.keys(ANIMALS),
-      machine:Object.keys(BUILDINGS),
-      fruit:Object.keys(FRUITS),
-      decoration:[...Object.keys(DECORATIONS),...Object.keys(REWARD_DECORATIONS)],
-      obstacle:['natural_tree','natural_bush','rock'],
-      road:['road']
-    };
+    keysOnly(e,`id kind configId x y w h rotation stored ${ENTITY_EXTRA_KEYS[e.kind]??''}`,'实体');
     if(!allowed[e.kind]?.includes(e.configId))throw fail('INVALID_SAVE',`未知实体配置：${e.configId}`);
     let expected;
     if(e.kind==='field'||e.kind==='road'||e.kind==='obstacle')expected=[1,1]; else if(e.kind==='house')expected=[4,4]; else if(['barn','silo'].includes(e.kind))expected=[3,3]; else if(e.kind==='shelter')expected=ANIMALS[e.configId].footprint; else if(e.kind==='machine')expected=BUILDINGS[e.configId].footprint; else if(e.kind==='fruit')expected=FRUITS[e.configId].footprint; else if(e.kind==='decoration')expected=decorationConfig(e.configId).footprint;
@@ -371,6 +386,24 @@ export function createFarmStore(options={}){
   let wallAnchor=0,monoAnchor=0,logicalAnchor=0,closed=false,releasing=null,acquiring=null;
   let readOnly=!!locks,status={mode:locks?'locking':'single-window',readOnly:!!locks,warnings:locks?[]:['当前浏览器没有可靠的多窗口锁，请只保留一个农场窗口。']};
   const previews=new Map();
+  // At most the two A/B slot values are retained. Storage is still read on every
+  // conflict check; only byte-identical values can reuse their validation.
+  const snapshotCache=new Map();
+  const freezeSnapshot=value=>{if(value&&typeof value==='object'&&!Object.isFrozen(value)){for(const child of Object.values(value))freezeSnapshot(child);Object.freeze(value);}return value;};
+  function validatedSlot(slot,raw){
+    const cached=snapshotCache.get(slot);
+    if(cached&&cached.raw===raw)return cached;
+    let entry={raw};
+    if(raw!==null){
+      try{
+        const parsed=JSON.parse(raw),migrated=parsed.saveFormatVersion===undefined&&parsed.schemaVersion===1;
+        const envelope=migrated?migrateV04DevelopmentSnapshot(parsed):parsed;
+        validateEnvelope(envelope);
+        entry.snapshot=freezeSnapshot({slot,raw,envelope,migrated});
+      }catch(error){entry.invalid=Object.freeze({slot,error:error.code??'INVALID_SAVE',message:error.message});}
+    }
+    snapshotCache.set(slot,entry);return entry;
+  }
   const emit=()=>{
     for(const fn of listeners)try{
       fn(clone(state),getStatus());
@@ -391,16 +424,9 @@ export function createFarmStore(options={}){
     const snapshots=[],invalid=[];
     for(const slot of ['a','b']){
       const raw=readRaw(slot);
-      if(raw!==null){
-        try{
-          const parsed=JSON.parse(raw),migrated=parsed.saveFormatVersion===undefined&&parsed.schemaVersion===1;
-          const envelope=migrated?migrateV04DevelopmentSnapshot(parsed):parsed;
-          validateEnvelope(envelope);
-          snapshots.push({slot,raw,envelope,migrated});
-        }catch(error){
-          invalid.push({slot,error:error.code??'INVALID_SAVE',message:error.message});
-        }
-      }
+      const entry=validatedSlot(slot,raw);
+      if(entry.snapshot)snapshots.push(entry.snapshot);
+      if(entry.invalid)invalid.push(entry.invalid);
     }
     snapshots.sort((a,b)=>b.envelope.revision-a.envelope.revision||b.envelope.savedAtWallMs-a.envelope.savedAtWallMs);
     return {snapshots,invalid};
@@ -485,7 +511,9 @@ export function createFarmStore(options={}){
       wrote=true;
       const stored=storage.getItem(target);
       if(stored!==raw)throw fail('SAVE_FAILED','存档写入校验失败，本次操作未执行');
-      validateEnvelope(JSON.parse(stored));
+      const verified=JSON.parse(stored);
+      validateEnvelope(verified);
+      snapshotCache.set(slot,{raw:stored,snapshot:freezeSnapshot({slot,raw:stored,envelope:verified,migrated:false})});
     }catch(error){
       if(wrote){
         try{
@@ -527,7 +555,9 @@ export function createFarmStore(options={}){
       if(cmd.type==='tick')result=advanceFarm(state,clockNow()); else result=executeFarm(state,cmd,clockNow());
       if(result.ok===false)throw fail(result.error??'INVALID_COMMAND',result.message);
       const candidate=result.state??result;
-      if(canonicalStringify(candidate)!==canonicalStringify(state)||diskRevision<0)persist(candidate,{commitId:cmd.commandId});
+      // A changed revision already proves a changed state. Preserve the full
+      // comparison for equal revisions (including legitimate no-op commands).
+      if(candidate.revision!==state.revision||canonicalStringify(candidate)!==canonicalStringify(state)||diskRevision<0)persist(candidate,{commitId:cmd.commandId});
       emit();
       return {...result,ok:true,state:clone(state),revision:state.revision,commandId:cmd.commandId};
     }catch(error){
@@ -755,6 +785,7 @@ export function createFarmStore(options={}){
     channel?.close?.();
     if(typeof window!=='undefined')window.removeEventListener('storage',onStorage);
     listeners.clear();
+    snapshotCache.clear();
   }
   load();
   const store={

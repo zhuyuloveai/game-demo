@@ -1,0 +1,194 @@
+{
+  "build": "before",
+  "stage": "max",
+  "mode": "stress",
+  "seconds": 60,
+  "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "hardwareConcurrency": 9,
+  "viewport": [
+    1180,
+    757
+  ],
+  "rAF": {
+    "n": 39,
+    "p50": 2349.4,
+    "p95": 2582.8,
+    "p99": 2666.1,
+    "max": 2666.1
+  },
+  "rAFFirst2Min": {
+    "n": 39,
+    "p50": 2349.4,
+    "p95": 2582.8,
+    "p99": 2666.1,
+    "max": 2666.1
+  },
+  "rAFLast2Min": {
+    "n": 39,
+    "p50": 2349.4,
+    "p95": 2582.8,
+    "p99": 2666.1,
+    "max": 2666.1
+  },
+  "interactionToNextFrame": {
+    "n": 15,
+    "p50": 130.8,
+    "p95": 2430.8,
+    "p99": 2430.8,
+    "max": 2430.8
+  },
+  "over25": 1,
+  "longTasks": {
+    "n": 69,
+    "p50": 108,
+    "p95": 2431,
+    "p99": 2566,
+    "max": 2566
+  },
+  "tick": {
+    "n": 26,
+    "p50": 2323,
+    "p95": 2466.3,
+    "p99": 2565.9,
+    "max": 2565.9
+  },
+  "added": 24806,
+  "removed": 12116,
+  "worldRebuilds": 26,
+  "forestRebuilds": 26,
+  "getStateCloneCount": 109386,
+  "getStateCloneMs": 56230.8,
+  "storageReads": 156,
+  "storageWrites": 52,
+  "domStart": 3229,
+  "domEnd": 3360,
+  "sameFirstEntity": false,
+  "heapStart": 34630826,
+  "heapEnd": 49403592,
+  "elapsed": 65341.90000000037,
+  "actions": {
+    "camera": {
+      "attempted": 14,
+      "passed": 14,
+      "failed": 0
+    },
+    "shopOpen": {
+      "attempted": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    "shopClose": {
+      "attempted": 0,
+      "passed": 0,
+      "failed": 0
+    },
+    "zoom": {
+      "attempted": 0,
+      "passed": 0,
+      "failed": 0
+    },
+    "harvest": {
+      "attempted": 0,
+      "passed": 0,
+      "failed": 0
+    },
+    "layoutOpen": {
+      "attempted": 0,
+      "passed": 0,
+      "failed": 0
+    },
+    "layoutClose": {
+      "attempted": 0,
+      "passed": 0,
+      "failed": 0
+    }
+  },
+  "errors": [],
+  "heapSamples": [
+    {
+      "elapsedMs": 0.40000000037252903,
+      "bytes": 34630826
+    },
+    {
+      "elapsedMs": 5100.0999999996275,
+      "bytes": 38291354
+    },
+    {
+      "elapsedMs": 10447.5,
+      "bytes": 33215056
+    },
+    {
+      "elapsedMs": 15517.099999999627,
+      "bytes": 50853860
+    },
+    {
+      "elapsedMs": 18258.400000000373,
+      "bytes": 25540238
+    },
+    {
+      "elapsedMs": 23377,
+      "bytes": 48951115
+    },
+    {
+      "elapsedMs": 28729.299999998882,
+      "bytes": 40104759
+    },
+    {
+      "elapsedMs": 31675.400000000373,
+      "bytes": 31475006
+    },
+    {
+      "elapsedMs": 34308.199999999255,
+      "bytes": 36223090
+    },
+    {
+      "elapsedMs": 39524.79999999888,
+      "bytes": 31841835
+    },
+    {
+      "elapsedMs": 42167.90000000037,
+      "bytes": 49696895
+    },
+    {
+      "elapsedMs": 46651,
+      "bytes": 37523091
+    },
+    {
+      "elapsedMs": 48860.59999999963,
+      "bytes": 48092949
+    },
+    {
+      "elapsedMs": 51198.90000000037,
+      "bytes": 52012468
+    },
+    {
+      "elapsedMs": 55992.09999999963,
+      "bytes": 34784872
+    },
+    {
+      "elapsedMs": 60724.29999999888,
+      "bytes": 50230384
+    },
+    {
+      "elapsedMs": 65341.29999999888,
+      "bytes": 49403592
+    }
+  ],
+  "heapFinalMinuteMin": 25540238,
+  "metadata": {
+    "schemaVersion": 2,
+    "timerPairUs": 0.38100000001490114,
+    "moduleBase": "http://127.0.0.1:46280/game-demo-performance-before/sheep-match/",
+    "storageMode": "localStorage",
+    "storageNamespace": "farm-perf-qa",
+    "longTasksSupported": true,
+    "heapSupported": true,
+    "heapInterpretation": "Observed used JS heap, sampled each second; final-minute minimum is not forced-GC retained memory.",
+    "interactionInterpretation": "Synthetic key/click to next rAF, not hardware input latency or INP.",
+    "mutationInterpretation": "Direct child-list mutations, not a visual flicker detector.",
+    "fixture": "growthFixture or penArtFixture full; real durable store, 1 Hz tick",
+    "devicePixelRatio": 1,
+    "visibility": "visible",
+    "priorErrors": []
+  }
+}

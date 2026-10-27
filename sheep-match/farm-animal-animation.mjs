@@ -36,10 +36,10 @@ export function createAnimalAnimationController({root,getAnimal,getStaticArt,isP
   if(!ImageCtor){loaded.add(key);continue;}
   const img=new ImageCtor();img.onload=()=>{if(!dead)loaded.add(key);};img.onerror=()=>failed.add(key);img.src=resolveAnimalAnimationFrame(...key.split('/').map((v,i)=>i?Number(v):v)).src;
  }
- function visible(el){const r=el.getBoundingClientRect?.();if(!r)return true;const clip=(root.closest?.('.fw-map')||root).getBoundingClientRect?.();
+ function visible(el,clip){const r=el.getBoundingClientRect?.();if(!r)return true;
   const win=doc?.defaultView;return r.width>0&&r.height>0&&r.right>Math.max(0,clip?.left??0)&&r.bottom>Math.max(0,clip?.top??0)&&r.left<Math.min(win?.innerWidth??Infinity,clip?.right??Infinity)&&r.top<Math.min(win?.innerHeight??Infinity,clip?.bottom??Infinity);}
  function paint(el,art,active){const image=el.querySelector?.('.fw-animal-art image');if(!image||!art)return;
-  if(painted.get(image)!==art.src){image.setAttribute('href',art.src);painted.set(image,art.src);}
+  if(painted.get(image)!==art.src||image.getAttribute?.('href')!==art.src){image.setAttribute('href',art.src);painted.set(image,art.src);}
   if(active){el.dataset.fwFrameRunning='true';el.dataset.fwFrameAction=art.action;el.dataset.fwFrame=String(art.frame);live.set(el.dataset.animal,art);}
   else{delete el.dataset.fwFrameRunning;delete el.dataset.fwFrameAction;delete el.dataset.fwFrame;live.delete(el.dataset.animal);}}
  function draw(){let count=0;const stop=blocked();live.clear();canRun=false;
@@ -53,7 +53,7 @@ export function createAnimalAnimationController({root,getAnimal,getStaticArt,isP
    if(active)count++;paint(el,active?frame:fallback,Boolean(active));
   }
  }
- function refreshVisibility(){for(const el of nodes)visibility.set(el,visible(el));lastVisibility=elapsed;}
+ function refreshVisibility(){const clip=(root.closest?.('.fw-map')||root).getBoundingClientRect?.();for(const el of nodes)visibility.set(el,visible(el,clip));lastVisibility=elapsed;}
  function schedule(){if(!canRun)last=null;if(!dead&&canRun&&raf===null&&!blocked())raf=requestFrame?.(tick)??null;}
  function tick(now){raf=null;if(dead)return;const stop=blocked();if(last!==null&&!stop&&!wasBlocked)elapsed+=Math.max(0,Math.min(100,now-last));last=now;wasBlocked=stop;
   if(stop){draw();last=null;return;}
@@ -61,10 +61,14 @@ export function createAnimalAnimationController({root,getAnimal,getStaticArt,isP
   const bucket=Math.floor(elapsed*12/1000);if(bucket!==lastDraw){draw();lastDraw=bucket;}
   schedule();
  }
- function sync(){if(dead)return;nodes=Array.from(root?.querySelectorAll?.('[data-animal][data-shelter]')||[]);const ids=new Set(nodes.map(n=>n.dataset.animal));for(const id of feeds.keys())if(!ids.has(id))feeds.delete(id);refreshVisibility();draw();schedule();}
+ // prepareSync reads layout only; commitSync writes sprites. Call consecutively
+ // in the same task when coordinating with other presentation controllers.
+ function prepareSync(){if(dead)return;nodes=Array.from(root?.querySelectorAll?.('[data-animal][data-shelter]')||[]);const ids=new Set(nodes.map(n=>n.dataset.animal));for(const id of feeds.keys())if(!ids.has(id))feeds.delete(id);refreshVisibility();}
+ function commitSync(){if(dead)return;draw();schedule();}
+ function sync(){prepareSync();commitSync();}
  function visibilityChanged(){if(dead)return;if(blocked()){if(raf!==null)cancelFrame?.(raf);raf=null;last=null;wasBlocked=true;draw();}else sync();}
  doc?.addEventListener?.('visibilitychange',visibilityChanged);media?.addEventListener?.('change',visibilityChanged);
  function playEat(ids){if(dead||blocked())return;for(const id of ids||[]){if(nodes.some(n=>n.dataset.animal===id))feeds.set(id,elapsed);}draw();schedule();}
  function destroy(){if(dead)return;dead=true;doc?.removeEventListener?.('visibilitychange',visibilityChanged);media?.removeEventListener?.('change',visibilityChanged);if(raf!==null)cancelFrame?.(raf);raf=null;for(const el of nodes){const entry=getAnimal(el.dataset.animal,el.dataset.shelter);if(entry?.animal)paint(el,getStaticArt(entry.animal,entry.shelter),false);}nodes=[];feeds.clear();live.clear();}
- return {sync,playEat,getArt:(id,fallback)=>live.get(id)||fallback,destroy};
+ return {sync,prepareSync,commitSync,playEat,getArt:(id,fallback)=>live.get(id)||fallback,destroy};
 }

@@ -1,0 +1,1628 @@
+{
+  "build": "v12-phase-diagnostic",
+  "stage": "max",
+  "mode": "stress",
+  "seconds": 60,
+  "startedUtc": "2026-10-27T07:52:12.122Z",
+  "recordedUtc": "2026-10-27T07:53:12.169Z",
+  "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "hardwareConcurrency": 9,
+  "viewport": [
+    1180,
+    757
+  ],
+  "rAF": {
+    "n": 3369,
+    "p50": 16.7,
+    "p95": 33.2,
+    "p99": 33.4,
+    "max": 166.7
+  },
+  "rAFFirst2Min": {
+    "n": 3369,
+    "p50": 16.7,
+    "p95": 33.2,
+    "p99": 33.4,
+    "max": 166.7
+  },
+  "rAFLast2Min": {
+    "n": 3369,
+    "p50": 16.7,
+    "p95": 33.2,
+    "p99": 33.4,
+    "max": 166.7
+  },
+  "interactionToNextFrame": {
+    "n": 202,
+    "p50": 7.7,
+    "p95": 43.8,
+    "p99": 67.1,
+    "max": 77.3
+  },
+  "over25": 0.05046007717423568,
+  "longTasks": {
+    "n": 15,
+    "p50": 55,
+    "p95": 84,
+    "p99": 84,
+    "max": 84
+  },
+  "longTaskTimeline": [
+    {
+      "elapsedMs": 12025.400000002235,
+      "duration": 62
+    },
+    {
+      "elapsedMs": 15052.400000002235,
+      "duration": 72
+    },
+    {
+      "elapsedMs": 18060.60000000149,
+      "duration": 55
+    },
+    {
+      "elapsedMs": 24036.10000000149,
+      "duration": 57
+    },
+    {
+      "elapsedMs": 24132.300000000745,
+      "duration": 53
+    },
+    {
+      "elapsedMs": 39061.400000002235,
+      "duration": 54
+    },
+    {
+      "elapsedMs": 45029.20000000298,
+      "duration": 53
+    },
+    {
+      "elapsedMs": 46598.300000000745,
+      "duration": 51
+    },
+    {
+      "elapsedMs": 46972.900000002235,
+      "duration": 54
+    },
+    {
+      "elapsedMs": 48068.800000000745,
+      "duration": 63
+    },
+    {
+      "elapsedMs": 51012,
+      "duration": 60
+    },
+    {
+      "elapsedMs": 51086.300000000745,
+      "duration": 51
+    },
+    {
+      "elapsedMs": 54036.900000002235,
+      "duration": 51
+    },
+    {
+      "elapsedMs": 57048,
+      "duration": 67
+    },
+    {
+      "elapsedMs": 57115.70000000298,
+      "duration": 84
+    }
+  ],
+  "longTasksPerMinute": [
+    15
+  ],
+  "tick": {
+    "n": 60,
+    "p50": 18.3,
+    "p95": 29.2,
+    "p99": 53.9,
+    "max": 53.9
+  },
+  "added": 27,
+  "removed": 62,
+  "worldRebuilds": 0,
+  "forestRebuilds": 35,
+  "managementPaints": 3,
+  "getStateCloneCount": 0,
+  "getStateCloneMs": 0,
+  "storageReads": 1346,
+  "storageWrites": 448,
+  "domStart": 3229,
+  "domEnd": 3166,
+  "sameFirstEntity": true,
+  "heapStart": 57602234,
+  "heapEnd": 96705871,
+  "elapsed": 60060.60000000149,
+  "profile": {
+    "motion.prepare": {
+      "n": 391,
+      "p50": 2.2,
+      "p95": 3.9,
+      "p99": 29.7,
+      "max": 42
+    },
+    "motion.delight": {
+      "n": 391,
+      "p50": 0.8,
+      "p95": 1.4,
+      "p99": 2.1,
+      "max": 3.6
+    },
+    "motion.commit": {
+      "n": 391,
+      "p50": 1,
+      "p95": 1.5,
+      "p99": 2.4,
+      "max": 4.6
+    },
+    "render.map": {
+      "n": 226,
+      "p50": 3.8,
+      "p95": 6.6,
+      "p99": 13.6,
+      "max": 36.9
+    },
+    "render.corners": {
+      "n": 226,
+      "p50": 0.2,
+      "p95": 0.4,
+      "p99": 0.8,
+      "max": 1.3
+    },
+    "render.context": {
+      "n": 226,
+      "p50": 0,
+      "p95": 0.1,
+      "p99": 0.1,
+      "max": 0.1
+    },
+    "render.local": {
+      "n": 226,
+      "p50": 0,
+      "p95": 0,
+      "p99": 0,
+      "max": 0.1
+    },
+    "render.transaction": {
+      "n": 226,
+      "p50": 0,
+      "p95": 0.1,
+      "p99": 1.6,
+      "max": 3.4
+    },
+    "world.map.build": {
+      "n": 2,
+      "p50": 14.8,
+      "p95": 14.8,
+      "p99": 14.8,
+      "max": 14.8
+    },
+    "world.map.patch": {
+      "n": 2,
+      "p50": 18,
+      "p95": 18,
+      "p99": 18,
+      "max": 18
+    },
+    "world.forest.build": {
+      "n": 6,
+      "p50": 2.8,
+      "p95": 5.8,
+      "p99": 5.8,
+      "max": 5.8
+    },
+    "world.forest.patch": {
+      "n": 6,
+      "p50": 0.1,
+      "p95": 4,
+      "p99": 4,
+      "max": 4
+    },
+    "world.map.modeOnly": {
+      "n": 4,
+      "p50": 9.2,
+      "p95": 9.6,
+      "p99": 9.6,
+      "max": 9.6
+    }
+  },
+  "workloadSamples": [
+    {
+      "minute": 0,
+      "elapsedMs": 0.30000000074505806,
+      "entities": 273,
+      "animals": 63,
+      "readyEntities": 63,
+      "mountedForest": 487,
+      "runningAnimalSprites": 0,
+      "idleMotionNodes": 26,
+      "cameraTransform": "translate(-970px, -354.5px) scale(1)",
+      "inEdit": false,
+      "fastEdit": false,
+      "sceneRoots": 1,
+      "actions": {
+        "camera": 0,
+        "shopOpen": 0,
+        "shopClose": 0,
+        "zoom": 0,
+        "harvest": 0,
+        "layoutOpen": 0,
+        "layoutClose": 0,
+        "managementOpen": 0,
+        "managementClose": 0
+      }
+    },
+    {
+      "minute": 1,
+      "elapsedMs": 60001.300000000745,
+      "entities": 273,
+      "animals": 63,
+      "readyEntities": 61,
+      "mountedForest": 452,
+      "runningAnimalSprites": 0,
+      "idleMotionNodes": 0,
+      "cameraTransform": "translate(-970px, -354.5px) scale(1)",
+      "inEdit": false,
+      "fastEdit": false,
+      "sceneRoots": 1,
+      "actions": {
+        "camera": 182,
+        "shopOpen": 2,
+        "shopClose": 2,
+        "zoom": 4,
+        "harvest": 2,
+        "layoutOpen": 2,
+        "layoutClose": 2,
+        "managementOpen": 3,
+        "managementClose": 2
+      }
+    }
+  ],
+  "actionTimeline": [
+    {
+      "kind": "camera",
+      "elapsedMs": 210.40000000223517,
+      "feedbackElapsedMs": 219.5
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 414.80000000074506,
+      "feedbackElapsedMs": 420.30000000074506
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 616.6000000014901,
+      "feedbackElapsedMs": 621.6000000014901
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 821,
+      "feedbackElapsedMs": 828
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 1035.800000000745,
+      "feedbackElapsedMs": 1041.9000000022352
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 1231.1000000014901,
+      "feedbackElapsedMs": 1239.1000000014901
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 1437.2000000029802,
+      "feedbackElapsedMs": 1443.2000000029802
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 1627.5,
+      "feedbackElapsedMs": 1633
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 1838.300000000745,
+      "feedbackElapsedMs": 1846
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 2047.7000000029802,
+      "feedbackElapsedMs": 2054.2000000029802
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 2207.10000000149,
+      "feedbackElapsedMs": 2219.800000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 2405.800000000745,
+      "feedbackElapsedMs": 2419
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 2610.300000000745,
+      "feedbackElapsedMs": 2619
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 2816.400000002235,
+      "feedbackElapsedMs": 2822.900000002235
+    },
+    {
+      "kind": "shopOpen",
+      "elapsedMs": 3039.300000000745,
+      "feedbackElapsedMs": 3096.900000002235
+    },
+    {
+      "kind": "shopClose",
+      "elapsedMs": 6001.60000000149,
+      "feedbackElapsedMs": 6037.400000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 6207.800000000745,
+      "feedbackElapsedMs": 6218.900000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 6416.70000000298,
+      "feedbackElapsedMs": 6424.400000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 6617,
+      "feedbackElapsedMs": 6625
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 6820.900000002235,
+      "feedbackElapsedMs": 6838.60000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 7042.70000000298,
+      "feedbackElapsedMs": 7051.20000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 7206.70000000298,
+      "feedbackElapsedMs": 7217.400000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 7406.20000000298,
+      "feedbackElapsedMs": 7417.300000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 7605.800000000745,
+      "feedbackElapsedMs": 7616.900000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 7807.5,
+      "feedbackElapsedMs": 7816.900000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 8018.10000000149,
+      "feedbackElapsedMs": 8024.5
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 8214.60000000149,
+      "feedbackElapsedMs": 8223.10000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 8411.10000000149,
+      "feedbackElapsedMs": 8419.10000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 8609.70000000298,
+      "feedbackElapsedMs": 8625.60000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 8817.5,
+      "feedbackElapsedMs": 8826
+    },
+    {
+      "kind": "zoom",
+      "elapsedMs": 9030.5,
+      "feedbackElapsedMs": 9055.70000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 9221.900000002235,
+      "feedbackElapsedMs": 9226
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 9426.300000000745,
+      "feedbackElapsedMs": 9431.60000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 9619.5,
+      "feedbackElapsedMs": 9624.300000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 9815.800000000745,
+      "feedbackElapsedMs": 9820.20000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 10026.800000000745,
+      "feedbackElapsedMs": 10032.60000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 10220.20000000298,
+      "feedbackElapsedMs": 10225.5
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 10412.10000000149,
+      "feedbackElapsedMs": 10416
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 10613.10000000149,
+      "feedbackElapsedMs": 10617.5
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 10806.800000000745,
+      "feedbackElapsedMs": 10816.300000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 11016.70000000298,
+      "feedbackElapsedMs": 11022.400000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 11218.900000002235,
+      "feedbackElapsedMs": 11223.5
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 11417.20000000298,
+      "feedbackElapsedMs": 11421.400000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 11619.400000002235,
+      "feedbackElapsedMs": 11633.800000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 11817.900000002235,
+      "feedbackElapsedMs": 11822.20000000298
+    },
+    {
+      "kind": "harvest",
+      "elapsedMs": 12025.400000002235,
+      "feedbackElapsedMs": 12097.60000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 12203.900000002235,
+      "feedbackElapsedMs": 12216.5
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 12405.60000000149,
+      "feedbackElapsedMs": 12416.400000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 12627.900000002235,
+      "feedbackElapsedMs": 12633.10000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 12823.800000000745,
+      "feedbackElapsedMs": 12830.10000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 13028.5,
+      "feedbackElapsedMs": 13035
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 13223.70000000298,
+      "feedbackElapsedMs": 13229.300000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 13421,
+      "feedbackElapsedMs": 13428.10000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 13619.70000000298,
+      "feedbackElapsedMs": 13624
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 13817.900000002235,
+      "feedbackElapsedMs": 13822.60000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 14030.400000002235,
+      "feedbackElapsedMs": 14036.800000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 14221.5,
+      "feedbackElapsedMs": 14226.800000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 14414,
+      "feedbackElapsedMs": 14418.20000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 14612.10000000149,
+      "feedbackElapsedMs": 14616.60000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 14814.800000000745,
+      "feedbackElapsedMs": 14820.300000000745
+    },
+    {
+      "kind": "layoutOpen",
+      "elapsedMs": 15032.10000000149,
+      "feedbackElapsedMs": 15099.20000000298
+    },
+    {
+      "kind": "layoutClose",
+      "elapsedMs": 18001.300000000745,
+      "feedbackElapsedMs": 18035.5
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 18202.900000002235,
+      "feedbackElapsedMs": 18215.60000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 18419.300000000745,
+      "feedbackElapsedMs": 18432.400000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 18616.300000000745,
+      "feedbackElapsedMs": 18620.900000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 18824.70000000298,
+      "feedbackElapsedMs": 18831.800000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 19046.800000000745,
+      "feedbackElapsedMs": 19052.400000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 19201.800000000745,
+      "feedbackElapsedMs": 19217.800000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 19404.900000002235,
+      "feedbackElapsedMs": 19415.20000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 19616.10000000149,
+      "feedbackElapsedMs": 19632.20000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 19810.10000000149,
+      "feedbackElapsedMs": 19822.20000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 20024.800000000745,
+      "feedbackElapsedMs": 20029.20000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 20212.300000000745,
+      "feedbackElapsedMs": 20216.20000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 20411.300000000745,
+      "feedbackElapsedMs": 20417
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 20610.800000000745,
+      "feedbackElapsedMs": 20615.70000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 20810.900000002235,
+      "feedbackElapsedMs": 20816.800000000745
+    },
+    {
+      "kind": "zoom",
+      "elapsedMs": 21034.10000000149,
+      "feedbackElapsedMs": 21058.20000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 21219.300000000745,
+      "feedbackElapsedMs": 21224.5
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 21416,
+      "feedbackElapsedMs": 21421.20000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 21618.10000000149,
+      "feedbackElapsedMs": 21623.800000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 21814.400000002235,
+      "feedbackElapsedMs": 21819.70000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 22036.400000002235,
+      "feedbackElapsedMs": 22041.400000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 22219.300000000745,
+      "feedbackElapsedMs": 22224.300000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 22420.400000002235,
+      "feedbackElapsedMs": 22425.10000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 22622.5,
+      "feedbackElapsedMs": 22628
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 22812.70000000298,
+      "feedbackElapsedMs": 22817.5
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 23048,
+      "feedbackElapsedMs": 23053.400000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 23202.900000002235,
+      "feedbackElapsedMs": 23213.900000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 23403.20000000298,
+      "feedbackElapsedMs": 23413.400000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 23610.800000000745,
+      "feedbackElapsedMs": 23615.900000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 23810.400000002235,
+      "feedbackElapsedMs": 23815.900000002235
+    },
+    {
+      "kind": "managementOpen",
+      "elapsedMs": 24036.10000000149,
+      "feedbackElapsedMs": 24101.20000000298
+    },
+    {
+      "kind": "managementClose",
+      "elapsedMs": 27001.20000000298,
+      "feedbackElapsedMs": 27027.400000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 27201.5,
+      "feedbackElapsedMs": 27213
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 27410.20000000298,
+      "feedbackElapsedMs": 27414.900000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 27607,
+      "feedbackElapsedMs": 27620.60000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 27806.300000000745,
+      "feedbackElapsedMs": 27814.20000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 28036.70000000298,
+      "feedbackElapsedMs": 28044.800000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 28224.5,
+      "feedbackElapsedMs": 28233.400000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 28416.800000000745,
+      "feedbackElapsedMs": 28420.5
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 28617.70000000298,
+      "feedbackElapsedMs": 28628.300000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 28817.5,
+      "feedbackElapsedMs": 28822.900000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 29034.60000000149,
+      "feedbackElapsedMs": 29040.60000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 29228.900000002235,
+      "feedbackElapsedMs": 29235.800000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 29426.300000000745,
+      "feedbackElapsedMs": 29431.60000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 29626.5,
+      "feedbackElapsedMs": 29637.400000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 29823.60000000149,
+      "feedbackElapsedMs": 29834
+    },
+    {
+      "kind": "managementOpen",
+      "elapsedMs": 30030.400000002235,
+      "feedbackElapsedMs": 30081.300000000745
+    },
+    {
+      "kind": "managementClose",
+      "elapsedMs": 33001.300000000745,
+      "feedbackElapsedMs": 33030.300000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 33201,
+      "feedbackElapsedMs": 33211.800000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 33403.10000000149,
+      "feedbackElapsedMs": 33412.60000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 33614.400000002235,
+      "feedbackElapsedMs": 33622.800000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 33813.20000000298,
+      "feedbackElapsedMs": 33830.10000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 34027,
+      "feedbackElapsedMs": 34033.70000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 34217.10000000149,
+      "feedbackElapsedMs": 34221.60000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 34411.60000000149,
+      "feedbackElapsedMs": 34415.900000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 34610.5,
+      "feedbackElapsedMs": 34628.300000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 34810.60000000149,
+      "feedbackElapsedMs": 34821.60000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 35029.20000000298,
+      "feedbackElapsedMs": 35034.800000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 35225.5,
+      "feedbackElapsedMs": 35237.70000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 35417.60000000149,
+      "feedbackElapsedMs": 35428.20000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 35615.20000000298,
+      "feedbackElapsedMs": 35619.900000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 35819,
+      "feedbackElapsedMs": 35830.20000000298
+    },
+    {
+      "kind": "shopOpen",
+      "elapsedMs": 36029.60000000149,
+      "feedbackElapsedMs": 36073.400000002235
+    },
+    {
+      "kind": "shopClose",
+      "elapsedMs": 39001.400000002235,
+      "feedbackElapsedMs": 39034.5
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 39201.10000000149,
+      "feedbackElapsedMs": 39211.900000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 39402.70000000298,
+      "feedbackElapsedMs": 39409.900000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 39611.20000000298,
+      "feedbackElapsedMs": 39619.20000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 39809.300000000745,
+      "feedbackElapsedMs": 39815.300000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 40027,
+      "feedbackElapsedMs": 40031.10000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 40218.60000000149,
+      "feedbackElapsedMs": 40224.60000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 40419,
+      "feedbackElapsedMs": 40425.5
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 40624.800000000745,
+      "feedbackElapsedMs": 40631.70000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 40817.300000000745,
+      "feedbackElapsedMs": 40821.5
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 41020.20000000298,
+      "feedbackElapsedMs": 41026.10000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 41219.900000002235,
+      "feedbackElapsedMs": 41228.5
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 41412,
+      "feedbackElapsedMs": 41418.10000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 41614.900000002235,
+      "feedbackElapsedMs": 41627.800000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 41820.400000002235,
+      "feedbackElapsedMs": 41829.300000000745
+    },
+    {
+      "kind": "zoom",
+      "elapsedMs": 42024.70000000298,
+      "feedbackElapsedMs": 42053
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 42217.5,
+      "feedbackElapsedMs": 42222.60000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 42413.60000000149,
+      "feedbackElapsedMs": 42417.900000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 42620.70000000298,
+      "feedbackElapsedMs": 42631.60000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 42820.800000000745,
+      "feedbackElapsedMs": 42829.60000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 43027.400000002235,
+      "feedbackElapsedMs": 43034.10000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 43219.300000000745,
+      "feedbackElapsedMs": 43224.900000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 43414.800000000745,
+      "feedbackElapsedMs": 43419.60000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 43614.5,
+      "feedbackElapsedMs": 43619.300000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 43821.70000000298,
+      "feedbackElapsedMs": 43836.70000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 44051.900000002235,
+      "feedbackElapsedMs": 44060
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 44201.10000000149,
+      "feedbackElapsedMs": 44213.300000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 44415.800000000745,
+      "feedbackElapsedMs": 44457.20000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 44617,
+      "feedbackElapsedMs": 44621.300000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 44822.300000000745,
+      "feedbackElapsedMs": 44833
+    },
+    {
+      "kind": "harvest",
+      "elapsedMs": 45029.20000000298,
+      "feedbackElapsedMs": 45090.20000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 45201.10000000149,
+      "feedbackElapsedMs": 45210.20000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 45401.300000000745,
+      "feedbackElapsedMs": 45409
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 45604.800000000745,
+      "feedbackElapsedMs": 45613.5
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 45816.10000000149,
+      "feedbackElapsedMs": 45825.10000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 46075.70000000298,
+      "feedbackElapsedMs": 46087
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 46204.900000002235,
+      "feedbackElapsedMs": 46224
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 46427.70000000298,
+      "feedbackElapsedMs": 46434.800000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 46700.800000000745,
+      "feedbackElapsedMs": 46710.300000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 46807.70000000298,
+      "feedbackElapsedMs": 46832.300000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 47051.5,
+      "feedbackElapsedMs": 47065.300000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 47201.10000000149,
+      "feedbackElapsedMs": 47212.400000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 47401.10000000149,
+      "feedbackElapsedMs": 47409
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 47619.20000000298,
+      "feedbackElapsedMs": 47628.20000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 47816.5,
+      "feedbackElapsedMs": 47824.800000000745
+    },
+    {
+      "kind": "layoutOpen",
+      "elapsedMs": 48051.300000000745,
+      "feedbackElapsedMs": 48112
+    },
+    {
+      "kind": "layoutClose",
+      "elapsedMs": 51001.400000002235,
+      "feedbackElapsedMs": 51048.20000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 51201.10000000149,
+      "feedbackElapsedMs": 51207.70000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 51412.5,
+      "feedbackElapsedMs": 51424.400000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 51625.60000000149,
+      "feedbackElapsedMs": 51631.800000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 51817.70000000298,
+      "feedbackElapsedMs": 51824
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 52031.900000002235,
+      "feedbackElapsedMs": 52037.10000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 52240.900000002235,
+      "feedbackElapsedMs": 52246
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 52401.10000000149,
+      "feedbackElapsedMs": 52408.800000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 52602.900000002235,
+      "feedbackElapsedMs": 52612.10000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 52825.400000002235,
+      "feedbackElapsedMs": 52832.300000000745
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 53039.10000000149,
+      "feedbackElapsedMs": 53044.5
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 53250.60000000149,
+      "feedbackElapsedMs": 53255.70000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 53401.10000000149,
+      "feedbackElapsedMs": 53416.900000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 53601.300000000745,
+      "feedbackElapsedMs": 53609.400000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 53825.70000000298,
+      "feedbackElapsedMs": 53833.300000000745
+    },
+    {
+      "kind": "zoom",
+      "elapsedMs": 54036.400000002235,
+      "feedbackElapsedMs": 54071.10000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 54235.5,
+      "feedbackElapsedMs": 54242
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 54428.60000000149,
+      "feedbackElapsedMs": 54436.70000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 54642.70000000298,
+      "feedbackElapsedMs": 54648.70000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 54801.20000000298,
+      "feedbackElapsedMs": 54810
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 55020.400000002235,
+      "feedbackElapsedMs": 55025.900000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 55219.400000002235,
+      "feedbackElapsedMs": 55226
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 55412.900000002235,
+      "feedbackElapsedMs": 55417.10000000149
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 55617,
+      "feedbackElapsedMs": 55622.900000002235
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 55814.20000000298,
+      "feedbackElapsedMs": 55819
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 56060.60000000149,
+      "feedbackElapsedMs": 56066
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 56201,
+      "feedbackElapsedMs": 56207.20000000298
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 56401.10000000149,
+      "feedbackElapsedMs": 56408.5
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 56602.300000000745,
+      "feedbackElapsedMs": 56610
+    },
+    {
+      "kind": "camera",
+      "elapsedMs": 56816.900000002235,
+      "feedbackElapsedMs": 56825.60000000149
+    },
+    {
+      "kind": "managementOpen",
+      "elapsedMs": 57048,
+      "feedbackElapsedMs": 57125.300000000745
+    },
+    {
+      "kind": "managementClose",
+      "elapsedMs": 60002.400000002235,
+      "feedbackElapsedMs": 60046.800000000745
+    }
+  ],
+  "actions": {
+    "camera": {
+      "attempted": 182,
+      "passed": 182,
+      "failed": 0
+    },
+    "shopOpen": {
+      "attempted": 2,
+      "passed": 2,
+      "failed": 0
+    },
+    "shopClose": {
+      "attempted": 2,
+      "passed": 2,
+      "failed": 0
+    },
+    "zoom": {
+      "attempted": 4,
+      "passed": 4,
+      "failed": 0
+    },
+    "harvest": {
+      "attempted": 2,
+      "passed": 2,
+      "failed": 0
+    },
+    "layoutOpen": {
+      "attempted": 2,
+      "passed": 2,
+      "failed": 0
+    },
+    "layoutClose": {
+      "attempted": 2,
+      "passed": 2,
+      "failed": 0
+    },
+    "managementOpen": {
+      "attempted": 3,
+      "passed": 3,
+      "failed": 0
+    },
+    "managementClose": {
+      "attempted": 3,
+      "passed": 3,
+      "failed": 0
+    }
+  },
+  "errors": [],
+  "heapSamples": [
+    {
+      "elapsedMs": 0.30000000074505806,
+      "bytes": 57602234
+    },
+    {
+      "elapsedMs": 1035.6000000014901,
+      "bytes": 62997333
+    },
+    {
+      "elapsedMs": 2047.5,
+      "bytes": 69089663
+    },
+    {
+      "elapsedMs": 3039.2000000029802,
+      "bytes": 65103378
+    },
+    {
+      "elapsedMs": 4005.300000000745,
+      "bytes": 71861457
+    },
+    {
+      "elapsedMs": 5001,
+      "bytes": 64507811
+    },
+    {
+      "elapsedMs": 6001.10000000149,
+      "bytes": 70804505
+    },
+    {
+      "elapsedMs": 7041.10000000149,
+      "bytes": 78739701
+    },
+    {
+      "elapsedMs": 8017.800000000745,
+      "bytes": 79033317
+    },
+    {
+      "elapsedMs": 9030.20000000298,
+      "bytes": 79627917
+    },
+    {
+      "elapsedMs": 10026.60000000149,
+      "bytes": 80399160
+    },
+    {
+      "elapsedMs": 11016.60000000149,
+      "bytes": 80938898
+    },
+    {
+      "elapsedMs": 12025.10000000149,
+      "bytes": 81546233
+    },
+    {
+      "elapsedMs": 13028.300000000745,
+      "bytes": 85731134
+    },
+    {
+      "elapsedMs": 14029.900000002235,
+      "bytes": 84690907
+    },
+    {
+      "elapsedMs": 15031.900000002235,
+      "bytes": 85302375
+    },
+    {
+      "elapsedMs": 16004.400000002235,
+      "bytes": 81011451
+    },
+    {
+      "elapsedMs": 17001.10000000149,
+      "bytes": 72650608
+    },
+    {
+      "elapsedMs": 18001.10000000149,
+      "bytes": 81044205
+    },
+    {
+      "elapsedMs": 19046.5,
+      "bytes": 74217884
+    },
+    {
+      "elapsedMs": 20024.60000000149,
+      "bytes": 75628057
+    },
+    {
+      "elapsedMs": 21033.900000002235,
+      "bytes": 76384889
+    },
+    {
+      "elapsedMs": 22036,
+      "bytes": 77122650
+    },
+    {
+      "elapsedMs": 23047.70000000298,
+      "bytes": 77640208
+    },
+    {
+      "elapsedMs": 24035.800000000745,
+      "bytes": 78193708
+    },
+    {
+      "elapsedMs": 25001,
+      "bytes": 70394185
+    },
+    {
+      "elapsedMs": 26001.10000000149,
+      "bytes": 63578829
+    },
+    {
+      "elapsedMs": 27001,
+      "bytes": 70539793
+    },
+    {
+      "elapsedMs": 28036.400000002235,
+      "bytes": 79030157
+    },
+    {
+      "elapsedMs": 29034.300000000745,
+      "bytes": 95397535
+    },
+    {
+      "elapsedMs": 30030.10000000149,
+      "bytes": 80562025
+    },
+    {
+      "elapsedMs": 31001.10000000149,
+      "bytes": 88035352
+    },
+    {
+      "elapsedMs": 32001,
+      "bytes": 65741310
+    },
+    {
+      "elapsedMs": 33001,
+      "bytes": 72776636
+    },
+    {
+      "elapsedMs": 34026.900000002235,
+      "bytes": 81248246
+    },
+    {
+      "elapsedMs": 35029,
+      "bytes": 97504255
+    },
+    {
+      "elapsedMs": 36029.300000000745,
+      "bytes": 82649357
+    },
+    {
+      "elapsedMs": 37001.10000000149,
+      "bytes": 89921464
+    },
+    {
+      "elapsedMs": 38001.10000000149,
+      "bytes": 67959632
+    },
+    {
+      "elapsedMs": 39001.10000000149,
+      "bytes": 75008028
+    },
+    {
+      "elapsedMs": 40026.800000000745,
+      "bytes": 83686389
+    },
+    {
+      "elapsedMs": 41020,
+      "bytes": 100047845
+    },
+    {
+      "elapsedMs": 42024.400000002235,
+      "bytes": 85211271
+    },
+    {
+      "elapsedMs": 43027.10000000149,
+      "bytes": 101860456
+    },
+    {
+      "elapsedMs": 44051.70000000298,
+      "bytes": 86826601
+    },
+    {
+      "elapsedMs": 45029,
+      "bytes": 91160896
+    },
+    {
+      "elapsedMs": 46075.5,
+      "bytes": 85380492
+    },
+    {
+      "elapsedMs": 47051.400000002235,
+      "bytes": 69234187
+    },
+    {
+      "elapsedMs": 48051.20000000298,
+      "bytes": 68805265
+    },
+    {
+      "elapsedMs": 49013,
+      "bytes": 80831367
+    },
+    {
+      "elapsedMs": 50001,
+      "bytes": 89944638
+    },
+    {
+      "elapsedMs": 51001.20000000298,
+      "bytes": 65634169
+    },
+    {
+      "elapsedMs": 52031.70000000298,
+      "bytes": 82832298
+    },
+    {
+      "elapsedMs": 53038.900000002235,
+      "bytes": 83968273
+    },
+    {
+      "elapsedMs": 54036.300000000745,
+      "bytes": 84457282
+    },
+    {
+      "elapsedMs": 55020.20000000298,
+      "bytes": 85099919
+    },
+    {
+      "elapsedMs": 56060.400000002235,
+      "bytes": 102508653
+    },
+    {
+      "elapsedMs": 57047.800000000745,
+      "bytes": 103021593
+    },
+    {
+      "elapsedMs": 58001.10000000149,
+      "bytes": 78030179
+    },
+    {
+      "elapsedMs": 59001.10000000149,
+      "bytes": 85711616
+    },
+    {
+      "elapsedMs": 60001.300000000745,
+      "bytes": 93413861
+    },
+    {
+      "elapsedMs": 60047.20000000298,
+      "bytes": 93413861
+    }
+  ],
+  "heapFinalMinuteMin": 57602234,
+  "metadata": {
+    "schemaVersion": 3,
+    "qaMaturity": false,
+    "allowedStorageKeys": [
+      "farm-perf-qa:a",
+      "farm-perf-qa:b",
+      "farm-perf-qa:active",
+      "farm-perf-qa:draft"
+    ],
+    "warmupMs": 1000,
+    "timerPairUs": 0.4369999999925494,
+    "sourceHashes": {
+      "farm-scene-host.mjs": "4c8974657f757802d9458508c127ad61495a659a913a4e213b891635908281bb",
+      "farm-scene-world.mjs": "20172f5b11e371afdfaf7db9e8c7a59ec0766de3612a07f36c316068e6796e1c",
+      "farm-save.mjs": "4a6f9c514703ed6f09a6d0a2cf4a47dc31be0a5f8c6ee31f2a0084fef6f16368",
+      "farm-dom-patch.mjs": "c1606ade750e11d806cf0b4ec84e6c946e398060e36fd9d729f708a08ad25acf",
+      "farm-animal-animation.mjs": "e9113c6bfcf6d859bbf6af79dbe2fae7c608f2bb9267354b095bb6ebb5430404",
+      "farm-scene-management.mjs": "4caf41b4b9424ee9b5990647e889751aa877b76d7a04f6a10e092f23162a50f5",
+      "farm-delight.mjs": "09e442cc8deaf591fc5e2a9df052e95d71d967c85032d22ea186c9cec0af44c2",
+      "farm-layout.mjs": "289744ba157aa7783d87066bc5dbbcdb0602332c494da64b57a8bbcb3481f3cc",
+      "farm-scene-world.css": "7d8b0cc58e0303e5fcc1956e7ef14c15cc6c638550394a1f7695ab9df91c1adb"
+    },
+    "moduleBase": "http://127.0.0.1:46280/farm-performance-v12-phase-diagnostic/sheep-match/",
+    "storageMode": "localStorage",
+    "storageNamespace": "farm-perf-qa",
+    "longTasksSupported": true,
+    "heapSupported": true,
+    "heapInterpretation": "Observed used JS heap, sampled each second; final-minute minimum is not forced-GC retained memory.",
+    "interactionInterpretation": "Synthetic key/click to next rAF, not hardware input latency or INP.",
+    "mutationInterpretation": "Direct child-list mutations, not a visual flicker detector.",
+    "fixture": "maxPensFixture: 12 pens, 63 animals, 273 initial entities",
+    "devicePixelRatio": 1,
+    "visibility": "visible",
+    "priorErrors": []
+  }
+}

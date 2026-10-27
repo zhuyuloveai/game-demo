@@ -1,0 +1,197 @@
+{
+  "build": "before",
+  "stage": "3",
+  "mode": "mixed",
+  "seconds": 60,
+  "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "hardwareConcurrency": 9,
+  "viewport": [
+    1180,
+    757
+  ],
+  "rAF": {
+    "n": 68,
+    "p50": 1516.4,
+    "p95": 1932.9,
+    "p99": 2466.1,
+    "max": 2466.1
+  },
+  "rAFFirst2Min": {
+    "n": 68,
+    "p50": 1516.4,
+    "p95": 1932.9,
+    "p99": 2466.1,
+    "max": 2466.1
+  },
+  "rAFLast2Min": {
+    "n": 68,
+    "p50": 1516.4,
+    "p95": 1932.9,
+    "p99": 2466.1,
+    "max": 2466.1
+  },
+  "interactionToNextFrame": {
+    "n": 16,
+    "p50": 1544.8,
+    "p95": 1888.2,
+    "p99": 1888.2,
+    "max": 1888.2
+  },
+  "over25": 0.6470588235294118,
+  "longTasks": {
+    "n": 64,
+    "p50": 1425,
+    "p95": 1852,
+    "p99": 2328,
+    "max": 2328
+  },
+  "tick": {
+    "n": 34,
+    "p50": 1528.5,
+    "p95": 1964.9,
+    "p99": 2328.1,
+    "max": 2328.1
+  },
+  "added": 28492,
+  "removed": 10435,
+  "worldRebuilds": 37,
+  "forestRebuilds": 37,
+  "getStateCloneCount": 121655,
+  "getStateCloneMs": 51931.2,
+  "storageReads": 216,
+  "storageWrites": 72,
+  "domStart": 2394,
+  "domEnd": 2394,
+  "sameFirstEntity": false,
+  "heapStart": 29859940,
+  "heapEnd": 46210670,
+  "elapsed": 63018.40000000037,
+  "actions": {
+    "camera": {
+      "attempted": 14,
+      "passed": 14,
+      "failed": 0
+    },
+    "shopOpen": {
+      "attempted": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    "shopClose": {
+      "attempted": 1,
+      "passed": 1,
+      "failed": 0
+    }
+  },
+  "errors": [],
+  "heapSamples": [
+    {
+      "elapsedMs": 0.30000000074505806,
+      "bytes": 29859940
+    },
+    {
+      "elapsedMs": 4807.300000000745,
+      "bytes": 38910772
+    },
+    {
+      "elapsedMs": 6883.199999999255,
+      "bytes": 43372302
+    },
+    {
+      "elapsedMs": 8543.400000000373,
+      "bytes": 46229672
+    },
+    {
+      "elapsedMs": 11888.800000000745,
+      "bytes": 37880905
+    },
+    {
+      "elapsedMs": 13665.300000000745,
+      "bytes": 35443663
+    },
+    {
+      "elapsedMs": 17195.599999999627,
+      "bytes": 55603749
+    },
+    {
+      "elapsedMs": 20274.300000000745,
+      "bytes": 46164053
+    },
+    {
+      "elapsedMs": 23351.300000000745,
+      "bytes": 39019260
+    },
+    {
+      "elapsedMs": 26706.900000000373,
+      "bytes": 37864446
+    },
+    {
+      "elapsedMs": 29910.199999999255,
+      "bytes": 63640740
+    },
+    {
+      "elapsedMs": 31620.699999999255,
+      "bytes": 41868697
+    },
+    {
+      "elapsedMs": 34763.40000000037,
+      "bytes": 57471293
+    },
+    {
+      "elapsedMs": 36460.300000000745,
+      "bytes": 36267775
+    },
+    {
+      "elapsedMs": 39577.300000000745,
+      "bytes": 59561905
+    },
+    {
+      "elapsedMs": 43042.09999999963,
+      "bytes": 49115839
+    },
+    {
+      "elapsedMs": 46882.199999999255,
+      "bytes": 38363549
+    },
+    {
+      "elapsedMs": 48711.5,
+      "bytes": 30357091
+    },
+    {
+      "elapsedMs": 52098.5,
+      "bytes": 54021741
+    },
+    {
+      "elapsedMs": 55120.09999999963,
+      "bytes": 43506875
+    },
+    {
+      "elapsedMs": 58201,
+      "bytes": 65691964
+    },
+    {
+      "elapsedMs": 61392.09999999963,
+      "bytes": 52644674
+    },
+    {
+      "elapsedMs": 63017.300000000745,
+      "bytes": 46210670
+    }
+  ],
+  "heapFinalMinuteMin": 29859940,
+  "metadata": {
+    "schemaVersion": 2,
+    "moduleBase": "http://127.0.0.1:46280/game-demo-performance-before/sheep-match/",
+    "storageMode": "localStorage",
+    "storageNamespace": "farm-perf-qa",
+    "longTasksSupported": true,
+    "heapSupported": true,
+    "heapInterpretation": "Observed used JS heap, sampled each second; final-minute minimum is not forced-GC retained memory.",
+    "interactionInterpretation": "Synthetic key/click to next rAF, not hardware input latency or INP.",
+    "mutationInterpretation": "Direct child-list mutations, not a visual flicker detector.",
+    "fixture": "growthFixture or penArtFixture full; real durable store, 1 Hz tick",
+    "devicePixelRatio": 1,
+    "visibility": "visible",
+    "priorErrors": []
+  }
+}

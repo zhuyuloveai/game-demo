@@ -1,0 +1,588 @@
+{
+  "build": "candidate-v5",
+  "stage": "max",
+  "mode": "stress",
+  "seconds": 60,
+  "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "hardwareConcurrency": 9,
+  "viewport": [
+    1180,
+    757
+  ],
+  "rAF": {
+    "n": 3195,
+    "p50": 16.7,
+    "p95": 33.3,
+    "p99": 66.6,
+    "max": 350
+  },
+  "rAFFirst2Min": {
+    "n": 3195,
+    "p50": 16.7,
+    "p95": 33.3,
+    "p99": 66.6,
+    "max": 350
+  },
+  "rAFLast2Min": {
+    "n": 3195,
+    "p50": 16.7,
+    "p95": 33.3,
+    "p99": 66.6,
+    "max": 350
+  },
+  "interactionToNextFrame": {
+    "n": 201,
+    "p50": 9,
+    "p95": 58.1,
+    "p99": 123,
+    "max": 328
+  },
+  "over25": 0.06791862284820031,
+  "longTasks": {
+    "n": 40,
+    "p50": 68,
+    "p95": 191,
+    "p99": 219,
+    "max": 219
+  },
+  "longTaskTimeline": [
+    {
+      "elapsedMs": 12005.199999999255,
+      "duration": 87
+    },
+    {
+      "elapsedMs": 14937.39999999851,
+      "duration": 61
+    },
+    {
+      "elapsedMs": 15048.099999999627,
+      "duration": 219
+    },
+    {
+      "elapsedMs": 15267.199999999255,
+      "duration": 138
+    },
+    {
+      "elapsedMs": 15503.5,
+      "duration": 80
+    },
+    {
+      "elapsedMs": 16503.89999999851,
+      "duration": 78
+    },
+    {
+      "elapsedMs": 17505.799999998882,
+      "duration": 62
+    },
+    {
+      "elapsedMs": 18200.39999999851,
+      "duration": 191
+    },
+    {
+      "elapsedMs": 18391.39999999851,
+      "duration": 155
+    },
+    {
+      "elapsedMs": 18589.89999999851,
+      "duration": 72
+    },
+    {
+      "elapsedMs": 24226.5,
+      "duration": 59
+    },
+    {
+      "elapsedMs": 24327.599999999627,
+      "duration": 70
+    },
+    {
+      "elapsedMs": 27272,
+      "duration": 50
+    },
+    {
+      "elapsedMs": 33585.79999999888,
+      "duration": 52
+    },
+    {
+      "elapsedMs": 39274.79999999888,
+      "duration": 70
+    },
+    {
+      "elapsedMs": 45213.39999999851,
+      "duration": 89
+    },
+    {
+      "elapsedMs": 48217.199999999255,
+      "duration": 67
+    },
+    {
+      "elapsedMs": 51201,
+      "duration": 71
+    },
+    {
+      "elapsedMs": 51272.09999999963,
+      "duration": 65
+    },
+    {
+      "elapsedMs": 52468.39999999851,
+      "duration": 73
+    },
+    {
+      "elapsedMs": 52572.59999999963,
+      "duration": 80
+    },
+    {
+      "elapsedMs": 52831.89999999851,
+      "duration": 56
+    },
+    {
+      "elapsedMs": 53180,
+      "duration": 81
+    },
+    {
+      "elapsedMs": 53423.39999999851,
+      "duration": 57
+    },
+    {
+      "elapsedMs": 53503.5,
+      "duration": 68
+    },
+    {
+      "elapsedMs": 53572.09999999963,
+      "duration": 81
+    },
+    {
+      "elapsedMs": 53654.89999999851,
+      "duration": 52
+    },
+    {
+      "elapsedMs": 54230.699999999255,
+      "duration": 51
+    },
+    {
+      "elapsedMs": 54282.59999999963,
+      "duration": 50
+    },
+    {
+      "elapsedMs": 54530.59999999963,
+      "duration": 52
+    },
+    {
+      "elapsedMs": 54607.29999999888,
+      "duration": 52
+    },
+    {
+      "elapsedMs": 54661.59999999963,
+      "duration": 70
+    },
+    {
+      "elapsedMs": 54871.59999999963,
+      "duration": 50
+    },
+    {
+      "elapsedMs": 55421.39999999851,
+      "duration": 50
+    },
+    {
+      "elapsedMs": 55616.79999999888,
+      "duration": 57
+    },
+    {
+      "elapsedMs": 55677.39999999851,
+      "duration": 66
+    },
+    {
+      "elapsedMs": 55803.79999999888,
+      "duration": 50
+    },
+    {
+      "elapsedMs": 55981.199999999255,
+      "duration": 66
+    },
+    {
+      "elapsedMs": 56085.29999999888,
+      "duration": 69
+    },
+    {
+      "elapsedMs": 57212.89999999851,
+      "duration": 70
+    }
+  ],
+  "longTasksPerMinute": [
+    40
+  ],
+  "tick": {
+    "n": 60,
+    "p50": 18.4,
+    "p95": 78.4,
+    "p99": 80.2,
+    "max": 80.2
+  },
+  "added": 178,
+  "removed": 212,
+  "worldRebuilds": 48,
+  "forestRebuilds": 35,
+  "managementPaints": 3,
+  "getStateCloneCount": 0,
+  "getStateCloneMs": 0,
+  "storageReads": 1296,
+  "storageWrites": 432,
+  "domStart": 3229,
+  "domEnd": 3314,
+  "sameFirstEntity": true,
+  "heapStart": 84909001,
+  "heapEnd": 40848331,
+  "elapsed": 60023.89999999851,
+  "profile": {
+    "world.map.build": {
+      "n": 8,
+      "p50": 15.6,
+      "p95": 62.6,
+      "p99": 62.6,
+      "max": 62.6
+    },
+    "world.map.patch": {
+      "n": 8,
+      "p50": 18.8,
+      "p95": 61.4,
+      "p99": 61.4,
+      "max": 61.4
+    },
+    "world.forest.build": {
+      "n": 8,
+      "p50": 26.2,
+      "p95": 79.8,
+      "p99": 79.8,
+      "max": 79.8
+    },
+    "world.forest.patch": {
+      "n": 8,
+      "p50": 0.3,
+      "p95": 4.4,
+      "p99": 4.4,
+      "max": 4.4
+    }
+  },
+  "actions": {
+    "camera": {
+      "attempted": 182,
+      "passed": 182,
+      "failed": 0
+    },
+    "shopOpen": {
+      "attempted": 2,
+      "passed": 2,
+      "failed": 0
+    },
+    "shopClose": {
+      "attempted": 2,
+      "passed": 2,
+      "failed": 0
+    },
+    "zoom": {
+      "attempted": 4,
+      "passed": 4,
+      "failed": 0
+    },
+    "harvest": {
+      "attempted": 2,
+      "passed": 2,
+      "failed": 0
+    },
+    "layoutOpen": {
+      "attempted": 2,
+      "passed": 2,
+      "failed": 0
+    },
+    "layoutClose": {
+      "attempted": 2,
+      "passed": 2,
+      "failed": 0
+    },
+    "managementOpen": {
+      "attempted": 3,
+      "passed": 3,
+      "failed": 0
+    },
+    "managementClose": {
+      "attempted": 2,
+      "passed": 2,
+      "failed": 0
+    }
+  },
+  "errors": [],
+  "heapSamples": [
+    {
+      "elapsedMs": 0.2999999988824129,
+      "bytes": 84909001
+    },
+    {
+      "elapsedMs": 1020.1999999992549,
+      "bytes": 58809364
+    },
+    {
+      "elapsedMs": 2031.2999999988824,
+      "bytes": 60282908
+    },
+    {
+      "elapsedMs": 3017.7999999988824,
+      "bytes": 73061946
+    },
+    {
+      "elapsedMs": 4000.5999999996275,
+      "bytes": 49904839
+    },
+    {
+      "elapsedMs": 5000.5999999996275,
+      "bytes": 56950145
+    },
+    {
+      "elapsedMs": 6000.5,
+      "bytes": 63893079
+    },
+    {
+      "elapsedMs": 7007,
+      "bytes": 73715963
+    },
+    {
+      "elapsedMs": 8012.299999998882,
+      "bytes": 59323259
+    },
+    {
+      "elapsedMs": 9012.89999999851,
+      "bytes": 74724101
+    },
+    {
+      "elapsedMs": 10008.199999999255,
+      "bytes": 52367434
+    },
+    {
+      "elapsedMs": 11004.699999999255,
+      "bytes": 68604624
+    },
+    {
+      "elapsedMs": 12005.099999999627,
+      "bytes": 53463030
+    },
+    {
+      "elapsedMs": 13017.599999999627,
+      "bytes": 43194868
+    },
+    {
+      "elapsedMs": 14015.799999998882,
+      "bytes": 59195407
+    },
+    {
+      "elapsedMs": 15047.89999999851,
+      "bytes": 59494663
+    },
+    {
+      "elapsedMs": 16000.699999999255,
+      "bytes": 48812951
+    },
+    {
+      "elapsedMs": 17000.599999999627,
+      "bytes": 58882318
+    },
+    {
+      "elapsedMs": 18000.799999998882,
+      "bytes": 39968349
+    },
+    {
+      "elapsedMs": 19029.699999999255,
+      "bytes": 66114760
+    },
+    {
+      "elapsedMs": 20038.39999999851,
+      "bytes": 62417533
+    },
+    {
+      "elapsedMs": 21017.599999999627,
+      "bytes": 77841060
+    },
+    {
+      "elapsedMs": 22017.599999999627,
+      "bytes": 53861459
+    },
+    {
+      "elapsedMs": 23016.699999999255,
+      "bytes": 70940662
+    },
+    {
+      "elapsedMs": 24025.199999999255,
+      "bytes": 55163865
+    },
+    {
+      "elapsedMs": 25000.799999998882,
+      "bytes": 71606457
+    },
+    {
+      "elapsedMs": 26000.799999998882,
+      "bytes": 47041070
+    },
+    {
+      "elapsedMs": 27000.699999999255,
+      "bytes": 54746203
+    },
+    {
+      "elapsedMs": 28018,
+      "bytes": 55806284
+    },
+    {
+      "elapsedMs": 29010.89999999851,
+      "bytes": 71582342
+    },
+    {
+      "elapsedMs": 30016.299999998882,
+      "bytes": 56498401
+    },
+    {
+      "elapsedMs": 31000.699999999255,
+      "bytes": 72170354
+    },
+    {
+      "elapsedMs": 32000.799999998882,
+      "bytes": 48889269
+    },
+    {
+      "elapsedMs": 33003.199999999255,
+      "bytes": 56082588
+    },
+    {
+      "elapsedMs": 34000.699999999255,
+      "bytes": 42353600
+    },
+    {
+      "elapsedMs": 35019.29999999888,
+      "bytes": 62832161
+    },
+    {
+      "elapsedMs": 36019,
+      "bytes": 47745306
+    },
+    {
+      "elapsedMs": 37000.699999999255,
+      "bytes": 63337109
+    },
+    {
+      "elapsedMs": 38000.699999999255,
+      "bytes": 40106452
+    },
+    {
+      "elapsedMs": 39000.59999999963,
+      "bytes": 47543615
+    },
+    {
+      "elapsedMs": 40027.5,
+      "bytes": 68377623
+    },
+    {
+      "elapsedMs": 41012,
+      "bytes": 69286223
+    },
+    {
+      "elapsedMs": 42027.09999999963,
+      "bytes": 53980140
+    },
+    {
+      "elapsedMs": 43014.39999999851,
+      "bytes": 61002303
+    },
+    {
+      "elapsedMs": 44016.39999999851,
+      "bytes": 46877956
+    },
+    {
+      "elapsedMs": 45018.09999999963,
+      "bytes": 63674932
+    },
+    {
+      "elapsedMs": 46024.89999999851,
+      "bytes": 57932489
+    },
+    {
+      "elapsedMs": 47018.59999999963,
+      "bytes": 74669797
+    },
+    {
+      "elapsedMs": 48008.699999999255,
+      "bytes": 61667866
+    },
+    {
+      "elapsedMs": 49000.59999999963,
+      "bytes": 52532472
+    },
+    {
+      "elapsedMs": 50001,
+      "bytes": 61059023
+    },
+    {
+      "elapsedMs": 51000.59999999963,
+      "bytes": 38728946
+    },
+    {
+      "elapsedMs": 52000.59999999963,
+      "bytes": 61684405
+    },
+    {
+      "elapsedMs": 53002.29999999888,
+      "bytes": 47595124
+    },
+    {
+      "elapsedMs": 54034.39999999851,
+      "bytes": 64500581
+    },
+    {
+      "elapsedMs": 55008.09999999963,
+      "bytes": 56869628
+    },
+    {
+      "elapsedMs": 56080.09999999963,
+      "bytes": 57246154
+    },
+    {
+      "elapsedMs": 57006.39999999851,
+      "bytes": 40560552
+    },
+    {
+      "elapsedMs": 58000.59999999963,
+      "bytes": 57274131
+    },
+    {
+      "elapsedMs": 59000.59999999963,
+      "bytes": 65127427
+    },
+    {
+      "elapsedMs": 60000.59999999963,
+      "bytes": 40848331
+    },
+    {
+      "elapsedMs": 60016.199999999255,
+      "bytes": 40848331
+    }
+  ],
+  "heapFinalMinuteMin": 38728946,
+  "metadata": {
+    "schemaVersion": 2,
+    "timerPairUs": 0.3830000000074506,
+    "sourceHashes": {
+      "farm-scene-host.mjs": "4c8974657f757802d9458508c127ad61495a659a913a4e213b891635908281bb",
+      "farm-scene-world.mjs": "758cdb049413767fa3133c06e5ffd53bbfc7e05e593b079780bd4fccd4d9d646",
+      "farm-save.mjs": "f808f31ba9874123c6770d0b46ad87c63bf8422ce09f9b4a7f8cdba9f95d60d7",
+      "farm-dom-patch.mjs": "c1606ade750e11d806cf0b4ec84e6c946e398060e36fd9d729f708a08ad25acf",
+      "farm-animal-animation.mjs": "1ac1621ba5c9e2b3e5a0518f6e5b4435e57479c153537d393baae5d6f93aa0d5",
+      "farm-scene-management.mjs": "4caf41b4b9424ee9b5990647e889751aa877b76d7a04f6a10e092f23162a50f5"
+    },
+    "moduleBase": "http://127.0.0.1:46280/farm-performance-candidate-v5/sheep-match/",
+    "storageMode": "localStorage",
+    "storageNamespace": "farm-perf-qa",
+    "longTasksSupported": true,
+    "heapSupported": true,
+    "heapInterpretation": "Observed used JS heap, sampled each second; final-minute minimum is not forced-GC retained memory.",
+    "interactionInterpretation": "Synthetic key/click to next rAF, not hardware input latency or INP.",
+    "mutationInterpretation": "Direct child-list mutations, not a visual flicker detector.",
+    "fixture": "maxPensFixture: 12 pens, 63 animals, 273 initial entities",
+    "devicePixelRatio": 1,
+    "visibility": "visible",
+    "priorErrors": []
+  }
+}

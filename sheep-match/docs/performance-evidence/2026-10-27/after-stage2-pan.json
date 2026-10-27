@@ -1,0 +1,69 @@
+{
+  "build": "after",
+  "stage": "2",
+  "mode": "pan",
+  "seconds": 60,
+  "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "hardwareConcurrency": 9,
+  "viewport": [
+    1180,
+    757
+  ],
+  "rAF": {
+    "n": 3589,
+    "p50": 16.7,
+    "p95": 16.7,
+    "p99": 16.8,
+    "max": 50.1
+  },
+  "rAFFirst2Min": {
+    "n": 3589,
+    "p50": 16.7,
+    "p95": 16.7,
+    "p99": 16.8,
+    "max": 50.1
+  },
+  "rAFLast2Min": {
+    "n": 3589,
+    "p50": 16.7,
+    "p95": 16.7,
+    "p99": 16.8,
+    "max": 50.1
+  },
+  "interactionToNextFrame": {
+    "n": 299,
+    "p50": 10.3,
+    "p95": 15.3,
+    "p99": 16.5,
+    "max": 16.9
+  },
+  "over25": 0.0030649205906937865,
+  "longTasks": {
+    "n": 0,
+    "p50": 0,
+    "p95": 0,
+    "p99": 0,
+    "max": 0
+  },
+  "tick": {
+    "n": 60,
+    "p50": 14.4,
+    "p95": 18.5,
+    "p99": 19.1,
+    "max": 19.1
+  },
+  "added": 0,
+  "removed": 0,
+  "worldRebuilds": 0,
+  "forestRebuilds": 0,
+  "getStateCloneCount": 0,
+  "getStateCloneMs": 0,
+  "storageReads": 2142,
+  "storageWrites": 714,
+  "domStart": 1573,
+  "domEnd": 1573,
+  "sameFirstEntity": true,
+  "heapStart": 52884585,
+  "heapEnd": 35736548,
+  "elapsed": 60019.300000000745
+}

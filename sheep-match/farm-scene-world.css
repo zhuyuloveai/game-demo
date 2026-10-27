@@ -175,3 +175,6 @@ html.fw-document,html.fw-document>body{overflow:clip;overscroll-behavior:none}
 @keyframes fw-forest-retreat{to{opacity:0;translate:0 -9px}}
 .fw-game[data-reduced-motion="true"] .fw-forest-retreat{display:none}
 @media(prefers-reduced-motion:reduce){.fw-forest-retreat{display:none}}
+
+/* Untouched layout mode retains normal nodes; hide affordances without rebuilding sprites. */
+.fw-layout-fast .fw-badge,.fw-layout-fast .fw-pen-summary,.fw-layout-fast .fw-pen-label,.fw-layout-fast .fw-animal-state{display:none!important}

@@ -1,0 +1,127 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Farm performance laboratory (test fixture)</title>
+<style>
+body{margin:0;font:12px system-ui;height:100vh;display:flex;flex-direction:column}header{padding:4px;background:#fffcdf;z-index:5000}#farm{flex:1;min-height:0;position:relative}#report{position:fixed;right:0;bottom:0;max-width:700px;max-height:45vh;overflow:auto;background:#ffffffe8;font:11px monospace;z-index:9999;white-space:pre-wrap}button{padding:5px;margin:2px}
+</style>
+<header id="toolbar">Loading</header><div id="farm"></div><pre id="report"></pre>
+<script type="module">
+// Serve the workspace root to compare worktrees. Default uses this checkout.
+// ?base=../../../game-demo-performance-before/sheep-match/&build=before
+// ?storage=localStorage uses ONLY the disposable farm-perf-qa:* namespace.
+const params=new URLSearchParams(location.search),build=params.get('build')||'current';
+const relativeBase=params.get('base')||'../';
+if(/^(?:[a-z][a-z\d+.-]*:|\/|\\)/i.test(relativeBase))throw new Error('base must be a relative module directory');
+const base=new URL(relativeBase.endsWith('/')?relativeBase:relativeBase+'/',location.href);
+if(base.origin!==location.origin)throw new Error('base must remain same-origin');
+const sourceHashes=Object.fromEntries(await Promise.all(['farm-scene-host.mjs','farm-scene-world.mjs','farm-save.mjs','farm-dom-patch.mjs','farm-animal-animation.mjs','farm-scene-management.mjs','farm-delight.mjs','farm-layout.mjs','farm-scene-world.css'].map(async file=>{try{const response=await fetch(new URL(file,base),{cache:'reload'});if(!response.ok)return[file,'HTTP '+response.status];const digest=await crypto.subtle.digest('SHA-256',await response.arrayBuffer());return[file,[...new Uint8Array(digest)].map(v=>v.toString(16).padStart(2,'0')).join('')];}catch(error){return[file,'UNAVAILABLE '+error.message];}})));
+const storageMode=params.get('storage')==='localStorage'?'localStorage':'Map';
+const KEY='farm-perf-qa',ALLOWED=new Set([KEY+':a',KEY+':b',KEY+':active',KEY+':draft']);
+for(const css of ['farm-scene-host.css','farm-scene-world.css','farm-scene-management.css','farm-scene-trade.css','farm-delight.css']){
+ const link=document.createElement('link');link.rel='stylesheet';link.href=new URL(css,base);document.head.append(link);
+}
+const currentFixtures=await import('./farm-growth-fixtures.mjs');
+const {mountFarm}=await import(new URL('farm-scene-host.mjs',base)),save=await import(new URL('farm-save.mjs',base)),fixtures=await import(new URL('tests/farm-growth-fixtures.mjs',base));
+let host,store,timer,run=null,stage=1,readCount=0,writeCount=0,cloneCount=0,cloneMs=0;
+const calibrationStart=performance.now();let calibrationSum=0;for(let i=0;i<100000;i++){const t=performance.now();calibrationSum+=performance.now()-t;}const timerPairUs=(performance.now()-calibrationStart)*1000/100000;
+const samples=[],errors=[],root=document.querySelector('#farm'),report=document.querySelector('#report'),toolbar=document.querySelector('#toolbar');
+save.setDiagnosticProfile?.(sample=>{if(run)(run.profile[sample.name]??=[]).push(sample.duration);});
+function recordError(error){const item={at:performance.now(),message:String(error?.stack||error)};errors.push(item);if(run)run.errors.push(item);else report.textContent+='\nERROR '+item.message;}
+window.addEventListener('error',e=>recordError(e.error||e.message));
+window.addEventListener('unhandledrejection',e=>recordError(e.reason));
+const quant=(a,p)=>{if(!a.length)return 0;const sorted=[...a].sort((a,b)=>a-b);return +sorted[Math.min(sorted.length-1,Math.floor(p*sorted.length))].toFixed(2)};
+const stats=a=>({n:a.length,p50:quant(a,.5),p95:quant(a,.95),p99:quant(a,.99),max:+a.reduce((m,v)=>Math.max(m,v),0).toFixed(2)});
+function mount(n){
+ host?.destroy();store?.close();clearInterval(timer);stage=n;
+ const s=n==='max'?currentFixtures.maxPensFixture():n==='pens'?fixtures.penArtFixture('full'):fixtures.growthFixture(Number(n));
+ if(params.get('qaMaturity')==='1'){const field=s.entities.find(e=>e.kind==='field'&&e.crop);if(field){const duration=field.crop.readyAt-field.crop.plantedAt;field.crop.readyAt=s.now+15000;field.crop.plantedAt=field.crop.readyAt-duration;}}
+ const data=storageMode==='localStorage'?localStorage:new Map(),clockStart=performance.now(),logical=s.now;
+ const assertKey=k=>{if(!ALLOWED.has(k))throw new Error('QA storage refused non-test key: '+k);};
+ const storage={
+  getItem(k){assertKey(k);readCount++;return storageMode==='localStorage'?data.getItem(k):data.get(k)??null;},
+  setItem(k,v){assertKey(k);writeCount++;if(storageMode==='localStorage')data.setItem(k,v);else data.set(k,v);},
+  removeItem(k){assertKey(k);if(storageMode==='localStorage')data.removeItem(k);else data.delete(k);}
+ };
+ // Reset only our four explicit disposable slots, never clear origin storage.
+ for(const key of ALLOWED)storage.removeItem(key);
+ storage.setItem(KEY+':a',JSON.stringify(save.makeEnvelope(s,{savedAtWallMs:logical,saveId:KEY,commitId:'baseline'})));
+ storage.setItem(KEY+':active','a');
+ store=save.createFarmStore({storage,key:KEY,locks:null,now:()=>logical+performance.now()-clockStart,monotonicNow:()=>performance.now(),onListenerError:recordError});
+ const original=store.getState;store.getState=()=>{const start=performance.now(),result=original();cloneCount++;cloneMs+=performance.now()-start;return result;};
+ host=mountFarm({root,store,onExit:()=>{},profile:sample=>{if(run)(run.profile[sample.name]??=[]).push(sample.duration);}});
+ timer=setInterval(()=>{const start=performance.now(),result=store.dispatch({type:'tick'});if(run)run.tick.push(performance.now()-start);if(!result.ok)recordError('tick failed: '+JSON.stringify(result.error));},1000);
+}
+new MutationObserver(records=>{if(!run)return;for(const r of records){if(r.type==='childList'){run.added+=r.addedNodes.length;run.removed+=r.removedNodes.length;if(r.target.classList?.contains('fw-world'))run.worldRebuilds++;if(r.target.classList?.contains('fw-forest'))run.forestRebuilds++;if([...r.addedNodes].some(n=>n.classList?.contains('mg-root')))run.managementPaints++;}}}).observe(root,{subtree:true,childList:true});
+let longTasksSupported=false;
+try{new PerformanceObserver(list=>{if(run)for(const e of list.getEntries()){run.long.push(e.duration);run.longTimes.push({elapsedMs:e.startTime-run.started,duration:e.duration});}}).observe({type:'longtask',buffered:false});longTasksSupported=true;}catch{}
+let last=0;
+function frame(t){if(run&&last){run.frames.push(t-last);run.times.push([t,t-last]);}last=t;requestAnimationFrame(frame);}
+requestAnimationFrame(frame);
+function start(seconds=60,mode='idle'){
+ if(run)return;
+ readCount=writeCount=cloneCount=cloneMs=0;
+ const r=run={build,stage,mode,seconds,startedUtc:new Date().toISOString(),started:performance.now(),profile:{},frames:[],times:[],tick:[],long:[],longTimes:[],added:0,removed:0,worldRebuilds:0,forestRebuilds:0,managementPaints:0,heapStart:performance.memory?.usedJSHeapSize??null,domStart:root.querySelectorAll('*').length,interactions:[],actionTimeline:[],heapSamples:[],workloadSamples:[],errors:[],actions:{camera:{attempted:0,passed:0,failed:0},shopOpen:{attempted:0,passed:0,failed:0},shopClose:{attempted:0,passed:0,failed:0},zoom:{attempted:0,passed:0,failed:0},harvest:{attempted:0,passed:0,failed:0},layoutOpen:{attempted:0,passed:0,failed:0},layoutClose:{attempted:0,passed:0,failed:0},managementOpen:{attempted:0,passed:0,failed:0},managementClose:{attempted:0,passed:0,failed:0}}};
+ last=0;report.textContent='RUNNING '+JSON.stringify({build,stage,seconds,mode,storageMode});
+ const originalNode=root.querySelector('[data-entity]');
+ const sampleHeap=()=>{const elapsedMs=performance.now()-r.started,bytes=performance.memory?.usedJSHeapSize;if(bytes!==undefined)r.heapSamples.push({elapsedMs,bytes});
+  const minute=Math.floor(elapsedMs/60000);if(r.workloadSamples.at(-1)?.minute!==minute){const world=root.querySelector('.fw-world');r.workloadSamples.push({minute,elapsedMs,entities:root.querySelectorAll('[data-entity]').length,animals:root.querySelectorAll('[data-animal]').length,hungryAnimals:root.querySelectorAll('[data-animal][aria-label*="饿了"]').length,readyAnimals:root.querySelectorAll('[data-animal][aria-label*="产物待收"]').length,producingAnimals:[...root.querySelectorAll('[data-animal]')].filter(el=>!/(饿了|产物待收)/.test(el.getAttribute('aria-label')||'')).length,readyEntities:root.querySelectorAll('[data-entity][data-fw-ready="true"]').length,mountedForest:root.querySelectorAll('.fw-forest-sprite').length,runningAnimalSprites:root.querySelectorAll('[data-fw-frame-running="true"]').length,idleMotionNodes:root.querySelectorAll('[data-delight-idle]').length,cameraTransform:world?.style.transform||null,inEdit:!!world?.classList.contains('fw-layout-world'),fastEdit:!!world?.classList.contains('fw-layout-fast'),sceneRoots:root.querySelectorAll('.fw-root').length,actions:Object.fromEntries(Object.entries(r.actions).map(([k,v])=>[k,v.passed]))});}
+ };
+ sampleHeap();const heapTimer=setInterval(sampleHeap,1000);
+ let interval=null;
+ if(mode==='pan'||mode==='mixed'||mode==='stress'||mode==='management'){
+  let dir=1,step=0,stressStep=0,zoomDir=-1;
+  interval=setInterval(()=>{
+   const t=performance.now(),map=root.querySelector('.fw-map'),world=root.querySelector('.fw-world');
+   let kind='camera',check,available=true;
+   if(mode==='management'&&++step%15===0){
+    const layer=root.querySelector('.farm-scene-layer');
+    if(layer){kind=layer.querySelector('.mg-root')?'managementClose':'shopClose';layer.querySelector('.farm-scene-layer-header > button:first-child')?.click();check=()=>!root.querySelector('.farm-scene-layer');}
+    else{kind='shopOpen';const chapter=stressStep++%2?'P17':'P13';if(!root.querySelector('.fw-more'))root.querySelector('[data-action="more"]')?.click();root.querySelector(`[data-action="chapter:${chapter}"]`)?.click();check=()=>!!root.querySelector('.mg-root');}
+   }else if(mode==='stress'&&++step%15===0){
+    const layer=root.querySelector('.farm-scene-layer'),editing=root.querySelector('.fw-layout-world');
+    if(layer){kind=layer.querySelector('.mg-root')?'managementClose':'shopClose';layer.querySelector('.farm-scene-layer-header > button:first-child')?.click();check=()=>!root.querySelector('.farm-scene-layer');}
+    else if(editing){kind='layoutClose';root.querySelector('[data-action="cancel-edit"]')?.click();check=()=>!root.querySelector('.fw-layout-world');}
+    else {const action=stressStep++%7;
+     if(action>=5){kind='managementOpen';if(!root.querySelector('.fw-more'))root.querySelector('[data-action="more"]')?.click();root.querySelector(`[data-action="chapter:${action===5?'P13':'P17'}"]`)?.click();check=()=>!!root.querySelector('.mg-root');}
+     else if(action===0){kind='shopOpen';root.querySelector('[data-action="shop"]')?.click();check=()=>!!root.querySelector('.farm-scene-layer');}
+     else if(action===2){const field=root.querySelector('.fw-field[data-fw-ready="true"]');if(!field)return;kind='harvest';const id=field.dataset.entity;field.click();check=()=>root.querySelector(`[data-entity="${id}"]`)?.getAttribute('aria-label')==='空田';}
+     else if(action===3){kind='layoutOpen';if(!root.querySelector('.fw-more'))root.querySelector('[data-action="more"]')?.click();root.querySelector('[data-action="edit"]')?.click();check=()=>!!root.querySelector('.fw-layout-world');}
+     else {kind='zoom';const before=world?.style.transform,bounds=map.getBoundingClientRect();map.dispatchEvent(new WheelEvent('wheel',{clientX:bounds.left+bounds.width/2,clientY:bounds.top+bounds.height/2,deltaY:zoomDir*100,bubbles:true,cancelable:true}));zoomDir*=-1;check=()=>world.style.transform!==before;}
+    }
+   }else if(mode==='mixed'&&++step%15===0){
+    const layer=root.querySelector('.farm-scene-layer'),close=layer?.querySelector('.farm-scene-layer-header > button:first-child');
+    kind=close?'shopClose':'shopOpen';const button=close||root.querySelector('[data-action="shop"]');available=!!button;
+    button?.click();check=()=>kind==='shopClose'?!root.querySelector('.farm-scene-layer'):root.querySelector('.farm-scene-layer-header > span')?.textContent==='商店';
+   }else{
+    // A user cannot pan the inert map underneath an open shop.
+    if(root.querySelector('.farm-scene-layer,.fw-layout-world'))return;
+    const before=world?.style.transform;available=!!map&&!!world;
+    map?.dispatchEvent(new KeyboardEvent('keydown',{key:dir>0?'ArrowRight':'ArrowLeft',bubbles:true}));
+    check=()=>world?.style.transform!==before;dir*=-1;
+   }
+   r.actions[kind].attempted++;
+   requestAnimationFrame(()=>{if(run!==r)return;const feedbackAt=performance.now();r.interactions.push(feedbackAt-t);r.actionTimeline.push({kind,elapsedMs:t-r.started,feedbackElapsedMs:feedbackAt-r.started});const passed=available&&check();r.actions[kind][passed?'passed':'failed']++;if(!passed)recordError(kind+' did not produce expected visible output');});
+  },200);
+ }
+ setTimeout(()=>{
+  clearInterval(interval);clearInterval(heapTimer);
+  requestAnimationFrame(()=>{sampleHeap();run=null;if(['stress','stress-soak'].includes(params.get('auto')))clearInterval(timer);
+  const finalMinute=r.heapSamples.filter(x=>x.elapsedMs>=Math.max(0,seconds*1000-60000));
+  const summary={build,stage,mode,seconds,startedUtc:r.startedUtc,recordedUtc:new Date().toISOString(),ua:navigator.userAgent,hardwareConcurrency:navigator.hardwareConcurrency,viewport:[innerWidth,innerHeight],rAF:stats(r.frames),rAFFirst2Min:stats(r.times.filter(x=>x[0]-r.started<120000).map(x=>x[1])),rAFLast2Min:stats(r.times.filter(x=>x[0]-r.started>(seconds-120)*1000).map(x=>x[1])),interactionToNextFrame:stats(r.interactions),over25:r.frames.length?r.frames.filter(v=>v>25).length/r.frames.length:0,longTasks:stats(r.long),longTaskTimeline:r.longTimes,longTasksPerMinute:Array.from({length:Math.ceil(seconds/60)},(_,i)=>r.longTimes.filter(x=>x.elapsedMs>=i*60000&&x.elapsedMs<(i+1)*60000).length),tick:stats(r.tick),added:r.added,removed:r.removed,worldRebuilds:r.worldRebuilds,forestRebuilds:r.forestRebuilds,managementPaints:r.managementPaints,getStateCloneCount:cloneCount,getStateCloneMs:+cloneMs.toFixed(2),storageReads:readCount,storageWrites:writeCount,domStart:r.domStart,domEnd:root.querySelectorAll('*').length,sameFirstEntity:originalNode===root.querySelector('[data-entity]'),heapStart:r.heapStart,heapEnd:performance.memory?.usedJSHeapSize??null,elapsed:performance.now()-r.started,
+   profile:Object.fromEntries(Object.entries(r.profile).map(([k,v])=>[k,stats(v)])),workloadSamples:r.workloadSamples,actionTimeline:r.actionTimeline,actions:r.actions,errors:r.errors,heapSamples:r.heapSamples,heapFinalMinuteMin:finalMinute.length?Math.min(...finalMinute.map(x=>x.bytes)):null,
+   metadata:{schemaVersion:3,qaMaturity:params.get('qaMaturity')==='1',allowedStorageKeys:[...ALLOWED],warmupMs:Math.max(1000,Math.min(120000,Number(params.get('warmup'))||1000)),timerPairUs,sourceHashes,moduleBase:base.href,storageMode,storageNamespace:KEY,longTasksSupported,heapSupported:!!performance.memory,heapInterpretation:'Observed used JS heap, sampled each second; final-minute minimum is not forced-GC retained memory.',interactionInterpretation:'Synthetic key/click to next rAF, not hardware input latency or INP.',mutationInterpretation:'Direct child-list mutations, not a visual flicker detector.',fixture:stage==='max'?'maxPensFixture: 12 pens, 63 animals, 273 initial entities':stage==='pens'?'penArtFixture full: 5 pens, 26 animals':'growthFixture '+stage,devicePixelRatio,visibility:document.visibilityState,priorErrors:errors.filter(e=>e.at<r.started)}};
+  samples.push(summary);report.textContent=JSON.stringify(summary,null,2);document.querySelector('#download').disabled=false;});
+ },seconds*1000);
+}
+toolbar.innerHTML=`<strong>${build.replace(/[<>&]/g,'')} / ${storageMode}</strong> <button data-stage="1">Stage1</button><button data-stage="2">Stage2</button><button data-stage="3">Stage3</button><button data-stage="pens">Five full pens</button><button data-stage="max">Maximum 12 pens</button><button id="quick">15s idle</button><button id="idle">60s idle</button><button id="pan">60s pan</button><button id="mixed">60s mixed</button><button id="soak">10min soak</button><button id="management">15s management</button><button id="stress">60s stress</button><button id="stress-soak">10min stress</button><button id="download" disabled>Export results</button><button id="hide-report">Hide metrics</button><button id="resize-qa">Resize viewport</button>`;
+for(const b of toolbar.querySelectorAll('[data-stage]'))b.onclick=()=>{if(!run)mount(b.dataset.stage);};
+document.querySelector('#management').onclick=()=>start(15,'management');
+document.querySelector('#stress').onclick=()=>start(60,'stress');document.querySelector('#stress-soak').onclick=()=>start(600,'stress');
+document.querySelector('#quick').onclick=()=>start(15);document.querySelector('#idle').onclick=()=>start();document.querySelector('#pan').onclick=()=>start(60,'pan');document.querySelector('#mixed').onclick=()=>start(60,'mixed');document.querySelector('#soak').onclick=()=>start(600,'mixed');
+document.querySelector('#resize-qa').onclick=()=>{const compact=root.dataset.compact!=='true';root.dataset.compact=String(compact);root.style.width=compact?'390px':'';root.style.maxHeight=compact?'600px':'';};
+document.querySelector('#download').onclick=()=>{const a=document.createElement('a'),url=URL.createObjectURL(new Blob([JSON.stringify(samples,null,2)],{type:'application/json'}));a.href=url;a.download=`farm-performance-${build}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+document.querySelector('#hide-report').onclick=()=>{report.hidden=!report.hidden;};
+mount(params.get('stage')||1);
+if(['stress','stress-soak'].includes(params.get('auto')))setTimeout(()=>start(params.get('auto')==='stress-soak'?600:60,'stress'),Math.max(1000,Math.min(120000,Number(params.get('warmup'))||1000)));
+</script>

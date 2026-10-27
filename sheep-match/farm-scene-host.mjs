@@ -24,11 +24,18 @@ export function farmSourceRoute(itemId,state){
  if(recipe)return {id:'P05',focusItem:itemId,focusRecipe:recipe.id,focusEntity:state.entities.find(e=>e.kind==='machine'&&e.machineType===recipe.machineType)?.id};
  return null;
 }
-export function mountFarm({root,store,onExit=()=>{},onStartStage=()=>{},getMusicVolume=()=>.35,onMusicVolumeChange=()=>{},onSound=()=>{}}){
+export function mountFarm({root,store,onExit=()=>{},onStartStage=()=>{},getMusicVolume=()=>.35,onMusicVolumeChange=()=>{},onSound=()=>{},profile=null}){
  const doc=root.ownerDocument,win=doc.defaultView,cleanups=new Set(),refreshers=new Set(),deactivators=new Set(),confirmClosers=new Set();let destroyed=false,active=true,lastResult=null;
+ // The store already emits detached snapshots. Keep one read-only presentation
+ // snapshot per notification instead of deep-cloning the entire farm on every
+ // ctx.state access (including every animal animation frame).
+ const freezeSnapshot=value=>{if(value&&typeof value==='object'&&!Object.isFrozen(value)){for(const child of Object.values(value))freezeSnapshot(child);Object.freeze(value);}return value;};
+ let snapshot=freezeSnapshot(store.getState());
+ const readSnapshot=value=>{snapshot=freezeSnapshot(value??store.getState());};
+ const refreshScenes=()=>{for(const render of [...refreshers])render();};
  root.classList.add('farm-scenes');root.innerHTML='<div class="farm-scene-base"></div><div class="farm-scene-feedback" role="status" aria-live="polite" aria-atomic="true"></div><div class="farm-scene-save-warning" hidden></div>';
  const base=root.querySelector('.farm-scene-base'),feedback=root.querySelector('.farm-scene-feedback'),warning=root.querySelector('.farm-scene-save-warning');
- const delight=mountFarmDelight(root,{reducedMotion:store.getState().settings.reducedMotion});
+ const delight=mountFarmDelight(root,{reducedMotion:snapshot.settings.reducedMotion});
  const name=id=>({coin:'金币',construction_voucher:'建设券',material_choice_voucher:'材料补给券',xp:'经验'})[id]||config.ITEMS[id]?.name||config.CROPS[id]?.name||config.FRUITS[id]?.name||config.BUILDINGS[id]?.name||config.ANIMALS[id]?.name||config.DECORATIONS[id]?.name||id;
  const asset=path=>paths.has(path)?new URL(`./assets/farm/${path}`,import.meta.url).href:farmAssetUrl(path);
  const say=text=>{feedback.textContent=String(text??'');};
@@ -46,20 +53,20 @@ export function mountFarm({root,store,onExit=()=>{},onStartStage=()=>{},getMusic
  function mount(ctx){return (worldIds.has(ctx.id)?mountWorldScene:tradeIds.has(ctx.id)?mountTradeScene:mountManagementScene)(ctx);}
  function context(id,target,options={},ownerCleanups=cleanups){
   const localDeactivators=new Set();
-  const ctx={...options,id,root:target,doc,win,config,core,layout,save,stages,store,preserveState:true,
+  const ctx={...options,id,root:target,doc,win,profile,config,core,layout,save,stages,store,preserveState:true,
    get effectsPaused(){return !active||doc.hidden||target.inert||!!target.closest('[inert]');},refreshPresentation(){delight.refresh();},
-   get state(){return store.getState();},get camera(){return store.getState().camera;},
+   get state(){return snapshot;},get camera(){return snapshot.camera;},
    asset,assetMeta:farmAsset,art:(id,v,c)=>farmAssetUrl(id,v,c),name,esc:escapeScene,
    img:(p,alt='',cls='')=>'<img src="'+asset(p)+'" alt="'+escapeScene(alt)+'" class="'+escapeScene(cls)+'" draggable="false">',
    item:(id,cls='item-art')=>'<img src="'+farmAssetUrl(id)+'" alt="'+escapeScene(name(id))+'" class="'+escapeScene(cls)+'" draggable="false">',
    say,confirm,getMusicVolume,onMusicVolumeChange,exitFarm:onExit,startStage:onStartStage,
-   act(command){const before=store.getState(),r=store.dispatch(command);lastResult=r;if(!r.ok){say(r.message||'未保存，本次操作未执行');onSound('soft-error');return r;}const cue=({plant:'plant',harvest:'harvest',feed:'feed',collectAnimal:'harvest',collectMachine:'harvest',listNpcStall:'coin',deliverOrder:'coin'})[command.type];const skipped=r.skipped||r.delta?.skipped||[];const changed=!(skipped.length&&!r.delta?.events?.length);if(cue&&changed){onSound(cue);delight.play(cue,{itemId:command.itemId});}if(r.state.level>before.level)onSound('upgrade');return r;},
-   subscribe(fn){const render=()=>fn(store.getState(),lastResult);refreshers.add(render);const off=store.subscribe(render);const stop=()=>{off();refreshers.delete(render);ownerCleanups.delete(stop);};ownerCleanups.add(stop);return stop;},
+   act(command){const before=snapshot,r=store.dispatch(command);lastResult=r;if(!r.ok){say(r.message||'未保存，本次操作未执行');onSound('soft-error');return r;}const cue=({plant:'plant',harvest:'harvest',feed:'feed',collectAnimal:'harvest',collectMachine:'harvest',listNpcStall:'coin',deliverOrder:'coin'})[command.type];const skipped=r.skipped||r.delta?.skipped||[];const changed=!(skipped.length&&!r.delta?.events?.length);if(cue&&changed){onSound(cue);delight.play(cue,{itemId:command.itemId});}if(r.state.level>before.level)onSound('upgrade');return r;},
+   subscribe(fn){const render=()=>{if(active&&!target.inert&&!target.closest?.('[inert]'))fn(snapshot,lastResult);};refreshers.add(render);const stop=()=>{refreshers.delete(render);ownerCleanups.delete(stop);};ownerCleanups.add(stop);return stop;},
    onExit(fn){ownerCleanups.add(fn);return()=>ownerCleanups.delete(fn);},
    onDeactivate(fn){deactivators.add(fn);localDeactivators.add(fn);const off=()=>{deactivators.delete(fn);localDeactivators.delete(fn);};ownerCleanups.add(off);return off;},
-   saveCamera(camera){queueMicrotask(()=>{if(store.readOnly)return;const old=store.getState().camera;if(JSON.stringify(old)!==JSON.stringify(camera))store.dispatch({type:'setCamera',camera});});},
+   saveCamera(camera){queueMicrotask(()=>{if(store.readOnly)return;const old=snapshot.camera;if(JSON.stringify(old)!==JSON.stringify(camera))store.dispatch({type:'setCamera',camera});});},
    restoreDefaultSkin(entityId){return ctx.act({type:'setSkin',entityId,skinId:null});},
-   openSource(itemId){const route=farmSourceRoute(itemId,store.getState());if(!route){say(name(itemId)+'可通过商店、订单或成长奖励获得。');return false;}return ctx.openScene(route.id,route);},
+   openSource(itemId){const route=farmSourceRoute(itemId,snapshot);if(!route){say(name(itemId)+'可通过商店、订单或成长奖励获得。');return false;}return ctx.openScene(route.id,route);},
    openChapter(target){return ctx.openScene(target);},
    openScene(next,opts={}){
     if(!titles[next]){say('此入口暂不可用');return false;}
@@ -72,7 +79,8 @@ export function mountFarm({root,store,onExit=()=>{},onStartStage=()=>{},getMusic
    }
   };return ctx;
  }
- function status(){const s=store.getStatus();delight.setReducedMotion(store.getState().settings.reducedMotion);warning.hidden=!s.readOnly&&!s.error&&!s.recoveryRequired;warning.replaceChildren();if(!warning.hidden){const text=doc.createElement('span');text.textContent=s.message||(s.readOnly?'当前为只读，未执行的操作不会扣除资源。':'存档需要处理。');const button=doc.createElement('button');button.textContent='存档与接管';button.onclick=()=>rootCtx.openScene('P17');warning.append(text,button);}}
- const rootCtx=context('P01',base);const dispose=mount(rootCtx);if(typeof dispose==='function')cleanups.add(dispose);const off=store.subscribe(status);status();
- return {refresh(){status();for(const fn of refreshers)fn();},setActive(value){if(!value){for(const fn of deactivators)fn();for(const close of [...confirmClosers])close();}active=!!value;root.dataset.active=String(active);delight.pause(!active);if(active)for(const render of refreshers)render();},destroy(){destroyed=true;off();for(const fn of [...cleanups])fn();cleanups.clear();refreshers.clear();delight.destroy();root.replaceChildren();}};
+ function status(){const s=store.getStatus();delight.setReducedMotion(snapshot.settings.reducedMotion);warning.hidden=!s.readOnly&&!s.error&&!s.recoveryRequired;warning.replaceChildren();if(!warning.hidden){const text=doc.createElement('span');text.textContent=s.message||(s.readOnly?'当前为只读，未执行的操作不会扣除资源。':'存档需要处理。');const button=doc.createElement('button');button.textContent='存档与接管';button.onclick=()=>rootCtx.openScene('P17');warning.append(text,button);}}
+ const off=store.subscribe(value=>{if(destroyed)return;readSnapshot(value);status();refreshScenes();});
+ const rootCtx=context('P01',base);const dispose=mount(rootCtx);if(typeof dispose==='function')cleanups.add(dispose);status();
+ return {refresh(){readSnapshot();status();refreshScenes();},setActive(value){active=!!value;if(!value){for(const fn of deactivators)fn();for(const close of [...confirmClosers])close();}root.dataset.active=String(active);delight.pause(!active);if(active)for(const render of refreshers)render();},destroy(){destroyed=true;off();for(const fn of [...cleanups])fn();cleanups.clear();refreshers.clear();delight.destroy();root.replaceChildren();}};
 }

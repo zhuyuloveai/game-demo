@@ -1,0 +1,467 @@
+{
+  "build": "after",
+  "stage": "max",
+  "mode": "stress",
+  "seconds": 60,
+  "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "hardwareConcurrency": 9,
+  "viewport": [
+    1180,
+    757
+  ],
+  "rAF": {
+    "n": 2938,
+    "p50": 16.7,
+    "p95": 50,
+    "p99": 66.7,
+    "max": 266.6
+  },
+  "rAFFirst2Min": {
+    "n": 2938,
+    "p50": 16.7,
+    "p95": 50,
+    "p99": 66.7,
+    "max": 266.6
+  },
+  "rAFLast2Min": {
+    "n": 2938,
+    "p50": 16.7,
+    "p95": 50,
+    "p99": 66.7,
+    "max": 266.6
+  },
+  "interactionToNextFrame": {
+    "n": 216,
+    "p50": 29.6,
+    "p95": 63.1,
+    "p99": 230.9,
+    "max": 260.9
+  },
+  "over25": 0.12049012933968686,
+  "longTasks": {
+    "n": 22,
+    "p50": 71,
+    "p95": 216,
+    "p99": 234,
+    "max": 234
+  },
+  "longTaskTimeline": [
+    {
+      "elapsedMs": 6033.699999999255,
+      "duration": 60
+    },
+    {
+      "elapsedMs": 12017.199999999255,
+      "duration": 216
+    },
+    {
+      "elapsedMs": 12899.699999999255,
+      "duration": 61
+    },
+    {
+      "elapsedMs": 15006.099999999627,
+      "duration": 206
+    },
+    {
+      "elapsedMs": 15212.5,
+      "duration": 92
+    },
+    {
+      "elapsedMs": 18000.699999999255,
+      "duration": 109
+    },
+    {
+      "elapsedMs": 18110.099999999627,
+      "duration": 64
+    },
+    {
+      "elapsedMs": 18181.300000000745,
+      "duration": 68
+    },
+    {
+      "elapsedMs": 18489.099999999627,
+      "duration": 60
+    },
+    {
+      "elapsedMs": 30019,
+      "duration": 51
+    },
+    {
+      "elapsedMs": 30223.099999999627,
+      "duration": 71
+    },
+    {
+      "elapsedMs": 33005.699999999255,
+      "duration": 173
+    },
+    {
+      "elapsedMs": 36001.09999999963,
+      "duration": 176
+    },
+    {
+      "elapsedMs": 36178,
+      "duration": 71
+    },
+    {
+      "elapsedMs": 39000.90000000037,
+      "duration": 102
+    },
+    {
+      "elapsedMs": 39103.199999999255,
+      "duration": 63
+    },
+    {
+      "elapsedMs": 39176,
+      "duration": 57
+    },
+    {
+      "elapsedMs": 54002.59999999963,
+      "duration": 234
+    },
+    {
+      "elapsedMs": 57015.09999999963,
+      "duration": 194
+    },
+    {
+      "elapsedMs": 57209.800000000745,
+      "duration": 61
+    },
+    {
+      "elapsedMs": 60001,
+      "duration": 111
+    },
+    {
+      "elapsedMs": 60112.59999999963,
+      "duration": 64
+    }
+  ],
+  "longTasksPerMinute": [
+    20
+  ],
+  "tick": {
+    "n": 60,
+    "p50": 18.8,
+    "p95": 25.7,
+    "p99": 32.4,
+    "max": 32.4
+  },
+  "added": 40975,
+  "removed": 41015,
+  "worldRebuilds": 2610,
+  "forestRebuilds": 78943,
+  "getStateCloneCount": 0,
+  "getStateCloneMs": 0,
+  "storageReads": 1140,
+  "storageWrites": 380,
+  "domStart": 3229,
+  "domEnd": 3152,
+  "sameFirstEntity": true,
+  "heapStart": 58136260,
+  "heapEnd": 35642430,
+  "elapsed": 60190.40000000037,
+  "actions": {
+    "camera": {
+      "attempted": 196,
+      "passed": 196,
+      "failed": 0
+    },
+    "shopOpen": {
+      "attempted": 3,
+      "passed": 3,
+      "failed": 0
+    },
+    "shopClose": {
+      "attempted": 3,
+      "passed": 3,
+      "failed": 0
+    },
+    "zoom": {
+      "attempted": 5,
+      "passed": 5,
+      "failed": 0
+    },
+    "harvest": {
+      "attempted": 3,
+      "passed": 3,
+      "failed": 0
+    },
+    "layoutOpen": {
+      "attempted": 3,
+      "passed": 3,
+      "failed": 0
+    },
+    "layoutClose": {
+      "attempted": 3,
+      "passed": 3,
+      "failed": 0
+    }
+  },
+  "errors": [],
+  "heapSamples": [
+    {
+      "elapsedMs": 0.40000000037252903,
+      "bytes": 58136260
+    },
+    {
+      "elapsedMs": 1023.0999999996275,
+      "bytes": 49599024
+    },
+    {
+      "elapsedMs": 2026.300000000745,
+      "bytes": 45025176
+    },
+    {
+      "elapsedMs": 3030.699999999255,
+      "bytes": 40439490
+    },
+    {
+      "elapsedMs": 4001.300000000745,
+      "bytes": 49658570
+    },
+    {
+      "elapsedMs": 5001.800000000745,
+      "bytes": 31060456
+    },
+    {
+      "elapsedMs": 6000.5999999996275,
+      "bytes": 39831754
+    },
+    {
+      "elapsedMs": 7035.800000000745,
+      "bytes": 60370361
+    },
+    {
+      "elapsedMs": 8024.0999999996275,
+      "bytes": 60735627
+    },
+    {
+      "elapsedMs": 9032.400000000373,
+      "bytes": 42503783
+    },
+    {
+      "elapsedMs": 10025.900000000373,
+      "bytes": 43349899
+    },
+    {
+      "elapsedMs": 11006.599999999627,
+      "bytes": 33960110
+    },
+    {
+      "elapsedMs": 12017.199999999255,
+      "bytes": 35590694
+    },
+    {
+      "elapsedMs": 13023.5,
+      "bytes": 28582867
+    },
+    {
+      "elapsedMs": 14024.099999999627,
+      "bytes": 60027090
+    },
+    {
+      "elapsedMs": 15006.099999999627,
+      "bytes": 44655556
+    },
+    {
+      "elapsedMs": 16000.699999999255,
+      "bytes": 52565031
+    },
+    {
+      "elapsedMs": 17000.800000000745,
+      "bytes": 31402678
+    },
+    {
+      "elapsedMs": 18000.599999999627,
+      "bytes": 41605309
+    },
+    {
+      "elapsedMs": 19005.699999999255,
+      "bytes": 41499998
+    },
+    {
+      "elapsedMs": 20029.300000000745,
+      "bytes": 65776756
+    },
+    {
+      "elapsedMs": 21006.699999999255,
+      "bytes": 48171127
+    },
+    {
+      "elapsedMs": 22025.800000000745,
+      "bytes": 44070941
+    },
+    {
+      "elapsedMs": 23023.800000000745,
+      "bytes": 44897241
+    },
+    {
+      "elapsedMs": 24026.800000000745,
+      "bytes": 48272886
+    },
+    {
+      "elapsedMs": 25000.699999999255,
+      "bytes": 57344752
+    },
+    {
+      "elapsedMs": 26000.699999999255,
+      "bytes": 66310178
+    },
+    {
+      "elapsedMs": 27000.599999999627,
+      "bytes": 40477480
+    },
+    {
+      "elapsedMs": 28034.300000000745,
+      "bytes": 48571199
+    },
+    {
+      "elapsedMs": 29028.099999999627,
+      "bytes": 53276662
+    },
+    {
+      "elapsedMs": 30019,
+      "bytes": 37878566
+    },
+    {
+      "elapsedMs": 31002.800000000745,
+      "bytes": 31921807
+    },
+    {
+      "elapsedMs": 32002.199999999255,
+      "bytes": 48843336
+    },
+    {
+      "elapsedMs": 33005.699999999255,
+      "bytes": 33032551
+    },
+    {
+      "elapsedMs": 34019.300000000745,
+      "bytes": 41583473
+    },
+    {
+      "elapsedMs": 35025.300000000745,
+      "bytes": 66270132
+    },
+    {
+      "elapsedMs": 36001,
+      "bytes": 47540750
+    },
+    {
+      "elapsedMs": 37000.699999999255,
+      "bytes": 50493266
+    },
+    {
+      "elapsedMs": 38000.59999999963,
+      "bytes": 58392206
+    },
+    {
+      "elapsedMs": 39000.800000000745,
+      "bytes": 35883254
+    },
+    {
+      "elapsedMs": 40003.09999999963,
+      "bytes": 62844125
+    },
+    {
+      "elapsedMs": 41042,
+      "bytes": 37093408
+    },
+    {
+      "elapsedMs": 42000.699999999255,
+      "bytes": 54744147
+    },
+    {
+      "elapsedMs": 43009.800000000745,
+      "bytes": 38854411
+    },
+    {
+      "elapsedMs": 44021.59999999963,
+      "bytes": 54679497
+    },
+    {
+      "elapsedMs": 45025.09999999963,
+      "bytes": 40258396
+    },
+    {
+      "elapsedMs": 46000.59999999963,
+      "bytes": 47684096
+    },
+    {
+      "elapsedMs": 47000.699999999255,
+      "bytes": 55090940
+    },
+    {
+      "elapsedMs": 48000.59999999963,
+      "bytes": 32659172
+    },
+    {
+      "elapsedMs": 49017.199999999255,
+      "bytes": 41211013
+    },
+    {
+      "elapsedMs": 50029.90000000037,
+      "bytes": 57396265
+    },
+    {
+      "elapsedMs": 51012.800000000745,
+      "bytes": 42538575
+    },
+    {
+      "elapsedMs": 52000.699999999255,
+      "bytes": 36554339
+    },
+    {
+      "elapsedMs": 53000.800000000745,
+      "bytes": 54733481
+    },
+    {
+      "elapsedMs": 54002.59999999963,
+      "bytes": 39526415
+    },
+    {
+      "elapsedMs": 55023.699999999255,
+      "bytes": 29421707
+    },
+    {
+      "elapsedMs": 56000.800000000745,
+      "bytes": 43570548
+    },
+    {
+      "elapsedMs": 57015,
+      "bytes": 61859251
+    },
+    {
+      "elapsedMs": 58000.699999999255,
+      "bytes": 32448728
+    },
+    {
+      "elapsedMs": 59000.800000000745,
+      "bytes": 40774051
+    },
+    {
+      "elapsedMs": 60000.90000000037,
+      "bytes": 49173418
+    },
+    {
+      "elapsedMs": 60179.699999999255,
+      "bytes": 35642430
+    }
+  ],
+  "heapFinalMinuteMin": 28582867,
+  "metadata": {
+    "schemaVersion": 2,
+    "timerPairUs": 0.3770000000111759,
+    "moduleBase": "http://127.0.0.1:46280/game-demo-layer-review/sheep-match/",
+    "storageMode": "localStorage",
+    "storageNamespace": "farm-perf-qa",
+    "longTasksSupported": true,
+    "heapSupported": true,
+    "heapInterpretation": "Observed used JS heap, sampled each second; final-minute minimum is not forced-GC retained memory.",
+    "interactionInterpretation": "Synthetic key/click to next rAF, not hardware input latency or INP.",
+    "mutationInterpretation": "Direct child-list mutations, not a visual flicker detector.",
+    "fixture": "maxPensFixture: 12 pens, 63 animals, 273 initial entities",
+    "devicePixelRatio": 1,
+    "visibility": "visible",
+    "priorErrors": []
+  }
+}

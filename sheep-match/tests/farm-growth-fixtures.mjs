@@ -77,3 +77,32 @@ export function penArtFixture(count='full'){
  }
  core.assertFarm(s);return s;
 }
+
+/** Maximum legal level-30 animal population: all configured shelter tiers, full pens.
+ * Uses normal purchase/autoplacement rules; does not move or replace existing entities.
+ * Like penArtFixture, only QA animal clocks are adjusted to display mixed visual states.
+ */
+export function maxPensFixture(){
+ let s=growthFixture(3);
+ const act=command=>{
+  const result=core.executeFarm(s,command,s.now);
+  if(!result.ok)throw new Error(`Maximum-pens fixture command failed: ${JSON.stringify(command)} ${result.error}`);
+  s=result.state;
+ };
+ for(const animal of Object.values(config.ANIMALS)){
+  while(s.entities.filter(e=>e.kind==='shelter'&&e.configId===animal.id).length<animal.levels.length){
+   act({type:'buy',category:'shelter',itemId:animal.id});
+  }
+  for(const id of s.entities.filter(e=>e.kind==='shelter'&&e.configId===animal.id).map(e=>e.id)){
+   const shelter=s.entities.find(e=>e.id===id),quantity=animal.capacity-shelter.animals.length;
+   if(quantity>0)act({type:'buy',category:'animal',entityId:id,quantity});
+  }
+ }
+ for(const shelter of s.entities.filter(e=>e.kind==='shelter')){
+  shelter.animals.forEach((animal,i)=>{
+   animal.status=['hungry','producing','ready'][i%3];
+   animal.readyAt=animal.status==='hungry'?0:animal.status==='producing'?s.now+60000:s.now-1;
+  });
+ }
+ core.assertFarm(s);return s;
+}

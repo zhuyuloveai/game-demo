@@ -1,0 +1,25 @@
+--- a/sheep-match/farm-scene-world.mjs
++++ b/sheep-match/farm-scene-world.mjs
+@@ -157,7 +157,9 @@
+       isReduced:()=>!!ctx.state.settings.reducedMotion,
+       isPaused:()=>destroyed||doc.hidden||ctx.effectsPaused===true||!!gesture||!!draft||!!placement||!!localPage||!!root.closest('[inert]'),
+       maxVisible:12});
+-    function refreshMotion(){game.dataset.motionBlocked=String(!!gesture||!!draft||!!placement||!!localPage);if(motionRaf)return;motionRaf=win.requestAnimationFrame(()=>{motionRaf=0;if(destroyed)return;animalAnimation.prepareSync();ctx.refreshPresentation?.();animalAnimation.commitSync();});}
++    function refreshMotion(){game.dataset.motionBlocked=String(!!gesture||!!draft||!!placement||!!localPage);if(motionRaf)return;motionRaf=win.requestAnimationFrame(()=>{motionRaf=0;if(destroyed)return;
++      if(ctx.profile){let start=win.performance.now();animalAnimation.prepareSync();let end=win.performance.now();ctx.profile({name:'motion.prepare',duration:end-start});start=end;ctx.refreshPresentation?.();end=win.performance.now();ctx.profile({name:'motion.delight',duration:end-start});start=end;animalAnimation.commitSync();ctx.profile({name:'motion.commit',duration:win.performance.now()-start});}
++      else{animalAnimation.prepareSync();ctx.refreshPresentation?.();animalAnimation.commitSync();}});}
+ 
+     function on(el,event,fn,options){el.addEventListener(event,fn,options);listeners.push(()=>el.removeEventListener(event,fn,options));}
+     function vouchersEnabled(){return ctx.state.features?.constructionVouchersEnabled!==false;}
+@@ -515,7 +517,10 @@
+       if(selected?.startsWith('land_')){const p=ctx.layout.LAND_PATCHES.find(p=>p.id===selected),check=ctx.layout.canExpandLand(ctx.state,selected),owned=ctx.state.openedLand.includes(selected),affordable=['land_deed','mallet','marker_stake'].every(key=>(ctx.state.inventory[key]||0)>=p[key]);patchFarmMarkup(transaction,`<div class="fw-land-panel"><header><strong>${owned?'已开放土地':'开垦 8 × 8 格'}</strong>${button('close-tool','×')}</header>${!owned?`<div class="fw-materials">${['land_deed','mallet','marker_stake'].map(key=>`<div>${item(key)}<strong class="${(ctx.state.inventory[key]||0)<p[key]?'short':''}">${ctx.state.inventory[key]||0} / ${p[key]}</strong></div>`).join('')}</div><small>${check.ok?(affordable?'开垦后保留树石，需另用工具清理':'扩地材料不足，请先收集所示材料'):esc(check.message)}</small>${button('expand-land','消耗所示材料并开垦','',check.ok&&affordable?'':'disabled')}`:`<p>${patchNeedsClearing(p)?'边界已经开放。自然障碍需要另选工具清理。':'土地已开放并清理，可以继续布置农场。'}</p>`}</div>`);return;}
+       patchFarmMarkup(transaction,'');
+     }
+-    function render(){if(destroyed)return;renderMap();renderCorners();renderContext();renderLocal();renderTransaction();game.dataset.reducedMotion=String(!!ctx.state.settings.reducedMotion);game.dataset.paused=String(doc.hidden||ctx.effectsPaused===true);refreshMotion();}
++    function render(){if(destroyed)return;
++      if(ctx.profile){for(const [name,fn] of [['map',renderMap],['corners',renderCorners],['context',renderContext],['local',renderLocal],['transaction',renderTransaction]]){const start=win.performance.now();fn();ctx.profile({name:'render.'+name,duration:win.performance.now()-start});}}
++      else{renderMap();renderCorners();renderContext();renderLocal();renderTransaction();}
++      game.dataset.reducedMotion=String(!!ctx.state.settings.reducedMotion);game.dataset.paused=String(doc.hidden||ctx.effectsPaused===true);refreshMotion();}
+     function closeTemporary(){harvestView=false;chosenSeed=null;cancelGesture();more=false;localPage=null;clearPreview=null;pendingRecipe=null;activeJob=null;selected=null;selectedAnimal=null;render();}
+     function openStorage(kind){if(ctx.openScene)ctx.openScene('P08',{initialStorage:kind});else ctx.say('仓库入口暂不可用');}
+     function goToSource(itemId){if(ctx.openSource)ctx.openSource(itemId);else ctx.say('请前往'+name(itemId)+'对应的田地或生产设施');}

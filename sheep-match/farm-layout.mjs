@@ -3,6 +3,8 @@ export const FARM_MAP = Object.freeze({width:64,height:64,tileSize:48,initialBou
 export const ROTATIONS = Object.freeze([0,90,180,270]);
 const clone = value => structuredClone(value);
 const coord = (x,y) => `${x},${y}`;
+// Private immutable traversal order, reused for each reachable tile.
+const CARDINAL_STEPS = Object.freeze([[1,0],[-1,0],[0,1],[0,-1]].map(Object.freeze));
 const isInt = Number.isSafeInteger;
 const error = (code,message,entity,extra={}) => ({code,message,...(entity?{id:entity.id,x:entity.x,y:entity.y}:{}),...extra});
 
@@ -198,7 +200,7 @@ export function validateLayout(state,draft=state.entities){
     let i=0
     ;i<queue.length;i++){
     const p=queue[i];
-    for(const [dx,dy]of [[1,0],[-1,0],[0,1],[0,-1]]){
+    for(const [dx,dy]of CARDINAL_STEPS){
       const x=p.x+dx,y=p.y+dy,key=coord(x,y);
       if(isCellOpen(state,x,y)&&!blocked.has(key)&&!reachable.has(key)){
         reachable.add(key);

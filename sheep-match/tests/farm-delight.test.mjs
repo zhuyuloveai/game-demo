@@ -92,3 +92,21 @@ test('stylesheet-free reduced feedback remains bounded and outside layout',()=>{
  const layer=h.root.children.find(n=>n.className==='farm-delight-layer'),particle=layer.children[0];
  assert.equal(particle.style.position,'absolute');assert.equal(particle.style.width,'112px');assert.equal(particle.style.height,'28px');assert.equal(particle.style['pointer-events'],'none');fx.destroy();
 });
+test('world idle candidates read geometry before animation writes, preserving DOM order and per-kind caps',()=>{
+ const h=harness(),events=[],nodes=[];
+ for(const [kind,count]of [['animal',14],['crop',8],['tree',6],['machine',6],['ready',6]])for(let i=0;i<count;i++){
+ const el=h.doc.createElement('div'),id=`${kind}-${i}`;el.dataset={entity:id,fwMotion:kind,fwReady:'false'};el.closest=()=>null;
+ el.getBoundingClientRect=()=>{events.push('read:'+id);return {left:0,top:0,right:20,bottom:20,width:20,height:20}};
+ el.style.setProperty=(k,v)=>{events.push('write:'+id);el.style[k]=v};nodes.push(el);
+ }
+ h.root.querySelectorAll=s=>s==='.fw-map'?[h.root.view]:[];h.root.view.closest=()=>null;h.root.view.querySelectorAll=()=>nodes;
+ const fx=mountFarmDelight(h.root);events.length=0;fx.refresh();
+ // Reset phases to force the write branch on a new mounted controller.
+ fx.destroy();for(const n of nodes)delete n.dataset.delightIdle;events.length=0;
+ const next=mountFarmDelight(h.root);const first=events.findIndex(e=>e.startsWith('write')),last=events.map(e=>e.startsWith('read')).lastIndexOf(true);
+ assert(first>=0);assert(last<first);
+ const active=nodes.filter(n=>n.dataset.delightIdle);assert(active.length<=FARM_DELIGHT_LIMITS.idle);
+ let remaining=FARM_DELIGHT_LIMITS.idle;
+ for(const [kind,cap]of [['animal',12],['crop',6],['tree',4],['machine',4],['ready',4]]){const selected=active.filter(n=>n.dataset.fwMotion===kind);assert.equal(selected.length,Math.min(cap,remaining));remaining-=selected.length;assert.deepEqual(selected.map(n=>n.dataset.entity),Array.from({length:selected.length},(_,i)=>`${kind}-${i}`));}
+ next.destroy();
+});

@@ -29,13 +29,18 @@ const scenes = {};
     ctx.onExit(cleanup);
     return cleanup;
   }
+  const paintedMarkup = new WeakMap();
   function paint(ctx, html) {
+    // Keep stable native controls, focus, scroll and artwork on clock-only commits.
+    // Real changes (including P18 production countdowns) still use the existing paint path.
+    if (paintedMarkup.get(ctx.root) === html) return;
     const focused = ctx.root.contains(ctx.doc.activeElement) ? ctx.doc.activeElement : null;
     const focusKey = focused?.getAttribute('data-mg');
     const focusControl = focused?.hasAttribute('data-volume')?'[data-volume]':focused?.hasAttribute('data-font')?'[data-font]':focused?.hasAttribute('data-setting')?'[data-setting="'+focused.dataset.setting+'"]':null;
     const outer=ctx.root.querySelector('.mg-root'),outerScroll=outer?[outer.scrollTop,outer.scrollLeft]:null;
     const scrolls = Array.from(ctx.root.querySelectorAll('[data-keep-scroll]'), el => [el.dataset.keepScroll, el.scrollTop, el.scrollLeft]);
     ctx.root.innerHTML = html;
+    paintedMarkup.set(ctx.root, html);
     const nextOuter=ctx.root.querySelector('.mg-root');if(nextOuter&&outerScroll){nextOuter.scrollTop=outerScroll[0];nextOuter.scrollLeft=outerScroll[1];}
     for (const [id, top, left] of scrolls) {
       const el = Array.from(ctx.root.querySelectorAll('[data-keep-scroll]')).find(e => e.dataset.keepScroll === id);

@@ -10,7 +10,7 @@ const source=readFileSync(new URL('../farm-scene-host.mjs',import.meta.url),'utf
 // Host-only inert DOM: real host lifecycle and commands, scene renderers stubbed.
 // Browser geometry, native inert and focus behavior are covered by browser QA, not this fixture.
 function harness(){
- const contexts=[],sounds=[],commands=[],exits=[],callbacks=new Set();let state=core.createFarm(0),readOnly=false;
+ const contexts=[],sounds=[],commands=[],exits=[],callbacks=new Set();let state=core.createFarm(0),readOnly=false,stateReads=0;
  const doc={activeElement:null,defaultView:{}};
  class Element{
   constructor(){this.children=[];this.className='';this.dataset={};this.inert=false;this.isConnected=true;this.classList={add(){}};this.ownerDocument=doc;}
@@ -25,13 +25,13 @@ function harness(){
   remove(){this.isConnected=false;if(this.parent)this.parent.children=this.parent.children.filter(x=>x!==this);}
  }
  doc.createElement=()=>new Element();const root=new Element();
- const store={getState:()=>structuredClone(state),getStatus:()=>({readOnly}),get readOnly(){return readOnly},subscribe(fn){callbacks.add(fn);return()=>callbacks.delete(fn);},dispatch(c){commands.push(c);if(readOnly)return{ok:false,message:'只读'};try{const r=core.executeFarm(state,c,state.now);state=r.state;for(const f of callbacks)f();return r;}catch(e){return{ok:false,message:e.message};}}};
+ const store={getState:()=>{stateReads++;return structuredClone(state)},getStatus:()=>({readOnly}),get readOnly(){return readOnly},subscribe(fn){callbacks.add(fn);return()=>callbacks.delete(fn);},dispatch(c){commands.push(c);if(readOnly)return{ok:false,message:'只读'};try{const r=core.executeFarm(state,c,state.now);state=r.state;for(const f of callbacks)f();return r;}catch(e){return{ok:false,message:e.message};}}};
  const effect={pause(){},setReducedMotion(){},play(){},destroy(){}};
  const mount=ctx=>{contexts.push(ctx);return()=>{};};
  const code=source.replace(/^import .*;\n/gm,'').replaceAll('export ','').replaceAll('import.meta.url',JSON.stringify(new URL('../farm-scene-host.mjs',import.meta.url).href))+'\nmountFarm';
  const fn=vm.runInNewContext(code,{config,core,layout,save:{},stages:{},FARM_ASSETS:[],farmAsset(){},farmAssetUrl:id=>id,mountFarmDelight:()=>effect,mountWorldScene:mount,mountTradeScene:mount,mountManagementScene:mount,URL,queueMicrotask});
  const api=fn({root,store,onSound:c=>sounds.push(c),onExit:()=>exits.push(true)});
- return{api,root,contexts,commands,sounds,exits,callbacks,doc,setReadOnly(v){readOnly=v},get state(){return state;}};
+ return{api,root,contexts,commands,sounds,exits,callbacks,doc,setReadOnly(v){readOnly=v},get state(){return state;},get stateReads(){return stateReads;},emitSnapshot(){for(const f of callbacks)f(structuredClone(state));}};
 }
 test('source routing targets exact product owners without changing fresh progression',()=>{
  const s=core.createFarm(0),before=structuredClone(s);
@@ -57,4 +57,35 @@ test('a fully skipped collection produces no success sound',()=>{const h=harness
 
 test('nested shop and warehouse expose direct return-home without resetting resources',()=>{
  for(const id of ['P07','P08','P17']){const h=harness(),before=structuredClone(h.state);h.contexts[0].openScene(id);const home=h.root.querySelector('.farm-scene-home');assert(home);assert.match(home.textContent,/回首页/);assert.equal(home.attributes['aria-label'],'返回小院首页');home.onclick();assert.equal(h.exits.length,1);assert.equal(h.commands.length,0);assert.deepEqual(h.state,before);h.api.destroy();}
+});
+
+
+test('host reuses one detached read-only snapshot for repeated state and camera reads',()=>{
+ const h=harness(),ctx=h.contexts[0],reads=h.stateReads,snapshot=ctx.state;
+ for(let i=0;i<1000;i++){assert.equal(ctx.state,snapshot);assert.equal(ctx.camera,snapshot.camera);}
+ assert.equal(h.stateReads,reads);assert.equal(h.callbacks.size,1);
+ assert.throws(()=>{ctx.state.inventory.wheat=999;},/read only|readonly|Cannot assign/);
+ assert.equal(h.state.inventory.wheat,6);h.api.destroy();
+});
+test('one store notification updates all scene snapshots before render without another state clone',()=>{
+ const h=harness(),ctx=h.contexts[0];ctx.openScene('P08');const child=h.contexts.at(-1),seen=[];
+ ctx.subscribe(s=>seen.push(['parent',s.coins,ctx.state===s]));child.subscribe(s=>seen.push(['child',s.coins,child.state===s]));
+ const reads=h.stateReads;h.state.coins=123;h.emitSnapshot();
+ assert.equal(h.stateReads,reads);assert.deepEqual(seen,[['child',123,true]]);assert.equal(ctx.state,child.state);assert.equal(h.callbacks.size,1);
+ child.returnToOrigin();seen.length=0;h.state.coins=456;h.emitSnapshot();assert.deepEqual(seen,[['parent',456,true]]);h.api.destroy();assert.equal(h.callbacks.size,0);
+});
+test('snapshot-less adapters and explicit refresh clone once, not once per scene read',()=>{
+ const h=harness(),ctx=h.contexts[0];let calls=0;ctx.subscribe(s=>{calls++;for(let i=0;i<100;i++)assert.equal(ctx.state,s);});
+ let reads=h.stateReads;const result=ctx.act({type:'plant',entityIds:['field_1'],itemId:'wheat'});
+ assert.equal(result.ok,true);assert.equal(ctx.state.inventory.wheat,5);assert.equal(h.stateReads,reads+1);assert.equal(calls,1);
+ reads=h.stateReads;h.state.coins=321;h.api.refresh();assert.equal(ctx.state.coins,321);assert.equal(h.stateReads,reads+1);h.api.destroy();
+});
+
+test('inactive host and inert parent retain latest snapshot without rendering; resume refreshes once',()=>{
+ const h=harness(),ctx=h.contexts[0];let parent=0,child=0;ctx.subscribe(()=>parent++);
+ h.api.setActive(false);h.state.coins=222;h.emitSnapshot();assert.equal(parent,0);assert.equal(ctx.state.coins,222);
+ h.api.setActive(true);assert.equal(parent,1);
+ ctx.openScene('P08');const nested=h.contexts.at(-1);nested.subscribe(()=>child++);
+ h.state.coins=333;h.emitSnapshot();assert.equal(parent,1);assert.equal(child,1);assert.equal(ctx.state.coins,333);
+ nested.returnToOrigin();assert.equal(parent,2);assert.equal(child,1);h.api.destroy();
 });

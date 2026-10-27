@@ -1,0 +1,20 @@
+--- a/sheep-match/farm-scene-world.mjs
++++ b/sheep-match/farm-scene-world.mjs
+@@ -150,7 +150,7 @@
+       isReduced:()=>!!ctx.state.settings.reducedMotion,
+       isPaused:()=>destroyed||doc.hidden||ctx.effectsPaused===true||!!gesture||!!draft||!!placement||!!localPage||!!root.closest('[inert]'),
+       maxVisible:12});
+-    function refreshMotion(){game.dataset.motionBlocked=String(!!gesture||!!draft||!!placement||!!localPage);if(motionRaf)return;motionRaf=win.requestAnimationFrame(()=>{motionRaf=0;if(destroyed)return;ctx.refreshPresentation?.();animalAnimation.sync();});}
++    function refreshMotion(){game.dataset.motionBlocked=String(!!gesture||!!draft||!!placement||!!localPage);if(motionRaf)return;motionRaf=win.requestAnimationFrame(()=>{motionRaf=0;if(destroyed)return;const a=win.performance.now();ctx.refreshPresentation?.();const b=win.performance.now();animalAnimation.sync();const c=win.performance.now();ctx.profile?.({name:"diagnostic.delight.refresh",duration:b-a});ctx.profile?.({name:"diagnostic.animal.sync",duration:c-b});});}
+ 
+     function on(el,event,fn,options){el.addEventListener(event,fn,options);listeners.push(()=>el.removeEventListener(event,fn,options));}
+     function vouchersEnabled(){return ctx.state.features?.constructionVouchersEnabled!==false;}
+@@ -337,7 +337,7 @@
+     }
+     function renderForest(){
+       const profileStart=ctx.profile?win.performance.now():0;
+-      const host=world.querySelector('.fw-forest');if(!host||!(view.clientWidth>0&&view.clientHeight>0))return;
++      const host=world.querySelector('.fw-forest');if(!host||!(view.clientWidth>0&&view.clientHeight>0))return;ctx.profile?.({name:"diagnostic.forest.initialLayoutRead",duration:win.performance.now()-profileStart});
+       // Quantised culling bounds avoid rebuilding hundreds of sprites on every pan pixel.
+       const left=Math.floor((-camera.x/camera.zoom)/128)*128-160,top=Math.floor((-camera.y/camera.zoom)/128)*128-160;
+       const width=Math.ceil(view.clientWidth/camera.zoom/128)*128+448,height=Math.ceil(view.clientHeight/camera.zoom/128)*128+448;

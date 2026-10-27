@@ -7,7 +7,7 @@ function harness(){
  const original={id:'barn',kind:'barn',x:20,y:20,w:3,h:3},manual=[{id:'barn',x:25,y:22,rotation:0,stored:false}],plan={ok:true,positions:[{id:'barn',x:24,y:20,rotation:0,stored:false}],proposedRoads:[{x:25,y:23}],signature:'canonical-plan'};
  const calls={save:[],commands:[],say:[]},state={entities:[original]},ctx={state,layout:{beginLayout:()=>({positions:[original]}),isFixedEntity:()=>false},say:s=>calls.say.push(s),store:{saveDraft:d=>calls.save.push(structuredClone(d))},confirm:({onConfirm})=>onConfirm()};
  const env={ctx,clone:structuredClone,previewGrowthLayout:()=>structuredClone(plan),selectedEntity:()=>null,render(){},clearLayoutDraft(){},doAct:c=>{calls.commands.push(c);return {ok:true};},entity:()=>original};
- const code=`let draft={positions:${JSON.stringify(manual)}},growthPreview=null,selected=null,lastFieldTap=null,preserveStoredDraft=false,undo=[],redo=[];
+ const code=`let effectiveCache=null;let draft={positions:${JSON.stringify(manual)}},growthPreview=null,selected=null,lastFieldTap=null,preserveStoredDraft=false,undo=[],redo=[];
  ${slice('effectiveEntities','visualRect')}${slice('persistLayoutDraft','clearLayoutDraft')}${slice('changeDraft','saveDraft')}${slice('saveDraft','cancelEdit')}${slice('cancelEdit','reorderJob')}${slice('action','point')}
  return {preview:()=>action('growth-preview'),undo:()=>action('undo-growth-preview'),cancel:cancelEdit,apply:saveDraft,persist:persistLayoutDraft,change:()=>changeDraft('barn',{x:42}),entities:effectiveEntities,snapshot:()=>({draft,growthPreview})};`;
  return {api:new Function(...Object.keys(env),code)(...Object.values(env)),calls,manual,state};

@@ -1,0 +1,295 @@
+{
+  "build": "v9-store-diagnostic",
+  "stage": "max",
+  "mode": "idle",
+  "seconds": 15,
+  "startedUtc": "2026-10-27T07:11:51.727Z",
+  "recordedUtc": "2026-10-27T07:12:06.733Z",
+  "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "hardwareConcurrency": 9,
+  "viewport": [
+    1180,
+    757
+  ],
+  "rAF": {
+    "n": 893,
+    "p50": 16.7,
+    "p95": 16.7,
+    "p99": 16.8,
+    "max": 33.4
+  },
+  "rAFFirst2Min": {
+    "n": 893,
+    "p50": 16.7,
+    "p95": 16.7,
+    "p99": 16.8,
+    "max": 33.4
+  },
+  "rAFLast2Min": {
+    "n": 893,
+    "p50": 16.7,
+    "p95": 16.7,
+    "p99": 16.8,
+    "max": 33.4
+  },
+  "interactionToNextFrame": {
+    "n": 0,
+    "p50": 0,
+    "p95": 0,
+    "p99": 0,
+    "max": 0
+  },
+  "over25": 0.008958566629339306,
+  "longTasks": {
+    "n": 0,
+    "p50": 0,
+    "p95": 0,
+    "p99": 0,
+    "max": 0
+  },
+  "longTaskTimeline": [],
+  "longTasksPerMinute": [
+    0
+  ],
+  "tick": {
+    "n": 15,
+    "p50": 19.5,
+    "p95": 26.4,
+    "p99": 26.4,
+    "max": 26.4
+  },
+  "added": 0,
+  "removed": 0,
+  "worldRebuilds": 0,
+  "forestRebuilds": 0,
+  "managementPaints": 0,
+  "getStateCloneCount": 0,
+  "getStateCloneMs": 0,
+  "storageReads": 90,
+  "storageWrites": 30,
+  "domStart": 3229,
+  "domEnd": 3229,
+  "sameFirstEntity": true,
+  "heapStart": 59916475,
+  "heapEnd": 82287572,
+  "elapsed": 15010,
+  "profile": {
+    "store.conflictChecks": {
+      "n": 30,
+      "p50": 0.1,
+      "p95": 0.2,
+      "p99": 0.3,
+      "max": 0.3
+    },
+    "store.advanceFarm": {
+      "n": 15,
+      "p50": 1.2,
+      "p95": 1.4,
+      "p99": 1.4,
+      "max": 1.4
+    },
+    "store.candidateValidation": {
+      "n": 15,
+      "p50": 3.3,
+      "p95": 5.9,
+      "p99": 5.9,
+      "max": 5.9
+    },
+    "store.envelopeCloneAndChecksum": {
+      "n": 15,
+      "p50": 2.1,
+      "p95": 2.9,
+      "p99": 2.9,
+      "max": 2.9
+    },
+    "store.serializeEnvelope": {
+      "n": 15,
+      "p50": 0.3,
+      "p95": 2.4,
+      "p99": 2.4,
+      "max": 2.4
+    },
+    "store.readbackParse": {
+      "n": 15,
+      "p50": 0.2,
+      "p95": 0.5,
+      "p99": 0.5,
+      "max": 0.5
+    },
+    "store.readbackValidation": {
+      "n": 15,
+      "p50": 4.9,
+      "p95": 6.9,
+      "p99": 6.9,
+      "max": 6.9
+    },
+    "store.commitDetachedClone": {
+      "n": 15,
+      "p50": 0.6,
+      "p95": 0.7,
+      "p99": 0.7,
+      "max": 0.7
+    },
+    "store.emitIncludingCloneAndSubscribers": {
+      "n": 15,
+      "p50": 5.3,
+      "p95": 7.3,
+      "p99": 7.3,
+      "max": 7.3
+    },
+    "store.returnDetachedClone": {
+      "n": 15,
+      "p50": 0.6,
+      "p95": 0.9,
+      "p99": 0.9,
+      "max": 0.9
+    }
+  },
+  "actionTimeline": [],
+  "actions": {
+    "camera": {
+      "attempted": 0,
+      "passed": 0,
+      "failed": 0
+    },
+    "shopOpen": {
+      "attempted": 0,
+      "passed": 0,
+      "failed": 0
+    },
+    "shopClose": {
+      "attempted": 0,
+      "passed": 0,
+      "failed": 0
+    },
+    "zoom": {
+      "attempted": 0,
+      "passed": 0,
+      "failed": 0
+    },
+    "harvest": {
+      "attempted": 0,
+      "passed": 0,
+      "failed": 0
+    },
+    "layoutOpen": {
+      "attempted": 0,
+      "passed": 0,
+      "failed": 0
+    },
+    "layoutClose": {
+      "attempted": 0,
+      "passed": 0,
+      "failed": 0
+    },
+    "managementOpen": {
+      "attempted": 0,
+      "passed": 0,
+      "failed": 0
+    },
+    "managementClose": {
+      "attempted": 0,
+      "passed": 0,
+      "failed": 0
+    }
+  },
+  "errors": [],
+  "heapSamples": [
+    {
+      "elapsedMs": 0.5,
+      "bytes": 59916475
+    },
+    {
+      "elapsedMs": 1005.5,
+      "bytes": 63244463
+    },
+    {
+      "elapsedMs": 2005.3999999985099,
+      "bytes": 72060635
+    },
+    {
+      "elapsedMs": 3003.5999999996275,
+      "bytes": 80875723
+    },
+    {
+      "elapsedMs": 4004.699999999255,
+      "bytes": 56072493
+    },
+    {
+      "elapsedMs": 5003,
+      "bytes": 64031785
+    },
+    {
+      "elapsedMs": 6001.5999999996275,
+      "bytes": 71510921
+    },
+    {
+      "elapsedMs": 7005.89999999851,
+      "bytes": 78818257
+    },
+    {
+      "elapsedMs": 8006.5999999996275,
+      "bytes": 58024390
+    },
+    {
+      "elapsedMs": 9009.299999998882,
+      "bytes": 65328466
+    },
+    {
+      "elapsedMs": 10000.699999999255,
+      "bytes": 72675411
+    },
+    {
+      "elapsedMs": 11001.599999999627,
+      "bytes": 79971488
+    },
+    {
+      "elapsedMs": 12002.599999999627,
+      "bytes": 60156249
+    },
+    {
+      "elapsedMs": 13002.699999999255,
+      "bytes": 67649174
+    },
+    {
+      "elapsedMs": 14001.199999999255,
+      "bytes": 74995191
+    },
+    {
+      "elapsedMs": 15001.799999998882,
+      "bytes": 82287572
+    },
+    {
+      "elapsedMs": 15006.299999998882,
+      "bytes": 82287572
+    }
+  ],
+  "heapFinalMinuteMin": 56072493,
+  "metadata": {
+    "schemaVersion": 2,
+    "warmupMs": 1000,
+    "timerPairUs": 0.3640000000037253,
+    "sourceHashes": {
+      "farm-scene-host.mjs": "4c8974657f757802d9458508c127ad61495a659a913a4e213b891635908281bb",
+      "farm-scene-world.mjs": "f568878b9f82ba55c60a8d16f52cb934128e2312f575218bfc494ecdcdeb665f",
+      "farm-save.mjs": "6b787c4ee81f947c2dda2bc71e547d727d7ba1d23d59f2ae6faed50e291095ef",
+      "farm-dom-patch.mjs": "c1606ade750e11d806cf0b4ec84e6c946e398060e36fd9d729f708a08ad25acf",
+      "farm-animal-animation.mjs": "e9113c6bfcf6d859bbf6af79dbe2fae7c608f2bb9267354b095bb6ebb5430404",
+      "farm-scene-management.mjs": "4caf41b4b9424ee9b5990647e889751aa877b76d7a04f6a10e092f23162a50f5",
+      "farm-delight.mjs": "09e442cc8deaf591fc5e2a9df052e95d71d967c85032d22ea186c9cec0af44c2",
+      "farm-layout.mjs": "289744ba157aa7783d87066bc5dbbcdb0602332c494da64b57a8bbcb3481f3cc"
+    },
+    "moduleBase": "http://127.0.0.1:46280/farm-performance-v9-store-diagnostic/sheep-match/",
+    "storageMode": "localStorage",
+    "storageNamespace": "farm-perf-qa",
+    "longTasksSupported": true,
+    "heapSupported": true,
+    "heapInterpretation": "Observed used JS heap, sampled each second; final-minute minimum is not forced-GC retained memory.",
+    "interactionInterpretation": "Synthetic key/click to next rAF, not hardware input latency or INP.",
+    "mutationInterpretation": "Direct child-list mutations, not a visual flicker detector.",
+    "fixture": "maxPensFixture: 12 pens, 63 animals, 273 initial entities",
+    "devicePixelRatio": 1,
+    "visibility": "visible",
+    "priorErrors": []
+  }
+}

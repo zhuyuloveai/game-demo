@@ -97,7 +97,7 @@ export function mountFarmDelight(root,{reducedMotion=false,enabled=true}={}){
     if(maps.length){
       const bounds=view.getBoundingClientRect(),counts={animal:0,crop:0,tree:0,machine:0,ready:0};
       const limits={animal:12,crop:6,tree:4,machine:4,ready:4};
-      const elements=Array.from(view.querySelectorAll('[data-fw-motion]')),fresh=new Set(),seen=new Set();
+      const elements=Array.from(view.querySelectorAll('[data-fw-motion]')),fresh=new Set(),seen=new Set(),visible=[];
       for(const el of elements){
         const id=el.dataset.entity;if(!id||el.dataset.fwReady===undefined)continue;
         seen.add(id);const ready=el.dataset.fwReady==='true',prior=readiness.get(id);
@@ -108,10 +108,15 @@ export function mountFarmDelight(root,{reducedMotion=false,enabled=true}={}){
       let pops=[...readiness.values()].filter(record=>record.popAt!==null&&motionTime()-record.popAt<1100).length;
       for(const el of elements){
         const kind=el.dataset.fwMotion;
-        if(!limits[kind]||counts[kind]>=limits[kind]||idle.length>=FARM_DELIGHT_LIMITS.idle||
+        if(!limits[kind]||counts[kind]>=limits[kind]||visible.length>=FARM_DELIGHT_LIMITS.idle||
           el.closest?.('.fw-layout-world,.fw-occluder-faded,.fw-muted-neighbor,[data-motion-blocked="true"]'))continue;
         const rect=el.getBoundingClientRect();
         if(!rect.width||!rect.height||rect.right<=bounds.left||rect.left>=bounds.right||rect.bottom<=bounds.top||rect.top>=bounds.bottom)continue;
+        visible.push(el);counts[kind]++;
+      }
+      // Finish geometry reads before changing animation attributes/styles.
+      for(const el of visible){
+        const kind=el.dataset.fwMotion;
         el.dataset.delightIdle=kind;
         if(!previous.includes(el)){
           const profile=delightProfile(el.dataset.animal||el.dataset.entity||el.dataset.pen||el.dataset.product,kind);
@@ -137,7 +142,7 @@ export function mountFarmDelight(root,{reducedMotion=false,enabled=true}={}){
           delete el.dataset.delightRipe;delete el.dataset.delightFresh;
           for(const key of ['--ripe-pop-delay','--ripe-cycle-duration','--ripe-cycle-delay'])el.style.removeProperty(key);
         }
-        idle.push(el);counts[kind]++;
+        idle.push(el);
       }
       cleanup();return;
     }

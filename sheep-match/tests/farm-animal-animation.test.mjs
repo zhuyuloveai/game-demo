@@ -66,3 +66,10 @@ test('60-animal stress: max 12 animated, 12fps paints, visibility reads throttle
  assert.ok(f.nodes.filter(n=>n.dataset.fwFrameRunning).length<=12);
  f.tick(1008);const stoppedReads=reads;for(let t=1024;t<2000;t+=16)f.tick(t);assert.equal(reads,stoppedReads);f.c.destroy();
 });
+test('prepareSync reads each animal and clip once without painting; commitSync paints without geometry reads',()=>{
+ const events=[],bounds={left:0,top:0,right:360,bottom:280,width:360,height:280},animals=[0,1].map(i=>({id:`b${i}`,configId:'chicken',status:'producing'}));
+ const nodes=animals.map(a=>{const image={href:'',getAttribute(){return this.href},setAttribute(_,v){events.push('write');this.href=v}};return {dataset:{animal:a.id,shelter:'pen'},querySelector:()=>image,getBoundingClientRect(){events.push('animal-read');return bounds}}});
+ const root={closest:()=>null,querySelectorAll:()=>nodes,getBoundingClientRect(){events.push('clip-read');return bounds}};
+ const c=createAnimalAnimationController({root,getAnimal:id=>({animal:animals.find(a=>a.id===id),shelter:{}}),getStaticArt:resolveShelterAnimal,Image:null,matchMedia:()=>({matches:false}),requestFrame:()=>1,cancelFrame(){}});
+ c.prepareSync();assert.deepEqual(events,['clip-read','animal-read','animal-read']);events.length=0;c.commitSync();assert.deepEqual(events,['write','write']);c.destroy();events.length=0;c.prepareSync();c.commitSync();assert.deepEqual(events,[]);
+});

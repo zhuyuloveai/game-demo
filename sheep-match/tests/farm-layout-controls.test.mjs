@@ -1,3 +1,4 @@
+import {patchFarmMarkup} from '../farm-dom-patch.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -59,7 +60,7 @@ test('dropping onto another building restores both the draft and its visible pos
 test('fixed house selection explains the restriction instead of offering to move it',()=>{
  const start=source.indexOf('    function renderContext()'),end=source.indexOf('    function machineBoard(',start);
  const context={innerHTML:''},house=createFarm(1000).entities.find(e=>e.id==='house');
- const env={context,chosenSeed:null,selected:'house',gesture:null,draft:null,placement:null,more:false,localPage:null,
+ const env={patchFarmMarkup,context,chosenSeed:null,selected:'house',gesture:null,draft:null,placement:null,more:false,localPage:null,
   selectedEntity:()=>house,ctx:{layout},config:{},title:()=> '农场小屋',esc:s=>s,
   button:(action,label)=>`<button data-action="${action}">${label}</button>`};
  new Function(...Object.keys(env),`${source.slice(start,end)}renderContext();`)(...Object.values(env));
