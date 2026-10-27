@@ -1,0 +1,42 @@
+{
+  "scope": "art-only chicken sample",
+  "canvas": [
+    360,
+    280
+  ],
+  "actions": [
+    {
+      "id": "eat",
+      "frameCount": 12,
+      "uniqueFrames": 12,
+      "transparentBorder": true,
+      "atlasMatchesFrames": true,
+      "maxContactPixelDistance": 0.707,
+      "adjacentPixelDeltaRange": [
+        0.013101792160220314,
+        0.0457438907806794
+      ],
+      "loopSeamPixelDelta": 0.024186203795238368,
+      "loopSeamNotMotionOutlier": true
+    },
+    {
+      "id": "walk",
+      "frameCount": 12,
+      "uniqueFrames": 12,
+      "transparentBorder": true,
+      "atlasMatchesFrames": true,
+      "maxContactPixelDistance": 1.581,
+      "adjacentPixelDeltaRange": [
+        0.001229263698943629,
+        0.0034576669229783486
+      ],
+      "loopSeamPixelDelta": 0.0032807030491935414,
+      "loopSeamNotMotionOutlier": true
+    }
+  ],
+  "referenceFilesUnchanged": true,
+  "sourceFilesExist": true,
+  "walkBodyStable": true,
+  "walkStanceDriftAtSuggestedStride": 0,
+  "note": "Numerical checks support technical alignment; aesthetic approval remains the chicken sample review. Pixel-delta seam check is not a substitute for animation review."
+}
