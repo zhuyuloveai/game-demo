@@ -1,37 +1,47 @@
 #!/usr/bin/env python3
-"""Build only runtime chicken RGBA frames/masks; no editable sources shipped.
-Requires Pillow. Full canvas, registration, and separate shadows are preserved.
-The source atlas is verified including its two-pixel transparent padding.
+"""Build registered RGBA frames and alpha masks for five animal species.
+Only PNG frames/manifests ship, never editable sources, atlases or duplicate shadows.
+Full canvas, contact registration and transparent atlas padding are verified.
 """
 from pathlib import Path
 import hashlib, json
 from PIL import Image
 ROOT=Path(__file__).resolve().parents[1]
-SOURCE=ROOT/'docs/art-packs/sumikko-farm-v1/animal-animation-v1/chicken'
-OUT=ROOT/'assets/farm-runtime/animal-animation-v1/chicken'
-manifest=json.loads((SOURCE/'manifest.json').read_text())
-assert manifest['canvas']==[360,280] and manifest['anchor']==[180,230]
+SOURCES={'chicken':('animal-animation-v1','chicken'),**{s:('animal-animation-v2',s) for s in ('cow','pig','sheep','lamb')}}
 assets={}
-for action in manifest['actions']:
-    assert action['fps']==12 and action['frameCount']==12 and action['atlasPadding']==2
-    atlas=Image.open(SOURCE/action['atlas']).convert('RGBA')
-    expected=Image.new('RGBA',atlas.size)
-    for frame in action['frames']:
-        source=SOURCE/frame['file']; im=Image.open(source).convert('RGBA')
-        assert im.size==(360,280) and frame['anchor']==[180,230] and frame['offset']==[0,0]
-        x,y,w,h=frame['atlasRect']; assert (w,h)==im.size
-        assert atlas.crop((x,y,x+w,y+h)).tobytes()==im.tobytes()
-        expected.paste(im,(x,y))
-        target=OUT/frame['file']; target.parent.mkdir(parents=True,exist_ok=True)
-        im.save(target,optimize=True)
-        alpha=im.getchannel('A'); size=64; sample=alpha.resize((size,size),Image.Resampling.BOX)
-        rows=[format(sum(1<<x for x in range(size) if sample.getpixel((x,y))>=24),'016x') for y in range(size)]
-        key=f"{action['id']}/{frame['index']:02}"
-        assets[key]={'key':key,'path':target.relative_to(ROOT).as_posix(),'width':360,'height':280,'bounds':[0,0,360,280],
-            'paintedBounds':list(alpha.point(lambda a:255 if a>=16 else 0).getbbox()),'anchor':[.5,230/280],
-            'mask':{'size':size,'rows':rows},'action':action['id'],'frame':frame['index'],'fps':12,
-            'contacts':frame['contacts'],'atlasRect':frame['atlasRect'],'sourceSha256':hashlib.sha256(source.read_bytes()).hexdigest()}
-    assert expected.tobytes()==atlas.tobytes(), 'Atlas padding must be transparent'
+for species,(version,folder) in SOURCES.items():
+    source_dir=ROOT/'docs/art-packs/sumikko-farm-v1'/version/folder
+    out=ROOT/'assets/farm-runtime'/version/folder
+    manifest=json.loads((source_dir/'manifest.json').read_text())
+    assert manifest['canvas']==[360,280] and manifest['anchor']==[180,230]
+    actions=manifest['actions']
+    actions=actions.items() if isinstance(actions,dict) else ((a['id'],a) for a in actions)
+    species_assets={}
+    for action_id,action in actions:
+        assert action['fps']==12 and action['frameCount']==12
+        assert action.get('atlasPadding',2)==2
+        atlas=Image.open(source_dir/action['atlas']).convert('RGBA')
+        expected=Image.new('RGBA',atlas.size)
+        for frame in action['frames']:
+            source=source_dir/frame['file']; im=Image.open(source).convert('RGBA')
+            assert im.size==(360,280) and frame['anchor']==[180,230] and frame.get('offset',[0,0])==[0,0]
+            x,y,w,h=frame['atlasRect']; assert (w,h)==im.size
+            assert atlas.crop((x,y,x+w,y+h)).tobytes()==im.tobytes()
+            expected.paste(im,(x,y))
+            target=out/frame['file']; target.parent.mkdir(parents=True,exist_ok=True)
+            im.save(target,optimize=True)
+            alpha=im.getchannel('A'); size=64; sample=alpha.resize((size,size),Image.Resampling.BOX)
+            rows=[format(sum(1<<x for x in range(size) if sample.getpixel((x,y))>=24),'016x') for y in range(size)]
+            # Preserve existing chicken lookup keys for callers and old references.
+            key=f"{'' if species=='chicken' else species+'/'}{action_id}/{frame['index']:02}"
+            entry={'key':key,'species':species,'path':target.relative_to(ROOT).as_posix(),'width':360,'height':280,'bounds':[0,0,360,280],
+                'paintedBounds':list(alpha.point(lambda a:255 if a>=16 else 0).getbbox()),'anchor':[.5,230/280],
+                'mask':{'size':size,'rows':rows},'action':action_id,'frame':frame['index'],'fps':12,
+                'atlasRect':frame['atlasRect'],'sourceSha256':hashlib.sha256(source.read_bytes()).hexdigest()}
+            for field in ('contacts','visibleHoofTips','supportAnchor','supportTarget'):
+                if field in frame: entry[field]=frame[field]
+            assets[key]=species_assets[key]=entry
+        assert expected.tobytes()==atlas.tobytes(), 'Atlas padding must be transparent'
+    (out/'manifest.json').write_text(json.dumps({'version':1,'species':species,'canvas':[360,280],'anchor':[180,230],'fps':12,'framesPerAction':12,'atlasPadding':2,'shadow':'existing independent shelter shadow','assets':[{'key':k,'path':v['path'],'sourceSha256':v['sourceSha256']} for k,v in species_assets.items()]},indent=2)+'\n')
 (ROOT/'farm-runtime-animal-animation-metadata.mjs').write_text('// Generated by tools/build-runtime-animal-animation.py. Do not edit.\nexport const ANIMAL_ANIMATION_METADATA = '+json.dumps(assets,separators=(',',':'))+';\n')
-(OUT/'manifest.json').write_text(json.dumps({'version':1,'canvas':[360,280],'anchor':[180,230],'fps':12,'framesPerAction':12,'atlasPadding':2,'shadow':'existing independent shelter shadow','assets':[{'key':k,'path':v['path'],'sourceSha256':v['sourceSha256']} for k,v in assets.items()]},indent=2)+'\n')
 print(f'{len(assets)} frames, {sum((ROOT/v["path"]).stat().st_size for v in assets.values()):,} bytes')

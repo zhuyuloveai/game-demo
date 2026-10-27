@@ -5,6 +5,7 @@
  * point is an optional {x,y} in client pixels. itemId uses the licensed asset index.
  */
 import {farmAssetUrl} from './farm-assets.mjs';
+import {WORKSHOP_EFFECTS,workshopEffectFrame} from './farm-workshop-effects.mjs';
 export const FARM_DELIGHT_LIMITS=Object.freeze({perAction:8,total:32,idle:30,ambient:3,ttl:1500,cooldown:70});
 const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
 const finite=(n,fallback=0)=>Number.isFinite(n)?n:fallback;
@@ -68,6 +69,9 @@ export function mountFarmDelight(root,{reducedMotion=false,enabled=true}={}){
   const ambient=doc.createElement('div');ambient.className='farm-delight-ambient';ambient.setAttribute('aria-hidden','true');applyDelightSafety(ambient,{position:'absolute',inset:'0',overflow:'hidden','z-index':'2',contain:'layout paint'});
   for(let i=0;i<FARM_DELIGHT_LIMITS.ambient;i++){const mote=doc.createElement('i');mote.className=i===0?'farm-delight-butterfly':'farm-delight-mote';applyDelightSafety(mote,{position:'absolute','max-width':'13px','max-height':'8px'});ambient.append(mote);}
   root.querySelector('.farm-viewport')?.append(ambient);
+  // Decode the four tiny atlases ahead of the first clearing action. Browser cache
+  // shares these across scene mounts; no read or image swap occurs per frame.
+  const atlasImages=typeof win.Image==='function'?Object.values(WORKSHOP_EFFECTS).map(fx=>{const image=new win.Image();image.src=fx.src;image.decode?.().catch(()=>{});return image;}):[];
   const budget=createDelightBudget();let destroyed=false,manualPause=false,raf=0,lastAction='',lastAt=-Infinity;
   let idle=[];
   const readiness=new Map();
@@ -80,6 +84,7 @@ export function mountFarmDelight(root,{reducedMotion=false,enabled=true}={}){
   function state(){const freeze=paused()||reduced();if(freeze&&pausedAt===null)pausedAt=time();else if(!freeze&&pausedAt!==null){pausedDuration+=time()-pausedAt;pausedAt=null;}root.dataset.delight=enabled?'on':'off';root.dataset.delightPaused=String(paused());root.dataset.delightReduced=String(reduced());ambient.hidden=paused()||reduced();if(paused()||reduced())stop();}
   function tick(now){
     raf=0;if(paused()){stop();return;}budget.sweep(now);
+    for(const r of budget.entries())if(r.atlas){if(r.start===null){r.start=now;r.until=Math.min(r.deadline,now+r.duration);}const frame=workshopEffectFrame(r.atlas,now-r.start);if(frame&&frame.frame!==r.frame){r.frame=frame.frame;r.node.style.backgroundPosition=`-${frame.x}px -${frame.y}px`;}}
     for(const r of budget.entries())if(r.flight){const p=delightFlight(r.from,r.to,(now-r.start)/r.duration,r.index);r.node.style.transform=`translate3d(${p.x}px,${p.y}px,0) translate(-50%,-50%) scale(${p.scale})`;r.node.style.opacity=String(p.opacity);}
     if(budget.size)raf=win.requestAnimationFrame(tick);
   }
@@ -162,6 +167,17 @@ export function mountFarmDelight(root,{reducedMotion=false,enabled=true}={}){
     }
     cleanup();
   }
+  // Atlas URLs are stable browser-cached resources, never one request per frame.
+  // No center-screen fallback: a committed terrain effect needs a real ground point.
+  function playTerrain(id,point,{scale=1}={}){
+    const fx=WORKSHOP_EFFECTS[id];if(!fx||paused()||reduced()||!point||!Number.isFinite(point.x)||!Number.isFinite(point.y))return 0;
+    const bounds=root.getBoundingClientRect(),x=point.x-bounds.left,y=point.y-bounds.top;
+    if(x<0||y<0||x>bounds.width||y>bounds.height)return 0;
+    const node=doc.createElement('span'),now=time(),s=clamp(finite(scale,1),.5,2);
+    node.className='farm-workshop-effect';node.dataset.workshopEffect=id;
+    applyDelightSafety(node,{position:'absolute',width:'128px',height:'96px',overflow:'hidden','background-image':`url("${fx.src}")`,'background-repeat':'no-repeat','background-position':'-2px -2px','transform-origin':'0 0',transform:`translate(${x-fx.anchor[0]*s}px,${y-fx.anchor[1]*s}px) scale(${s})`});
+    layer.append(node);budget.add({node,atlas:id,frame:0,start:null,duration:fx.duration,deadline:now+FARM_DELIGHT_LIMITS.ttl,until:now+FARM_DELIGHT_LIMITS.ttl,dispose(){node.remove();}});schedule();return 1;
+  }
   function play(action,{sourceElements=[],targetElement=null,itemId=null,count=1,point=null,committed=false,crop=false}={}){
     if(paused())return 0;
     const now=time();if(!committed&&action===lastAction&&now-lastAt<FARM_DELIGHT_LIMITS.cooldown)return 0;lastAction=action;lastAt=now;
@@ -195,5 +211,5 @@ export function mountFarmDelight(root,{reducedMotion=false,enabled=true}={}){
   }
   const onVisibility=()=>state(),onMotion=()=>state();doc.addEventListener('visibilitychange',onVisibility);query?.addEventListener?.('change',onMotion);
   state();refresh();
-  return {play,refresh,clear:stop,setReducedMotion(value){reducedMotion=!!value;state();},setEnabled(value){enabled=!!value;state();refresh();},pause(value=true){manualPause=!!value;state();},get activeCount(){return budget.size;},destroy(){if(destroyed)return;destroyed=true;stop();readiness.clear();for(const el of idle)clearIdle(el);idle=[];doc.removeEventListener('visibilitychange',onVisibility);query?.removeEventListener?.('change',onMotion);layer.remove();ambient.remove();delete root.dataset.delight;delete root.dataset.delightPaused;delete root.dataset.delightReduced;}};
+  return {play,playTerrain,refresh,clear:stop,setReducedMotion(value){reducedMotion=!!value;state();},setEnabled(value){enabled=!!value;state();refresh();},pause(value=true){manualPause=!!value;state();},get activeCount(){return budget.size;},destroy(){if(destroyed)return;destroyed=true;stop();readiness.clear();for(const el of idle)clearIdle(el);idle=[];doc.removeEventListener('visibilitychange',onVisibility);query?.removeEventListener?.('change',onMotion);layer.remove();ambient.remove();delete root.dataset.delight;delete root.dataset.delightPaused;delete root.dataset.delightReduced;}};
 }

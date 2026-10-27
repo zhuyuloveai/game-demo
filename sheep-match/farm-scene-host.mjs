@@ -4,8 +4,10 @@ import * as core from './farm-core.mjs';
 import * as layout from './farm-layout.mjs';
 import * as save from './farm-save.mjs';
 import * as stages from './farm-stage-data.mjs';
-import {FARM_ASSETS,farmAsset,farmAssetUrl} from './farm-assets.mjs';
+import {FARM_ASSETS,farmAsset,farmAssetUrl,farmAssetPathUrl} from './farm-assets.mjs';
 import {mountFarmDelight} from './farm-delight.mjs';
+import {committedTerrainEffects} from './farm-workshop-effects.mjs';
+import {project} from './farm-world-geometry.mjs';
 import {mountWorldScene} from './farm-scene-world.mjs';
 import {mountTradeScene} from './farm-scene-trade.mjs';
 import {mountManagementScene} from './farm-scene-management.mjs';
@@ -61,7 +63,7 @@ export function mountFarm({root,store,onExit=()=>{},onStartStage=()=>{},getMusic
  const base=root.querySelector('.farm-scene-base'),feedback=root.querySelector('.farm-scene-feedback'),warning=root.querySelector('.farm-scene-save-warning');
  const delight=mountFarmDelight(root,{reducedMotion:snapshot.settings.reducedMotion});
  const name=id=>({coin:'金币',construction_voucher:'建设券',material_choice_voucher:'材料补给券',xp:'经验'})[id]||config.ITEMS[id]?.name||config.CROPS[id]?.name||config.FRUITS[id]?.name||config.BUILDINGS[id]?.name||config.ANIMALS[id]?.name||config.DECORATIONS[id]?.name||id;
- const asset=path=>paths.has(path)?new URL(`./assets/farm/${path}`,import.meta.url).href:farmAssetUrl(path);
+ const asset=path=>paths.has(path)?farmAssetPathUrl(path):farmAssetUrl(path);
  const say=text=>{feedback.textContent=String(text??'');};
  function confirm(options){
   for(const fn of deactivators)fn('confirm');
@@ -99,8 +101,18 @@ export function mountFarm({root,store,onExit=()=>{},onStartStage=()=>{},getMusic
      const silo=before.entities.find(e=>e.kind===(animalCommand||machineCommand?'barn':'silo')&&!e.stored),el=feedback.targetElement||nodeFor(silo?.id);
      if(el){const r=capture(el),view=capture(feedback.targetElement?root:el.closest?.('.fw-map')||target);if(r?.width&&r?.height&&r.left<view.right&&r.right>view.left&&r.top<view.bottom&&r.bottom>view.top)destination=r;}
     }
+    // Capture the live scene transform before synchronous subscribers can remove
+    // an obstacle. Projection uses the actual world, not a guessed sprite center.
+    const terrainCommand=command.type==='expandLand'||command.type==='clearObstacle';
+    const terrainWorld=terrainCommand?target.querySelector('.fw-world'):null,terrainView=terrainWorld?.closest('.fw-map');
+    const terrainBounds=terrainWorld?capture(terrainWorld):null,terrainViewport=terrainView?capture(terrainView):null;
     const r=store.dispatch(command);lastResult=r;
     if(!r.ok){say(r.message||'未保存，本次操作未执行');onSound('soft-error');return r;}
+    if(terrainBounds?.width&&terrainViewport){const scale=terrainBounds.width/3072;
+     for(const effect of committedTerrainEffects(before,command,r)){const p=project(effect.x,effect.y),point={x:terrainBounds.left+p.x*scale,y:terrainBounds.top+p.y*scale};
+      if(point.x>=terrainViewport.left&&point.x<=terrainViewport.right&&point.y>=terrainViewport.top&&point.y<=terrainViewport.bottom)delight.playTerrain(effect.id,point,{scale});
+     }
+    }
     say(''); // A successful retry must not leave an earlier error over the world.
     const cue=({plant:'plant',harvest:'harvest',feed:'feed',collectAnimal:'harvest',collectMachine:'harvest',listNpcStall:'coin',deliverOrder:'coin'})[command.type];
     const skipped=r.skipped||r.delta?.skipped||[],changed=!(skipped.length&&!r.delta?.events?.length);

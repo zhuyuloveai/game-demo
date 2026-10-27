@@ -7,6 +7,8 @@ import {FRUITS} from '../farm-config.mjs';
 import {resolveWorldArt} from '../farm-runtime-art.mjs';
 import {createAnimalAnimationController} from '../farm-animal-animation.mjs';
 import {resolveShelterAnimal} from '../farm-runtime-shelters.mjs';
+import {forestBoundary} from '../farm-forest-boundary.mjs';
+import {workshopForestFringe,workshopForestFog} from '../farm-workshop-terrain.mjs';
 
 // Execute the production signature expressions, not a separate test-side copy.
 // Browser identity/layout and visual-frame continuity are covered by browser QA.
@@ -82,7 +84,7 @@ test('unrelated map update cannot clone retreat sprites or cancel their pending 
  for(const fn of timers.values())fn();assert.equal(elements.length,0);
 });
 test('forest overscan hysteresis retains small pans but rebuilds on viewport escape or geometry invalidation',()=>{
- const start=source.indexOf('const left=Math.floor((-camera.x/camera.zoom)/128)'),end=source.indexOf('const modelKey=',start);
+ const start=source.indexOf('const left=Math.floor((-camera.x/camera.zoom)/128)'),end=source.indexOf('const rows=effectiveEntities().filter',start);
  assert(start>=0&&end>start);const code=source.slice(start,end);
  const c=vm.createContext({camera:{x:0,y:0,zoom:1},viewportWidth:800,viewportHeight:600,selected:null,harvestView:false,draft:null,ctx:{state:{openedLand:['start']}},forestKey:null,forestViewport:null});
  const recull=()=>vm.runInContext(`(()=>{${code};return true;})()`,c)===true;
@@ -93,7 +95,7 @@ test('forest overscan hysteresis retains small pans but rebuilds on viewport esc
  c.viewportWidth=1800;assert.equal(recull(),true);c.camera.zoom=.5;assert.equal(recull(),true);
 });
 test('each newly computed forest overscan contains the actual viewport across pans, sizes and zooms',()=>{
- const start=source.indexOf('const left=Math.floor((-camera.x/camera.zoom)/128)'),end=source.indexOf('const modelKey=',start),code=source.slice(start,end);
+ const start=source.indexOf('const left=Math.floor((-camera.x/camera.zoom)/128)'),end=source.indexOf('const rows=effectiveEntities().filter',start),code=source.slice(start,end);
  for(const zoom of [.35,.75,1,1.75,2])for(const x of [-1200,-129,-1,0,129,1200]){
  const camera={x,y:x/3,zoom},view={clientWidth:903,clientHeight:617},c=vm.createContext({camera,viewportWidth:view.clientWidth,viewportHeight:view.clientHeight,selected:null,harvestView:false,draft:null,ctx:{state:{openedLand:[]}},forestKey:null,forestViewport:null});
  vm.runInContext(`(()=>{${code}})()`,c);const b=c.forestViewport;
@@ -140,12 +142,19 @@ test('terrain index rebuilds after draft movement, undo, committed state replace
  h.c.draft=null;h.c.ctx.state={entities:[c,{...n,stored:true}],now:1};assert.equal(h.terrainArt(c).mask,0);
  h.c.growthPreview={plan:{proposedRoads:[{x:1,y:2}]}};assert.equal(h.terrainArt(c).mask,4);
 });
-test('forest model cache ignores selection/entity state but invalidates viewport and opened land',()=>{
- const start=source.indexOf('const modelKey='),end=source.indexOf('const model=forestModel',start);assert(start>=0&&end>start);let builds=0;
- const c=vm.createContext({left:0,top:0,width:800,height:600,ctx:{state:{openedLand:[],entities:[],now:0}},forestModelKey:null,forestModel:null,forestBoundary:()=>({build:++builds})});
+test('forest model cache ignores clock/non-road state but invalidates roads, draft, viewport and opened land',()=>{
+ const start=source.indexOf('const rows=effectiveEntities().filter',source.indexOf('function renderForest()')),end=source.indexOf('const model=forestModel',start);assert(start>=0&&end>start);let builds=0;
+ const c=vm.createContext({left:800,top:250,width:1200,height:850,ctx:{state:{openedLand:[],entities:[],now:0}},draftRows:null,forestModelKey:null,forestModel:null,forestBoundary:(...args)=>{builds++;return forestBoundary(...args);},workshopForestFringe,workshopForestFog});
+ c.effectiveEntities=()=>c.draftRows||c.ctx.state.entities;
  const read=()=>vm.runInContext(`(()=>{${source.slice(start,end)};return forestModel})()`,c);
- const first=read();c.ctx.state={openedLand:[],entities:[{x:10}],now:1000};assert.equal(read(),first);assert.equal(builds,1);
- c.left=128;assert.notEqual(read(),first);assert.equal(builds,2);c.ctx.state.openedLand=['new'];read();assert.equal(builds,3);
+ const first=read();c.ctx.state={openedLand:[],entities:[{id:'tree',kind:'fruit',x:10}],now:1000};assert.equal(read(),first);assert.equal(builds,1);
+ const target=first.fringe.find(p=>p.kind.startsWith('grass-edge'));assert.ok(target);
+ const road={id:'road',kind:'road',x:target.x-.5,y:target.y-.5};c.ctx.state.entities.push(road);
+ const roadModel=read();assert.notEqual(roadModel,first);assert.equal(builds,2);assert.ok(roadModel.fringe.some(p=>p.kind.startsWith('soil-grass')));
+ c.ctx.state.now++;assert.equal(read(),roadModel);assert.equal(builds,2);
+ c.draftRows=[{...road,x:32,y:32}];const draftModel=read();assert.notEqual(draftModel,roadModel);assert.equal(builds,3);assert.equal(draftModel.fringe.some(p=>p.kind.startsWith('soil-grass')),false);
+ c.draftRows=null;assert.ok(read().fringe.some(p=>p.kind.startsWith('soil-grass')));assert.equal(builds,4);
+ c.left=928;assert.notEqual(read(),first);assert.equal(builds,5);c.ctx.state.openedLand=['land_01'];read();assert.equal(builds,6);
 });
 test('direct harvest clears selection before synchronous dispatch and restores it only after failure',()=>{
  const start=source.indexOf('if(harvest){lastFieldTap=null;'),end=source.indexOf("if(e?.kind!=='field'",start);assert(start>=0&&end>start);
@@ -167,4 +176,14 @@ test('world coordinates same-task animal read, delight refresh, animal write in 
  const start=source.indexOf('function refreshMotion(){'),end=source.indexOf('function on(el,event,fn,options)',start);assert(start>=0&&end>start);const calls=[];
  const c=vm.createContext({game:{dataset:{}},gesture:null,draft:null,placement:null,localPage:null,motionRaf:0,destroyed:false,win:{requestAnimationFrame:fn=>{fn();return 1}},animalAnimation:{prepareSync:()=>calls.push('animal-read'),commitSync:()=>calls.push('animal-write')},ctx:{refreshPresentation:()=>calls.push('delight')}});
  vm.runInContext(`${source.slice(start,end)};refreshMotion()`,c);assert.deepEqual(calls,['animal-read','delight','animal-write']);
+});
+test('new-land obstacle IDs are not mistaken for land patches after clear preview cancellation',()=>{
+ const a=source.indexOf('function renderTransaction(){'),b=source.indexOf('function render(){',a),markup=[];
+ const c=vm.createContext({growthPreview:null,draft:null,placement:null,clearPreview:null,selected:'land_01_5_5',ctx:{layout:{LAND_PATCHES:[{id:'land_01'}]}},transaction:{},patchFarmMarkup:(_node,html)=>markup.push(html)});
+ vm.runInContext(`${source.slice(a,b)};renderTransaction()`,c);assert.equal(markup.at(-1),'');
+});
+test('stale clear-confirm click with no active preview does not dispatch an incomplete command',()=>{
+ const a=source.indexOf("else if(action==='confirm-clear')"),b=source.indexOf("else if(action==='expand-land')",a);let dispatched=0;
+ const c=vm.createContext({action:'confirm-clear',clearPreview:null,doAct(){dispatched++;return {ok:true};},render(){}});
+ vm.runInContext(`(()=>{${source.slice(a,b).replace(/^else /,'')}})()`,c);assert.equal(dispatched,0);
 });

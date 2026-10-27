@@ -178,3 +178,8 @@ html.fw-document,html.fw-document>body{overflow:clip;overscroll-behavior:none}
 
 /* Untouched layout mode retains normal nodes; hide affordances without rebuilding sprites. */
 .fw-layout-fast .fw-badge,.fw-layout-fast .fw-pen-summary,.fw-layout-fast .fw-pen-label,.fw-layout-fast .fw-animal-state{display:none!important}
+
+/* Approved workshop connectors have their own ground layer and stable keyed nodes. */
+.fw-forest-fringe,.fw-forest-fog{position:absolute;pointer-events:none!important;user-select:none;max-width:none}
+.fw-forest-fringe{z-index:1}
+.fw-forest-fog{z-index:1500;opacity:.24}

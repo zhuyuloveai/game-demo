@@ -1,0 +1,138 @@
+{
+  "version": 1,
+  "species": "sheep",
+  "canvas": [
+    360,
+    280
+  ],
+  "anchor": [
+    180,
+    230
+  ],
+  "fps": 12,
+  "framesPerAction": 12,
+  "atlasPadding": 2,
+  "shadow": "existing independent shelter shadow",
+  "assets": [
+    {
+      "key": "sheep/eat/00",
+      "path": "assets/farm-runtime/animal-animation-v2/sheep/frames/eat/00.png",
+      "sourceSha256": "7e10890e384aacd3c60fe885c5252e8d2ce452bf7291767a01612d62140c9b76"
+    },
+    {
+      "key": "sheep/eat/01",
+      "path": "assets/farm-runtime/animal-animation-v2/sheep/frames/eat/01.png",
+      "sourceSha256": "eb77eb332d43d1144029ac4a0f1d7979fa8db9ae9b6e88fd18907e7455357659"
+    },
+    {
+      "key": "sheep/eat/02",
+      "path": "assets/farm-runtime/animal-animation-v2/sheep/frames/eat/02.png",
+      "sourceSha256": "eb564fa6aff93e5f24908e363b958178f4c977b08bcce339e71bc4ebf3b903e2"
+    },
+    {
+      "key": "sheep/eat/03",
+      "path": "assets/farm-runtime/animal-animation-v2/sheep/frames/eat/03.png",
+      "sourceSha256": "5b45e2e0a8996b0b1a8c7953a81d207d2158ee860f9a53e1903e791a17b4f196"
+    },
+    {
+      "key": "sheep/eat/04",
+      "path": "assets/farm-runtime/animal-animation-v2/sheep/frames/eat/04.png",
+      "sourceSha256": "70af0a57b280c158c9172e9b676c4798384f4b57eda5effddb115dcfcc4bb19c"
+    },
+    {
+      "key": "sheep/eat/05",
+      "path": "assets/farm-runtime/animal-animation-v2/sheep/frames/eat/05.png",
+      "sourceSha256": "ed352801a7f3d8ad03baf2cbe1c792eed2eae9da0e6da172802edc655ab148aa"
+    },
+    {
+      "key": "sheep/eat/06",
+      "path": "assets/farm-runtime/animal-animation-v2/sheep/frames/eat/06.png",
+      "sourceSha256": "84cbe20e2c513c0cec2085fdd4fa8cfadabae805bb2a9b9ff5bafa28f3c18674"
+    },
+    {
+      "key": "sheep/eat/07",
+      "path": "assets/farm-runtime/animal-animation-v2/sheep/frames/eat/07.png",
+      "sourceSha256": "f30ea016dedcc0af35c820900516f1dd66713eee4738e732dd2783f0b6456057"
+    },
+    {
+      "key": "sheep/eat/08",
+      "path": "assets/farm-runtime/animal-animation-v2/sheep/frames/eat/08.png",
+      "sourceSha256": "6e3097ba4f799b9387d4b9cddf99dcc4574c86f049ea1a7bf09cdaa19b7917af"
+    },
+    {
+      "key": "sheep/eat/09",
+      "path": "assets/farm-runtime/animal-animation-v2/sheep/frames/eat/09.png",
+      "sourceSha256": "b653d630c9ab4a52d2749e2e920ad1162f96c5e9f87d44ee095621046b7c4831"
+    },
+    {
+      "key": "sheep/eat/10",
+      "path": "assets/farm-runtime/animal-animation-v2/sheep/frames/eat/10.png",
+      "sourceSha256": "dc4353a2193863f3e296277ce333199e674e4e5a7ef1bd3e698b6016918bd760"
+    },
+    {
+      "key": "sheep/eat/11",
+      "path": "assets/farm-runtime/animal-animation-v2/sheep/frames/eat/11.png",
+      "sourceSha256": "39f6f72b0e7b36e3293e5c3a12e8062e47f10e3c67fe89d771c097ff78cf877d"
+    },
+    {
+      "key": "sheep/walk/00",
+      "path": "assets/farm-runtime/animal-animation-v2/sheep/frames/walk/00.png",
+      "sourceSha256": "69fa8803fdfac93fe9b3d88138027a4a70d26ab11d721c97d8b73ab56d67af2c"
+    },
+    {
+      "key": "sheep/walk/01",
+      "path": "assets/farm-runtime/animal-animation-v2/sheep/frames/walk/01.png",
+      "sourceSha256": "5c3abe61f09f74f57f35dde0b335aa09c476c87301e6cb2f4b4f2a7a475f88af"
+    },
+    {
+      "key": "sheep/walk/02",
+      "path": "assets/farm-runtime/animal-animation-v2/sheep/frames/walk/02.png",
+      "sourceSha256": "b1d6d7d69114d7b1fd99149fe02f21fa01023137d7183f9e1f16fc10bf54b0a4"
+    },
+    {
+      "key": "sheep/walk/03",
+      "path": "assets/farm-runtime/animal-animation-v2/sheep/frames/walk/03.png",
+      "sourceSha256": "4073a4882d7029d3c9ac3ba8ee01a90ef5c92e37b39d9fbea8001be6a36144dc"
+    },
+    {
+      "key": "sheep/walk/04",
+      "path": "assets/farm-runtime/animal-animation-v2/sheep/frames/walk/04.png",
+      "sourceSha256": "3e15e31ed6217601580d0e88684942d293a783bdaf3dbc0033a6ab4fd16a737e"
+    },
+    {
+      "key": "sheep/walk/05",
+      "path": "assets/farm-runtime/animal-animation-v2/sheep/frames/walk/05.png",
+      "sourceSha256": "b6b84f235b10be2c816c1182fdc4a5077d3d1b0fc2fb54b6cb7bc2f94156a31a"
+    },
+    {
+      "key": "sheep/walk/06",
+      "path": "assets/farm-runtime/animal-animation-v2/sheep/frames/walk/06.png",
+      "sourceSha256": "7b92ce6cb432ad4b5f72e69b93223342463a4ca15f3955904bf6432a0ff03da6"
+    },
+    {
+      "key": "sheep/walk/07",
+      "path": "assets/farm-runtime/animal-animation-v2/sheep/frames/walk/07.png",
+      "sourceSha256": "904b21bed30809b5712a113ee60dcfc45e3c1039a188a698c4ab98e30a326494"
+    },
+    {
+      "key": "sheep/walk/08",
+      "path": "assets/farm-runtime/animal-animation-v2/sheep/frames/walk/08.png",
+      "sourceSha256": "82dc189f2349d2a1f4ad288516b25cda09fc2e00d0cb93d9b7bf10d0dd31b52e"
+    },
+    {
+      "key": "sheep/walk/09",
+      "path": "assets/farm-runtime/animal-animation-v2/sheep/frames/walk/09.png",
+      "sourceSha256": "557c51ba81cff19dbc347f6fb2374fda8e921cbf716f44e3c653c655a43dd1b6"
+    },
+    {
+      "key": "sheep/walk/10",
+      "path": "assets/farm-runtime/animal-animation-v2/sheep/frames/walk/10.png",
+      "sourceSha256": "ac3447f75633e5ee4d1074209a0a9eed304818f6b4183cb12704b61f3936d2d4"
+    },
+    {
+      "key": "sheep/walk/11",
+      "path": "assets/farm-runtime/animal-animation-v2/sheep/frames/walk/11.png",
+      "sourceSha256": "53205273ff5c16a30f4d5a07b03af1b65e90889fa8f91854cf2e20b5e899574e"
+    }
+  ]
+}

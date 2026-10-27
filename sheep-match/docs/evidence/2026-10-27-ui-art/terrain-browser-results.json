@@ -1,0 +1,4115 @@
+{
+  "brokenImages": 0,
+  "fx": {
+    "active": 0,
+    "effects": [
+      {
+        "id": "land-open",
+        "time": 4931.10000000149,
+        "transform": "translate(542px, 299.29px) scale(0.75)"
+      },
+      {
+        "id": "clear-dust",
+        "time": 6233.39999999851,
+        "transform": "translate(542px, 326.29px) scale(0.75)"
+      },
+      {
+        "id": "wood-chips",
+        "time": 6233.39999999851,
+        "transform": "translate(542px, 326.29px) scale(0.75)"
+      },
+      {
+        "id": "clear-dust",
+        "time": 18562.20000000298,
+        "transform": "translate(542px, 254.29px) scale(0.75)"
+      },
+      {
+        "id": "stone-chips",
+        "time": 18562.20000000298,
+        "transform": "translate(542px, 254.29px) scale(0.75)"
+      },
+      {
+        "id": "clear-dust",
+        "time": 108675.60000000148,
+        "transform": "translate(560px, 263.29px) scale(0.75)"
+      },
+      {
+        "id": "stone-chips",
+        "time": 108675.60000000148,
+        "transform": "translate(560px, 263.29px) scale(0.75)"
+      }
+    ],
+    "frames": [
+      {
+        "id": "land-open",
+        "position": "-134px -2px",
+        "time": 5403.70000000298
+      },
+      {
+        "id": "land-open",
+        "position": "-266px -2px",
+        "time": 5487.79999999702
+      },
+      {
+        "id": "land-open",
+        "position": "-398px -2px",
+        "time": 5614.60000000149
+      },
+      {
+        "id": "land-open",
+        "position": "-134px -102px",
+        "time": 5656.29999999702
+      },
+      {
+        "id": "land-open",
+        "position": "-266px -102px",
+        "time": 5738.60000000149
+      },
+      {
+        "id": "land-open",
+        "position": "-398px -102px",
+        "time": 5817
+      },
+      {
+        "id": "clear-dust",
+        "position": "-134px -2px",
+        "time": 6403.60000000149
+      },
+      {
+        "id": "wood-chips",
+        "position": "-134px -2px",
+        "time": 6403.60000000149
+      },
+      {
+        "id": "clear-dust",
+        "position": "-398px -102px",
+        "time": 109331.39999999852
+      },
+      {
+        "id": "stone-chips",
+        "position": "-398px -102px",
+        "time": 109331.5
+      }
+    ],
+    "removed": [
+      {
+        "id": "land-open",
+        "time": 5901.39999999851
+      },
+      {
+        "id": "clear-dust",
+        "time": 7420.5
+      },
+      {
+        "id": "wood-chips",
+        "time": 7420.5
+      },
+      {
+        "id": "clear-dust",
+        "time": 19570.60000000149
+      },
+      {
+        "id": "stone-chips",
+        "time": 19570.60000000149
+      },
+      {
+        "id": "clear-dust",
+        "time": 109415.10000000148
+      },
+      {
+        "id": "stone-chips",
+        "time": 109415.10000000148
+      }
+    ]
+  },
+  "qa": {
+    "commands": [
+      {
+        "command": {
+          "patchId": "land_01",
+          "type": "expandLand"
+        },
+        "ok": true
+      },
+      {
+        "command": {
+          "confirmed": true,
+          "entityIds": [
+            "land_01_5_5"
+          ],
+          "toolId": "saw",
+          "type": "clearObstacle"
+        },
+        "ok": true
+      },
+      {
+        "command": {
+          "confirmed": true,
+          "entityIds": [
+            "land_01_1_1"
+          ],
+          "toolId": "shovel",
+          "type": "clearObstacle"
+        },
+        "ok": true
+      },
+      {
+        "command": {
+          "confirmed": true,
+          "entityIds": [
+            "land_01_2_1"
+          ],
+          "toolId": "shovel",
+          "type": "clearObstacle"
+        },
+        "ok": true
+      }
+    ],
+    "state": {
+      "animalCredits": {
+        "chicken": 0,
+        "cow": 0,
+        "lamb": 0,
+        "pig": 0,
+        "sheep": 0
+      },
+      "branch": {
+        "active": null,
+        "stages": {},
+        "unlocked": false
+      },
+      "camera": {
+        "centerX": 29.5,
+        "centerY": 28.5,
+        "zoom": 1
+      },
+      "coins": 890923,
+      "commandLog": {
+        "farmcmd:writer_a64b5a50-cbee-4a0e-980d-d8a8c534a76e:1": {
+          "delta": {
+            "coins": 0,
+            "events": [],
+            "items": {
+              "land_deed": -2,
+              "mallet": -2,
+              "marker_stake": -2
+            },
+            "skipped": 0,
+            "vouchers": 0,
+            "xp": 0
+          },
+          "revision": 160,
+          "skipped": []
+        },
+        "farmcmd:writer_a64b5a50-cbee-4a0e-980d-d8a8c534a76e:2": {
+          "delta": {
+            "coins": 0,
+            "events": [],
+            "items": {
+              "saw": -1
+            },
+            "skipped": 0,
+            "vouchers": 0,
+            "xp": 0
+          },
+          "revision": 161,
+          "skipped": []
+        },
+        "farmcmd:writer_a64b5a50-cbee-4a0e-980d-d8a8c534a76e:3": {
+          "delta": {
+            "coins": 0,
+            "events": [],
+            "items": {
+              "shovel": -1
+            },
+            "skipped": 0,
+            "vouchers": 0,
+            "xp": 0
+          },
+          "revision": 162,
+          "skipped": []
+        },
+        "farmcmd:writer_a64b5a50-cbee-4a0e-980d-d8a8c534a76e:4": {
+          "delta": {
+            "coins": 0,
+            "events": [],
+            "items": {
+              "shovel": -1
+            },
+            "skipped": 0,
+            "vouchers": 0,
+            "xp": 0
+          },
+          "revision": 163,
+          "skipped": []
+        }
+      },
+      "commandSeen": {},
+      "commandWatermarks": {
+        "writer_a64b5a50-cbee-4a0e-980d-d8a8c534a76e": 4
+      },
+      "contentVersion": "sheep-core-v04.1",
+      "cosmetics": {
+        "background": "default"
+      },
+      "daily": {
+        "choiceClaimed": [],
+        "trucks": 0
+      },
+      "day": 20843,
+      "decorations": {
+        "badge_landExpansions_1": 1,
+        "badge_machineTypes_1": 1,
+        "badge_machineTypes_2": 1,
+        "badge_machineTypes_3": 1
+      },
+      "entities": [
+        {
+          "configId": "house",
+          "door": {
+            "x": 22,
+            "y": 24
+          },
+          "fixed": true,
+          "h": 4,
+          "id": "house",
+          "kind": "house",
+          "rotation": 0,
+          "stored": false,
+          "w": 4,
+          "x": 20,
+          "y": 20
+        },
+        {
+          "configId": "barn",
+          "h": 3,
+          "id": "barn",
+          "kind": "barn",
+          "rotation": 0,
+          "stored": false,
+          "w": 3,
+          "x": 24,
+          "y": 20
+        },
+        {
+          "configId": "silo",
+          "h": 3,
+          "id": "silo",
+          "kind": "silo",
+          "rotation": 0,
+          "stored": false,
+          "w": 3,
+          "x": 28,
+          "y": 20
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "wheat",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800605010000,
+            "rescue": false,
+            "xp": 1,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_1",
+          "kind": "field",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "x": 28,
+          "y": 28
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "corn",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800605190000,
+            "rescue": false,
+            "xp": 1,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_2",
+          "kind": "field",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "x": 29,
+          "y": 28
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "soybean",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800606090000,
+            "rescue": false,
+            "xp": 2,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_3",
+          "kind": "field",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "x": 30,
+          "y": 28
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "sugarcane",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800606690000,
+            "rescue": false,
+            "xp": 3,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_4",
+          "kind": "field",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "x": 28,
+          "y": 29
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "carrot",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800605490000,
+            "rescue": false,
+            "xp": 2,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_5",
+          "kind": "field",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "x": 29,
+          "y": 29
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "indigo",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800612090000,
+            "rescue": false,
+            "xp": 5,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_6",
+          "kind": "field",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "x": 30,
+          "y": 29
+        },
+        {
+          "animals": [
+            {
+              "configId": "chicken",
+              "id": "animal_100",
+              "readyAt": 1800606090000,
+              "status": "ready"
+            },
+            {
+              "configId": "chicken",
+              "id": "animal_101",
+              "readyAt": 1800606090000,
+              "status": "ready"
+            },
+            {
+              "configId": "chicken",
+              "id": "animal_102",
+              "readyAt": 1800606090000,
+              "status": "ready"
+            }
+          ],
+          "configId": "chicken",
+          "h": 4,
+          "id": "shelter_chicken_1",
+          "kind": "shelter",
+          "rotation": 0,
+          "stored": false,
+          "tier": 0,
+          "w": 4,
+          "x": 22,
+          "y": 28
+        },
+        {
+          "configId": "natural_tree",
+          "fixed": true,
+          "h": 1,
+          "id": "natural_tree_1",
+          "kind": "obstacle",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "x": 18,
+          "y": 36
+        },
+        {
+          "configId": "natural_bush",
+          "fixed": true,
+          "h": 1,
+          "id": "natural_bush_1",
+          "kind": "obstacle",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "x": 20,
+          "y": 36
+        },
+        {
+          "configId": "rock",
+          "fixed": true,
+          "h": 1,
+          "id": "rock_1",
+          "kind": "obstacle",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "x": 40,
+          "y": 40
+        },
+        {
+          "configId": "rock",
+          "fixed": true,
+          "h": 1,
+          "id": "rock_2",
+          "kind": "obstacle",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "x": 41,
+          "y": 40
+        },
+        {
+          "configId": "rock",
+          "fixed": true,
+          "h": 1,
+          "id": "rock_3",
+          "kind": "obstacle",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "x": 40,
+          "y": 41
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_25_23",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 25,
+          "y": 23
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_29_23",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 29,
+          "y": 23
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_22_24",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 22,
+          "y": 24
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_23_24",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 23,
+          "y": 24
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_24_24",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 24,
+          "y": 24
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_25_24",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 25,
+          "y": 24
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_26_24",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 26,
+          "y": 24
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_27_24",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 27,
+          "y": 24
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_28_24",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 28,
+          "y": 24
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_29_24",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 29,
+          "y": 24
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_30_24",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 30,
+          "y": 24
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_31_24",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 31,
+          "y": 24
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_31_25",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 31,
+          "y": 25
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_31_26",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 31,
+          "y": 26
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_31_27",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 31,
+          "y": 27
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_31_28",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 31,
+          "y": 28
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_31_29",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 31,
+          "y": 29
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_31_30",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 31,
+          "y": 30
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_31_31",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 31,
+          "y": 31
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_24_32",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 24,
+          "y": 32
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_25_32",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 25,
+          "y": 32
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_26_32",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 26,
+          "y": 32
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_27_32",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 27,
+          "y": 32
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_31_32",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 31,
+          "y": 32
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_27_33",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 27,
+          "y": 33
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_28_33",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 28,
+          "y": 33
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_29_33",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 29,
+          "y": 33
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_30_33",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 30,
+          "y": 33
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_31_33",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 31,
+          "y": 33
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_31_34",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 31,
+          "y": 34
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_31_35",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 31,
+          "y": 35
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_31_36",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 31,
+          "y": 36
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_31_37",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 31,
+          "y": 37
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_31_38",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 31,
+          "y": 38
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_31_39",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 31,
+          "y": 39
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_32_39",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 32,
+          "y": 39
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_32_40",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 32,
+          "y": 40
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_32_41",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 32,
+          "y": 41
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_32_42",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 32,
+          "y": 42
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_32_43",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 32,
+          "y": 43
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_32_44",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 32,
+          "y": 44
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_32_45",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 32,
+          "y": 45
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_32_46",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 32,
+          "y": 46
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_32_47",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 32,
+          "y": 47
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "pumpkin",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800615690000,
+            "rescue": false,
+            "xp": 6,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_112",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 32,
+          "y": 28
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "cotton",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800613890000,
+            "rescue": false,
+            "xp": 6,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_113",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 33,
+          "y": 28
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "chili_pepper",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800619290000,
+            "rescue": false,
+            "xp": 7,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_114",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 34,
+          "y": 28
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "black_bean",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800605490000,
+            "rescue": false,
+            "xp": 2,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_115",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 32,
+          "y": 29
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "tomato",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800626490000,
+            "rescue": false,
+            "xp": 8,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_116",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 33,
+          "y": 29
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "wheat",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800605010000,
+            "rescue": false,
+            "xp": 1,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_117",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 34,
+          "y": 29
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_27_31",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 27,
+          "y": 31
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "corn",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800605190000,
+            "rescue": false,
+            "xp": 1,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_118",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 28,
+          "y": 31
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "soybean",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800606090000,
+            "rescue": false,
+            "xp": 2,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_119",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 29,
+          "y": 31
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "sugarcane",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800606690000,
+            "rescue": false,
+            "xp": 3,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_120",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 30,
+          "y": 31
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "carrot",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800605490000,
+            "rescue": false,
+            "xp": 2,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_121",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 28,
+          "y": 32
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "indigo",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800612090000,
+            "rescue": false,
+            "xp": 5,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_122",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 29,
+          "y": 32
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "pumpkin",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800615690000,
+            "rescue": false,
+            "xp": 6,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_123",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 30,
+          "y": 32
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "cotton",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800613890000,
+            "rescue": false,
+            "xp": 6,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_124",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 32,
+          "y": 31
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "chili_pepper",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800619290000,
+            "rescue": false,
+            "xp": 7,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_125",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 33,
+          "y": 31
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "black_bean",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800605490000,
+            "rescue": false,
+            "xp": 2,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_126",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 34,
+          "y": 31
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "tomato",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800626490000,
+            "rescue": false,
+            "xp": 8,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_127",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 32,
+          "y": 32
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "wheat",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800605010000,
+            "rescue": false,
+            "xp": 1,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_128",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 33,
+          "y": 32
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "corn",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800605190000,
+            "rescue": false,
+            "xp": 1,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_129",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 34,
+          "y": 32
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "soybean",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800606090000,
+            "rescue": false,
+            "xp": 2,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_130",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 28,
+          "y": 34
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "sugarcane",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800606690000,
+            "rescue": false,
+            "xp": 3,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_131",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 29,
+          "y": 34
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "carrot",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800605490000,
+            "rescue": false,
+            "xp": 2,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_132",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 30,
+          "y": 34
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "indigo",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800612090000,
+            "rescue": false,
+            "xp": 5,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_133",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 28,
+          "y": 35
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "pumpkin",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800615690000,
+            "rescue": false,
+            "xp": 6,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_134",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 29,
+          "y": 35
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "cotton",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800613890000,
+            "rescue": false,
+            "xp": 6,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_135",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 30,
+          "y": 35
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "chili_pepper",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800619290000,
+            "rescue": false,
+            "xp": 7,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_136",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 32,
+          "y": 34
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "black_bean",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800605490000,
+            "rescue": false,
+            "xp": 2,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_137",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 33,
+          "y": 34
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "tomato",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800626490000,
+            "rescue": false,
+            "xp": 8,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_138",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 34,
+          "y": 34
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "wheat",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800605010000,
+            "rescue": false,
+            "xp": 1,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_139",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 32,
+          "y": 35
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "corn",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800605190000,
+            "rescue": false,
+            "xp": 1,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_140",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 33,
+          "y": 35
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "soybean",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800606090000,
+            "rescue": false,
+            "xp": 2,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_141",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 34,
+          "y": 35
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_28_36",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 28,
+          "y": 36
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_29_36",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 29,
+          "y": 36
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_30_36",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 30,
+          "y": 36
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "sugarcane",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800606690000,
+            "rescue": false,
+            "xp": 3,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_142",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 28,
+          "y": 37
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "carrot",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800605490000,
+            "rescue": false,
+            "xp": 2,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_143",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 29,
+          "y": 37
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "indigo",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800612090000,
+            "rescue": false,
+            "xp": 5,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_144",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 30,
+          "y": 37
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "pumpkin",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800615690000,
+            "rescue": false,
+            "xp": 6,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_145",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 28,
+          "y": 38
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "cotton",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800613890000,
+            "rescue": false,
+            "xp": 6,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_146",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 29,
+          "y": 38
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "chili_pepper",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800619290000,
+            "rescue": false,
+            "xp": 7,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_147",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 30,
+          "y": 38
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "black_bean",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800605490000,
+            "rescue": false,
+            "xp": 2,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_148",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 32,
+          "y": 37
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "tomato",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800626490000,
+            "rescue": false,
+            "xp": 8,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_149",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 33,
+          "y": 37
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "wheat",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800605010000,
+            "rescue": false,
+            "xp": 1,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_150",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 34,
+          "y": 37
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "corn",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800605190000,
+            "rescue": false,
+            "xp": 1,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_151",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 32,
+          "y": 38
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "soybean",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800606090000,
+            "rescue": false,
+            "xp": 2,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_152",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 33,
+          "y": 38
+        },
+        {
+          "configId": "field",
+          "crop": {
+            "itemId": "sugarcane",
+            "plantedAt": 1800604890000,
+            "readyAt": 1800606690000,
+            "rescue": false,
+            "xp": 3,
+            "yieldCount": 2
+          },
+          "h": 1,
+          "id": "field_153",
+          "kind": "field",
+          "rotation": 0,
+          "w": 1,
+          "x": 34,
+          "y": 38
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_31_20",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 31,
+          "y": 20
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_32_20",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 32,
+          "y": 20
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_33_20",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 33,
+          "y": 20
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_34_20",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 34,
+          "y": 20
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_35_20",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 35,
+          "y": 20
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_31_21",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 31,
+          "y": 21
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_31_22",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 31,
+          "y": 22
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_31_23",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 31,
+          "y": 23
+        },
+        {
+          "blockedAt": null,
+          "buildReadyAt": 1800000010000,
+          "built": true,
+          "completed": [
+            {
+              "accountedMs": 300000,
+              "baseDurationMs": 300000,
+              "createdAt": 1800604890000,
+              "durationMs": 300000,
+              "id": "job_198",
+              "inputs": {
+                "wheat": 3
+              },
+              "outputs": {
+                "bread": 1
+              },
+              "readyAt": 1800605190000,
+              "recipeId": "bread",
+              "startAt": 1800604890000,
+              "xp": 3
+            }
+          ],
+          "configId": "bakery",
+          "h": 2,
+          "id": "bakery_154",
+          "kind": "machine",
+          "lastCompletionAt": 1800605190000,
+          "machineType": "bakery",
+          "queue": [],
+          "rotation": 0,
+          "slotUpgrades": 0,
+          "slots": 2,
+          "w": 2,
+          "x": 34,
+          "y": 18
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_36_20",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 36,
+          "y": 20
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_37_20",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 37,
+          "y": 20
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_38_20",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 38,
+          "y": 20
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_39_20",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 39,
+          "y": 20
+        },
+        {
+          "blockedAt": null,
+          "buildReadyAt": 1800000050000,
+          "built": true,
+          "completed": [
+            {
+              "accountedMs": 300000,
+              "baseDurationMs": 300000,
+              "createdAt": 1800604890000,
+              "durationMs": 300000,
+              "id": "job_199",
+              "inputs": {
+                "corn": 1,
+                "wheat": 2
+              },
+              "outputs": {
+                "chicken_feed": 3
+              },
+              "readyAt": 1800605190000,
+              "recipeId": "chicken_feed",
+              "startAt": 1800604890000,
+              "xp": 1
+            }
+          ],
+          "configId": "feed_mill_1",
+          "h": 2,
+          "id": "feed_mill_1_155",
+          "kind": "machine",
+          "lastCompletionAt": 1800605190000,
+          "machineType": "feed_mill",
+          "queue": [],
+          "rotation": 0,
+          "slotUpgrades": 0,
+          "slots": 3,
+          "w": 3,
+          "x": 38,
+          "y": 18
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_40_20",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 40,
+          "y": 20
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_41_20",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 41,
+          "y": 20
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_42_20",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 42,
+          "y": 20
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_43_20",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 43,
+          "y": 20
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_44_20",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 44,
+          "y": 20
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_45_20",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 45,
+          "y": 20
+        },
+        {
+          "blockedAt": null,
+          "buildReadyAt": 1800000090000,
+          "built": true,
+          "completed": [
+            {
+              "accountedMs": 300000,
+              "baseDurationMs": 300000,
+              "createdAt": 1800604890000,
+              "durationMs": 300000,
+              "id": "job_200",
+              "inputs": {
+                "corn": 1,
+                "wheat": 2
+              },
+              "outputs": {
+                "chicken_feed": 3
+              },
+              "readyAt": 1800605190000,
+              "recipeId": "chicken_feed",
+              "startAt": 1800604890000,
+              "xp": 1
+            }
+          ],
+          "configId": "feed_mill_2",
+          "h": 2,
+          "id": "feed_mill_2_156",
+          "kind": "machine",
+          "lastCompletionAt": 1800605190000,
+          "machineType": "feed_mill",
+          "queue": [],
+          "rotation": 0,
+          "slotUpgrades": 0,
+          "slots": 3,
+          "w": 3,
+          "x": 44,
+          "y": 18
+        },
+        {
+          "blockedAt": null,
+          "buildReadyAt": 1800007290000,
+          "built": true,
+          "completed": [
+            {
+              "accountedMs": 1200000,
+              "baseDurationMs": 1200000,
+              "createdAt": 1800604890000,
+              "durationMs": 1200000,
+              "id": "job_201",
+              "inputs": {
+                "milk": 1
+              },
+              "outputs": {
+                "cream": 1
+              },
+              "readyAt": 1800606090000,
+              "recipeId": "cream",
+              "startAt": 1800604890000,
+              "xp": 6
+            }
+          ],
+          "configId": "dairy",
+          "h": 2,
+          "id": "dairy_157",
+          "kind": "machine",
+          "lastCompletionAt": 1800606090000,
+          "machineType": "dairy",
+          "queue": [],
+          "rotation": 0,
+          "slotUpgrades": 0,
+          "slots": 2,
+          "w": 2,
+          "x": 42,
+          "y": 18
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_32_24",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 32,
+          "y": 24
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_33_24",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 33,
+          "y": 24
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_34_24",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 34,
+          "y": 24
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_35_24",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 35,
+          "y": 24
+        },
+        {
+          "blockedAt": null,
+          "buildReadyAt": 1800028890000,
+          "built": true,
+          "completed": [
+            {
+              "accountedMs": 1200000,
+              "baseDurationMs": 1200000,
+              "createdAt": 1800604890000,
+              "durationMs": 1200000,
+              "id": "job_202",
+              "inputs": {
+                "sugarcane": 1
+              },
+              "outputs": {
+                "brown_sugar": 1
+              },
+              "readyAt": 1800606090000,
+              "recipeId": "brown_sugar",
+              "startAt": 1800604890000,
+              "xp": 4
+            }
+          ],
+          "configId": "sugar_mill",
+          "h": 2,
+          "id": "sugar_mill_158",
+          "kind": "machine",
+          "lastCompletionAt": 1800606090000,
+          "machineType": "sugar_mill",
+          "queue": [],
+          "rotation": 0,
+          "slotUpgrades": 0,
+          "slots": 2,
+          "w": 2,
+          "x": 34,
+          "y": 22
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_36_24",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 36,
+          "y": 24
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_37_24",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 37,
+          "y": 24
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_38_24",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 38,
+          "y": 24
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_39_24",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 39,
+          "y": 24
+        },
+        {
+          "blockedAt": null,
+          "buildReadyAt": 1800057690000,
+          "built": true,
+          "completed": [
+            {
+              "accountedMs": 1800000,
+              "baseDurationMs": 1800000,
+              "createdAt": 1800604890000,
+              "durationMs": 1800000,
+              "id": "job_203",
+              "inputs": {
+                "corn": 2
+              },
+              "outputs": {
+                "popcorn": 1
+              },
+              "readyAt": 1800606690000,
+              "recipeId": "popcorn",
+              "startAt": 1800604890000,
+              "xp": 4
+            }
+          ],
+          "configId": "popcorn_pot",
+          "h": 2,
+          "id": "popcorn_pot_159",
+          "kind": "machine",
+          "lastCompletionAt": 1800606690000,
+          "machineType": "popcorn_pot",
+          "queue": [],
+          "rotation": 0,
+          "slotUpgrades": 0,
+          "slots": 2,
+          "w": 2,
+          "x": 38,
+          "y": 22
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_40_24",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 40,
+          "y": 24
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_41_24",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 41,
+          "y": 24
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_42_24",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 42,
+          "y": 24
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_43_24",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 43,
+          "y": 24
+        },
+        {
+          "blockedAt": null,
+          "buildReadyAt": 1800086490000,
+          "built": true,
+          "completed": [
+            {
+              "accountedMs": 1800000,
+              "baseDurationMs": 1800000,
+              "createdAt": 1800604890000,
+              "durationMs": 1800000,
+              "id": "job_204",
+              "inputs": {
+                "brown_sugar": 1,
+                "egg": 3
+              },
+              "outputs": {
+                "pancake": 1
+              },
+              "readyAt": 1800606690000,
+              "recipeId": "pancake",
+              "startAt": 1800604890000,
+              "xp": 13
+            }
+          ],
+          "configId": "bbq_grill",
+          "h": 2,
+          "id": "bbq_grill_160",
+          "kind": "machine",
+          "lastCompletionAt": 1800606690000,
+          "machineType": "bbq_grill",
+          "queue": [],
+          "rotation": 0,
+          "slotUpgrades": 0,
+          "slots": 2,
+          "w": 2,
+          "x": 42,
+          "y": 22
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_38_25",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 38,
+          "y": 25
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_38_26",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 38,
+          "y": 26
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_38_27",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 38,
+          "y": 27
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_37_28",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 37,
+          "y": 28
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_38_28",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 38,
+          "y": 28
+        },
+        {
+          "blockedAt": null,
+          "buildReadyAt": 1800129690000,
+          "built": true,
+          "completed": [
+            {
+              "accountedMs": 3600000,
+              "baseDurationMs": 3600000,
+              "createdAt": 1800604890000,
+              "durationMs": 3600000,
+              "id": "job_205",
+              "inputs": {
+                "carrot": 3,
+                "egg": 1,
+                "wheat": 2
+              },
+              "outputs": {
+                "carrot_pie": 1
+              },
+              "readyAt": 1800608490000,
+              "recipeId": "carrot_pie",
+              "startAt": 1800604890000,
+              "xp": 10
+            }
+          ],
+          "configId": "pie_oven",
+          "h": 2,
+          "id": "pie_oven_161",
+          "kind": "machine",
+          "lastCompletionAt": 1800608490000,
+          "machineType": "pie_oven",
+          "queue": [],
+          "rotation": 0,
+          "slotUpgrades": 0,
+          "slots": 2,
+          "w": 2,
+          "x": 36,
+          "y": 26
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_39_28",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 39,
+          "y": 28
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_40_28",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 40,
+          "y": 28
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_41_28",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 41,
+          "y": 28
+        },
+        {
+          "blockedAt": null,
+          "buildReadyAt": 1800216090000,
+          "built": true,
+          "completed": [
+            {
+              "accountedMs": 7200000,
+              "baseDurationMs": 7200000,
+              "createdAt": 1800604890000,
+              "durationMs": 7200000,
+              "id": "job_206",
+              "inputs": {
+                "wool": 2
+              },
+              "outputs": {
+                "sweater": 1
+              },
+              "readyAt": 1800612090000,
+              "recipeId": "sweater",
+              "startAt": 1800604890000,
+              "xp": 18
+            }
+          ],
+          "configId": "loom",
+          "h": 2,
+          "id": "loom_162",
+          "kind": "machine",
+          "lastCompletionAt": 1800612090000,
+          "machineType": "loom",
+          "queue": [],
+          "rotation": 0,
+          "slotUpgrades": 0,
+          "slots": 2,
+          "w": 2,
+          "x": 40,
+          "y": 26
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_42_28",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 42,
+          "y": 28
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_43_28",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 43,
+          "y": 28
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_44_28",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 44,
+          "y": 28
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_45_28",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 45,
+          "y": 28
+        },
+        {
+          "blockedAt": null,
+          "buildReadyAt": 1800288090000,
+          "built": true,
+          "completed": [
+            {
+              "accountedMs": 2700000,
+              "baseDurationMs": 2700000,
+              "createdAt": 1800604890000,
+              "durationMs": 2700000,
+              "id": "job_207",
+              "inputs": {
+                "cotton_fabric": 2
+              },
+              "outputs": {
+                "cotton_shirt": 1
+              },
+              "readyAt": 1800607590000,
+              "recipeId": "cotton_shirt",
+              "startAt": 1800604890000,
+              "xp": 29
+            }
+          ],
+          "configId": "sewing_machine",
+          "h": 2,
+          "id": "sewing_machine_163",
+          "kind": "machine",
+          "lastCompletionAt": 1800607590000,
+          "machineType": "sewing_machine",
+          "queue": [],
+          "rotation": 0,
+          "slotUpgrades": 0,
+          "slots": 2,
+          "w": 2,
+          "x": 44,
+          "y": 26
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_39_29",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 39,
+          "y": 29
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_39_30",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 39,
+          "y": 30
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_39_31",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 39,
+          "y": 31
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_37_32",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 37,
+          "y": 32
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_38_32",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 38,
+          "y": 32
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_39_32",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 39,
+          "y": 32
+        },
+        {
+          "blockedAt": null,
+          "buildReadyAt": 1800374490000,
+          "built": true,
+          "completed": [
+            {
+              "accountedMs": 5400000,
+              "baseDurationMs": 5400000,
+              "createdAt": 1800604890000,
+              "durationMs": 5400000,
+              "id": "job_208",
+              "inputs": {
+                "brown_sugar": 1,
+                "butter": 1,
+                "carrot": 2
+              },
+              "outputs": {
+                "carrot_cake": 1
+              },
+              "readyAt": 1800610290000,
+              "recipeId": "carrot_cake",
+              "startAt": 1800604890000,
+              "xp": 20
+            }
+          ],
+          "configId": "cake_oven",
+          "h": 2,
+          "id": "cake_oven_164",
+          "kind": "machine",
+          "lastCompletionAt": 1800610290000,
+          "machineType": "cake_oven",
+          "queue": [],
+          "rotation": 0,
+          "slotUpgrades": 0,
+          "slots": 2,
+          "w": 3,
+          "x": 36,
+          "y": 30
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_40_32",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 40,
+          "y": 32
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_41_32",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 41,
+          "y": 32
+        },
+        {
+          "blockedAt": null,
+          "buildReadyAt": 1800489690000,
+          "built": true,
+          "completed": [
+            {
+              "accountedMs": 1800000,
+              "baseDurationMs": 1800000,
+              "createdAt": 1800604890000,
+              "durationMs": 1800000,
+              "id": "job_209",
+              "inputs": {
+                "carrot": 3
+              },
+              "outputs": {
+                "carrot_juice": 1
+              },
+              "readyAt": 1800606690000,
+              "recipeId": "carrot_juice",
+              "startAt": 1800604890000,
+              "xp": 6
+            }
+          ],
+          "configId": "juice_press",
+          "h": 2,
+          "id": "juice_press_165",
+          "kind": "machine",
+          "lastCompletionAt": 1800606690000,
+          "machineType": "juice_press",
+          "queue": [],
+          "rotation": 0,
+          "slotUpgrades": 0,
+          "slots": 2,
+          "w": 2,
+          "x": 40,
+          "y": 30
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_42_32",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 42,
+          "y": 32
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_43_32",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 43,
+          "y": 32
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_44_32",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 44,
+          "y": 32
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_45_32",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 45,
+          "y": 32
+        },
+        {
+          "blockedAt": null,
+          "buildReadyAt": 1800604890000,
+          "built": true,
+          "completed": [
+            {
+              "accountedMs": 7200000,
+              "baseDurationMs": 7200000,
+              "createdAt": 1800604890000,
+              "durationMs": 7200000,
+              "id": "job_210",
+              "inputs": {
+                "cream": 1,
+                "milk": 1,
+                "white_sugar": 1
+              },
+              "outputs": {
+                "vanilla_ice_cream": 1
+              },
+              "readyAt": 1800612090000,
+              "recipeId": "vanilla_ice_cream",
+              "startAt": 1800604890000,
+              "xp": 20
+            }
+          ],
+          "configId": "ice_cream_maker",
+          "h": 2,
+          "id": "ice_cream_maker_166",
+          "kind": "machine",
+          "lastCompletionAt": 1800612090000,
+          "machineType": "ice_cream_maker",
+          "queue": [],
+          "rotation": 0,
+          "slotUpgrades": 0,
+          "slots": 2,
+          "w": 3,
+          "x": 44,
+          "y": 30
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_20_28",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 20,
+          "y": 28
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_21_28",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 21,
+          "y": 28
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_21_29",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 21,
+          "y": 29
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_21_30",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 21,
+          "y": 30
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_21_31",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 21,
+          "y": 31
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_21_32",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 21,
+          "y": 32
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_22_32",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 22,
+          "y": 32
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_23_32",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 23,
+          "y": 32
+        },
+        {
+          "animals": [
+            {
+              "configId": "cow",
+              "id": "animal_168",
+              "readyAt": 1800608490000,
+              "status": "ready"
+            },
+            {
+              "configId": "cow",
+              "id": "animal_169",
+              "readyAt": 1800608490000,
+              "status": "ready"
+            },
+            {
+              "configId": "cow",
+              "id": "animal_170",
+              "readyAt": 1800608490000,
+              "status": "ready"
+            }
+          ],
+          "configId": "cow",
+          "h": 4,
+          "id": "shelter_cow_167",
+          "kind": "shelter",
+          "rotation": 0,
+          "tier": 0,
+          "w": 4,
+          "x": 18,
+          "y": 24
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_27_36",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 27,
+          "y": 36
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_25_37",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 25,
+          "y": 37
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_26_37",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 26,
+          "y": 37
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_27_37",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 27,
+          "y": 37
+        },
+        {
+          "animals": [
+            {
+              "configId": "pig",
+              "id": "animal_172",
+              "readyAt": 1800619290000,
+              "status": "ready"
+            },
+            {
+              "configId": "pig",
+              "id": "animal_173",
+              "readyAt": 1800619290000,
+              "status": "ready"
+            },
+            {
+              "configId": "pig",
+              "id": "animal_174",
+              "readyAt": 1800619290000,
+              "status": "ready"
+            }
+          ],
+          "configId": "pig",
+          "h": 4,
+          "id": "shelter_pig_171",
+          "kind": "shelter",
+          "rotation": 0,
+          "tier": 0,
+          "w": 4,
+          "x": 23,
+          "y": 33
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_19_33",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 19,
+          "y": 33
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_20_33",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 20,
+          "y": 33
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_21_33",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 21,
+          "y": 33
+        },
+        {
+          "animals": [
+            {
+              "configId": "sheep",
+              "id": "animal_176",
+              "readyAt": 1800626490000,
+              "status": "ready"
+            },
+            {
+              "configId": "sheep",
+              "id": "animal_177",
+              "readyAt": 1800626490000,
+              "status": "ready"
+            },
+            {
+              "configId": "sheep",
+              "id": "animal_178",
+              "readyAt": 1800626490000,
+              "status": "ready"
+            }
+          ],
+          "configId": "sheep",
+          "h": 4,
+          "id": "shelter_sheep_175",
+          "kind": "shelter",
+          "rotation": 0,
+          "tier": 0,
+          "w": 4,
+          "x": 17,
+          "y": 29
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_27_38",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 27,
+          "y": 38
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_27_39",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 27,
+          "y": 39
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_27_40",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 27,
+          "y": 40
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_27_41",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 27,
+          "y": 41
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_25_42",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 25,
+          "y": 42
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_26_42",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 26,
+          "y": 42
+        },
+        {
+          "configId": "road",
+          "footprintLayer": "ground",
+          "h": 1,
+          "id": "growth_road_27_42",
+          "kind": "road",
+          "rotation": 0,
+          "stored": false,
+          "w": 1,
+          "walkable": true,
+          "x": 27,
+          "y": 42
+        },
+        {
+          "animals": [
+            {
+              "configId": "lamb",
+              "id": "animal_180",
+              "readyAt": 1800606690000,
+              "status": "ready"
+            },
+            {
+              "configId": "lamb",
+              "id": "animal_181",
+              "readyAt": 1800606690000,
+              "status": "ready"
+            },
+            {
+              "configId": "lamb",
+              "id": "animal_182",
+              "readyAt": 1800606690000,
+              "status": "ready"
+            }
+          ],
+          "configId": "lamb",
+          "h": 4,
+          "id": "shelter_lamb_179",
+          "kind": "shelter",
+          "rotation": 0,
+          "tier": 0,
+          "w": 4,
+          "x": 23,
+          "y": 38
+        },
+        {
+          "configId": "apple",
+          "h": 2,
+          "harvestStage": 0,
+          "id": "apple_183",
+          "kind": "fruit",
+          "readyAt": 1800662490000,
+          "revived": false,
+          "rotation": 0,
+          "status": "ready",
+          "w": 2,
+          "x": 36,
+          "y": 35
+        },
+        {
+          "configId": "apple",
+          "h": 2,
+          "harvestStage": 0,
+          "id": "apple_184",
+          "kind": "fruit",
+          "readyAt": 1800662490000,
+          "revived": false,
+          "rotation": 0,
+          "status": "ready",
+          "w": 2,
+          "x": 36,
+          "y": 38
+        },
+        {
+          "configId": "apple",
+          "h": 2,
+          "harvestStage": 0,
+          "id": "apple_185",
+          "kind": "fruit",
+          "readyAt": 1800662490000,
+          "revived": false,
+          "rotation": 0,
+          "status": "ready",
+          "w": 2,
+          "x": 36,
+          "y": 41
+        },
+        {
+          "configId": "raspberry",
+          "h": 1,
+          "harvestStage": 0,
+          "id": "raspberry_186",
+          "kind": "fruit",
+          "readyAt": 1800669690000,
+          "revived": false,
+          "rotation": 0,
+          "status": "ready",
+          "w": 1,
+          "x": 39,
+          "y": 35
+        },
+        {
+          "configId": "raspberry",
+          "h": 1,
+          "harvestStage": 0,
+          "id": "raspberry_187",
+          "kind": "fruit",
+          "readyAt": 1800669690000,
+          "revived": false,
+          "rotation": 0,
+          "status": "ready",
+          "w": 1,
+          "x": 39,
+          "y": 38
+        },
+        {
+          "configId": "raspberry",
+          "h": 1,
+          "harvestStage": 0,
+          "id": "raspberry_188",
+          "kind": "fruit",
+          "readyAt": 1800669690000,
+          "revived": false,
+          "rotation": 0,
+          "status": "ready",
+          "w": 1,
+          "x": 39,
+          "y": 41
+        },
+        {
+          "configId": "cherry",
+          "h": 2,
+          "harvestStage": 0,
+          "id": "cherry_189",
+          "kind": "fruit",
+          "readyAt": 1800702090000,
+          "revived": false,
+          "rotation": 0,
+          "status": "ready",
+          "w": 2,
+          "x": 42,
+          "y": 35
+        },
+        {
+          "configId": "cherry",
+          "h": 2,
+          "harvestStage": 0,
+          "id": "cherry_190",
+          "kind": "fruit",
+          "readyAt": 1800702090000,
+          "revived": false,
+          "rotation": 0,
+          "status": "ready",
+          "w": 2,
+          "x": 42,
+          "y": 38
+        },
+        {
+          "configId": "cherry",
+          "h": 2,
+          "harvestStage": 0,
+          "id": "cherry_191",
+          "kind": "fruit",
+          "readyAt": 1800702090000,
+          "revived": false,
+          "rotation": 0,
+          "status": "ready",
+          "w": 2,
+          "x": 42,
+          "y": 41
+        },
+        {
+          "configId": "blackberry",
+          "h": 1,
+          "harvestStage": 0,
+          "id": "blackberry_192",
+          "kind": "fruit",
+          "readyAt": 1800720090000,
+          "revived": false,
+          "rotation": 0,
+          "status": "ready",
+          "w": 1,
+          "x": 36,
+          "y": 37
+        },
+        {
+          "configId": "blackberry",
+          "h": 1,
+          "harvestStage": 0,
+          "id": "blackberry_193",
+          "kind": "fruit",
+          "readyAt": 1800720090000,
+          "revived": false,
+          "rotation": 0,
+          "status": "ready",
+          "w": 1,
+          "x": 36,
+          "y": 40
+        },
+        {
+          "configId": "blackberry",
+          "h": 1,
+          "harvestStage": 0,
+          "id": "blackberry_194",
+          "kind": "fruit",
+          "readyAt": 1800720090000,
+          "revived": false,
+          "rotation": 0,
+          "status": "ready",
+          "w": 1,
+          "x": 36,
+          "y": 44
+        },
+        {
+          "configId": "blueberries",
+          "h": 1,
+          "harvestStage": 0,
+          "id": "blueberries_195",
+          "kind": "fruit",
+          "readyAt": 1800727290000,
+          "revived": false,
+          "rotation": 0,
+          "status": "ready",
+          "w": 1,
+          "x": 39,
+          "y": 37
+        },
+        {
+          "configId": "blueberries",
+          "h": 1,
+          "harvestStage": 0,
+          "id": "blueberries_196",
+          "kind": "fruit",
+          "readyAt": 1800727290000,
+          "revived": false,
+          "rotation": 0,
+          "status": "ready",
+          "w": 1,
+          "x": 39,
+          "y": 40
+        },
+        {
+          "configId": "blueberries",
+          "h": 1,
+          "harvestStage": 0,
+          "id": "blueberries_197",
+          "kind": "fruit",
+          "readyAt": 1800727290000,
+          "revived": false,
+          "rotation": 0,
+          "status": "ready",
+          "w": 1,
+          "x": 39,
+          "y": 44
+        },
+        {
+          "configId": "rock",
+          "fixed": true,
+          "h": 1,
+          "id": "land_01_1_2",
+          "kind": "obstacle",
+          "rotation": 0,
+          "w": 1,
+          "x": 17,
+          "y": 10
+        }
+      ],
+      "features": {
+        "constructionVouchersEnabled": true,
+        "farmLinkageEnabled": true,
+        "materialRewardsEnabled": true,
+        "npcMarketEnabled": true
+      },
+      "fertilizerUntil": 0,
+      "inventory": {
+        "apple": 25,
+        "apple_juice": 25,
+        "apple_pie": 25,
+        "axe": 25,
+        "bacon_and_eggs": 25,
+        "bacon_pie": 25,
+        "black_bean": 96,
+        "blackberry": 25,
+        "blackberry_muffin": 25,
+        "blue_sweater": 25,
+        "blue_woolly_hat": 25,
+        "blueberries": 25,
+        "bolt": 25,
+        "bread": 25,
+        "brown_sugar": 23,
+        "butter": 24,
+        "buttered_popcorn": 25,
+        "carrot": 88,
+        "carrot_cake": 25,
+        "carrot_juice": 25,
+        "carrot_pie": 25,
+        "cheese": 25,
+        "cheesecake": 25,
+        "cherry": 25,
+        "cherry_juice": 25,
+        "chicken_feed": 22,
+        "chili_pepper": 96,
+        "chili_popcorn": 25,
+        "cookie": 25,
+        "corn": 91,
+        "corn_bread": 25,
+        "cotton": 96,
+        "cotton_fabric": 23,
+        "cotton_shirt": 25,
+        "cow_feed": 22,
+        "cream": 24,
+        "cream_cake": 25,
+        "duct_tape": 25,
+        "dynamite": 25,
+        "egg": 21,
+        "fertilizer": 25,
+        "grilled_lamb_skewer": 25,
+        "hamburger": 25,
+        "herb_bundle": 25,
+        "indigo": 96,
+        "lamb_feed": 22,
+        "land_deed": 23,
+        "mallet": 23,
+        "marker_stake": 23,
+        "milk": 23,
+        "nail": 25,
+        "pancake": 25,
+        "pig_feed": 22,
+        "plank": 25,
+        "popcorn": 25,
+        "pumpkin": 96,
+        "pumpkin_pie": 25,
+        "raspberry": 25,
+        "raspberry_muffin": 25,
+        "red_berry_cake": 25,
+        "roasted_tomatoes": 25,
+        "saw": 24,
+        "screw": 25,
+        "sheep_feed": 22,
+        "shovel": 23,
+        "soybean": 95,
+        "sugarcane": 94,
+        "sweater": 25,
+        "syrup": 25,
+        "tnt": 25,
+        "tomato": 96,
+        "truffle_slice": 25,
+        "vanilla_ice_cream": 25,
+        "violet_dress": 25,
+        "wheat": 86,
+        "white_sugar": 24,
+        "wood_panel": 25,
+        "wool": 23,
+        "wooly_chaps": 25
+      },
+      "layoutRevision": 0,
+      "layoutSlots": [
+        null,
+        null
+      ],
+      "ledger": {},
+      "level": 30,
+      "mastery": {
+        "bakery": 300000,
+        "bbq_grill": 1800000,
+        "cake_oven": 5400000,
+        "dairy": 1200000,
+        "feed_mill": 600000,
+        "ice_cream_maker": 7200000,
+        "juice_press": 1800000,
+        "loom": 7200000,
+        "pie_oven": 3600000,
+        "popcorn_pot": 1800000,
+        "sewing_machine": 2700000,
+        "sugar_mill": 1200000
+      },
+      "materialChoices": 0,
+      "materials": {
+        "choiceReceipt": null,
+        "harvestCount": 0,
+        "pending": null
+      },
+      "nextId": 211,
+      "now": 1800864090000,
+      "npc": {
+        "boxes": [
+          {
+            "id": "box_1",
+            "listing": null
+          },
+          {
+            "id": "box_2",
+            "listing": null
+          },
+          {
+            "id": "box_3",
+            "listing": null
+          },
+          {
+            "id": "box_4",
+            "listing": null
+          },
+          {
+            "id": "box_5",
+            "listing": null
+          }
+        ],
+        "budgetDay": 20843,
+        "budgetFieldAllowance": null,
+        "budgetUsed": {},
+        "freeRevives": 0,
+        "materialBought": 0,
+        "materialOffers": [
+          {
+            "coins": 375,
+            "id": "material_83373_0",
+            "itemId": "nail",
+            "quantity": 1
+          },
+          {
+            "coins": 375,
+            "id": "material_83373_1",
+            "itemId": "screw",
+            "quantity": 1
+          }
+        ],
+        "shelf": [
+          {
+            "coins": 12,
+            "id": "shelf_83373_0",
+            "itemId": "soybean",
+            "quantity": 1
+          },
+          {
+            "coins": 16,
+            "id": "shelf_83373_1",
+            "itemId": "sugarcane",
+            "quantity": 1
+          },
+          {
+            "coins": 84,
+            "id": "shelf_83373_2",
+            "itemId": "indigo",
+            "quantity": 3
+          },
+          {
+            "coins": 230,
+            "id": "shelf_83373_3",
+            "itemId": "cookie",
+            "quantity": 2
+          },
+          {
+            "coins": 206,
+            "id": "shelf_83373_4",
+            "itemId": "raspberry",
+            "quantity": 4
+          },
+          {
+            "coins": 199,
+            "id": "shelf_83373_5",
+            "itemId": "herb_bundle",
+            "quantity": 5
+          }
+        ],
+        "supplyBatch": 83373,
+        "toolBought": {}
+      },
+      "openedLand": [
+        "land_01"
+      ],
+      "orders": [
+        {
+          "coins": 151,
+          "createdAt": 1800000000000,
+          "id": "order_103",
+          "kind": "normal",
+          "productionXp": 20,
+          "readyAt": 1800000000000,
+          "referenceValue": 201.6,
+          "requirements": {
+            "tomato": 4,
+            "wheat": 8
+          },
+          "slot": 0,
+          "state": "active",
+          "xp": 30
+        },
+        {
+          "coins": 109,
+          "createdAt": 1800000000000,
+          "id": "order_104",
+          "kind": "experience",
+          "productionXp": 20,
+          "readyAt": 1800000000000,
+          "referenceValue": 219.6,
+          "requirements": {
+            "corn": 10,
+            "soybean": 3,
+            "sugarcane": 8
+          },
+          "slot": 1,
+          "state": "active",
+          "xp": 60
+        },
+        {
+          "coins": 176,
+          "createdAt": 1800000000000,
+          "id": "order_105",
+          "kind": "experience",
+          "productionXp": 33,
+          "readyAt": 1800000000000,
+          "referenceValue": 352.8,
+          "requirements": {
+            "corn": 1,
+            "tomato": 8
+          },
+          "slot": 2,
+          "state": "active",
+          "xp": 99
+        },
+        {
+          "coins": 476,
+          "createdAt": 1800000000000,
+          "id": "order_106",
+          "kind": "coin",
+          "productionXp": 45,
+          "readyAt": 1800000000000,
+          "referenceValue": 453.6,
+          "requirements": {
+            "cotton": 9,
+            "pumpkin": 4,
+            "soybean": 6
+          },
+          "slot": 3,
+          "state": "active",
+          "xp": 23
+        },
+        {
+          "coins": 86,
+          "createdAt": 1800000000000,
+          "id": "order_107",
+          "kind": "normal",
+          "productionXp": 13,
+          "readyAt": 1800000000000,
+          "referenceValue": 115.2,
+          "requirements": {
+            "carrot": 7,
+            "soybean": 2,
+            "tomato": 1
+          },
+          "slot": 4,
+          "state": "active",
+          "xp": 20
+        },
+        {
+          "coins": 62,
+          "createdAt": 1800000000000,
+          "id": "order_108",
+          "kind": "normal",
+          "productionXp": 10,
+          "readyAt": 1800000000000,
+          "referenceValue": 82.8,
+          "requirements": {
+            "carrot": 7,
+            "pumpkin": 1
+          },
+          "slot": 5,
+          "state": "active",
+          "xp": 15
+        },
+        {
+          "coins": 108,
+          "createdAt": 1800000000000,
+          "id": "order_109",
+          "kind": "normal",
+          "productionXp": 13,
+          "readyAt": 1800000000000,
+          "referenceValue": 144,
+          "requirements": {
+            "corn": 2,
+            "pumpkin": 4
+          },
+          "slot": 6,
+          "state": "active",
+          "xp": 20
+        },
+        {
+          "coins": 307,
+          "createdAt": 1800000000000,
+          "id": "order_110",
+          "kind": "normal",
+          "productionXp": 39,
+          "readyAt": 1800000000000,
+          "referenceValue": 410.4,
+          "requirements": {
+            "indigo": 6,
+            "pumpkin": 8
+          },
+          "slot": 7,
+          "state": "active",
+          "xp": 59
+        },
+        {
+          "coins": 302,
+          "createdAt": 1800000000000,
+          "id": "order_111",
+          "kind": "normal",
+          "productionXp": 38,
+          "readyAt": 1800000000000,
+          "referenceValue": 403.2,
+          "requirements": {
+            "black_bean": 2,
+            "tomato": 9
+          },
+          "slot": 8,
+          "state": "active",
+          "xp": 57
+        }
+      ],
+      "referenceVersion": "hay-day-community-2026-10-24",
+      "revision": 163,
+      "rewards": {},
+      "rng": 3676449495,
+      "schemaVersion": 1,
+      "settings": {
+        "music": true,
+        "reducedMotion": false,
+        "sound": true
+      },
+      "stats": {
+        "buildings": 13,
+        "feeds": 15,
+        "landExpansions": 1,
+        "plants": 48
+      },
+      "storage": {
+        "barn": {
+          "capacity": 4100,
+          "upgrades": 100
+        },
+        "silo": {
+          "capacity": 4100,
+          "upgrades": 100
+        }
+      },
+      "tutorial": {
+        "completed": {
+          "T01": true,
+          "T04": true,
+          "T10": true,
+          "T11": true,
+          "T12": true,
+          "T17": true
+        },
+        "enqueuedBread": true,
+        "entered": true,
+        "initialFed": {
+          "animal_100": true,
+          "animal_101": true,
+          "animal_102": true
+        },
+        "startedFeedMill": true
+      },
+      "vouchers": 0,
+      "xp": 168701
+    }
+  }
+}

@@ -1,8 +1,10 @@
+import {priorityIconUrl} from './farm-priority-icons.mjs';
 import {mountFactoryPanel} from './farm-factory-panel.mjs';
 import {mountChickenCoop} from './farm-coop-panel.mjs';
 import {patchFarmMarkup} from './farm-dom-patch.mjs';
 import {createAnimalAnimationController} from './farm-animal-animation.mjs';
 import {forestBoundary} from './farm-forest-boundary.mjs';
+import {workshopForestFringe,workshopForestFog} from './farm-workshop-terrain.mjs';
 import {resolveShelterSpec,resolveShelterLayer,resolveShelterAnimal,resolveShelterAnimalShadow} from './farm-runtime-shelters.mjs';
 import {shelterCanvasRect,shelterCanvasPoint,shelterLayerDepths,shelterLayerHit,shelterSummary,shelterHitCandidates} from './farm-shelter-geometry.mjs';
 import {resolveEnvironmentArt,resolveObstacleArt,resolveEnvironmentLegacyArt,resolveBuildingBadge,resolveMachineMasteryArt} from './farm-runtime-environment.mjs';
@@ -378,14 +380,15 @@ export function mountWorldScene(ctx) {
       // oscillated at a grid boundary and reparsed the forest on every small pan.
       if(key===forestKey&&forestViewport&&visible.left>=forestViewport.left&&visible.top>=forestViewport.top&&visible.right<=forestViewport.right&&visible.bottom<=forestViewport.bottom)return;
       forestKey=key;forestViewport={left,top,right:left+width,bottom:top+height};
-      const modelKey=[left,top,width,height,ctx.state.openedLand.join(',')].join('|');
-      if(modelKey!==forestModelKey){forestModelKey=modelKey;forestModel=forestBoundary(ctx.state,{viewport:{left,top,right:left+width,bottom:top+height}});}
-      const model=forestModel,rows=effectiveEntities().filter(e=>!e.stored);
+      const rows=effectiveEntities().filter(e=>!e.stored);
+      const roadKey=rows.filter(e=>e.kind==='road').map(e=>`${e.id}:${e.x},${e.y}`).join(';');
+      const modelKey=[left,top,width,height,ctx.state.openedLand.join(','),roadKey].join('|');
+      if(modelKey!==forestModelKey){forestModelKey=modelKey;const viewport={left,top,right:left+width,bottom:top+height};forestModel={...forestBoundary(ctx.state,{viewport}),fringe:workshopForestFringe({...ctx.state,entities:rows},{viewport}),fog:workshopForestFog(ctx.state,{viewport})};}
+      const model=forestModel;
       const protectedRects=rows.filter(e=>e.kind!=='road').map(e=>{const r=visualRect(e);return {r:{...r,right:r.left+r.width,bottom:r.top+r.height},z:entityPaintDepth(e)};});
       let html='';
-      // One outer contour, never a dashed rectangle around each opened patch.
-      const lines=model.edges.map(e=>{const a=project(e.x1,e.y1),b=project(e.x2,e.y2);return `M${a.x},${a.y}L${b.x},${b.y}`;}).join('');
-      html+=`<svg class="fw-forest-edge" viewBox="0 0 3072 1536" width="3072" height="1536"><path d="${lines}"/></svg>`;
+      // Port-aligned keyed connectors replace the old blurred border line.
+      for(const a of model.fringe)html+=`<img class="fw-forest-fringe" data-forest-id="${esc(a.id)}" src="${esc(a.src)}" alt="" draggable="false" style="left:${a.left}px;top:${a.top}px;width:${a.width}px;height:${a.height}px">`;
       for(const d of [...model.decorations,...model.obstacles]){
         const preview=d.kind==='obstacle',art=preview?resolveObstacleArt(d):resolveEnvironmentArt(d.key);if(!art)continue;
         let r,z;
@@ -394,6 +397,9 @@ export function mountWorldScene(ctx) {
         const box={...r,right:r.left+r.width,bottom:r.top+r.height};
         const fade=selected===d.patchId||protectedRects.some(p=>z>=p.z&&overlaps(box,p.r));
         html+=`<img class="fw-forest-sprite ${preview?'fw-forest-obstacle':'fw-forest-decor'} ${fade?'fw-forest-muted':''}" data-forest-id="${esc(d.id)}" data-forest-patch="${esc(d.patchId)}" src="${esc(art.src)}" alt="" draggable="false" style="left:${r.left}px;top:${r.top}px;width:${r.width}px;height:${r.height}px;z-index:${z};${d.mirror?'transform:scaleX(-1)':''}">`;
+      }
+      for(const a of model.fog){const box={left:a.left,top:a.top,right:a.left+a.width,bottom:a.top+a.height};if(selected===a.patchId||protectedRects.some(p=>overlaps(box,p.r)))continue;
+        html+=`<img class="fw-forest-fog" data-forest-id="${esc(a.id)}" data-forest-patch="${esc(a.patchId)}" src="${esc(a.src)}" alt="" draggable="false" style="left:${a.left}px;top:${a.top}px;width:${a.width}px;height:${a.height}px">`;
       }
       const patchStart=ctx.profile?win.performance.now():0;
       if(ctx.profile)ctx.profile({name:'world.forest.build',duration:patchStart-profileStart});
@@ -417,9 +423,10 @@ export function mountWorldScene(ctx) {
     function defaultFocus(){const all=ctx.state.entities;const target=id==='P03'?all.find(e=>e.kind==='fruit'):id==='P04'?all.find(e=>e.kind==='shelter'&&e.configId==='chicken'):id==='P05'?all.find(e=>e.kind==='machine'&&e.configId==='bakery'):id==='P12'?ctx.layout.LAND_PATCHES.find(p=>ctx.layout.canExpandLand(ctx.state,p.id).ok):id==='P16'?all.find(e=>!ctx.layout.isFixedEntity(e)&&!e.stored):all.find(e=>e.kind==='field');focus(target||all.find(e=>e.kind==='field')||all[0],id==='P04'?1.5:id==='P05'?1.6:id==='P03'?1.4:id==='P12'?.75:1);}
     function renderCorners(){patchFarmMarkup(corners,`<div class="fw-corner fw-tl"><div class="fw-top-actions">${button('exit-farm','回首页','<span aria-hidden="true">⌂</span>','class="fw-home-button" aria-label="返回小院首页"')}${button('chapter:P13',`${ctx.state.level}级`,'<span>★</span>','aria-label="等级与任务"')}</div><small>${ctx.state.xp} XP · ${esc(farmGrowthStage(ctx.state).name)}</small></div><div class="fw-corner fw-tr">${button('shop',String(ctx.state.coins),'<span>●</span>','aria-label="金币与商店"')}${button('chapter:P07',vouchersEnabled()?`${ctx.state.vouchers}券`:'建设券功能关闭','',vouchersEnabled()?'aria-label="建设券"':'disabled aria-label="建设券功能关闭"')}</div><div class="fw-corner fw-bl">${button('shop','商店',image('ui/shop.svg','','fw-icon'))}${button('harvest-view',harvestView?'结束透视':'农田透视','',`aria-pressed="${harvestView}"`)}</div><div class="fw-corner fw-br">${button('more','更多','<span>•••</span>',`aria-expanded="${more}"`)}</div>${more?`<nav class="fw-more" aria-label="农场更多入口">${[['chapter:P08','粮仓 / 货仓'],['chapter:P11','订单板'],['chapter:P09','乡间集市'],['chapter:P13','任务册'],['chapter:P14','牧场故事'],['chapter:P12','开垦土地'],['chapter:P19','外观与收纳'],['edit','布置农场'],['chapter:P17','设置与帮助'],['home-camera','农场全景'],['zoom-in','放大地图'],['zoom-out','缩小地图']].map(([a,n])=>button(a,n)).join('')}<button type="button" data-display-open aria-haspopup="dialog">屏幕与方向</button>${button('more','收起')}</nav>`:''}`);}
     function toolArt(action,itemId,entityId){
-      const e=entity(entityId),shape=action==='harvest'&&e?.kind==='field'?'scythe':action==='collectAnimal'&&e?.configId==='cow'?'bucket':action==='collectAnimal'&&e?.configId==='sheep'?'shears':null;
-      if(shape){const paths={scythe:'<path d="M19 55 37 17" stroke="#94663d" stroke-width="6"/><path d="M34 18Q53 8 57 29Q43 18 23 32Z" fill="#d9e5df"/>',bucket:'<path d="M17 25h31l-4 29H21Z" fill="#d9e5df"/><path d="M21 25V16q11-16 23 0v9"/>',shears:'<circle cx="20" cy="45" r="9" fill="#e7c879"/><circle cx="43" cy="45" r="9" fill="#e7c879"/><path d="m25 38 20-28-8 30M38 38 18 10l8 30" fill="#d9e5df"/>'};return `<svg class="fw-tool-art" viewBox="0 0 64 64" fill="none" stroke="#355441" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[shape]}</svg>`;}
-      return action==='harvest'||action==='collectAnimal'?image('ui/harvest.svg'):itemId?item(itemId):image('ui/harvest.svg');
+      const e=entity(entityId);
+      if(action==='harvest'&&e?.kind==='fruit')return `<img class="fw-tool-art" src="${esc(priorityIconUrl('tools/fruit-basket.svg'))}" alt="" draggable="false">`;
+      // Animals keep their direct product tap/swipe flow; no basket/tool step.
+      return action==='harvest'||action==='collectAnimal'?image('ui/harvest.svg','','fw-tool-art'):itemId?item(itemId):image('ui/sow.svg','','fw-tool-art');
     }
     function tool(action,label,itemId,entityId,recipeId){return `<button class="fw-tool" ${action==='feed'&&!(ctx.state.inventory[itemId]>0)?'disabled':''} data-tool="${action}" data-owner="${entityId||''}" data-item="${itemId||''}" data-recipe="${recipeId||''}" aria-label="${esc(label)}，按住拖向目标">${toolArt(action,itemId,entityId)}<span>${esc(label)}</span>${action==='enqueue'?`<small class="fw-recipe-cost">${Object.entries(config.RECIPES[recipeId].inputs).map(([key,n])=>`${esc(name(key))}×${n}${(ctx.state.inventory[key]||0)<n?'（缺）':''}`).join(' · ')}</small>`:''}</button>`;}
     function renderContext(){
@@ -514,7 +521,7 @@ export function mountWorldScene(ctx) {
       if(placement){const check=placementCheck();patchFarmMarkup(transaction,`<div class="fw-placement-panel"><strong>${esc(title(placement))} · ${placement.coins} 金币</strong><small>${check.ok?(buyCommand()?.growthPlacement?'推荐生长位置；确认时按 0 金币道路规则补齐连接道路，可拖动改为手动放置':'手动位置；只放置此物件，不调整已有布局'):esc(check.message)}</small><div>${button('rotate-placement','切换朝向','',artRotations(placement).length>1?'':'disabled')}${button('cancel-placement','取消')}${button('confirm-placement',`支付 ${placement.coins} 金币并放置`,'',check.ok?'':'disabled')}</div></div>`);return;}
       if(draft){const check=draftCheck(),original=selectedEntity(),e=original?{...original,...draft.positions.find(p=>p.id===selected)}:null;patchFarmMarkup(transaction,`<div class="fw-edit-panel"><strong>布置模式${e?' · '+esc(title(e)):''} · ${check.ok?'✓ 位置有效':'× '+esc(check.errors[0]?.message)}</strong><small class="fw-layout-instruction">${e&&ctx.layout.isFixedEntity(e)?'这个物件固定，不能移动。请拖动田地、仓库、工坊等其他物件。':'抓住物件直接拖动，拖空白移动地图。完成布置后保存，取消则恢复原位。'}</small><div>${button('rotate-draft',e&&legacyArtRotation(e)?'恢复正面朝向':'切换朝向','',e&&!ctx.layout.isFixedEntity(e)&&(artRotations(e).length>1||legacyArtRotation(e))?'':'disabled')}${button('undo','撤销','',undo.length?'':'disabled')}${button('redo','重做','',redo.length?'':'disabled')}${button('layouts','方案')}${button('growth-preview','预览成长布局')}${button('cancel-edit','取消')}${button('save-edit','完成布置','',check.ok?'':'disabled')}</div>${e&&ctx.layout.canStoreEntity(e)?button('store-object','收起此装饰'):''}<small>也可用方向键微调选中的可移动物件。</small></div>`);return;}
       if(clearPreview){patchFarmMarkup(transaction,`<div class="fw-placement-panel"><strong>${esc(name(clearPreview.tool))} ×1 → 清理 ${clearPreview.ids.length} 处</strong><small>消耗工具后，轮廓高亮的障碍将永久消失，不可撤销，不赠送材料。</small><div>${button('cancel-clear','取消')}${button('confirm-clear',`消耗 ${name(clearPreview.tool)} ×1 并清理 ${clearPreview.ids.length}处`)}</div></div>`);return;}
-      if(selected?.startsWith('land_')){const p=ctx.layout.LAND_PATCHES.find(p=>p.id===selected),check=ctx.layout.canExpandLand(ctx.state,selected),owned=ctx.state.openedLand.includes(selected),affordable=['land_deed','mallet','marker_stake'].every(key=>(ctx.state.inventory[key]||0)>=p[key]);patchFarmMarkup(transaction,`<div class="fw-land-panel"><header><strong>${owned?'已开放土地':'开垦 8 × 8 格'}</strong>${button('close-tool','×')}</header>${!owned?`<div class="fw-materials">${['land_deed','mallet','marker_stake'].map(key=>`<div>${item(key)}<strong class="${(ctx.state.inventory[key]||0)<p[key]?'short':''}">${ctx.state.inventory[key]||0} / ${p[key]}</strong></div>`).join('')}</div><small>${check.ok?(affordable?'开垦后保留树石，需另用工具清理':'扩地材料不足，请先收集所示材料'):esc(check.message)}</small>${button('expand-land','消耗所示材料并开垦','',check.ok&&affordable?'':'disabled')}`:`<p>${patchNeedsClearing(p)?'边界已经开放。自然障碍需要另选工具清理。':'土地已开放并清理，可以继续布置农场。'}</p>`}</div>`);return;}
+      if(ctx.layout.LAND_PATCHES.some(p=>p.id===selected)){const p=ctx.layout.LAND_PATCHES.find(p=>p.id===selected),check=ctx.layout.canExpandLand(ctx.state,selected),owned=ctx.state.openedLand.includes(selected),affordable=['land_deed','mallet','marker_stake'].every(key=>(ctx.state.inventory[key]||0)>=p[key]);patchFarmMarkup(transaction,`<div class="fw-land-panel"><header><strong>${owned?'已开放土地':'开垦 8 × 8 格'}</strong>${button('close-tool','×')}</header>${!owned?`<div class="fw-materials">${['land_deed','mallet','marker_stake'].map(key=>`<div>${item(key)}<strong class="${(ctx.state.inventory[key]||0)<p[key]?'short':''}">${ctx.state.inventory[key]||0} / ${p[key]}</strong></div>`).join('')}</div><small>${check.ok?(affordable?'开垦后保留树石，需另用工具清理':'扩地材料不足，请先收集所示材料'):esc(check.message)}</small>${button('expand-land','消耗所示材料并开垦','',check.ok&&affordable?'':'disabled')}`:`<p>${patchNeedsClearing(p)?'边界已经开放。自然障碍需要另选工具清理。':'土地已开放并清理，可以继续布置农场。'}</p>`}</div>`);return;}
       patchFarmMarkup(transaction,'');
     }
     function render(){if(destroyed)return;renderMap();renderCorners();renderContext();renderLocal();renderTransaction();game.dataset.reducedMotion=String(!!ctx.state.settings.reducedMotion);game.dataset.paused=String(doc.hidden||ctx.effectsPaused===true);refreshMotion();}
@@ -586,7 +593,7 @@ export function mountWorldScene(ctx) {
       else if(action.startsWith('upgrade-storage:')){const kind=action.split(':')[1],ids=kind==='silo'?['nail','screw','wood_panel']:['bolt','duct_tape','plank'],n=ctx.state.storage[kind].upgrades+1;ask({type:'upgradeStorage',storage:kind},'扩建仓库',`<p>消耗 ${ids.map(key=>`${name(key)}×${n}`).join('、')}。</p>`,'仓库扩建完成');}
       else if(action.startsWith('obstacle:')){const toolId=action.split(':')[1];clearPreview={tool:toolId,ids:obstacleTargets(ctx.state,e,toolId)};render();}
       else if(action==='cancel-clear'){clearPreview=null;render();}
-      else if(action==='confirm-clear'){const p={...clearPreview};const r=doAct({type:'clearObstacle',entityIds:p.ids,toolId:p.tool,confirmed:true},'障碍已清理');if(r.ok)clearPreview=null;render();}
+      else if(action==='confirm-clear'){if(!clearPreview)return;const p={...clearPreview};const r=doAct({type:'clearObstacle',entityIds:p.ids,toolId:p.tool,confirmed:true},'障碍已清理');if(r.ok)clearPreview=null;render();}
       else if(action==='expand-land'){doAct({type:'expandLand',patchId:selected},'土地已开放');render();}
       else if(action==='rotate-placement'){placement.rotation=nextArtRotation(placement);render();}
       else if(action==='cancel-placement'){placement=null;ctx.openScene('P07');}

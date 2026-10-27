@@ -25,6 +25,8 @@ for name in files:
     else:
         matches=re.findall(r'''(?:src|href)=["']([^"']+)["']|url\(["']?([^\)"']+)''',text)
         refs=[next(value for value in match if value) for match in matches]
+        if suffix=='.css':
+            refs += re.findall(r'''@import\s+['"]([^'"]+)['"]''',text)
     for ref in refs:
         url=urlsplit(ref)
         if url.scheme or url.netloc or not url.path:continue

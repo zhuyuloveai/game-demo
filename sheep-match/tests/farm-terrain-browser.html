@@ -1,0 +1,32 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>正式农场集成 · 隔离验收</title>
+<link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="../farm-ui.css"><link rel="stylesheet" href="../farm-scene-host.css"><link rel="stylesheet" href="../farm-scene-world.css"><link rel="stylesheet" href="../farm-scene-trade.css"><link rel="stylesheet" href="../farm-scene-management.css"><link rel="stylesheet" href="../farm-delight.css">
+<style>html,body{height:100%;margin:0;overflow:hidden}body{display:block}#farm{position:absolute;inset:0}#qa-label{position:fixed;bottom:0;left:50%;transform:translateX(-50%);z-index:3000;font:10px system-ui;color:#544b31;background:#fff8d9;pointer-events:none}</style><main id="farm"></main><span id="qa-label">隔离 QA · 正式渲染与存储 · 不读写玩家存档</span><output id="qa-state" hidden></output>
+<script type="module">
+import {growthFixture,growthFixtureStageFromQuery,artStatesFixture,artStateCoverage,penArtFixture} from './farm-growth-fixtures.mjs';
+import * as core from '../farm-core.mjs';
+import * as config from '../farm-config.mjs';
+import * as layout from '../farm-layout.mjs';
+import * as save from '../farm-save.mjs';
+import {mountFarm} from '../farm-scene-host.mjs';
+const params=new URLSearchParams(location.search),artStates=params.get('artstates')==='1';
+const key='farm-terrain-browser-QA-only',root=document.querySelector('#farm');let clock=1800000000000,store,ui,commands=[];
+async function mount(state,{clear=true}={}){
+ ui?.destroy();store?.close();if(clear)for(const k of Object.keys(localStorage))if(k.startsWith(key+':'))localStorage.removeItem(k);
+ store=save.createFarmStore({key,storage:localStorage,now:()=>clock,monotonicNow:()=>0,locks:null});await store.ready;
+ if(state){clock=state.now;const preview=store.importPreview(JSON.stringify(save.makeEnvelope(state,{savedAtWallMs:clock})));if(!preview.ok)throw Error(preview.message);const imported=store.confirmImport(preview.token);if(!imported.ok)throw Error(imported.message);}
+ commands=[];const dispatch=store.dispatch;store.dispatch=c=>{const r=dispatch(c);commands.push({command:c,ok:r.ok,error:r.error});queueMicrotask(()=>report());return r;};
+ ui=mountFarm({root,store});const report=()=>{document.querySelector('#qa-state').textContent=JSON.stringify({state:store.getState(),commands,...(artStates?{artStates:artStateCoverage(store.getState())}:{})});};store.subscribe(report);report();return store.getState();
+}
+window.qa={core,config,layout,save,mount,get state(){return store.getState()},get commands(){return commands},dispatch:c=>store.dispatch(c),export:()=>store.exportSave(),importPreview:t=>store.importPreview(t),confirmImport:t=>store.confirmImport(t),reload:()=>mount(null,{clear:false}),advance:ms=>{clock+=ms;return mount(core.advanceFarm(store.getState(),store.getState().now+ms).state)},ready:false};
+let initial=params.has('pens')?penArtFixture(params.get('pens')):artStates?artStatesFixture():params.has('stage')?growthFixture(growthFixtureStageFromQuery(params.get('stage'))):null;if(artStates){save.validateFarmState(initial);save.validateEnvelope(save.makeEnvelope(initial));document.querySelector('#qa-label').textContent='素材状态 QA · 左侧11行作物：嫩芽/成长/成熟 · 右侧5行果树：幼苗/成长/成熟/待复苏/枯萎 · 可拖图/全景';}if(params.get('ripe')==='1'){initial??=core.createFarm(clock);initial=core.executeFarm(initial,{type:'plant',entityIds:initial.entities.filter(e=>e.kind==='field').map(e=>e.id),itemId:'wheat'},initial.now).state;initial=core.advanceFarm(initial,initial.now+120000).state;}if(params.get('occluded')==='1'){initial??=core.createFarm(clock);const barn=initial.entities.find(e=>e.id==='barn');barn.x=28;barn.y=30;layout.validateLayout(initial).ok||(()=>{throw Error('Invalid occlusion fixture')})();}await mount(initial,{clear:params.get('resume')!=='1'});window.qa.ready=true;
+</script></html>
+
+<output id="fx-report" hidden></output><script>
+const effects=[],frames=[],removed=[];const output=document.querySelector('#fx-report');
+const report=()=>output.textContent=JSON.stringify({effects,frames,removed,active:document.querySelectorAll('.farm-workshop-effect').length});
+new MutationObserver(records=>{for(const r of records){
+ for(const n of r.addedNodes||[])if(n.nodeType===1&&n.matches('.farm-workshop-effect'))effects.push({id:n.dataset.workshopEffect,time:performance.now(),transform:n.style.transform});
+ for(const n of r.removedNodes||[])if(n.nodeType===1&&n.matches('.farm-workshop-effect'))removed.push({id:n.dataset.workshopEffect,time:performance.now()});
+ if(r.type==='attributes'&&r.target.matches('.farm-workshop-effect'))frames.push({id:r.target.dataset.workshopEffect,position:r.target.style.backgroundPosition,time:performance.now()});
+}report();}).observe(document.querySelector('#farm'),{childList:true,subtree:true,attributes:true,attributeFilter:['style']});report();
+</script>

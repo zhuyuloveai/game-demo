@@ -121,3 +121,34 @@ test('committed sow and harvest respect reduced motion without any animated flig
  assert.equal(fx.activeCount,2);for(const node of h.root.children.find(n=>n.className==='farm-delight-layer').children)assert.match(node.className,/is-still/);
  fx.destroy();
 });
+test('workshop atlases stay bounded, advance at asset cadence and disappear once',()=>{
+ const h=harness(),fx=mountFarmDelight(h.root),point={x:180,y:300};
+ assert.equal(fx.playTerrain('clear-dust',point),1);assert.equal(fx.activeCount,1);
+ const layer=h.root.children.find(n=>n.className==='farm-delight-layer'),node=layer.children[0];
+ assert.equal(node.style['background-position'],'-2px -2px');
+ h.advance(0);h.advance(84);assert.equal(node.style.backgroundPosition,'-134px -2px');
+ h.advance(250);assert.equal(node.style.backgroundPosition,'-2px -102px');
+ h.advance(333);assert.equal(fx.activeCount,0);assert.equal(layer.children.length,0);
+ for(let i=0;i<40;i++)fx.playTerrain('stone-chips',point);assert.equal(fx.activeCount,32);assert.equal(h.frames.size,1);
+ fx.clear();assert.equal(fx.activeCount,0);assert.equal(h.frames.size,0);fx.destroy();
+});
+test('terrain effects require visible real source, respect reduced motion, pause and destroy',()=>{
+ const h=harness(),fx=mountFarmDelight(h.root);
+ assert.equal(fx.playTerrain('land-open',null),0);assert.equal(fx.playTerrain('land-open',{x:-1,y:300}),0);assert.equal(fx.playTerrain('unknown',{x:100,y:100}),0);
+ fx.setReducedMotion(true);assert.equal(fx.playTerrain('land-open',{x:100,y:100}),0);fx.setReducedMotion(false);
+ assert.equal(fx.playTerrain('land-open',{x:100,y:100}),1);h.visibility(true);assert.equal(fx.activeCount,0);assert.equal(h.frames.size,0);
+ assert.equal(fx.playTerrain('land-open',{x:100,y:100}),0);h.visibility(false);fx.destroy();assert.equal(fx.playTerrain('land-open',{x:100,y:100}),0);
+});
+
+test('atlas playback starts on its first paint opportunity after a slow synchronous commit, with absolute TTL',()=>{
+ const h=harness(),fx=mountFarmDelight(h.root);fx.playTerrain('wood-chips',{x:100,y:100});h.advance(800);assert.equal(fx.activeCount,1);
+ h.advance(84);const layer=h.root.children.find(n=>n.className==='farm-delight-layer');assert.equal(layer.children[0].style.backgroundPosition,'-134px -2px');
+ h.advance(617);assert.equal(fx.activeCount,0);fx.destroy();
+});
+test('atlas first RAF delayed 900ms retains visible progression but a delay beyond absolute TTL cannot replay',()=>{
+ const h=harness(),fx=mountFarmDelight(h.root);fx.playTerrain('stone-chips',{x:100,y:100});h.advance(900);
+ const layer=h.root.children.find(n=>n.className==='farm-delight-layer');
+ for(let i=1;i<=6;i++){h.advance(84);assert.equal(fx.activeCount,1);assert.equal(layer.children[0].style.backgroundPosition,`-${2+i%4*132}px -${2+Math.floor(i/4)*100}px`);}
+ h.advance(97);assert.equal(fx.activeCount,0);
+ fx.playTerrain('land-open',{x:100,y:100});h.advance(1501);assert.equal(fx.activeCount,0);assert.equal(h.frames.size,0);fx.destroy();
+});

@@ -1,3 +1,4 @@
+import {priorityIconUrl} from './farm-priority-icons.mjs';
 /* Generated runtime index from licensed farm art manifest; see assets/farm/licenses/ATTRIBUTION.md. */
 export const FARM_ASSETS = [{
     "assetId":"common.audio.spring",
@@ -5137,8 +5138,11 @@ export function farmAsset(id, variant = 'base', category) {
   const candidates = projectAssets.get(key) || [];
   return candidates.find(a => (!category || a.category === category) && a.variant === variant) || candidates.find(a => !category || a.category === category) || byId.get('ui.info');
 }
+export function farmAssetPathUrl(path) {
+  return priorityIconUrl(path) || new URL(`./assets/farm/${path}`, import.meta.url).href;
+}
 export function farmAssetUrl(id, variant = 'base', category) {
-  return new URL(`./assets/farm/${farmAsset(id, variant, category).path}`, import.meta.url).href;
+  return farmAssetPathUrl(farmAsset(id, variant, category).path);
 }
 
 // Clip metadata is copied from the unchanged licensed animals/*/animation.json files.
