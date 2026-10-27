@@ -13,6 +13,22 @@ export function delightCount(count=1,reducedMotion=false){return reducedMotion?1
 export function delightPhase(id=''){
   let hash=2166136261;for(const char of String(id)){hash^=char.charCodeAt(0);hash=Math.imul(hash,16777619);}return (hash>>>0)%11000;
 }
+/** Recovered motion-v3 profile: deterministic identity, period, phase and envelope.
+ * No global RNG or economic state. Inner art only; hit geometry stays static. */
+export function delightProfile(id='',kind='animal'){
+  let seed=2166136261;
+  for(const char of `${kind}:${id}`){seed^=char.charCodeAt(0);seed=Math.imul(seed,16777619);}
+  const random=()=>{seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;return (seed>>>0)/4294967296;};
+  const ranges={animal:[4100,6400],crop:[2700,3900],tree:[3500,5100],machine:[3600,6100],ready:[3300,5700]};
+  const [min,max]=ranges[kind]||ranges.animal;
+  const duration=Math.round(min+(max-min)*random()),phase=Math.round(duration*random()),hold=Math.floor(random()*3),strength=random();
+  return {duration,phase,hold,scaleX:1.018+strength*.01,scaleY:1.045+strength*.015,angle:(kind==='tree'?1.6:2)+strength*(kind==='tree'?.6:.8),brightness:1.08+strength*.04,readyScale:1.08+strength*.06};
+}
+const motionProperties=['--ripe-pop-delay','--ripe-cycle-delay','--ripe-cycle-duration','--delight-delay','--delight-duration','--delight-envelope','--delight-scale-x','--delight-scale-y','--delight-angle','--delight-brightness','--delight-ready-scale'];
+function clearIdle(el){
+  delete el.dataset.delightIdle;delete el.dataset.delightRipe;delete el.dataset.delightFresh;
+  for(const property of motionProperties)el.style.removeProperty(property);
+}
 /** Optional frame-selector input: walk briefly, then rest, within the same pen.
  * Feeding/collection/ready states must keep precedence in the caller. */
 export function delightAnimalActivity(id,time,{reducedMotion=false,eligible=true}={}){
@@ -54,11 +70,14 @@ export function mountFarmDelight(root,{reducedMotion=false,enabled=true}={}){
   root.querySelector('.farm-viewport')?.append(ambient);
   const budget=createDelightBudget();let destroyed=false,manualPause=false,raf=0,lastAction='',lastAt=-Infinity;
   let idle=[];
+  const readiness=new Map();
   const reduced=()=>!!reducedMotion||!!query?.matches;
   const paused=()=>manualPause||doc.hidden||!enabled||destroyed;
   const time=()=>win.performance.now();
+  let pausedAt=null,pausedDuration=0;
+  const motionTime=()=>time()-pausedDuration-(pausedAt===null?0:time()-pausedAt);
   const stop=()=>{if(raf)win.cancelAnimationFrame(raf);raf=0;budget.clear();};
-  function state(){root.dataset.delight=enabled?'on':'off';root.dataset.delightPaused=String(paused());root.dataset.delightReduced=String(reduced());ambient.hidden=paused()||reduced();if(paused()||reduced())stop();}
+  function state(){const freeze=paused()||reduced();if(freeze&&pausedAt===null)pausedAt=time();else if(!freeze&&pausedAt!==null){pausedDuration+=time()-pausedAt;pausedAt=null;}root.dataset.delight=enabled?'on':'off';root.dataset.delightPaused=String(paused());root.dataset.delightReduced=String(reduced());ambient.hidden=paused()||reduced();if(paused()||reduced())stop();}
   function tick(now){
     raf=0;if(paused()){stop();return;}budget.sweep(now);
     for(const r of budget.entries())if(r.flight){const p=delightFlight(r.from,r.to,(now-r.start)/r.duration,r.index);r.node.style.transform=`translate3d(${p.x}px,${p.y}px,0) translate(-50%,-50%) scale(${p.scale})`;r.node.style.opacity=String(p.opacity);}
@@ -67,9 +86,61 @@ export function mountFarmDelight(root,{reducedMotion=false,enabled=true}={}){
   function schedule(){if(!raf&&budget.size)raf=win.requestAnimationFrame(tick);}
   function refresh(){
     if(destroyed)return;
-    for(const el of idle){delete el.dataset.delightIdle;delete el.dataset.delightRipe;el.style.removeProperty('--delight-delay');}idle=[];
-    if(!enabled)return;
-    const view=root.querySelector('.farm-viewport');if(!view)return;
+    const previous=idle;idle=[];
+    const cleanup=()=>{for(const el of previous)if(!idle.includes(el))clearIdle(el);};
+    if(!enabled){cleanup();return;}
+    const maps=Array.from(root.querySelectorAll('.fw-map')).filter(map=>!map.closest?.('[inert]'));
+    const view=maps.at(-1)||root.querySelector('.farm-viewport');
+    if(!view){ambient.hidden=true;cleanup();return;}
+    if(ambient.parentNode!==view)view.append(ambient);
+    ambient.hidden=paused()||reduced();
+    if(maps.length){
+      const bounds=view.getBoundingClientRect(),counts={animal:0,crop:0,tree:0,machine:0,ready:0};
+      const limits={animal:12,crop:6,tree:4,machine:4,ready:4};
+      const elements=Array.from(view.querySelectorAll('[data-fw-motion]')),fresh=new Set(),seen=new Set();
+      for(const el of elements){
+        const id=el.dataset.entity;if(!id||el.dataset.fwReady===undefined)continue;
+        seen.add(id);const ready=el.dataset.fwReady==='true',prior=readiness.get(id);
+        if(ready&&prior?.ready===false)fresh.add(id);
+        readiness.set(id,{ready,popAt:ready?prior?.popAt??null:null});
+      }
+      for(const id of readiness.keys())if(!seen.has(id))readiness.delete(id);
+      let pops=[...readiness.values()].filter(record=>record.popAt!==null&&motionTime()-record.popAt<1100).length;
+      for(const el of elements){
+        const kind=el.dataset.fwMotion;
+        if(!limits[kind]||counts[kind]>=limits[kind]||idle.length>=FARM_DELIGHT_LIMITS.idle||
+          el.closest?.('.fw-layout-world,.fw-occluder-faded,.fw-muted-neighbor,[data-motion-blocked="true"]'))continue;
+        const rect=el.getBoundingClientRect();
+        if(!rect.width||!rect.height||rect.right<=bounds.left||rect.left>=bounds.right||rect.bottom<=bounds.top||rect.top>=bounds.bottom)continue;
+        el.dataset.delightIdle=kind;
+        if(!previous.includes(el)){
+          const profile=delightProfile(el.dataset.animal||el.dataset.entity||el.dataset.pen||el.dataset.product,kind);
+          const envelope={animal:'breathe',crop:'plant',tree:'plant',machine:'work',ready:'ready'}[kind];
+          const properties={'--delight-delay':`${-(motionTime()+profile.phase)}ms`,'--delight-duration':`${profile.duration}ms`,
+            '--delight-envelope':`fw-delight-${envelope}-${profile.hold}`,'--delight-scale-x':profile.scaleX,'--delight-scale-y':profile.scaleY,
+            '--delight-angle':`${profile.angle}deg`,'--delight-brightness':profile.brightness,'--delight-ready-scale':profile.readyScale};
+          for(const [key,value] of Object.entries(properties))el.style.setProperty(key,String(value));
+        }
+        const record=readiness.get(el.dataset.entity);
+        if(record?.ready&&(kind==='crop'||kind==='tree')){
+          const phase=delightPhase(el.dataset.entity);
+          if(!previous.includes(el)||el.dataset.delightRipe!=='true'){
+            el.style.setProperty('--ripe-cycle-duration',`${5600+phase%1900}ms`);
+            el.style.setProperty('--ripe-cycle-delay',`${-(motionTime()+phase)}ms`);
+          }
+          el.dataset.delightRipe='true';
+          if(fresh.has(el.dataset.entity)&&pops<2&&!paused()&&!reduced()){record.popAt=motionTime();pops++;}
+          if(record.popAt!==null&&motionTime()-record.popAt<1100){
+            if(el.dataset.delightFresh!=='true'){el.dataset.delightFresh='true';el.style.setProperty('--ripe-pop-delay',`${-(motionTime()-record.popAt)}ms`);}
+          }else{delete el.dataset.delightFresh;el.style.removeProperty('--ripe-pop-delay');}
+        }else{
+          delete el.dataset.delightRipe;delete el.dataset.delightFresh;
+          for(const key of ['--ripe-pop-delay','--ripe-cycle-duration','--ripe-cycle-delay'])el.style.removeProperty(key);
+        }
+        idle.push(el);counts[kind]++;
+      }
+      cleanup();return;
+    }
     const bounds=view.getBoundingClientRect();
     for(const el of root.querySelectorAll('.farm-entity:not(.is-ghost)')){
       if(idle.length>=FARM_DELIGHT_LIMITS.idle)break;
@@ -84,6 +155,7 @@ export function mountFarmDelight(root,{reducedMotion=false,enabled=true}={}){
       if(!kind)continue;
       el.dataset.delightIdle=kind;el.dataset.delightRipe=String(!!el.querySelector('.farm-ready-badge'));el.style.setProperty('--delight-delay',`${-delightPhase(el.dataset.entity)}ms`);idle.push(el);
     }
+    cleanup();
   }
   function play(action,{sourceElements=[],targetElement=null,itemId=null,count=1,point=null}={}){
     if(paused())return 0;
@@ -115,5 +187,5 @@ export function mountFarmDelight(root,{reducedMotion=false,enabled=true}={}){
   }
   const onVisibility=()=>state(),onMotion=()=>state();doc.addEventListener('visibilitychange',onVisibility);query?.addEventListener?.('change',onMotion);
   state();refresh();
-  return {play,refresh,setReducedMotion(value){reducedMotion=!!value;state();},setEnabled(value){enabled=!!value;state();refresh();},pause(value=true){manualPause=!!value;state();},get activeCount(){return budget.size;},destroy(){if(destroyed)return;destroyed=true;stop();for(const el of idle){delete el.dataset.delightIdle;delete el.dataset.delightRipe;el.style.removeProperty('--delight-delay');}idle=[];doc.removeEventListener('visibilitychange',onVisibility);query?.removeEventListener?.('change',onMotion);layer.remove();ambient.remove();delete root.dataset.delight;delete root.dataset.delightPaused;delete root.dataset.delightReduced;}};
+  return {play,refresh,setReducedMotion(value){reducedMotion=!!value;state();},setEnabled(value){enabled=!!value;state();refresh();},pause(value=true){manualPause=!!value;state();},get activeCount(){return budget.size;},destroy(){if(destroyed)return;destroyed=true;stop();readiness.clear();for(const el of idle)clearIdle(el);idle=[];doc.removeEventListener('visibilitychange',onVisibility);query?.removeEventListener?.('change',onMotion);layer.remove();ambient.remove();delete root.dataset.delight;delete root.dataset.delightPaused;delete root.dataset.delightReduced;}};
 }

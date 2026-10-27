@@ -1,3 +1,4 @@
+import {createAnimalAnimationController} from './farm-animal-animation.mjs';
 import {forestBoundary} from './farm-forest-boundary.mjs';
 import {resolveShelterSpec,resolveShelterLayer,resolveShelterAnimal,resolveShelterAnimalShadow} from './farm-runtime-shelters.mjs';
 import {shelterCanvasRect,shelterCanvasPoint,shelterLayerDepths,shelterLayerHit,shelterSummary,shelterHitCandidates} from './farm-shelter-geometry.mjs';
@@ -119,6 +120,14 @@ export function renderProjectedGround(src,alt='',className=''){
   const safe=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   return `<svg class="fw-ground-art ${safe(className)}" viewBox="0 0 48 24" role="img" aria-label="${safe(alt)}" xmlns="http://www.w3.org/2000/svg"><image href="${safe(src)}" width="48" height="48" transform="matrix(.5 .25 -.5 .25 24 0)"/></svg>`;
 }
+export function ripeCharm(f,e,t=[50,50]){return f.kind==="field"&&f.crop?.readyAt<=e||f.kind==="fruit"&&f.status==="ready"?'<span class="fw-ripe-charm" style="left:'+t[0]+"%;top:"+t[1]+'%" aria-hidden="true"><svg class="fw-ripe-glyph" viewBox="0 0 24 26" focusable="false"><g class="fw-ripe-star"><path d="M10 2C10.7 7.6 12.2 9.2 18 10C12.3 10.9 10.8 12.6 10 18C9.1 12.6 7.6 10.9 2 10C7.5 9.2 9.1 7.6 10 2Z" fill="#fff1b4" stroke="#c79749" stroke-width="1.1" stroke-linejoin="round"/><path d="M10 5.2L10.8 9.1L14.2 10L10.6 10.6L10 14L9.2 10.8L5.6 10L9.1 9.2Z" fill="#fffdf1"/></g><g class="fw-ripe-dew"><path d="M19 13C18 15 15.2 17.3 15.4 19.6C15.6 23.6 22 23.4 22 19.5C22 17.3 20 15.1 19 13Z" fill="#e5f2bd" stroke="#9cac69" stroke-width=".9"/><path d="M17.7 18.5Q16.6 20.2 18.1 20.7" fill="none" stroke="#fffef3" stroke-width="1.4" stroke-linecap="round"/></g><circle class="fw-ripe-dot" cx="20.5" cy="5.5" r="1.5" fill="#fff7d4" stroke="#c9a363" stroke-width=".6"/></svg></span>':""}
+
+export function worldMotionKind(e){return e.kind==='field'&&e.crop?'crop':e.kind==='fruit'&&!['revive','withered'].includes(e.status)?'tree':e.kind==='machine'&&e.built&&e.queue?.length?'machine':'';}
+/** Undo inner-art sway before testing its alpha, leaving ground selection unchanged. */
+export function inverseSwayPoint(u,v,width,height,angle=0,originY=.85){
+  const r=-angle*Math.PI/180,dx=(u-.5)*width,dy=(v-originY)*height;
+  return {u:.5+(dx*Math.cos(r)-dy*Math.sin(r))/width,v:originY+(dx*Math.sin(r)+dy*Math.cos(r))/height};
+}
 export function mountWorldScene(ctx) {
     const id=ctx.id||'P01';
     const root=ctx.root,doc=ctx.doc||root.ownerDocument,win=ctx.win||doc.defaultView;
@@ -134,6 +143,14 @@ export function mountWorldScene(ctx) {
     root.innerHTML=`<section class="fw-game" aria-label="${esc(CHAPTERS[id])}"><div class="fw-map" tabindex="0" aria-label="农场地图。拖动地图；点对象选工具，再拖工具连续操作；点击成熟田收一格；农田透视可找到被遮挡的成熟田；更多菜单进入布置"><div class="fw-world"></div></div><div class="fw-corners"></div><div class="fw-context"></div><div class="fw-local"></div><div class="fw-transaction"></div><div class="fw-stroke-note" role="status" aria-live="polite" hidden></div><div class="fw-cursor" aria-hidden="true" hidden></div></section>`;
     const game=root.querySelector('.fw-game'),view=root.querySelector('.fw-map'),world=root.querySelector('.fw-world'),corners=root.querySelector('.fw-corners'),context=root.querySelector('.fw-context'),local=root.querySelector('.fw-local'),transaction=root.querySelector('.fw-transaction'),note=root.querySelector('.fw-stroke-note'),cursor=root.querySelector('.fw-cursor');
     world.style.backgroundImage="none";
+    const animalAnimation=createAnimalAnimationController({root:world,
+      getAnimal:(animalId,shelterId)=>{const shelter=entity(shelterId);return {animal:shelter?.animals?.find(a=>a.id===animalId),shelter};},
+      getStaticArt:animalMeta,
+      isReduced:()=>!!ctx.state.settings.reducedMotion,
+      isPaused:()=>destroyed||doc.hidden||ctx.effectsPaused===true||!!gesture||!!draft||!!placement||!!localPage||!!root.closest('[inert]'),
+      maxVisible:12});
+    function refreshMotion(){game.dataset.motionBlocked=String(!!gesture||!!draft||!!placement||!!localPage);ctx.refreshPresentation?.();animalAnimation.sync();}
+
     function on(el,event,fn,options){el.addEventListener(event,fn,options);listeners.push(()=>el.removeEventListener(event,fn,options));}
     function vouchersEnabled(){return ctx.state.features?.constructionVouchersEnabled!==false;}
     function entity(id){return ctx.state.entities.find(e=>e.id===id);}
@@ -166,6 +183,15 @@ export function mountWorldScene(ctx) {
       const path=entityArt(e);fallbackArtHit(e,.5,.5);
       if(e.kind==='field'&&e.crop)return fieldSoil(e)+image(path,title(e),cls+' fw-crop-overlay');
       return path?image(path,title(e),cls):`<img class="${cls}" src="${ctx.art?ctx.art(e.configId):ctx.asset('ui/info.svg')}" alt="${esc(title(e))}" draggable="false">`;
+    }
+    function plantHitPoint(e,p,u,v){
+      if(!['crop','tree'].includes(worldMotionKind(e)))return {u,v};
+      const el=world.querySelector(`[data-entity="${e.id}"]`),art=el?.querySelector('.fw-entity-art');
+      if(!art||!win.getComputedStyle)return {u,v};
+      const rotate=win.getComputedStyle(art).rotate||'0deg';
+      let angle=parseFloat(rotate)||0;if(rotate.endsWith('rad'))angle*=180/Math.PI;else if(rotate.endsWith('turn'))angle*=360;
+      const r=el.getBoundingClientRect();if(!r.width||!r.height)return {u,v};
+      return inverseSwayPoint((p.x-r.left)/r.width,(p.y-r.top)/r.height,r.width,r.height,angle,e.kind==='fruit'?.88:.85);
     }
     function animalMeta(a,pen){return (!pen?.skinId&&resolveShelterAnimal(a))||resolveWorldArt({...a,kind:'animal'},ctx.state.now);}
     function animalArt(a,pen){const runtime=animalMeta(a,pen);if(runtime)return renderRuntimeArt(runtime,{className:'fw-animal-art'+(runtime.shelterLayered?' fw-layered-art':''),alt:name(a.configId),mirror:runtime.shelterLayered&&mirroredArt(pen)});return image(`animals/${a.configId}/front/${a.status==='producing'?'producing':a.status==='ready'?'ready':'idle'}_00.svg`,name(a.configId),'fw-animal-art');}
@@ -238,20 +264,20 @@ export function mountWorldScene(ctx) {
         html+=`<button class="fw-land fw-forest-land ${open?'opened':check.ok?'available':'locked'} ${active?'selected':''}" data-land="${p.id}" style="${groundStyle(p)}" aria-label="${p.id} ${open?'已开放':check.ok?'可以开垦':'暂不能开垦'}"><span>${active?(open?(patchNeedsClearing(p)?'已开放 · 待清理':'已开放'):check.ok?'这片林地 · 可开垦':'这片林地 · 暂未开放'):check.ok?'＋ 开垦':''}</span></button>`;}
       for(const e of entities){
         const presentation=worldScenePresentation(id,selectedEntity(),e),status=stateBadge(e),badgePolicy=worldBadge(e,ctx.state.now,{selected:selected===e.id,editing:!!draft,harvestView}),badge=presentation.showBadge&&badgePolicy.mode!=='none'?(badgePolicy.text||status):'',badgeArt=badgePolicy.mode==='label'?resolveBuildingBadge(e,ctx.state):null,marked=gesture?.stroke?.seen.has(e.id)||clearPreview?.ids.includes(e.id);
-        html+=`<button class="fw-entity fw-${e.kind} ${faded.has(e.id)?'fw-occluder-faded':''} ${harvestView&&directCropHarvestCommand(e,ctx.state.now)?'fw-harvest-target':''} ${selected===e.id?'selected':''} ${marked?'marked':''} ${draft?'editing':''} ${draft&&ctx.layout.isFixedEntity(e)?'fw-layout-fixed':''} ${draft&&selected===e.id&&!layoutCheck.ok?'fw-invalid-position':''} ${presentation.focused?'fw-focused-entity':''} ${presentation.muted?'fw-muted-neighbor':''}" data-entity="${e.id}" style="${rectStyle(e)}" aria-label="${esc(title(e))}${draft?ctx.layout.isFixedEntity(e)?'，固定建筑，不能移动':'，拖动布置，完成后保存':status?'，'+esc(status):''}"><span class="fw-ground-mark" style="${groundStyle(e)};left:${groundRect(e,ctx.layout.getFootprint(e)).left-visualRect(e).left}px;top:${groundRect(e,ctx.layout.getFootprint(e)).top-visualRect(e).top}px"></span>${art(e,'fw-entity-art','back')}${draft&&selected===e.id?`<span class="fw-drag-handle" aria-hidden="true">${ctx.layout.isFixedEntity(e)?'固定':'✥ 拖动'}</span>`:''}${badge?`<span class="fw-badge ${badgePolicy.mode==='dot'?'fw-status-dot':''}" ${badgePolicy.mode==='dot'?`aria-hidden="true" style="left:${(visualRect(e).foot?.x||0)-visualRect(e).left+12}px;top:${(visualRect(e).foot?.y||visualRect(e).bottom)-visualRect(e).top-9}px"`:''}>${badgeArt?`<img src="${esc(badgeArt.src)}" alt="" draggable="false">`:""}${esc(badge)}</span>`:''}${e.kind==='machine'&&!e.built?image('terrain/construction-scaffold.svg','','fw-scaffold'):''}</button>`;
+        html+=`<button class="fw-entity fw-${e.kind} ${faded.has(e.id)?'fw-occluder-faded':''} ${harvestView&&directCropHarvestCommand(e,ctx.state.now)?'fw-harvest-target':''} ${selected===e.id?'selected':''} ${marked?'marked':''} ${draft?'editing':''} ${draft&&ctx.layout.isFixedEntity(e)?'fw-layout-fixed':''} ${draft&&selected===e.id&&!layoutCheck.ok?'fw-invalid-position':''} ${presentation.focused?'fw-focused-entity':''} ${presentation.muted?'fw-muted-neighbor':''}" data-entity="${e.id}" data-fw-motion="${worldMotionKind(e)}" data-fw-ready="${!!directCropHarvestCommand(e,ctx.state.now)||e.kind==='fruit'&&e.status==='ready'}" style="${rectStyle(e)}" aria-label="${esc(title(e))}${draft?ctx.layout.isFixedEntity(e)?'，固定建筑，不能移动':'，拖动布置，完成后保存':status?'，'+esc(status):''}"><span class="fw-ground-mark" style="${groundStyle(e)};left:${groundRect(e,ctx.layout.getFootprint(e)).left-visualRect(e).left}px;top:${groundRect(e,ctx.layout.getFootprint(e)).top-visualRect(e).top}px"></span>${art(e,'fw-entity-art','back')}${ripeCharm(e,ctx.state.now,e.kind==='field'?[50,34]:[62,26])}${draft&&selected===e.id?`<span class="fw-drag-handle" aria-hidden="true">${ctx.layout.isFixedEntity(e)?'固定':'✥ 拖动'}</span>`:''}${badge?`<span class="fw-badge ${badgePolicy.mode==='dot'?'fw-status-dot':''}" ${badgePolicy.mode==='dot'?`aria-hidden="true" style="left:${(visualRect(e).foot?.x||0)-visualRect(e).left+12}px;top:${(visualRect(e).foot?.y||visualRect(e).bottom)-visualRect(e).top-9}px"`:''}>${badgeArt?`<img src="${esc(badgeArt.src)}" alt="" draggable="false">`:""}${esc(badge)}</span>`:''}${e.kind==='machine'&&!e.built?image('terrain/construction-scaffold.svg','','fw-scaffold'):''}</button>`;
         const layered=resolveWorldArt(e,ctx.state.now);if(layered?.frontOcclusion){const r=visualRect(e);html+=`<div aria-hidden="true" class="fw-decor-front ${faded.has(e.id)?'fw-occluder-faded':''}" style="left:${r.left}px;top:${r.top}px;width:${r.width}px;height:${r.height}px;z-index:${depth(e,ctx.layout.getFootprint(e))+1}">${renderRuntimeArt(layered,{className:'fw-entity-art',alt:'',mirror:mirroredArt(e),layer:'front'})}</div>`;}
         if(e.kind==='shelter'){
           const f=ctx.layout.getFootprint(e),layers=penLayers(e,f);
           html+=`<div class="fw-pen-component" style="${layers.style};z-index:${layers.groundDepth}">${layers.ground}</div><div class="fw-pen-component ${faded.has(e.id)?'fw-occluder-faded':''}" style="${layers.style};z-index:${layers.rearDepth}">${layers.rear}</div><div class="fw-pen-component ${faded.has(e.id)?'fw-occluder-faded':''}" style="${layers.style};z-index:${layers.frontDepth}">${layers.front}</div>`;
           (e.animals||[]).forEach((a,i)=>{const am=animalMeta(a,e),r=animalPlacement(e,f,i,am),shadow=am.shelterLayered&&resolveShelterAnimalShadow(a);
             if(shadow)html+=`<div class="fw-animal-shadow ${faded.has(e.id)?'fw-occluder-faded':''}" style="left:${r.left}px;top:${r.top}px;width:${r.width}px;height:${r.height}px;z-index:3">${renderRuntimeArt(shadow,{mirror:r.mirror})}</div>`;
-            html+=`<button class="fw-animal ${am?.shelterLayered?'fw-layered-animal':''} ${faded.has(e.id)?'fw-occluder-faded':''} ${presentation.muted?'fw-muted-neighbor':''} ${selectedAnimal===a.id?'selected':''} ${gesture?.stroke?.seen.has(a.id)?'marked':''}" data-animal="${a.id}" data-shelter="${e.id}" data-depth="${r.depth}" style="left:${r.left}px;top:${r.top}px;width:${r.width}px;height:${r.height}px;z-index:${r.depth}" aria-label="${esc(name(a.configId))}，${a.status==='hungry'?'饿了':a.status==='ready'?'产物待收':remaining(a.readyAt)}">${animalArt(a,e)}${selected===e.id&&!draft?`<span class="fw-animal-state ${a.status==='ready'?'fw-ready-output':''}">${a.status==='ready'?item(config.ANIMALS[a.configId].product):a.status==='hungry'?item(config.ANIMALS[a.configId].feedItem):'◷'}</span>`:''}</button>`;
+            html+=`<button class="fw-animal ${am?.shelterLayered?'fw-layered-animal':''} ${faded.has(e.id)?'fw-occluder-faded':''} ${presentation.muted?'fw-muted-neighbor':''} ${selectedAnimal===a.id?'selected':''} ${gesture?.stroke?.seen.has(a.id)?'marked':''}" data-fw-motion="animal" data-animal="${a.id}" data-shelter="${e.id}" data-depth="${r.depth}" style="left:${r.left}px;top:${r.top}px;width:${r.width}px;height:${r.height}px;z-index:${r.depth};--fw-contact-x:${(r.mirror?1-(am.anchor?.[0]??.5):(am.anchor?.[0]??.5))*100}%;--fw-contact-y:${(am.anchor?.[1]??.9)*100}%" aria-label="${esc(name(a.configId))}，${a.status==='hungry'?'饿了':a.status==='ready'?'产物待收':remaining(a.readyAt)}">${animalArt(a,e)}${selected===e.id&&!draft?`<span class="fw-animal-state ${a.status==='ready'?'fw-ready-output':''}">${a.status==='ready'?item(config.ANIMALS[a.configId].product):a.status==='hungry'?item(config.ANIMALS[a.configId].feedItem):'◷'}</span>`:''}</button>`;
           });
           const summary=shelterSummary(e);if(!draft&&summary&&selected!==e.id&&!faded.has(e.id)){const g=groundRect(e,f),p=resolveShelterSpec(e)?shelterCanvasPoint(e,f,[1050,590]):{x:g.right,y:(g.top+g.bottom)/2};html+=`<button class="fw-pen-summary" data-pen="${e.id}" style="left:${p.x-9}px;top:${p.y-24}px;z-index:${layers.frontDepth+2}" aria-label="${esc(title(e))}，${summary.label}，选择工具">${summary.state==='ready'?item(config.ANIMALS[e.configId].product):item(config.ANIMALS[e.configId].feedItem)}<small>${summary.count}</small></button>`;}
           if(!draft&&selected===e.id) {const g=groundRect(e,f);html+=`<button class="fw-pen-label" data-pen="${e.id}" style="left:${(g.left+g.right)/2-30}px;top:${g.bottom+3}px;z-index:1600" aria-label="查看${esc(title(e))}，${e.animals.length}只">${esc(title(e))} ${e.animals.length}/${config.ANIMALS[e.configId].capacity}</button>`;}
 
         }
-        if(e.kind==='machine'&&e.completed.length&&presentation.showProducts){const tray=compactTrayPlacement(visualRect(e),resolveWorldArt(e),camera.zoom,mirroredArt(e));html+=`<div class="fw-products ${faded.has(e.id)?'fw-occluder-faded':''}" style="left:${tray.x}px;top:${tray.y}px;width:${tray.width}px;height:${tray.height}px;--fw-output-target:${tray.width}px;z-index:${depth(e,ctx.layout.getFootprint(e))+3}">${e.completed.slice(0,tray.slots).map(j=>`<button data-product="${j.id}" data-machine="${e.id}" aria-label="领取${esc(name(j.recipeId))}">${item(j.recipeId)}${e.completed.length>1?`<small class="fw-output-count">${e.completed.length}</small>`:""}</button>`).join('')}</div>`;}
+        if(e.kind==='machine'&&e.completed.length&&presentation.showProducts){const tray=compactTrayPlacement(visualRect(e),resolveWorldArt(e),camera.zoom,mirroredArt(e));html+=`<div class="fw-products ${faded.has(e.id)?'fw-occluder-faded':''}" style="left:${tray.x}px;top:${tray.y}px;width:${tray.width}px;height:${tray.height}px;--fw-output-target:${tray.width}px;z-index:${depth(e,ctx.layout.getFootprint(e))+3}">${e.completed.slice(0,tray.slots).map(j=>`<button data-fw-motion="ready" data-product="${j.id}" data-machine="${e.id}" aria-label="领取${esc(name(j.recipeId))}">${item(j.recipeId)}${e.completed.length>1?`<small class="fw-output-count">${e.completed.length}</small>`:""}</button>`).join('')}</div>`;}
       }
       if(draft){const e=entities.find(e=>e.id===selected);if(e&&ctx.layout.needsDoor(e)){const door=ctx.layout.operationDoor(e),p=project(door.x+.5,door.y+.5);html+=`<span class="fw-door-marker" style="left:${p.x}px;top:${p.y}px">${legacyArtRotation(e)?'旧朝向 · 通路':'门口通路'}</span>`;}}
       const retiring=[...world.querySelectorAll('.fw-forest-decor')].filter(el=>ctx.state.openedLand.includes(el.dataset.forestPatch)).slice(0,24).map(el=>{const copy=el.cloneNode(true);copy.classList.add('fw-forest-retreat');return copy;});
@@ -284,7 +310,7 @@ export function mountWorldScene(ctx) {
       }
       host.innerHTML=html;
     }
-    function transform(){world.style.transform=`translate(${camera.x}px,${camera.y}px) scale(${camera.zoom})`;world.style.setProperty('--fw-output-scale',1/camera.zoom);renderForest();}
+    function transform(){world.style.transform=`translate(${camera.x}px,${camera.y}px) scale(${camera.zoom})`;world.style.setProperty('--fw-output-scale',1/camera.zoom);renderForest();refreshMotion();}
     function worldPoint(p){const r=view.getBoundingClientRect();return unproject((p.x-r.left-camera.x)/camera.zoom,(p.y-r.top-camera.y)/camera.zoom);}
     function viewportSize(){return {w:view.clientWidth,h:view.clientHeight};}
     function focus(e,zoom){if(!e)return;const f=ctx.layout.getFootprint(e),size=viewportSize();if(!(size.w>0&&size.h>0))return;camera.zoom=zoom||camera.zoom;const p=project(e.x+f.w/2,e.y+f.h/2);camera.x=size.w/2-p.x*camera.zoom;camera.y=size.h*(id==='P05'&&e.kind==='machine'?.34:.43)-p.y*camera.zoom;viewSize=size;focusAnchor=id==='P05'&&e.kind==='machine'?{id:e.id,rx:.5,ry:.34}:null;cameraReady=true;transform();}
@@ -332,9 +358,10 @@ export function mountWorldScene(ctx) {
       if(!e.built)return `<div class="fw-build-state">${image('terrain/construction-scaffold.svg')}${e.buildReadyAt<=ctx.state.now?button('complete-building','揭幕 · 领取建成经验'):`<span>施工中 · ${remaining(e.buildReadyAt)}</span>`}</div>`;
       const recipes=Object.values(config.RECIPES).filter(r=>r.machineType===e.machineType&&r.level<=ctx.state.level),show=recipes.slice(recipePage*3,recipePage*3+3);
       const slots=Array.from({length:e.slots},(_,i)=>{const j=e.queue[i];return j?`<button class="fw-job ${j.startAt!==null?'running':'waiting'}" data-job="${j.id}" aria-label="${esc(name(j.recipeId))}，${j.startAt!==null?'制作中':'等待；可拖动排序'}">${item(j.recipeId)}<small>${j.startAt!==null?remaining(j.readyAt):`等待 ${i}`}</small></button>`:`<div class="fw-job empty" aria-label="空生产槽">＋</div>`;}).join('');
-      return `<div class="fw-production"><div class="fw-tray" aria-label="完成品托盘">${e.completed.length?e.completed.map(j=>`<button data-product="${j.id}" data-machine="${e.id}" aria-label="领取${esc(name(j.recipeId))}">${item(j.recipeId)}<small>领取</small></button>`).join(''):'<span>完成品会摆在这里</span>'}</div><div class="fw-queue" data-queue-owner="${e.id}" aria-label="运行与等待槽，拖配方到这里排产">${slots}${button('upgrade-machine',vouchersEnabled()?(e.slots>=9?'槽位已满':'扩槽'):'扩槽功能关闭','',vouchersEnabled()&&e.slots<9?'':'disabled')}</div><div class="fw-recipe-row">${show.map(r=>`<div class="fw-recipe-choice">${tool('enqueue',`${r.name} · ${Math.ceil(r.durationMs/60000)}分`,r.id,e.id,r.id)}${button('recipe-detail:'+r.id,'详情','','aria-label="查看'+esc(r.name)+'原料详情"')}</div>`).join('')}${recipes.length>3?button('recipes-next','更多配方'):''}</div></div>`;
+      return `<div class="fw-production"><div class="fw-tray" aria-label="完成品托盘">${e.completed.length?e.completed.map(j=>`<button data-fw-motion="ready" data-product="${j.id}" data-machine="${e.id}" aria-label="领取${esc(name(j.recipeId))}">${item(j.recipeId)}<small>领取</small></button>`).join(''):'<span>完成品会摆在这里</span>'}</div><div class="fw-queue" data-queue-owner="${e.id}" aria-label="运行与等待槽，拖配方到这里排产">${slots}${button('upgrade-machine',vouchersEnabled()?(e.slots>=9?'槽位已满':'扩槽'):'扩槽功能关闭','',vouchersEnabled()&&e.slots<9?'':'disabled')}</div><div class="fw-recipe-row">${show.map(r=>`<div class="fw-recipe-choice">${tool('enqueue',`${r.name} · ${Math.ceil(r.durationMs/60000)}分`,r.id,e.id,r.id)}${button('recipe-detail:'+r.id,'详情','','aria-label="查看'+esc(r.name)+'原料详情"')}</div>`).join('')}${recipes.length>3?button('recipes-next','更多配方'):''}</div></div>`;
     }
     function doAct(command,success='已完成') {
+      const feedBefore=command.type==='feed'?ctx.state.entities.flatMap(e=>(e.animals||[]).filter(a=>a.status==='hungry').map(a=>a.id)):[];
       const result=ctx.act(command);
       if(!result.ok){
         const code=result.error?.code||result.code||result.error;
@@ -346,6 +373,7 @@ export function mountWorldScene(ctx) {
       const skipped=result.skipped||result.delta?.skipped||[];
       const events=result.delta?.events||[];
       if(skipped.length&&!events.length){ctx.say(`未执行：${skipped[0].message||'目标当前不可操作'}`);return result;}
+      if(command.type==='feed'){const fed=ctx.state.entities.flatMap(e=>(e.animals||[]).filter(a=>feedBefore.includes(a.id)&&a.status==='producing').map(a=>a.id));animalAnimation.playEat(fed);}
       const changes=Object.entries(result.delta?.items||{}).filter(([,q])=>q).map(([key,q])=>`${name(key)} ${q>0?'+':''}${q}`);
       ctx.say(`${success}${result.delta?.coins?' · 金币 '+(result.delta.coins>0?'+':'')+result.delta.coins:''}${changes.length?' · '+changes.join('，'):''}${skipped.length?` · 跳过 ${skipped.length} 个`:''}`);return result;
     }
@@ -395,7 +423,7 @@ export function mountWorldScene(ctx) {
       if(selected?.startsWith('land_')){const p=ctx.layout.LAND_PATCHES.find(p=>p.id===selected),check=ctx.layout.canExpandLand(ctx.state,selected),owned=ctx.state.openedLand.includes(selected),affordable=['land_deed','mallet','marker_stake'].every(key=>(ctx.state.inventory[key]||0)>=p[key]);transaction.innerHTML=`<div class="fw-land-panel"><header><strong>${owned?'已开放土地':'开垦 8 × 8 格'}</strong>${button('close-tool','×')}</header>${!owned?`<div class="fw-materials">${['land_deed','mallet','marker_stake'].map(key=>`<div>${item(key)}<strong class="${(ctx.state.inventory[key]||0)<p[key]?'short':''}">${ctx.state.inventory[key]||0} / ${p[key]}</strong></div>`).join('')}</div><small>${check.ok?(affordable?'开垦后保留树石，需另用工具清理':'扩地材料不足，请先收集所示材料'):esc(check.message)}</small>${button('expand-land','消耗所示材料并开垦','',check.ok&&affordable?'':'disabled')}`:`<p>${patchNeedsClearing(p)?'边界已经开放。自然障碍需要另选工具清理。':'土地已开放并清理，可以继续布置农场。'}</p>`}</div>`;return;}
       transaction.innerHTML='';
     }
-    function render(){if(destroyed)return;renderMap();renderCorners();renderContext();renderLocal();renderTransaction();game.style.setProperty('--fw-output-phase',`-${(ctx.state.now%5800)/1000}s`);game.dataset.reducedMotion=String(!!ctx.state.settings.reducedMotion);game.dataset.paused=String(doc.hidden||ctx.effectsPaused===true);}
+    function render(){if(destroyed)return;renderMap();renderCorners();renderContext();renderLocal();renderTransaction();game.style.setProperty('--fw-output-phase',`-${(ctx.state.now%5800)/1000}s`);game.dataset.reducedMotion=String(!!ctx.state.settings.reducedMotion);game.dataset.paused=String(doc.hidden||ctx.effectsPaused===true);refreshMotion();}
     function closeTemporary(){harvestView=false;chosenSeed=null;cancelGesture();more=false;localPage=null;clearPreview=null;pendingRecipe=null;activeJob=null;selected=null;selectedAnimal=null;render();}
     function openStorage(kind){if(ctx.openScene)ctx.openScene('P08',{initialStorage:kind});else ctx.say('仓库入口暂不可用');}
     function goToSource(itemId){if(ctx.openSource)ctx.openSource(itemId);else ctx.say('请前往'+name(itemId)+'对应的田地或生产设施');}
@@ -498,7 +526,7 @@ export function mountWorldScene(ctx) {
       if(tool.action==='feed'||tool.action==='collectAnimal')return [...world.querySelectorAll('[data-animal]')].filter(el=>{
         const shelter=entity(el.dataset.shelter),a=shelter?.animals.find(a=>a.id===el.dataset.animal);
         return !el.classList.contains('fw-occluder-faded')&&a?.status===(tool.action==='feed'?'hungry':'ready');
-      }).map(el=>{const r=rectData(el.getBoundingClientRect()),shelter=entity(el.dataset.shelter),a=shelter.animals.find(a=>a.id===el.dataset.animal),meta=animalMeta(a,shelter);const badge=el.querySelector('.fw-animal-state')?.getBoundingClientRect(),bounds=badge?{left:Math.min(r.left,badge.left),top:Math.min(r.top,badge.top),right:Math.max(r.right,badge.right),bottom:Math.max(r.bottom,badge.bottom)}:r;return {id:a.id,entityId:shelter.id,...bounds,acceptPoint:p=>(badge&&within(p,badge))||(meta?runtimeArtHit(meta,(p.x-r.left)/(r.right-r.left),(p.y-r.top)/(r.bottom-r.top),{mirror:meta.shelterLayered&&mirroredArt(shelter)})&&!shelterForegroundAt(shelter,p):within(p,r))};});
+      }).map(el=>{const r=rectData((el.querySelector('.fw-animal-art')||el).getBoundingClientRect()),shelter=entity(el.dataset.shelter),a=shelter.animals.find(a=>a.id===el.dataset.animal),meta=animalAnimation.getArt(a.id,animalMeta(a,shelter));const badge=el.querySelector('.fw-animal-state')?.getBoundingClientRect(),bounds=badge?{left:Math.min(r.left,badge.left),top:Math.min(r.top,badge.top),right:Math.max(r.right,badge.right),bottom:Math.max(r.bottom,badge.bottom)}:r;return {id:a.id,entityId:shelter.id,...bounds,acceptPoint:p=>(badge&&within(p,badge))||(meta?runtimeArtHit(meta,(p.x-r.left)/(r.right-r.left),(p.y-r.top)/(r.bottom-r.top),{mirror:meta.shelterLayered&&mirroredArt(shelter)})&&!shelterForegroundAt(shelter,p):within(p,r))};});
       const origin=entity(tool.entityId);
       const targets=[...world.querySelectorAll('[data-entity]')].filter(el=>{const e=entity(el.dataset.entity);return tool.action==='enqueue'?e.id===tool.entityId:tool.action==='plant'?e.kind==='field'&&!e.crop:origin?.kind==='fruit'?e.kind==='fruit'&&e.status==='ready':e.kind==='field'&&e.crop?.readyAt<=ctx.state.now;}).map(el=>{const e=entity(el.dataset.entity),polygon=screenPolygon(e);return {id:e.id,...polygonBounds(polygon),polygon};});
       if(tool.action==='enqueue')for(const el of root.querySelectorAll('[data-queue-owner]'))if(el.dataset.queueOwner===tool.entityId)targets.push({id:tool.entityId,...visibleTargetRect(el)});
@@ -506,7 +534,7 @@ export function mountWorldScene(ctx) {
     }
     function rectData(r){return {left:r.left,top:r.top,right:r.right,bottom:r.bottom};}
     function actualUI(p,except){const el=doc.elementFromPoint(p.x,p.y);return !!el?.closest('.fw-corner,.fw-more,.fw-local-sheet,.fw-transaction>div,.fw-object-panel,.fw-seed-mode')&&!except?.contains(el);}
-    function cancelGesture(reason){pinch=null;const wasEdit=gesture?.type==='edit'&&draft;if(wasEdit)draft.positions=gesture.original;if(gesture?.stroke)cancelStroke(gesture.stroke,reason);gesture=null;note.hidden=true;cursor.hidden=true;root.querySelectorAll('.marked').forEach(el=>el.classList.remove('marked'));if(wasEdit){renderMap();renderTransaction();}root.querySelectorAll('.fw-drop-target').forEach(el=>el.classList.remove('fw-drop-target'));if(reason)ctx.say(reason);}
+    function cancelGesture(reason){pinch=null;const wasEdit=gesture?.type==='edit'&&draft;if(wasEdit)draft.positions=gesture.original;if(gesture?.stroke)cancelStroke(gesture.stroke,reason);gesture=null;note.hidden=true;cursor.hidden=true;root.querySelectorAll('.marked').forEach(el=>el.classList.remove('marked'));if(wasEdit){renderMap();renderTransaction();}root.querySelectorAll('.fw-drop-target').forEach(el=>el.classList.remove('fw-drop-target'));if(reason)ctx.say(reason);refreshMotion();}
     function previewGesture(g,p){
       if(!g.stroke)return;
       extendStroke(g.stroke,p,targetsFor(g.tool));
@@ -556,7 +584,8 @@ export function mountWorldScene(ctx) {
       for(const e of rows){
         const f=ctx.layout.getFootprint(e),r=visualRect(e),meta=isConnectedFence(e)?null:resolveWorldArt(e,ctx.state.now);
         if(!faded.has(e.id)){
-          const ground=pointInPolygon(projected,footprintPolygon(e,f)),u=(projected.x-r.left)/r.width,v=(projected.y-r.top)/r.height;
+          const ground=pointInPolygon(projected,footprintPolygon(e,f));
+          const {u,v}=plantHitPoint(e,p,(projected.x-r.left)/r.width,(projected.y-r.top)/r.height);
           const spec=e.kind==='shelter'&&resolveShelterSpec(e);
           if(spec){
             sprites.push(...shelterHitCandidates(e,f,projected));
@@ -566,7 +595,7 @@ export function mountWorldScene(ctx) {
           }
         }
         if(e.kind==='shelter'&&!draft&&!faded.has(e.id))for(const el of world.querySelectorAll(`[data-shelter="${e.id}"]`)){
-          const r=el.getBoundingClientRect(),a=e.animals.find(a=>a.id===el.dataset.animal),meta=animalMeta(a,e),u=(p.x-r.left)/r.width,v=(p.y-r.top)/r.height;
+          const r=(el.querySelector('.fw-animal-art')||el).getBoundingClientRect(),a=e.animals.find(a=>a.id===el.dataset.animal),meta=animalAnimation.getArt(a.id,animalMeta(a,e)),u=(p.x-r.left)/r.width,v=(p.y-r.top)/r.height;
           const badge=el.querySelector('.fw-animal-state')?.getBoundingClientRect();if((badge&&within(p,badge))||(meta?runtimeArtHit(meta,u,v,{mirror:meta.shelterLayered&&mirroredArt(e)}):u>=.15&&u<=.85&&v>=.1&&v<=.95))sprites.push({entityId:e.id,animalId:a.id,z:Number(el.dataset.depth)});
         }
       }
@@ -669,7 +698,7 @@ export function mountWorldScene(ctx) {
     },{capture:true,passive:false});
     on(doc,'pointerup',e=>{const finishedPinch=!!pinch;pointers.delete(e.pointerId);if(pointers.size<2){pinch=null;if(finishedPinch)rememberCamera(true);}},true);
     on(doc,'pointercancel',e=>{pointers.delete(e.pointerId);cancelGesture('触控中断，未执行');},true);
-    on(game,'pointerdown',handleDown);on(game,'pointermove',handleMove);on(game,'pointerup',handleUp);
+    on(game,'pointerdown',e=>{handleDown(e);refreshMotion();});on(game,'pointermove',handleMove);on(game,'pointerup',e=>{handleUp(e);refreshMotion();});
     on(game,'lostpointercapture',e=>{if(gesture?.id===e.pointerId)cancelGesture('触控离开，未执行');});
     on(win,'blur',()=>{const pending=resizeHasPendingAction(gesture);pointers.clear();cancelGesture(pending?'窗口失焦，未提交动作已取消':undefined);});
     on(doc,'visibilitychange',()=>{game.dataset.paused=String(doc.hidden);if(doc.hidden){pointers.clear();cancelGesture();}});
@@ -712,7 +741,7 @@ export function mountWorldScene(ctx) {
     on(win,'pagehide',()=>{win.clearTimeout(cameraSaveTimer);saveCamera();});
     function saveCamera(){if(cameraReady&&!root.closest('[inert]')){const p=unproject((view.clientWidth/2-camera.x)/camera.zoom,(view.clientHeight/2-camera.y)/camera.zoom);const next={centerX:Math.max(0,Math.min(63.999,p.x)),centerY:Math.max(0,Math.min(63.999,p.y)),zoom:camera.zoom},saved=ctx.state.camera;if(!saved||Object.keys(next).some(k=>Math.abs(next[k]-saved[k])>1e-7))ctx.saveCamera?.(next);}}
     const stopDeactivate=ctx.onDeactivate?.(()=>{win.clearTimeout(cameraSaveTimer);cameraSaveTimer=0;cancelGesture();pointers.clear();persistLayoutDraft();saveCamera();});
-    function cleanup(){if(destroyed)return;destroyed=true;win.clearTimeout(forestRetreatTimer);win.clearTimeout(cameraSaveTimer);saveCamera();stopDeactivate?.();cancelGesture();persistLayoutDraft();win.cancelAnimationFrame?.(edgeRaf);win.cancelAnimationFrame?.(resizeRaf);listeners.splice(0).forEach(off=>off());unsubscribe?.();resizeObserver?.disconnect();root.classList.remove('fw-root');if(ownsDocument)doc.documentElement?.classList.remove('fw-document');}
+    function cleanup(){if(destroyed)return;destroyed=true;animalAnimation.destroy();win.clearTimeout(forestRetreatTimer);win.clearTimeout(cameraSaveTimer);saveCamera();stopDeactivate?.();cancelGesture();persistLayoutDraft();win.cancelAnimationFrame?.(edgeRaf);win.cancelAnimationFrame?.(resizeRaf);listeners.splice(0).forEach(off=>off());unsubscribe?.();resizeObserver?.disconnect();root.classList.remove('fw-root');if(ownsDocument)doc.documentElement?.classList.remove('fw-document');}
     ctx.onExit?.(cleanup);return cleanup;
   }
 

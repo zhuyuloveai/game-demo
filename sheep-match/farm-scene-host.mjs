@@ -37,7 +37,7 @@ export function mountFarm({root,store,onExit=()=>{},onStartStage=()=>{},getMusic
   const blocked=[...root.querySelectorAll('.farm-scene-base,.farm-scene-layer')].map(el=>({el,inert:el.inert}));for(const {el} of blocked)el.inert=true;
   const previous=doc.activeElement,overlay=doc.createElement('div');overlay.className='farm-scene-confirm-backdrop';
   overlay.innerHTML='<section class="farm-scene-confirm" role="dialog" aria-modal="true" aria-label="'+escapeScene(options.title||'确认操作')+'"><h2>'+escapeScene(options.title||'确认操作')+'</h2><div>'+String(options.body||'')+'</div><footer><button data-no>取消</button><button data-yes>确认</button></footer></section>';root.append(overlay);
-  let busy=false;const close=()=>{overlay.remove();for(const {el,inert} of blocked)el.inert=inert;confirmClosers.delete(close);cleanups.delete(close);if(previous?.isConnected)previous.focus({preventScroll:true});};cleanups.add(close);confirmClosers.add(close);
+  let busy=false;const close=()=>{overlay.remove();for(const {el,inert} of blocked)el.inert=inert;confirmClosers.delete(close);cleanups.delete(close);for(const render of refreshers)render();if(previous?.isConnected)previous.focus({preventScroll:true});};cleanups.add(close);confirmClosers.add(close);
   overlay.querySelector('[data-no]').onclick=close;overlay.onclick=e=>{if(e.target===overlay)close();};
   overlay.onkeydown=e=>{if(e.key==='Escape'){e.preventDefault();close();}if(e.key==='Tab'){const b=overlay.querySelectorAll('button');if(e.shiftKey&&doc.activeElement===b[0]){e.preventDefault();b[b.length-1].focus();}else if(!e.shiftKey&&doc.activeElement===b[b.length-1]){e.preventDefault();b[0].focus();}}};
   overlay.querySelector('[data-yes]').onclick=async()=>{if(busy)return;busy=true;const b=overlay.querySelector('[data-yes]');b.disabled=true;try{const r=await options.onConfirm?.();if(r?.ok===false){say(r.message||r.error?.message||'操作未完成');busy=false;b.disabled=false;return;}close();}catch(e){say(e.message);busy=false;b.disabled=false;}};
@@ -47,6 +47,7 @@ export function mountFarm({root,store,onExit=()=>{},onStartStage=()=>{},getMusic
  function context(id,target,options={},ownerCleanups=cleanups){
   const localDeactivators=new Set();
   const ctx={...options,id,root:target,doc,win,config,core,layout,save,stages,store,preserveState:true,
+   get effectsPaused(){return !active||doc.hidden||target.inert||!!target.closest('[inert]');},refreshPresentation(){delight.refresh();},
    get state(){return store.getState();},get camera(){return store.getState().camera;},
    asset,assetMeta:farmAsset,art:(id,v,c)=>farmAssetUrl(id,v,c),name,esc:escapeScene,
    img:(p,alt='',cls='')=>'<img src="'+asset(p)+'" alt="'+escapeScene(alt)+'" class="'+escapeScene(cls)+'" draggable="false">',
@@ -73,5 +74,5 @@ export function mountFarm({root,store,onExit=()=>{},onStartStage=()=>{},getMusic
  }
  function status(){const s=store.getStatus();delight.setReducedMotion(store.getState().settings.reducedMotion);warning.hidden=!s.readOnly&&!s.error&&!s.recoveryRequired;warning.replaceChildren();if(!warning.hidden){const text=doc.createElement('span');text.textContent=s.message||(s.readOnly?'当前为只读，未执行的操作不会扣除资源。':'存档需要处理。');const button=doc.createElement('button');button.textContent='存档与接管';button.onclick=()=>rootCtx.openScene('P17');warning.append(text,button);}}
  const rootCtx=context('P01',base);const dispose=mount(rootCtx);if(typeof dispose==='function')cleanups.add(dispose);const off=store.subscribe(status);status();
- return {refresh(){status();for(const fn of refreshers)fn();},setActive(value){if(!value){for(const fn of deactivators)fn();for(const close of [...confirmClosers])close();}active=!!value;root.dataset.active=String(active);delight.pause(!active);},destroy(){destroyed=true;off();for(const fn of [...cleanups])fn();cleanups.clear();refreshers.clear();delight.destroy();root.replaceChildren();}};
+ return {refresh(){status();for(const fn of refreshers)fn();},setActive(value){if(!value){for(const fn of deactivators)fn();for(const close of [...confirmClosers])close();}active=!!value;root.dataset.active=String(active);delight.pause(!active);if(active)for(const render of refreshers)render();},destroy(){destroyed=true;off();for(const fn of [...cleanups])fn();cleanups.clear();refreshers.clear();delight.destroy();root.replaceChildren();}};
 }

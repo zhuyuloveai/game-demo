@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "canvas": [
+    360,
+    280
+  ],
+  "anchor": [
+    180,
+    230
+  ],
+  "fps": 12,
+  "framesPerAction": 12,
+  "atlasPadding": 2,
+  "shadow": "existing independent shelter shadow",
+  "assets": [
+    {
+      "key": "eat/00",
+      "path": "assets/farm-runtime/animal-animation-v1/chicken/frames/eat/00.png",
+      "sourceSha256": "dc7512fd4d3d6d088d203f32c648aacece62ffaf338c3510718c458c54bb3cc4"
+    },
+    {
+      "key": "eat/01",
+      "path": "assets/farm-runtime/animal-animation-v1/chicken/frames/eat/01.png",
+      "sourceSha256": "0c3dd4c25683d2bc1ba5473c003947356b4977bda427666008398a3fb5927f12"
+    },
+    {
+      "key": "eat/02",
+      "path": "assets/farm-runtime/animal-animation-v1/chicken/frames/eat/02.png",
+      "sourceSha256": "4c8e5d3ec579bb821f70dd7b4a2b4643c58582f3bfd043a3668aed175f751ece"
+    },
+    {
+      "key": "eat/03",
+      "path": "assets/farm-runtime/animal-animation-v1/chicken/frames/eat/03.png",
+      "sourceSha256": "f353f23527d4a14bc37fe6c183cd98d83fbf0dad33da580609a338fbec33875f"
+    },
+    {
+      "key": "eat/04",
+      "path": "assets/farm-runtime/animal-animation-v1/chicken/frames/eat/04.png",
+      "sourceSha256": "83ec69fd74832254b8b41b1a774fdb1dfd5ac42326ac104a0be56d2ccc6720e0"
+    },
+    {
+      "key": "eat/05",
+      "path": "assets/farm-runtime/animal-animation-v1/chicken/frames/eat/05.png",
+      "sourceSha256": "75e68756c46589bff5112c4b010b3e3779a42b708d2bf578d603082a30cab01a"
+    },
+    {
+      "key": "eat/06",
+      "path": "assets/farm-runtime/animal-animation-v1/chicken/frames/eat/06.png",
+      "sourceSha256": "28009c8af7d72c56ebf9b5ee3a09ac6e25188b295a316f4e4ed4ba859535f5bb"
+    },
+    {
+      "key": "eat/07",
+      "path": "assets/farm-runtime/animal-animation-v1/chicken/frames/eat/07.png",
+      "sourceSha256": "0129554ebce0b3a36f97ecc5617ee56bce7713268215602c38b8ca545b3f305b"
+    },
+    {
+      "key": "eat/08",
+      "path": "assets/farm-runtime/animal-animation-v1/chicken/frames/eat/08.png",
+      "sourceSha256": "a50f76d0e56b0e6910add4ea4de993f2c293aa69f87d38e330c7eef68a5d2dba"
+    },
+    {
+      "key": "eat/09",
+      "path": "assets/farm-runtime/animal-animation-v1/chicken/frames/eat/09.png",
+      "sourceSha256": "297dbf4dfc41f376e5c832b563cc129387c21db2458c2626c2cba4088a2307a2"
+    },
+    {
+      "key": "eat/10",
+      "path": "assets/farm-runtime/animal-animation-v1/chicken/frames/eat/10.png",
+      "sourceSha256": "a9458c34150231e0734d30ce9f169d0d04f402b5e1a0cfa5a7600a07e9cd2cbf"
+    },
+    {
+      "key": "eat/11",
+      "path": "assets/farm-runtime/animal-animation-v1/chicken/frames/eat/11.png",
+      "sourceSha256": "d54b41f70f7367cdcc54924a968621f203c715864bf9494ffe10afe387c7c833"
+    },
+    {
+      "key": "walk/00",
+      "path": "assets/farm-runtime/animal-animation-v1/chicken/frames/walk/00.png",
+      "sourceSha256": "2ff0e2a0d38c5384cb98a3dedb8ee55afb9c9331f1b1c48dbca5443424741641"
+    },
+    {
+      "key": "walk/01",
+      "path": "assets/farm-runtime/animal-animation-v1/chicken/frames/walk/01.png",
+      "sourceSha256": "8092374d254060cc0ff5ee392d35afa72150144a325aeb8bbb0043cbcb833feb"
+    },
+    {
+      "key": "walk/02",
+      "path": "assets/farm-runtime/animal-animation-v1/chicken/frames/walk/02.png",
+      "sourceSha256": "300895d6a5e9bc6842ebe125aef149de9b33c9d7bd86976ee964d0efb0197706"
+    },
+    {
+      "key": "walk/03",
+      "path": "assets/farm-runtime/animal-animation-v1/chicken/frames/walk/03.png",
+      "sourceSha256": "e4e23b9517be43be333c14f6cac527b92e3003d9019bda57766443cbd1998d80"
+    },
+    {
+      "key": "walk/04",
+      "path": "assets/farm-runtime/animal-animation-v1/chicken/frames/walk/04.png",
+      "sourceSha256": "df9f640a4019d92fa7a7ccd9a4456438efaa452f8639e5af2a71a0a34bd25bad"
+    },
+    {
+      "key": "walk/05",
+      "path": "assets/farm-runtime/animal-animation-v1/chicken/frames/walk/05.png",
+      "sourceSha256": "dd1e7168ca3d091541410776365aab3dadf78606012db82a94f91a057fa0e802"
+    },
+    {
+      "key": "walk/06",
+      "path": "assets/farm-runtime/animal-animation-v1/chicken/frames/walk/06.png",
+      "sourceSha256": "1df680116f457aca632fe080e90fc71f3be047ae33e4275a8fba393b6bdb4483"
+    },
+    {
+      "key": "walk/07",
+      "path": "assets/farm-runtime/animal-animation-v1/chicken/frames/walk/07.png",
+      "sourceSha256": "23a5da50346b3ba285fd9c9c4f2d6c80f04d289861be477d4f44096125c49c45"
+    },
+    {
+      "key": "walk/08",
+      "path": "assets/farm-runtime/animal-animation-v1/chicken/frames/walk/08.png",
+      "sourceSha256": "94dcb11424c85ad57722431f9c06476cc357cb4b63df21a7a972ebcc456d5f06"
+    },
+    {
+      "key": "walk/09",
+      "path": "assets/farm-runtime/animal-animation-v1/chicken/frames/walk/09.png",
+      "sourceSha256": "6094870c88357c66bf2709a645f9509fc505307a4a24befc2d599dafbdca43d4"
+    },
+    {
+      "key": "walk/10",
+      "path": "assets/farm-runtime/animal-animation-v1/chicken/frames/walk/10.png",
+      "sourceSha256": "5413a04b8a95500c42cd3d95d14bfd5e955838c99ea3db35b452778070e09c91"
+    },
+    {
+      "key": "walk/11",
+      "path": "assets/farm-runtime/animal-animation-v1/chicken/frames/walk/11.png",
+      "sourceSha256": "df5c130bb79cbe6dcb5d74f6615b05bacd747354c19321d36d7ddd25d2f4b298"
+    }
+  ]
+}

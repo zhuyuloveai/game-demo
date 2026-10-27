@@ -40,3 +40,68 @@
 
 .farm-delight-particle.is-leaf{color:#739558;animation-name:farm-delight-seed}
 @keyframes farm-delight-seed{0%{opacity:0;transform:translate(calc(-50% + var(--delight-dx)),-42px) rotate(-20deg) scale(.6)}30%{opacity:1}65%{opacity:1;transform:translate(-50%,0) rotate(12deg) scale(1)}100%{opacity:0;transform:translate(-50%,-6px) rotate(0deg) scale(.7)}}
+
+/* Current PNG world: only inner art moves. Position, mirror, alpha hit rectangles,
+   independent shadows and front fences remain owned by the world renderer. */
+[data-delight="on"] [data-fw-motion][data-delight-idle="animal"]:not([data-fw-frame-running="true"]) > .fw-animal-art {
+  transform-origin:var(--fw-contact-x,50%) var(--fw-contact-y,90%);
+  animation:var(--delight-envelope) var(--delight-duration) ease-in-out var(--delight-delay,0ms) infinite;
+}
+[data-delight="on"] [data-fw-motion][data-delight-idle="crop"] > .fw-entity-art {
+  transform-origin:50% 85%;animation:var(--delight-envelope) var(--delight-duration) ease-in-out var(--delight-delay,0ms) infinite;
+}
+[data-delight="on"] [data-fw-motion][data-delight-idle="tree"] > .fw-entity-art {
+  transform-origin:50% 88%;animation:var(--delight-envelope) var(--delight-duration) ease-in-out var(--delight-delay,0ms) infinite;
+}
+[data-delight="on"] [data-fw-motion][data-delight-idle="machine"] > .fw-entity-art > g {
+  transform-origin:50% 85%;animation:var(--delight-envelope) var(--delight-duration) ease-in-out var(--delight-delay,0ms) infinite;
+}
+[data-delight="on"] [data-fw-motion][data-delight-idle="ready"] > img {
+  animation:var(--delight-envelope) var(--delight-duration) ease-in-out var(--delight-delay,0ms) infinite;
+}
+/* Static charm remains legible in reduced motion and outside the animation budget. */
+.fw-ripe-charm{position:absolute;left:73%;top:18%;width:18px;height:20px;pointer-events:none!important;user-select:none;z-index:1;transform:translate(-50%,-50%)}
+.fw-fruit>.fw-ripe-charm{left:76%;top:22%;width:20px;height:22px}
+.fw-ripe-glyph{display:block;width:100%;height:100%;overflow:visible;pointer-events:none!important;filter:drop-shadow(0 1px 1px #86682b20)}
+.fw-ripe-star,.fw-ripe-dew,.fw-ripe-dot{transform-box:fill-box;transform-origin:center;pointer-events:none!important}
+[data-delight="on"] [data-fw-ready="true"][data-delight-idle] .fw-ripe-star{animation:fw-ripe-twinkle var(--ripe-cycle-duration) ease-in-out var(--ripe-cycle-delay) infinite}
+[data-delight="on"] [data-fw-ready="true"][data-delight-idle] .fw-ripe-dew{animation:fw-ripe-dewdrop var(--ripe-cycle-duration) ease-in-out var(--ripe-cycle-delay) infinite}
+[data-delight="on"] [data-fw-ready="true"][data-delight-idle] .fw-ripe-dot{animation:fw-ripe-dot var(--ripe-cycle-duration) ease-in-out var(--ripe-cycle-delay) infinite}
+[data-delight="on"] [data-fw-ready="true"][data-delight-fresh="true"] .fw-ripe-glyph{animation:fw-ripe-arrival 1100ms ease-out var(--ripe-pop-delay,0ms) both}
+@keyframes fw-ripe-twinkle{0%,12%,48%,100%{scale:.88;opacity:.8}28%{scale:1.16;opacity:1}38%{scale:1;opacity:.94}}
+@keyframes fw-ripe-dewdrop{0%,30%,67%,100%{translate:0 0;opacity:.84}48%{translate:0 -1.6px;opacity:1}}
+@keyframes fw-ripe-dot{0%,42%,83%,100%{scale:.7;opacity:.55}62%{scale:1.1;opacity:1}}
+@keyframes fw-ripe-arrival{0%{scale:.8;translate:0 1px}34%{scale:1.25;translate:0 -2px}62%{scale:.97;translate:0 0}82%,100%{scale:1;translate:0 0}}
+@keyframes fw-delight-breathe-0 {0%,12%,78%,100%{scale:1 1}43%{scale:var(--delight-scale-x) var(--delight-scale-y)}}
+@keyframes fw-delight-plant-0 {0%,100%{rotate:0deg}24%{rotate:calc(var(--delight-angle) * -1)}73%{rotate:var(--delight-angle)}}
+@keyframes fw-delight-work-0 {0%,12%,78%,100%{filter:brightness(1)}43%{filter:brightness(var(--delight-brightness))}}
+@keyframes fw-delight-ready-0 {0%,12%,78%,100%{scale:1}43%{scale:var(--delight-ready-scale)}}
+@keyframes fw-delight-breathe-1 {0%,22%,86%,100%{scale:1 1}52%{scale:var(--delight-scale-x) var(--delight-scale-y)}}
+@keyframes fw-delight-plant-1 {0%,100%{rotate:0deg}29%{rotate:calc(var(--delight-angle) * -1)}78%{rotate:var(--delight-angle)}}
+@keyframes fw-delight-work-1 {0%,22%,86%,100%{filter:brightness(1)}52%{filter:brightness(var(--delight-brightness))}}
+@keyframes fw-delight-ready-1 {0%,22%,86%,100%{scale:1}52%{scale:var(--delight-ready-scale)}}
+@keyframes fw-delight-breathe-2 {0%,6%,66%,100%{scale:1 1}35%{scale:var(--delight-scale-x) var(--delight-scale-y)}}
+@keyframes fw-delight-plant-2 {0%,100%{rotate:0deg}21%{rotate:calc(var(--delight-angle) * -1)}69%{rotate:var(--delight-angle)}}
+@keyframes fw-delight-work-2 {0%,6%,66%,100%{filter:brightness(1)}35%{filter:brightness(var(--delight-brightness))}}
+@keyframes fw-delight-ready-2 {0%,6%,66%,100%{scale:1}35%{scale:var(--delight-ready-scale)}}
+[data-delight-paused="true"] [data-fw-motion] *,
+[data-delight-dragging="true"] [data-fw-motion] *,
+[data-delight-dragging="true"] .farm-delight-ambient *,
+[data-motion-blocked="true"] [data-fw-motion] *,
+[inert] [data-fw-motion] * {animation-play-state:paused!important}
+[data-delight-reduced="true"] [data-fw-motion] *,
+[data-delight="off"] [data-fw-motion] * {animation:none!important}
+@media(prefers-reduced-motion:reduce){[data-fw-motion] *{animation:none!important}}
+
+/* Pseudo-element wing motion must pause as well as its parent. */
+[data-delight-paused="true"] .farm-delight-ambient *::before,
+[data-delight-paused="true"] .farm-delight-ambient *::after,
+[data-delight-dragging="true"] .farm-delight-ambient *,
+[data-delight-dragging="true"] .farm-delight-ambient *::before,
+[data-delight-dragging="true"] .farm-delight-ambient *::after,
+[data-motion-blocked="true"] .farm-delight-ambient *,
+[data-motion-blocked="true"] .farm-delight-ambient *::before,
+[data-motion-blocked="true"] .farm-delight-ambient *::after,
+[inert] .farm-delight-ambient *,
+[inert] .farm-delight-ambient *::before,
+[inert] .farm-delight-ambient *::after {animation-play-state:paused!important}
