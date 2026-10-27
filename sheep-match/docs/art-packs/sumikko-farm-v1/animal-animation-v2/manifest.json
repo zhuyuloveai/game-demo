@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "species": [
+    {
+      "species": "cow",
+      "manifest": "cow/manifest.json",
+      "frames": 24,
+      "referenceBodyWidth": 264
+    },
+    {
+      "species": "pig",
+      "manifest": "pig/manifest.json",
+      "frames": 24,
+      "referenceBodyWidth": 263
+    },
+    {
+      "species": "sheep",
+      "manifest": "sheep/manifest.json",
+      "frames": 24,
+      "referenceBodyWidth": 259
+    },
+    {
+      "species": "lamb",
+      "manifest": "lamb/manifest.json",
+      "frames": 24,
+      "referenceBodyWidth": 227
+    }
+  ],
+  "totalFrames": 96,
+  "fps": 12,
+  "canvas": [
+    360,
+    280
+  ],
+  "anchor": [
+    180,
+    230
+  ]
+}

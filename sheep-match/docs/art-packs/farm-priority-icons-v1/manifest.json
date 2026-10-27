@@ -1,0 +1,2231 @@
+{
+  "version": 1,
+  "baseCommit": "0a8363f",
+  "style": "warm rounded farm sticker illustration; editable SVG, transparent PNG derivatives",
+  "counts": {
+    "items": 26,
+    "ui": 35,
+    "tools": 6,
+    "total": 67
+  },
+  "icons": [
+    {
+      "id": "wheat",
+      "name": "小麦",
+      "category": "items",
+      "svg": "items/wheat.svg",
+      "png": "png/items/wheat.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/items/wheat.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "03e20b09861746a08cef1b54559f2246b264a95baeebb2f8fb981642d8d7e392"
+    },
+    {
+      "id": "corn",
+      "name": "玉米",
+      "category": "items",
+      "svg": "items/corn.svg",
+      "png": "png/items/corn.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/items/corn.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "dec3e2a93a04c97fdc5b582cd926b28bef312d6d56e7d6170dda406891b7ed0f"
+    },
+    {
+      "id": "soybean",
+      "name": "大豆",
+      "category": "items",
+      "svg": "items/soybean.svg",
+      "png": "png/items/soybean.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/items/soybean.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "15301e825f2c61a8ee79822d77b06d78b74d9c5bcddbbfef1aeae515b813172f"
+    },
+    {
+      "id": "sugarcane",
+      "name": "甘蔗",
+      "category": "items",
+      "svg": "items/sugarcane.svg",
+      "png": "png/items/sugarcane.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/items/sugarcane.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "d6507c9aefd92cb6483be39f8b7cc151ce077567cd2857baf4e792115f3f05fc"
+    },
+    {
+      "id": "carrot",
+      "name": "胡萝卜",
+      "category": "items",
+      "svg": "items/carrot.svg",
+      "png": "png/items/carrot.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/items/carrot.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "09c0bf2046f27c7a9ac2500c8cc14b6a05cebbdfa91e55ae4f26368b8c6bcfa7"
+    },
+    {
+      "id": "indigo",
+      "name": "靛蓝",
+      "category": "items",
+      "svg": "items/indigo.svg",
+      "png": "png/items/indigo.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/items/indigo.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "ef3b106e637a34efb8948ec2ee1e09d2d6bf0bca408561326c45625d7d50991d"
+    },
+    {
+      "id": "pumpkin",
+      "name": "南瓜",
+      "category": "items",
+      "svg": "items/pumpkin.svg",
+      "png": "png/items/pumpkin.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/items/pumpkin.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "9f64960b866ba907f9a9b56bc92238ee638874401220f47c5558aa818f251af7"
+    },
+    {
+      "id": "cotton",
+      "name": "棉花",
+      "category": "items",
+      "svg": "items/cotton.svg",
+      "png": "png/items/cotton.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/items/cotton.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "77602b0d0e5593df7264e735ad5d9e1b275408f18d3637fed18f01b146751957"
+    },
+    {
+      "id": "chili_pepper",
+      "name": "辣椒",
+      "category": "items",
+      "svg": "items/chili_pepper.svg",
+      "png": "png/items/chili_pepper.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/items/chili_pepper.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "d39c7f8a45de5e75d7dfb15e3ede90c9f4ad0b42f9382691b75dc589deb9b2f2"
+    },
+    {
+      "id": "black_bean",
+      "name": "黑豆",
+      "category": "items",
+      "svg": "items/black_bean.svg",
+      "png": "png/items/black_bean.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/items/black_bean.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "2bacfb523e07cb69f50f14fb18200510a85d4ee65b3f50ab55b4a8d5c4677724"
+    },
+    {
+      "id": "tomato",
+      "name": "番茄",
+      "category": "items",
+      "svg": "items/tomato.svg",
+      "png": "png/items/tomato.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/items/tomato.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "87599561fb1aea23c822bddde6e02ad831d372ab3769a921ddec7585d17d039d"
+    },
+    {
+      "id": "apple",
+      "name": "苹果",
+      "category": "items",
+      "svg": "items/apple.svg",
+      "png": "png/items/apple.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/items/apple.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "6f877942a2a27d32d50e4257e5a94bbe24cb5020bad36d7faf34d0cde7bd3784"
+    },
+    {
+      "id": "raspberry",
+      "name": "覆盆子",
+      "category": "items",
+      "svg": "items/raspberry.svg",
+      "png": "png/items/raspberry.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/items/raspberry.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "4398b6b96933b88f8ce95cdfb2a86bd5e2ea140378acc5b8ddca5285dd0c7287"
+    },
+    {
+      "id": "cherry",
+      "name": "樱桃",
+      "category": "items",
+      "svg": "items/cherry.svg",
+      "png": "png/items/cherry.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/items/cherry.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "1b69a9b21de9a94a15c01caa81b69db44c20dceb929fd813763d5ad6a9b3030e"
+    },
+    {
+      "id": "blackberry",
+      "name": "黑莓",
+      "category": "items",
+      "svg": "items/blackberry.svg",
+      "png": "png/items/blackberry.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/items/blackberry.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "2a4389c183da42df85776f711a146eae68c62e5546840d0a9c43c88934068115"
+    },
+    {
+      "id": "blueberries",
+      "name": "蓝莓",
+      "category": "items",
+      "svg": "items/blueberries.svg",
+      "png": "png/items/blueberries.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/items/blueberries.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "0c2291da027961746c8a524c450b5dbf6c2131036729fc7536dd3ad4ee7a344f"
+    },
+    {
+      "id": "egg",
+      "name": "鸡蛋",
+      "category": "items",
+      "svg": "items/egg.svg",
+      "png": "png/items/egg.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/items/egg.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "64f0dbd1e2a9cf9c8ea844747b59ea0c307ea6b98e06e382f4bfa390fe7ba480"
+    },
+    {
+      "id": "milk",
+      "name": "牛奶",
+      "category": "items",
+      "svg": "items/milk.svg",
+      "png": "png/items/milk.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/items/milk.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "9b6f34e308904d2dadade152b6b739f9a813e0b912079440b9bbc71c884d9466"
+    },
+    {
+      "id": "truffle_slice",
+      "name": "松露片",
+      "category": "items",
+      "svg": "items/truffle_slice.svg",
+      "png": "png/items/truffle_slice.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/items/truffle_slice.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "b8e6d4aa1368f1836575822f05091788fcdefb87da9aff48dca7378eb34c431b"
+    },
+    {
+      "id": "wool",
+      "name": "羊毛",
+      "category": "items",
+      "svg": "items/wool.svg",
+      "png": "png/items/wool.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/items/wool.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "a2462b943405eed7a9eb6e65cb2dba248123fc757c563c9fbe2fe283b2369837"
+    },
+    {
+      "id": "herb_bundle",
+      "name": "香草束",
+      "category": "items",
+      "svg": "items/herb_bundle.svg",
+      "png": "png/items/herb_bundle.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/items/herb_bundle.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "21465d4cb0f963dfda987b149dd5eb8817393fa2209c2fe347857259539d761b"
+    },
+    {
+      "id": "chicken_feed",
+      "name": "鸡饲料",
+      "category": "items",
+      "svg": "items/chicken_feed.svg",
+      "png": "png/items/chicken_feed.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/items/chicken_feed.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "639d1c0c406e97cfe18a4a9402ac1311e8b8571c0129bd49c91ea1d0801ff356"
+    },
+    {
+      "id": "cow_feed",
+      "name": "牛饲料",
+      "category": "items",
+      "svg": "items/cow_feed.svg",
+      "png": "png/items/cow_feed.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/items/cow_feed.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "c8e75ff44f9b8c32d8599370f487b165f24ead4fef1086fa3857eebf12641779"
+    },
+    {
+      "id": "pig_feed",
+      "name": "猪饲料",
+      "category": "items",
+      "svg": "items/pig_feed.svg",
+      "png": "png/items/pig_feed.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/items/pig_feed.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "b487ec5a71137199ea0d9bb6a7eb6c2e04d879e133df25beb6602a734777757e"
+    },
+    {
+      "id": "sheep_feed",
+      "name": "绵羊饲料",
+      "category": "items",
+      "svg": "items/sheep_feed.svg",
+      "png": "png/items/sheep_feed.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/items/sheep_feed.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "0367b439612ff77a648acf4dceff308625b39c37b3fa92a0d76225beb4794f03"
+    },
+    {
+      "id": "lamb_feed",
+      "name": "羊羔饲料",
+      "category": "items",
+      "svg": "items/lamb_feed.svg",
+      "png": "png/items/lamb_feed.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/items/lamb_feed.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "b87ac979bb1d12f4e1371a8eda126bc49d61094e01377f3c627886475200a84f"
+    },
+    {
+      "id": "sow",
+      "name": "播种",
+      "category": "ui",
+      "svg": "ui/sow.svg",
+      "png": "png/ui/sow.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/sow.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "5901b919f50a25a3b1470e539325d70190a87560787af44925834a4bdb3a43cd"
+    },
+    {
+      "id": "harvest",
+      "name": "收获",
+      "category": "ui",
+      "svg": "ui/harvest.svg",
+      "png": "png/ui/harvest.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/harvest.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "0ebb11ddf293a14ffd9513f893a3b7b37dd1316ce25423c238a8cf41d9a70ad0"
+    },
+    {
+      "id": "feed",
+      "name": "喂养",
+      "category": "ui",
+      "svg": "ui/feed.svg",
+      "png": "png/ui/feed.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/feed.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "70acba7a397dbdff2152c89bd3258b9270e783b802de6da41d984931e72550c8"
+    },
+    {
+      "id": "build",
+      "name": "建造",
+      "category": "ui",
+      "svg": "ui/build.svg",
+      "png": "png/ui/build.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/build.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "e91ea533537703672343e69c5afa7a83f1fa7dd81bfee26bab98c285c6f4a697"
+    },
+    {
+      "id": "layout",
+      "name": "布置",
+      "category": "ui",
+      "svg": "ui/layout.svg",
+      "png": "png/ui/layout.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/layout.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "3221fca9cd9afb0d7b012b3e53f4e0ed893e117be3db3c98d8e2b827957a8cf8"
+    },
+    {
+      "id": "rotate",
+      "name": "旋转",
+      "category": "ui",
+      "svg": "ui/rotate.svg",
+      "png": "png/ui/rotate.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/rotate.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "ce2d142470c4156a65491753e0f66b172667505cb6b9dedf929f1b262ce823db"
+    },
+    {
+      "id": "store_decor",
+      "name": "收纳",
+      "category": "ui",
+      "svg": "ui/store_decor.svg",
+      "png": "png/ui/store_decor.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/store_decor.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "f0cf83ffbee96b8349b4817c733748ae827b7bb4a937a6d1f5899fe3bff4d332"
+    },
+    {
+      "id": "redo",
+      "name": "重做",
+      "category": "ui",
+      "svg": "ui/redo.svg",
+      "png": "png/ui/redo.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/redo.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "3648f9ed58f97503bffcb0e6db7a06a95052a9ec9a3a4c009f39d14795ab662a"
+    },
+    {
+      "id": "confirm",
+      "name": "确认",
+      "category": "ui",
+      "svg": "ui/confirm.svg",
+      "png": "png/ui/confirm.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/confirm.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "13301185656a34c83627818a84ecb9d83e78572dfb2f87383bb1bd51bf633bb0"
+    },
+    {
+      "id": "cancel",
+      "name": "取消",
+      "category": "ui",
+      "svg": "ui/cancel.svg",
+      "png": "png/ui/cancel.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/cancel.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "9f025e5e3ca4e772b98dab28cdff8eaabd6feba89ba4073a4d41022c760a9a5c"
+    },
+    {
+      "id": "home",
+      "name": "首页",
+      "category": "ui",
+      "svg": "ui/home.svg",
+      "png": "png/ui/home.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/home.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "b36ae89ae224294bef831e2b0df5fbda9f84530d5b7ca7ca62f857e3fc21a990"
+    },
+    {
+      "id": "inventory",
+      "name": "仓库",
+      "category": "ui",
+      "svg": "ui/inventory.svg",
+      "png": "png/ui/inventory.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/inventory.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "0c786292eed400b630b4145d1daf10cafeb7f8721aa4bb481740897217e4b01f"
+    },
+    {
+      "id": "shop",
+      "name": "商店",
+      "category": "ui",
+      "svg": "ui/shop.svg",
+      "png": "png/ui/shop.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/shop.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "50e0b0cff29f58ca2e5ae2d8d4b602bc5f3a90d831ad264311c546d9490a3828"
+    },
+    {
+      "id": "orders",
+      "name": "订单",
+      "category": "ui",
+      "svg": "ui/orders.svg",
+      "png": "png/ui/orders.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/orders.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "d7a85aa3383f5e34763eec3c6aaebb8b2b22a5b329b8802660f2fff554670889"
+    },
+    {
+      "id": "tasks",
+      "name": "任务",
+      "category": "ui",
+      "svg": "ui/tasks.svg",
+      "png": "png/ui/tasks.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/tasks.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "7a2f79d61d7af882be9cab081fa8c74481f7288e6561e7af91e9c68ed5279281"
+    },
+    {
+      "id": "achievements",
+      "name": "成就",
+      "category": "ui",
+      "svg": "ui/achievements.svg",
+      "png": "png/ui/achievements.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/achievements.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "64c638de2d6623b01b517ef1ed48ec49014c43078ea8e4546f34823ce7bbc975"
+    },
+    {
+      "id": "farm_branch",
+      "name": "牧场故事",
+      "category": "ui",
+      "svg": "ui/farm_branch.svg",
+      "png": "png/ui/farm_branch.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/farm_branch.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "777c75484676ac44ca7564b53cb753db88a6a196e3685ca7ffca9a138a0e9b79"
+    },
+    {
+      "id": "clock",
+      "name": "计时",
+      "category": "ui",
+      "svg": "ui/clock.svg",
+      "png": "png/ui/clock.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/clock.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "1a03ca9e5178aaac2c980ac28bb8ebd9faeb66f0d60309b660ca60736319218a"
+    },
+    {
+      "id": "lock",
+      "name": "锁定",
+      "category": "ui",
+      "svg": "ui/lock.svg",
+      "png": "png/ui/lock.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/lock.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "45de48c46cb4fe9c172285c9c029e55e4327b72bbbaa8523df8b8bf515f77cd2"
+    },
+    {
+      "id": "warning",
+      "name": "提醒",
+      "category": "ui",
+      "svg": "ui/warning.svg",
+      "png": "png/ui/warning.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/warning.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "964342013e50ab0c6f037ce575bd1a429c0be84ece997909554fc2e64f530a1b"
+    },
+    {
+      "id": "save",
+      "name": "保存",
+      "category": "ui",
+      "svg": "ui/save.svg",
+      "png": "png/ui/save.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/save.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "0e841127d7615061d8b9ce5fc0057dd01dd29b06864995b6fdb4d68c3df7f9e9"
+    },
+    {
+      "id": "import",
+      "name": "导入",
+      "category": "ui",
+      "svg": "ui/import.svg",
+      "png": "png/ui/import.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/import.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "76ae44bae737b2c29c93d8a9a4c7dc3fd8fc41fb871b15815cbc01550446f1b5"
+    },
+    {
+      "id": "export",
+      "name": "导出",
+      "category": "ui",
+      "svg": "ui/export.svg",
+      "png": "png/ui/export.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/export.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "b9663fa00cc23cfbf35f83b975a8a324b339ba5f76bb9607076c01a1205282d7"
+    },
+    {
+      "id": "recover",
+      "name": "恢复",
+      "category": "ui",
+      "svg": "ui/recover.svg",
+      "png": "png/ui/recover.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/recover.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "2635bdc5be2ceb4deb2c840231b8c61457770816f5c33a2961c2b2e60043e7f3"
+    },
+    {
+      "id": "zoom_in",
+      "name": "放大",
+      "category": "ui",
+      "svg": "ui/zoom_in.svg",
+      "png": "png/ui/zoom_in.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/zoom_in.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "7b2328a84fd30f9b9e23e812db4860d0728c8cbe0e719ad5d04c934d8230597a"
+    },
+    {
+      "id": "zoom_out",
+      "name": "缩小",
+      "category": "ui",
+      "svg": "ui/zoom_out.svg",
+      "png": "png/ui/zoom_out.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/zoom_out.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "d315515d2133b8be233eef1091fc3fefcd22a8f93872605dcabdde938fa9b9fb"
+    },
+    {
+      "id": "seed_protect",
+      "name": "留种保护",
+      "category": "ui",
+      "svg": "ui/seed_protect.svg",
+      "png": "png/ui/seed_protect.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/seed_protect.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "c0790da4fdfa595482a98c94272aaa52fe9ca846abd93133131ef0aa518127e1"
+    },
+    {
+      "id": "help_gardener",
+      "name": "照料",
+      "category": "ui",
+      "svg": "ui/help_gardener.svg",
+      "png": "png/ui/help_gardener.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/help_gardener.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "a3947cb38c5a3516a079844394782a991f19f846ec5fc629d06559a6827c64ab"
+    },
+    {
+      "id": "full",
+      "name": "已满",
+      "category": "ui",
+      "svg": "ui/full.svg",
+      "png": "png/ui/full.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/full.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "26194025875f31e6a309b9c1878c4c06ff4ff127ffb22d0638db0adc82b1375e"
+    },
+    {
+      "id": "info",
+      "name": "说明",
+      "category": "ui",
+      "svg": "ui/info.svg",
+      "png": "png/ui/info.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/info.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "0a59f2f771ebd0bcc90899433f0d5f8f72f7e92596a94b1b7f60f75c94041b56"
+    },
+    {
+      "id": "undo",
+      "name": "撤销",
+      "category": "ui",
+      "svg": "ui/undo.svg",
+      "png": "png/ui/undo.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/undo.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "183479e786cd8ff1d51356ddada822802e3a2fda26d1916a33fab60b0f78d81f"
+    },
+    {
+      "id": "shuffle",
+      "name": "洗牌",
+      "category": "ui",
+      "svg": "ui/shuffle.svg",
+      "png": "png/ui/shuffle.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/shuffle.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "c1d7ac3a565d10263965b49ca3c5a0cd57e4bbe8e3c8f2e53edf1e178a0d63bc"
+    },
+    {
+      "id": "stash",
+      "name": "临时收纳",
+      "category": "ui",
+      "svg": "ui/stash.svg",
+      "png": "png/ui/stash.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/stash.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "8e8d2fe257530932ec2b26bbc82ac6a342a93d29bf0023b51d867a3ea54ad5e6"
+    },
+    {
+      "id": "sound",
+      "name": "声音",
+      "category": "ui",
+      "svg": "ui/sound.svg",
+      "png": "png/ui/sound.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/sound.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "b6fcf7e151bbafab7313ed58fb8f4edf4c6ab1e0e883d0d55d687ac5f6cb1bc4"
+    },
+    {
+      "id": "muted",
+      "name": "静音",
+      "category": "ui",
+      "svg": "ui/muted.svg",
+      "png": "png/ui/muted.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": "sheep-match/assets/farm/ui/muted.svg",
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "34c2ca06d620b6e1a1aa75b108f4428850008c8a83a36e487262cb46d1e824a4"
+    },
+    {
+      "id": "milk-pail",
+      "name": "奶桶",
+      "category": "tools",
+      "svg": "tools/milk-pail.svg",
+      "png": "png/tools/milk-pail.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": null,
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "319f2849f4f08ac45b1c6187058a849ee7c5ea3420bdc107ad15f739070b6317"
+    },
+    {
+      "id": "shears",
+      "name": "剪毛剪",
+      "category": "tools",
+      "svg": "tools/shears.svg",
+      "png": "png/tools/shears.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": null,
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "c77332abc7ebe1c5647ec6ecf192f75e24d441b60027acd3ff7bc43cf09838a0"
+    },
+    {
+      "id": "egg-basket",
+      "name": "收蛋篮",
+      "category": "tools",
+      "svg": "tools/egg-basket.svg",
+      "png": "png/tools/egg-basket.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": null,
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "829eff2478f27b27e4d4dd92ce91d12d21df44336c60f12b154229d70919f990"
+    },
+    {
+      "id": "fruit-basket",
+      "name": "果篮",
+      "category": "tools",
+      "svg": "tools/fruit-basket.svg",
+      "png": "png/tools/fruit-basket.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": null,
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "67e6d4a2f66bfea894a6f1a4573327a8428954214e35b0682d5eae7b879f4c83"
+    },
+    {
+      "id": "truffle-basket",
+      "name": "松露篮",
+      "category": "tools",
+      "svg": "tools/truffle-basket.svg",
+      "png": "png/tools/truffle-basket.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": null,
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "29051d17281a2c0eb33e46b58490d6ac5fd0cd87710cde96f8d6e7b4338d6c33"
+    },
+    {
+      "id": "herb-basket",
+      "name": "香草篮",
+      "category": "tools",
+      "svg": "tools/herb-basket.svg",
+      "png": "png/tools/herb-basket.png",
+      "canvas": [
+        128,
+        128
+      ],
+      "pngCanvas": [
+        256,
+        256
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "safeContentRect": [
+        4,
+        4,
+        120,
+        120
+      ],
+      "recommendedCssSize": [
+        32,
+        64
+      ],
+      "originalPath": null,
+      "originalRetained": true,
+      "source": "source/build-icons.py",
+      "sha256": "c50b644310b9d22855abf4dff5c5cf1ca07dccfcac4a03c13d960af0bc5bcd14"
+    }
+  ],
+  "aliases": {
+    "sickle": "ui/harvest.svg",
+    "seed-pouch": "ui/sow.svg",
+    "feed-bag": "ui/feed.svg",
+    "chicken_feed": "items/chicken_feed.svg"
+  },
+  "integration": "Standalone art pack; dynamic quantities, prices and text remain in game code."
+}

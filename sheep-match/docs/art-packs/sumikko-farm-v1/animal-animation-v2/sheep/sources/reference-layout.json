@@ -1,0 +1,431 @@
+{
+  "version": 2,
+  "id": "sheep",
+  "name": "绵羊棚",
+  "status": "completed art-only delivery",
+  "baseCommit": "7925a5b255cdb07efc4a1d148aa8fdea45019691",
+  "canvas": {
+    "width": 1200,
+    "height": 1000,
+    "commonAnchor": [
+      600,
+      590
+    ],
+    "layerOffset": [
+      0,
+      0
+    ],
+    "cropped": false
+  },
+  "footprint": {
+    "logicalTiles": [
+      4,
+      4
+    ],
+    "tileAxisX": [
+      125,
+      62.5
+    ],
+    "tileAxisY": [
+      -125,
+      62.5
+    ],
+    "polygon": [
+      [
+        600,
+        340
+      ],
+      [
+        1100,
+        590
+      ],
+      [
+        600,
+        840
+      ],
+      [
+        100,
+        590
+      ]
+    ]
+  },
+  "buildingSupport": [
+    [
+      645,
+      350
+    ],
+    [
+      915,
+      480
+    ],
+    [
+      655,
+      580
+    ],
+    [
+      405,
+      450
+    ]
+  ],
+  "buildingTransform": {
+    "source": "sources/building.png",
+    "sourceBounds": [
+      119,
+      89,
+      1311,
+      1077
+    ],
+    "scale": 0.4694048616932104,
+    "offset": [
+      294.14082145850796,
+      73.22296730930427
+    ]
+  },
+  "standingRegion": [
+    [
+      250,
+      545
+    ],
+    [
+      950,
+      545
+    ],
+    [
+      1095,
+      590
+    ],
+    [
+      600,
+      838
+    ],
+    [
+      105,
+      590
+    ]
+  ],
+  "standingExclusions": [
+    [
+      [
+        645,
+        350
+      ],
+      [
+        915,
+        480
+      ],
+      [
+        655,
+        580
+      ],
+      [
+        405,
+        450
+      ]
+    ]
+  ],
+  "entry": {
+    "threshold": [
+      530,
+      520
+    ],
+    "direction": "front-left",
+    "yardGate": [
+      235,
+      660
+    ]
+  },
+  "occlusion": {
+    "foregroundGroundBoundary": [
+      [
+        100,
+        590
+      ],
+      [
+        600,
+        840
+      ],
+      [
+        1100,
+        590
+      ]
+    ],
+    "fenceHeightPx": 60,
+    "fenceOriginalSplitPath": "M0 0H1774V370H1695L1650 400L1600 430H170L125 405L94 370H0Z",
+    "maskIn": "sources/fence-ring-generated.png",
+    "sourceToCanvas": {
+      "scale": [
+        0.609,
+        0.66
+      ],
+      "offset": [
+        60,
+        270
+      ]
+    },
+    "note": "Use actual foreground alpha, never its rectangle."
+  },
+  "layerOrder": [
+    "01-ground",
+    "02-building-shadow",
+    "03-rear-fence",
+    "04-building",
+    "reference-animal-shadows",
+    "reference-sheep-2",
+    "reference-sheep-1",
+    "reference-sheep-3",
+    "reference-sheep-4",
+    "reference-sheep-5",
+    "07-front-fence"
+  ],
+  "animalCanvas": {
+    "width": 360,
+    "height": 280,
+    "anchor": [
+      180,
+      230
+    ],
+    "bodyWidth": 230
+  },
+  "animals": [
+    {
+      "state": "hungry",
+      "source": "sheep-hungry-original.png",
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "body": [
+        275,
+        262,
+        1080,
+        1005
+      ],
+      "anchor": [
+        650,
+        1041
+      ],
+      "contacts": [
+        [
+          390,
+          976
+        ],
+        [
+          650,
+          1041
+        ],
+        [
+          970,
+          931
+        ]
+      ],
+      "contactKind": "standing hooves",
+      "scale": 0.2857142857142857,
+      "offset": [
+        -5.714285714285694,
+        -67.42857142857139
+      ],
+      "normalizedContacts": [
+        [
+          105.7143,
+          211.4286
+        ],
+        [
+          180,
+          230
+        ],
+        [
+          271.4286,
+          198.5714
+        ]
+      ],
+      "bodyNormalized": [
+        72.85714285714288,
+        7.428571428571459,
+        302.8571428571429,
+        219.71428571428572
+      ]
+    },
+    {
+      "state": "producing",
+      "source": "sheep-producing-original.png",
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "body": [
+        264,
+        341,
+        1143,
+        1045
+      ],
+      "anchor": [
+        680,
+        1050
+      ],
+      "contacts": [
+        [
+          390,
+          1046
+        ],
+        [
+          620,
+          1072
+        ],
+        [
+          680,
+          1050
+        ],
+        [
+          1030,
+          1017
+        ]
+      ],
+      "contactKind": "curled hooves and resting belly fleece",
+      "scale": 0.2616609783845279,
+      "offset": [
+        2.0705346985210156,
+        -44.74402730375431
+      ],
+      "normalizedContacts": [
+        [
+          104.1183,
+          228.9534
+        ],
+        [
+          164.3003,
+          235.7565
+        ],
+        [
+          180,
+          230
+        ],
+        [
+          271.5813,
+          221.3652
+        ]
+      ],
+      "bodyNormalized": [
+        71.14903299203638,
+        44.48236632536971,
+        301.1490329920364,
+        228.69169510807734
+      ]
+    },
+    {
+      "state": "ready",
+      "source": "sheep-ready-original.png",
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "body": [
+        240,
+        184,
+        1173,
+        1076
+      ],
+      "anchor": [
+        680,
+        1087
+      ],
+      "contacts": [
+        [
+          390,
+          1040
+        ],
+        [
+          620,
+          1115
+        ],
+        [
+          680,
+          1087
+        ],
+        [
+          1030,
+          1013
+        ]
+      ],
+      "contactKind": "standing hooves",
+      "scale": 0.2465166130760986,
+      "offset": [
+        12.368703108252959,
+        -37.96355841371917
+      ],
+      "normalizedContacts": [
+        [
+          108.5102,
+          218.4137
+        ],
+        [
+          165.209,
+          236.9025
+        ],
+        [
+          180,
+          230
+        ],
+        [
+          266.2808,
+          211.7578
+        ]
+      ],
+      "bodyNormalized": [
+        71.53269024651662,
+        7.395498392282974,
+        301.5326902465166,
+        227.28831725616294
+      ]
+    }
+  ],
+  "referenceAnimalPlacements": [
+    {
+      "state": "hungry",
+      "at": [
+        300,
+        600
+      ]
+    },
+    {
+      "state": "producing",
+      "at": [
+        650,
+        590
+      ]
+    },
+    {
+      "state": "ready",
+      "at": [
+        900,
+        620
+      ]
+    },
+    {
+      "state": "ready",
+      "at": [
+        420,
+        710
+      ]
+    },
+    {
+      "state": "hungry",
+      "at": [
+        700,
+        750
+      ]
+    }
+  ],
+  "sourceMapping": {
+    "assets/buildings/sheep-shelter.png": "layers/04-building.png",
+    "assets/animals/sheep.png": "animals/sheep-hungry.png",
+    "animal-states/assets/sheep-producing.png": "animals/sheep-producing.png",
+    "animal-states/assets/sheep-ready.png": "animals/sheep-ready.png"
+  },
+  "notes": [
+    "No game code or original art changed.",
+    "Building locally edited with built-in image_gen.",
+    "Body regions exclude horns/ears/tails as appropriate; chosen ground contacts verified at alpha edge.",
+    "All original animal state pixels retained before uniform scale/placement.",
+    "Reference placements are for art review only, not runtime positions."
+  ]
+}
