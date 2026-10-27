@@ -24,7 +24,7 @@ function harness(){
   focus(){doc.activeElement=this;}
   remove(){this.isConnected=false;if(this.parent)this.parent.children=this.parent.children.filter(x=>x!==this);}
  }
- doc.createElement=()=>new Element();const root=new Element();
+ doc.createElement=()=>new Element();doc.head=new Element();doc.querySelector=selector=>doc.head.children.find(e=>selector==='link[data-farm-coop-css]'?e.dataset.farmCoopCss!==undefined:selector==='link[data-farm-factory-css]'?e.dataset.farmFactoryCss!==undefined:false);const root=new Element();
  const store={getState:()=>{stateReads++;return structuredClone(state)},getStatus:()=>({readOnly}),get readOnly(){return readOnly},subscribe(fn){callbacks.add(fn);return()=>callbacks.delete(fn);},dispatch(c){commands.push(c);if(readOnly)return{ok:false,message:'只读'};try{const r=core.executeFarm(state,c,state.now);state=r.state;for(const f of callbacks)f();return r;}catch(e){return{ok:false,message:e.message};}}};
  const effect={pause(){},setReducedMotion(){},play(){},destroy(){}};
  const mount=ctx=>{contexts.push(ctx);return()=>{};};

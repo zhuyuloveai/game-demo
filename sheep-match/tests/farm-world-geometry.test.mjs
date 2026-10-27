@@ -21,7 +21,7 @@ test('projected production tray is anchored in machine foreground and remains co
  const e={x:25,y:25,w:3,h:2,completed:[{},{}]},t=projectedMachineTray(e,{w:3,h:2}),p=project(26.5,27);assert.equal(t.x+t.width/2,p.x);assert(t.slots<=2);assert.equal(t.height,44);
 });
 test('renderer uses alpha hits, explicit harvest mode, projected camera and polygon strokes',()=>{
- const s=readFileSync(new URL('../farm-scene-world.mjs',import.meta.url),'utf8');for(const marker of ['runtimeArtHit(meta,u,v,{mirror:','hitWorld(p)','fadedIds(rows)',"button('harvest-view'",'polygon=screenPolygon(e)','project(saved.centerX,saved.centerY)','unproject((view.clientWidth/2-camera.x)'])assert(s.includes(marker),marker);
+ const s=readFileSync(new URL('../farm-scene-world.mjs',import.meta.url),'utf8');for(const marker of ['runtimeArtHit(meta,u,v,{mirror:','hitWorld(p)','fadedIds(rows)',"button('harvest-view'",'polygon=screenPolygon(e,bounds)','project(saved.centerX,saved.centerY)','unproject((view.clientWidth/2-camera.x)'])assert(s.includes(marker),marker);
 });
 
 test('overlapping equal-depth sprites pick the later painted DOM sibling',()=>{assert.equal(topmostHit([{entityId:'rear',z:100},{entityId:'front',z:100}]).entityId,'front');assert.equal(topmostHit([{entityId:'higher',z:102},{entityId:'later',z:100}]).entityId,'higher');});
@@ -32,7 +32,7 @@ test('explicit overview centers the entire developed farm and respects supported
 
 test('camera persistence is scheduled for completed pan/pinch/wheel and flushed on pagehide',()=>{const s=readFileSync(new URL('../farm-scene-world.mjs',import.meta.url),'utf8');for(const marker of ["if(g.type==='pan'){if(typeof rememberCamera",'if(finishedPinch)rememberCamera(true)',"on(win,'pagehide'",'transform();rememberCamera();},{passive:false})','Math.abs(next[k]-saved[k])>1e-7'])assert(s.includes(marker),marker);});
 
-test('inactive stacked scenes cannot overwrite active camera and deactivation clears pending timer',()=>{const s=readFileSync(new URL('../farm-scene-world.mjs',import.meta.url),'utf8');assert(s.includes("if(cameraReady&&!root.closest('[inert]'))"));assert(s.includes('ctx.onDeactivate?.(()=>{win.clearTimeout(cameraSaveTimer);cameraSaveTimer=0;'));});
+test('inactive stacked scenes cannot overwrite active camera and deactivation clears pending timer',()=>{const s=readFileSync(new URL('../farm-scene-world.mjs',import.meta.url),'utf8');assert(s.includes("if(cameraReady&&!root.closest('[inert]'))"));assert(s.includes('ctx.onDeactivate?.((reason)=>{win.clearTimeout(cameraSaveTimer);cameraSaveTimer=0;'));});
 
 test('runtime SVG icons are bounded in object panels and preview ghosts; adjacent field cells retain inset outlines',()=>{const css=readFileSync(new URL('../farm-scene-world.css',import.meta.url),'utf8');assert.match(css,/\.fw-object-panel \.fw-runtime-png\{[^}]*width:44px;height:44px/);assert.match(css,/\.fw-ghost>\.fw-runtime-png\{[^}]*width:100%;height:100%/);assert(css.includes("M24 1 47 12 24 23 1 12Z"));assert(css.includes("stroke-width='1.25'"));});
 

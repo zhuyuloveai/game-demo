@@ -105,3 +105,9 @@
 [inert] .farm-delight-ambient *,
 [inert] .farm-delight-ambient *::before,
 [inert] .farm-delight-ambient *::after {animation-play-state:paused!important}
+
+/* Per-cell committed feedback: seeds land in soil; the sickle sweeps once. */
+.farm-delight-particle.is-seed-drop{width:6px!important;height:9px!important;max-width:6px!important;max-height:9px!important;background:#dfb66d;border:1px solid #a97c43;border-radius:65% 35% 60% 40%;animation:farm-delight-seed-drop 550ms ease-in both}
+.farm-delight-particle.is-sickle{animation:farm-delight-sickle 420ms ease-out both;transform-origin:30% 85%}
+@keyframes farm-delight-seed-drop{0%{opacity:0;transform:translate(calc(-50% + var(--delight-dx)),-40px) rotate(-30deg)}20%{opacity:1}80%{opacity:1;transform:translate(calc(-50% + var(--delight-dx)),22px) rotate(25deg)}100%{opacity:0;transform:translate(calc(-50% + var(--delight-dx)),24px) scale(.4)}}
+@keyframes farm-delight-sickle{0%{opacity:0;transform:translate(-50%,-50%) rotate(-65deg)}20%{opacity:1}70%{opacity:1;transform:translate(-35%,-35%) rotate(40deg)}100%{opacity:0;transform:translate(-35%,-35%) rotate(55deg)}}

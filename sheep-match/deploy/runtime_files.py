@@ -46,6 +46,7 @@ BASE_FILES = {
 
 NEW_MODULES = ('farm-assets','farm-config','farm-core','farm-layout','farm-linkage','farm-match-ui','farm-runtime','farm-save','farm-stage-data','farm-stage-layouts','farm-ui','farm-gestures','farm-visuals','farm-audio','farm-audio-manifest','farm-delight','farm-scene-host','farm-scene-world','farm-dom-patch','farm-scene-trade','farm-scene-management','farm-growth-layouts','farm-forest-boundary','farm-world-geometry','farm-runtime-art','farm-runtime-art-metadata','farm-runtime-terrain','farm-runtime-environment','farm-runtime-environment-metadata','farm-animal-layout')
 MIME = {'.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.css':'text/css','.mjs':'application/javascript','.js':'application/javascript','.json':'application/json','.m4a':('audio/mp4','audio/x-m4a'),'.wav':('audio/wav','audio/x-wav'),'.md':'text/plain','.txt':'text/plain'}
+NEW_MODULES += ('farm-coop-panel','farm-factory-panel')
 NEW_MODULES += ('farm-animal-animation','farm-runtime-animal-animation-metadata')
 NEW_MODULES += ('farm-art-direction','farm-art-presentation','farm-pen-art','farm-runtime-shelters','farm-runtime-shelters-metadata','farm-shelter-geometry')
 def expected_runtime(root):
@@ -55,7 +56,7 @@ def expected_runtime(root):
     for cue in ('plant','harvest','feed','product-ready','coin','button','soft-error','upgrade','first-clear','water','animal','tile-pick','tile-match','combo'):
         files[f'media/farm-sfx/{cue}.wav']=('audio/wav','audio/x-wav')
     files.update({f'farm-scene-{name}.css':'text/css' for name in ('host','world','trade','management')})
-    files.update({'farm-ui.css':'text/css','farm-match.css':'text/css','farm-delight.css':'text/css'})
+    files.update({'farm-ui.css':'text/css','farm-match.css':'text/css','farm-delight.css':'text/css','farm-coop-panel.css':'text/css','farm-factory-panel.css':'text/css'})
     manifest = json.loads((root/'assets/farm/manifest.json').read_text())
     assert manifest['logicalGridSize'] == 48
     for asset in manifest['assets']:

@@ -64,7 +64,7 @@ const flying=new Set(['harvest','collect','collectAnimal','collectMachine','coin
 export function mountFarmDelight(root,{reducedMotion=false,enabled=true}={}){
   if(!root?.ownerDocument)throw new TypeError('mountFarmDelight requires a DOM root');
   const doc=root.ownerDocument,win=doc.defaultView,query=win.matchMedia?.('(prefers-reduced-motion: reduce)');
-  const layer=doc.createElement('div');layer.className='farm-delight-layer';layer.setAttribute('aria-hidden','true');applyDelightSafety(layer,{position:'absolute',inset:'0',overflow:'hidden','z-index':'25',contain:'layout style paint'});root.append(layer);
+  const layer=doc.createElement('div');layer.className='farm-delight-layer';layer.setAttribute('aria-hidden','true');applyDelightSafety(layer,{position:'absolute',inset:'0',overflow:'hidden','z-index':'950',contain:'layout style paint'});root.append(layer);
   const ambient=doc.createElement('div');ambient.className='farm-delight-ambient';ambient.setAttribute('aria-hidden','true');applyDelightSafety(ambient,{position:'absolute',inset:'0',overflow:'hidden','z-index':'2',contain:'layout paint'});
   for(let i=0;i<FARM_DELIGHT_LIMITS.ambient;i++){const mote=doc.createElement('i');mote.className=i===0?'farm-delight-butterfly':'farm-delight-mote';applyDelightSafety(mote,{position:'absolute','max-width':'13px','max-height':'8px'});ambient.append(mote);}
   root.querySelector('.farm-viewport')?.append(ambient);
@@ -162,9 +162,9 @@ export function mountFarmDelight(root,{reducedMotion=false,enabled=true}={}){
     }
     cleanup();
   }
-  function play(action,{sourceElements=[],targetElement=null,itemId=null,count=1,point=null}={}){
+  function play(action,{sourceElements=[],targetElement=null,itemId=null,count=1,point=null,committed=false,crop=false}={}){
     if(paused())return 0;
-    const now=time();if(action===lastAction&&now-lastAt<FARM_DELIGHT_LIMITS.cooldown)return 0;lastAction=action;lastAt=now;
+    const now=time();if(!committed&&action===lastAction&&now-lastAt<FARM_DELIGHT_LIMITS.cooldown)return 0;lastAction=action;lastAt=now;
     const bounds=root.getBoundingClientRect(),rectOf=e=>typeof e?.getBoundingClientRect==='function'?e.getBoundingClientRect():e;
     const sources=Array.from(sourceElements||[]).slice(0,FARM_DELIGHT_LIMITS.perAction).map(rectOf).filter(Boolean);
     if(!sources.length){const view=root.querySelector('.farm-viewport');sources.push(point?{left:point.x,top:point.y,width:0,height:0}:rectOf(view)||bounds);}
@@ -175,9 +175,12 @@ export function mountFarmDelight(root,{reducedMotion=false,enabled=true}={}){
       const from=delightPoint(sources[Math.floor(i*sources.length/n)],bounds);
       const node=doc.createElement('span');node.className=`farm-delight-particle${small?' is-still':''}`;
       applyDelightSafety(node,{position:'absolute',width:small?'112px':'26px',height:small?'28px':'26px','max-width':small?'112px':'30px','max-height':'30px','font-size':small?'11px':'22px','line-height':'1.2','box-sizing':'border-box'});
-      const isFlight=!small&&flying.has(action)&&!!target;
+      const tool=!small&&crop&&i===0;
+      const isFlight=!small&&!tool&&flying.has(action)&&!!target;
       if(small){node.textContent=labels[action]||'已完成';}
-      else if(isFlight&&itemId&&i%2===0){const img=doc.createElement('img');img.src=farmAssetUrl(itemId);img.alt='';img.draggable=false;applyDelightSafety(img,{position:'absolute',inset:'0',width:'30px',height:'30px','max-width':'30px','max-height':'30px','object-fit':'contain'});node.append(img);node.classList.add('is-item');}
+      else if(tool&&action==='harvest'){node.innerHTML='<svg viewBox="0 0 64 64" width="30" height="30" fill="none" stroke="#94663d" stroke-width="3" stroke-linecap="round"><path d="M19 55 37 17" stroke-width="6"/><path d="M34 18Q53 8 57 29Q43 18 23 32Z" fill="#d9e5df"/></svg>';node.classList.add('is-sickle');}
+      else if(crop&&action==='plant'){node.textContent='';node.classList.add('is-seed-drop');}
+      else if((isFlight||crop)&&itemId&&i%2===0){const img=doc.createElement('img');img.src=farmAssetUrl(itemId);img.alt='';img.draggable=false;applyDelightSafety(img,{position:'absolute',inset:'0',width:'30px',height:'30px','max-width':'30px','max-height':'30px','object-fit':'contain'});node.append(img);node.classList.add('is-item');}
       else {node.textContent=glyphs[action]||(i%2?'✧':'❧');node.classList.add(action==='feed'?'is-heart':action==='coins'||action==='sale'?'is-coin':action==='plant'||action==='sow'||action==='revive'?'is-leaf':'is-spark');}
       layer.append(node);
       const duration=small?800:isFlight?650+Math.min(i*35,180):650;
@@ -192,5 +195,5 @@ export function mountFarmDelight(root,{reducedMotion=false,enabled=true}={}){
   }
   const onVisibility=()=>state(),onMotion=()=>state();doc.addEventListener('visibilitychange',onVisibility);query?.addEventListener?.('change',onMotion);
   state();refresh();
-  return {play,refresh,setReducedMotion(value){reducedMotion=!!value;state();},setEnabled(value){enabled=!!value;state();refresh();},pause(value=true){manualPause=!!value;state();},get activeCount(){return budget.size;},destroy(){if(destroyed)return;destroyed=true;stop();readiness.clear();for(const el of idle)clearIdle(el);idle=[];doc.removeEventListener('visibilitychange',onVisibility);query?.removeEventListener?.('change',onMotion);layer.remove();ambient.remove();delete root.dataset.delight;delete root.dataset.delightPaused;delete root.dataset.delightReduced;}};
+  return {play,refresh,clear:stop,setReducedMotion(value){reducedMotion=!!value;state();},setEnabled(value){enabled=!!value;state();refresh();},pause(value=true){manualPause=!!value;state();},get activeCount(){return budget.size;},destroy(){if(destroyed)return;destroyed=true;stop();readiness.clear();for(const el of idle)clearIdle(el);idle=[];doc.removeEventListener('visibilitychange',onVisibility);query?.removeEventListener?.('change',onMotion);layer.remove();ambient.remove();delete root.dataset.delight;delete root.dataset.delightPaused;delete root.dataset.delightReduced;}};
 }

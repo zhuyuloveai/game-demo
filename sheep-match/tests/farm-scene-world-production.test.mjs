@@ -13,10 +13,10 @@ const open=source.slice(source.indexOf('    function openObject('),source.indexO
 const tap=source.slice(source.indexOf('    function tapTool('),source.indexOf('    function startToolDrag('));
 function scene(state=core.createFarm(0)){
  const commands=[],says=[],storage=[];const ctx={get state(){return state},say:s=>says.push(s)};
- const h=vm.runInNewContext(`(()=>{let selected=null,selectedAnimal=null,more=false,localPage=null,clearPreview=null,seedPage=0,recipePage=0,chosenSeed=null,pendingRecipe=null,draft=null,placement=null,lastFieldTap=null;
+ const h=vm.runInNewContext(`(()=>{let selected=null,selectedAnimal=null,more=false,localPage=null,clearPreview=null,seedPage=0,recipePage=0,chosenSeed=null,pendingRecipe=null,draft=null,placement=null,lastFieldTap=null,coopPanel=null;
  const entity=id=>ctx.state.entities.find(e=>e.id===id),render=()=>{},cancelGesture=()=>{},focus=()=>{},remaining=t=>String(t-ctx.state.now),name=id=>id;
  ${open}\n${tap}
- return {open:openObject,tap:tapTool,edit:v=>draft=v,snapshot:()=>({selected,chosenSeed,localPage,pendingRecipe})};})()`,{ctx,config,Date,directCropHarvestCommand:H.directCropHarvestCommand,cropDoubleTapCommand:H.cropDoubleTapCommand,openStorage:k=>storage.push(k),doAct:c=>{commands.push(clone(c));const result=core.executeFarm(state,clone(c),state.now);state=result.state;return {ok:true,...result};}});
+ return {open:openObject,tap:tapTool,edit:v=>draft=v,snapshot:()=>({selected,chosenSeed,localPage,pendingRecipe})};})()`,{ctx,config,Date,mountFactoryPanel:()=>({destroy(){}}),mountChickenCoop:()=>({destroy(){}}),directCropHarvestCommand:H.directCropHarvestCommand,cropDoubleTapCommand:H.cropDoubleTapCommand,openStorage:k=>storage.push(k),doAct:c=>{commands.push(clone(c));const result=core.executeFarm(state,clone(c),state.now);state=result.state;return {ok:true,...result};}});
  return {...h,commands,says,storage,get state(){return state}};
 }
 const run=(s,c,t=s.now)=>core.executeFarm(s,c,t).state;
@@ -28,9 +28,9 @@ test('empty field and seed taps only select a tool and never spend seeds',()=>{
  const t=scene(),initial=clone(t.state);t.open('field_1');t.tap({action:'plant',itemId:'wheat',entityId:'field_1'});t.open('field_2');
  assert.equal(t.commands.length,0);assert.deepEqual(t.state,initial);assert.equal(t.snapshot().chosenSeed,'wheat');
 });
-test('mature crop first tap harvests exactly once; repeated taps and edit activation never duplicate',()=>{
+test('mature crop first tap opens tool; double tap harvests once and edit never harvests',()=>{
  let s=run(core.createFarm(0),{type:'plant',entityIds:['field_1','field_2'],itemId:'wheat'});s=core.advanceFarm(s,120000).state;
- const t=scene(s);t.edit({});t.open('field_1');assert.equal(t.commands.length,0);t.edit(null);t.open('field_1');assert.equal(t.commands.length,1);t.open('field_1');
+ const t=scene(s);t.edit({});t.open('field_1');assert.equal(t.commands.length,0);t.edit(null);t.open('field_1');assert.equal(t.commands.length,0);assert.equal(t.snapshot().selected,'field_1');t.open('field_1');assert.equal(t.commands.length,1);t.open('field_1');
  assert.deepEqual(t.commands,[{type:'harvest',entityIds:['field_1']}]);assert.equal(t.state.entities.find(e=>e.id==='field_1').crop,null);assert(t.state.entities.find(e=>e.id==='field_2').crop);
 });
 test('hungry and ready animal activation only selects, including repeated taps and tool taps',()=>{

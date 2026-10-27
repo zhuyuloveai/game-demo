@@ -110,3 +110,14 @@ test('world idle candidates read geometry before animation writes, preserving DO
  for(const [kind,cap]of [['animal',12],['crop',6],['tree',4],['machine',4],['ready',4]]){const selected=active.filter(n=>n.dataset.fwMotion===kind);assert.equal(selected.length,Math.min(cap,remaining));remaining-=selected.length;assert.deepEqual(selected.map(n=>n.dataset.entity),Array.from({length:selected.length},(_,i)=>`${kind}-${i}`));}
  next.destroy();
 });
+test('distinct committed cells get immediate bounded feedback even in one frame; clear stops all',()=>{
+ const h=harness(),fx=mountFarmDelight(h.root),source={left:100,top:100,width:30,height:20};
+ for(let i=0;i<50;i++){assert.equal(fx.play('harvest',{sourceElements:[source],targetElement:h.root,itemId:'wheat',crop:true,committed:true}),4);assert.ok(fx.activeCount<=32);assert.equal(h.frames.size,1);}
+ fx.clear();assert.equal(fx.activeCount,0);assert.equal(h.frames.size,0);fx.destroy();
+});
+test('committed sow and harvest respect reduced motion without any animated flight',()=>{
+ const h=harness(),fx=mountFarmDelight(h.root,{reducedMotion:true});
+ assert.equal(fx.play('plant',{crop:true,committed:true}),1);assert.equal(fx.play('plant',{crop:true,committed:true}),1);
+ assert.equal(fx.activeCount,2);for(const node of h.root.children.find(n=>n.className==='farm-delight-layer').children)assert.match(node.className,/is-still/);
+ fx.destroy();
+});
