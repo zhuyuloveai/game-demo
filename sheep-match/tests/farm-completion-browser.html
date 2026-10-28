@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Farm completion · isolated runtime QA</title>
+<style>
+body{margin:0;background:#f6efdf;color:#503d2d;font:13px system-ui}#farm{position:fixed;inset:0 310px 0 0;background:#aacb85}aside{position:fixed;inset:0 0 0 auto;width:286px;padding:12px;overflow:auto;z-index:100;background:#fff8e9}h1{font-size:17px;margin:0 0 8px}h2{font-size:14px;margin:12px 0 5px}button{padding:8px 10px;margin:3px;border:1px solid #b99b75;border-radius:8px;background:#fff1cc;color:#503d2d;cursor:pointer}button[aria-pressed=true]{background:#cde0af;outline:2px solid #89a56a}p{line-height:1.5;margin:7px 0}pre{font:10px/1.45 monospace;white-space:pre-wrap;overflow-wrap:anywhere}#farm.phone{inset:0 auto auto 0;width:390px;height:700px}#errors{color:#9b3026;white-space:pre-wrap}details{border-top:1px solid #dcccae;margin-top:12px;padding-top:8px}
+@media(max-width:850px){#farm{inset:158px 0 0}aside{inset:0 0 auto;width:auto;height:134px;padding:10px;display:flex;gap:12px;align-items:flex-start;overflow:auto}aside>section{flex:none;max-width:300px}aside details{min-width:250px}h1{font-size:14px}p{font-size:11px}button{padding:7px;margin:2px}#farm.phone{top:158px}}
+</style></head><body>
+<main id="farm"></main>
+<aside><section><h1>素材补全 · 真实农场运行时</h1><p id="version"></p><p>隔离 QA 存档：12栏 / 63动物。花舍依法校验所有权后应用；原4类机械（含2台饲料机）已投料生产，风车已购买。冻结 QA 生产时钟，独立动画照常播放。</p>
+<div id="views"><button data-view="chicken">花卉鸡舍</button><button data-view="sheep">花卉羊舍</button><button data-view="feed_mill_1">饲料机</button><button data-view="feed_mill_2">饲料机2</button><button data-view="loom">织布机</button><button data-view="sewing_machine">缝纫机</button><button data-view="juice_press">榨汁机</button><button data-view="windmill">风车</button><button data-view="overview">全局</button></div>
+</section><section><h2>验证操作</h2><button id="open">打开当前设施</button><button id="close">关闭设施</button><button id="phone">390×700 / 大视口</button><button id="reload">重挂当前 QA 存档</button><button id="reset">重建 QA 场景</button><p>默认加载 current；支持 <code>?baseline</code>、<code>?version=快照名</code>、<code>?view=loom</code>。不读取或写入正式存档。</p><div id="errors" role="alert"></div><details open><summary>运行时检查</summary><pre id="report"></pre></details></section></aside>
+<script>window.addEventListener('error',e=>document.querySelector('#errors').textContent+='\n'+e.message);window.addEventListener('unhandledrejection',e=>document.querySelector('#errors').textContent+='\n'+(e.reason?.stack||e.reason));</script>
+<script type="module">
+const params=new URLSearchParams(location.search),baseline=params.has('baseline'),version=params.get('version');
+if(version&&!/^[a-z0-9_-]+$/i.test(version))throw Error('Invalid QA snapshot name');
+const base=baseline?'../../.qa-baseline/sheep-match/':version?'../../.qa-'+version+'/sheep-match/':'../';
+const [{mountFarm},save,core,config,layout,{maxPensFixture}]=await Promise.all(['farm-scene-host.mjs','farm-save.mjs','farm-core.mjs','farm-config.mjs','farm-layout.mjs','tests/farm-growth-fixtures.mjs'].map(f=>import(new URL(base+f,import.meta.url))));
+for(const f of ['farm-scene-host.css','farm-scene-world.css','farm-scene-management.css','farm-scene-trade.css','farm-delight.css']){const l=document.createElement('link');l.rel='stylesheet';l.href=new URL(base+f,import.meta.url);document.head.append(l);}
+const root=document.querySelector('#farm'),out=document.querySelector('#report'),versionName=baseline?'baseline':version||'current',key='farm-completion-browser-qa-'+versionName;
+const keys=new Set(['a','b','active','draft'].map(suffix=>key+':'+suffix));
+const storage={getItem(k){if(!keys.has(k))throw Error('Unsafe non-QA storage key');return localStorage.getItem(k);},setItem(k,v){if(!keys.has(k))throw Error('Unsafe non-QA storage key');localStorage.setItem(k,v);},removeItem(k){if(!keys.has(k))throw Error('Unsafe non-QA storage key');localStorage.removeItem(k);}};
+let store,host,clock=0,view=params.get('view')||'chicken',targetId=null;
+document.querySelector('#version').textContent='版本：'+versionName+' · 来源：'+base;
+function completionState(){
+ let s=maxPensFixture();
+ const act=command=>{const r=core.executeFarm(s,command,s.now);if(!r.ok)throw Error('QA preparation failed: '+JSON.stringify({command,error:r.error}));s=r.state;};
+ // Ownership credits exist only in this newly created QA save, never production.
+ for(const [kind,skinId] of [['chicken','skin_coop'],['sheep','skin_sheep']]){
+  s.decorations[skinId]=1;
+  for(const e of s.entities.filter(e=>e.kind==='shelter'&&e.configId===kind))act({type:'setSkin',entityId:e.id,skinId});
+ }
+ for(const e of s.entities.filter(e=>e.kind==='machine'&&['feed_mill','loom','juice_press','sewing_machine'].includes(e.machineType))){
+  if(e.completed.length)act({type:'collectMachine',entityId:e.id});
+  const recipe=Object.values(config.RECIPES).find(r=>r.machineType===e.machineType&&r.level<=s.level);
+  act({type:'enqueue',entityId:e.id,recipeId:recipe.id});
+ }
+ act({type:'buy',category:'decoration',itemId:'windmill'});
+ s.tutorial.skip=true;s.settings.reducedMotion=false;
+ core.assertFarm(s);save.validateFarmState(s);const check=layout.validateLayout(s);if(!check.ok)throw Error('Invalid QA layout: '+JSON.stringify(check));
+ return s;
+}
+function show(){if(!store)return;const s=store.getState(),target=s.entities.find(e=>e.id===targetId);out.textContent=JSON.stringify({version:versionName,view,target:target&&{id:target.id,kind:target.kind,configId:target.configId,skinId:target.skinId,position:[target.x,target.y],animals:target.animals?.map(a=>a.status),queue:target.queue?.map(j=>({recipe:j.recipeId,producing:j.startAt<=s.now&&j.readyAt>s.now}))},shelters:s.entities.filter(e=>e.kind==='shelter').length,animals:s.entities.filter(e=>e.kind==='shelter').reduce((n,e)=>n+e.animals.length,0),floralImages:root.querySelectorAll('image[href*="floral-skins-v1"]').length,animalFrames:root.querySelectorAll('[data-fw-frame-running=true]').length,mechanisms:[...root.querySelectorAll('[data-fw-mechanism]')].map(el=>({id:el.dataset.fwMechanism,running:el.dataset.fwFrameMachineRunning,transform:el.querySelector('[data-fw-part]')?.style.getPropertyValue('--fw-part-transform')})),readOnly:store.getStatus().readOnly,qaKey:key},null,2);}
+function unmount(){host?.destroy();host=null;}
+function mount(){host=mountFarm({root,store});show();}
+function setView(next){
+ view=next;const s=store.getState(),target=s.entities.find(e=>e.configId===view&&(e.kind==='shelter'||e.kind==='machine'||e.kind==='decoration'));targetId=target?.id||null;
+ unmount();const camera=target?{centerX:target.x+target.w/2,centerY:target.y+target.h/2,zoom:1.75}:{centerX:31.5,centerY:32,zoom:.75};
+ const r=store.dispatch({type:'setCamera',camera});if(!r.ok)throw Error('Camera command failed');mount();
+ document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===view)));
+}
+function prepare(){unmount();store?.close();const s=completionState();clock=s.now;for(const k of keys)storage.removeItem(k);storage.setItem(key+':a',JSON.stringify(save.makeEnvelope(s,{savedAtWallMs:clock,saveId:key,commitId:'completion-qa'})));storage.setItem(key+':active','a');store=save.createFarmStore({storage,key,locks:null,now:()=>clock,monotonicNow:()=>0});setView(view);}
+function closePanels(){document.querySelector('.fc-close')?.click();document.querySelector('.ff-close')?.click();}
+document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>setView(b.dataset.view));
+document.querySelector('#open').onclick=()=>{if(targetId)root.querySelector('[data-entity="'+targetId+'"]')?.click();};
+document.querySelector('#close').onclick=closePanels;
+document.querySelector('#reset').onclick=prepare;
+document.querySelector('#reload').onclick=()=>{unmount();store.close();store=save.createFarmStore({storage,key,locks:null,now:()=>clock,monotonicNow:()=>0});setView(view);};
+document.querySelector('#phone').onclick=()=>{root.classList.toggle('phone');setView(view);};
+setInterval(show,500);prepare();
+</script></body></html>

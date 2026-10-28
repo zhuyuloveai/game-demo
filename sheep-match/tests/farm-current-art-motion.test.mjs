@@ -70,3 +70,9 @@ test('recovered CSS protects frame animation, input geometry, reduced and drag/i
  assert.match(css,/\.fw-ripe-charm\{[^}]*pointer-events:none!important/);
  for(const token of ['fw-ripe-twinkle','fw-ripe-dewdrop','fw-ripe-arrival','data-delight-dragging','data-motion-blocked','[inert]','prefers-reduced-motion'])assert.ok(css.includes(token));
 });
+test('active drag pauses existing CSS motion without resetting its phase or granting new motion budget',()=>{
+ const h=world(),a=h.add('crop','wheat',true),fx=mountFarmDelight(h.root),delay=a.style['--delight-delay'];
+ a.blocked='[data-motion-blocked="true"]';const newcomer=h.add('crop','other',true);newcomer.blocked=a.blocked;
+ h.advance(500);fx.refresh();assert.equal(a.dataset.delightIdle,'crop');assert.equal(a.style['--delight-delay'],delay);assert.equal(newcomer.dataset.delightIdle,undefined);
+ a.blocked=null;fx.refresh();assert.equal(a.style['--delight-delay'],delay);fx.destroy();
+});

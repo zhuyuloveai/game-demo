@@ -4,6 +4,7 @@ import {mountFarm} from './farm-scene-host.mjs';
 import {mountFarmMatch} from './farm-match-ui.mjs';
 export async function createFarmRuntime({
     onExit,
+    navigation=null,
     onSound=()=> { } ,
     onMusicChange=()=> { } ,
     onSoundChange=()=>{},
@@ -46,6 +47,7 @@ export async function createFarmRuntime({
     return result;
   }
   function showFarm() {
+    if(active&&!match&&ui){ui.setActive?.(true);return;}
     if(!active){
       const audio=getAudioSettings();
       if(audio&&!store.readOnly)store.dispatch({type:'setSettings',settings:audio});
@@ -60,6 +62,7 @@ export async function createFarmRuntime({
     store.dispatch({ type:'tick' });
     if(!ui) ui=mountFarm({
         root:farmRoot,
+        navigation,
         store,
         onExit:exit,
         onStartStage:startStage,
@@ -82,24 +85,30 @@ export async function createFarmRuntime({
       if(notice) notice.textContent=error.message;
       return { ok:false, code:error.code, message:error.message };
     }
-    ui?.setActive?.(false);
-    farmRoot.hidden=true;
-    matchRoot.hidden=false;
-    match?.destroy();
-    match=mountFarmMatch({
-        root:matchRoot,
-        store,
-        onExit:showFarm,
-        onStartStage:startStage,
-        onSound:cue=> {
-          if(store.getState().settings.sound) farmSounds.play(farmMatchCue(cue));
-        }
-      });
-    onScene('match');
-    document.body.dataset.view='farm-story';
+    // Only an explicit stage action replaces the board; history replay never does.
+    if(match){match.destroy();match=null;}
+    if(navigation){
+      const route={kind:'match'};
+      if(['match','confirm'].includes(navigation.path.at(-1).kind))navigation.replaceTop(route);else navigation.push(route);
+    }
+    showMatch();
     return result;
   }
-  function exit() {
+  function showMatch(){
+    if(match)return;
+    if(!store.getState().branch.active){if(navigation?.path.at(-1)?.kind==='match')navigation.trim(navigation.path.length-1);showFarm();return;}
+    active=true;ui?.setActive?.(false);farmRoot.hidden=true;matchRoot.hidden=false;
+    match=mountFarmMatch({root:matchRoot,store,onExit:()=>navigation?navigation.back():showFarm(),onStartStage:startStage,onSound:cue=>{if(store.getState().settings.sound)farmSounds.play(farmMatchCue(cue));}});
+    onScene('match');document.body.dataset.view='farm-story';
+  }
+  function restoreNavigation(){
+    if(navigation?.path.at(-1)?.kind==='match'){
+      // Mount the existing saved board, never start/reward a stage on history replay.
+      if(!ui)showFarm();showMatch();
+    }else showFarm();
+  }
+  function exit(){if(navigation){navigation.home();return;}suspend();onExit();}
+  function suspend() {
     store.dispatch({ type:'tick' });
     active=false;
     farmSounds.setHidden(true);
@@ -108,7 +117,6 @@ export async function createFarmRuntime({
     match=null;
     farmRoot.hidden=true;
     matchRoot.hidden=true;
-    onExit();
   }
   const tick=()=> {
     farmSounds.setHidden(!active||document.hidden);
@@ -123,7 +131,8 @@ export async function createFarmRuntime({
   } ;
   window.addEventListener('pagehide',finalTick);
   return {
-    open:showFarm,
+    open:restoreNavigation,
+    suspend,
     store,
     destroy() {
       clearInterval(timer);

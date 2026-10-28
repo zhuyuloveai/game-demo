@@ -6,7 +6,9 @@ test('motion eligibility excludes dead trees, empty fields and resting machines'
  assert.equal(worldMotionKind({kind:'field'}),'');assert.equal(worldMotionKind({kind:'field',crop:{}}),'crop');
  for(const status of ['revive','withered'])assert.equal(worldMotionKind({kind:'fruit',status}),'');
  assert.equal(worldMotionKind({kind:'fruit',status:'growing'}),'tree');
- assert.equal(worldMotionKind({kind:'machine',built:true,queue:[{}]}),'machine');
+ assert.equal(worldMotionKind({kind:'machine',built:true,queue:[{startAt:0,readyAt:100}]}),'machine');
+ assert.equal(worldMotionKind({kind:'machine',built:true,queue:[{startAt:null,readyAt:null}]}),'');
+ assert.equal(worldMotionKind({kind:'machine',configId:'feed_mill_1',built:true,queue:[{startAt:0,readyAt:100}]}),'','local parts own machine motion');
  assert.equal(worldMotionKind({kind:'machine',built:true,queue:[]}),'');
 });
 test('maturity charm only exists on actual ripe crops/fruits and cannot intercept input',()=>{

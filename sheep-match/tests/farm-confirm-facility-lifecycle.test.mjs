@@ -6,7 +6,7 @@ const host=readFileSync(new URL('../farm-scene-host.mjs',import.meta.url),'utf8'
 const source=host.slice(host.indexOf(' function confirm(options){'),host.indexOf(' function mount(ctx){'));
 function harness(){
  const layer={inert:false},buttons={};let overlay,resumes=0,suspends=0,calls=0;
- const c={active:true,destroyed:false,escapeScene:String,cleanups:new Set(),confirmClosers:new Set(),confirmResumers:new Set([()=>resumes++]),refreshers:new Set(),deactivators:new Set([reason=>{assert.equal(reason,'confirm');suspends++;}]),say:()=>{},doc:{activeElement:{isConnected:true,focus(){}},createElement:()=>overlay={removed:false,remove(){this.removed=true;},querySelector(selector){return buttons[selector]??=( {focus(){},disabled:false});},querySelectorAll(){return Object.values(buttons);}}},root:{querySelectorAll:()=>[layer],append(){} }};
+ const c={navigation:null,active:true,destroyed:false,escapeScene:String,cleanups:new Set(),confirmClosers:new Set(),confirmResumers:new Set([()=>resumes++]),refreshers:new Set(),deactivators:new Set([reason=>{assert.equal(reason,'confirm');suspends++;}]),say:()=>{},doc:{activeElement:{isConnected:true,focus(){}},createElement:()=>overlay={removed:false,remove(){this.removed=true;},querySelector(selector){return buttons[selector]??=( {focus(){},disabled:false});},querySelectorAll(){return Object.values(buttons);}}},root:{querySelectorAll:()=>[layer],append(){} }};
  vm.createContext(c);vm.runInContext(source,c);
  return {c,layer,buttons,get overlay(){return overlay},get resumes(){return resumes},get suspends(){return suspends},get calls(){return calls},open:fn=>c.confirm({onConfirm:()=>{calls++;return fn?.();}}),yes:()=>buttons['[data-yes]'].onclick(),no:()=>buttons['[data-no]'].onclick()};
 }

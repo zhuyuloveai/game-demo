@@ -1,5 +1,7 @@
+import {ownFarmAnimationImage} from './farm-dom-patch.mjs';
 /** Presentation-only registered animal frames. Never writes animals, production or world positions. */
 import {ANIMAL_ANIMATION_METADATA} from './farm-runtime-animal-animation-metadata.mjs';
+import {resolveShelterSpec} from './farm-runtime-shelters.mjs';
 export {ANIMAL_ANIMATION_METADATA};
 export const ANIMAL_ANIMATION_FPS=12;
 export const ANIMAL_ANIMATION_MAX_VISIBLE=12;
@@ -55,22 +57,27 @@ export function createAnimalAnimationController({root,getAnimal,getStaticArt,isP
    }
   }
  }
- const visibility=new WeakMap(),painted=new WeakMap();
+ const visibility=new WeakMap(),painted=new WeakMap(),staticBases=new WeakMap();
  const cap=Math.max(0,Math.min(ANIMAL_ANIMATION_MAX_VISIBLE,Math.floor(maxVisible)||0));
  const blocked=()=>Boolean(doc?.hidden||media?.matches||isReduced()||isPaused()||root?.closest?.('[inert]'));
  function visible(el,clip){const r=el.getBoundingClientRect?.();if(!r)return true;
   const win=doc?.defaultView;return r.width>0&&r.height>0&&r.right>Math.max(0,clip?.left??0)&&r.bottom>Math.max(0,clip?.top??0)&&r.left<Math.min(win?.innerWidth??Infinity,clip?.right??Infinity)&&r.top<Math.min(win?.innerHeight??Infinity,clip?.bottom??Infinity);}
- function paint(el,art,active){const image=el.querySelector?.('.fw-animal-art image');if(!image||!art)return;
+ function paint(el,art,active,base=art){const image=el.querySelector?.('.fw-animal-art image');if(!image||!art)return;
   if(painted.get(image)!==art.src||image.getAttribute?.('href')!==art.src){image.setAttribute('href',art.src);painted.set(image,art.src);}
+  ownFarmAnimationImage(image,active?base?.src:null);staticBases.set(image,base?.src);
   if(active){el.dataset.fwFrameRunning='true';el.dataset.fwFrameAction=art.action;el.dataset.fwFrame=String(art.frame);live.set(el.dataset.animal,art);}
   else{delete el.dataset.fwFrameRunning;delete el.dataset.fwFrameAction;delete el.dataset.fwFrame;live.delete(el.dataset.animal);}}
- function draw(){let count=0;const stop=blocked();live.clear();canRun=false;drawing=true;
+ function draw(){let count=0;const stop=blocked(),reduced=media?.matches||isReduced(),previousLive=new Map(live);live.clear();canRun=false;drawing=true;
   // Reduced motion opts out of the action, unlike a temporary background pause.
   // Do not replay a pending/active feed when that preference is turned off later.
   if(media?.matches||isReduced())feeds.clear();
   try{for(const el of nodes){const id=el.dataset.animal,entry=getAnimal(id,el.dataset.shelter),a=entry?.animal,s=entry?.shelter;if(!a)continue;
-   const fallback=getStaticArt(a,s),eligible=speciesKeys.has(a.configId)&&!s?.skinId&&fallback?.shelterLayered;
+   const fallback=getStaticArt(a,s),eligible=speciesKeys.has(a.configId)&&(!s?.skinId||!!resolveShelterSpec(s))&&fallback?.shelterLayered;
    const onscreen=visibility.get(el);if(!onscreen||!eligible)feeds.delete(id);
+   // A transient gesture/background pause freezes the already decoded frame.
+   // Reduced motion, state changes and offscreen cleanup still restore static art.
+   const frozen=previousLive.get(id),image=el.querySelector?.('.fw-animal-art image');
+   if(stop&&!reduced&&eligible&&onscreen&&frozen&&count<cap&&staticBases.get(image)===fallback?.src){live.set(id,frozen);count++;continue;}
    if(!stop&&eligible&&onscreen&&(a.status==='hungry'||feeds.has(id)))requestSpecies(a.configId);
    const eatClip=clipFor(a.configId,'eat'),walkClip=clipFor(a.configId,'walk');
    if(feeds.has(id)&&eatClip?.status==='failed')feeds.delete(id);
@@ -82,7 +89,7 @@ export function createAnimalAnimationController({root,getAnimal,getStaticArt,isP
    const sample=!stop&&eligible&&onscreen&&count<cap?animalAnimationSample({id,status:a.status,elapsed,eatStarted:feeds.get(id)??null}):null;
    const ready=sample&&clipFor(a.configId,sample.action)?.status==='ready';
    const frame=ready&&resolveAnimalAnimationFrame(sample.action,sample.frame,a.configId);
-   if(frame)count++;paint(el,frame||fallback,Boolean(frame));
+   if(frame)count++;paint(el,frame||fallback,Boolean(frame),fallback);
   }}finally{drawing=false;}
  }
  function refreshVisibility(){const clip=(root.closest?.('.fw-map')||root).getBoundingClientRect?.();for(const el of nodes)visibility.set(el,visible(el,clip));lastVisibility=elapsed;}

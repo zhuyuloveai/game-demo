@@ -114,7 +114,8 @@ export function mountFarmDelight(root,{reducedMotion=false,enabled=true}={}){
       for(const el of elements){
         const kind=el.dataset.fwMotion;
         if(!limits[kind]||counts[kind]>=limits[kind]||visible.length>=FARM_DELIGHT_LIMITS.idle||
-          el.closest?.('.fw-layout-world,.fw-occluder-faded,.fw-muted-neighbor,[data-motion-blocked="true"]'))continue;
+          el.closest?.('.fw-layout-world,.fw-occluder-faded,.fw-muted-neighbor')||
+          el.closest?.('[data-motion-blocked="true"]')&&!previous.includes(el))continue;
         const rect=el.getBoundingClientRect();
         if(!rect.width||!rect.height||rect.right<=bounds.left||rect.left>=bounds.right||rect.bottom<=bounds.top||rect.top>=bounds.bottom)continue;
         visible.push(el);counts[kind]++;

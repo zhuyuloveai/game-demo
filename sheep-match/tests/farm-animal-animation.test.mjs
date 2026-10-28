@@ -38,9 +38,9 @@ test('independent RAF changes live PNG + alpha between 250ms host renders and su
  for(let t=252;t<=1092;t+=84)f.tick(t);
  assert.equal(f.c.getArt('bird-0',null),null);assert.equal(f.nodes[0].image.href,resolveShelterAnimal(f.animals[0]).src);assert.equal(JSON.stringify(f.animals),before);f.c.destroy();assert.equal(f.cancelled,0);
 });
-test('pause/reduced/hidden restores static, resumes without catch-up, destruction restores and cancels',()=>{
+test('temporary pause freezes painted frame, reduced motion restores static, resume has no catch-up',()=>{
  const f=fixture();f.c.sync();f.c.playEat(['bird-0']);f.tick(0);f.tick(84);
- f.pause(true);f.tick(168);assert.equal(f.nodes[0].dataset.fwFrameRunning,undefined);assert.equal(f.c.getArt('bird-0',null),null);
+ const frozen=f.nodes[0].image.href;f.pause(true);f.tick(168);assert.equal(f.nodes[0].dataset.fwFrameRunning,'true');assert.equal(f.c.getArt('bird-0').frame,1);assert.equal(f.nodes[0].image.href,frozen);
  f.tick(10000);f.pause(false);f.c.sync();f.tick(10084);assert.equal(f.c.getArt('bird-0').frame,1);
  f.reduce(true);f.c.sync();assert.equal(f.nodes[0].dataset.fwFrameRunning,undefined);f.reduce(false);f.hide(true);f.c.sync();assert.equal(f.nodes[0].dataset.fwFrameRunning,undefined);
  f.hide(false);f.c.sync();f.c.destroy();assert.equal(f.nodes[0].image.href,resolveShelterAnimal(f.animals[0]).src);assert.equal(f.nodes[0].dataset.fwFrameRunning,undefined);f.c.destroy();assert.equal(f.cancelled,1);

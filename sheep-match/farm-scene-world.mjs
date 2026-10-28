@@ -3,9 +3,11 @@ import {mountFactoryPanel} from './farm-factory-panel.mjs';
 import {mountChickenCoop} from './farm-coop-panel.mjs';
 import {patchFarmMarkup} from './farm-dom-patch.mjs';
 import {createAnimalAnimationController} from './farm-animal-animation.mjs';
+import {createMachineAnimationController} from './farm-machine-animation.mjs';
+import {resolveMachinePartArt,machineIsProducing} from './farm-runtime-machines.mjs';
 import {forestBoundary} from './farm-forest-boundary.mjs';
 import {workshopForestFringe,workshopForestFog} from './farm-workshop-terrain.mjs';
-import {resolveShelterSpec,resolveShelterLayer,resolveShelterAnimal,resolveShelterAnimalShadow} from './farm-runtime-shelters.mjs';
+import {resolveShelterSpec,resolveShelterLayer,resolveShelterAnimal,resolveShelterAnimalShadow,renderShelterLayer} from './farm-runtime-shelters.mjs';
 import {shelterCanvasRect,shelterCanvasPoint,shelterLayerDepths,shelterLayerHit,shelterSummary,shelterHitCandidates} from './farm-shelter-geometry.mjs';
 import {resolveEnvironmentArt,resolveObstacleArt,resolveEnvironmentLegacyArt,resolveBuildingBadge,resolveMachineMasteryArt} from './farm-runtime-environment.mjs';
 import {artRotations,nextArtRotation,mirroredArt,legacyArtRotation} from './farm-art-direction.mjs';
@@ -127,7 +129,7 @@ export function renderProjectedGround(src,alt='',className=''){
 }
 export function ripeCharm(f,e,t=[50,50]){return f.kind==="field"&&f.crop?.readyAt<=e||f.kind==="fruit"&&f.status==="ready"?'<span class="fw-ripe-charm" style="left:'+t[0]+"%;top:"+t[1]+'%" aria-hidden="true"><svg class="fw-ripe-glyph" viewBox="0 0 24 26" focusable="false"><g class="fw-ripe-star"><path d="M10 2C10.7 7.6 12.2 9.2 18 10C12.3 10.9 10.8 12.6 10 18C9.1 12.6 7.6 10.9 2 10C7.5 9.2 9.1 7.6 10 2Z" fill="#fff1b4" stroke="#c79749" stroke-width="1.1" stroke-linejoin="round"/><path d="M10 5.2L10.8 9.1L14.2 10L10.6 10.6L10 14L9.2 10.8L5.6 10L9.1 9.2Z" fill="#fffdf1"/></g><g class="fw-ripe-dew"><path d="M19 13C18 15 15.2 17.3 15.4 19.6C15.6 23.6 22 23.4 22 19.5C22 17.3 20 15.1 19 13Z" fill="#e5f2bd" stroke="#9cac69" stroke-width=".9"/><path d="M17.7 18.5Q16.6 20.2 18.1 20.7" fill="none" stroke="#fffef3" stroke-width="1.4" stroke-linecap="round"/></g><circle class="fw-ripe-dot" cx="20.5" cy="5.5" r="1.5" fill="#fff7d4" stroke="#c9a363" stroke-width=".6"/></svg></span>':""}
 
-export function worldMotionKind(e){return e.kind==='field'&&e.crop?'crop':e.kind==='fruit'&&!['revive','withered'].includes(e.status)?'tree':e.kind==='machine'&&e.built&&e.queue?.length?'machine':'';}
+export function worldMotionKind(e,now=0){return e.kind==='field'&&e.crop?'crop':e.kind==='fruit'&&!['revive','withered'].includes(e.status)?'tree':!resolveMachinePartArt(e)&&machineIsProducing(e,now)?'machine':'';}
 /** Undo inner-art sway before testing its alpha, leaving ground selection unchanged. */
 export function inverseSwayPoint(u,v,width,height,angle=0,originY=.85){
   const r=-angle*Math.PI/180,dx=(u-.5)*width,dy=(v-originY)*height;
@@ -161,7 +163,10 @@ export function mountWorldScene(ctx) {
       isReduced:()=>!!ctx.state.settings.reducedMotion,
       isPaused:()=>destroyed||doc.hidden||ctx.effectsPaused===true||!!gesture||!!draft||!!placement||!!localPage||!!root.closest('[inert]'),
       maxVisible:12});
-    function refreshMotion(){game.dataset.motionBlocked=String(!!gesture||!!draft||!!placement||!!localPage);if(motionRaf)return;motionRaf=win.requestAnimationFrame(()=>{motionRaf=0;if(destroyed)return;animalAnimation.prepareSync();ctx.refreshPresentation?.();animalAnimation.commitSync();});}
+    const machineAnimation=createMachineAnimationController({root:world,getEntity:entity,getNow:()=>ctx.state.now,
+      isReduced:()=>!!ctx.state.settings.reducedMotion,
+      isPaused:()=>destroyed||doc.hidden||ctx.effectsPaused===true||!!gesture||!!draft||!!placement||!!localPage||!!root.closest('[inert]')});
+    function refreshMotion(){game.dataset.motionBlocked=String(!!gesture||!!draft||!!placement||!!localPage);if(motionRaf)return;motionRaf=win.requestAnimationFrame(()=>{motionRaf=0;if(destroyed)return;animalAnimation.prepareSync();machineAnimation.prepareSync();ctx.refreshPresentation?.();animalAnimation.commitSync();machineAnimation.commitSync();});}
 
     function on(el,event,fn,options){el.addEventListener(event,fn,options);listeners.push(()=>el.removeEventListener(event,fn,options));}
     function vouchersEnabled(){return ctx.state.features?.constructionVouchersEnabled!==false;}
@@ -186,7 +191,7 @@ export function mountWorldScene(ctx) {
     function fieldSoil(e){const terrain=resolveTerrainArt(e,[],ctx.state),g=groundRect(e,ctx.layout.getFootprint(e)),r=visualRect(e),height=g.width*terrain.height/terrain.width;return `<img class="fw-terrain-soil" src="${esc(terrain.src)}" alt="" aria-hidden="true" draggable="false" style="left:${g.left-r.left}px;top:${(g.top+g.bottom)/2-height/2-r.top}px;width:${g.width}px;height:${height}px">`;}
     function art(e,cls='',layer='all'){
       const spec=e.kind==='shelter'&&resolveShelterSpec(e);
-      if(spec){const keys=layer==='back'?['building']:['ground','buildingShadow','rearFence','building','frontFence'];return keys.map(key=>renderRuntimeArt(spec.layers[key],{className:cls+' fw-layered-art',alt:key==='building'?title(e):'',mirror:mirroredArt(e)})).join('');}
+      if(spec){const keys=layer==='back'?['building']:['ground','buildingShadow','rearFence','building','frontFence'];return keys.map(key=>renderShelterLayer(e,key,{className:cls+' fw-layered-art',alt:key==='building'?title(e):'',mirror:mirroredArt(e)})).join('');}
       if(e.kind==='road'||isConnectedFence(e)){const terrain=terrainArt(e);fallbackArtHit(e,.5,.5);return `<img class="fw-terrain-art ${esc(cls)}" src="${esc(terrain.src)}" alt="${esc(title(e))}" draggable="false">`;}
       if(e.kind==='field'&&!e.crop)return fieldSoil(e);
       const environment=resolveObstacleArt(e);if(environment){fallbackArtHit(e,.5,.5);return `<img class="${esc(cls)}" src="${esc(environment.src)}" alt="${esc(title(e))}" draggable="false">`;}
@@ -205,7 +210,7 @@ export function mountWorldScene(ctx) {
       const r=el.getBoundingClientRect();if(!r.width||!r.height)return {u,v};
       return inverseSwayPoint((p.x-r.left)/r.width,(p.y-r.top)/r.height,r.width,r.height,angle,e.kind==='fruit'?.88:.85);
     }
-    function animalMeta(a,pen){return (!pen?.skinId&&resolveShelterAnimal(a))||resolveWorldArt({...a,kind:'animal'},ctx.state.now);}
+    function animalMeta(a,pen){return ((!pen?.skinId||resolveShelterSpec(pen))&&resolveShelterAnimal(a))||resolveWorldArt({...a,kind:'animal'},ctx.state.now);}
     function animalArt(a,pen){const runtime=animalMeta(a,pen);if(runtime)return renderRuntimeArt(runtime,{className:'fw-animal-art'+(runtime.shelterLayered?' fw-layered-art':''),alt:name(a.configId),mirror:runtime.shelterLayered&&mirroredArt(pen)});return image(`animals/${a.configId}/front/${a.status==='producing'?'producing':a.status==='ready'?'ready':'idle'}_00.svg`,name(a.configId),'fw-animal-art');}
     let effectiveCache=null;
     function effectiveEntities(){
@@ -328,7 +333,7 @@ export function mountWorldScene(ctx) {
         html+=`<button class="fw-land fw-forest-land ${open?'opened':check.ok?'available':'locked'} ${active?'selected':''}" data-land="${p.id}" style="${groundStyle(p)}" aria-label="${p.id} ${open?'已开放':check.ok?'可以开垦':'暂不能开垦'}"><span>${active?(open?(patchNeedsClearing(p)?'已开放 · 待清理':'已开放'):check.ok?'这片林地 · 可开垦':'这片林地 · 暂未开放'):check.ok?'＋ 开垦':''}</span></button>`;}
       for(const e of entities){
         const presentation=worldScenePresentation(id,selectedEntity(),e),status=stateBadge(e),badgePolicy=worldBadge(e,ctx.state.now,{selected:selected===e.id,editing:!!draft,harvestView}),badge=presentation.showBadge&&badgePolicy.mode!=='none'?(badgePolicy.text||status):'',badgeArt=badgePolicy.mode==='label'?resolveBuildingBadge(e,ctx.state):null,marked=gesture?.stroke?.seen.has(e.id)||clearPreview?.ids.includes(e.id);
-        html+=`<button class="fw-entity fw-${e.kind} ${faded.has(e.id)?'fw-occluder-faded':''} ${harvestView&&directCropHarvestCommand(e,ctx.state.now)?'fw-harvest-target':''} ${selected===e.id?'selected':''} ${marked?'marked':''} ${draft?'editing':''} ${draft&&ctx.layout.isFixedEntity(e)?'fw-layout-fixed':''} ${draft&&selected===e.id&&!layoutCheck.ok?'fw-invalid-position':''} ${presentation.focused?'fw-focused-entity':''} ${presentation.muted?'fw-muted-neighbor':''}" data-entity="${e.id}" data-fw-motion="${worldMotionKind(e)}" data-fw-ready="${!!directCropHarvestCommand(e,ctx.state.now)||e.kind==='fruit'&&e.status==='ready'}" style="${rectStyle(e)}" aria-label="${esc(title(e))}${draft?ctx.layout.isFixedEntity(e)?'，固定建筑，不能移动':'，拖动布置，完成后保存':status?'，'+esc(status):''}"><span class="fw-ground-mark" style="${groundStyle(e)};left:${groundRect(e,ctx.layout.getFootprint(e)).left-visualRect(e).left}px;top:${groundRect(e,ctx.layout.getFootprint(e)).top-visualRect(e).top}px"></span>${art(e,'fw-entity-art','back')}${ripeCharm(e,ctx.state.now,e.kind==='field'?[50,34]:[62,26])}${draft&&selected===e.id?`<span class="fw-drag-handle" aria-hidden="true">${ctx.layout.isFixedEntity(e)?'固定':'✥ 拖动'}</span>`:''}${badge?`<span class="fw-badge ${badgePolicy.mode==='dot'?'fw-status-dot':''}" ${badgePolicy.mode==='dot'?`aria-hidden="true" style="left:${(visualRect(e).foot?.x||0)-visualRect(e).left+12}px;top:${(visualRect(e).foot?.y||visualRect(e).bottom)-visualRect(e).top-9}px"`:''}>${badgeArt?`<img src="${esc(badgeArt.src)}" alt="" draggable="false">`:""}${esc(badge)}</span>`:''}${e.kind==='machine'&&!e.built?image('terrain/construction-scaffold.svg','','fw-scaffold'):''}</button>`;
+        html+=`<button class="fw-entity fw-${e.kind} ${faded.has(e.id)?'fw-occluder-faded':''} ${harvestView&&directCropHarvestCommand(e,ctx.state.now)?'fw-harvest-target':''} ${selected===e.id?'selected':''} ${marked?'marked':''} ${draft?'editing':''} ${draft&&ctx.layout.isFixedEntity(e)?'fw-layout-fixed':''} ${draft&&selected===e.id&&!layoutCheck.ok?'fw-invalid-position':''} ${presentation.focused?'fw-focused-entity':''} ${presentation.muted?'fw-muted-neighbor':''}" data-entity="${e.id}" data-fw-motion="${worldMotionKind(e,ctx.state.now)}" data-fw-ready="${!!directCropHarvestCommand(e,ctx.state.now)||e.kind==='fruit'&&e.status==='ready'}" style="${rectStyle(e)}" aria-label="${esc(title(e))}${draft?ctx.layout.isFixedEntity(e)?'，固定建筑，不能移动':'，拖动布置，完成后保存':status?'，'+esc(status):''}"><span class="fw-ground-mark" style="${groundStyle(e)};left:${groundRect(e,ctx.layout.getFootprint(e)).left-visualRect(e).left}px;top:${groundRect(e,ctx.layout.getFootprint(e)).top-visualRect(e).top}px"></span>${art(e,'fw-entity-art','back')}${ripeCharm(e,ctx.state.now,e.kind==='field'?[50,34]:[62,26])}${draft&&selected===e.id?`<span class="fw-drag-handle" aria-hidden="true">${ctx.layout.isFixedEntity(e)?'固定':'✥ 拖动'}</span>`:''}${badge?`<span class="fw-badge ${badgePolicy.mode==='dot'?'fw-status-dot':''}" ${badgePolicy.mode==='dot'?`aria-hidden="true" style="left:${(visualRect(e).foot?.x||0)-visualRect(e).left+12}px;top:${(visualRect(e).foot?.y||visualRect(e).bottom)-visualRect(e).top-9}px"`:''}>${badgeArt?`<img src="${esc(badgeArt.src)}" alt="" draggable="false">`:""}${esc(badge)}</span>`:''}${e.kind==='machine'&&!e.built?image('terrain/construction-scaffold.svg','','fw-scaffold'):''}</button>`;
         const layered=resolveWorldArt(e,ctx.state.now);if(layered?.frontOcclusion){const r=visualRect(e);html+=`<div aria-hidden="true" data-render-key="${e.id}:front" class="fw-decor-front ${faded.has(e.id)?'fw-occluder-faded':''}" style="left:${r.left}px;top:${r.top}px;width:${r.width}px;height:${r.height}px;z-index:${depth(e,ctx.layout.getFootprint(e))+1}">${renderRuntimeArt(layered,{className:'fw-entity-art',alt:'',mirror:mirroredArt(e),layer:'front'})}</div>`;}
         if(e.kind==='shelter'){
           const f=ctx.layout.getFootprint(e),layers=penLayers(e,f);
@@ -537,8 +542,11 @@ export function mountWorldScene(ctx) {
       if(e?.kind!=='field'||e.crop)chosenSeed=null;
       if(e?.kind==='machine'&&!e.built&&e.buildReadyAt<=ctx.state.now){doAct({type:'completeBuilding',entityId:e.id},'新建筑已揭幕');render();return;}
       if(e?.kind==='barn'||e?.kind==='silo'){openStorage(e.kind);return;}
-      if(e?.kind==='machine'&&e.built){coopPanel?.destroy();coopPanel=mountFactoryPanel(ctx,{entityId:e.id,onAction:a=>{selected=e.id;action(a);},onClose:()=>{coopPanel=null;selected=null;if(!destroyed)render();}});return;}
-      if(e?.kind==='shelter'){harvestView=false;coopPanel?.destroy();coopPanel=mountChickenCoop(ctx,{entityId:e.id,onAction:a=>{selected=e.id;action(a);},onClose:()=>{coopPanel=null;selected=null;if(!destroyed)render();}});return;}
+      if(e?.kind==='machine'&&e.built||e?.kind==='shelter'){
+        harvestView=false;
+        const create=()=>{coopPanel?.destroy();const panel=(e.kind==='shelter'?mountChickenCoop:mountFactoryPanel)(ctx,{entityId:e.id,onAction:a=>{selected=e.id;action(a);},onClose:()=>{coopPanel=null;selected=null;ctx.closeFacility?.();if(!destroyed)render();}});coopPanel=panel;return ()=>{panel.destroy();if(coopPanel===panel){coopPanel=null;selected=null;if(!destroyed)render();}};};
+        if(!ctx.openFacility?.(e.id,create))create();return;
+      }
       if(e?.kind==='shelter'){harvestView=false;focus(e,1.5);}else if(e?.kind==='machine')focus(e,id==='P05'?1.6:1.4);else if(e?.kind==='fruit')focus(e,1.35);
       render();
     }
@@ -843,11 +851,12 @@ export function mountWorldScene(ctx) {
     });
     on(view,'wheel',e=>{e.preventDefault();cancelGesture();focusAnchor=null;const p=point(e),before=worldPoint(p),r=view.getBoundingClientRect();camera.zoom=Math.max(.75,Math.min(1.75,camera.zoom+(e.deltaY>0?-.1:.1)));camera.x=p.x-r.left-project(before.x,before.y).x*camera.zoom;camera.y=p.y-r.top-project(before.x,before.y).y*camera.zoom;transform();rememberCamera();},{passive:false});
     on(root,'keydown',e=>{
-      if(e.key==='Escape'){e.preventDefault();if(gesture){cancelGesture('已取消');render();}else if(localPage){localPage=null;render();}else if(draft)cancelEdit();else if(placement){placement=null;ctx.openScene('P07');}else closeTemporary();return;}
+      if(e.key==='Escape'){e.preventDefault();if(gesture){cancelGesture('已取消');render();}else if(localPage){localPage=null;render();}else if(draft)cancelEdit();else if(placement){placement=null;ctx.openScene('P07');}else if(selected||more||chosenSeed||harvestView||clearPreview)closeTemporary();else ctx.navigateBack?.();return;}
       if(e.target.closest('input,select,textarea'))return;
       const vector={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]}[e.key];if(!vector)return;
       e.preventDefault();cancelGesture();if(draft&&selected){const p=draft.positions.find(p=>p.id===selected);if(p)changeDraft(selected,{x:p.x+vector[0],y:p.y+vector[1]});}else if(placement){placement.x+=vector[0];placement.y+=vector[1];render();}else{focusAnchor=null;camera.x-=vector[0]*48;camera.y-=vector[1]*48;transform();rememberCamera();}
     });
+    const stopFacilityRoute=ctx.registerFacilityRoute?.(entityId=>openObject(entityId));
     const unsubscribe=ctx.subscribe(()=>{if(!gesture&&!presentationDepth)render();});
     const itemId=ctx.focusItem,recipe=ctx.focusRecipe?config.RECIPES[ctx.focusRecipe]:config.RECIPES[itemId];
     const animal=Object.values(config.ANIMALS).find(a=>a.product===itemId);
@@ -866,7 +875,7 @@ export function mountWorldScene(ctx) {
     function saveCamera(){if(cameraReady&&!root.closest('[inert]')){const p=unproject((view.clientWidth/2-camera.x)/camera.zoom,(view.clientHeight/2-camera.y)/camera.zoom);const next={centerX:Math.max(0,Math.min(63.999,p.x)),centerY:Math.max(0,Math.min(63.999,p.y)),zoom:camera.zoom},saved=ctx.state.camera;if(!saved||Object.keys(next).some(k=>Math.abs(next[k]-saved[k])>1e-7))ctx.saveCamera?.(next);}}
     const stopConfirmResume=ctx.onConfirmClosed?.(()=>{if(!destroyed)coopPanel?.resume?.();});
     const stopDeactivate=ctx.onDeactivate?.((reason)=>{win.clearTimeout(cameraSaveTimer);cameraSaveTimer=0;if(reason==='confirm'&&coopPanel?.suspend)coopPanel.suspend();else {coopPanel?.destroy();coopPanel=null;}cancelGesture();pointers.clear();persistLayoutDraft();saveCamera();});
-    function cleanup(){if(destroyed)return;destroyed=true;coopPanel?.destroy();coopPanel=null;animalAnimation.destroy();win.clearTimeout(forestRetreatTimer);win.clearTimeout(cameraSaveTimer);saveCamera();stopDeactivate?.();stopConfirmResume?.();cancelGesture();persistLayoutDraft();win.cancelAnimationFrame?.(edgeRaf);win.cancelAnimationFrame?.(resizeRaf);win.cancelAnimationFrame?.(motionRaf);listeners.splice(0).forEach(off=>off());unsubscribe?.();resizeObserver?.disconnect();root.classList.remove('fw-root');if(ownsDocument)doc.documentElement?.classList.remove('fw-document');}
+    function cleanup(){if(destroyed)return;destroyed=true;coopPanel?.destroy();coopPanel=null;animalAnimation.destroy();machineAnimation.destroy();win.clearTimeout(forestRetreatTimer);win.clearTimeout(cameraSaveTimer);saveCamera();stopDeactivate?.();stopConfirmResume?.();stopFacilityRoute?.();cancelGesture();persistLayoutDraft();win.cancelAnimationFrame?.(edgeRaf);win.cancelAnimationFrame?.(resizeRaf);win.cancelAnimationFrame?.(motionRaf);listeners.splice(0).forEach(off=>off());unsubscribe?.();resizeObserver?.disconnect();root.classList.remove('fw-root');if(ownsDocument)doc.documentElement?.classList.remove('fw-document');}
     ctx.onExit?.(cleanup);
     if(!ctx.initialPlacement&&e&&(['P04','P05'].includes(id))&&(e.kind==='shelter'||e.kind==='machine'&&e.built))openObject(e.id);
     return cleanup;

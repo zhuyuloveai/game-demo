@@ -2,6 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import vm from 'node:vm';
+import {createGameNavigation} from '../game-navigation.mjs';
+import {historyWindow} from './navigation-fixture.mjs';
 import * as config from '../farm-config.mjs';
 import * as core from '../farm-core.mjs';
 import * as layout from '../farm-layout.mjs';
@@ -9,7 +11,7 @@ import {farmSourceRoute,escapeScene} from '../farm-scene-host.mjs';
 const source=readFileSync(new URL('../farm-scene-host.mjs',import.meta.url),'utf8');
 // Host-only inert DOM: real host lifecycle and commands, scene renderers stubbed.
 // Browser geometry, native inert and focus behavior are covered by browser QA, not this fixture.
-function harness(){
+function harness(navigation=null){
  const contexts=[],sounds=[],commands=[],exits=[],callbacks=new Set();let state=core.createFarm(0),readOnly=false,stateReads=0;
  const doc={activeElement:null,defaultView:{}};
  class Element{
@@ -30,7 +32,7 @@ function harness(){
  const mount=ctx=>{contexts.push(ctx);return()=>{};};
  const code=source.replace(/^import .*;\n/gm,'').replaceAll('export ','').replaceAll('import.meta.url',JSON.stringify(new URL('../farm-scene-host.mjs',import.meta.url).href))+'\nmountFarm';
  const fn=vm.runInNewContext(code,{config,core,layout,save:{},stages:{},FARM_ASSETS:[],farmAsset(){},farmAssetUrl:id=>id,mountFarmDelight:()=>effect,mountWorldScene:mount,mountTradeScene:mount,mountManagementScene:mount,URL,queueMicrotask});
- const api=fn({root,store,onSound:c=>sounds.push(c),onExit:()=>exits.push(true)});
+ const api=fn({root,store,navigation,onSound:c=>sounds.push(c),onExit:()=>exits.push(true)});
  return{api,root,contexts,commands,sounds,exits,callbacks,doc,setReadOnly(v){readOnly=v},get state(){return state;},get stateReads(){return stateReads;},emitSnapshot(){for(const f of callbacks)f(structuredClone(state));}};
 }
 test('source routing targets exact product owners without changing fresh progression',()=>{
@@ -88,4 +90,33 @@ test('inactive host and inert parent retain latest snapshot without rendering; r
  ctx.openScene('P08');const nested=h.contexts.at(-1);nested.subscribe(()=>child++);
  h.state.coins=333;h.emitSnapshot();assert.equal(parent,1);assert.equal(child,1);assert.equal(ctx.state.coins,333);
  nested.returnToOrigin();assert.equal(parent,2);assert.equal(child,1);h.api.destroy();
+});
+
+test('real navigation preserves ancestor scene on Back, remounts Forward, removes left back button',()=>{
+ const win=historyWindow(),nav=createGameNavigation(win);nav.push({kind:'farm'});const h=harness(nav),root=h.contexts[0];
+ root.openScene('P07');const shop=h.contexts.at(-1);shop.openScene('P08');assert.equal(h.root.querySelectorAll('.farm-scene-layer').length,2);
+ const layer=h.root.querySelectorAll('.farm-scene-layer').at(-1),header=layer.children[0];assert.equal(header.children[0].textContent,'仓库');assert.equal(header.children.at(-1).textContent,'×');
+ h.contexts.at(-1).returnToOrigin();h.contexts.at(-1).returnToOrigin();win.flush();assert.equal(h.root.querySelectorAll('.farm-scene-layer').length,1);assert.equal(shop.root.inert,false);
+ win.history.forward();win.flush();assert.equal(h.root.querySelectorAll('.farm-scene-layer').length,2);assert.equal(h.commands.length,0);h.api.destroy();nav.destroy();
+});
+test('history closes and restores facility panels without dispatching farm commands',()=>{
+ const win=historyWindow(),nav=createGameNavigation(win);nav.push({kind:'farm'});const h=harness(nav),ctx=h.contexts[0];let opened=0,closed=0;
+ const open=id=>ctx.openFacility(id,()=>{opened++;return()=>closed++;});ctx.registerFacilityRoute(open);
+ open('chicken_coop');assert.equal(opened,1);nav.back();win.flush();assert.equal(closed,1);win.history.forward();win.flush();assert.equal(opened,2);assert.equal(h.commands.length,0);h.api.destroy();
+});
+test('browser Back cancels only confirmation, then facility; Forward never executes confirmation',()=>{
+ const win=historyWindow(),nav=createGameNavigation(win);nav.push({kind:'farm'});const h=harness(nav),ctx=h.contexts[0];let calls=0;
+ ctx.registerFacilityRoute(id=>ctx.openFacility(id,()=>()=>{}));ctx.openFacility('bakery',()=>()=>{});ctx.confirm({onConfirm:()=>calls++});
+ assert(h.root.querySelector('.farm-scene-confirm-backdrop'));nav.back();win.flush();assert.equal(h.root.querySelector('.farm-scene-confirm-backdrop'),undefined);assert.equal(nav.path.at(-1).kind,'facility');
+ win.history.forward();win.flush();assert(h.root.querySelector('.farm-scene-confirm-backdrop'));assert.equal(calls,0);assert.equal(h.commands.length,0);h.api.destroy();
+});
+
+test('Forward never revives a completed confirmation or callback owned by a disposed facility',async()=>{
+ for(const completed of [false,true]){
+  const win=historyWindow(),nav=createGameNavigation(win);nav.push({kind:'farm'});const h=harness(nav),ctx=h.contexts[0];let calls=0;
+  ctx.registerFacilityRoute(id=>ctx.openFacility(id,()=>()=>{}));ctx.openFacility('bakery',()=>()=>{});ctx.confirm({onConfirm:()=>{calls++;return{ok:true};}});
+  if(completed)await h.root.querySelector('.farm-scene-confirm-backdrop').yes.onclick();else nav.back();win.flush();
+  if(!completed){nav.back();win.flush();win.history.forward();win.flush();}
+  win.history.forward();win.flush();assert.equal(h.root.querySelector('.farm-scene-confirm-backdrop'),undefined);assert.equal(nav.path.at(-1).kind,'facility');assert.equal(calls,completed?1:0);h.api.destroy();
+ }
 });

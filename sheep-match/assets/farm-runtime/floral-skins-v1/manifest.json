@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "sourcePack": "docs/art-packs/farm-art-completion-v1",
+  "derivation": "RGBA, full 1200x1000 canvas resized to 600x500 with Pillow LANCZOS; no crop. Five existing v2 layers and all animal frames reused.",
+  "skins": {
+    "skin_coop": {
+      "id": "skin_coop",
+      "species": "chicken",
+      "flowerKeys": {
+        "rearFence": "floral/chicken/rearFence",
+        "building": "floral/chicken/building",
+        "frontFence": "floral/chicken/frontFence"
+      },
+      "source": "docs/art-packs/farm-art-completion-v1/skins/chicken/layout.json",
+      "sourceSha256": "626eb1aae8bee9031b7d0abcc7e402ca20e127a7a0a0484300d869427c582f96"
+    },
+    "skin_sheep": {
+      "id": "skin_sheep",
+      "species": "sheep",
+      "flowerKeys": {
+        "rearFence": "floral/sheep/rearFence",
+        "building": "floral/sheep/building",
+        "frontFence": "floral/sheep/frontFence"
+      },
+      "source": "docs/art-packs/farm-art-completion-v1/skins/sheep/layout.json",
+      "sourceSha256": "09793f7a6905f866a394923f5d93b784b62042178bb335a577372aae950ad3dc"
+    }
+  },
+  "assets": [
+    {
+      "key": "floral/chicken/rearFence",
+      "path": "assets/farm-runtime/floral-skins-v1/chicken/03b-rear-flowers.png",
+      "source": "docs/art-packs/farm-art-completion-v1/skins/chicken/layers/03b-rear-flowers.png",
+      "sourceSha256": "6df0cff8a05cc57806c34f7f229842b76a8a5b517b6499e49c7936b28c370aaf",
+      "width": 600,
+      "height": 500,
+      "bytes": 5390
+    },
+    {
+      "key": "floral/chicken/building",
+      "path": "assets/farm-runtime/floral-skins-v1/chicken/04b-eave-flowers.png",
+      "source": "docs/art-packs/farm-art-completion-v1/skins/chicken/layers/04b-eave-flowers.png",
+      "sourceSha256": "45f3bfd87a468fa5c81e1b1adddece7d416c10047edab03a4957a79b79f2d97b",
+      "width": 600,
+      "height": 500,
+      "bytes": 13467
+    },
+    {
+      "key": "floral/chicken/frontFence",
+      "path": "assets/farm-runtime/floral-skins-v1/chicken/08-front-flowers.png",
+      "source": "docs/art-packs/farm-art-completion-v1/skins/chicken/layers/08-front-flowers.png",
+      "sourceSha256": "b94c744df6339a5046f595c7beed467cee64d833f59756401aca1c35f731070e",
+      "width": 600,
+      "height": 500,
+      "bytes": 12474
+    },
+    {
+      "key": "floral/sheep/rearFence",
+      "path": "assets/farm-runtime/floral-skins-v1/sheep/03b-rear-flowers.png",
+      "source": "docs/art-packs/farm-art-completion-v1/skins/sheep/layers/03b-rear-flowers.png",
+      "sourceSha256": "2dc984f8a5dc0c3b65daab00946c41364ac0659680ea603a1c2ff2923a32ee6d",
+      "width": 600,
+      "height": 500,
+      "bytes": 5430
+    },
+    {
+      "key": "floral/sheep/building",
+      "path": "assets/farm-runtime/floral-skins-v1/sheep/04b-eave-flowers.png",
+      "source": "docs/art-packs/farm-art-completion-v1/skins/sheep/layers/04b-eave-flowers.png",
+      "sourceSha256": "880f92de46ea6459afe23cdd909d838378637e4b79194fe55e6b57cec2f1b3e0",
+      "width": 600,
+      "height": 500,
+      "bytes": 17818
+    },
+    {
+      "key": "floral/sheep/frontFence",
+      "path": "assets/farm-runtime/floral-skins-v1/sheep/08-front-flowers.png",
+      "source": "docs/art-packs/farm-art-completion-v1/skins/sheep/layers/08-front-flowers.png",
+      "sourceSha256": "2c855597d829e88f58eae5f6e3a843700d2eb05a13cf0ea1f36a5d789f2b0a75",
+      "width": 600,
+      "height": 500,
+      "bytes": 12416
+    },
+    {
+      "key": "preview/chicken",
+      "path": "assets/farm-runtime/floral-skins-v1/chicken/preview.png",
+      "width": 300,
+      "height": 250,
+      "bytes": 67353,
+      "usage": "UI-only empty shelter thumbnail; world uses independent layers, never this composite."
+    },
+    {
+      "key": "preview/sheep",
+      "path": "assets/farm-runtime/floral-skins-v1/sheep/preview.png",
+      "width": 300,
+      "height": 250,
+      "bytes": 68627,
+      "usage": "UI-only empty shelter thumbnail; world uses independent layers, never this composite."
+    }
+  ]
+}

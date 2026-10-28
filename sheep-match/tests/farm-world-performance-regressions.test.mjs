@@ -174,8 +174,8 @@ test('forest uses cached valid viewport and reframe updates it before transformi
 });
 test('world coordinates same-task animal read, delight refresh, animal write in order',()=>{
  const start=source.indexOf('function refreshMotion(){'),end=source.indexOf('function on(el,event,fn,options)',start);assert(start>=0&&end>start);const calls=[];
- const c=vm.createContext({game:{dataset:{}},gesture:null,draft:null,placement:null,localPage:null,motionRaf:0,destroyed:false,win:{requestAnimationFrame:fn=>{fn();return 1}},animalAnimation:{prepareSync:()=>calls.push('animal-read'),commitSync:()=>calls.push('animal-write')},ctx:{refreshPresentation:()=>calls.push('delight')}});
- vm.runInContext(`${source.slice(start,end)};refreshMotion()`,c);assert.deepEqual(calls,['animal-read','delight','animal-write']);
+ const c=vm.createContext({game:{dataset:{}},gesture:null,draft:null,placement:null,localPage:null,motionRaf:0,destroyed:false,win:{requestAnimationFrame:fn=>{fn();return 1}},animalAnimation:{prepareSync:()=>calls.push('animal-read'),commitSync:()=>calls.push('animal-write')},machineAnimation:{prepareSync:()=>calls.push('machine-read'),commitSync:()=>calls.push('machine-write')},ctx:{refreshPresentation:()=>calls.push('delight')}});
+ vm.runInContext(`${source.slice(start,end)};refreshMotion()`,c);assert.deepEqual(calls,['animal-read','machine-read','delight','animal-write','machine-write']);
 });
 test('new-land obstacle IDs are not mistaken for land patches after clear preview cancellation',()=>{
  const a=source.indexOf('function renderTransaction(){'),b=source.indexOf('function render(){',a),markup=[];

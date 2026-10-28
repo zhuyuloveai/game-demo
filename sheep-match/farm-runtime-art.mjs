@@ -1,5 +1,6 @@
 /** State-aware, presentation-only runtime adapter. Never writes into saved entities. */
 import {CROPS,FRUITS} from './farm-config.mjs';
+import {resolveMachinePartArt,renderMachinePartArt} from './farm-runtime-machines.mjs';
 import {RUNTIME_ART_METADATA} from './farm-runtime-art-metadata.mjs';
 export {RUNTIME_ART_METADATA};
 const machineKey = {feed_mill_1:'feed-mill',feed_mill_2:'feed-mill'};
@@ -14,6 +15,7 @@ function descriptor(key){
 /** null deliberately asks the existing SVG state/skin renderer to remain in use. */
 export function resolveWorldArt(entity,now=0){
   if(!entity)return null;
+  const mechanism=resolveMachinePartArt(entity);if(mechanism)return mechanism;
   const {kind,configId}=entity;
   if(kind==='field'){
     const crop=entity.crop;if(!crop)return null;
@@ -44,6 +46,7 @@ let clipSequence=0;
 /** SVG is only an image viewport here: no flattening, stretching or skewing the PNG. */
 export function renderRuntimeArt(art,{className='',alt='',mirror=false,layer='all'}={}){
   if(!art)return '';
+  if(art.machineParts)return renderMachinePartArt(art,{className,alt,mirror});
   const [x0,y0,x1,y1]=art.bounds;
   const points=art.frontOcclusion;
   // Clip paths are normalized to this same cropped viewport. The two layers

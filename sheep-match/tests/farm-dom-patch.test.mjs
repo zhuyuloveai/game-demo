@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {patchFarmChildren,patchFarmMarkup} from '../farm-dom-patch.mjs';
+import {patchFarmChildren,patchFarmMarkup,ownFarmAnimationImage} from '../farm-dom-patch.mjs';
 class Style extends Map {getPropertyValue(k){return this.get(k)||''}getPropertyPriority(){return ''}setProperty(k,v){this.set(k,v)}removeProperty(k){this.delete(k)}[Symbol.iterator](){return this.keys()}}
 class Node {
  constructor(name='DIV',attrs={},kids=[]){this.nodeType=1;this.nodeName=name;this.attrs=new Map(Object.entries(attrs));this.style=new Style();this.childNodes=[];this.classList={contains:c=>(this.getAttribute('class')||'').split(' ').includes(c)};for(const k of kids)this.insertBefore(k,null)}
@@ -45,4 +45,21 @@ test('native unequal-subtree path still updates changed content and preserves mo
  const h=countedRoot(['a']);h.nodes[0].isEqualNode=()=>false;h.nodes[0].setAttribute('data-fw-frame','4');
  const desired=h.desired(['a']);desired.firstChild.setAttribute('src','changed.png');patchFarmChildren(h.root,desired);
  assert.equal(h.nodes[0].getAttribute('src'),'changed.png');assert.equal(h.nodes[0].getAttribute('data-fw-frame'),'4');assert.equal(h.moves,0);
+});
+
+test('presentation patch preserves an owned live frame only while static state art is unchanged',()=>{
+ const image=new Node('IMAGE',{href:'walk-03.png'}),root=new Node('SVG',{},[image]);
+ ownFarmAnimationImage(image,'hungry.png');
+ patchFarmChildren(root,new Node('SVG',{},[new Node('IMAGE',{href:'hungry.png'})]));
+ assert.equal(image.getAttribute('href'),'walk-03.png');
+ patchFarmChildren(root,new Node('SVG',{},[new Node('IMAGE',{href:'producing.png'})]));
+ assert.equal(image.getAttribute('href'),'producing.png');
+ ownFarmAnimationImage(image,null);
+ patchFarmChildren(root,new Node('SVG',{},[new Node('IMAGE',{href:'ready.png'})]));
+ assert.equal(image.getAttribute('href'),'ready.png');
+});
+test('machine part transform survives a presentation patch without resetting motion',()=>{
+ const part=new Node('G');part.style.set('--fw-part-transform','translate(8px, 2px)');
+ const root=new Node('SVG',{},[part]);patchFarmChildren(root,new Node('SVG',{},[new Node('G')]));
+ assert.equal(part.style.get('--fw-part-transform'),'translate(8px, 2px)');
 });

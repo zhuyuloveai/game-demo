@@ -21,7 +21,7 @@ test('items and legacy UI paths resolve new icons while unrelated art stays unch
  for(const id of ['wheat','milk','cow_feed','egg','blueberries'])assert.match(farmAssetUrl(id),new RegExp('/priority-icons-v1/items/'+id+'\\.svg$'));
  assert.match(farmAssetPathUrl('ui/harvest.svg'),/priority-icons-v1\/ui\/harvest\.svg$/);
  assert.equal(farmAsset('wheat').path,'items/wheat.svg');
- assert.match(farmAssetUrl('bread'),/\/assets\/farm\/items\/bread\.svg$/);
+ assert.match(farmAssetUrl('bread'),/\/completion-icons-v1\/icons\/processed\/bread\.svg$/);
  assert.equal(priorityIconUrl('buildings/Barn.svg'),null);
  assert.match(farmAssetPathUrl('buildings/Barn.svg'),/\/assets\/farm\/buildings\/Barn\.svg$/);
 });

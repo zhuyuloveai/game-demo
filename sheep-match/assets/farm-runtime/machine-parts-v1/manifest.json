@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "sets": [
+    "feed-mill",
+    "windmill",
+    "loom",
+    "juice-press",
+    "sewing-machine"
+  ],
+  "assets": [
+    {
+      "path": "assets/farm-runtime/machine-parts-v1/feed-mill/base.png",
+      "source": "docs/art-packs/farm-art-completion-v1/machines/feed-mill/layers/01-base.png",
+      "sha256": "8ffac4dd5252cdb415b89124ced85b05051b313cd5d660a4d8ba9ad5d87791b8"
+    },
+    {
+      "path": "assets/farm-runtime/machine-parts-v1/feed-mill/foreground.png",
+      "source": "docs/art-packs/farm-art-completion-v1/machines/feed-mill/layers/03-foreground.png",
+      "sha256": "8ee1eb879d68de6d9fd1db76efa68adb712ffd4b3fb81c0d701d4822d62f5425"
+    },
+    {
+      "path": "assets/farm-runtime/machine-parts-v1/feed-mill/moving.png",
+      "source": "docs/art-packs/farm-art-completion-v1/machines/feed-mill/sources/rotor-plane.png",
+      "sha256": "7b63daf8ecb6c6b756c01ff27336392fd415f38c07f5aa27433cca5e1b465681"
+    },
+    {
+      "path": "assets/farm-runtime/machine-parts-v1/windmill/base.png",
+      "source": "docs/art-packs/farm-art-completion-v1/machines/windmill/layers/01-base.png",
+      "sha256": "10d5ea9e7873abd036a8a6bbaf253632ad3379bea7b1faf150778d652de1170e"
+    },
+    {
+      "path": "assets/farm-runtime/machine-parts-v1/windmill/moving.png",
+      "source": "docs/art-packs/farm-art-completion-v1/machines/windmill/sources/rotor-plane.png",
+      "sha256": "c5935da5977c310edb88ef19ac36dd0e6c1f1f4384cb6369eb59a32c529921fb"
+    },
+    {
+      "path": "assets/farm-runtime/machine-parts-v1/loom/base.png",
+      "source": "docs/art-packs/farm-art-completion-v1/machines/loom/layers/01-base.png",
+      "sha256": "d08e72f575a4e26f7b42d04d9b1c793c18f62e59f620f8ed26167672cc0c1301"
+    },
+    {
+      "path": "assets/farm-runtime/machine-parts-v1/loom/foreground.png",
+      "source": "docs/art-packs/farm-art-completion-v1/machines/loom/layers/03-foreground.png",
+      "sha256": "7315850cb1671656f55e7199084a1da33cc9c894d0ed2b6da9c24b44c6940064"
+    },
+    {
+      "path": "assets/farm-runtime/machine-parts-v1/loom/moving.png",
+      "source": "docs/art-packs/farm-art-completion-v1/machines/loom/layers/02-moving.png",
+      "sha256": "44a91f8ed464808c22993eba72f9dab44bf7e434ec820d857719b221dca6b6e0"
+    },
+    {
+      "path": "assets/farm-runtime/machine-parts-v1/juice-press/base.png",
+      "source": "docs/art-packs/farm-art-completion-v1/machines/juice-press/layers/01-base.png",
+      "sha256": "7d169e5ac7a7d54ccdea8b1b2009cff7e8f9160a6d12826aaa95815bd8f0b00e"
+    },
+    {
+      "path": "assets/farm-runtime/machine-parts-v1/juice-press/foreground.png",
+      "source": "docs/art-packs/farm-art-completion-v1/machines/juice-press/layers/03-foreground.png",
+      "sha256": "7d26fd4fdafbc0384ac0065f731dd60beb2b61a6c5a7461b6c9b9c2c10d46fb3"
+    },
+    {
+      "path": "assets/farm-runtime/machine-parts-v1/juice-press/moving.png",
+      "source": "docs/art-packs/farm-art-completion-v1/machines/juice-press/layers/02-moving.png",
+      "sha256": "54d6f1395968e4fd16cefcc700f75b6555a5e9735eba4f73895c228ba55ca9b3"
+    },
+    {
+      "path": "assets/farm-runtime/machine-parts-v1/sewing-machine/base.png",
+      "source": "docs/art-packs/farm-art-completion-v1/machines/sewing-machine/layers/01-base.png",
+      "sha256": "5198469e2edbeab9cd288a4e10a07e6ab7af15db6a0e4eb8218e33fdbd4b94e7"
+    },
+    {
+      "path": "assets/farm-runtime/machine-parts-v1/sewing-machine/foreground.png",
+      "source": "docs/art-packs/farm-art-completion-v1/machines/sewing-machine/layers/03-foreground.png",
+      "sha256": "6e30b62fc88694867f3e23e2b75727775bc96cbc4d591b332dbea8b4b0ec2c11"
+    },
+    {
+      "path": "assets/farm-runtime/machine-parts-v1/sewing-machine/moving.png",
+      "source": "docs/art-packs/farm-art-completion-v1/machines/sewing-machine/layers/02-moving.png",
+      "sha256": "31ce94fd0a0a2d2106bd01f4842b8700669862dea0334c693f9294044825ff36"
+    }
+  ]
+}

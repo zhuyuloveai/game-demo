@@ -7,6 +7,7 @@ BASE_FILES = {
     "index.html": "text/html",
     "style.css": "text/css",
     "app.mjs": "application/javascript",
+    "game-navigation.mjs": "application/javascript",
     "display-mode.mjs": "application/javascript",
     "display-mode.css": "text/css",
     "engine.mjs": "application/javascript",
@@ -50,6 +51,7 @@ MIME = {'.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.css':'t
 NEW_MODULES += ('farm-coop-panel','farm-factory-panel','farm-workshop-terrain','farm-workshop-effects','farm-priority-icons')
 NEW_MODULES += ('farm-animal-animation','farm-runtime-animal-animation-metadata')
 NEW_MODULES += ('farm-art-direction','farm-art-presentation','farm-pen-art','farm-runtime-shelters','farm-runtime-shelters-metadata','farm-shelter-geometry')
+NEW_MODULES += ('farm-machine-animation','farm-runtime-machines','farm-runtime-machines-metadata')
 def expected_runtime(root):
     files = dict(BASE_FILES)
     files.update({name+'.mjs':'application/javascript' for name in NEW_MODULES})
@@ -121,6 +123,22 @@ def expected_runtime(root):
         path = PurePosixPath(icon['svg'])
         assert not path.is_absolute() and '..' not in path.parts and path.suffix == '.svg' and path.parts[0] in ('items', 'ui', 'tools'), path
         files['assets/farm/priority-icons-v1/'+str(path)] = 'image/svg+xml'
+    completion_manifest = 'assets/farm/completion-icons-v1/manifest.json'
+    completion_art = json.loads((root/completion_manifest).read_text())
+    files[completion_manifest] = 'application/json'
+    for icon in completion_art['icons']:
+        path = PurePosixPath(icon['svg'])
+        assert not path.is_absolute() and '..' not in path.parts and path.suffix == '.svg', path
+        assert path.parts[0] == 'icons' and path.parts[1] in ('processed', 'materials', 'currency', 'achievements', 'branch'), path
+        files['assets/farm/completion-icons-v1/'+str(path)] = 'image/svg+xml'
+    floral_manifest = 'assets/farm-runtime/floral-skins-v1/manifest.json'
+    floral_art = json.loads((root/floral_manifest).read_text())
+    files[floral_manifest] = 'application/json'
+    files['assets/farm-runtime/floral-skins-v1/metadata.mjs'] = 'application/javascript'
+    for asset in floral_art['assets']:
+        path = PurePosixPath(asset['path'])
+        assert not path.is_absolute() and '..' not in path.parts and str(path).startswith('assets/farm-runtime/floral-skins-v1/') and path.suffix == '.png', path
+        files[str(path)] = 'image/png'
     for name in (
         'grass-edge-ne-dense', 'grass-edge-ne-sparse', 'grass-edge-nw-dense', 'grass-edge-nw-sparse',
         'soil-grass-ne', 'soil-grass-nw',
@@ -131,4 +149,13 @@ def expected_runtime(root):
         files[f'assets/farm/terrain-workshop/{name}.png'] = 'image/png'
     for name in ('clear-dust', 'stone-chips', 'wood-chips', 'land-open'):
         files[f'assets/farm/effects-workshop/{name}.png'] = 'image/png'
+    # Only approved independent parts, never diagnostics or editable source.
+    part_manifest = 'assets/farm-runtime/machine-parts-v1/manifest.json'
+    part_art = json.loads((root/part_manifest).read_text())
+    files[part_manifest] = 'application/json'
+    for asset in part_art['assets']:
+        path = PurePosixPath(asset['path'])
+        assert not path.is_absolute() and '..' not in path.parts and str(path).startswith('assets/farm-runtime/machine-parts-v1/'), path
+        assert path.suffix == '.png', path
+        files[str(path)] = MIME[path.suffix]
     return files

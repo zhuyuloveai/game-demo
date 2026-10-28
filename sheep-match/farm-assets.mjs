@@ -1,4 +1,103 @@
 import {priorityIconUrl} from './farm-priority-icons.mjs';
+/** Approved completion icons keep every legacy identifier and original file. */
+const completionIcons = Object.freeze({
+  "items/bread.svg": "icons/processed/bread.svg",
+  "items/corn_bread.svg": "icons/processed/corn_bread.svg",
+  "items/cookie.svg": "icons/processed/cookie.svg",
+  "items/raspberry_muffin.svg": "icons/processed/raspberry_muffin.svg",
+  "items/blackberry_muffin.svg": "icons/processed/blackberry_muffin.svg",
+  "items/cream.svg": "icons/processed/cream.svg",
+  "items/butter.svg": "icons/processed/butter.svg",
+  "items/cheese.svg": "icons/processed/cheese.svg",
+  "items/brown_sugar.svg": "icons/processed/brown_sugar.svg",
+  "items/white_sugar.svg": "icons/processed/white_sugar.svg",
+  "items/syrup.svg": "icons/processed/syrup.svg",
+  "items/popcorn.svg": "icons/processed/popcorn.svg",
+  "items/buttered_popcorn.svg": "icons/processed/buttered_popcorn.svg",
+  "items/chili_popcorn.svg": "icons/processed/chili_popcorn.svg",
+  "items/pancake.svg": "icons/processed/pancake.svg",
+  "items/bacon_and_eggs.svg": "icons/processed/bacon_and_eggs.svg",
+  "items/hamburger.svg": "icons/processed/hamburger.svg",
+  "items/grilled_lamb_skewer.svg": "icons/processed/grilled_lamb_skewer.svg",
+  "items/roasted_tomatoes.svg": "icons/processed/roasted_tomatoes.svg",
+  "items/carrot_pie.svg": "icons/processed/carrot_pie.svg",
+  "items/pumpkin_pie.svg": "icons/processed/pumpkin_pie.svg",
+  "items/bacon_pie.svg": "icons/processed/bacon_pie.svg",
+  "items/apple_pie.svg": "icons/processed/apple_pie.svg",
+  "items/sweater.svg": "icons/processed/sweater.svg",
+  "items/blue_sweater.svg": "icons/processed/blue_sweater.svg",
+  "items/blue_woolly_hat.svg": "icons/processed/blue_woolly_hat.svg",
+  "items/cotton_shirt.svg": "icons/processed/cotton_shirt.svg",
+  "items/cotton_fabric.svg": "icons/processed/cotton_fabric.svg",
+  "items/wooly_chaps.svg": "icons/processed/wooly_chaps.svg",
+  "items/violet_dress.svg": "icons/processed/violet_dress.svg",
+  "items/carrot_cake.svg": "icons/processed/carrot_cake.svg",
+  "items/cream_cake.svg": "icons/processed/cream_cake.svg",
+  "items/red_berry_cake.svg": "icons/processed/red_berry_cake.svg",
+  "items/cheesecake.svg": "icons/processed/cheesecake.svg",
+  "items/carrot_juice.svg": "icons/processed/carrot_juice.svg",
+  "items/apple_juice.svg": "icons/processed/apple_juice.svg",
+  "items/cherry_juice.svg": "icons/processed/cherry_juice.svg",
+  "items/vanilla_ice_cream.svg": "icons/processed/vanilla_ice_cream.svg",
+  "items/bolt.svg": "icons/materials/bolt.svg",
+  "items/duct_tape.svg": "icons/materials/duct_tape.svg",
+  "items/plank.svg": "icons/materials/plank.svg",
+  "items/nail.svg": "icons/materials/nail.svg",
+  "items/screw.svg": "icons/materials/screw.svg",
+  "items/wood_panel.svg": "icons/materials/wood_panel.svg",
+  "items/land_deed.svg": "icons/materials/land_deed.svg",
+  "items/mallet.svg": "icons/materials/mallet.svg",
+  "items/marker_stake.svg": "icons/materials/marker_stake.svg",
+  "items/axe.svg": "icons/materials/axe.svg",
+  "items/saw.svg": "icons/materials/saw.svg",
+  "items/shovel.svg": "icons/materials/shovel.svg",
+  "items/dynamite.svg": "icons/materials/dynamite.svg",
+  "items/tnt.svg": "icons/materials/tnt.svg",
+  "items/fertilizer.svg": "icons/materials/fertilizer.svg",
+  "items/coin.svg": "icons/currency/coin.svg",
+  "items/construction_voucher.svg": "icons/currency/construction_voucher.svg",
+  "items/material_choice_voucher.svg": "icons/currency/material_choice_voucher.svg",
+  "items/xp.svg": "icons/currency/xp.svg",
+  "items/chicken_credit.svg": "icons/currency/chicken_credit.svg",
+  "items/cow_credit.svg": "icons/currency/cow_credit.svg",
+  "decor/badges/g01-bronze.svg": "icons/achievements/g01-bronze.svg",
+  "decor/badges/g01-silver.svg": "icons/achievements/g01-silver.svg",
+  "decor/badges/g01-gold.svg": "icons/achievements/g01-gold.svg",
+  "decor/badges/g02-bronze.svg": "icons/achievements/g02-bronze.svg",
+  "decor/badges/g02-silver.svg": "icons/achievements/g02-silver.svg",
+  "decor/badges/g02-gold.svg": "icons/achievements/g02-gold.svg",
+  "decor/badges/g03-bronze.svg": "icons/achievements/g03-bronze.svg",
+  "decor/badges/g03-silver.svg": "icons/achievements/g03-silver.svg",
+  "decor/badges/g03-gold.svg": "icons/achievements/g03-gold.svg",
+  "decor/badges/g04-bronze.svg": "icons/achievements/g04-bronze.svg",
+  "decor/badges/g04-silver.svg": "icons/achievements/g04-silver.svg",
+  "decor/badges/g04-gold.svg": "icons/achievements/g04-gold.svg",
+  "decor/badges/g05-bronze.svg": "icons/achievements/g05-bronze.svg",
+  "decor/badges/g05-silver.svg": "icons/achievements/g05-silver.svg",
+  "decor/badges/g05-gold.svg": "icons/achievements/g05-gold.svg",
+  "decor/badges/g06-bronze.svg": "icons/achievements/g06-bronze.svg",
+  "decor/badges/g06-silver.svg": "icons/achievements/g06-silver.svg",
+  "decor/badges/g06-gold.svg": "icons/achievements/g06-gold.svg",
+  "decor/badges/g07-bronze.svg": "icons/achievements/g07-bronze.svg",
+  "decor/badges/g07-silver.svg": "icons/achievements/g07-silver.svg",
+  "decor/badges/g07-gold.svg": "icons/achievements/g07-gold.svg",
+  "decor/badges/g08-bronze.svg": "icons/achievements/g08-bronze.svg",
+  "decor/badges/g08-silver.svg": "icons/achievements/g08-silver.svg",
+  "decor/badges/g08-gold.svg": "icons/achievements/g08-gold.svg",
+  "decor/badges/g09-bronze.svg": "icons/achievements/g09-bronze.svg",
+  "decor/badges/g09-silver.svg": "icons/achievements/g09-silver.svg",
+  "decor/badges/g09-gold.svg": "icons/achievements/g09-gold.svg",
+  "decor/badges/g10-bronze.svg": "icons/achievements/g10-bronze.svg",
+  "decor/badges/g10-silver.svg": "icons/achievements/g10-silver.svg",
+  "decor/badges/g10-gold.svg": "icons/achievements/g10-gold.svg",
+  "ui/branch_first_clear.svg": "icons/branch/branch_first_clear.svg",
+  "ui/branch_replay.svg": "icons/branch/branch_replay.svg",
+  "ui/branch_locked.svg": "icons/branch/branch_locked.svg",
+  "ui/branch_escrow.svg": "icons/branch/branch_escrow.svg"
+});
+const completionUrls = new Map(Object.entries(completionIcons).map(([legacy,path])=>[legacy,new URL(`./assets/farm/completion-icons-v1/${path}`,import.meta.url).href]));
+export function completionIconPaths(){return {...completionIcons};}
+
 /* Generated runtime index from licensed farm art manifest; see assets/farm/licenses/ATTRIBUTION.md. */
 export const FARM_ASSETS = [{
     "assetId":"common.audio.spring",
@@ -5138,8 +5237,13 @@ export function farmAsset(id, variant = 'base', category) {
   const candidates = projectAssets.get(key) || [];
   return candidates.find(a => (!category || a.category === category) && a.variant === variant) || candidates.find(a => !category || a.category === category) || byId.get('ui.info');
 }
+// Empty thumbnails only; the world resolves these skins through shelter layers.
+const floralPreviewUrls = new Map([
+  ['buildings/Chicken_Shelter_Floral.svg',new URL('./assets/farm-runtime/floral-skins-v1/chicken/preview.png',import.meta.url).href],
+  ['buildings/Sheep_Shelter_Floral.svg',new URL('./assets/farm-runtime/floral-skins-v1/sheep/preview.png',import.meta.url).href]
+]);
 export function farmAssetPathUrl(path) {
-  return priorityIconUrl(path) || new URL(`./assets/farm/${path}`, import.meta.url).href;
+  return floralPreviewUrls.get(path) || completionUrls.get(path) || priorityIconUrl(path) || new URL(`./assets/farm/${path}`, import.meta.url).href;
 }
 export function farmAssetUrl(id, variant = 'base', category) {
   return farmAssetPathUrl(farmAsset(id, variant, category).path);

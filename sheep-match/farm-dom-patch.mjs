@@ -1,11 +1,17 @@
 /** Retain painted nodes across presentation changes. No state/economic mutations. */
 const transient=name=>name.startsWith('data-delight-')||name.startsWith('data-fw-frame');
-const motionStyle=name=>name.startsWith('--delight-')||name.startsWith('--ripe-');
+const motionStyle=name=>name.startsWith('--delight-')||name.startsWith('--ripe-')||name.startsWith('--fw-part-');
 const identity=node=>node.nodeType===1?(node.getAttribute('data-render-key')||node.getAttribute('data-entity')||node.getAttribute('data-animal')||node.getAttribute('data-forest-id')||node.getAttribute('data-action')||null):null;
+// An animation may temporarily own an image source. A presentation refresh of
+// the SAME static art must not flash it for one frame before the next RAF.
+// A genuinely changed state art still wins and invalidates that ownership.
+const animationBases=new WeakMap();
+export function ownFarmAnimationImage(image,base){if(base)animationBases.set(image,base);else animationBases.delete(image);}
 function patchAttributes(node,next){
  for(const attr of [...node.attributes])if(!next.hasAttribute(attr.name)&&!transient(attr.name)&&attr.name!=='style')node.removeAttribute(attr.name);
  for(const attr of [...next.attributes]){
   if(attr.name==='style')continue;
+  if(attr.name==='href'&&animationBases.has(node)){if(animationBases.get(node)===attr.value)continue;animationBases.delete(node);}
   if(node.getAttribute(attr.name)!==attr.value)node.setAttribute(attr.name,attr.value);
  }
  // Presentation controllers own these custom properties; resetting cssText restarts motion.

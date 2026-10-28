@@ -19,7 +19,7 @@ test('five approved shelters retain source-space footprint, support, exclusions 
  }
 });
 test('55 transparent full-canvas derivatives preserve registration, source hashes and hit masks',()=>{
- assert.equal(shelterRuntimeInventory().length,55);
+ assert.equal(shelterRuntimeInventory().length,61,'55 base derivatives + 6 floral overlay layers');
  for(const art of Object.values(SHELTER_ASSET_METADATA)){
   const data=readFileSync(new URL('../'+art.path,import.meta.url));
   assert.deepEqual([...data.subarray(0,8)],[137,80,78,71,13,10,26,10]);
