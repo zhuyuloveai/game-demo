@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "sets": [
+    {
+      "id": "feed-mill",
+      "name": "饲料机 · 转轮",
+      "path": "machines/feed-mill",
+      "layerCount": 3,
+      "manifest": "machines/feed-mill/manifest.json",
+      "sourceSize": [
+        1312,
+        1199
+      ],
+      "generatedSize": [
+        1312,
+        1199
+      ]
+    },
+    {
+      "id": "windmill",
+      "name": "风车 · 扇叶",
+      "path": "machines/windmill",
+      "layerCount": 2,
+      "manifest": "machines/windmill/manifest.json",
+      "sourceSize": [
+        1312,
+        1199
+      ],
+      "generatedSize": [
+        1312,
+        1199
+      ]
+    },
+    {
+      "id": "loom",
+      "name": "织布机 · 梭子",
+      "path": "machines/loom",
+      "layerCount": 3,
+      "manifest": "machines/loom/manifest.json",
+      "sourceSize": [
+        1312,
+        1199
+      ],
+      "generatedSize": null
+    },
+    {
+      "id": "juice-press",
+      "name": "榨汁机 · 压板",
+      "path": "machines/juice-press",
+      "layerCount": 3,
+      "manifest": "machines/juice-press/manifest.json",
+      "sourceSize": [
+        1316,
+        1195
+      ],
+      "generatedSize": [
+        1316,
+        1195
+      ]
+    },
+    {
+      "id": "sewing-machine",
+      "name": "缝纫机 · 机针",
+      "path": "machines/sewing-machine",
+      "layerCount": 3,
+      "manifest": "machines/sewing-machine/manifest.json",
+      "sourceSize": [
+        1312,
+        1199
+      ],
+      "generatedSize": [
+        1312,
+        1199
+      ]
+    }
+  ]
+}

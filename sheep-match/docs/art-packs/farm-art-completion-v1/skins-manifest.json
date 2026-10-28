@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "sets": [
+    {
+      "id": "chicken-floral",
+      "path": "skins/chicken",
+      "newLayers": 3,
+      "reusedLayers": 5,
+      "canvas": [
+        1200,
+        1000
+      ],
+      "anchor": [
+        600,
+        590
+      ],
+      "footprint": [
+        4,
+        4
+      ],
+      "referenceAnimalCount": 6
+    },
+    {
+      "id": "sheep-floral",
+      "path": "skins/sheep",
+      "newLayers": 3,
+      "reusedLayers": 5,
+      "canvas": [
+        1200,
+        1000
+      ],
+      "anchor": [
+        600,
+        590
+      ],
+      "footprint": [
+        4,
+        4
+      ],
+      "referenceAnimalCount": 5
+    }
+  ]
+}

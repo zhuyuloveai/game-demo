@@ -1,0 +1,19 @@
+{
+  "status": "pass",
+  "checks": 1799,
+  "icons": 93,
+  "coverage": {
+    "processed": 38,
+    "materials": 15,
+    "currency": 6,
+    "achievements": 30,
+    "branch": 4,
+    "floralSkinSets": 2,
+    "machineSets": 5
+  },
+  "machineLayerPngs": 14,
+  "skinLayerPngs": 16,
+  "machineDiagnosticSamples": 60,
+  "errors": [],
+  "scope": "Art contracts only; no game integration or deployed gameplay verification."
+}

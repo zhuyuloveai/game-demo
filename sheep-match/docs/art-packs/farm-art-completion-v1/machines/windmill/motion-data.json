@@ -1,0 +1,23 @@
+{
+  "stationary": "<g transform=\"translate(144 150)\"><image x=\"0\" y=\"0\" width=\"1312\" height=\"1199\" href=\"sources/clean-base-generated.png\"/></g>",
+  "partSource": "<image x=\"-256\" y=\"-256\" width=\"512\" height=\"512\" href=\"sources/rotor-plane.png\"/>",
+  "front": "",
+  "spec": {
+    "id": "windmill",
+    "label": "风车 · 扇叶",
+    "source": "decor/windmill.png",
+    "kind": "rotor",
+    "pivot": [
+      623,
+      529
+    ],
+    "plane": [
+      0.94,
+      0.08,
+      -0.04,
+      1
+    ],
+    "radius": 445,
+    "cycleMs": 8500
+  }
+}

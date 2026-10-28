@@ -1,0 +1,172 @@
+{
+  "version": 1,
+  "id": "feed-mill",
+  "name": "饲料机 · 转轮",
+  "canvas": [
+    800,
+    750
+  ],
+  "anchor": [
+    415.375,
+    560.966485042735
+  ],
+  "legacyRegistration": {
+    "bounds": [
+      72,
+      15,
+      464,
+      454
+    ],
+    "canvas": [
+      512,
+      468
+    ],
+    "anchor": [
+      0.5,
+      0.83
+    ],
+    "visualWidth": 108,
+    "sourceAnchor": [
+      686.75,
+      971.9329700854701
+    ],
+    "fullCanvasDisplayWidth": 172.02588352414136,
+    "note": "Keep the same world registration and full-canvas scale for every layer; do not crop each layer separately."
+  },
+  "loopSeamMaxChannelDelta": 0,
+  "sourceCanvas": [
+    1312,
+    1199
+  ],
+  "sourceToCanvas": {
+    "scale": 0.5,
+    "offset": [
+      72,
+      75
+    ]
+  },
+  "sourcePath": "sheep-match/docs/art-packs/sumikko-farm-v1/assets/buildings/feed-mill.png",
+  "originalRetained": true,
+  "pivot": [
+    525,
+    421.5
+  ],
+  "layers": [
+    {
+      "id": "01-base",
+      "png": "layers/01-base.png",
+      "svg": "layers/01-base.svg",
+      "offset": [
+        0,
+        0
+      ],
+      "canvas": [
+        800,
+        750
+      ]
+    },
+    {
+      "id": "02-moving",
+      "png": "layers/02-moving.png",
+      "svg": "layers/02-moving.svg",
+      "offset": [
+        0,
+        0
+      ],
+      "canvas": [
+        800,
+        750
+      ]
+    },
+    {
+      "id": "03-foreground",
+      "png": "layers/03-foreground.png",
+      "svg": "layers/03-foreground.svg",
+      "offset": [
+        0,
+        0
+      ],
+      "canvas": [
+        800,
+        750
+      ]
+    }
+  ],
+  "animation": {
+    "type": "rotor",
+    "cycleMs": 4200,
+    "loop": true,
+    "interpolation": "linear angle in local plane before projection",
+    "planeMatrix": [
+      0.82,
+      -0.3,
+      0.1,
+      0.99
+    ],
+    "sourcePivot": [
+      906,
+      693
+    ],
+    "travelSourcePx": null,
+    "groundMotion": false,
+    "samplesAre": "12 diagnostic phase samples, not a 12fps playback sequence",
+    "restPhase": 0,
+    "reducedMotion": "freeze at phase 0"
+  },
+  "partsEditable": "independent raster parts with editable SVG transforms and clipping paths",
+  "shadow": "none baked; reuse game contact shadow once",
+  "recommendedDisplayWidth": [
+    240,
+    420
+  ],
+  "samples": [
+    {
+      "phase": 0,
+      "file": "previews/phase-00.png"
+    },
+    {
+      "phase": 0.08333333333333333,
+      "file": "previews/phase-01.png"
+    },
+    {
+      "phase": 0.16666666666666666,
+      "file": "previews/phase-02.png"
+    },
+    {
+      "phase": 0.25,
+      "file": "previews/phase-03.png"
+    },
+    {
+      "phase": 0.3333333333333333,
+      "file": "previews/phase-04.png"
+    },
+    {
+      "phase": 0.4166666666666667,
+      "file": "previews/phase-05.png"
+    },
+    {
+      "phase": 0.5,
+      "file": "previews/phase-06.png"
+    },
+    {
+      "phase": 0.5833333333333334,
+      "file": "previews/phase-07.png"
+    },
+    {
+      "phase": 0.6666666666666666,
+      "file": "previews/phase-08.png"
+    },
+    {
+      "phase": 0.75,
+      "file": "previews/phase-09.png"
+    },
+    {
+      "phase": 0.8333333333333334,
+      "file": "previews/phase-10.png"
+    },
+    {
+      "phase": 0.9166666666666666,
+      "file": "previews/phase-11.png"
+    }
+  ]
+}

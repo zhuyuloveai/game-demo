@@ -1,0 +1,101 @@
+priority,id,name,source,transparent_png,original_retained
+P0,bread,面包,icons/processed/bread.svg,png/processed/bread.png,sheep-match/assets/farm/items/bread.svg
+P0,corn_bread,玉米面包,icons/processed/corn_bread.svg,png/processed/corn_bread.png,sheep-match/assets/farm/items/corn_bread.svg
+P0,cookie,曲奇,icons/processed/cookie.svg,png/processed/cookie.png,sheep-match/assets/farm/items/cookie.svg
+P0,raspberry_muffin,覆盆子松饼,icons/processed/raspberry_muffin.svg,png/processed/raspberry_muffin.png,sheep-match/assets/farm/items/raspberry_muffin.svg
+P0,blackberry_muffin,黑莓松饼,icons/processed/blackberry_muffin.svg,png/processed/blackberry_muffin.png,sheep-match/assets/farm/items/blackberry_muffin.svg
+P0,cream,奶油,icons/processed/cream.svg,png/processed/cream.png,sheep-match/assets/farm/items/cream.svg
+P0,butter,黄油,icons/processed/butter.svg,png/processed/butter.png,sheep-match/assets/farm/items/butter.svg
+P0,cheese,奶酪,icons/processed/cheese.svg,png/processed/cheese.png,sheep-match/assets/farm/items/cheese.svg
+P0,brown_sugar,红糖,icons/processed/brown_sugar.svg,png/processed/brown_sugar.png,sheep-match/assets/farm/items/brown_sugar.svg
+P0,white_sugar,白糖,icons/processed/white_sugar.svg,png/processed/white_sugar.png,sheep-match/assets/farm/items/white_sugar.svg
+P0,syrup,糖浆,icons/processed/syrup.svg,png/processed/syrup.png,sheep-match/assets/farm/items/syrup.svg
+P0,popcorn,爆米花,icons/processed/popcorn.svg,png/processed/popcorn.png,sheep-match/assets/farm/items/popcorn.svg
+P0,buttered_popcorn,黄油爆米花,icons/processed/buttered_popcorn.svg,png/processed/buttered_popcorn.png,sheep-match/assets/farm/items/buttered_popcorn.svg
+P0,chili_popcorn,辣味爆米花,icons/processed/chili_popcorn.svg,png/processed/chili_popcorn.png,sheep-match/assets/farm/items/chili_popcorn.svg
+P0,pancake,煎饼,icons/processed/pancake.svg,png/processed/pancake.png,sheep-match/assets/farm/items/pancake.svg
+P0,bacon_and_eggs,培根煎蛋,icons/processed/bacon_and_eggs.svg,png/processed/bacon_and_eggs.png,sheep-match/assets/farm/items/bacon_and_eggs.svg
+P0,hamburger,汉堡,icons/processed/hamburger.svg,png/processed/hamburger.png,sheep-match/assets/farm/items/hamburger.svg
+P0,grilled_lamb_skewer,烤羊肉串,icons/processed/grilled_lamb_skewer.svg,png/processed/grilled_lamb_skewer.png,sheep-match/assets/farm/items/grilled_lamb_skewer.svg
+P0,roasted_tomatoes,烤番茄,icons/processed/roasted_tomatoes.svg,png/processed/roasted_tomatoes.png,sheep-match/assets/farm/items/roasted_tomatoes.svg
+P0,carrot_pie,胡萝卜派,icons/processed/carrot_pie.svg,png/processed/carrot_pie.png,sheep-match/assets/farm/items/carrot_pie.svg
+P0,pumpkin_pie,南瓜派,icons/processed/pumpkin_pie.svg,png/processed/pumpkin_pie.png,sheep-match/assets/farm/items/pumpkin_pie.svg
+P0,bacon_pie,培根派,icons/processed/bacon_pie.svg,png/processed/bacon_pie.png,sheep-match/assets/farm/items/bacon_pie.svg
+P0,apple_pie,苹果派,icons/processed/apple_pie.svg,png/processed/apple_pie.png,sheep-match/assets/farm/items/apple_pie.svg
+P0,sweater,毛衣,icons/processed/sweater.svg,png/processed/sweater.png,sheep-match/assets/farm/items/sweater.svg
+P0,blue_sweater,蓝毛衣,icons/processed/blue_sweater.svg,png/processed/blue_sweater.png,sheep-match/assets/farm/items/blue_sweater.svg
+P0,blue_woolly_hat,蓝毛线帽,icons/processed/blue_woolly_hat.svg,png/processed/blue_woolly_hat.png,sheep-match/assets/farm/items/blue_woolly_hat.svg
+P0,cotton_shirt,棉衬衫,icons/processed/cotton_shirt.svg,png/processed/cotton_shirt.png,sheep-match/assets/farm/items/cotton_shirt.svg
+P0,cotton_fabric,棉布,icons/processed/cotton_fabric.svg,png/processed/cotton_fabric.png,sheep-match/assets/farm/items/cotton_fabric.svg
+P0,wooly_chaps,羊毛护腿裤,icons/processed/wooly_chaps.svg,png/processed/wooly_chaps.png,sheep-match/assets/farm/items/wooly_chaps.svg
+P0,violet_dress,紫罗兰连衣裙,icons/processed/violet_dress.svg,png/processed/violet_dress.png,sheep-match/assets/farm/items/violet_dress.svg
+P0,carrot_cake,胡萝卜蛋糕,icons/processed/carrot_cake.svg,png/processed/carrot_cake.png,sheep-match/assets/farm/items/carrot_cake.svg
+P0,cream_cake,奶油蛋糕,icons/processed/cream_cake.svg,png/processed/cream_cake.png,sheep-match/assets/farm/items/cream_cake.svg
+P0,red_berry_cake,红莓蛋糕,icons/processed/red_berry_cake.svg,png/processed/red_berry_cake.png,sheep-match/assets/farm/items/red_berry_cake.svg
+P0,cheesecake,奶酪蛋糕,icons/processed/cheesecake.svg,png/processed/cheesecake.png,sheep-match/assets/farm/items/cheesecake.svg
+P0,carrot_juice,胡萝卜汁,icons/processed/carrot_juice.svg,png/processed/carrot_juice.png,sheep-match/assets/farm/items/carrot_juice.svg
+P0,apple_juice,苹果汁,icons/processed/apple_juice.svg,png/processed/apple_juice.png,sheep-match/assets/farm/items/apple_juice.svg
+P0,cherry_juice,樱桃汁,icons/processed/cherry_juice.svg,png/processed/cherry_juice.png,sheep-match/assets/farm/items/cherry_juice.svg
+P0,vanilla_ice_cream,香草冰激凌,icons/processed/vanilla_ice_cream.svg,png/processed/vanilla_ice_cream.png,sheep-match/assets/farm/items/vanilla_ice_cream.svg
+P0,bolt,螺栓,icons/materials/bolt.svg,png/materials/bolt.png,sheep-match/assets/farm/items/bolt.svg
+P0,duct_tape,胶带,icons/materials/duct_tape.svg,png/materials/duct_tape.png,sheep-match/assets/farm/items/duct_tape.svg
+P0,plank,木板,icons/materials/plank.svg,png/materials/plank.png,sheep-match/assets/farm/items/plank.svg
+P0,nail,钉子,icons/materials/nail.svg,png/materials/nail.png,sheep-match/assets/farm/items/nail.svg
+P0,screw,螺丝,icons/materials/screw.svg,png/materials/screw.png,sheep-match/assets/farm/items/screw.svg
+P0,wood_panel,木墙板,icons/materials/wood_panel.svg,png/materials/wood_panel.png,sheep-match/assets/farm/items/wood_panel.svg
+P0,land_deed,土地契约,icons/materials/land_deed.svg,png/materials/land_deed.png,sheep-match/assets/farm/items/land_deed.svg
+P0,mallet,木槌,icons/materials/mallet.svg,png/materials/mallet.png,sheep-match/assets/farm/items/mallet.svg
+P0,marker_stake,标记桩,icons/materials/marker_stake.svg,png/materials/marker_stake.png,sheep-match/assets/farm/items/marker_stake.svg
+P0,axe,斧头,icons/materials/axe.svg,png/materials/axe.png,sheep-match/assets/farm/items/axe.svg
+P0,saw,锯子,icons/materials/saw.svg,png/materials/saw.png,sheep-match/assets/farm/items/saw.svg
+P0,shovel,铁锹,icons/materials/shovel.svg,png/materials/shovel.png,sheep-match/assets/farm/items/shovel.svg
+P0,dynamite,炸药棒,icons/materials/dynamite.svg,png/materials/dynamite.png,sheep-match/assets/farm/items/dynamite.svg
+P0,tnt,成捆炸药,icons/materials/tnt.svg,png/materials/tnt.png,sheep-match/assets/farm/items/tnt.svg
+P0,fertilizer,肥料,icons/materials/fertilizer.svg,png/materials/fertilizer.png,sheep-match/assets/farm/items/fertilizer.svg
+P0,coin,金币,icons/currency/coin.svg,png/currency/coin.png,sheep-match/assets/farm/items/coin.svg
+P0,construction_voucher,建造券,icons/currency/construction_voucher.svg,png/currency/construction_voucher.png,sheep-match/assets/farm/items/construction_voucher.svg
+P0,material_choice_voucher,材料自选券,icons/currency/material_choice_voucher.svg,png/currency/material_choice_voucher.png,sheep-match/assets/farm/items/material_choice_voucher.svg
+P0,xp,经验星,icons/currency/xp.svg,png/currency/xp.png,sheep-match/assets/farm/items/xp.svg
+P0,chicken_credit,小鸡兑换凭证,icons/currency/chicken_credit.svg,png/currency/chicken_credit.png,sheep-match/assets/farm/items/chicken_credit.svg
+P0,cow_credit,奶牛兑换凭证,icons/currency/cow_credit.svg,png/currency/cow_credit.png,sheep-match/assets/farm/items/cow_credit.svg
+P1,g01-bronze,田园收获 · 铜,icons/achievements/g01-bronze.svg,png/achievements/g01-bronze.png,sheep-match/assets/farm/decor/badges/g01-bronze.svg
+P1,g01-silver,田园收获 · 银,icons/achievements/g01-silver.svg,png/achievements/g01-silver.png,sheep-match/assets/farm/decor/badges/g01-silver.svg
+P1,g01-gold,田园收获 · 金,icons/achievements/g01-gold.svg,png/achievements/g01-gold.png,sheep-match/assets/farm/decor/badges/g01-gold.svg
+P1,g02-bronze,巧手加工 · 铜,icons/achievements/g02-bronze.svg,png/achievements/g02-bronze.png,sheep-match/assets/farm/decor/badges/g02-bronze.svg
+P1,g02-silver,巧手加工 · 银,icons/achievements/g02-silver.svg,png/achievements/g02-silver.png,sheep-match/assets/farm/decor/badges/g02-silver.svg
+P1,g02-gold,巧手加工 · 金,icons/achievements/g02-gold.svg,png/achievements/g02-gold.png,sheep-match/assets/farm/decor/badges/g02-gold.svg
+P1,g03-bronze,温柔饲养 · 铜,icons/achievements/g03-bronze.svg,png/achievements/g03-bronze.png,sheep-match/assets/farm/decor/badges/g03-bronze.svg
+P1,g03-silver,温柔饲养 · 银,icons/achievements/g03-silver.svg,png/achievements/g03-silver.png,sheep-match/assets/farm/decor/badges/g03-silver.svg
+P1,g03-gold,温柔饲养 · 金,icons/achievements/g03-gold.svg,png/achievements/g03-gold.png,sheep-match/assets/farm/decor/badges/g03-gold.svg
+P1,g04-bronze,配送达人 · 铜,icons/achievements/g04-bronze.svg,png/achievements/g04-bronze.png,sheep-match/assets/farm/decor/badges/g04-bronze.svg
+P1,g04-silver,配送达人 · 银,icons/achievements/g04-silver.svg,png/achievements/g04-silver.png,sheep-match/assets/farm/decor/badges/g04-silver.svg
+P1,g04-gold,配送达人 · 金,icons/achievements/g04-gold.svg,png/achievements/g04-gold.png,sheep-match/assets/farm/decor/badges/g04-gold.svg
+P1,g05-bronze,集市好邻居 · 铜,icons/achievements/g05-bronze.svg,png/achievements/g05-bronze.png,sheep-match/assets/farm/decor/badges/g05-bronze.svg
+P1,g05-silver,集市好邻居 · 银,icons/achievements/g05-silver.svg,png/achievements/g05-silver.png,sheep-match/assets/farm/decor/badges/g05-silver.svg
+P1,g05-gold,集市好邻居 · 金,icons/achievements/g05-gold.svg,png/achievements/g05-gold.png,sheep-match/assets/farm/decor/badges/g05-gold.svg
+P1,g06-bronze,仓储管家 · 铜,icons/achievements/g06-bronze.svg,png/achievements/g06-bronze.png,sheep-match/assets/farm/decor/badges/g06-bronze.svg
+P1,g06-silver,仓储管家 · 银,icons/achievements/g06-silver.svg,png/achievements/g06-silver.png,sheep-match/assets/farm/decor/badges/g06-silver.svg
+P1,g06-gold,仓储管家 · 金,icons/achievements/g06-gold.svg,png/achievements/g06-gold.png,sheep-match/assets/farm/decor/badges/g06-gold.svg
+P1,g07-bronze,开垦新地 · 铜,icons/achievements/g07-bronze.svg,png/achievements/g07-bronze.png,sheep-match/assets/farm/decor/badges/g07-bronze.svg
+P1,g07-silver,开垦新地 · 银,icons/achievements/g07-silver.svg,png/achievements/g07-silver.png,sheep-match/assets/farm/decor/badges/g07-silver.svg
+P1,g07-gold,开垦新地 · 金,icons/achievements/g07-gold.svg,png/achievements/g07-gold.png,sheep-match/assets/farm/decor/badges/g07-gold.svg
+P1,g08-bronze,工坊收藏 · 铜,icons/achievements/g08-bronze.svg,png/achievements/g08-bronze.png,sheep-match/assets/farm/decor/badges/g08-bronze.svg
+P1,g08-silver,工坊收藏 · 银,icons/achievements/g08-silver.svg,png/achievements/g08-silver.png,sheep-match/assets/farm/decor/badges/g08-silver.svg
+P1,g08-gold,工坊收藏 · 金,icons/achievements/g08-gold.svg,png/achievements/g08-gold.png,sheep-match/assets/farm/decor/badges/g08-gold.svg
+P1,g09-bronze,庭院设计 · 铜,icons/achievements/g09-bronze.svg,png/achievements/g09-bronze.png,sheep-match/assets/farm/decor/badges/g09-bronze.svg
+P1,g09-silver,庭院设计 · 银,icons/achievements/g09-silver.svg,png/achievements/g09-silver.png,sheep-match/assets/farm/decor/badges/g09-silver.svg
+P1,g09-gold,庭院设计 · 金,icons/achievements/g09-gold.svg,png/achievements/g09-gold.png,sheep-match/assets/farm/decor/badges/g09-gold.svg
+P1,g10-bronze,牧场故事 · 铜,icons/achievements/g10-bronze.svg,png/achievements/g10-bronze.png,sheep-match/assets/farm/decor/badges/g10-bronze.svg
+P1,g10-silver,牧场故事 · 银,icons/achievements/g10-silver.svg,png/achievements/g10-silver.png,sheep-match/assets/farm/decor/badges/g10-silver.svg
+P1,g10-gold,牧场故事 · 金,icons/achievements/g10-gold.svg,png/achievements/g10-gold.png,sheep-match/assets/farm/decor/badges/g10-gold.svg
+P1,branch_first_clear,首次通关,icons/branch/branch_first_clear.svg,png/branch/branch_first_clear.png,sheep-match/assets/farm/ui/branch_first_clear.svg
+P1,branch_replay,重温故事,icons/branch/branch_replay.svg,png/branch/branch_replay.png,sheep-match/assets/farm/ui/branch_replay.svg
+P1,branch_locked,故事未开启,icons/branch/branch_locked.svg,png/branch/branch_locked.png,sheep-match/assets/farm/ui/branch_locked.svg
+P1,branch_escrow,奖励暂存,icons/branch/branch_escrow.svg,png/branch/branch_escrow.png,sheep-match/assets/farm/ui/branch_escrow.svg
+P1,chicken-floral,花卉栏舍,skins/chicken/editable.ora,skins/chicken/layers/,sheep-match/assets/farm/buildings/Chicken_Shelter_Floral.svg
+P1,sheep-floral,花卉栏舍,skins/sheep/editable.ora,skins/sheep/layers/,sheep-match/assets/farm/buildings/Sheep_Shelter_Floral.svg
+P2,feed-mill,饲料机 · 转轮,machines/feed-mill/editable.ora,machines/feed-mill/layers/,sheep-match/docs/art-packs/sumikko-farm-v1/assets/buildings/feed-mill.png
+P2,windmill,风车 · 扇叶,machines/windmill/editable.ora,machines/windmill/layers/,sheep-match/docs/art-packs/sumikko-farm-v1/assets/decor/windmill.png
+P2,loom,织布机 · 梭子,machines/loom/editable.ora,machines/loom/layers/,sheep-match/docs/art-packs/sumikko-farm-v1/assets/buildings/loom.png
+P2,juice-press,榨汁机 · 压板,machines/juice-press/editable.ora,machines/juice-press/layers/,sheep-match/docs/art-packs/sumikko-farm-v1/assets/buildings/juice-press.png
+P2,sewing-machine,缝纫机 · 机针,machines/sewing-machine/editable.ora,machines/sewing-machine/layers/,sheep-match/docs/art-packs/sumikko-farm-v1/assets/buildings/sewing-machine.png

@@ -1,0 +1,18 @@
+{
+  "stationary": "<g transform=\"translate(144 150)\"><image x=\"0\" y=\"0\" width=\"1312\" height=\"1199\" href=\"sources/clean-base-generated.png\"/></g>",
+  "partSource": "<defs><clipPath id=\"part-mask\"><path d=\"M484 478H549V506Q549 519 530 524V558Q526 574 506 568Q500 564 501 552V523Q484 520 483 509Z\"/></clipPath></defs><g clip-path=\"url(#part-mask)\"><image x=\"0\" y=\"0\" width=\"1312\" height=\"1199\" href=\"sources/original.png\"/></g>",
+  "front": "<g transform=\"translate(144 150)\"><defs><clipPath id=\"front-mask\"><path d=\"M0 0H1312V492H0Z\"/></clipPath></defs><g clip-path=\"url(#front-mask)\"><image x=\"0\" y=\"0\" width=\"1312\" height=\"1199\" href=\"sources/clean-base-generated.png\"/></g></g>",
+  "spec": {
+    "id": "sewing-machine",
+    "label": "缝纫机 · 机针",
+    "source": "buildings/sewing-machine.png",
+    "kind": "needle",
+    "pivot": [
+      516,
+      521
+    ],
+    "cycleMs": 650,
+    "moving": "M484 478H549V506Q549 519 530 524V558Q526 574 506 568Q500 564 501 552V523Q484 520 483 509Z",
+    "front": "M0 0H1312V492H0Z"
+  }
+}
