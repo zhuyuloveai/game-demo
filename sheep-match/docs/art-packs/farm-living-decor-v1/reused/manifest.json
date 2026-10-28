@@ -1,0 +1,42 @@
+[
+  {
+    "source": "sheep-match/docs/art-packs/sumikko-farm-v1/environment/svg/natural-tree.svg",
+    "file": "reused/tree.svg",
+    "sha256": "a5284b393f59019f1b8c065c12291b3580bdeb91eb62179368742c4f5d4d41b3"
+  },
+  {
+    "source": "sheep-match/docs/art-packs/sumikko-farm-v1/environment/svg/natural-bush.svg",
+    "file": "reused/bush.svg",
+    "sha256": "ccdaaed2173c8322b2c091f626be2910ff76b03cc648d8a3d5ef1a4898af19c2"
+  },
+  {
+    "source": "sheep-match/docs/art-packs/sumikko-farm-v1/environment/svg/grass-0.svg",
+    "file": "reused/grass.svg",
+    "sha256": "3829e6e57cf4c729981dfb38918ff0c59b2639763f45e1abfb28686e5ed4592d"
+  },
+  {
+    "source": "sheep-match/docs/art-packs/sumikko-farm-v1/terrain/components.mjs",
+    "file": "reused/terrain-components.mjs",
+    "sha256": "e518d12592723b7e5cd404c33907a09682a74e358342dceec3e86104a8c4f86b"
+  },
+  {
+    "source": "sheep-match/docs/art-packs/sumikko-farm-v1/assets/decor/flower-bed.png",
+    "file": "reused/flower-bed.png",
+    "sha256": "45595c1bf598143925f15b0effe85919a06484194db986e078e25f780a884e9f"
+  },
+  {
+    "source": "sheep-match/docs/art-packs/sumikko-farm-v1/shelter-layers-v2/cow/animals/cow-hungry.png",
+    "file": "reused/reference-cow.png",
+    "sha256": "2c88743496086fbaabf1ac9a5e7a56fc95f921bb0f82141e47339d79ca85634f"
+  },
+  {
+    "source": "sheep-match/docs/art-packs/sumikko-farm-v1/shelter-layers-v2/lamb/animals/lamb-hungry.png",
+    "file": "reused/reference-lamb.png",
+    "sha256": "848e29213c914a0d355d2554bebb61f5274933b0b2b7e188dd9662d84bf26589"
+  },
+  {
+    "source": "sheep-match/docs/art-packs/sumikko-farm-v1/shelter-layers-v2/chicken/animals/chicken-hungry.png",
+    "file": "reused/reference-chicken.png",
+    "sha256": "cda786dc7cf03bea0979dfb312e813c0ea0d83456764f27b0615f5163760d3f0"
+  }
+]

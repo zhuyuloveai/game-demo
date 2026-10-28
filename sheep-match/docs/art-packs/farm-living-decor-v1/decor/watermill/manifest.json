@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "id": "watermill",
+  "name": "溪畔水车小屋",
+  "footprint": [
+    4,
+    3
+  ],
+  "description": "独立转轮，9 秒一圈",
+  "canvas": [
+    640,
+    640
+  ],
+  "anchor": [
+    320,
+    470
+  ],
+  "offset": [
+    0,
+    0
+  ],
+  "groundPolygon": [
+    [
+      290,
+      365
+    ],
+    [
+      545,
+      492
+    ],
+    [
+      350,
+      590
+    ],
+    [
+      95,
+      462
+    ]
+  ],
+  "recommendedDisplayWidth": 220,
+  "sourceRect": [
+    79,
+    74,
+    1130,
+    1115
+  ],
+  "sourceScale": 0.4247787610619469,
+  "sourceOffset": [
+    80,
+    86
+  ],
+  "baseBounds": [
+    81,
+    87,
+    559,
+    559
+  ],
+  "layers": [
+    {
+      "id": "shadow",
+      "file": "layers/00-shadow.png",
+      "optional": true
+    },
+    {
+      "id": "base",
+      "file": "layers/01-base.png"
+    },
+    {
+      "id": "motion",
+      "file": "layers/02-motion.png",
+      "source": "layers/02-motion.svg"
+    }
+  ],
+  "editableSource": "sources/editable.svg",
+  "editableRaster": "sources/editable.ora",
+  "periodMs": 9000,
+  "motionSource": "../../motion.mjs",
+  "motionNote": "12 preview phases are diagnostic samples, not a 12-fps runtime atlas. Render transforms continuously using periodMs.",
+  "occlusion": "moving components over building; animals remain separate world objects and must be depth-sorted.",
+  "integration": "Decorative art only; no economy, unlock costs, UI or runtime behavior added.",
+  "wheel": {
+    "pivot": [
+      427,
+      435
+    ],
+    "localCanvas": [
+      256,
+      256
+    ],
+    "localPivot": [
+      128,
+      128
+    ],
+    "size": 210,
+    "projection": [
+      0.8,
+      -0.4,
+      0,
+      1
+    ],
+    "source": "sources/wheel-local.png",
+    "order": "rotate in local circular plane, then apply projection, then translate to pivot"
+  }
+}

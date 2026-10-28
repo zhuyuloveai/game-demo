@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "id": "apiary",
+  "name": "蜂蜜小屋",
+  "footprint": [
+    3,
+    3
+  ],
+  "description": "两只蜜蜂绕巢飞行，5.2 秒循环",
+  "canvas": [
+    640,
+    640
+  ],
+  "anchor": [
+    320,
+    470
+  ],
+  "offset": [
+    0,
+    0
+  ],
+  "groundPolygon": [
+    [
+      320,
+      380
+    ],
+    [
+      500,
+      470
+    ],
+    [
+      320,
+      560
+    ],
+    [
+      140,
+      470
+    ]
+  ],
+  "recommendedDisplayWidth": 220,
+  "sourceRect": [
+    108,
+    96,
+    1054,
+    1053
+  ],
+  "sourceScale": 0.45540796963946867,
+  "sourceOffset": [
+    80,
+    80
+  ],
+  "baseBounds": [
+    80,
+    81,
+    559,
+    559
+  ],
+  "layers": [
+    {
+      "id": "shadow",
+      "file": "layers/00-shadow.png",
+      "optional": true
+    },
+    {
+      "id": "base",
+      "file": "layers/01-base.png"
+    },
+    {
+      "id": "motion",
+      "file": "layers/02-motion.png",
+      "source": "layers/02-motion.svg"
+    }
+  ],
+  "editableSource": "sources/editable.svg",
+  "editableRaster": "sources/editable.ora",
+  "periodMs": 5200,
+  "motionSource": "../../motion.mjs",
+  "motionNote": "12 preview phases are diagnostic samples, not a 12-fps runtime atlas. Render transforms continuously using periodMs.",
+  "occlusion": "moving components over building; animals remain separate world objects and must be depth-sorted.",
+  "integration": "Decorative art only; no economy, unlock costs, UI or runtime behavior added.",
+  "bee": {
+    "source": "sources/bee-local.png",
+    "localCanvas": [
+      128,
+      128
+    ],
+    "localPivot": [
+      64,
+      64
+    ],
+    "motion": "two translated flight paths; source wings are static, not a wingbeat frame sequence"
+  }
+}
