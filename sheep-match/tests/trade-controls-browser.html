@@ -5,9 +5,12 @@
 <title>交易控件隔离回归</title>
 <link rel="stylesheet" href="../farm-scene-trade.css">
 <style>
-body{margin:0;background:#ece9d8;font:14px system-ui;color:#4b4533}header{padding:10px}header p{margin:5px 0}header button{min-height:44px}#report{white-space:pre-wrap;max-height:140px;overflow:auto}#fixture{height:640px;max-width:390px;margin:auto}#fixture .trade-root{height:100%}
+body{margin:0;background:#ece9d8;font:14px system-ui;color:#4b4533}body>header{padding:10px}body>header p{margin:5px 0}body>header button{min-height:44px}#report{white-space:pre-wrap;max-height:140px;overflow:auto}#fixture{height:640px;max-width:390px;margin:auto}#fixture .trade-root{height:100%}
+
+html.panel-only,html.panel-only body{height:100%;overflow:hidden}.panel-only body>header{display:none}.panel-only #fixture{width:100%;max-width:none;height:100dvh!important;margin:0}.panel-only #trade{height:100%}
 </style>
-<header><strong>交易控件隔离回归</strong><p>仅使用标明的 30 级 QA 数据，不读写玩家存档。</p><button id="run">运行交易回归</button><pre id="report" role="status">准备就绪</pre></header>
+<script>if(new URLSearchParams(location.search).get('panelOnly')==='1')document.documentElement.classList.add('panel-only');</script>
+<header><strong>交易控件隔离回归</strong><p>仅使用标明的 30 级 QA 数据，不读写玩家存档。</p><button id="run">运行交易回归</button><button id="storage">仓库</button><button id="orders">订单</button><button id="short">390×400 / 640</button><pre id="report" role="status">准备就绪</pre></header>
 <div id="fixture"><div id="trade"></div></div>
 <script type="module">
 import {mountTradeScene,patchTradeChildren} from '../farm-scene-trade.mjs';
@@ -41,7 +44,13 @@ document.querySelector('#run').onclick=()=>{
   assert(frame===root.firstElementChild&&art.isConnected,'Shop clock tick replaced image nodes');checks.push('商店计时更新保留商品与图片节点');
   click('tab:vouchers');const wallet=root.querySelector('.trade-wallet img'),plus=root.querySelector('[data-action="qty:1"]');plus.focus();
   click('qty:1');assert(wallet.isConnected&&plus.isConnected&&document.activeElement===plus,'Shop quantity rebuilt controls or lost focus');checks.push('购买加减保留图片、按钮和焦点');
-  mount();const range=root.querySelector('[data-quantity-range]'),drawer=root.querySelector('.trade-drawer'),image=drawer.querySelector('img'),scroll=root.querySelector('.trade-scroll');
+  mount();const inventory=root.querySelector('[data-trade-inventory]'),capacity=root.querySelector('.trade-storage-capacity');
+  inventory.scrollTop=100;const inventoryOffset=inventory.scrollTop;
+  click('inventory:corn');assert(root.querySelector('[data-action="inventory:corn"]').getAttribute('aria-pressed')==='true','Selection lost');
+  assert(capacity===root.querySelector('.trade-storage-capacity')&&capacity.getBoundingClientRect().bottom<root.querySelector('.trade-storage-actions').getBoundingClientRect().top,'Capacity hidden after selecting another item');
+  click('editSale');click('backInventory');assert(root.querySelector('[data-trade-inventory]').scrollTop===inventoryOffset,'Inventory scroll position lost after edit');
+  assert(root.querySelector('[data-action="inventory:corn"]').getAttribute('aria-pressed')==='true','Returning from edit lost selection');checks.push('390px仓储选择/返回保留容量、选中项与滚动位置');
+  mount();click('editSale');const range=root.querySelector('[data-quantity-range]'),drawer=root.querySelector('.trade-drawer'),image=drawer.querySelector('img'),scroll=root.querySelector('.trade-scroll');
   scroll.scrollTop=scroll.scrollHeight;const offset=scroll.scrollTop;
   range.focus({preventScroll:true});range.value='137';range.dispatchEvent(new Event('input',{bubbles:true}));
   assert(root.querySelector('output').textContent==='137'&&state.inventory.wheat===201,'Slider changed economy or failed to change draft');
@@ -58,9 +67,10 @@ document.querySelector('#run').onclick=()=>{
   desired.innerHTML='<button data-action="b" disabled>B2</button><button data-action="a"><img src="a.svg"></button>';
   patchTradeChildren(parent,desired.content);assert(parent.firstChild===second&&parent.lastChild===first&&picture.isConnected===false&&first.firstChild===picture&&second.disabled,'Keyed reorder or disabled sync failed');checks.push('列表排序复用原节点并同步禁用状态');
   report.textContent='全部通过（'+checks.length+'项）\n'+checks.join('\n');
-  mount();click('quantity:50');
+  mount();click('editSale');click('quantity:50');
  }catch(error){report.textContent='失败：'+error.message+'\n'+checks.join('\n');throw error;}
 };
+document.querySelector('#storage').onclick=()=>mount();document.querySelector('#orders').onclick=()=>mount('P11');document.querySelector('#short').onclick=()=>{const el=document.querySelector('#fixture');el.style.height=el.style.height==='400px'?'640px':'400px';};
 mount();
 </script>
 </html>

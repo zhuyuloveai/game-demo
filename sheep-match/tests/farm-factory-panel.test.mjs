@@ -48,9 +48,9 @@ test('one-second ticks and accounted runtime do not rebuild panel; completion do
 test('drop hit test excludes outside/canceled paths and invalid coordinates',()=>{
  const rect={left:20,right:80,top:30,bottom:90};assert.equal(factoryDropInside({x:25,y:35},rect),true);assert.equal(factoryDropInside({x:19,y:35},rect),false);assert.equal(factoryDropInside({x:NaN,y:35},rect),false);
 });
-test('panel uses inspect-only recipe selection and explicit pointerup drop; accessible lifecycle guards',()=>{
+test('panel keeps inspect-only recipe selection, one-shot target entry and accessible lifecycle guards',()=>{
  const source=readFileSync(new URL('../farm-factory-panel.mjs',import.meta.url),'utf8'),css=readFileSync(new URL('../farm-factory-panel.css',import.meta.url),'utf8');
- assert.match(source,/if\(r\)select\(r.dataset.ffRecipe\)/);assert.match(source,/if\(shouldCommit\)commit\(g.recipeId\)/);assert.match(source,/pointercancel/);assert.match(source,/lostpointercapture/);assert.match(source,/visibilitychange/);assert.match(source,/pointers.size>1/);assert.match(source,/sourceElement:source,targetElement:cargo/);assert.match(source,/ctx.root.inert=oldInert/);assert.match(source,/win.clearInterval\(timer\)/);assert.match(source,/event.key==='Escape'/);assert.match(css,/min-height:44px/);assert.match(css,/prefers-reduced-motion/);
+ assert.match(source,/if\(r\)select\(r.dataset.ffRecipe\)/);assert.match(source,/g.attempted=true;const result=commit\(g.recipeId\)/);assert.match(source,/pointercancel/);assert.match(source,/lostpointercapture/);assert.match(source,/visibilitychange/);assert.match(source,/pointers.size>1/);assert.match(source,/sourceElement:source,targetElement:cargo/);assert.match(source,/ctx.root.inert=oldInert/);assert.match(source,/win.clearInterval\(timer\)/);assert.match(source,/event.key==='Escape'/);assert.match(css,/min-height:44px/);assert.match(css,/prefers-reduced-motion/);
 });
 
 test('captured recipe click cannot dismiss the factory through the backdrop',()=>{

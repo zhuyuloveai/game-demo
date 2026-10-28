@@ -6,7 +6,7 @@
   const cropArtFiles={wheat:'c01-wheat',corn:'c02-corn',soybean:'c03-soybean',sugarcane:'c04-sugarcane',carrot:'c05-carrot',indigo:'c06-indigo',pumpkin:'c07-pumpkin',cotton:'c08-cotton',chili_pepper:'c09-pepper',black_bean:'c10-blackbean',tomato:'c11-tomato'};
   const fruitArtFiles={apple:'r01-apple',raspberry:'r02-raspberry',cherry:'r03-cherry',blackberry:'r04-blackberry',blueberries:'r05-blueberry'};
   // Keep live images, scroll containers and form controls mounted during updates.
-  const nodeKey=node=>node.nodeType===1?(node.getAttribute('data-action')||node.getAttribute('data-check')||(node.hasAttribute('data-quantity-range')?'quantity-range':null)):null;
+  const nodeKey=node=>node.nodeType===1?(node.getAttribute('data-render-key')||node.getAttribute('data-action')||node.getAttribute('data-check')||(node.hasAttribute('data-quantity-range')?'quantity-range':null)):null;
   export function patchTradeChildren(parent,desired) {
     const previous=[...parent.childNodes],used=new Set();let cursor=parent.firstChild;
     for(const next of [...desired.childNodes]) {
@@ -32,7 +32,7 @@
   export function mountTradeScene(ctx) {
     const root = ctx.root, C = ctx.config;
     root.classList.add('trade-root');
-    const ui = { tab: ctx.id === 'P07' ? 'facilities' : ((ctx.initialStorage||C.ITEMS[ctx.focusItem]?.storage) === 'barn' ? 'barn' : 'silo'), selected: ctx.id==='P08'&&ctx.focusItem?ctx.focusItem:null, quantity: 1, tier: .75, allowSeed: false, message: '', error: false, box: null, source: null, truck: false };
+    const ui = { tab: ctx.id === 'P07' ? 'facilities' : ((ctx.initialStorage||C.ITEMS[ctx.focusItem]?.storage) === 'barn' ? 'barn' : 'silo'), selected: ctx.id==='P08'&&ctx.focusItem?ctx.focusItem:null, quantity: 1, tier: .75, allowSeed: false, message: '', error: false, box: null, source: null, truck: false, storageMode:'browse', inventoryScrollTop:0, sourcePicker:false };
     let disposed = false, truckTimer, lastMarkup;
     const E = ctx.esc || (s => String(s).replace(/[&<>"']/g, x => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x])));
     const item = (id, cls = '') => ctx.item(id, `trade-art ${cls}`);
@@ -60,7 +60,7 @@
       } });
     }
     function head(subtitle) {
-      return `<header class="trade-heading"><div class="trade-title"><span class="trade-eyebrow">乡间集市</span><h2>${titles[ctx.id]}</h2></div><div class="trade-wallet">${item('coin')}<b>${ctx.state.coins.toLocaleString()}</b><span>${item('construction_voucher')}${ctx.state.vouchers}</span></div></header><p class="trade-subtitle">${subtitle}</p>`;
+      return `<header class="trade-heading"><div class="trade-title"><span class="trade-eyebrow">${ctx.id==='P08'?'仓储':ctx.id==='P11'?'订单':'乡间集市'}</span><h2>${titles[ctx.id]}</h2></div><div class="trade-wallet">${item('coin')}<b>${ctx.state.coins.toLocaleString()}</b><span>${item('construction_voucher')}${ctx.state.vouchers}</span></div></header>${subtitle?`<p class="trade-subtitle">${subtitle}</p>`:''}`;
     }
     function quantityLimit() {
       if(ctx.id==='P08'||(ctx.id==='P10'&&ui.box)) {
@@ -133,14 +133,33 @@
       const rows = Object.entries(ctx.state.inventory).filter(([id, q]) => q > 0 && C.ITEMS[id]?.storage === kind && (action !== 'listItem' || C.ITEMS[id]?.M10));
       return `<div class="trade-inventory-grid">${rows.length ? rows.map(([id,q]) => `<button type="button" class="trade-inventory-slot ${id === selected ? 'is-selected' : ''}" data-action="${action}:${id}" aria-pressed="${id === selected}">${item(id)}<strong>${E(name(id))}</strong><span class="trade-count">${q}</span></button>`).join('') : `<div class="trade-empty-store">${image(`buildings/${kind === 'silo' ? 'Silo' : 'Barn'}.svg`,'空仓')}<strong>仓房空空的</strong><span>去收获作物或领取制品，物件会放进对应格。</span></div>`}</div>`;
     }
-    function itemDetail() {
-      const id = ui.selected, s = ctx.state, t = C.ITEMS[id];
-      if (!t || t.storage !== ui.tab || !s.inventory[id]) return '';
-      const crop = C.CROPS[id], canSell = !!t.M10 || t.sellPrice !== undefined;
+    function itemDetail(editing=false) {
+      const id=ui.selected,s=ctx.state,t=C.ITEMS[id];
+      if(!t||t.storage!==ui.tab||!s.inventory[id])return '';
+      const crop=C.CROPS[id],canSell=!!t.M10||t.sellPrice!==undefined;
       setQuantity(ui.quantity);
-      const q=ui.quantity, remaining=(s.inventory[id]||0)-q, income=q?ctx.core.recoveryPrice(id,q):0;
-      const uses = list(C.RECIPES).filter(r => r.inputs[id]).slice(0, 3).map(r => r.name).join('、');
-      return `<section class="trade-drawer"><div class="trade-drawer-title">${item(id)}<div><h3>${E(name(id))}</h3><span>库存 ${s.inventory[id]} · ${t.storage === 'silo' ? '粮仓' : '货仓'}</span></div>${btn('×','closeDetail','aria-label="关闭物品详情"')}</div><p>${crop ? `每份可播种1格，成熟收${crop.yieldCount}份。` : ''}${uses ? `用途：${E(uses)}。` : C.TOOLS[id] ? '用于扩仓、扩地或清理场地。' : '可用于生产或对应订单。'}</p>${canSell ? `${stepper(quantityLimit(),true)}${crop ? `<label class="trade-checkbox"><input type="checkbox" data-check="allowSeed" ${ui.allowSeed ? 'checked' : ''}>本次允许用掉最后1份种子</label>` : ''}<div class="trade-quote">回收 <b>${income} 金币</b> · 剩 ${remaining}份${crop ? ` · ${ui.allowSeed ? '本次已解除留种保护' : '默认保留1份种子'}` : ''}</div>` : ''}${id === 'fertilizer' ? `${banner(s.fertilizerUntil>s.now ? `肥料生效中 · 剩 ${duration(s.fertilizerUntil-s.now)}` : '使用后30分钟内新播种快10%', '只影响新播种，不追溯已有作物，不叠乘。', true)}${btn(s.fertilizerUntil>s.now?'已生效，不能叠加':'使用1份','fertilizer',s.fertilizerUntil>s.now?'disabled':'','is-primary')}` : ''}</section>`;
+      const q=ui.quantity,remaining=(s.inventory[id]||0)-q,income=canSell&&q?ctx.core.recoveryPrice(id,q):0;
+      const uses=list(C.RECIPES).filter(r=>r.inputs[id]).slice(0,2).map(r=>r.name).join('、');
+      const purpose=crop?`可播种 · 每格收${crop.yieldCount}份`:uses?`可制${uses}`:C.TOOLS[id]?'扩仓、扩地或清理材料':id==='fertilizer'?'新播种加速10% · 持续30分钟':'生产与订单物品';
+      return `<section class="trade-drawer ${editing?'trade-sale-editor':'trade-item-summary'}" data-render-key="storage-detail"><div class="trade-drawer-title">${item(id)}<div><h3>${E(name(id))}</h3><span>持有 <b>${s.inventory[id]}</b> 份</span></div>${btn('×',editing?'backInventory':'closeDetail','aria-label="'+(editing?'返回物品列表':'关闭物品详情')+'"')}</div><p class="trade-item-purpose">${E(purpose)}</p>${editing&&canSell?`${stepper(quantityLimit(),true)}${crop?`<label class="trade-checkbox"><input type="checkbox" data-check="allowSeed" ${ui.allowSeed?'checked':''}>本次允许用掉最后1份种子</label>`:''}<div class="trade-quote">回收 <b>${income} 金币</b> · 剩 ${remaining}份${crop?` · ${ui.allowSeed?'本次已解除留种保护':'保留1份种子'}`:''}</div>`:''}${id==='fertilizer'&&s.fertilizerUntil>s.now?`<span class="trade-item-purpose">生效中 · 剩${duration(s.fertilizerUntil-s.now)}</span>`:''}</section>`;
+    }
+    function itemActions(selling) {
+      const id=ui.selected,s=ctx.state,t=C.ITEMS[id];if(!t||t.storage!==ui.tab||!s.inventory[id])return '<span>点选物品查看持有量和用途</span>';
+      const source=C.CROPS[id]?'去农田':C.FRUITS[id]?'去果园':list(C.ANIMALS).some(a=>a.product===id)?'去栏舍':C.RECIPES[id]?'去制作':null;
+      return `${source?btn(source,`source:${id}`,'','is-primary'):id==='fertilizer'?btn(s.fertilizerUntil>s.now?'肥料生效中':'使用1份','fertilizer',s.fertilizerUntil>s.now?'disabled':'','is-primary'):''}${selling?btn('回收…','editSale','','is-secondary'):''}`;
+    }
+    function storageCapacity() {
+      const s=ctx.state,n=used(ui.tab),cap=s.storage[ui.tab].capacity;
+      return `<section class="trade-storage-capacity" data-render-key="storage-capacity" aria-label="${ui.tab==='silo'?'粮仓':'货仓'}容量">${image(`buildings/${ui.tab==='silo'?'Silo':'Barn'}.svg`,'仓房')}<div class="trade-capacity ${n>=cap?'is-full':''}"><span><b>${n} / ${cap}</b> <small>${n>=cap?'已满':`空余 ${cap-n}`}</small></span><meter min="0" max="${cap}" value="${n}" aria-label="已用${n}，容量${cap}"></meter></div>${btn('扩容','inspectUpgrade','aria-label="查看扩容所需材料"','is-secondary')}</section>`;
+    }
+    function upgradeInfo() {
+      const s=ctx.state,next=s.storage[ui.tab].upgrades+1,ids=ui.tab==='barn'?['bolt','duct_tape','plank']:['nail','screw','wood_panel'];
+      const missing=ids.filter(id=>(s.inventory[id]||0)<next);
+      return {next,ids,missing,capacity:C.storageCapacity(next)};
+    }
+    function upgradePreview() {
+      const s=ctx.state,q=upgradeInfo();
+      return `<section class="trade-upgrade-preview"><h3>扩容 ${s.storage[ui.tab].capacity} → ${q.capacity}</h3><p>增加 ${q.capacity-s.storage[ui.tab].capacity} 格 · 消耗以下材料</p><div class="trade-upgrade-materials">${q.ids.map(id=>{const have=s.inventory[id]||0,missing=Math.max(0,q.next-have);return `<div class="trade-upgrade-material ${missing?'is-missing':'is-ready'}">${item(id)}<strong>${E(name(id))}</strong><span>${have} / ${q.next}</span><small>${missing?`还差${missing}份`:'已备齐'}</small></div>`;}).join('')}</div></section>`;
     }
     function saleButton() {
       setQuantity(ui.quantity);const id=ui.selected,q=ui.quantity,income=q?ctx.core.recoveryPrice(id,q):0;
@@ -152,7 +171,9 @@
     }
     function storage() {
       const selected=C.ITEMS[ui.selected],selling=selected?.storage===ui.tab&&ctx.state.inventory[ui.selected]>0&&(selected.M10||selected.sellPrice!==undefined);
-      return `${head('粮仓放作物，货仓放制品和工具。')}${tabs([['silo','粮仓'],['barn','货仓'],['materials','材料补给']])}${ui.tab==='materials'?`<div class="trade-scroll">${materials()}</div>`:`${capacity(ui.tab)}<div class="trade-scroll"><div class="trade-store-door">${image(`buildings/${ui.tab==='silo'?'Silo':'Barn'}.svg`,'仓房')}<span>${ui.tab==='silo'?'谷物、果实与种子':'制品、动物产物与工具'}</span></div>${inventoryGrid(ui.tab)}${itemDetail()}</div><div class="trade-selection">${selling?saleButton():btn(`扩容 ${ctx.state.storage[ui.tab].capacity} → ${C.storageCapacity(ctx.state.storage[ui.tab].upgrades+1)}`,'upgradeStore','','is-primary')}</div>`}`;
+      if(ui.storageMode==='sell'&&!selling)ui.storageMode='browse';
+      const mode=ui.storageMode,q=ui.tab!=='materials'?upgradeInfo():null;
+      return `${head('')}${tabs([['silo','粮仓'],['barn','货仓'],['materials','材料补给']])}${ui.tab==='materials'?`<div class="trade-scroll">${materials()}</div>`:`${storageCapacity()}${mode==='sell'?`<div class="trade-scroll" data-render-key="storage-sale">${itemDetail(true)}</div>`:mode==='upgrade'?`<div class="trade-scroll" data-render-key="storage-upgrade">${upgradePreview()}</div>`:`<div class="trade-scroll" data-render-key="storage-inventory" data-trade-inventory>${inventoryGrid(ui.tab)}</div>${itemDetail()}`}<div class="trade-selection trade-storage-actions" data-render-key="storage-actions">${mode==='sell'?`${btn('返回','backInventory')}${saleButton()}`:mode==='upgrade'?`${btn('返回','backInventory')}${q.missing.length?btn(`补齐${q.missing.length}种材料`,'upgradeMaterials','','is-primary'):btn(`扩容至 ${q.capacity} 格`,'upgradeStore','','is-primary')}`:itemActions(selling)}</div>`}`;
     }
     function market() {
       if(!ctx.state.features.npcMarketEnabled)return `${head('NPC固定报价，不是真人交易。')}${featureClosed('NPC集市')}`;
@@ -173,12 +194,18 @@
       if(ui.box)return `${head('数量、售价、留种都由你决定。')}${boxEditor()}`;
       return `${head('上架 → 等待成交 → 点金币袋收款。')}<div class="trade-scroll"><div class="trade-awning is-orange"></div><div class="trade-crate-grid">${s.npc.boxes.map((b,i)=>{const l=b.listing;return `<button type="button" class="trade-crate ${l?.status==='sold'?'is-sold':''}" data-action="box:${b.id}" aria-label="货箱${i+1}，${!l?'空箱，点击上架':l.status==='sold'?`成交，领取${l.coins}金币`:`${name(l.itemId)}${l.quantity}份，等待成交`}"><span class="trade-box-number">${i+1}</span><span class="trade-crate-art">${!l?'<span class="trade-empty-plus">+</span>':l.status==='sold'?`<span class="trade-coin-bag">${item('coin')}<b>领金币</b></span>`:item(l.itemId)}${l&&l.status!=='sold'?`<b class="trade-count">×${l.quantity}</b>`:''}</span><span class="trade-crate-plank"><strong>${!l?'装点丰收':l.status==='sold'?`${l.coins} 金币待领`:name(l.itemId)}</strong><span>${!l?'空货箱':l.status==='sold'?'点袋收款':`${l.coins}金币 · ${duration(l.readyAt-s.now)}`}</span></span></button>`;}).join('')}${s.features.constructionVouchersEnabled&&s.npc.boxes.length<10?`<button type="button" class="trade-crate trade-expand-crate" data-action="expandStall"><span>＋</span><strong>再添一只货箱</strong><small>${C.FARM_CONFIG.constructionVoucher.npcBoxes[s.npc.boxes.length-5]}建设券</small></button>`:''}</div></div><div class="trade-selection"><span>金币只在收款时到账。待售箱可退货，需仓库留有空位。</span></div>`;
     }
-    function readyOrder(o) { return o.state==='active'&&Object.entries(o.requirements).every(([id,q])=>(ctx.state.inventory[id]||0)>=q+(C.CROPS[id]&&!ui.allowSeed?1:0)); }
+    function orderNeeds(o) {
+      return Object.entries(o.requirements||{}).map(([id,quantity])=>{const stock=ctx.state.inventory[id]||0,reserve=C.CROPS[id]&&!ui.allowSeed?1:0,available=Math.max(0,stock-reserve);return {id,quantity,stock,reserve,available,missing:Math.max(0,quantity+reserve-stock)};});
+    }
+    function readyOrder(o) { return o.state==='active'&&orderNeeds(o).every(n=>!n.missing); }
     function orders() {
       const s=ctx.state;
-      if(s.level<4)return `${head('九张小纸单，连起农场与小镇。')}${lock(4)}`;
-      let o=s.orders.find(x=>x.id===ui.selected);if(!o){o=s.orders[0];ui.selected=o?.id;}
-      return `${head(`今日送达 ${s.daily.trucks} 单 · 奖励按原规则即时到账`)}<div class="trade-scroll"><div class="trade-order-board">${s.orders.map((x,i)=>`<button type="button" class="trade-order-paper ${x.id===ui.selected?'is-selected':''} ${x.state==='cooldown'?'is-cooldown':''}" data-ui-state="${x.state==='cooldown'?'locked':readyOrder(x)?'ready':'missing'}" data-action="order:${x.id}" aria-pressed="${x.id===ui.selected}" aria-label="订单${i+1}，${x.state==='cooldown'?'冷却补单中':readyOrder(x)?'材料齐全':'缺少物品'}"><span class="trade-pin"></span><b>NO. ${String(i+1).padStart(2,'0')}</b>${x.state==='cooldown'?`<span class="trade-paper-clock">◷</span><small>${duration(x.readyAt-s.now)}</small>`:`<span class="trade-paper-items">${Object.keys(x.requirements).slice(0,3).map(id=>item(id)).join('')}</span><span class="trade-paper-reward">${x.coins} ◉ ${readyOrder(x)?'<b class="trade-ready-check">✓</b>':''}</span>`}</button>`).join('')}</div>${o?`<section class="trade-order-detail"><div class="trade-order-detail-title"><h3>订单 ${o.slot+1}</h3><span>${o.state==='cooldown'?'纸夹留在原处，等待新单':`${o.coins}金币 + ${o.xp}经验`}</span></div>${o.state==='active'?`<div class="trade-order-needs">${Object.entries(o.requirements).map(([id,q])=>`<button type="button" data-action="source:${id}" class="trade-need ${(s.inventory[id]||0)>=q+(C.CROPS[id]&&!ui.allowSeed?1:0)?'is-ready':'is-missing'}">${item(id)}<strong>${name(id)}</strong><span>${s.inventory[id]||0} / ${q} ${C.CROPS[id]&&!ui.allowSeed?'<small>留种1</small>':''}</span></button>`).join('')}</div><label class="trade-checkbox"><input type="checkbox" data-check="allowSeed" ${ui.allowSeed?'checked':''}>本次允许使用最后1份种子</label><p class="trade-impact">点交付会扣除上方清单，立即获得${o.coins}金币和${o.xp}经验；本订单进入冷却。点缺料可去生产，返回保留本张订单。</p>${ui.source?sourceInfo(ui.source):''}`:banner('补单中',`${duration(o.readyAt-s.now)}后生成新单；交货、换单均沿用既定冷却。`)}</section>`:''}</div><div class="trade-truck-lane"><svg class="trade-truck ${ui.truck?'is-away':''}" viewBox="0 0 150 85" role="img" aria-label="配送小卡车"><path fill="#e8b05c" stroke="#8b622f" stroke-width="3" d="M9 19h77v42H9z"/><path fill="#79a99d" stroke="#355e57" stroke-width="3" d="M86 35h32l17 19v16H86z"/><path fill="#d1e9dc" d="M93 40h22l12 14H93z"/><path stroke="#966c39" stroke-width="4" d="M13 30h68M13 43h68M13 56h68"/><path stroke="#475d4e" stroke-width="5" d="M7 68h133"/><circle fill="#4b5549" cx="33" cy="69" r="12"/><circle fill="#c7c5ae" cx="33" cy="69" r="5"/><circle fill="#4b5549" cx="116" cy="69" r="12"/><circle fill="#c7c5ae" cx="116" cy="69" r="5"/></svg><div>${o?.state==='active'?`${btn('换一张','discardOrder')}${btn(readyOrder(o)?`交付 · +${o.coins}金币`:'前往补齐缺料','submitOrder','','is-primary')}`:'<strong>等待新的订单</strong>'}</div></div>`;
+      if(s.level<4)return `${head('')}${lock(4)}`;
+      let o=s.orders.find(x=>x.id===ui.selected);if(!o){o=s.orders.find(readyOrder)||s.orders.find(x=>x.state==='active')||s.orders[0];ui.selected=o?.id;}
+      const needs=o?.state==='active'?orderNeeds(o):[],missing=needs.filter(n=>n.missing),ready=s.orders.filter(readyOrder).length;
+      const detail=o?`<section class="trade-order-detail" data-render-key="order-detail"><div class="trade-order-detail-title"><h3>订单 ${o.slot+1}</h3><span>${o.state==='cooldown'?'补单中':`+${o.coins}金币 · +${o.xp}经验`}</span></div>${o.state==='active'?`<div class="trade-order-needs">${needs.map(n=>`<button type="button" data-action="source:${n.id}" class="trade-need ${n.missing?'is-missing':'is-ready'}" aria-label="${E(name(n.id))}，需要${n.quantity}份，可用${n.available}份，${n.missing?`还差${n.missing}份，查看来源`:'已备齐'}">${item(n.id)}<strong>${E(name(n.id))}</strong><span>需要 ${n.quantity}</span><small>可用 ${n.available}${n.reserve?' · 留种1':''}</small><em>${n.missing?`还差 ${n.missing}`:'已备齐'}</em></button>`).join('')}</div>${needs.some(n=>C.CROPS[n.id])?`<label class="trade-checkbox"><input type="checkbox" data-check="allowSeed" ${ui.allowSeed?'checked':''}>本次允许使用最后1份种子</label>`:''}<p class="trade-impact">交付消耗所列物品；奖励即时到账，随后补单。</p>${ui.sourcePicker&&missing.length?`<div class="trade-source-picker" aria-label="选择要补齐的物品"><strong>选择要补齐的物品</strong>${missing.map(n=>btn(`${item(n.id)}${E(name(n.id))} · 差${n.missing}`,`source:${n.id}`)).join('')}</div>`:''}${ui.source&&!ctx.openSource?sourceInfo(ui.source):''}`:banner('补单中',`${duration(o.readyAt-s.now)}后有新订单`)}</section>`:'';
+      const board=`<div class="trade-order-board" aria-label="全部九张订单">${s.orders.map((x,i)=>{const m=x.state==='active'?orderNeeds(x).filter(n=>n.missing).length:0;return `<button type="button" class="trade-order-paper ${x.id===ui.selected?'is-selected':''} ${x.state==='cooldown'?'is-cooldown':''}" data-ui-state="${x.state==='cooldown'?'locked':readyOrder(x)?'ready':'missing'}" data-action="order:${x.id}" aria-pressed="${x.id===ui.selected}" aria-label="订单${i+1}，${x.state==='cooldown'?'冷却补单中':m?`缺${m}种物品`:'可交付'}"><span class="trade-pin"></span><b>NO. ${String(i+1).padStart(2,'0')}</b>${x.state==='cooldown'?`<span class="trade-paper-clock">◷</span><small>${duration(x.readyAt-s.now)}</small>`:`<span class="trade-paper-items">${Object.keys(x.requirements).slice(0,3).map(id=>item(id)).join('')}</span><span class="trade-paper-reward">+${x.coins} 金币</span><small class="trade-order-state ${m?'':'is-ready'}">${m?`缺${m}种`:'可交付'}</small>`}</button>`;}).join('')}</div>`;
+      return `${head('')}<div class="trade-order-summary"><strong>可交付 ${ready} 单</strong><span>今日已送 ${s.daily.trucks} 单</span></div><div class="trade-scroll">${detail}<h3 class="trade-small-title">全部订单 · ${s.orders.length}张</h3>${board}</div><div class="trade-truck-lane"><svg class="trade-truck ${ui.truck?'is-away':''}" viewBox="0 0 150 85" role="img" aria-label="配送小卡车"><path fill="#e8b05c" stroke="#8b622f" stroke-width="3" d="M9 19h77v42H9z"/><path fill="#79a99d" stroke="#355e57" stroke-width="3" d="M86 35h32l17 19v16H86z"/><path fill="#d1e9dc" d="M93 40h22l12 14H93z"/><path stroke="#966c39" stroke-width="4" d="M13 30h68M13 43h68M13 56h68"/><path stroke="#475d4e" stroke-width="5" d="M7 68h133"/><circle fill="#4b5549" cx="33" cy="69" r="12"/><circle fill="#c7c5ae" cx="33" cy="69" r="5"/><circle fill="#4b5549" cx="116" cy="69" r="12"/><circle fill="#c7c5ae" cx="116" cy="69" r="5"/></svg><div>${o?.state==='active'?`${btn(readyOrder(o)?`交付 · +${o.coins}金币 +${o.xp}经验`:`补齐${missing.length}种物品`,'submitOrder','','is-primary')}${btn('换一张','discardOrder','','is-secondary')}`:'<strong>等待新的订单</strong>'}</div></div>`;
     }
     function sourceInfo(id) {
       const c=C.CROPS[id],f=C.FRUITS[id],r=C.RECIPES[id],a=list(C.ANIMALS).find(x=>x.product===id);
@@ -190,7 +217,7 @@
       const reduced=String(!!ctx.state.settings.reducedMotion);
       if(root.dataset.reducedMotion!==reduced)root.dataset.reducedMotion=reduced;
       const body=({P07:shop,P08:storage,P09:market,P10:stall,P11:orders}[ctx.id])();
-      const markup=`<main class="trade-viewport trade-${ctx.id}" aria-label="${titles[ctx.id]}">${body}<div class="trade-feedback ${ui.error?'is-error':''}" role="status" aria-live="polite">${E(ui.message||'先选实物查看数量与成本，再点明确提交按钮；不会自动购买。')}</div></main>`;
+      const markup=`<main class="trade-viewport trade-${ctx.id}" aria-label="${titles[ctx.id]}">${body}<div class="trade-feedback ${ui.error?'is-error':''}" role="status" aria-live="polite">${E(ui.message||(['P08','P11'].includes(ctx.id)?'':'先选实物查看数量与成本，再点明确提交按钮；不会自动购买。'))}</div></main>`;
       if(markup===lastMarkup)return;
       if(root.ownerDocument.createElement){
         const template=root.ownerDocument.createElement('template');template.innerHTML=markup;
@@ -204,10 +231,17 @@
       const [action,a,b]=target.dataset.action.split(':'), s=ctx.state;
       if(['P09','P10'].includes(ctx.id)&&!s.features.npcMarketEnabled)return report('NPC集市功能关闭。',true);
       if(action==='expandStall'&&!s.features.constructionVouchersEnabled)return report('建设券功能关闭。',true);
-      if(action==='tab'){ui.tab=a;ui.selected=null;ui.quantity=1;ui.source=null;render();return;}
+      if(action==='tab'){ui.tab=a;ui.selected=null;ui.quantity=1;ui.source=null;ui.storageMode='browse';ui.sourcePicker=false;render();return;}
       if(action==='qty'){setQuantity(ui.quantity+Number(a));render();return;}
       if(action==='quantity'){const max=quantityLimit();setQuantity(a==='all'?max:a==='half'?Math.floor(max/2):Number(a));render();return;}
-      if(['product','inventory','offer','listItem','order'].includes(action)){ui.selected=a;ui.quantity=1;ui.allowSeed=false;ui.source=null;render();if(action==='inventory')root.querySelector('.trade-drawer')?.scrollIntoView?.({block:'end',behavior:'auto'});if(action==='order')root.querySelector('.trade-order-detail')?.scrollIntoView?.({block:'nearest',behavior:'auto'});return;}
+      if(['product','inventory','offer','listItem','order'].includes(action)){ui.selected=a;ui.quantity=1;ui.allowSeed=false;ui.source=null;ui.sourcePicker=false;render();if(action==='order')root.querySelector('.trade-order-detail')?.scrollIntoView?.({block:'nearest',behavior:'auto'});return;}
+      if(action==='editSale'||action==='inspectUpgrade'){
+        if(ctx.id!=='P08'||!['silo','barn'].includes(ui.tab))return;
+        ui.inventoryScrollTop=root.querySelector('[data-trade-inventory]')?.scrollTop??ui.inventoryScrollTop;
+        ui.storageMode=action==='editSale'?'sell':'upgrade';render();return;
+      }
+      if(action==='backInventory'){ui.storageMode='browse';render();const list=root.querySelector('[data-trade-inventory]');if(list)list.scrollTop=ui.inventoryScrollTop;return;}
+      if(action==='upgradeMaterials'){ui.tab='materials';ui.storageMode='browse';ui.selected=null;render();return;}
       if(action==='closeDetail'){ui.selected=null;render();return;}
       if(action==='shopBuy'){
         const p=shopProducts().find(x=>x.id===ui.selected);if(!p)return;
@@ -242,7 +276,7 @@
       if(action==='source'){ui.source=a;if(ctx.openSource){ctx.openSource(a);return;}render();return;}
       if(action==='submitOrder'){
         const o=s.orders.find(x=>x.id===ui.selected);if(!o||o.state!=='active')return;
-        if(!readyOrder(o)){ui.source=Object.keys(o.requirements).find(id=>(s.inventory[id]||0)<o.requirements[id]+(C.CROPS[id]&&!ui.allowSeed?1:0));if(ctx.openSource){ctx.openSource(ui.source);return;}report('物品未齐或需要留种，需求格已标出。',true);return;}
+        if(!readyOrder(o)){const missing=orderNeeds(o).filter(n=>n.missing);if(missing.length===1&&ctx.openSource){ui.source=missing[0].id;ctx.openSource(ui.source);return;}ui.sourcePicker=true;render();root.querySelector('.trade-source-picker')?.scrollIntoView?.({block:'nearest',behavior:'auto'});return;}
         run({type:'submitOrder',orderId:o.id,allowSeedReserve:ui.allowSeed},`订单已交付，${o.coins}金币与${o.xp}经验已到账。`,()=>{ui.truck=true;clearTimeout(truckTimer);truckTimer=setTimeout(()=>{ui.truck=false;render();},1400);});return;
       }
       if(action==='discardOrder'){const o=s.orders.find(x=>x.id===ui.selected);if(!o||o.state!=='active')return;confirm('换掉这张订单？','<p>不会扣库存，也没有奖励。纸夹进入原规则冷却，计时结束生成新单。</p>',{type:'discardOrder',orderId:o.id},'旧单已撤下，补单计时已开始。');}

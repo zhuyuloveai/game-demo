@@ -1,25 +1,28 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chicken coop native touch regression</title>
 <link rel="stylesheet" href="../farm-scene-host.css"><link rel="stylesheet" href="../farm-scene-world.css"><link rel="stylesheet" href="../farm-scene-management.css"><link rel="stylesheet" href="../farm-scene-trade.css"><link rel="stylesheet" href="../farm-delight.css"><link rel="stylesheet" href="../farm-coop-panel.css" data-farm-coop-css>
-<style>body{margin:0;font:12px system-ui}#qa-controls{position:fixed;inset:0 0 auto;z-index:7000;min-height:64px;box-sizing:border-box;background:white;padding:4px}#qa-controls button{padding:4px;margin:2px}#qa-report{display:block;white-space:pre-wrap}#farm{top:82px}#qa-help{position:fixed;bottom:2px;left:2px;z-index:7000;background:#fffe;pointer-events:none;font-size:10px}</style>
-</head><body><header id="qa-controls"><button id="reset3">3只待喂</button><button id="reset6">6只待喂</button><button id="shortage">1份饲料</button><button id="ready">3只待收</button><button id="synthetic">运行合成回归</button><output id="qa-report">正在加载真实 host…</output></header><main id="farm"></main><aside id="qa-help">内存隔离存档；原生触摸拖饲料袋 → 逐只喂养；从小鸡起手横向滚动。合成事件不等于真实手指。</aside>
+<style>body{margin:0;font:12px system-ui}#qa-controls{position:fixed;inset:0 0 auto;z-index:7000;min-height:64px;box-sizing:border-box;background:white;padding:4px}#qa-controls button{padding:4px;margin:2px}#qa-report{display:block;white-space:pre-wrap}#farm{top:112px}#qa-help{position:fixed;bottom:2px;left:2px;z-index:7000;background:#fffe;pointer-events:none;font-size:10px}.qa-panel-only #qa-controls,.qa-panel-only #qa-help{display:none}.qa-panel-only #farm{top:0}</style>
+<script>if(new URLSearchParams(location.search).get("panelOnly")==="1")document.documentElement.classList.add("qa-panel-only");</script>
+</head><body><header id="qa-controls"><div><button data-species="chicken">鸡 6/6</button><button data-species="cow">牛 5/5</button><button data-species="pig">猪 5/5</button><button data-species="sheep">绵羊 5/5</button><button data-species="lamb">羔羊 5/5</button></div><button id="hungry">满员待喂</button><button id="shortage">1份饲料</button><button id="emptyfeed">无饲料</button><button id="ready">满员待收</button><button id="synthetic">合成回归</button><output id="qa-report">正在加载真实 host…</output></header><main id="farm"></main><aside id="qa-help">内存隔离存档；原生触摸拖饲料袋 → 逐只喂养；5种满员两排全见；极窄时边缘滚动兜底。合成事件不等于真实手指。</aside>
 <script type="module">
 import {mountFarm} from '../farm-scene-host.mjs';
 import {createFarm,executeFarm,advanceFarm} from '../farm-core.mjs';
 import {createFarmStore,makeEnvelope} from '../farm-save.mjs';
 import {ANIMALS} from '../farm-config.mjs';
+import {maxPensFixture} from './farm-growth-fixtures.mjs';
 const root=document.querySelector('#farm'),report=document.querySelector('#qa-report');
-let host,store,commands=[],trace=[],errors=[],unsubscribe,penId;
+let host,store,commands=[],trace=[],errors=[],unsubscribe,penId,activeSpecies='chicken';
 const center=el=>{const r=el.getBoundingClientRect();return {x:r.left+r.width/2,y:r.top+r.height/2};};
 const nextFrame=()=>new Promise(requestAnimationFrame);
-function snapshot(){const state=store.getState(),pen=state.entities.find(e=>e.id===penId);return {feed:state.inventory.chicken_feed,egg:state.inventory.egg||0,statuses:pen.animals.map(a=>a.status),commands:commands.length,committed:commands.reduce((n,c)=>n+c.events.length,0),revision:state.revision,rowScrollLeft:root.querySelector('.fc-animals').scrollLeft,touchAction:getComputedStyle(root.querySelector('.fc-feed')).touchAction,trace:[...trace],errors:[...errors]};}
-function show(){if(!root.querySelector('.fc-feed'))return;const s=snapshot();report.textContent=`饲料 ${s.feed} · 蛋 ${s.egg} · 已提交 ${s.committed} · ${s.statuses.join('/')}\ntouch-action:${s.touchAction} · ${trace.at(-1)?.type||'就绪'}${errors.length?' · FAIL '+errors.join('; '):''}`;}
-function reset({count=3,feed=count,ready=false}={}){
- host?.destroy();unsubscribe?.();store?.close();commands=[];trace=[];errors=[];
- let state=createFarm(1000);penId=state.entities.find(e=>e.kind==='shelter'&&e.configId==='chicken').id;
- if(count>3)state=executeFarm(state,{type:'buy',category:'animal',entityId:penId,quantity:count-3},state.now).state;
- state.inventory.chicken_feed=feed;
- if(ready){state=executeFarm(state,{type:'feed',entityId:penId},state.now).state;state=advanceFarm(state,state.now+ANIMALS.chicken.durationMs).state;}
+function snapshot(){const state=store.getState(),pen=state.entities.find(e=>e.id===penId),cfg=ANIMALS[activeSpecies],rows=root.querySelector('.fc-animals'),box=rows.getBoundingClientRect();return {species:activeSpecies,feed:state.inventory[cfg.feedItem],feedItem:cfg.feedItem,product:cfg.product,productCount:state.inventory[cfg.product]||0,egg:state.inventory.egg||0,statuses:pen.animals.map(a=>a.status),capacity:cfg.capacity,commands:commands.length,committed:commands.reduce((n,c)=>n+c.events.length,0),revision:state.revision,rowScrollLeft:rows.scrollLeft,rowOverflow:rows.scrollWidth-rows.clientWidth,allVisible:[...rows.querySelectorAll('[data-feed-target]')].every(el=>{const r=el.getBoundingClientRect();return r.left>=box.left&&r.right<=box.right&&r.top>=box.top&&r.bottom<=box.bottom;}),touchAction:getComputedStyle(root.querySelector('.fc-feed')).touchAction,trace:[...trace],errors:[...errors]};}
+function show(){if(!root.querySelector('.fc-feed'))return;const s=snapshot();report.textContent=`${ANIMALS[s.species].name} ${s.statuses.length}/${s.capacity} · ${s.feedItem} ${s.feed} · ${s.product} ${s.productCount} · 已提交 ${s.committed}\n${s.statuses.join('/')} · 全可见:${s.allVisible} 横溢出:${s.rowOverflow}${errors.length?' · FAIL '+errors.join('; '):''}`;}
+function reset({species=activeSpecies,count=ANIMALS[species].capacity,feed=count,ready=false}={}){
+ host?.destroy();unsubscribe?.();store?.close();commands=[];trace=[];errors=[];activeSpecies=species;
+ const state=maxPensFixture();penId=state.entities.find(e=>e.kind==='shelter'&&e.configId===species).id;
+ for(const pen of state.entities.filter(e=>e.kind==='shelter'))for(const a of pen.animals){a.status=ready?'ready':'hungry';a.readyAt=ready?state.now-1:0;}
+ const selected=state.entities.find(e=>e.id===penId);selected.animals=selected.animals.slice(0,count);
+ for(const cfg of Object.values(ANIMALS))state.inventory[cfg.feedItem]=cfg.capacity;
+ state.inventory[ANIMALS[species].feedItem]=feed;
  const key='coop-mobile-isolated',data=new Map([[key+':a',JSON.stringify(makeEnvelope(state))],[key+':active','a']]);
  const storage={getItem:k=>data.get(k)??null,setItem:(k,v)=>data.set(k,v),removeItem:k=>data.delete(k)};
  store=createFarmStore({storage,key,locks:null,now:()=>state.now,monotonicNow:()=>performance.now()});
@@ -27,15 +30,16 @@ function reset({count=3,feed=count,ready=false}={}){
  host=mountFarm({root,store});root.querySelector(`[data-entity="${penId}"]`).click();unsubscribe=store.subscribe(()=>queueMicrotask(show));show();
 }
 for(const type of ['pointerdown','pointermove','pointerup','pointercancel','gotpointercapture','lostpointercapture'])document.addEventListener(type,event=>{if(!event.target.closest?.('.fc-backdrop'))return;trace.push({type,pointerType:event.pointerType,trusted:event.isTrusted,id:event.pointerId,x:event.clientX,y:event.clientY});if(trace.length>40)trace.shift();queueMicrotask(show);},true);
+window.addEventListener('resize',()=>requestAnimationFrame(show));
 window.addEventListener('error',e=>{errors.push(e.message);show();});
 function fire(target,type,p,id=901){target.dispatchEvent(new PointerEvent(type,{pointerId:id,pointerType:'touch',isPrimary:true,button:0,buttons:type==='pointerup'?0:1,clientX:p.x,clientY:p.y,bubbles:true,cancelable:true}));}
 const check=(condition,message)=>{if(!condition)throw Error(message);};
 async function runSynthetic(){
  try{
-  reset();await nextFrame();await nextFrame();
+  reset({species:'chicken',count:3});await nextFrame();await nextFrame();
   const overlay=root.querySelector('.fc-backdrop'),bag=root.querySelector('.fc-feed'),birds=[...root.querySelectorAll('[data-feed-target]')],feedImage=bag.querySelector('img'),start=center(bag),targets=birds.map(center);
   check(getComputedStyle(bag).touchAction==='none','production CSS allows native feed pan');
-  check(getComputedStyle(birds[0]).touchAction==='pan-x','bird-started scrolling is blocked');
+  check(getComputedStyle(birds[0]).touchAction==='pan-x pan-y','bird-started scrolling is blocked');
   fire(bag,'pointerdown',start);fire(overlay,'pointermove',targets[0]);
   check(snapshot().feed===2&&snapshot().statuses[0]==='producing','first bird did not commit before release');
   check(birds[0]===root.querySelector('[data-feed-target]'),'first feed replaced the bird DOM');
@@ -45,18 +49,18 @@ async function runSynthetic(){
   for(const p of [...targets].reverse())fire(overlay,'pointermove',p);
   fire(overlay,'pointerup',targets[0]);fire(overlay,'pointerup',targets[0]);
   check(snapshot().feed===0&&snapshot().committed===3,'continuous touch backtracking double-charged or missed targets');
-  reset({ready:true});await nextFrame();
-  const eggs=[...root.querySelectorAll('[data-egg]')],eggTargets=eggs.map(center),currentOverlay=root.querySelector('.fc-backdrop');
+  reset({species:'chicken',count:3,ready:true});await nextFrame();
+  const eggs=[...root.querySelectorAll('[data-egg]')],eggTargets=eggs.map(center),currentOverlay=root.querySelector('.fc-backdrop'),eggBefore=snapshot().egg;
   check(getComputedStyle(eggs[0]).touchAction==='none','production CSS allows native egg pan');
   fire(eggs[0],'pointerdown',eggTargets[0]);check(!eggs[0].isConnected,'collected egg was not removed');
   for(const p of eggTargets.slice(1))fire(currentOverlay,'pointermove',p);
   fire(currentOverlay,'pointerup',eggTargets.at(-1));
-  check(snapshot().egg===3&&snapshot().committed===3,'removed first egg interrupted the touch sweep');
+  check(snapshot().egg===eggBefore+3&&snapshot().committed===3,'removed first egg interrupted the touch sweep');
   show();report.textContent+='\nPASS: computed host CSS, stable bird/feed DOM, pre-release commits, no duplicates, removed egg sweep (synthetic touch only)';
   return {ok:true,...snapshot()};
  }catch(error){errors.push(error.message);show();throw error;}
 }
-document.querySelector('#reset3').onclick=()=>reset();document.querySelector('#reset6').onclick=()=>reset({count:6});document.querySelector('#shortage').onclick=()=>reset({feed:1});document.querySelector('#ready').onclick=()=>reset({ready:true});document.querySelector('#synthetic').onclick=()=>runSynthetic().catch(()=>{});
+document.querySelectorAll('[data-species]').forEach(button=>button.onclick=()=>reset({species:button.dataset.species}));document.querySelector('#hungry').onclick=()=>reset();document.querySelector('#shortage').onclick=()=>reset({feed:1});document.querySelector('#emptyfeed').onclick=()=>reset({feed:0});document.querySelector('#ready').onclick=()=>reset({ready:true});document.querySelector('#synthetic').onclick=()=>runSynthetic().catch(()=>{});
 window.coopTouchQA={reset,snapshot,runSynthetic,targets:()=>({bag:center(root.querySelector('.fc-feed')),birds:[...root.querySelectorAll('[data-feed-target]')].map(center),eggs:[...root.querySelectorAll('[data-egg]')].map(center),row:root.querySelector('.fc-animals').getBoundingClientRect().toJSON()})};
 reset();
 </script></body></html>

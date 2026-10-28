@@ -64,6 +64,6 @@ test('fixed house selection explains the restriction instead of offering to move
   selectedEntity:()=>house,ctx:{layout},config:{},title:()=> '农场小屋',esc:s=>s,
   button:(action,label)=>`<button data-action="${action}">${label}</button>`};
  new Function(...Object.keys(env),`${source.slice(start,end)}renderContext();`)(...Object.values(env));
- assert.match(context.innerHTML,/固定建筑，不能移动或旋转/);
+ assert.match(context.innerHTML,/固定建筑 · 不可移动/);
  assert.match(context.innerHTML,/布置其他物件/);assert.doesNotMatch(context.innerHTML,/移动农场小屋|布置这个物件/);
 });

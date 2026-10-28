@@ -438,13 +438,13 @@ export function mountWorldScene(ctx) {
       if(chosenSeed&&!selected&&!gesture&&!draft&&!placement&&!more&&!localPage){patchFarmMarkup(context,`<div class="fw-seed-mode">${tool('plant',name(chosenSeed),chosenSeed,'__seedmode')}<span>${esc(name(chosenSeed))} · 余 ${ctx.state.inventory[chosenSeed]||0}份<br>按住种子拖过空田，连续播种</span>${button('stop-seeding','结束播种')}</div>`);return;}
       if(gesture||draft||placement||more||localPage){patchFarmMarkup(context,'');return;}
       const e=selectedEntity();if(!e){patchFarmMarkup(context,'');return;}
-      let body='',sub='';
+      let body='',sub='',management='';
       if(e.kind==='field'){
-        if(!e.crop){const crops=Object.values(config.CROPS).filter(c=>c.level<=ctx.state.level),group=crops.slice(seedPage*4,seedPage*4+4);body=group.map(c=>tool('plant',`${c.name} ${ctx.state.inventory[c.id]||0}`,c.id,e.id)).join('')+button('seeds-next','更多种子');sub='按住种子拖过空田，经过一格立即播种。点击种子只选种，不消耗库存。';}
-        else if(e.crop.readyAt<=ctx.state.now){body=tool('harvest','镰刀 · 连续收获',null,e.id);sub='按住镰刀拖过成熟田，经过一格立即收获；双击成熟田快速收一格。';}
+        if(!e.crop){const crops=Object.values(config.CROPS).filter(c=>c.level<=ctx.state.level),group=crops.slice(seedPage*4,seedPage*4+4);body=group.map(c=>tool('plant',`${c.name} ${ctx.state.inventory[c.id]||0}`,c.id,e.id)).join('')+(crops.length>4?button('seeds-next',`种子 ${seedPage+1}/${Math.ceil(crops.length/4)} · 下一页`):'');sub='拖过空田，逐格播种';}
+        else if(e.crop.readyAt<=ctx.state.now){body=tool('harvest','镰刀 · 连续收获',null,e.id);sub='拖过成熟田，逐格收获';}
         else{sub=`${name(e.crop.itemId)}还需 ${remaining(e.crop.readyAt)}`;body=image(entityArt(e),'正在生长','fw-growing');}
       }else if(e.kind==='fruit'){
-        const c=config.FRUITS[e.configId];sub=e.status==='ready'?`按住果篮拖过成熟果树立即采摘 · 这次 ${c.sequence[e.harvestStage]}个 · 第${e.harvestStage+1}次果实`:e.status==='growing'?`再等 ${remaining(e.readyAt)}`:e.status==='revive'?`园丁免费次数：${Math.max(0,3-(ctx.state.npc.freeRevives||0))}`:'已完成最后一轮结果';
+        const c=config.FRUITS[e.configId];sub=e.status==='ready'?`本次 ${c.sequence[e.harvestStage]}个 · 第${e.harvestStage+1}轮 / ${c.sequence.length}轮`:e.status==='growing'?`再等 ${remaining(e.readyAt)}`:e.status==='revive'?`园丁免费次数：${Math.max(0,3-(ctx.state.npc.freeRevives||0))}`:'已完成最后一轮结果';
         body=e.status==='ready'?tool('harvest','果篮 · 连续采摘',e.configId,e.id):e.status==='revive'?button('revive','请园丁复苏',item(e.configId))+button('revive-voucher',vouchersEnabled()?'使用 1 建设券':'建设券功能关闭','',vouchersEnabled()?'':'disabled'):e.status==='withered'?button('clear-tree',`清理 · ${name(c.clearTool)}×1`,item(c.clearTool)):image(entityArt(e),'生长中','fw-growing');
       }else if(e.kind==='shelter'){
         const c=config.ANIMALS[e.configId],a=e.animals.find(a=>a.id===selectedAnimal);sub=`${e.animals.length}/${c.capacity}只 · 饲料 ${ctx.state.inventory[c.feedItem]||0}${a?' · '+(a.status==='producing'?remaining(a.readyAt):a.status==='ready'?'这一只待收':'这一只饿了'):''}`;
@@ -452,9 +452,9 @@ export function mountWorldScene(ctx) {
       }else if(e.kind==='machine'){const mastery=resolveMachineMasteryArt(e,ctx.state);body=(mastery?`<img class="fw-mastery-state" src="${mastery.src}" alt="机器熟练度">`:'')+machineBoard(e);sub='拖配方到本机器或上方空生产槽排产；点或划过完成品连续收取。等待中的任务长按拖动排序。';}
       else if(e.kind==='obstacle'){const t=e.configId==='natural_tree'?'saw':e.configId==='natural_bush'?'axe':'shovel';body=button(`obstacle:${t}`,`${name(t)} ×1`,item(t));if(e.configId==='rock')body+=button('obstacle:dynamite','炸药 ×1',item('dynamite'))+button('obstacle:tnt','TNT ×1',item('tnt'));sub='选工具先看实际清理目标，确认前不消耗。';}
       else if(e.kind==='barn'||e.kind==='silo'){body=button('chapter:P08','打开仓库',art(e))+button(`upgrade-storage:${e.kind}`,'查看扩容');sub=`${ctx.core.storageUsed(ctx.state,e.kind)} / ${ctx.state.storage[e.kind].capacity}`;}
-      else if(ctx.layout.isFixedEntity(e)){body=button('edit','布置其他物件');sub='小屋是固定建筑，不能移动或旋转。田地、仓库和工坊可自由布置。';}
-      if(!ctx.layout.isFixedEntity(e))body+=button('edit',`布置 · 移动${title(e)}`,'','class="fw-move-object"');
-      patchFarmMarkup(context,`<div class="fw-object-panel ${e.kind==='machine'?'fw-machine-panel':''}"><header><strong>${esc(title(e))}</strong>${button('close-tool','×','','aria-label="收起对象工具"')}</header><div class="fw-tool-row">${body}</div><p>${esc(sub)}</p></div>`);
+      else if(ctx.layout.isFixedEntity(e)){body=button('edit','布置其他物件');sub='固定建筑 · 不可移动';}
+      if(!ctx.layout.isFixedEntity(e))management=`<details class="fw-object-management" data-owner="${esc(e.id)}"${context.querySelector?.('.fw-object-management')?.dataset.owner===e.id&&context.querySelector('.fw-object-management').open?' open':''}><summary>管理</summary>${button('edit',`移动${title(e)}`,'','class="fw-move-object"')}</details>`;
+      patchFarmMarkup(context,`<div class="fw-object-panel ${e.kind==='machine'?'fw-machine-panel':''}"><header><strong>${esc(title(e))}</strong>${button('close-tool','×','','aria-label="收起对象工具"')}</header><div class="fw-tool-row">${body}</div><footer class="fw-object-footer">${sub?`<p>${esc(sub)}</p>`:''}${management}</footer></div>`);
     }
     function machineBoard(e){
       if(!e.built)return `<div class="fw-build-state">${image('terrain/construction-scaffold.svg')}${e.buildReadyAt<=ctx.state.now?button('complete-building','揭幕 · 领取建成经验'):`<span>施工中 · ${remaining(e.buildReadyAt)}</span>`}</div>`;

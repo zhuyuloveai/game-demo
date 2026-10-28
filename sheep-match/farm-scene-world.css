@@ -183,3 +183,6 @@ html.fw-document,html.fw-document>body{overflow:clip;overscroll-behavior:none}
 .fw-forest-fringe,.fw-forest-fog{position:absolute;pointer-events:none!important;user-select:none;max-width:none}
 .fw-forest-fringe{z-index:1}
 .fw-forest-fog{z-index:1500;opacity:.24}
+
+/* The object stays primary; layout management never competes with its tool. */
+.fw-object-footer{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}.fw-object-footer>p{flex:1;min-width:100px;margin:3px 0;font-size:11px}.fw-object-management{margin-left:auto;flex:none;font:12px system-ui}.fw-object-management>summary{min-height:44px;min-width:54px;padding:12px 8px;box-sizing:border-box;cursor:pointer;color:#705c45}.fw-object-management[open]{flex-basis:100%;border-top:1px solid #c7b18d}.fw-object-management[open]>summary{display:inline-block}.fw-object-management button{margin:4px 0}
