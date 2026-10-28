@@ -1,0 +1,52 @@
+[
+  {
+    "file": "animals/alpaca/sources/editable.ora",
+    "layers": 13,
+    "result": "PASS"
+  },
+  {
+    "file": "animals/deer/sources/editable.ora",
+    "layers": 13,
+    "result": "PASS"
+  },
+  {
+    "file": "animals/duck/sources/editable.ora",
+    "layers": 13,
+    "result": "PASS"
+  },
+  {
+    "file": "animals/fox/sources/editable.ora",
+    "layers": 13,
+    "result": "PASS"
+  },
+  {
+    "file": "animals/goat/sources/editable.ora",
+    "layers": 13,
+    "result": "PASS"
+  },
+  {
+    "file": "animals/rabbit/sources/editable.ora",
+    "layers": 13,
+    "result": "PASS"
+  },
+  {
+    "file": "decor/apiary/sources/editable.ora",
+    "layers": 3,
+    "result": "PASS"
+  },
+  {
+    "file": "decor/gazebo/sources/editable.ora",
+    "layers": 3,
+    "result": "PASS"
+  },
+  {
+    "file": "decor/lily-fountain/sources/editable.ora",
+    "layers": 3,
+    "result": "PASS"
+  },
+  {
+    "file": "decor/watermill/sources/editable.ora",
+    "layers": 3,
+    "result": "PASS"
+  }
+]

@@ -1,0 +1,607 @@
+{
+  "version": 1,
+  "id": "alpaca",
+  "name": "云朵羊驼",
+  "canvas": [
+    360,
+    280
+  ],
+  "anchor": [
+    180,
+    230
+  ],
+  "offset": [
+    0,
+    0
+  ],
+  "bodyWidth": 190,
+  "direction": "elevated front-left",
+  "action": "walk",
+  "fps": 12,
+  "durationMs": 1000,
+  "loop": true,
+  "endFrameRepeated": false,
+  "atlas": "atlas.png",
+  "atlasSize": [
+    1456,
+    852
+  ],
+  "idle": "idle.png",
+  "idleNote": "Frame 00 held as a still; not an additional authored neutral pose.",
+  "shadow": "shadow.png",
+  "editableSource": "sources/editable.ora",
+  "stride": {
+    "pixelsPerCycle": [
+      -30,
+      15
+    ],
+    "note": "Initial integration recommendation; adjust velocity to planted-foot motion at the final display scale."
+  },
+  "contactMethod": "Visible underside pixels within manually reviewed paw/hoof regions; occluded feet omitted. Lifted visible feet are not ground support. New species ground reference is y=230.",
+  "frames": [
+    {
+      "index": 0,
+      "file": "frames/00.png",
+      "sourceRect": [
+        79,
+        47,
+        271,
+        316
+      ],
+      "sourceScale": 0.7142857142857143,
+      "sourceOffset": [
+        84,
+        7
+      ],
+      "anchor": [
+        180,
+        230
+      ],
+      "visibleFootTips": [
+        [
+          162,
+          230
+        ],
+        [
+          243,
+          224
+        ]
+      ],
+      "groundSupport": [
+        162,
+        230
+      ],
+      "airborne": false,
+      "bounds": [
+        85,
+        8,
+        276,
+        231
+      ],
+      "atlasRect": [
+        2,
+        2,
+        360,
+        280
+      ],
+      "sha256": "6660a4bbe2ccc013069fe2f6a35597413d3e6759c79a946a6466f207839a3f57"
+    },
+    {
+      "index": 1,
+      "file": "frames/01.png",
+      "sourceRect": [
+        439,
+        57,
+        264,
+        306
+      ],
+      "sourceScale": 0.7142857142857143,
+      "sourceOffset": [
+        86,
+        14
+      ],
+      "anchor": [
+        180,
+        230
+      ],
+      "visibleFootTips": [
+        [
+          182,
+          230
+        ],
+        [
+          243,
+          218
+        ]
+      ],
+      "groundSupport": [
+        182,
+        230
+      ],
+      "airborne": false,
+      "bounds": [
+        87,
+        16,
+        274,
+        231
+      ],
+      "atlasRect": [
+        366,
+        2,
+        360,
+        280
+      ],
+      "sha256": "c89e310db127794fdf991f42ecb2a5b87e0e017107b55c7cf2882b30208b9294"
+    },
+    {
+      "index": 2,
+      "file": "frames/02.png",
+      "sourceRect": [
+        773,
+        43,
+        270,
+        318
+      ],
+      "sourceScale": 0.7142857142857143,
+      "sourceOffset": [
+        84,
+        5
+      ],
+      "anchor": [
+        180,
+        230
+      ],
+      "visibleFootTips": [
+        [
+          159,
+          230
+        ],
+        [
+          239,
+          225
+        ]
+      ],
+      "groundSupport": [
+        159,
+        230
+      ],
+      "airborne": false,
+      "bounds": [
+        85,
+        6,
+        276,
+        231
+      ],
+      "atlasRect": [
+        730,
+        2,
+        360,
+        280
+      ],
+      "sha256": "ad99c0da630e8f2d090b26da426fad0f7796b5c38330900379493221c42c4ab8"
+    },
+    {
+      "index": 3,
+      "file": "frames/03.png",
+      "sourceRect": [
+        1131,
+        52,
+        269,
+        311
+      ],
+      "sourceScale": 0.7142857142857143,
+      "sourceOffset": [
+        84,
+        11
+      ],
+      "anchor": [
+        180,
+        230
+      ],
+      "visibleFootTips": [
+        [
+          169,
+          230
+        ],
+        [
+          250,
+          219
+        ]
+      ],
+      "groundSupport": [
+        169,
+        230
+      ],
+      "airborne": false,
+      "bounds": [
+        86,
+        12,
+        275,
+        231
+      ],
+      "atlasRect": [
+        1094,
+        2,
+        360,
+        280
+      ],
+      "sha256": "429c25f6c6c2463eac6b9d8d65b9b521d35e05e65e7f939771b4314d5dbe2a0f"
+    },
+    {
+      "index": 4,
+      "file": "frames/04.png",
+      "sourceRect": [
+        69,
+        393,
+        284,
+        322
+      ],
+      "sourceScale": 0.7142857142857143,
+      "sourceOffset": [
+        79,
+        2
+      ],
+      "anchor": [
+        180,
+        230
+      ],
+      "visibleFootTips": [
+        [
+          169,
+          230
+        ],
+        [
+          259,
+          213
+        ]
+      ],
+      "groundSupport": [
+        169,
+        230
+      ],
+      "airborne": false,
+      "bounds": [
+        80,
+        3,
+        281,
+        231
+      ],
+      "atlasRect": [
+        2,
+        286,
+        360,
+        280
+      ],
+      "sha256": "6c047d2e26119d4aefac8b202f45fee1f26fff3b0cb4ded65f6c6eb21286fc4b"
+    },
+    {
+      "index": 5,
+      "file": "frames/05.png",
+      "sourceRect": [
+        434,
+        393,
+        269,
+        315
+      ],
+      "sourceScale": 0.7142857142857143,
+      "sourceOffset": [
+        84,
+        9
+      ],
+      "anchor": [
+        180,
+        230
+      ],
+      "visibleFootTips": [
+        [
+          158,
+          228
+        ],
+        [
+          249,
+          230
+        ]
+      ],
+      "groundSupport": [
+        249,
+        230
+      ],
+      "airborne": false,
+      "bounds": [
+        85,
+        11,
+        275,
+        233
+      ],
+      "atlasRect": [
+        366,
+        286,
+        360,
+        280
+      ],
+      "sha256": "7bfd73d47a1681b14ec4b2d4d786a7c6e452335d87ca3285c8ae7b4623285640"
+    },
+    {
+      "index": 6,
+      "file": "frames/06.png",
+      "sourceRect": [
+        777,
+        397,
+        274,
+        319
+      ],
+      "sourceScale": 0.7142857142857143,
+      "sourceOffset": [
+        82,
+        5
+      ],
+      "anchor": [
+        180,
+        230
+      ],
+      "visibleFootTips": [
+        [
+          174,
+          230
+        ],
+        [
+          253,
+          218
+        ]
+      ],
+      "groundSupport": [
+        174,
+        230
+      ],
+      "airborne": false,
+      "bounds": [
+        83,
+        6,
+        277,
+        231
+      ],
+      "atlasRect": [
+        730,
+        286,
+        360,
+        280
+      ],
+      "sha256": "94f285b8336a83efe9bd3410bab65bde91da146b1308eebdb18ef475708dc3fd"
+    },
+    {
+      "index": 7,
+      "file": "frames/07.png",
+      "sourceRect": [
+        1132,
+        405,
+        273,
+        301
+      ],
+      "sourceScale": 0.7142857142857143,
+      "sourceOffset": [
+        83,
+        18
+      ],
+      "anchor": [
+        180,
+        230
+      ],
+      "visibleFootTips": [
+        [
+          158,
+          227
+        ],
+        [
+          245,
+          230
+        ]
+      ],
+      "groundSupport": [
+        245,
+        230
+      ],
+      "airborne": false,
+      "bounds": [
+        84,
+        20,
+        277,
+        231
+      ],
+      "atlasRect": [
+        1094,
+        286,
+        360,
+        280
+      ],
+      "sha256": "2d82b825c70ac75e60b33ec1c06ff941014808e37352322141ded80aa690abd0"
+    },
+    {
+      "index": 8,
+      "file": "frames/08.png",
+      "sourceRect": [
+        74,
+        733,
+        270,
+        313
+      ],
+      "sourceScale": 0.7142857142857143,
+      "sourceOffset": [
+        84,
+        9
+      ],
+      "anchor": [
+        180,
+        230
+      ],
+      "visibleFootTips": [
+        [
+          182,
+          230
+        ],
+        [
+          255,
+          220
+        ]
+      ],
+      "groundSupport": [
+        182,
+        230
+      ],
+      "airborne": false,
+      "bounds": [
+        85,
+        10,
+        276,
+        232
+      ],
+      "atlasRect": [
+        2,
+        570,
+        360,
+        280
+      ],
+      "sha256": "fa27942fc0c3de7163b6249e5f9e087f8b08be35dd52a00aab127b7c91f1ddbe"
+    },
+    {
+      "index": 9,
+      "file": "frames/09.png",
+      "sourceRect": [
+        443,
+        742,
+        267,
+        302
+      ],
+      "sourceScale": 0.7142857142857143,
+      "sourceOffset": [
+        85,
+        16
+      ],
+      "anchor": [
+        180,
+        230
+      ],
+      "visibleFootTips": [
+        [
+          164,
+          230
+        ],
+        [
+          253,
+          222
+        ]
+      ],
+      "groundSupport": [
+        164,
+        230
+      ],
+      "airborne": false,
+      "bounds": [
+        86,
+        17,
+        275,
+        231
+      ],
+      "atlasRect": [
+        366,
+        570,
+        360,
+        280
+      ],
+      "sha256": "80f89a9929cb1835c4ae0ede96cff901e06688101ed9ac358648d2f3c785e518"
+    },
+    {
+      "index": 10,
+      "file": "frames/10.png",
+      "sourceRect": [
+        781,
+        735,
+        267,
+        309
+      ],
+      "sourceScale": 0.7142857142857143,
+      "sourceOffset": [
+        85,
+        11
+      ],
+      "anchor": [
+        180,
+        230
+      ],
+      "visibleFootTips": [
+        [
+          160,
+          230
+        ],
+        [
+          231,
+          226
+        ]
+      ],
+      "groundSupport": [
+        160,
+        230
+      ],
+      "airborne": false,
+      "bounds": [
+        86,
+        12,
+        275,
+        231
+      ],
+      "atlasRect": [
+        730,
+        570,
+        360,
+        280
+      ],
+      "sha256": "cf75ee27271abb94627f17227e653f9f10f6cf7f8f87dd15bafc8ff8b06d7494"
+    },
+    {
+      "index": 11,
+      "file": "frames/11.png",
+      "sourceRect": [
+        1138,
+        740,
+        267,
+        305
+      ],
+      "sourceScale": 0.7142857142857143,
+      "sourceOffset": [
+        85,
+        16
+      ],
+      "anchor": [
+        180,
+        230
+      ],
+      "visibleFootTips": [
+        [
+          183,
+          230
+        ],
+        [
+          249,
+          225
+        ]
+      ],
+      "groundSupport": [
+        183,
+        230
+      ],
+      "airborne": false,
+      "bounds": [
+        86,
+        17,
+        275,
+        233
+      ],
+      "atlasRect": [
+        1094,
+        570,
+        360,
+        280
+      ],
+      "sha256": "d65fc1837209f7bdd7e119aaf04698094f4900034d2681120579c9bbfadc75c0"
+    }
+  ]
+}

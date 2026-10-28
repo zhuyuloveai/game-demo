@@ -1,0 +1,46 @@
+[
+  {
+    "id": "watermill",
+    "name": "溪畔水车小屋",
+    "footprint": [
+      4,
+      3
+    ],
+    "description": "独立转轮，9 秒一圈",
+    "type": "decor",
+    "manifest": "decor/watermill/manifest.json"
+  },
+  {
+    "id": "gazebo",
+    "name": "花藤凉亭",
+    "footprint": [
+      3,
+      3
+    ],
+    "description": "四枚彩旗轻摆，3.6 秒循环",
+    "type": "decor",
+    "manifest": "decor/gazebo/manifest.json"
+  },
+  {
+    "id": "lily-fountain",
+    "name": "睡莲喷泉",
+    "footprint": [
+      3,
+      3
+    ],
+    "description": "两股细水流与水面涟漪，1.8 秒循环",
+    "type": "decor",
+    "manifest": "decor/lily-fountain/manifest.json"
+  },
+  {
+    "id": "apiary",
+    "name": "蜂蜜小屋",
+    "footprint": [
+      3,
+      3
+    ],
+    "description": "两只蜜蜂绕巢飞行，5.2 秒循环",
+    "type": "decor",
+    "manifest": "decor/apiary/manifest.json"
+  }
+]

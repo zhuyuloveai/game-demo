@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f4eedc"><title>牧场的新邻居 · 动态素材预览</title><link rel="stylesheet" href="preview.css"></head>
+<body>
+<main>
+ <header><div><span class="eyebrow">羊羊牧场 · 新一批装饰与动物</span><h1>牧场来了新邻居</h1><p>水车慢慢转，小动物在草地上散步。</p></div><span class="edition">4 座装饰 · 6 种动物</span></header>
+ <nav aria-label="预览内容"><div class="tabs"><button data-tab="scene" class="active" aria-pressed="true">一起逛逛</button><button data-tab="animals" aria-pressed="false">小动物</button><button data-tab="decor" aria-pressed="false">装饰建筑</button></div><button id="play" aria-pressed="false">暂停动态</button></nav>
+ <section id="scene-panel" aria-label="组合场景"><div class="scene-wrap"><svg id="scene" viewBox="0 0 1200 760" role="img" aria-label="四座新装饰与六种小动物组成的牧场小场景"></svg><span class="scene-caption">微风里，慢慢热闹起来</span></div><p class="hint">建筑与动物独立放置；场景使用已有道路、树木、灌木和花坛。</p></section>
+ <section id="animals-panel" hidden><div class="section-heading"><h2>六位新邻居</h2><p>每种 12 个独立帧 · 360 × 280 · 12 fps</p></div><div class="cards" id="animal-cards"></div><details><summary>与当前牧场动物对照</summary><div class="references"><figure><img src="reused/reference-chicken.png" alt="现有鸡"><figcaption>现有鸡</figcaption></figure><figure><img src="reused/reference-cow.png" alt="现有牛"><figcaption>现有牛</figcaption></figure><figure><img src="reused/reference-lamb.png" alt="现有羊羔"><figcaption>现有羊羔</figcaption></figure></div></details></section>
+ <section id="decor-panel" hidden><div class="section-heading"><h2>给牧场添一点生活气</h2><p>主体、活动部件、落地阴影分层交付</p></div><div class="cards buildings" id="decor-cards"></div></section>
+ <footer><label class="scrub">查看帧序 <input id="phase" type="range" min="0" max="999" value="0" aria-label="动画进度"><output id="phase-label">01 / 12</output></label><label><input type="checkbox" id="anchors">显示锚点</label><label><input type="checkbox" id="shadows" checked>落地阴影</label><label><input type="checkbox" id="dark">深色底检查</label></footer>
+ <p class="delivery-note">这是一份独立美术预览，尚未接入游戏。<a href="README.md">交付说明</a> · <a href="manifest.json">资源清单</a></p>
+</main><script type="module" src="preview.mjs"></script>
+</body></html>

@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "id": "gazebo",
+  "name": "花藤凉亭",
+  "footprint": [
+    3,
+    3
+  ],
+  "description": "四枚彩旗轻摆，3.6 秒循环",
+  "canvas": [
+    640,
+    640
+  ],
+  "anchor": [
+    320,
+    470
+  ],
+  "offset": [
+    0,
+    0
+  ],
+  "groundPolygon": [
+    [
+      320,
+      380
+    ],
+    [
+      500,
+      470
+    ],
+    [
+      320,
+      560
+    ],
+    [
+      140,
+      470
+    ]
+  ],
+  "recommendedDisplayWidth": 220,
+  "sourceRect": [
+    101,
+    44,
+    1058,
+    1169
+  ],
+  "sourceScale": 0.41060735671514115,
+  "sourceOffset": [
+    103,
+    80
+  ],
+  "baseBounds": [
+    103,
+    81,
+    536,
+    559
+  ],
+  "layers": [
+    {
+      "id": "shadow",
+      "file": "layers/00-shadow.png",
+      "optional": true
+    },
+    {
+      "id": "base",
+      "file": "layers/01-base.png"
+    },
+    {
+      "id": "motion",
+      "file": "layers/02-motion.png",
+      "source": "layers/02-motion.svg"
+    }
+  ],
+  "editableSource": "sources/editable.svg",
+  "editableRaster": "sources/editable.ora",
+  "periodMs": 3600,
+  "motionSource": "../../motion.mjs",
+  "motionNote": "12 preview phases are diagnostic samples, not a 12-fps runtime atlas. Render transforms continuously using periodMs.",
+  "occlusion": "moving components over building; animals remain separate world objects and must be depth-sorted.",
+  "integration": "Decorative art only; no economy, unlock costs, UI or runtime behavior added.",
+  "pennantPivots": [
+    [
+      190,
+      320
+    ],
+    [
+      235,
+      335
+    ],
+    [
+      280,
+      345
+    ],
+    [
+      325,
+      348
+    ]
+  ]
+}

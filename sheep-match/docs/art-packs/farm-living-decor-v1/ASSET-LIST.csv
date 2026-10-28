@@ -1,0 +1,11 @@
+category,id,name,manifest,editable_source,frames,fps
+animal,duck,奶油鸭,animals/duck/manifest.json,animals/duck/sources/editable.ora,12,12
+animal,rabbit,棉尾兔,animals/rabbit/manifest.json,animals/rabbit/sources/editable.ora,12,12
+animal,goat,花斑山羊,animals/goat/manifest.json,animals/goat/sources/editable.ora,12,12
+animal,alpaca,云朵羊驼,animals/alpaca/manifest.json,animals/alpaca/sources/editable.ora,12,12
+animal,deer,斑点小鹿,animals/deer/manifest.json,animals/deer/sources/editable.ora,12,12
+animal,fox,蜜桃狐狸,animals/fox/manifest.json,animals/fox/sources/editable.ora,12,12
+decor,watermill,溪畔水车小屋,decor/watermill/manifest.json,decor/watermill/sources/editable.svg,,
+decor,gazebo,花藤凉亭,decor/gazebo/manifest.json,decor/gazebo/sources/editable.svg,,
+decor,lily-fountain,睡莲喷泉,decor/lily-fountain/manifest.json,decor/lily-fountain/sources/editable.svg,,
+decor,apiary,蜂蜜小屋,decor/apiary/manifest.json,decor/apiary/sources/editable.svg,,

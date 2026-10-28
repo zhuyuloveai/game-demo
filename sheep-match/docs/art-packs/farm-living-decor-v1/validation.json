@@ -1,0 +1,48 @@
+{
+  "baseCommit": "9df456b",
+  "checks": [
+    "72 independent transparent frames; hashes, real foot pixels, canvas bounds, atlas rectangles/content, 6 WebP loops and 6 ORA sources",
+    "4 aligned building kits; independent alpha layers, editable SVG/ORA, transparent margins, dynamic phase differences and exact continuous loop endpoints",
+    "8 reused assets are byte-identical to current main sources"
+  ],
+  "animalLoops": [
+    {
+      "id": "duck",
+      "maxAdjacentDifference": 0.043515804933084344,
+      "seamDifference": 0.027072031590413943,
+      "method": "mean normalized RGBA absolute difference; diagnostic, not a claim of zero flicker"
+    },
+    {
+      "id": "rabbit",
+      "maxAdjacentDifference": 0.0894932500778089,
+      "seamDifference": 0.0269099361967009,
+      "method": "mean normalized RGBA absolute difference; diagnostic, not a claim of zero flicker"
+    },
+    {
+      "id": "goat",
+      "maxAdjacentDifference": 0.04818573957360722,
+      "seamDifference": 0.03611672307812014,
+      "method": "mean normalized RGBA absolute difference; diagnostic, not a claim of zero flicker"
+    },
+    {
+      "id": "alpaca",
+      "maxAdjacentDifference": 0.051200698334889515,
+      "seamDifference": 0.039928289371304077,
+      "method": "mean normalized RGBA absolute difference; diagnostic, not a claim of zero flicker"
+    },
+    {
+      "id": "deer",
+      "maxAdjacentDifference": 0.054595802209772795,
+      "seamDifference": 0.0384510290227202,
+      "method": "mean normalized RGBA absolute difference; diagnostic, not a claim of zero flicker"
+    },
+    {
+      "id": "fox",
+      "maxAdjacentDifference": 0.06034005407718643,
+      "seamDifference": 0.030874299719887956,
+      "method": "mean normalized RGBA absolute difference; diagnostic, not a claim of zero flicker"
+    }
+  ],
+  "assertions": 587,
+  "result": "PASS"
+}

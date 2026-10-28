@@ -1,0 +1,50 @@
+[
+  {
+    "id": "duck",
+    "name": "奶油鸭",
+    "type": "animal",
+    "action": "walk",
+    "manifest": "animals/duck/manifest.json",
+    "frameCount": 12
+  },
+  {
+    "id": "rabbit",
+    "name": "棉尾兔",
+    "type": "animal",
+    "action": "hop",
+    "manifest": "animals/rabbit/manifest.json",
+    "frameCount": 12
+  },
+  {
+    "id": "goat",
+    "name": "花斑山羊",
+    "type": "animal",
+    "action": "walk",
+    "manifest": "animals/goat/manifest.json",
+    "frameCount": 12
+  },
+  {
+    "id": "alpaca",
+    "name": "云朵羊驼",
+    "type": "animal",
+    "action": "walk",
+    "manifest": "animals/alpaca/manifest.json",
+    "frameCount": 12
+  },
+  {
+    "id": "deer",
+    "name": "斑点小鹿",
+    "type": "animal",
+    "action": "walk",
+    "manifest": "animals/deer/manifest.json",
+    "frameCount": 12
+  },
+  {
+    "id": "fox",
+    "name": "蜜桃狐狸",
+    "type": "animal",
+    "action": "walk",
+    "manifest": "animals/fox/manifest.json",
+    "frameCount": 12
+  }
+]

@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "id": "lily-fountain",
+  "name": "睡莲喷泉",
+  "footprint": [
+    3,
+    3
+  ],
+  "description": "两股细水流与水面涟漪，1.8 秒循环",
+  "canvas": [
+    640,
+    640
+  ],
+  "anchor": [
+    320,
+    470
+  ],
+  "offset": [
+    0,
+    0
+  ],
+  "groundPolygon": [
+    [
+      320,
+      380
+    ],
+    [
+      500,
+      470
+    ],
+    [
+      320,
+      560
+    ],
+    [
+      140,
+      470
+    ]
+  ],
+  "recommendedDisplayWidth": 220,
+  "sourceRect": [
+    53,
+    216,
+    1149,
+    935
+  ],
+  "sourceScale": 0.4177545691906005,
+  "sourceOffset": [
+    80,
+    169
+  ],
+  "baseBounds": [
+    80,
+    170,
+    560,
+    559
+  ],
+  "layers": [
+    {
+      "id": "shadow",
+      "file": "layers/00-shadow.png",
+      "optional": true
+    },
+    {
+      "id": "base",
+      "file": "layers/01-base.png"
+    },
+    {
+      "id": "motion",
+      "file": "layers/02-motion.png",
+      "source": "layers/02-motion.svg"
+    }
+  ],
+  "editableSource": "sources/editable.svg",
+  "editableRaster": "sources/editable.ora",
+  "periodMs": 1800,
+  "motionSource": "../../motion.mjs",
+  "motionNote": "12 preview phases are diagnostic samples, not a 12-fps runtime atlas. Render transforms continuously using periodMs.",
+  "occlusion": "moving components over building; animals remain separate world objects and must be depth-sorted.",
+  "integration": "Decorative art only; no economy, unlock costs, UI or runtime behavior added.",
+  "nozzle": [
+    329,
+    187
+  ]
+}
