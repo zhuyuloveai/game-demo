@@ -1,0 +1,47 @@
+{
+  "mode": "built-in image_gen",
+  "baseCommit": "de94fb3a5f71a4bda6cb92358aa0cd4571c1bdb6",
+  "requests": [
+    {
+      "key": "feed-mill",
+      "path": "buildings/feed-mill.png",
+      "request": "Remove ONLY the large circular wooden flywheel with metal hub on the right side. Reveal the stationary honey-wood hopper wall behind it; retain the two vertical mounting posts, the bag, roof, corn, tray and ALL other structure. No wheel, spokes or hub may remain. This is a clean stationary background layer for a separate animated wheel.",
+      "prompt": "Use case: precise-object-edit. Edit the supplied existing transparent farm sprite. Remove ONLY the large circular wooden flywheel with metal hub on the right side. Reveal the stationary honey-wood hopper wall behind it; retain the two vertical mounting posts, the bag, roof, corn, tray and ALL other structure. No wheel, spokes or hub may remain. This is a clean stationary background layer for a separate animated wheel. Keep exact framing, same canvas dimensions and object coordinates, unchanged identity, light warm tan outlines, rounded soft cream/mint/honey pastel nonpixel art. Actual alpha transparent background. No new ground, shadow, scenery, text, extra object or style change. Preserve solid opaque fills within the object. Return one clean full-size sprite in the original position."
+    },
+    {
+      "key": "windmill",
+      "path": "decor/windmill.png",
+      "request": "Remove ONLY the four large crossed windmill blades, their diagonal supports and central hub. Reconstruct the green conical roof and cream tower surface smoothly behind the removed rotor. Keep the top ball, whole tower, door, window, base, camera, outline, soft palette and all other geometry exactly the same. No blade or rotor fragment should remain. This is the clean stationary tower layer for a separate rotating rotor.",
+      "prompt": "Use case: precise-object-edit. Edit the supplied existing transparent farm sprite. Remove ONLY the four large crossed windmill blades, their diagonal supports and central hub. Reconstruct the green conical roof and cream tower surface smoothly behind the removed rotor. Keep the top ball, whole tower, door, window, base, camera, outline, soft palette and all other geometry exactly the same. No blade or rotor fragment should remain. This is the clean stationary tower layer for a separate rotating rotor. Keep exact framing, same canvas dimensions and object coordinates, unchanged identity, light warm tan outlines, rounded soft cream/mint/honey pastel nonpixel art. Actual alpha transparent background. No new ground, shadow, scenery, text, extra object or style change. Preserve solid opaque fills within the object. Return one clean full-size sprite in the original position."
+    },
+    {
+      "key": "sewing-machine",
+      "path": "buildings/sewing-machine.png",
+      "request": "Remove ONLY the small vertical grey metal needle and needle clamp directly beneath the left mint machine head. Reconstruct the tiny bit of cream cloth behind the needle. Keep the entire machine head and body, wood table, cloth, thread, scissors and pincushion unchanged. This is the stationary background for an independently moving needle.",
+      "prompt": "Use case: precise-object-edit. Edit the supplied existing transparent farm sprite. Remove ONLY the small vertical grey metal needle and needle clamp directly beneath the left mint machine head. Reconstruct the tiny bit of cream cloth behind the needle. Keep the entire machine head and body, wood table, cloth, thread, scissors and pincushion unchanged. This is the stationary background for an independently moving needle. Match source framing, canvas dimensions and object coordinates. Preserve the existing light warm tan outlines, soft mint/cream/honey palette, rounded nonpixel cartoon drawing and mild cel shading exactly. Actual alpha transparent background. No added ground, shadows, text, extra scenery or stylistic change. Return one sprite."
+    },
+    {
+      "key": "juice-press",
+      "path": "buildings/juice-press.png",
+      "request": "Remove ONLY the central vertical screw, central round handle collar, horizontal turning lever and square pressing block over the apples, leaving the outer posts and canopy intact. Reveal the back wooden vat rim, apples inside the vat and transparent air behind the removed press mechanism. Keep canopy, outer upright posts, barrel, jug, apple crate, juice stream and wooden base unchanged. This is the stationary background behind an independently moving screw press.",
+      "prompt": "Use case: precise-object-edit. Edit the supplied existing transparent farm sprite. Remove ONLY the central vertical screw, central round handle collar, horizontal turning lever and square pressing block over the apples, leaving the outer posts and canopy intact. Reveal the back wooden vat rim, apples inside the vat and transparent air behind the removed press mechanism. Keep canopy, outer upright posts, barrel, jug, apple crate, juice stream and wooden base unchanged. This is the stationary background behind an independently moving screw press. Match source framing, canvas dimensions and object coordinates. Preserve the existing light warm tan outlines, soft mint/cream/honey palette, rounded nonpixel cartoon drawing and mild cel shading exactly. Actual alpha transparent background. No added ground, shadows, text, extra scenery or stylistic change. Return one sprite."
+    },
+    {
+      "key": "feed-mill-rotor",
+      "path": "buildings/feed-mill.png",
+      "request": "Create only the detached wooden flywheel from this machine as a clean standalone front-facing perfectly circular wheel, viewed straight-on in its own plane so it can be rotated before isometric projection. Warm cream thick outer wooden rim, eight light honey wooden spokes, small silver-grey central hub. Completely transparent open spaces between the spokes. No wall or other machine part in the openings. No axle stand, posts, grain, bag, ground or shadow. One centered circular wheel filling 78 percent of square canvas. Match reference's gentle tan linework and soft flat pastel cel coloring.",
+      "prompt": "Use case: stylized-concept. Transparent modular farm sprite using the supplied existing art as style and identity reference. Create only the detached wooden flywheel from this machine as a clean standalone front-facing perfectly circular wheel, viewed straight-on in its own plane so it can be rotated before isometric projection. Warm cream thick outer wooden rim, eight light honey wooden spokes, small silver-grey central hub. Completely transparent open spaces between the spokes. No wall or other machine part in the openings. No axle stand, posts, grain, bag, ground or shadow. One centered circular wheel filling 78 percent of square canvas. Match reference's gentle tan linework and soft flat pastel cel coloring. Actual alpha transparency, solid opaque object fills, no gradients or photo texture."
+    },
+    {
+      "key": "windmill-rotor",
+      "path": "decor/windmill.png",
+      "request": "Create only the detached FOUR-BLADE windmill rotor from the reference as one centered cross-shaped assembly, front facing orthographic in its own plane. Four identical warm honey wooden frames with cream rectangular sail panels and three light crossbars each; short wooden supports joining a small circular honey hub. Fourfold rotational symmetry. Pose the blades as an X, blades pointing NE SE SW NW. Match reference's thick rounded wooden edges, gentle tan outlines and minimal soft flat pastel shading. Completely transparent between blades. No roof, tower, ground, scene, cast shadow or text. Fill about 78 percent of a square canvas.",
+      "prompt": "Use case: stylized-concept. Transparent modular farm sprite using the supplied existing art as style and identity reference. Create only the detached FOUR-BLADE windmill rotor from the reference as one centered cross-shaped assembly, front facing orthographic in its own plane. Four identical warm honey wooden frames with cream rectangular sail panels and three light crossbars each; short wooden supports joining a small circular honey hub. Fourfold rotational symmetry. Pose the blades as an X, blades pointing NE SE SW NW. Match reference's thick rounded wooden edges, gentle tan outlines and minimal soft flat pastel shading. Completely transparent between blades. No roof, tower, ground, scene, cast shadow or text. Fill about 78 percent of a square canvas. Actual alpha transparency, solid opaque object fills, no gradients or photo texture."
+    },
+    {
+      "key": "press-block",
+      "path": "buildings/juice-press.png",
+      "prompt": "Use case: precise-object-edit. Extract/redraw ONLY the small honey-wood square pressing block under the screw of the supplied juice press as one isolated transparent sprite. Match its exact three-quarter isometric orientation, rounded rectangular block proportions, light honey wooden top, honey right face, gentle warm tan outline and soft flat pastel cel shading. The top is a rounded diamond plane (ground axes roughly +/-0.5), vertical front and right side faces visible. NO screw, handle, stems, apples, barrel, juice, ground, shadow or text. Completely opaque wood with true alpha transparency around it. One centered block filling 70% width; the top plane must be clean wood with no hole. This will move vertically below the existing screw as an independent animation part."
+    }
+  ]
+}

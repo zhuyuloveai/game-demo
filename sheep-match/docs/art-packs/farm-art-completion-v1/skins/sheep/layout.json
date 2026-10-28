@@ -1,0 +1,443 @@
+{
+  "version": 1,
+  "id": "sheep",
+  "name": "绵羊棚",
+  "status": "art-only floral overlay pack; geometry identical to shelter-layers-v2",
+  "baseCommit": "de94fb3a5f71a4bda6cb92358aa0cd4571c1bdb6",
+  "canvas": {
+    "width": 1200,
+    "height": 1000,
+    "commonAnchor": [
+      600,
+      590
+    ],
+    "layerOffset": [
+      0,
+      0
+    ],
+    "cropped": false
+  },
+  "footprint": {
+    "logicalTiles": [
+      4,
+      4
+    ],
+    "tileAxisX": [
+      125,
+      62.5
+    ],
+    "tileAxisY": [
+      -125,
+      62.5
+    ],
+    "polygon": [
+      [
+        600,
+        340
+      ],
+      [
+        1100,
+        590
+      ],
+      [
+        600,
+        840
+      ],
+      [
+        100,
+        590
+      ]
+    ]
+  },
+  "buildingSupport": [
+    [
+      645,
+      350
+    ],
+    [
+      915,
+      480
+    ],
+    [
+      655,
+      580
+    ],
+    [
+      405,
+      450
+    ]
+  ],
+  "standingRegion": [
+    [
+      250,
+      545
+    ],
+    [
+      950,
+      545
+    ],
+    [
+      1095,
+      590
+    ],
+    [
+      600,
+      838
+    ],
+    [
+      105,
+      590
+    ]
+  ],
+  "standingExclusions": [
+    [
+      [
+        645,
+        350
+      ],
+      [
+        915,
+        480
+      ],
+      [
+        655,
+        580
+      ],
+      [
+        405,
+        450
+      ]
+    ]
+  ],
+  "entry": {
+    "threshold": [
+      530,
+      520
+    ],
+    "direction": "front-left",
+    "yardGate": [
+      235,
+      660
+    ]
+  },
+  "occlusion": {
+    "foregroundGroundBoundary": [
+      [
+        100,
+        590
+      ],
+      [
+        600,
+        840
+      ],
+      [
+        1100,
+        590
+      ]
+    ],
+    "fenceHeightPx": 60,
+    "fenceOriginalSplitPath": "M0 0H1774V370H1695L1650 400L1600 430H170L125 405L94 370H0Z",
+    "sourceToCanvas": {
+      "scale": [
+        0.609,
+        0.66
+      ],
+      "offset": [
+        60,
+        270
+      ]
+    },
+    "note": "Use actual foreground alpha, never its rectangle."
+  },
+  "layerOrder": [
+    "01-ground",
+    "02-building-shadow",
+    "03-rear-fence",
+    "03b-rear-flowers",
+    "04-building",
+    "04b-eave-flowers",
+    "reference-animals",
+    "07-front-fence",
+    "08-front-flowers"
+  ],
+  "animalCanvas": {
+    "width": 360,
+    "height": 280,
+    "anchor": [
+      180,
+      230
+    ],
+    "bodyWidth": 230
+  },
+  "animals": [
+    {
+      "state": "hungry",
+      "source": "../../../sumikko-farm-v1/shelter-layers-v2/sheep/sources/sheep-hungry-original.png",
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "body": [
+        275,
+        262,
+        1080,
+        1005
+      ],
+      "anchor": [
+        650,
+        1041
+      ],
+      "contacts": [
+        [
+          390,
+          976
+        ],
+        [
+          650,
+          1041
+        ],
+        [
+          970,
+          931
+        ]
+      ],
+      "contactKind": "standing hooves",
+      "scale": 0.2857142857142857,
+      "offset": [
+        -5.714285714285694,
+        -67.42857142857139
+      ],
+      "normalizedContacts": [
+        [
+          105.7143,
+          211.4286
+        ],
+        [
+          180,
+          230
+        ],
+        [
+          271.4286,
+          198.5714
+        ]
+      ],
+      "bodyNormalized": [
+        72.85714285714288,
+        7.428571428571459,
+        302.8571428571429,
+        219.71428571428572
+      ]
+    },
+    {
+      "state": "producing",
+      "source": "../../../sumikko-farm-v1/shelter-layers-v2/sheep/sources/sheep-producing-original.png",
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "body": [
+        264,
+        341,
+        1143,
+        1045
+      ],
+      "anchor": [
+        680,
+        1050
+      ],
+      "contacts": [
+        [
+          390,
+          1046
+        ],
+        [
+          620,
+          1072
+        ],
+        [
+          680,
+          1050
+        ],
+        [
+          1030,
+          1017
+        ]
+      ],
+      "contactKind": "curled hooves and resting belly fleece",
+      "scale": 0.2616609783845279,
+      "offset": [
+        2.0705346985210156,
+        -44.74402730375431
+      ],
+      "normalizedContacts": [
+        [
+          104.1183,
+          228.9534
+        ],
+        [
+          164.3003,
+          235.7565
+        ],
+        [
+          180,
+          230
+        ],
+        [
+          271.5813,
+          221.3652
+        ]
+      ],
+      "bodyNormalized": [
+        71.14903299203638,
+        44.48236632536971,
+        301.1490329920364,
+        228.69169510807734
+      ]
+    },
+    {
+      "state": "ready",
+      "source": "../../../sumikko-farm-v1/shelter-layers-v2/sheep/sources/sheep-ready-original.png",
+      "originalSize": [
+        1254,
+        1254
+      ],
+      "body": [
+        240,
+        184,
+        1173,
+        1076
+      ],
+      "anchor": [
+        680,
+        1087
+      ],
+      "contacts": [
+        [
+          390,
+          1040
+        ],
+        [
+          620,
+          1115
+        ],
+        [
+          680,
+          1087
+        ],
+        [
+          1030,
+          1013
+        ]
+      ],
+      "contactKind": "standing hooves",
+      "scale": 0.2465166130760986,
+      "offset": [
+        12.368703108252959,
+        -37.96355841371917
+      ],
+      "normalizedContacts": [
+        [
+          108.5102,
+          218.4137
+        ],
+        [
+          165.209,
+          236.9025
+        ],
+        [
+          180,
+          230
+        ],
+        [
+          266.2808,
+          211.7578
+        ]
+      ],
+      "bodyNormalized": [
+        71.53269024651662,
+        7.395498392282974,
+        301.5326902465166,
+        227.28831725616294
+      ]
+    }
+  ],
+  "referenceAnimalPlacements": [
+    {
+      "state": "hungry",
+      "at": [
+        300,
+        600
+      ]
+    },
+    {
+      "state": "producing",
+      "at": [
+        650,
+        590
+      ]
+    },
+    {
+      "state": "ready",
+      "at": [
+        900,
+        620
+      ]
+    },
+    {
+      "state": "ready",
+      "at": [
+        420,
+        710
+      ]
+    },
+    {
+      "state": "hungry",
+      "at": [
+        700,
+        750
+      ]
+    }
+  ],
+  "notes": [
+    "All base shelter layers are byte-identical copies of v2.",
+    "Do not overlay on a flattened legacy Floral SVG or add a second yard/fence.",
+    "Ground, building, fences, animal contact points and standing regions are unchanged.",
+    "Flowers have no separate shadow; front clusters occlude only at the existing rail edge.",
+    "Animals in the full preview are references only; reuse existing independent animal states."
+  ],
+  "skinId": "sheep-floral",
+  "reusedLayers": [
+    {
+      "file": "layers/01-ground.png",
+      "original": "../../../sumikko-farm-v1/shelter-layers-v2/sheep/layers/01-ground.png",
+      "sha256": "9fecf217bf1033b2a4096807dfaccca881d0b6dce92e927a7c2f1bd59a2efb9b"
+    },
+    {
+      "file": "layers/02-building-shadow.png",
+      "original": "../../../sumikko-farm-v1/shelter-layers-v2/sheep/layers/02-building-shadow.png",
+      "sha256": "9262d95a0de18f2e614617e5571055a5f98e77679094ec77b137cb9c464652f9"
+    },
+    {
+      "file": "layers/03-rear-fence.png",
+      "original": "../../../sumikko-farm-v1/shelter-layers-v2/sheep/layers/03-rear-fence.png",
+      "sha256": "85684248fe7530ae383a3992615eff77b51fabe0997619da3c3465fa1d36a7bc"
+    },
+    {
+      "file": "layers/04-building.png",
+      "original": "../../../sumikko-farm-v1/shelter-layers-v2/sheep/layers/04-building.png",
+      "sha256": "4e3d9c0b96a79f29976ec77b8edee502cbca8b38d9e44faf46ff0db7bbe2f148"
+    },
+    {
+      "file": "layers/07-front-fence.png",
+      "original": "../../../sumikko-farm-v1/shelter-layers-v2/sheep/layers/07-front-fence.png",
+      "sha256": "b318a14e379c05722a0faa2763422fb062540655f6357b9d9f7cd650962ee82f"
+    }
+  ],
+  "newLayers": [
+    "layers/03b-rear-flowers.png",
+    "layers/04b-eave-flowers.png",
+    "layers/08-front-flowers.png"
+  ],
+  "originalSkin": "sheep-match/assets/farm/buildings/Sheep_Shelter_Floral.svg",
+  "geometrySource": "../../../sumikko-farm-v1/shelter-layers-v2/sheep/layout.json"
+}
