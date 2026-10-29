@@ -4,7 +4,7 @@ import vm from 'node:vm';
 import {readFileSync} from 'node:fs';
 import * as config from '../farm-config.mjs';
 const source=readFileSync(new URL('../farm-scene-world.mjs',import.meta.url),'utf8');
-const render=source.slice(source.indexOf('    function renderContext(){'),source.indexOf('    function machineBoard('));
+const render=source.slice(source.indexOf('    function seedTools('),source.indexOf('    function machineBoard('));
 function paint(e,{level=30,page=0,open=false,owner=e.id}={}){
  let html='';const context={querySelector:()=>open?{open:true,dataset:{owner}}:null};
  const c=vm.createContext({context,chosenSeed:null,selected:e.id,gesture:null,draft:null,placement:null,more:false,localPage:null,seedPage:page,selectedEntity:()=>e,config,ctx:{state:{level,now:0,inventory:{wheat:2},npc:{freeRevives:1}},layout:{isFixedEntity:()=>false}},tool:(a,l)=>`<button data-tool="${a}">${l}</button>`,button:(a,l)=>`<button data-action="${a}">${l}</button>`,image:()=>'<img>',item:()=>'<img>',entityArt:()=>'',esc:String,name:String,title:()=>e.kind,remaining:()=> '2分',vouchersEnabled:()=>true,patchFarmMarkup:(_el,s)=>html=s});vm.runInContext(render,c);c.renderContext();return html;

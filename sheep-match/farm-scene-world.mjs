@@ -434,13 +434,17 @@ export function mountWorldScene(ctx) {
       return action==='harvest'||action==='collectAnimal'?image('ui/harvest.svg','','fw-tool-art'):itemId?item(itemId):image('ui/sow.svg','','fw-tool-art');
     }
     function tool(action,label,itemId,entityId,recipeId){return `<button class="fw-tool" ${action==='feed'&&!(ctx.state.inventory[itemId]>0)?'disabled':''} data-tool="${action}" data-owner="${entityId||''}" data-item="${itemId||''}" data-recipe="${recipeId||''}" aria-label="${esc(label)}，按住拖向目标">${toolArt(action,itemId,entityId)}<span>${esc(label)}</span>${action==='enqueue'?`<small class="fw-recipe-cost">${Object.entries(config.RECIPES[recipeId].inputs).map(([key,n])=>`${esc(name(key))}×${n}${(ctx.state.inventory[key]||0)<n?'（缺）':''}`).join(' · ')}</small>`:''}</button>`;}
+    function seedTools(owner){
+      const crops=Object.values(config.CROPS).filter(c=>c.level<=ctx.state.level),group=crops.slice(seedPage*4,seedPage*4+4);
+      return group.map(c=>tool('plant',`${c.name} ${ctx.state.inventory[c.id]||0}`,c.id,owner)).join('')+(crops.length>4?button('seeds-next',`种子 ${seedPage+1}/${Math.ceil(crops.length/4)} · 下一页`):'');
+    }
     function renderContext(){
-      if(chosenSeed&&!selected&&!gesture&&!draft&&!placement&&!more&&!localPage){patchFarmMarkup(context,`<div class="fw-seed-mode">${tool('plant',name(chosenSeed),chosenSeed,'__seedmode')}<span>${esc(name(chosenSeed))} · 余 ${ctx.state.inventory[chosenSeed]||0}份<br>按住种子拖过空田，连续播种</span>${button('stop-seeding','结束播种')}</div>`);return;}
+      if(chosenSeed&&!selected&&!gesture&&!draft&&!placement&&!more&&!localPage){patchFarmMarkup(context,`<div class="fw-object-panel fw-seed-list"><header><strong>种子</strong>${button('stop-seeding','×','','aria-label="结束播种并收起种子列表"')}</header><div class="fw-tool-row">${seedTools('__seedmode')}</div><footer class="fw-object-footer"><p>拖过空田，逐格播种 · 当前：${esc(name(chosenSeed))}</p></footer></div>`);return;}
       if(gesture||draft||placement||more||localPage){patchFarmMarkup(context,'');return;}
       const e=selectedEntity();if(!e){patchFarmMarkup(context,'');return;}
       let body='',sub='',management='';
       if(e.kind==='field'){
-        if(!e.crop){const crops=Object.values(config.CROPS).filter(c=>c.level<=ctx.state.level),group=crops.slice(seedPage*4,seedPage*4+4);body=group.map(c=>tool('plant',`${c.name} ${ctx.state.inventory[c.id]||0}`,c.id,e.id)).join('')+(crops.length>4?button('seeds-next',`种子 ${seedPage+1}/${Math.ceil(crops.length/4)} · 下一页`):'');sub='拖过空田，逐格播种';}
+        if(!e.crop){body=seedTools(e.id);sub='拖过空田，逐格播种';}
         else if(e.crop.readyAt<=ctx.state.now){body=tool('harvest','镰刀 · 连续收获',null,e.id);sub='拖过成熟田，逐格收获';}
         else{sub=`${name(e.crop.itemId)}还需 ${remaining(e.crop.readyAt)}`;body=image(entityArt(e),'正在生长','fw-growing');}
       }else if(e.kind==='fruit'){
@@ -684,7 +688,9 @@ export function mountWorldScene(ctx) {
       lastFieldTap=null;ctx.say(tool.action==='plant'?'已选种子，拖过空田立即播种':tool.action==='harvest'&&['field','fruit'].includes(e.kind)?'拖过成熟目标立即收获':'按住工具拖向目标，抬手完成这一笔');render();
     }
     function startToolDrag(g,p){
-      if(g.tool.action==='plant')chosenSeed=g.tool.itemId;
+      // The gesture owns its seed/targets; the tray returns to all seeds even if
+      // this stroke is interrupted after some cells have already been planted.
+      if(g.tool.action==='plant'){chosenSeed=g.tool.itemId;selected=null;selectedAnimal=null;}
       g.immediate=g.tool.action==='plant'||(g.tool.action==='harvest'&&['field','fruit'].includes(entity(g.tool.entityId)?.kind));g.completed=0;g.skipped=0;g.unit=entity(g.tool.entityId)?.kind==='fruit'?'棵':'格';g.type='stroke';edgeStamp=0;win.cancelAnimationFrame?.(edgeRaf);edgeRaf=win.requestAnimationFrame?.(edgeFrame)||0;g.stroke=createStroke(g.tool,g.start);g.sourceRect=rectData(g.source.getBoundingClientRect());g.exited=false;
       cursor.innerHTML=toolArt(g.tool.action,g.tool.itemId,g.tool.entityId);
       // Ignore the tool tray itself. The stroke begins where the pointer leaves its source tray.
